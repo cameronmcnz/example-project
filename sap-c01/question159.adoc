@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "959 - In Amazon Cognito your mobile app authen"
+---
+
+
+[.question]
+== 959-64a1df30aa736d27b1db938f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_oz809g.png[]
+
+--
+
+
+****
+
+[.query]
+--
+In Amazon Cognito, your mobile app authenticates with the Identity Provider (IdP) using the provider's SDK.
+Once the end-user is authenticated with the IdP, the OAuth or OpenID Connect token returned from the IdP is passed by your app to Amazon Cognito.
+In addition to the access token, which of the following is returned for the user to provide a set of temporary, limited-privilege AWS credentials?
+
+
+[source,java]
+----
+Amazon eagnite Security, Architecture
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Cognito SDK
+* [ ] B. Cognito Key Pair
+* [*] C. Cognito Identity ID
+* [ ] D. Cognito API.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+If you're allowing unauthenticated users, you can retrieve a unique Amazon Cognito identifier (identity ID) for your end-user immediately.
+If you're authenticating users, you can retrieve the identity ID after setting the login tokens in the credentials provider.
+For more information on Cognito ID, please refer to the below link.
+http://docs.aws.amazon.com/cognito/latest/developerguide/getting-credentials.html
+When using Amazon Cognito as an identity provider for mobile apps, once the end-user is authenticated with the Identity Provider (IdP) using the provider's SDK, the OAuth or OpenID Connect token returned from the IdP is passed by the mobile app to Amazon Cognito.
+In addition to the access token, Amazon Cognito also returns a set of temporary, limited-privilege AWS credentials for the user. These credentials allow the user to access AWS services, such as Amazon S3, that require AWS Identity and Access Management (IAM) credentials.
+The temporary credentials are provided in the form of an AWS Security Token Service (STS) token. The STS token includes an access key, a secret access key, and a session token. These temporary credentials are valid for a limited time, typically one hour, and can be used to make API calls to AWS services.
+To obtain the temporary credentials, the mobile app needs to call the AWS Security Token Service (STS) AssumeRoleWithWebIdentity API. This API call requires the following information:
+The Amazon Resource Name (ARN) of the IAM role that the user is assuming
+The web identity token obtained from the identity provider
+A unique identifier for the user, such as the Amazon Cognito Identity ID
+An optional set of policy documents that define the permissions granted to the user
+Therefore, the correct answer to the question is: C. Cognito Identity ID. This is the unique identifier for the user that is required to obtain the temporary AWS credentials from the Security Token Service (STS) when using Amazon Cognito as an identity provider for mobile apps.
+The other answer options, A. Cognito SDK, B. Cognito Key Pair, and D. Cognito API, are not directly related to obtaining temporary AWS credentials when using Amazon Cognito as an identity provider for mobile apps. However, the Cognito SDK can be used to interact with Amazon Cognito, the Cognito Key Pair can be used for signing and encrypting data, and the Cognito API can be used for various operations related to Amazon Cognito, such as creating user pools, configuring authentication providers, and managing user accounts.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question221:"link"
+
+

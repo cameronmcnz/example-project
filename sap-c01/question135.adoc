@@ -1,0 +1,118 @@
+---
+layout: default 
+title: "935 - You are an AWS solutions architect and a"
+---
+
+
+[.question]
+== 935-64a1df27aa736d27b1db936b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_aws6-2.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+You are an AWS solutions architect and are in charge of maintaining an RDS on VMware database that is deployed on-premises.
+You have created a read replica in the ap-south-1 region to share some read traffic.
+The system has run smoothly for a while.
+Then the company decides to migrate all the products to AWS, including the on-premises RDS instance.
+Other than that, the instance needs to have another replica in another region ap-southeast-1
+The migration process should be straightforward.
+What actions should you take to fulfill this requirement?
+
+
+[source,java]
+----
+Migrate Databases to AWS fay AWS Cloud
+
+[2 oo KR 74 K a ©) Zone 1
+[BB or C = > 4 = >
+“Nn ©) Availability
+one Zz ada | > Amazon RDS > Zone 2
+On-premises databases Amazon RDS on VMware Migrate databases Select region
+: to AWS using )
+Databases in VMware Stage databases for simple one-click Amazon RDS database
+private data centers ene ee replica promotion instances can be deployed
+using On Ewell’ in Amazon RDS and replicated in all
+AWS regions
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use Data Migration Service to migrate the on-premises database to an RDS instance in AWS. Create a read replica in the ap-southeast-1 region afterward.
+* [ ] B. In RDS console, click “migrating the instance” to create a new RDS instance. Then create a new read replica in the ap-southeast-1 region.
+* [*] C. Create another read replica in the ap-southeast-1 region to share the read traffic for the RDS instance on VMware. Promote the RDS read replica in ap-south-1 to be the new RDS instance so that the original on-premise database is migrated in AWS with a replica in ap-southeast-1.
+* [*] D. Promote the RDS read replica in ap-south-1 to be the new RDS instance. Create another read replica in ap-southeast-1 for this new instance.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Amazon RDS on VMware database instances can be easily migrated to Amazon RDS database instances in AWS with no impact on uptime, giving you the ability to rapidly deploy databases in all AWS regions without interrupting your customer experience.
+The process is as below.
+Option A is incorrect: Because the Data Migration Service is not needed.
+You need to promote the read-replica to be the new RDS instance.
+Option B is incorrect: Same reason as.
+Option A.
+Also, “migrating the instance” is incorrect.
+Option C is incorrect: Because the read replica in ap-southeast-1 is still syncing with the original on-premise RDS instance.
+A new read replica should be created from the instance in ap-south-1.
+Option D is CORRECT: Because the database can be easily migrated by promoting the read replica in ap-south-1
+Please note that during migration, the performance may be impacted.
+In the question, it asks for a straightforward method so this option is appropriate.
+The correct answer is A. Use Data Migration Service to migrate the on-premises database to an RDS instance in AWS. Create a read replica in the ap-southeast-1 region afterward.
+Explanation:
+When migrating an on-premises database to AWS, AWS provides a service called AWS Database Migration Service (DMS) to simplify the process of migrating databases to the cloud. DMS helps you migrate databases to AWS easily and securely.
+To fulfill the requirement, you should follow these steps:
+Step 1: Use Data Migration Service (DMS) to migrate the on-premises database to an RDS instance in AWS.
+You should use DMS to migrate the on-premises database to an RDS instance in AWS. DMS can migrate data from on-premises databases to AWS with minimal downtime. DMS can migrate data to and from most widely used commercial and open-source databases.
+To do this, you need to follow these steps:
+Create a new RDS instance in the AWS region of your choice (e.g., ap-southeast-1).
+Create a new migration task in DMS.
+Configure the source and target endpoints in DMS.
+Configure the migration task to migrate the database schema and data from the source to the target database.
+Start the migration task and monitor its progress.
+Step 2: Create a read replica in the ap-southeast-1 region afterward.
+Once the on-premises database has been migrated to an RDS instance in AWS, you should create a read replica in the ap-southeast-1 region to share read traffic.
+To do this, you need to follow these steps:
+Navigate to the RDS console.
+Select the RDS instance that you want to create a read replica for (in this case, the RDS instance that you just created after migrating the on-premises database).
+Click the "Actions" button and select "Create Read Replica."
+Specify the region that you want to create the read replica in (ap-southeast-1).
+Configure the read replica as desired (e.g., choose the appropriate instance class, configure the backup retention period, etc.).
+Start the creation of the read replica and monitor its progress.
+Option B is incorrect because clicking "migrating the instance" in the RDS console is not a valid option. Option C is incorrect because promoting a read replica to be the new RDS instance will not migrate the original on-premises database to AWS. Option D is incorrect because you should create the read replica in ap-southeast-1 after migrating the on-premises database to an RDS instance in AWS, not before.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question185:"link"
+
+

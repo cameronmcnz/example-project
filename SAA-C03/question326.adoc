@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1126 - Your company is building containerbased "
+---
+
+
+[.question]
+== 1126-64a1fabdf053625db51ddf65.
+
+
+****
+
+[.query]
+--
+Your company is building container-based applications.
+Currently, they use Kubernetes for their on-premises docker based orchestration.
+They want to use AWS and preferably not manage the infrastructure for the underlying orchestration service.
+Which of the following could be used for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS DynamoDB
+* [ ] B. AWS ECS with EC2 launch type
+* [ ] C. AWS EC2 with Amazon EKS
+* [*] D. AWS Fargate with Amazon EKS.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Amazon EKS integrates Kubernetes with AWS Fargate by using controllers that are built by AWS using the upstream, extensible model provided by Kubernetes.
+These controllers run as part of the Amazon EKS managed Kubernetes control plane and are responsible for scheduling native Kubernetes pods onto Fargate.
+Option A is incorrect since this is a fully managed NoSQL database, not suitable for this scenario.
+Option B is incorrect because you have to manage Kubernetes infrastructure, EC2 will add maintenance overhead for the company.
+Option C is incorrect since this would add maintenance overhead for the company, and the question mentions that the company does not want to manage the infrastructure.
+Reference:
+https://docs.aws.amazon.com/eks/latest/userguide/fargate.html https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html
+The correct answer for the question is option D: AWS Fargate with Amazon EKS.
+Explanation:
+Kubernetes is an open-source container orchestration system used to automate the deployment, scaling, and management of containerized applications. AWS provides two main managed Kubernetes services, Amazon Elastic Kubernetes Service (Amazon EKS) and Elastic Kubernetes Service for Amazon Elastic Container Service (EKS for ECS).
+Option A: AWS DynamoDB is a managed NoSQL database service. It is not related to container orchestration and cannot be used for the purpose mentioned in the question.
+Option B: AWS ECS with EC2 launch type is a managed container orchestration service that uses Amazon EC2 instances as the underlying infrastructure. Although ECS is a good option for container orchestration, it is not a Kubernetes-based service and cannot be used for on-premises Kubernetes-based orchestration.
+Option C: AWS EC2 with Amazon EKS is a managed Kubernetes service that allows the user to manage the infrastructure for the underlying orchestration service. In other words, the user is responsible for managing the underlying EC2 instances that run the Kubernetes control plane and worker nodes. This option is not preferred by the company, as they do not want to manage the infrastructure.
+Option D: AWS Fargate with Amazon EKS is a managed Kubernetes service that removes the need to manage the underlying infrastructure. With Fargate, the user only needs to define the compute resources required by their containerized applications, and AWS will handle the rest. This option is the best fit for the company, as they do not want to manage the underlying infrastructure.
+In summary, option D, AWS Fargate with Amazon EKS, is the best fit for the company's requirements.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question375:"link"
+
+

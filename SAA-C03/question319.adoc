@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1119 - An IT company has a set of EC2 Instances"
+---
+
+
+[.question]
+== 1119-64a1fab9f053625db51ddf5a.
+
+
+****
+
+[.query]
+--
+An IT company has a set of EC2 Instances hosted in a VPC.
+They are hosted in a private subnet.
+These instances now need to access resources stored in an S3 bucket.
+The traffic should not traverse the internet.
+The addition of which of the following would help to fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. VPC Endpoint
+* [ ] B. NAT Instance
+* [*] C. NAT Gateway
+* [ ] D. Internet Gateway.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+Instances in your VPC do not require public IP addresses to communicate with resources in the service.
+Traffic between your VPC and the other service does not leave the Amazon network.
+For more information on AWS VPC endpoints, please visit the following URL-
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html
+To allow EC2 instances in a private subnet to access resources stored in an S3 bucket, we need to establish a connection between the two resources without sending traffic over the internet. This can be achieved by using a VPC endpoint.
+A VPC endpoint is a service that allows you to privately connect your VPC to supported AWS services without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. A VPC endpoint uses a private IP address from your VPC's IP address range, eliminating the need for NAT gateways, VPN connections, or internet gateways to access S3.
+A NAT instance or NAT gateway could be used to enable instances in a private subnet to access the internet, but in this case, we need to access S3 without sending traffic over the internet, so these options are not suitable.
+An internet gateway provides internet access to resources within a VPC, which is not required in this scenario. Therefore, option D is not the correct answer.
+Therefore, the correct answer is A. VPC endpoint.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question364:"link"
+
+

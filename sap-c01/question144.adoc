@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "944 - Your companys onpremises content managem"
+---
+
+
+[.question]
+== 944-64a1df2baa736d27b1db937f.
+
+
+****
+
+[.query]
+--
+Your company's on-premises content management system has the following architecture:
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy the Oracle database and the JBoss app server on EC2. Restore the RMAN Oracle backups from Amazon S3. Generate anEBS volume of static content from the Storage Gateway and attach it to the JBoss EC2 server.
+* [ ] B. Deploy the Oracle database on RDS. Deploy the JBoss app server on EC2. Restore the RMAN Oracle backups from Amazon Glacier. Generate an EBS volume of static content from the Storage Gateway and attach it to the JBoss EC2 server.
+* [ ] C. Deploy the Oracle database and the JBoss app server on EC2. Restore the RMAN Oracle backups from Amazon S3. Restore the static content by attaching an AWS Storage Gateway running on Amazon EC2 as an iSCSI volume to the JBoss EC2 server.
+* [ ] D. Deploy the Oracle database and the JBoss app server on EC2. Restore the RMAN Oracle backups from Amazon S3. Restore the static content from an AWS Storage Gateway-VTL running on Amazon EC2
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because (i) it deploys the Oracle database on EC2 instance by restoring the backups from S3 which is quick, and (ii) it generates the EBS volume of static content from Storage Gateway.
+Due to these points, option A meets the best RTO compared to all the remaining options.
+Option B is incorrect because restoring the backups from the Amazon Glacier will be slow and will not meet the RTO.
+Option C is incorrect because there is no need to attach the Storage Gateway as an iSCSI volume.
+You can just easily and quickly create an EBS volume from the Storage Gateway.
+Then you can generate snapshots from the EBS volumes for better recovery time.
+Option D is incorrect as restoring the content from Virtual Tape Library will not fit into the RTO.
+The question presents a scenario where the company's on-premises content management system needs to be migrated to AWS. The architecture of the current system is not specified, but it is implied that there is an Oracle database, a JBoss application server, and static content that needs to be transferred to AWS.
+Option A suggests deploying the Oracle database and the JBoss app server on EC2. RMAN backups of the Oracle database are stored in Amazon S3, which can be used to restore the database. An EBS volume of static content can be generated from the Storage Gateway, which can then be attached to the JBoss EC2 server. This option appears to be a feasible solution as it allows the existing components to be deployed on EC2 while using AWS services for backup and storage.
+Option B suggests deploying the Oracle database on RDS and the JBoss app server on EC2. RMAN backups of the Oracle database are stored in Amazon Glacier. An EBS volume of static content can be generated from the Storage Gateway, which can then be attached to the JBoss EC2 server. This option appears to be a feasible solution as well, as it leverages RDS for the database and EC2 for the JBoss app server.
+Option C suggests deploying the Oracle database and the JBoss app server on EC2. RMAN backups of the Oracle database are stored in Amazon S3, which can be used to restore the database. Static content is restored by attaching an AWS Storage Gateway running on Amazon EC2 as an iSCSI volume to the JBoss EC2 server. This option also appears to be a feasible solution as it uses EC2 instances for both the database and application server, while using the Storage Gateway for static content.
+Option D suggests deploying the Oracle database and the JBoss app server on EC2. RMAN backups of the Oracle database are stored in Amazon S3. Static content is restored from an AWS Storage Gateway-VTL running on Amazon EC2. This option seems less feasible, as it relies on a Virtual Tape Library (VTL) solution for restoring static content, which may not be as efficient as other options.
+In summary, options A, B, and C all seem to be feasible solutions for migrating the content management system to AWS. Option D appears to be less efficient and may not be the best choice. Ultimately, the choice between these options may depend on specific requirements and constraints of the content management system.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question205:"link"
+
+

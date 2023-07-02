@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "867 - Given the code fragment BiFunctionIntege"
+---
+
+
+[.question]
+== 867-64a1a853ef3e8462333a9c79.
+
+
+****
+
+[.query]
+--
+Given the code fragment: BiFunction<Integer, Double, Integer> val = (t1, t2) -> t1 + t2; //line n1 System.out.println(val.apply(10, 10.5)); What is the result?
+
+
+--
+
+[.list]
+--
+* [ ] A. 20
+* [ ] B. 20.5
+* [*] C. A compilation error occurs at line n1.
+* [ ] D. A compilation error occurs at line n2.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

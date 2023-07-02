@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "903 - An EC2 Instance hosts a Javabased applic"
+---
+
+
+[.question]
+== 903-64a1fa60f053625db51dde68.
+
+
+****
+
+[.query]
+--
+An EC2 Instance hosts a Java-based application that accesses a DynamoDB table.
+This EC2 Instance is currently serving production users.
+What would be a secure way for the EC2 Instance to access the DynamoDB table?
+
+
+--
+
+[.list]
+--
+* [*] A. Use IAM Roles with permissions to interact with DynamoDB and assign it to the EC2 Instance.
+* [ ] B. Use KMS Keys with the right permissions to interact with DynamoDB and assign it to the EC2 Instance.
+* [*] C. Use IAM Access Keys with the right permissions to interact with DynamoDB and assign it to the EC2 Instance.
+* [ ] D. Use IAM Access Groups with the right permissions to interact with DynamoDB and assign it to the EC2 Instance.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Always assign a role to the EC2 Instance to ensure secure access to AWS resources from EC2 Instances.
+For more information on IAM Roles, please refer to the below URL:
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+An IAM role is similar to a user; it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS.
+However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it.
+Also, an IAM role does not have standard long-term credentials (password or access keys) associated with it.
+Instead, if a user assumes a role, temporary security credentials are created dynamically and provided to the user.
+You can use roles to delegate access to users, applications, or services that normally don't have access to your AWS resources.
+Note:
+You can attach the IAM role to the existing EC2 instance.
+To know more, please visit the following URL:
+https://aws.amazon.com/about-aws/whats-new/2017/02/new-attach-an-iam-role-to-your-existing-amazon-ec2-instance/
+The correct answer for this question is A. Use IAM Roles with permissions to interact with DynamoDB and assign it to the EC2 Instance.
+Explanation:
+AWS Identity and Access Management (IAM) is a service that enables you to manage access to AWS services and resources securely. IAM allows you to create and manage users, groups, and roles to grant permissions for AWS resources.
+In this scenario, the EC2 Instance is serving production users, and it is accessing a DynamoDB table. To secure the access to DynamoDB, you should use IAM roles instead of IAM access keys or groups.
+IAM roles are secure because they provide temporary security credentials for the application or service to access AWS resources, like DynamoDB, without requiring the use of long-term access keys or passwords. Roles are also easier to manage, and you can define the permissions for the role, and AWS automatically handles the temporary credentials.
+To set up IAM roles for an EC2 Instance to access DynamoDB, you need to follow these steps:
+1. Create an IAM role that has the necessary permissions to access DynamoDB.
+2. Attach the role to the EC2 Instance using the AWS Management Console or AWS CLI.
+3. Update your Java-based application to use the temporary security credentials provided by IAM roles when accessing DynamoDB.
+Using KMS keys or IAM access keys is not the best option for securing the access to DynamoDB in this scenario because they require you to manage and protect access keys, which can be challenging and pose security risks if not managed correctly. IAM access groups are not a solution to this problem either because they do not provide temporary security credentials like IAM roles.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question119:"link"
+
+

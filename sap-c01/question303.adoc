@@ -1,0 +1,106 @@
+---
+layout: default 
+title: "1103 - In an AWS Organization the Root is attac"
+---
+
+
+[.question]
+== 1103-64a1df65aa736d27b1db946b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_7.png[]
+
+--
+
+
+****
+
+[.query]
+--
+In an AWS Organization, the Root is attached with a default SCP that allows all actions on all resources.
+And other OUs or AWS accounts are attached with SCPs that contain Deny lists.
+For example, an SCP that denies cloudtrail:StopLogging is attached to an OU.
+However, you think that the Deny lists can be improved to contain more services such as those that are not used.
+How would you find out the AWS services that are allowed by the SCP but are never used?
+
+
+[source,java]
+----
+Service access report
+
+Review access activity to learn when a principal within the organizational entity last accessed a service. Data is available for services that are allowed by directly attached SCPs only. Recent
+activity usually appears within 4 hours. Data is stored for a maximum of 365 days. Learn more [71
+
+Q 123 4 5 6 7 .. 20
+Service Vv Last accessed
+Amazon DynamoDB Today
+AWS Health APIs and Notifications Today
+AWS Organizations Today
+AWS Systems Manager Today
+AWS Identity and Access Management Today
+
+Amazon EC2 Today
+----
+
+
+--
+
+[.list]
+--
+* [*] A. In the AWS Organization console, identify allowed services that are never used by AWS accounts.
+* [ ] B. In the IAM credential report of AWS accounts, examine those services that are not required to be allowed by SCPs.
+* [*] C. In AWS Config Resources, list the AWS services that are not used by IAM users.
+* [*] D. In the IAM console, click the Service Control Policies and check the last accessed data to identify services that are never used.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Refer to.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html
+on how to improve SCPs by checking access data.
+Option A is incorrect because the AWS Organization console does not contain the last access data.
+Option B is incorrect because the IAM credential report provides IAM user information.
+There is no access data for AWS Organization.
+Option C is incorrect because AWS Config Resources do not show resource information related to the Organization.
+The user cannot identify which services are not used in AWS Config.
+Option D is CORRECT because the service report in Organization Activity can help identify the AWS services to be included in the Deny lists.
+Take below screenshot as an example:
+Option B is the most appropriate answer to the question.
+Explanation:
+AWS Organizations is a service that allows managing multiple AWS accounts as a single entity to centralize security and compliance, simplify billing, and manage resource sharing across accounts. It helps to create a hierarchy of AWS accounts that can be grouped into organizational units (OUs) and controlled with Service Control Policies (SCPs).
+An SCP is a policy that can be attached to an AWS Organizations entity (such as the Root, OUs, or accounts) to restrict permissions on AWS services and actions. SCPs are used to set the maximum permissions available to accounts or OUs within the organization.
+The Root of an AWS Organization is created with a default SCP that allows all actions on all resources. This means that any new account created under the Root has unrestricted access to all AWS services and actions.
+To increase security, SCPs can be created and attached to OUs or accounts to restrict permissions. These SCPs can contain "Deny" rules that block access to specific AWS services or actions.
+Option B proposes examining the IAM credential report of AWS accounts to identify those services that are not required to be allowed by SCPs.
+The IAM credential report provides a comprehensive view of all IAM users and their access rights. It contains information about IAM users, their groups, roles, access keys, and permissions. This report also lists the services and actions that are allowed to each user.
+By examining the IAM credential report, you can identify those services that are not required by users, and therefore, not required to be allowed by SCPs. These services can be added to the Deny list of SCPs to increase security.
+Option A proposes identifying allowed services that are never used by AWS accounts in the AWS Organization console. This option may not provide accurate information about the usage of AWS services because it only lists the allowed services, not the services that are actually used.
+Option C proposes listing the AWS services that are not used by IAM users in AWS Config Resources. AWS Config is a service that provides a detailed inventory of the resources in an AWS account. While it can help to identify unused resources, it may not provide accurate information about the usage of AWS services by IAM users.
+Option D proposes checking the last accessed data of services in the IAM console to identify services that are never used. This option can provide some information about the usage of AWS services, but it requires checking each service individually, which can be time-consuming and may not provide an accurate picture of overall usage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question442:"link"
+
+

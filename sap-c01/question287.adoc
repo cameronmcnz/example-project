@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1087 - Your company uses a hybrid environment t"
+---
+
+
+[.question]
+== 1087-64a1df5faa736d27b1db9453.
+
+
+****
+
+[.query]
+--
+Your company uses a hybrid environment to host its infrastructure and services.
+Applications are mainly deployed in AWS.
+As a part of the company strategy, certain Amazon EC2 instances need to be exported through the VM Import/Export tool as OVA files and deployed in the on-premises VMware vSphere environment.
+How would you use the VM Import/Export tool in the right way?
+
+
+--
+
+[.list]
+--
+* [*] A. Use the VM Import/Export tool to install the Server Migration Connector, generate ova files and migrate the EC2 instances to VMware vSphere.
+* [ ] B. Use the VM Import/Export tool to deploy the AWS discovery tools in EC2 instances and trigger migration jobs to VMware vSphere.
+* [*] C. Use the “aws ec2 create-instance-export-task” command to export EC2 instances and store the exported ova files in an S3 bucket.
+* [ ] D. Use the “aws ec2 export-image” command to export EC2 instances and download the exported ova files in a local disk.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect because Server Migration Connector is a component of AWS Server Migration Service, and it is not used by the VM Import/Export tool.
+Option B is incorrect because the VM Import/Export tool cannot be used to deploy the AWS discovery tools.
+Discovery Tools are used by AWS Migration Hub to plan the migration from data centers to AWS.
+Option C is CORRECT because VM Import/Export uses the AWS CLI command “aws ec2 create-instance-export-task” to export an EC2 instance.
+i.e.
+“aws ec2 create-instance-export-task --instance-id my-instance-id --target-environment vmware --export-to-s3-task file://C:\file.json”
+This CLI command creates an OVA file in an S3 bucket.
+The OVA file will be used to launch VMs in VMware vSphere.
+Option D is incorrect because “aws ec2 export-image” is used to export a VM directly from an Amazon Machine Image (AMI)
+Please refer to the below.
+References:
+https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html
+The correct answer for this question is C. Use the “aws ec2 create-instance-export-task” command to export EC2 instances and store the exported ova files in an S3 bucket.
+The VM Import/Export tool is a feature provided by Amazon Web Services (AWS) that enables you to import virtual machine (VM) images from your virtualization environment to AWS and export them back to your on-premises environment. This tool supports multiple VM formats, including VMware vSphere.
+In this scenario, the requirement is to export EC2 instances as OVA files and deploy them in the on-premises VMware vSphere environment. To achieve this, you can use the "aws ec2 create-instance-export-task" command, which allows you to export EC2 instances to an OVA file and store it in an Amazon S3 bucket.
+Here are the steps to follow:
+1. Create an S3 bucket to store the exported OVA files.
+2. Install the AWS Command Line Interface (CLI) on the machine from which you want to initiate the export task.
+3. Use the "aws ec2 create-instance-export-task" command to initiate the export task. This command requires several parameters, including the EC2 instance ID, the S3 bucket name, and the OVA format. For example, the following command exports an EC2 instance with the ID "i-0123456789abcdef" to an OVA file and stores it in the "my-export-bucket" bucket:
+cssCopy codeaws ec2 create-instance-export-task --instance-id i-0123456789abcdef --target-environment vmware --export-to-s3-task DiskImageFormat=OVA,ContainerFormat=ova,S3Bucket=my-export-bucket 
+1. Wait for the export task to complete. You can use the "aws ec2 describe-export-tasks" command to check the status of the task. For example:
+javascriptCopy codeaws ec2 describe-export-tasks --export-task-ids export-ami-0123456789abcdef 
+1. Download the exported OVA file from the S3 bucket to your on-premises VMware vSphere environment.
+2. Deploy the OVA file in VMware vSphere.
+In conclusion, using the "aws ec2 create-instance-export-task" command to export EC2 instances and store the exported OVA files in an S3 bucket is the right way to use the VM Import/Export tool in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question418:"link"
+
+

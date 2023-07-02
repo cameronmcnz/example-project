@@ -1,0 +1,89 @@
+---
+layout: default 
+title: "1322 - You have created a Lambda function for r"
+---
+
+
+[.question]
+== 1322-64a1fb26f053625db51de066.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_1yfoq2.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have created a Lambda function for reading data from the Kinesis stream of transactions.
+In the code, you were using a context logger to log to CloudWatch, and you can monitor them at a later point of time.
+Lambda function started running along with Kinesis stream.
+However, you do not see any log entries for the new Lambda function.
+What could be the reason?
+
+
+[source,java]
+----
+« AWSLambdakKinesisExecutionRole - Grants permissions for Amazon Kinesis Data Streams actions, and CloudWatch Logs actions. If
+you are writing a Lambda function to process Kinesis stream events you can attach this permissions policy.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Lambda functions with Kinesis stream as event source do not write logs to CloudWatch.
+* [*] B. Lambda execution role policy does not have access to create CloudWatch logs.
+* [ ] C. Lambda function execution logs will be written to CloudTrail, not to CloudWatch.
+* [ ] D. Active tracing is not enabled on the Lambda function setup configuration.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is not a valid statement.
+Lambda function will write logs as long as the execution role has access to create and write CloudWatch logs irrespective of the source that triggered it.
+Option B is correct.
+Option C is not correct.
+AWS CloudTrail is used for logging API calls made to services such as AWS Lambda, AWS S3 etc.
+AWS CloudWatch for Lambda is used for execution logging.
+https://docs.aws.amazon.com/lambda/latest/dg/with-cloudtrail.html
+Option D is not correct.
+AWS X-Ray traces requests made to your serverless applications built using AWS Lambda.
+This will not be the reason for failing to write logs to CloudWatch.
+https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html
+In this scenario, a Lambda function has been created to read data from a Kinesis stream of transactions. The code within the function is using a context logger to log to CloudWatch for monitoring purposes. However, there are no log entries for the new Lambda function, and the possible reasons are as follows:
+A. Lambda functions with Kinesis stream as an event source do not write logs to CloudWatch: This answer is not correct. Lambda functions with Kinesis stream as an event source can write logs to CloudWatch. In fact, CloudWatch is a common logging destination for Lambda functions.
+B. Lambda execution role policy does not have access to create CloudWatch logs: This answer is a possible reason for the issue. If the Lambda execution role policy does not have access to create CloudWatch logs, then the Lambda function will not be able to write logs to CloudWatch. To fix this, the execution role policy needs to be updated with the required permissions to create CloudWatch logs.
+C. Lambda function execution logs will be written to CloudTrail, not to CloudWatch: This answer is not correct. CloudTrail is used to monitor and log AWS API calls made by users or services in the account, and it does not store Lambda function execution logs.
+D. Active tracing is not enabled on the Lambda function setup configuration: This answer is also a possible reason for the issue. If active tracing is not enabled on the Lambda function setup configuration, then the Lambda function will not write logs to CloudWatch. To enable active tracing, the function needs to be updated with a tracing configuration that specifies the tracing mode.
+In summary, possible reasons for the issue of no log entries for the new Lambda function include the Lambda execution role policy not having access to create CloudWatch logs and active tracing not being enabled on the Lambda function setup configuration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question633:"link"
+
+

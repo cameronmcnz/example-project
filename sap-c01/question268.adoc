@@ -1,0 +1,226 @@
+---
+layout: default 
+title: "1068 - Your company recently launched a mobile "
+---
+
+
+[.question]
+== 1068-64a1df59aa736d27b1db943c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_aws5-1.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Your company recently launched a mobile application that allows users to take pictures of what they are eating daily, share with others, and get feedback to maintain a healthy diet routine.
+These pictures are stored in S3 and served via the CloudFront.
+The CEO of the company thinks the storage is not well optimized by looking at the bill.
+He has asked to generate the access log reports and shift the images to different storage if they are not frequently used.
+It is not very clear which images will be accessed frequently, but as per the past data analysis, the usage becomes low after the initial 3-4 weeks.
+Please select the best option to optimize the cost and also maintain accessibility.
+
+
+[source,java]
+----
+Designed for
+durability
+
+Designed for
+availability
+
+Availability SLA
+Availability Zones
+
+Minimum
+capacity charge
+per object
+
+Minimum storage
+duration charge
+
+Retrieval fee
+
+First byte latency
+
+Storage type
+
+Lifecycle
+transitions
+
+$3 Standard
+
+99.999999999%
+(11 9's)
+
+99.99%
+
+99.9%
+
+23
+
+N/A
+
+N/A
+
+N/A
+
+milliseconds
+
+Object
+
+Yes
+
+$3 Intelligent-
+Tiering*
+
+99.999999999%
+(11 9's)
+
+99.9%
+
+99%
+
+23
+
+30 days
+
+N/A
+
+millseconds
+
+Object
+
+Yes
+
+$3 Standard-lA
+
+99.999999999%
+(11 9's)
+
+99.9%
+
+99%
+
+23
+
+128KB
+
+30 days
+
+per GB retrieved
+
+milliseconds
+
+Object
+
+Yes
+
+S3 One Zone-IAt
+
+99.999999999%
+(11 9's)
+
+99.5%
+
+99%
+
+128KB
+
+30 days
+
+per GB retrieved
+
+milliseconds
+
+Object
+
+Yes
+
+$3 Glacier
+
+99.999999999%
+(11 9's)
+
+N/A
+
+N/A
+
+40KB
+
+90 days
+
+per GB retrieved
+
+select minutes
+or hours
+
+Object
+
+Yes
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use CloudFront Edge Locations and enable access logs. It will automatically optimize the storage cache based on the access pattern.
+* [ ] B. Apply Lifecycle event to migrate from S3 Standard to Glacier after 3 weeks.
+* [*] C. Create an elastic load balancer, point to the CloudFront distribution, and enable the Access Logs. Use Kinesis to process the logs and shift the images to S3 Infrequent Access based on low usage.
+* [*] D. Store the images with S3 Intelligent Tier. It will automatically select the best storage class depending on the access pattern.
+* [ ] E. Store the images on EC2 EBS and serve it from there. EBS is highly optimized and cheap compared to S3. Put a lifecycle event to shift the unused images to S3 after 30 days.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer: D.
+Option A is INCORRECT because the CloudFront is used to deliver the images to end users to reduce the latency lag.
+Edge Locations work as caching servers, and it saves the images based on the frequency of use.
+However, CloudFront still loads the content from the origin S3 Bucket.
+Option B is INCORRECT because migrating the images to Glacier will make it almost inaccessible after 3 weeks.
+Glacier retrieval time is between 3-5 hours, and per the requirement, the application still needs to maintain accessibility.
+Option C is INCORRECT because the CloudFront already geo-distributes the load and putting an elastic load balancer in front of it is not viable.
+Option D is CORRECT because S3 Intelligent Tier automatically shifts content between Standard and Infrequent Access tier based on the usage pattern.
+If the content is not used for 30 consecutive days, it will automatically be moved to the Infrequent Access tier.
+Upon use, it will be transferred back to the Standard tier without any additional cost.
+Option E is INCORRECT because serving images from EBS is not very scalable as compared to S3 storage.
+There is no lifecycle event for EBS volumes.
+Source: https://aws.amazon.com/s3/storage-classes/
+The best option to optimize the cost and maintain accessibility for the mobile application's images stored in S3 is to use S3 Intelligent Tiering. This storage class automatically moves objects between two access tiers, one for frequent access and another for infrequent access, based on changing access patterns. It is cost-effective and ensures that frequently accessed objects are readily available, while infrequently accessed objects are stored in a more cost-effective storage class.
+Option A is incorrect because while CloudFront Edge Locations and access logs can optimize the storage cache based on the access pattern, it will not shift images to a different storage class as requested by the CEO. Additionally, it may not be clear which images will be accessed frequently and which will be infrequently accessed.
+Option B is incorrect because Glacier is a long-term storage solution, and while it is cost-effective, it may not be optimal for images that users may want to access frequently.
+Option C is also incorrect because it involves creating an elastic load balancer, which adds additional complexity and cost to the solution. It also requires setting up Kinesis to process logs, which adds additional setup and management overhead. This option may work in some cases, but it is not the best solution for this specific use case.
+Option E is incorrect because it suggests storing the images on EC2 EBS, which is a block storage solution intended for use with EC2 instances. It would be more expensive to store the images on EC2 EBS, and it would require additional setup and management overhead. Moreover, it would not optimize the storage cost effectively as requested.
+Therefore, the best option for optimizing the cost and maintaining accessibility of the images stored in S3 is to use S3 Intelligent Tiering, which automatically moves objects between two access tiers, based on changing access patterns, to provide cost-effective storage for the images.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question395:"link"
+
+

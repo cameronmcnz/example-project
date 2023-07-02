@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "901 - You are developing a new mobile applicat"
+---
+
+
+[.question]
+== 901-64a1df1aaa736d27b1db9337.
+
+
+****
+
+[.query]
+--
+You are developing a new mobile application and are considering storing user preferences in AWS.
+This would provide a more uniform cross-device experience to users using multiple mobile devices to access the application.
+The preference data for each user is estimated to be 50KB in size.
+Additionally, 5 million customers are expected to use the application regularly.
+The solution needs to be quick, highly available, scalable, and secure.
+How would you design a solution to meet the above requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Setup an RDS MySQL instance in 2 availability zones to store the user preference data. Deploy a public-facing application on a server in front of the database to manage security and access credentials.
+* [*] B. Set up a DynamoDB table with each user`s item having the necessary attributes to hold the user preferences. The mobile application will query the user preferences directly from the DynamoDB table. Utilize STS. Web Identity Federation, and DynamoDB Fine-Grained Access Control to authenticate and authorize access.
+* [ ] C. Setup an RDS MySQL instance with multiple read replicas in 2 availability zones to store the user preference data. The mobile application will query the user preferences from the read replicas. Leverage the MySQL user management and access privilege system to manage security and access credentials.
+* [ ] D. Store the user preference data in S3. Setup a DynamoDB table with an item for each user and an item attribute pointing to the user’s S3 object. The mobile application will retrieve the S3 URL from DynamoDB and then access the S3 object directly by utilizing STS, Web identity Federation, and S3 ACLs to authenticate and authorize access.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+This scenario has the following architectural considerations:(1) the application should support millions of customers, so it should be scalable, (2) multiple mobile devices should be able to access the application, and (3) it should be cost-effective, highly available and secure.
+Tip: Whenever the application needs to (a) support millions of users and scalability is most important, always think about DynamoDB, and (b) give mobile apps access to AWS resource/service, always think about federated access using Web Identity Provider and "AssumeRoleWithWebIdentity" API.
+Option A is incorrect because RDS MySQL is not as scalable and cost-effective as DynamoDB.Option B is CORRECT because (a) it uses DynamoDB for scalability.
+(b) It uses federated access using Web Identity Provider, and (c) uses Fine-Grained Access privileges for authenticating the access.
+Option C is incorrect because (a) RDS MySQL is not as scalable and cost-effective as DynamoDB, and (b) user management and access privilege system cannot be used for controlling access.
+Option D is incorrect because accessing the data via S3 would be slower compared to DynamoDB.For more information on DynamoDB, please visit the below URL-
+https://aws.amazon.com/dynamodb/developer-resources/
+To meet the requirements of quick, highly available, scalable, and secure storage of user preferences for a new mobile application, we need to design a suitable AWS solution. The size of preference data for each user is estimated to be 50KB, and there will be 5 million customers using the application regularly.
+Out of the given options, the most suitable solution for this scenario is option B: Set up a DynamoDB table with each user's item having the necessary attributes to hold the user preferences. The mobile application will query the user preferences directly from the DynamoDB table. Utilize STS, Web Identity Federation, and DynamoDB Fine-Grained Access Control to authenticate and authorize access.
+DynamoDB is a managed NoSQL database service that provides fast, scalable, and highly available performance with seamless integration with other AWS services. DynamoDB can handle large volumes of data with low latency, and it can scale automatically to meet the needs of the application. Additionally, DynamoDB provides strong security features, including encryption at rest and in transit, fine-grained access control, and monitoring through Amazon CloudWatch.
+To implement this solution, we can create a DynamoDB table with the necessary attributes to store user preferences for each customer. Each user's preference data can be stored in a single item in the DynamoDB table, and the attributes of the item can be customized to fit the data schema. DynamoDB supports JSON document data types, which can be used to store structured preference data.
+The mobile application can query the user preference data directly from the DynamoDB table using the DynamoDB API. This approach eliminates the need for an intermediary server, reducing the complexity of the system and improving performance. To authenticate and authorize access to the DynamoDB table, we can utilize AWS Security Token Service (STS) and Web Identity Federation to provide temporary credentials for mobile application users.
+To provide fine-grained access control for the DynamoDB table, we can use DynamoDB Fine-Grained Access Control. This allows us to define fine-grained access policies for individual items in the table based on user roles or attributes. This approach provides a secure and flexible way to manage access to the user preference data.
+Overall, the solution of using DynamoDB with STS, Web Identity Federation, and DynamoDB Fine-Grained Access Control provides a highly available, scalable, and secure solution for storing user preferences for a mobile application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question131:"link"
+
+

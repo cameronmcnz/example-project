@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "1076 - A user has created a VPC with a private "
+---
+
+
+[.question]
+== 1076-64a1df5caa736d27b1db9446.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_hyccua.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A user has created a VPC with a private and a public subnet using the VPC wizard and has also launched a NAT instance.
+The user is trying to delete the VPC.
+What will happen in this scenario?
+
+
+[source,java]
+----
+Delete VPC *
+
+This VPC contains one or more instances, and cannot be deleted until those instances have been
+
+cae
+----
+
+
+--
+
+[.list]
+--
+* [*] A. It will not allow to delete the VPC as it has subnets with route tables.
+* [ ] B. It will not allow to delete the VPC since it has a running route instance.
+* [ ] C. It will terminate the VPC along with all the instances launched by the wizard.
+* [*] D. It will not allow to delete the VPC since it has a running NAT instance.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Since the user has launched a NAT instance, you will get the below error message when you try to delete the VPC.
+Hence Option D is correct.
+For more information on VPC and subnets, please visit the link.
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
+The correct answer is D. It will not allow to delete the VPC since it has a running NAT instance.
+Explanation: When a user creates a VPC using the VPC wizard in Amazon Web Services (AWS), it creates a VPC with one public subnet and one private subnet. The public subnet has an internet gateway attached to it, while the private subnet does not. The user can then launch instances in either the public or private subnet as per their requirements.
+When the user launches an instance in the private subnet, they need a way to connect to the internet. For this purpose, the user can launch a Network Address Translation (NAT) instance in the public subnet, which acts as a gateway for instances in the private subnet to connect to the internet.
+Now, if the user wants to delete the VPC, AWS will not allow it if there is a running NAT instance. This is because the NAT instance is a critical component of the VPC infrastructure and is required for instances in the private subnet to connect to the internet. If the user deletes the VPC without terminating the NAT instance, all instances in the private subnet lose their internet connectivity. Hence, AWS does not allow the deletion of a VPC with a running NAT instance.
+Option A, "It will not allow to delete the VPC as it has subnets with route tables", is incorrect because subnets with route tables are not a barrier to deleting a VPC. Route tables can be deleted before deleting a VPC.
+Option B, "It will not allow to delete the VPC since it has a running route instance," is incorrect because there is no such thing as a "route instance" in AWS. It is likely a typo or a misinterpretation of the question.
+Option C, "It will terminate the VPC along with all the instances launched by the wizard," is incorrect because it is not possible to delete a VPC with a running NAT instance, as mentioned earlier.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question405:"link"
+
+

@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1003 - Your company wants to use an S3 bucket f"
+---
+
+
+[.question]
+== 1003-64a1fa83f053625db51dded7.
+
+
+****
+
+[.query]
+--
+Your company wants to use an S3 bucket for web hosting but have several different domains to perform operations on the S3 content.
+In the CORS configuration, you have added CORSRule AllowedOrigin for the following Domains.
+http://www.domainnamea.com, https://www.secure.domainnamea.com, and http://www.domainnameb.com.
+Following Domains, https://domainnameb.com and http://www.domainnameb.com:80, are not allowed to access the S3 bucket. What could be the most likely cause behind the unexpected access behaviour of the domains?
+
+
+--
+
+[.list]
+--
+* [*] A. Both request https://domainnameb.com and http://www.domainnameb.com:80 don`t match the allowed in configuration.
+* [ ] B. HTTPS must contain a specific port in the request, e.g.https:// domainnameb.com:443
+* [*] C. There’s a limit of two origin sites per S3 bucket allowed
+* [ ] D. Adding CORS automatically removes the S3 ACL and bucket policies.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is correct.
+The origin was configured as http://www.domainnameb.com, and a request was sent for https://domainnameb.com and http://www.domainnameb.com:80 instead of http://www.domainnameb.com.
+The exact syntax must be matched.
+In some cases, wildcards can be used to help the origin URLs.
+Option B is incorrect.
+This is not required to allow an origin domain to be included, although it can be.
+Option C is incorrect.
+The limit is 100.
+Option D is incorrect.
+The ACLs and policies continue to apply when you enable CORS on the bucket.
+Verify that the Origin header in your request matches at least one of the AllowedOrigin elements in the specified CORSRule.
+The scheme, the host, and the port values in the Origin request header must match the AllowedOrigin elements in the CORSRule.
+For example, if you set the CORSRule to allow the origin http://www.example.com, then both https://www.example.com and http://www.example.com:80 origins in your request don't match the allowed origin in your configuration.
+References:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html https://aws.amazon.com/blogs/aws/amazon-S3-cross-origin-resource-sharing/
+The most likely cause behind the unexpected access behavior of the domains is that both the domains, https://domainnameb.com and http://www.domainnameb.com:80, do not match the allowed origins in the CORS configuration.
+The CORS (Cross-Origin Resource Sharing) mechanism is used to control access to resources that are hosted on different domains. When a web page from one domain requests a resource from another domain, the browser sends a CORS request to the server hosting the resource. The server responds with the Access-Control-Allow-Origin header that specifies which domains are allowed to access the resource.
+In this scenario, the CORS configuration allows access from http://www.domainnamea.com, https://www.secure.domainnamea.com, and http://www.domainnameb.com, but it does not allow access from https://domainnameb.com and http://www.domainnameb.com:80. The reason for this could be that the request from these domains does not match the allowed origins in the CORS configuration.
+Option A is correct because it explains that the request from these domains does not match the allowed origins in the CORS configuration.
+Option B is incorrect because HTTPS requests do not need to contain a specific port in the request.
+Option C is incorrect because there is no limit to the number of origin sites that can access an S3 bucket.
+Option D is incorrect because adding CORS to an S3 bucket does not automatically remove the S3 ACL and bucket policies.
+In summary, the most likely cause behind the unexpected access behavior of the domains is that the request from these domains does not match the allowed origins in the CORS configuration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question232:"link"
+
+

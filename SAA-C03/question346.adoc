@@ -1,0 +1,96 @@
+---
+layout: default 
+title: "1146 - A company wants to design a new serverle"
+---
+
+
+[.question]
+== 1146-64a1facaf053625db51ddf86.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img8Jhv-KwvdNgEhP16Tzz30Dfu-_2ULyw3sLbZidJzRipHH4OEg0E0rKBCSdpXiUnmc9-gGkoKo2af13CxCBCG3Cl9KSGIQOuJY2O9QCNnXVQhUojKlZsxuu1RFAOo6wOGCgCHhQ8c6zuq6cp_0Q[]
+
+--
+
+
+****
+
+[.query]
+--
+A company wants to design a new serverless website with customers from many countries.
+For a better user experience, customers from different countries should get customized contents from the website. How would you design this solution cost-effectively?
+
+
+[source,java]
+----
+Origion
+Viewer Response
+Response
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon Route 53 geo-based routing to route traffic to the AWS Region and generate a geography-specific URL.
+* [ ] B. Use a Network load balancer to route traffic to the AWS Region and replicate setup in each AWS region.
+* [*] C. Use a Lambda function to identify the country and use an RDS database to return a customized URL for the customer.
+* [*] D. Use Lambda@Edge to customize content based on geography that CloudFront delivers and generate geography-specific URL.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer : D.
+Option A is incorrect as replicating the setup in each AWS Region would increase Operational overhead and cost.
+Option B is incorrect network load balancer to route traffic is a feasible solution since NLB are regional and can not be used to route traffic across AWS regions.
+Option C is incorrect because this is not the most cost-effective solution and RDS is not severless.
+Option D CORRECT.
+Lambda@Edge function does provide the capability to customize content.
+Lambda@Edge allows users to run their own Lambda functions to customize the content that CloudFront delivers, executing the functions in AWS Regions closer to the viewer.
+Lambda functions run in response to CloudFront events, without provisioning or managing servers.
+So, it meets Serverless requirements.
+Lambda@Edge can change CloudFront requests and responses like the above diagram.
+Reference:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-examples.html#lambda-examples-redirecting-examples
+To design a serverless website that can provide customized content for users from different countries, we need to consider a few factors such as latency, scalability, and cost-effectiveness.
+Option A: Use Amazon Route 53 geo-based routing to route traffic to the AWS Region and generate a geography-specific URL.
+Amazon Route 53 is a highly available and scalable DNS service provided by AWS. With geo-based routing, we can route traffic to different AWS regions based on the location of the user. This ensures that users are served from the nearest AWS region, reducing latency and improving performance.
+In addition, we can generate a geography-specific URL using Route 53, so that users can access the website using a URL that is customized for their country. This option is cost-effective as we don't need to replicate the setup in each region, and we only pay for the resources used in the regions where the website is accessed.
+Option B: Use a Network load balancer to route traffic to the AWS Region and replicate setup in each AWS region.
+This option involves setting up a network load balancer in each AWS region where the website will be accessed. The load balancer routes traffic to the nearest AWS region, improving performance and reducing latency.
+However, replicating the setup in each region can be expensive, as we need to maintain and pay for resources in each region. This option may not be cost-effective for a small-scale website with limited traffic.
+Option C: Use a Lambda function to identify the country and use an RDS database to return a customized URL for the customer.
+In this option, we use a Lambda function to identify the location of the user and retrieve a customized URL from an RDS database. The Lambda function can be triggered by an API Gateway, which receives the user's request.
+This option is cost-effective as we only pay for the resources used by the Lambda function and the RDS database. However, it may not be as scalable as the other options, as the Lambda function may experience latency when accessing the RDS database.
+Option D: Use Lambda@Edge to customize content based on geography that CloudFront delivers and generate geography-specific URL.
+Lambda@Edge is a service provided by AWS that allows us to run Lambda functions at the edge locations of the CloudFront CDN. This option involves using Lambda@Edge to customize the content delivered by CloudFront based on the user's location.
+We can also generate a geography-specific URL using Lambda@Edge, so that users can access the website using a URL that is customized for their country.
+This option is cost-effective as we only pay for the resources used by the Lambda function at the edge locations. It is also highly scalable, as the content customization and URL generation happen at the edge locations, reducing latency.
+Overall, the best option for a cost-effective serverless website that provides customized content for users from different countries is Option A, which uses Amazon Route 53 geo-based routing to route traffic to the nearest AWS region and generate a geography-specific URL.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question408:"link"
+
+

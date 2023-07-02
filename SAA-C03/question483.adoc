@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1283 - One of your colleagues who is new to the"
+---
+
+
+[.question]
+== 1283-64a1fb0df053625db51de027.
+
+
+****
+
+[.query]
+--
+One of your colleagues, who is new to the company where you work as a cloud Architect, has some issues with IP Addresses.
+He has created an Amazon VPC with an IPV4 CIDR block 10.0.0.0/24, but now there is a requirement of hosting a few more resources to that VPC.
+As per his knowledge, he is thinking of creating a new VPC with a greater range.
+Could you suggest to him a better way that should be reliable?
+
+
+--
+
+[.list]
+--
+* [*] A. Delete the existing subnets in the VPC and create new Subnets in VP.
+* [ ] B. He is thinking of the right approach.
+* [*] C. You can create new VPC and connect old VPC with a new one.
+* [*] D. You can expand existing VPC by adding Secondary CIDR to your current VP.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Options A, B, C are incorrect because it is not reliable to go for this type of approach as VPC to VPC connection will take new resources like VPC Peering.
+Creating a new VPC or Subnet is also not suggested.
+Option D is correct because you can associate Secondary CIDR to your current VPC to accommodate more hosts.
+Refer: https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#add-ipv4-cidr.
+The best option for adding more resources to an Amazon VPC with an IPV4 CIDR block of 10.0.0.0/24 is to expand the existing VPC by adding a secondary CIDR block. This can be achieved without deleting any existing subnets or creating a new VPC.
+Adding a secondary CIDR block to an existing VPC enables you to increase the number of available IP addresses without having to create a new VPC. This is especially useful if you have already deployed resources in the VPC and do not want to delete and recreate them in a new VPC.
+To add a secondary CIDR block to an existing VPC, follow these steps:
+1. Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+2. In the navigation pane, choose "Your VPCs."
+3. Select the VPC for which you want to add a secondary CIDR block.
+4. Choose the "Edit CIDRs" button.
+5. In the "IPv4 CIDR blocks" section, choose "Add IPv4 CIDR."
+6. Enter the new CIDR block that you want to add and choose "Save."
+After adding the secondary CIDR block, you can create new subnets within the VPC that use the new CIDR block. You can also modify existing subnets to use the new CIDR block.
+In conclusion, the best option for adding more resources to an Amazon VPC with an IPV4 CIDR block of 10.0.0.0/24 is to expand the existing VPC by adding a secondary CIDR block. This option is reliable, does not require deleting any existing subnets or creating a new VPC, and enables you to increase the number of available IP addresses within the existing VPC.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question569:"link"
+
+

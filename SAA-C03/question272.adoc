@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1072 - A hybrid architecture is used for a popu"
+---
+
+
+[.question]
+== 1072-64a1faa3f053625db51ddf25.
+
+
+****
+
+[.query]
+--
+A hybrid architecture is used for a popular blogging website.
+Application servers are spread between On-premise Data Centre & EC2 Instance deployed in a custom VPC.
+An Application Load Balancer is used to offload traffic to the cloud due to capacity constraints at Data Centre.
+From Traffic trends, it is observed that the first week of every month, when new blogs are uploaded, a spike in traffic is observed.
+They are looking for an automated faster option to mitigate additional load on EC2 servers launched behind ALB for this period.
+Which of the following options can be implemented to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Auto-Scaling OnDemand Scaling to add additional EC2 instances on a VPC different from the VPC in which the ALB is located.
+* [ ] B. Use Auto-Scaling Scheduled Scaling to add additional EC2 instances on a VPC different from the VPC in which the ALB is located.
+* [*] C. Use Auto-Scaling Scheduled Scaling to add additional EC2 instances within the same VPC as the AL.
+* [ ] D. Use Auto-Scaling OnDemand Scaling to add additional EC2 instances within the same VPC as the AL.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Autoscaling provides an automated way to scale EC2 instances as per capacity requirements.
+For using ELB with Autoscaling group, both should be in the same region &amp; launched in the same VPC.
+EC2 Auto-Scaling Scheduled Scaling allows you to set your own scaling schedule with a Cron expression that specifies when to act.
+Option A &amp; B are incorrect as ELB &amp; EC2 instances launched should be in the same VPC.Option D is incorrect as for the above case, Scheduled Scaling is a better option than OnDemand scaling.
+For more information on using Auto-Scaling with ELB, refer to the following URLs-
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/scaling_plan.html https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html
+The best option to meet the requirement of mitigating additional load on EC2 servers launched behind the ALB during the first week of every month is to use Auto-Scaling Scheduled Scaling to add additional EC2 instances within the same VPC as the ALB. This is because Scheduled Scaling allows for pre-defined scaling actions to be taken based on a set schedule.
+Option A is not the best choice because adding additional EC2 instances to a VPC different from the VPC in which the ALB is located can introduce additional network latency and configuration complexity.
+Option B is also not the best choice because Scheduled Scaling is better suited for predictable, planned scaling events rather than for handling sudden traffic spikes.
+Option C is a better choice than option D because Scheduled Scaling allows for pre-defined scaling actions to be taken based on a set schedule, which is suitable for the predictable traffic spikes observed during the first week of every month. Additionally, launching EC2 instances within the same VPC as the ALB reduces network latency and configuration complexity.
+Option D is not the best choice because On-Demand Scaling is better suited for handling sudden traffic spikes rather than for predictable, planned scaling events.
+In summary, option C, Use Auto-Scaling Scheduled Scaling to add additional EC2 instances within the same VPC as the ALB, is the best choice for meeting the requirement of mitigating additional load on EC2 servers launched behind the ALB during the first week of every month.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question311:"link"
+
+

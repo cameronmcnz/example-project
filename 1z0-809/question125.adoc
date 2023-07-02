@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "925 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 925-64a1a865ef3e8462333a9cb3.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0011700002.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+List<String> qwords = Arrays.asList("why ", “what ", "when ")
+BinaryOperator<string> operator = (sl, s2) -> sl.concat(s2); // line nl
+String sen = qwords.stream()
+
+-reduce("Word: ", operator
+
+System.out.printin (sen) ;
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Word: why what when
+* [ ] B. Word: why Word: why what Word: why what when
+* [ ] C. Word: why Word: what Word: when
+* [ ] D. Compilation fails at line n1.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

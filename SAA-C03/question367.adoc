@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1167 - You have a readintensive application hos"
+---
+
+
+[.question]
+== 1167-64a1fad4f053625db51ddf9d.
+
+
+****
+
+[.query]
+--
+You have a read-intensive application hosted in AWS.
+The application is currently using the MySQL RDS feature in AWS.
+The CloudWatch metrics show high-read throughput on the database and are causing performance issues on the database.
+Which of the following can be used to increase the read throughput on the MySQL database?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable the Multi-AZ on the MySQL RDS.
+* [ ] B. Use Cold Storage Volumes for the MySQL RDS.
+* [*] C. Enable Read Replica.
+* [ ] D. Use SQS to queue up the reads.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS documentation mentions the following on Read Replica.
+Amazon RDS Read Replicas provide enhanced performance and durability for database (DB) instances.
+This replication feature makes it easy to elastically scale out beyond a single DB Instance's capacity constraints for read-heavy database workloads.
+You can create one or more replicas of a given source DB Instance and serve high-volume application read traffic from multiple copies of your data, thereby increasing aggregate read throughput.
+Read replicas can also be promoted when needed to become standalone DB instances.
+Option A is invalid since this is used for fault tolerance for the database.
+Option B is invalid since this is not the ideal storage mechanism for databases that require high read throughput.
+Option D is invalid since SQS is used as a decoupling component and would not be ideal for reducing the reads on the database.
+For more information on Read Replica, please visit the below URL-
+https://aws.amazon.com/rds/details/read-replicas/
+The option that can be used to increase the read throughput on the MySQL database is to enable Read Replica, which is answer C.
+Read Replica is an AWS RDS feature that enables you to create a replica of your database instance. This replica can be used to offload the read traffic from your primary instance, thereby increasing the read throughput. The Read Replica is an exact copy of your primary instance, which is asynchronously replicated from the primary instance. Read replicas can be used to perform read-intensive operations such as reporting, analytics, and backups, without affecting the performance of the primary instance.
+The other options listed are not relevant for increasing the read throughput of the MySQL database.
+Enabling Multi-AZ on the MySQL RDS is used for high availability and redundancy purposes, and it does not increase the read throughput.
+Using Cold Storage Volumes for the MySQL RDS is used to store data that is rarely accessed, and it does not affect the read throughput.
+Using SQS to queue up the reads is not applicable to RDS instances. SQS is a messaging service that enables decoupling and scalability between components of an application. It is not designed for increasing read throughput on a database.
+In summary, to increase the read throughput on the MySQL RDS instance in AWS, you should enable Read Replica.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question431:"link"
+
+

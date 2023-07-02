@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "949 - You are a Solutions Architect in a start"
+---
+
+
+[.question]
+== 949-64a1fa6ff053625db51dde9a.
+
+
+****
+
+[.query]
+--
+You are a Solutions Architect in a startup company that is releasing the first iteration of its app.
+Your company doesn't have a directory service for its intended users but wants the users to sign in and use the app.
+Which of the following solutions is the most cost-efficient?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an IAM role for each end user and the user will assume the IAM role when he signs in the APP.
+* [ ] B. Create an AWS user account for each customer.
+* [*] C. Invest heavily in Microsoft Active Directory as it’s the industry standard.
+* [*] D. Use Cognito Identity along with a User Pool to securely save users’ profile attributes.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Option A is incorrect.
+It is improper to assign an IAM role for each end-user.
+IAM role is not a directory service.
+Option B is incorrect.
+AWS account cannot be configured as a directory service.
+Option C is incorrect.
+This isn't the most efficient means to authenticate and save user information.
+Option D is correct.
+Cognito is a managed service that can be used for this app and scale quickly as usage grows.
+References:
+https://aws.amazon.com/cognito/ http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html https://aws.amazon.com/cognito/getting-started/ https://docs.aws.amazon.com/cognito/latest/developerguide/concepts.html
+The most cost-efficient solution for a startup company that wants its users to sign in and use the app without a directory service is to use Amazon Cognito Identity along with a User Pool to securely save users' profile attributes.
+Amazon Cognito Identity is a fully managed identity service that makes it easy for developers to add user sign-up, sign-in, and access control to mobile and web apps. It provides a User Pool, which is a user directory that enables users to sign in to their apps using their preferred social identity provider or their own user name and password. Cognito also provides access to AWS Identity and Access Management (IAM) roles, allowing fine-grained access control to AWS resources.
+Option A, creating an IAM role for each end user, is not feasible as IAM roles are designed for granting access to AWS resources, not for managing user sign-in and access control to apps.
+Option B, creating an AWS user account for each customer, is not cost-efficient because it requires setting up and managing an AWS account for each user. This approach may also raise security and compliance concerns.
+Option C, investing heavily in Microsoft Active Directory, is not cost-efficient for a startup company as it requires a significant upfront investment and ongoing maintenance costs.
+Therefore, the most cost-efficient and effective solution is to use Amazon Cognito Identity along with a User Pool to manage user sign-in and access control to the app.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question169:"link"
+
+

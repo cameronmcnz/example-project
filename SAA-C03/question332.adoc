@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1132 - You work as an architect for a company
+A"
+---
+
+
+[.question]
+== 1132-64a1fac1f053625db51ddf72.
+
+
+****
+
+[.query]
+--
+You work as an architect for a company.
+An application is going to be deployed on a set of EC2 instances in a VPC.
+The Instances will be hosting a web application.
+You need to design the security group to ensure that users have the ability to connect from the Internet via HTTPS.
+Which of the following needs to be configured for the security group?
+
+
+--
+
+[.list]
+--
+* [*] A. Allow Inbound access on port 443 for 0.0.0.0/0
+* [ ] B. Allow Outbound access on port 443 for 0.0.0.0/0
+* [ ] C. Allow Inbound access on port 80 for 0.0.0.0/0
+* [ ] D. Allow Outbound access on port 80 for 0.0.0.0/0
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The AWS Documentation mentions the following.
+A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
+When you launch an instance in a VPC, you can assign five security groups to the instance.
+Security groups act at the instance level, not the subnet level.
+Therefore, each instance in a subnet in your VPC could be assigned to a different set of security groups.
+If you don't specify a particular group at launch time, the instance is automatically assigned to the default security group for the VPC.AWS Security groups are stateful.
+It means that you do not need to open the outbound for responses - open only inbound for requests.
+If you think your instances will be sending requests to certain IPs (for example: to upgrade/install a package), then you need to open the IP/port for that request.
+By default, it is open for all traffic.
+Option B is incorrect since security groups are stateful.
+You don't need to define the rule for outbound traffic.
+Options C and D are incorrect since you need to ensure access for HTTPS.
+Hence you should not configure rules for port 80.
+For more information on security groups, please visit the below URL-
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html
+The correct answer is A. Allow Inbound access on port 443 for 0.0.0.0/0.
+Explanation:
+To enable users to connect to a web application running on EC2 instances via HTTPS, the security group associated with the instances should be configured to allow inbound access on port 443.
+Port 443 is the default port used for HTTPS connections, and it's used to secure communication between the web server and the client browser. Therefore, allowing inbound access on port 443 for 0.0.0.0/0 (which means any IP address) will enable users to connect to the web application securely over the internet.
+Option B, allowing outbound access on port 443, is not necessary for HTTPS connections to work. Outbound access is required for the instances to communicate with other services on the internet, but this is not relevant to the requirement of enabling HTTPS access from the internet.
+Option C, allowing inbound access on port 80, is incorrect because port 80 is used for unsecured HTTP connections, and it does not encrypt the data exchanged between the web server and the client browser. Moreover, the question specifically asks for HTTPS access, which uses port 443.
+Option D, allowing outbound access on port 80, is also irrelevant to the requirement of enabling HTTPS access from the internet. Outbound access on port 80 is needed if the web application running on the instances needs to communicate with other services on the internet over unsecured HTTP connections.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question388:"link"
+
+

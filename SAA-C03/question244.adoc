@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1044 - IoT sensors monitor the number of bags t"
+---
+
+
+[.question]
+== 1044-64a1fa95f053625db51ddf06.
+
+
+****
+
+[.query]
+--
+IoT sensors monitor the number of bags that are handled at an airport.
+The data is sent back to a Kinesis stream with default settings.
+Every alternate day, the data from the stream is sent to S3 for processing.
+But it is noticed that S3 is not receiving all of the data being sent to the Kinesis stream.
+What could be the reason for this?
+
+
+--
+
+[.list]
+--
+* [*] A. The sensors probably stopped working on somedays, hence data is not sent to the stream.
+* [ ] B. S3 can only store data for a day.
+* [*] C. The default retention period of the data stream is set to 24 hours only, and hence the failure.
+* [ ] D. Kinesis streams are not meant to handle IoT related data.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Kinesis Streams support changes to the data record retention period of your stream.
+A Kinesis stream is an ordered sequence of data records, meant to be written to and read in real-time.
+Data records are therefore stored in shards in your stream temporarily.
+When a record is added to when it is no longer accessible, the time period is called the retention period.
+A Kinesis stream stores the records from 24 hours (by default) up to 168 hours.
+Option A is incorrect, even though a possibility cannot be considered as the right option.
+Option B is incorrect since S3 can store data indefinitely unless you have a lifecycle policy defined.
+Option D is incorrect because the Kinesis service is perfect for this sort of data ingestion.
+For more information on Kinesis data retention, please refer to the URL below.
+http://docs.aws.amazon.com/streams/latest/dev/kinesis-extended-retention.html
+The most likely reason for S3 not receiving all of the data being sent to the Kinesis stream is that the default retention period of the data stream is set to 24 hours only, and hence the failure (option C).
+Kinesis streams are a way to collect and process large amounts of data records in real-time. They can handle data from hundreds of thousands of sources, and support different types of data, including IoT data. When data is sent to a Kinesis stream, it is stored in shards, which are the building blocks of a Kinesis stream. Each shard is essentially a sequence of data records, and data is stored in the shard until it expires or is deleted.
+By default, the retention period of a Kinesis stream is 24 hours. This means that data records that are older than 24 hours are automatically deleted from the stream. In this scenario, the data from the sensors is being sent to the Kinesis stream with default settings, and the data is being sent to S3 every alternate day. If the data from the stream is not being sent to S3, it is possible that some of the data records have already expired and been deleted from the stream.
+Option A is not a likely reason for S3 not receiving all of the data, as it assumes that the sensors stopped working on some days. It is possible that there are other issues with the sensors or the data transmission, but this is not the most likely reason for S3 not receiving all of the data.
+Option B is incorrect, as S3 can store data for much longer than a day. S3 is designed to store large amounts of data for long periods of time, and data can be stored in S3 for months or even years.
+Option D is incorrect, as Kinesis streams are designed to handle a wide range of data, including IoT data. Kinesis streams are well-suited for processing large amounts of IoT data in real-time, and are often used for IoT use cases such as monitoring sensor data, analyzing log data, and processing video and audio streams.
+In summary, the most likely reason for S3 not receiving all of the data being sent to the Kinesis stream is that the default retention period of the data stream is set to 24 hours only, and some of the data records have already expired and been deleted from the stream.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question280:"link"
+
+

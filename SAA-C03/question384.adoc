@@ -1,0 +1,113 @@
+---
+layout: default 
+title: "1184 - An organization has branches across the "
+---
+
+
+[.question]
+== 1184-64a1fadcf053625db51ddfb1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgsdbPBrHM6YaxbzK0A1g9Z8xqQSuG6YzvRP6rUDSefic_4UVGJfCocC-PhnhcJjqNWgRdbi8iJXcoyz_wuvvUfzJsybBFJIkQYhxo9_8qnbEqvqYFWKSflytyRCV2bHi4PtON8Fd25cNvHKhv-A[]
+
+--
+
+
+****
+
+[.query]
+--
+An organization has branches across the world, and there are many applications deployed across AWS regions.
+As per organization compliance requirements, data in an S3 bucket should be copied to another S3 bucket in a different region in 24 hrs period. How can this be achieved with minimal cost?
+
+
+[source,java]
+----
+Replication rule x
+
+©@ Ssetsource (2) Set destination (9) Configure rule options On
+
+Set source
+
+© Entire bucket s3replication-source
+
+@ Preix or tags
+
+Replication criteria
+
+Replicate existing objects,
+
+By default, replication applies to new objects only. By enabling this setting, you also enable existing objects
+to be repicated to the destination bucket.
+
+Il Replicate objects encrypted with AWS KMS.
+
+Your replication rule will be created using the new schema
+
+Replication now has a new schema that supports replication based on prefixes,
+‘one or more object tags or a combination of the two. As part of the new schema,
+
+you can set overlapping rules with priorities. The new schema does not support
+delete marker replication, which would prevent any delete actions from
+replicating. Learn more
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use the S3 cp command to copy the data from one AWS region to another AWS region.
+* [ ] B. Use Amazon S3 select to copy the data from one AWS region to another AWS region.
+* [*] C. Enable S3 versioning on source and destination buckets and copy the data using cross-region replication.
+* [ ] D. Create a Lambda function in each AWS region to run AWS CLI "s3 sync" periodically to replicate data from one region to another region.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect as S3 cp is an AWS CLI command where a custom program is required.
+S3 CP can copy data from one bucket to another, but this won't be a cost-effective solution.
+Option B incorrect because S3 Select uses SQL-like statements where objects are filtered at the S3 end (service side) for an end-user application and can not be used to copy data to another bucket in another region.
+Option C is CORRECT because versioning on source and destination buckers should be enabled.
+Using Cross-region replication rules, data from bucket in one region to bucket in another region can be copied in 24 hrs.
+This replication is not sensitive to latency.
+Option D is incorrect because this option needs a Lambda function in each region to execute the AWS CLI command.
+This method takes more efforts and is not cost-efficient.
+Reference:
+https://aws.amazon.com/premiumsupport/knowledge-center/move-objects-s3-bucket/ https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html
+Option C: Enable S3 versioning on source and destination buckets and copy the data using cross-region replication is the most cost-effective solution for copying data between S3 buckets in different regions.
+With cross-region replication, objects in the source bucket are automatically replicated to the destination bucket in a different region. You can configure cross-region replication using the S3 console or programmatically using the AWS SDK or CLI.
+To enable cross-region replication, you need to enable versioning on both the source and destination buckets. Versioning keeps multiple versions of an object in the same bucket, allowing you to recover objects that are accidentally deleted or modified.
+Once versioning is enabled, you can create a replication configuration that specifies the source and destination buckets, as well as any replication rules. For example, you can specify that only objects with a certain prefix or tag should be replicated.
+With cross-region replication, you can also replicate object metadata, object ACLs, and object tags. This allows you to maintain the same access controls and metadata across multiple regions.
+Cross-region replication is cost-effective because you only pay for the data transfer and storage in the destination region. There are no additional charges for replication or monitoring.
+Option A: Using the S3 cp command to copy the data from one AWS region to another AWS region can be done, but it is not the most cost-effective solution. You would need to write a script that runs periodically to copy the data, which would require additional compute resources. Additionally, you would incur data transfer costs for each copy operation.
+Option B: Amazon S3 select is a data retrieval feature that allows you to retrieve a subset of data from an S3 object using SQL queries. It is not designed for copying data between S3 buckets in different regions.
+Option D: Creating a Lambda function in each AWS region to run AWS CLI "s3 sync" periodically to replicate data from one region to another region would also work, but it is not the most cost-effective solution. You would need to create and manage multiple Lambda functions, which would require additional compute resources. Additionally, you would incur data transfer costs for each copy operation.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question451:"link"
+
+

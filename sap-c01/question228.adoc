@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1028 - You are writing an AWS CloudFormation te"
+---
+
+
+[.question]
+== 1028-64a1df49aa736d27b1db93fa.
+
+
+****
+
+[.query]
+--
+You are writing an AWS CloudFormation template, and you want to assign values to properties that will not be available until runtime.
+You know that you can use intrinsic functions to do this but are unsure which part of the template they can use.
+Which of the following is correct in describing how you can currently use intrinsic functions in an AWS CloudFormation template?
+
+
+--
+
+[.list]
+--
+* [*] A. You can use intrinsic functions in any part of a template.
+* [*] B. You can use intrinsic functions only in specific parts of a template. You can use intrinsic functions in resource properties, outputs, metadata attributes, and update policy attributes.
+* [ ] C. You can use intrinsic functions only in the resource properties part of a template.
+* [ ] D. You can use intrinsic functions in any part of a template, except AWSTemplateFormatVersion and Description.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+As per AWS documentation:
+You can use intrinsic functions only in specific parts of a template.
+Currently, you can use intrinsic functions in resource properties, outputs, metadata attributes, and update policy attributes.
+You can also use intrinsic functions to create stack resources conditionally.
+Hence, B is the correct answer.
+For more information on intrinsic function, please refer to the below link.
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
+Intrinsic functions can be used in an AWS CloudFormation template to assign dynamic values to properties that are not available until runtime. These functions are evaluated by CloudFormation during stack creation or update, and they enable the definition of more dynamic templates that can adapt to changing requirements.
+Regarding the parts of the template where intrinsic functions can be used, the correct answer is B: you can use intrinsic functions only in specific parts of a template. Specifically, intrinsic functions can be used in:
+Resource properties: to assign dynamic values to a resource's properties, such as the EC2 instance type, the name of an S3 bucket, or the IP address of an Elastic Load Balancer.
+Outputs: to return values from the stack, such as the URL of a website hosted on an EC2 instance, or the ARN of an SNS topic.
+Metadata attributes: to provide additional information about a resource, such as tags or user data.
+Update policy attributes: to specify how CloudFormation handles updates to a resource, such as whether to replace or retain the resource during an update.
+Intrinsic functions cannot be used in other parts of the template, such as the AWSTemplateFormatVersion or Description sections, as these are static metadata that do not depend on runtime values.
+Some examples of intrinsic functions are:
+Fn::Ref: returns the value of the specified parameter or resource.
+Fn::Join: concatenates a list of strings with a specified delimiter.
+Fn::ImportValue: returns the value of an output exported by another stack in the same region.
+Fn::Sub: substitutes variables in a string with their values.
+Overall, the use of intrinsic functions in AWS CloudFormation templates provides a powerful way to create more flexible and dynamic infrastructure as code, enabling teams to manage their resources with more agility and efficiency.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question329:"link"
+
+

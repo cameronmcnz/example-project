@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1029 - You have an application running in AWS
+T"
+---
+
+
+[.question]
+== 1029-64a1fa8ef053625db51ddef4.
+
+
+****
+
+[.query]
+--
+You have an application running in AWS.
+The application has the frontend EC2 servers deployed in a public subnet.
+And the backend EC2 servers are hosted in a private subnet.
+The frontend servers can communicate with the backend servers properly.
+One day there is an issue in production, and you need to login to one backend EC2 instance to troubleshoot.
+The connection to the backend servers should be made most securely.
+Which of the following options is the most secure one to access the instance?
+
+
+--
+
+[.list]
+--
+* [*] A. Generate a new SSH key and use the key to SSH to the backend instance.
+* [ ] B. SSH to one of the frontend instances and then SSH to the backend.
+* [*] C. Modify the security group of the instance to allow the SSH inbound traffic from your IP address. Revert the change after you do not need the access.
+* [*] D. Configure a dedicated bastion host and SSH to the bastion host. Then SSH to the backend instance from the bastion.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Bastion host is the most suitable one in this scenario.
+It is a dedicated server for users to securely SSH to the backend servers in the private subnet.
+Option A is incorrect: Since the backend instance is in the private subnet, users cannot directly SSH to it.
+Option B is incorrect: Because normally, front-end servers should not have SSH access to the backend.
+In this scenario, we should use a dedicated jump host rather than the frontend instances.
+Option C is incorrect: Same as option A.
+The backend instance does not have a public IP, and you cannot directly SSH to it from your server.
+Option D is CORRECT: Through the bastion host, the SSH connection can be safely established and monitored.
+In this scenario, the backend EC2 instances are hosted in a private subnet and can only be accessed from within the VPC. To access the instance most securely, we need to consider security, accessibility, and ease of use. Here are the options provided in the question:
+A. Generate a new SSH key and use the key to SSH to the backend instance.
+This option is relatively secure as it involves generating a new SSH key to access the backend instance. However, it may not be the most convenient option as we have to generate a new SSH key and manage it. Also, it assumes that SSH is already enabled on the instance.
+B. SSH to one of the frontend instances and then SSH to the backend.
+This option is not recommended because it involves accessing the backend instance through the frontend instance, which could expose the backend instance to security risks. Also, it assumes that SSH is already enabled on the frontend and backend instances.
+C. Modify the security group of the instance to allow the SSH inbound traffic from your IP address. Revert the change after you do not need the access.
+This option is not recommended because it involves modifying the security group of the instance to allow SSH inbound traffic from a specific IP address. This could pose a security risk as it exposes the backend instance to the internet. Additionally, it can be a cumbersome process to change the security group back to its original settings.
+D. Configure a dedicated bastion host and SSH to the bastion host. Then SSH to the backend instance from the bastion.
+This is the most secure and recommended option. A bastion host is a specially configured EC2 instance that is used to securely access instances in a private subnet. By configuring a bastion host, we can establish a secure SSH connection to the bastion host and then access the backend instance from the bastion host. This approach ensures that the backend instance is not directly exposed to the internet, and it provides an additional layer of security. Additionally, it can be easier to manage and control access to the bastion host.
+Therefore, the most secure option to access the instance would be to configure a dedicated bastion host and SSH to the bastion host. Then SSH to the backend instance from the bastion.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question261:"link"
+
+

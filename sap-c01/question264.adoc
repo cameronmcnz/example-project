@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1064 - You are designing the network infrastruc"
+---
+
+
+[.question]
+== 1064-64a1df58aa736d27b1db9436.
+
+
+****
+
+[.query]
+--
+You are designing the network infrastructure for an application server in Amazon VPC.
+Users will access all the application instances from the Internet as well as from an on-premises network.
+The on-premises network is connected to your VPC over an AWS Direct Connect link.
+You want to simplify the AWS routes from your on-premises network to your VPC to reduce the number of routes in the table.
+You do not foresee any additional external routing requirements in the future.
+How would you design routing to meet the above requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure a single routing table with a default route via the Virtual Private Gateway. Propagate a default route via BGP on the AWS Direct Connect customer router. Associate the routing table with all VPC subnets.
+* [*] B. Configure a single routing table with a default route via the Virtual Private Gateway. Propagate specific routes for the on-premises networks via BGP on the AWS Direct Connect customer router. Associate the routing table with all VPC subnets.
+* [ ] C. Configure a single routing table with two default routes: one to the Internet via a Virtual Private Gateway the other to the on-premises network via the VPN gateway. Use this routing table across all subnets in your VP.
+* [ ] D. Configure two routing tables: one that has a default route via the Virtual Private Gateway and another that has a default route via the VPN gateway. Associate both routing tables with each VPC subnet.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is INCORRECT because we would have conflicts when using the default route.
+Option C is INCORRECT because we cannot propagate two default routes.
+Instead, a single default route should be used.
+Option D is incorrect because the subnet where the instances are placed can have a single routing table associated with them.
+More information on Route Tables and Directconnect:
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html https://docs.aws.amazon.com/directconnect/latest/UserGuide/dc-ug.pdf
+The correct answer is B. Configure a single routing table with a default route via the Virtual Private Gateway. Propagate specific routes for the on-premises networks via BGP on the AWS Direct Connect customer router. Associate the routing table with all VPC subnets.
+Explanation:
+In this scenario, the goal is to simplify the AWS routes from the on-premises network to the VPC and reduce the number of routes in the table. To achieve this, we need to design the routing to ensure that traffic can flow from the on-premises network to the VPC, and from the Internet to the VPC, using the most direct and efficient routes possible.
+Option A, which involves configuring a single routing table with a default route via the Virtual Private Gateway and propagating a default route via BGP on the AWS Direct Connect customer router, does not meet the requirements of the scenario. This option will result in all traffic from the on-premises network being routed via the Virtual Private Gateway, including traffic that is destined for specific subnets within the VPC.
+Option C involves configuring a single routing table with two default routes, one to the Internet via a Virtual Private Gateway and the other to the on-premises network via the VPN gateway. While this option would simplify the routing table, it does not provide any specific routes for traffic from the on-premises network to reach specific subnets within the VPC.
+Option D involves configuring two routing tables, one with a default route via the Virtual Private Gateway and another with a default route via the VPN gateway. While this option allows for more granular control over the routing of traffic from the on-premises network to specific subnets within the VPC, it requires additional configuration and management overhead.
+Option B provides the best solution. By configuring a single routing table with a default route via the Virtual Private Gateway and propagating specific routes for the on-premises networks via BGP on the AWS Direct Connect customer router, we can ensure that traffic from the on-premises network is routed directly to the specific subnets within the VPC that it needs to reach. This option simplifies the routing table while still providing specific routes for the on-premises network to reach specific subnets within the VPC.
+Therefore, option B is the correct answer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question389:"link"
+
+

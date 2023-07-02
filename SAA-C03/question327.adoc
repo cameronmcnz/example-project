@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1127 - Your company is looking at decreasing th"
+---
+
+
+[.question]
+== 1127-64a1fabdf053625db51ddf66.
+
+
+****
+
+[.query]
+--
+Your company is looking at decreasing the amount of time it takes to build servers that are deployed as EC2 Instances.
+These Instances always have the same type of software installed as per the security standards.
+As an architect, what would you recommend to decrease the server build time?
+
+
+--
+
+[.list]
+--
+* [*] A. Look at creating snapshots of EBS Volumes
+* [ ] B. Create the same master copy of the EBS volume
+* [*] C. Create a custom AMI
+* [ ] D. Create a base profile.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS Documentation mentions the following.
+An Amazon Machine Image (AMI) provides the information required to launch an instance, which is a virtual server in the cloud.
+You must specify a source AMI when you launch an instance.
+You can launch multiple instances from a single AMI when you need multiple instances with the same configuration.
+You can use different AMIs to launch instances when you need instances with different configurations.
+You can launch an instance from an existing AMI, customize the instance, and then save this updated configuration as a custom AMI.
+Instances launched from this new custom AMI include the customizations that you made when you created the AMI.
+Options A and B are incorrect since they cannot create a master copy of the instance.
+Option D is incorrect because creating a profile will not assist.
+For more information on AMI's, please visit the below URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
+As an architect, to decrease the server build time for EC2 instances that always have the same type of software installed as per the security standards, I would recommend creating a custom Amazon Machine Image (AMI).
+An Amazon Machine Image is a pre-configured virtual machine image that is used to create EC2 instances. It contains the operating system, application server, and applications needed for the server to function. By creating a custom AMI, you can pre-configure the software and settings needed for your specific requirements, which will reduce the time it takes to launch an EC2 instance.
+To create a custom AMI, you would first launch an EC2 instance with the desired configuration, install the necessary software and applications, and then create an AMI from that instance. The custom AMI can then be used to launch additional instances with the same configuration and software.
+Creating snapshots of EBS volumes (Option A) is also a viable solution, but it requires launching a new instance from the snapshot and then configuring the software and settings on the new instance, which may take more time compared to launching instances from a custom AMI.
+Creating a master copy of the EBS volume (Option B) is similar to creating snapshots of EBS volumes, but it may require additional steps to configure the software and settings on the new instance.
+Creating a base profile (Option D) is not a common AWS terminology, but it might refer to creating a baseline configuration of EC2 instances that can be used as a starting point for new instances. However, this option may not be as efficient as creating a custom AMI, as it still requires configuring the software and settings on each new instance launched.
+Therefore, the most efficient solution to decrease the server build time for EC2 instances with the same type of software installed as per the security standards is to create a custom AMI.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question376:"link"
+
+

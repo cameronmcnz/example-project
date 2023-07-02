@@ -1,0 +1,116 @@
+---
+layout: default 
+title: "1183 - A company has an application defined wit"
+---
+
+
+[.question]
+== 1183-64a1fadcf053625db51ddfb0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_a0xeyf.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has an application defined with the following architecture. A fleet of EC2 Instances which are used to accept video uploads from users. A fleet of EC2 Instances which are used to process the video uploads. Which of the following would help architect an operationally excellent architecture?
+
+
+[source,java]
+----
+There are three main parts to this configuration:
+
+* An Auto Scaling group to manage EC2 instances for the purposes of processing messages from an SQS queue.
+* Acustom metric to send to Amazon CloudWatch that measures the number of messages in the queue per EC2 instance in the Auto
+
+Scaling group.
+* A target tracking policy that configures your Auto Scaling group to scale based on the custom metric and a set target value. CloudWatct
+
+alarms invoke the scaling policy.
+
+The following diagram illustrates the architecture of this configuration.
+
+PHI Reads SQS metric Emits custom
+SQS queue metric
+
+i
+I
+_!
+
+processing servers,
+(Auto Scaling
+
+az
+|
+|
+|
+| group)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create an SQS queue to store the information for Video uploads. Spin up the processing servers via an Autoscaling Group. Ensure the Group scales based on the Memory utilization of the underlying processing servers.
+* [*] B. Create an SQS queue to store the information for Video uploads. Spin up the processing servers via an Autoscaling Group. Ensure the Group scales based on the size of the queue.
+* [ ] C. Create an SNS topic to store the information for Video uploads. Spin up the processing servers via an Autoscaling Group. Ensure the Group scales based on the Memory utilization of the underlying processing servers.
+* [ ] D. Create an SNS topic to store the information for Video uploads. Spin up the processing servers via an Autoscaling Group. Ensure the Group scales based on the size of the queue messages.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+This architecture is also given in the AWS Documentation.
+Option A is incorrect.
+The ideal approach is to scale the instances based on the size of the queue.
+Options C and D are incorrect since you should be using SQS queues.
+SNS topics are used for notification purposes.
+For more information on using SQS queues for Autoscaling, please refer to the below URL.
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html
+As per AWS,
+You can use the number of messages stored in an SQS queue as an indicator of the amount of work waiting in line for eventual processing within an Auto Scaling Group comprised of a variable number of EC2 instances.
+Each SQS queue reports a number of metrics to CloudWatch at five minute intervals, including
+ApproximateNumberOfMessagesVisible.
+If your workload is spikey in nature, you may want to build an application that can respond more quickly to changes in the size of the queue.
+Memory utilization metrics are custom metrics.For this, you need to install a Cloudwatch agent on the EC2 instances and need to aggregate the dimensions.
+However, AWS already has a well-defined architecture based on SQS Queuelength being used for Autoscaling EC2 instances.
+For more information, please refer to the link:
+https://aws.amazon.com/blogs/aws/auto-scaling-with-sqs/
+To architect an operationally excellent architecture for a video processing application that uses a fleet of EC2 instances for video uploads and processing, we need to ensure high availability, scalability, and fault tolerance. One way to achieve this is by using Amazon SQS (Simple Queue Service) and Autoscaling Group.
+SQS is a highly scalable and fully managed message queuing service that enables decoupling of components in a distributed application, improving the overall system resilience. Autoscaling Group is a service that enables you to automatically scale Amazon EC2 instances based on predefined conditions.
+Option A is the correct answer. It suggests creating an SQS queue to store the information for video uploads and spinning up the processing servers via an Autoscaling Group. The Autoscaling Group should scale based on the Memory utilization of the underlying processing servers. This architecture enables us to handle a surge in traffic by automatically scaling the number of instances handling the processing workload. The SQS queue ensures that the video uploads are not lost even if the processing servers are down, and the processing workload can be resumed once the servers are back up.
+Option B is incorrect because the Autoscaling Group should not scale based on the size of the queue. The size of the queue does not necessarily reflect the processing workload or the processing server's capacity.
+Option C is incorrect because SNS (Simple Notification Service) is not the appropriate service for this architecture. SNS is a publish/subscribe messaging service used for pushing notifications to subscribers. It is not designed to store messages like SQS.
+Option D is incorrect because the Autoscaling Group should not scale based on the size of the queue messages. The size of the messages in the queue does not necessarily reflect the processing workload or the processing server's capacity.
+In summary, option A is the correct answer as it utilizes SQS and Autoscaling Group to ensure high availability, scalability, and fault tolerance for the video processing application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question450:"link"
+
+

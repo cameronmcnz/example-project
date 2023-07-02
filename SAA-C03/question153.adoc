@@ -1,0 +1,92 @@
+---
+layout: default 
+title: "953 - A company is building a twotier web appl"
+---
+
+
+[.question]
+== 953-64a1fa71f053625db51dde9e.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_23994.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company is building a two-tier web application to serve dynamic transaction-based content.
+Which services would you leverage to enable an elastic and scalable WEB TIER?
+
+
+[source,java]
+----
+Secondary ead Replica
+
+‘valablty Zone 1
+
+9995 SLA
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Elastic Load Balancing, Amazon EC2, and Auto Scaling
+* [ ] B. Elastic Load Balancing, Amazon RDS with Multi-AZ, and Amazon S3
+* [*] C. Amazon RDS with Multi-AZ and Auto Scaling
+* [ ] D. Amazon EC2, Amazon Dynamo DB, and Amazon S3
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+The question mentions a scalable Web Tier.
+So Option B, C, and D can be eliminated since they are database related options.
+The below example ( this is a general depiction giving the deployment design of standby architecture having a two-tier in them ) shows an Elastic Load Balancer connected to 2 EC2 instances via Auto Scaling.
+This is an example of an elastic and scalable Web Tier.
+By scalable, we mean that the Auto Scaling process can increase or decrease the number of EC2 Instances as required.
+For more information on the Elastic Load Balancer, please refer to the URL below.
+https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html
+The most appropriate answer is A. Elastic Load Balancing, Amazon EC2, and Auto Scaling.
+Explanation:
+A two-tier web application usually consists of a web tier and a database tier. The web tier is responsible for serving dynamic content and handling user requests, while the database tier stores and retrieves data. To ensure the application is elastic and scalable, the company can use the following services:
+1.
+Elastic Load Balancing: It distributes incoming traffic across multiple Amazon Elastic Compute Cloud (EC2) instances to improve the application's availability and fault tolerance. It also automatically scales the number of instances to handle the varying amount of incoming traffic.
+2.
+Amazon EC2: It provides scalable computing capacity in the cloud. It allows the company to launch and terminate instances on demand based on the traffic volume and user requests.
+3.
+Auto Scaling: It automatically adjusts the number of EC2 instances in response to changes in demand. It enables the company to maintain optimal performance and cost-effectiveness by increasing the number of instances during high traffic periods and reducing them during low traffic periods.
+Option B includes Amazon RDS with Multi-AZ and Amazon S3, which are not necessary for the web tier's elasticity and scalability. Amazon RDS with Multi-AZ provides high availability and fault tolerance for the database tier, while Amazon S3 is an object storage service for storing and retrieving data.
+Option C includes Amazon RDS with Multi-AZ and Auto Scaling, which provides high availability and automatic scaling for the database tier but does not address the web tier's scalability.
+Option D includes Amazon EC2, Amazon DynamoDB, and Amazon S3. While Amazon DynamoDB is a NoSQL database service, it is not necessary for a two-tier web application, as it is not part of the web tier's infrastructure.
+Therefore, option A is the most appropriate answer to enable an elastic and scalable web tier for a two-tier web application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question173:"link"
+
+

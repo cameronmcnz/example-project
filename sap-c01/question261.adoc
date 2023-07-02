@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1061 - As an IT administrator you have been req"
+---
+
+
+[.question]
+== 1061-64a1df57aa736d27b1db9432.
+
+
+****
+
+[.query]
+--
+As an IT administrator, you have been requested to manage the CloudFormation stacks for a set of developers in your company.
+A set of web and database developers will be working on the application.
+How would you design the CloudFormation stacks in the best way possible?
+
+
+--
+
+[.list]
+--
+* [*] A. CloudFormation is not the right fit. Use OpsWork instead.
+* [ ] B. Create one stack for the web and database developers.
+* [*] C. Create separate CloudFormation stacks for the web and database developers.
+* [ ] D. Define separate EC2 instances since defining CloudFormation can get cumbersome.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because CloudFormation is best for creating and maintaining all the infrastructure resources in the cloud environment.
+Option B is incorrect because when your stack grows in scale and broadens in scope, managing a single stack can be cumbersome and time-consuming.
+Also, coordinating and communicating updates can become difficult.
+Option C is CORRECT because (a) having multiple (or sub) stacks is easier to maintain, (b) there is a clear separation of ownership and concerns, (c) better chances of you staying within the limit for 'Template body size' which happens to be 460,800 bytes, and (d) you can reuse common template patterns.
+See the "More information..." section for more details.
+Option D is incorrect because you can provision and maintain the infrastructure if the CloudFormation templates are created correctly.
+More information on CloudFormation Best Practices:
+The following use case scenario is given in the AWS documentation to support the answer:
+For example, imagine a team of developers and engineers who own a website that is hosted on autoscaling instances behind a load balancer.
+Because the website has its own lifecycle and is maintained by the website team, you can create a stack for the website and its resources.
+Now imagine that the website also uses back-end databases, where the databases are in a separate stack that is owned and maintained by database administrators.
+Whenever the website team or database team needs to update their resources, they can do so without affecting each other's stack.
+If all resources were in a single stack, coordinating and communicating updates can be difficult.
+For more information on Cloudformation best practices, please visit the below URL.
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html
+As an IT administrator managing CloudFormation stacks for developers in your company, the best approach would be to create separate CloudFormation stacks for the web and database developers (option C).
+This approach allows for better isolation of resources, enabling more granular control and management. For instance, separate stacks enable the web and database developers to work independently without affecting each other. They can each deploy their own resources and update them as necessary, without worrying about conflicts with other resources.
+Moreover, separate stacks enable better control over security and access management. By defining separate stacks, you can assign appropriate permissions to each group of developers, ensuring that they can only access the resources that are relevant to their work. This approach helps in maintaining security and minimizing the risk of unauthorized access or changes to the resources.
+In contrast, creating one stack for both web and database developers (option B) can lead to increased complexity and make it difficult to manage and troubleshoot issues. Additionally, this approach could lead to resource conflicts and cause delays in the deployment process.
+Option A suggests using OpsWorks instead of CloudFormation, but this may not be the best approach if your organization is already using CloudFormation. Moving to a different technology may require additional training and result in additional costs.
+Option D of defining separate EC2 instances instead of using CloudFormation is not a recommended approach as it would require manual configuration and would not enable version control, infrastructure as code, and the other benefits provided by CloudFormation.
+In summary, the best approach would be to create separate CloudFormation stacks for the web and database developers, providing better isolation, control, and security.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question385:"link"
+
+

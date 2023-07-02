@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1066 - You create several SQS queues to store d"
+---
+
+
+[.question]
+== 1066-64a1fa9ff053625db51ddf1d.
+
+
+****
+
+[.query]
+--
+You create several SQS queues to store different types of customer requests.
+Each SQS queue has a backend node that pulls messages for processing.
+Now you need a service to collect messages from the frontend and push them to the related queues using the publish/subscribe model.
+Which service would you choose?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon MQ
+* [*] B. Amazon Simple Notification Service (SNS)
+* [*] C. Amazon Simple Queue Service (SQS)
+* [ ] D. AWS Step Functions.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS SNS can push notifications to the related SQS endpoints.
+SNS uses a publish/subscribe model that provides instant event notifications for applications.
+Option A is incorrect: Amazon MQ is a managed message broker service, which is not suitable for this scenario.
+Option B is CORRECT: Because SNS uses Pub/Sub messaging to provide asynchronous event notifications.
+Please check the link-https://aws.amazon.com/pub-sub-messaging/.
+Option C is incorrect: Because SQS does not use the publish/subscribe model.
+Option D is incorrect: AWS Step Functions coordinate application components using visual workflows.
+The service should not be used in this scenario.
+The most appropriate service to collect messages from the frontend and push them to the related queues using the publish/subscribe model would be Amazon Simple Notification Service (SNS) (Option B).
+Explanation: Amazon Simple Notification Service (SNS) is a highly available, durable, and fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. It can be used to send messages to a variety of endpoints, including AWS Lambda functions, Amazon SQS queues, HTTP/S webhooks, email, SMS text messages, and mobile push notifications.
+In this scenario, SNS can act as a broker between the frontend and the backend nodes by publishing messages to the relevant SQS queues. The frontend can send messages to a specific SNS topic, and the backend nodes can subscribe to that topic to receive messages. When a message is published to the topic, SNS will distribute a copy of the message to each subscribed endpoint.
+Option A, Amazon MQ is a message broker service that supports multiple protocols, including MQTT, AMQP, and STOMP. It is a good choice if you need to migrate from an existing message broker to a managed service. However, it is not the best fit for this scenario because it does not support SQS as an endpoint for messages.
+Option C, Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. While SQS can be used to store and retrieve messages, it does not support the publish/subscribe model.
+Option D, AWS Step Functions is a serverless workflow service that enables you to coordinate and orchestrate microservices and distributed systems. While it can be used to invoke AWS Lambda functions and other AWS services, it is not the best fit for this scenario because it does not support the publish/subscribe model.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question303:"link"
+
+

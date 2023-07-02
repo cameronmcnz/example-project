@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1089 - You are developing a Lambda function by "
+---
+
+
+[.question]
+== 1089-64a1df60aa736d27b1db9455.
+
+
+****
+
+[.query]
+--
+You are developing a Lambda function by packaging the Python code and dependencies in a container image which is stored in an AWS ECR repository.
+There is a requirement to add extensions to the Lambda function for the integration with governance tools.
+You have already prepared the extension code as my-extension.zip.
+What is the correct way to add the extensions to the Lambda function?
+
+
+--
+
+[.list]
+--
+* [*] A. In the Lambda console, edit the Lambda function code and add the my-extension.zip file to the /opt/extensions/ folder to install the governance tools.
+* [*] B. In the Dockerfile, add the my-extension.zip file to the /opt folder. Rebuild the Docker image and deploy the Docker container image to the Lambda function.
+* [*] C. Use AWS Lambda CLI update-function-code or update-function-configuration command to upload the my-extension.zip file, unzip it and install the extensions.
+* [ ] D. Lambda extensions cannot be added to a container image. Instead, the Lambda function should use Lambda layers and the extension zip file should be added as a layer.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is incorrect because the Lambda function is managed with a Docker container image.
+Users should not directly edit the Lambda function code through the Lambda console.
+Option B is CORRECT because the extensions files should be packaged into the /opt directory in the container image to use extensions in container images of Lambda functions.
+After the my-extension.zip file is put in the /opt folder, Lambda functions will use the Extensions API to manage the extension lifecycle.
+Option C is incorrect because update-function-code updates a Lambda function's code, and update-function-configuration modifies Lambda settings.
+Either of them cannot add extensions to Docker images.
+Option D is incorrect because extensions can be added to the container image of the Lambda function.
+References:
+https://docs.aws.amazon.com/lambda/latest/dg/images-create.html https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-configuration.html
+The correct way to add extensions to a Lambda function that is packaged as a container image stored in an AWS ECR repository is D: Lambda extensions cannot be added to a container image. Instead, the Lambda function should use Lambda layers and the extension zip file should be added as a layer.
+Lambda extensions are a feature of AWS Lambda that enables developers to integrate Lambda functions with third-party monitoring, observability, and security tools. Extensions are separate processes that can run in parallel with the Lambda function code and provide additional functionality, such as logging, tracing, and security.
+When building a Lambda function as a container image, it is not possible to add Lambda extensions directly to the container image. Instead, the recommended approach is to use Lambda layers to add the extension code to the Lambda function.
+Lambda layers are a distribution mechanism for libraries, custom runtimes, and other function dependencies. Layers are essentially ZIP archives that contain libraries or other dependencies that are needed by the function code. Layers can be created and managed using the AWS Management Console, AWS CLI, or SDKs.
+To add the extension code as a layer, you can create a new layer using the AWS CLI or Management Console and include the my-extension.zip file as the layer content. You can then attach the layer to the Lambda function by adding a reference to the layer in the function configuration.
+By using layers to add Lambda extensions to the function, you can keep the function code and the extension code separate and manage them independently. This approach also allows you to reuse the same extension across multiple Lambda functions.
+In summary, the correct way to add extensions to a Lambda function that is packaged as a container image stored in an AWS ECR repository is to use Lambda layers and add the extension code as a layer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question420:"link"
+
+

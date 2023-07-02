@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1197 - A threetier web application is running o"
+---
+
+
+[.question]
+== 1197-64a1fae3f053625db51ddfc1.
+
+
+****
+
+[.query]
+--
+A three-tier web application is running on AWS VPC in two availability zones, as shown below.
+Here are the CIDR ranges for each subnet and the corresponding servers. Layer EU-East-1a EU-east-1b Web server 10.16.0.0/25 10.16.0.128/25 Application Server 10.16.1.0/25 10.16.1.128/25 DB Server 10.16.2.0/25 10.16.2.128/25 The DB server runs MySQL, which would run on its default port, should only allow access to the Application Server tier and access from the rest of the tiers should be denied. Which inbound rule of the Security Group on the DB server needs to be attached to meets this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Type : MySQL | Protocol: TCP | Port: 3306 | Source: 10.16.0.0/24
+* [ ] B. Type: MySQL | Protocol: TCP | Port: 3306 | Source: 10.16.2.0/24
+* [*] C. Type : MySQL | Protocol: TCP | Port : 3306 | Source: 10.16.1.0/24
+* [ ] D. Type : MySQL | Protocol: TCP | Port: 3306 | Source: 10.16.3.128/25
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+The requirement here is to allow access from Application Tier to DB Tier.
+The other point to note here is that MySQL would run on its default port.
+The default port for MySQL is ‘3306.'
+Two /25 networks equal a /24 network.
+Two /27 networks equal a /26 network.
+Two /26 networks equal a /25 network.
+And so on, and so on.
+The notion of combining two smaller networks into a larger one is another benefit of classless networks named supernetting.
+To create a supernet, the smaller networks must be contiguous.
+For example, 192.0.2.240/29 and 192.0.2.248/29 can form a supernet 192.0.2.240/28, but 192.0.2.240/29 and 192.0.2.8/29 could not as it must be 192.0.2.248/29 to form a supernet.
+Application Server tier IPs across two subnets are - 10.16.1.0/25 and 10.16.1.128/25 that is from 10.16.1.0 to 10.16.1.255 which is the same as 10.16.1.0/24.
+So Option C is the best answer.
+Options A, B, and D are incorrect because the source should be 10.16.1.0/24.
+Or alternatively, two inbound rules from Port 3306 but different sources, i.e., 10.16.1.0/25 and 10.16.1.128/25.
+The DB server runs MySQL and is part of a three-tier web application that is running on AWS VPC in two availability zones. The DB server must only allow access to the Application Server tier, and access from the rest of the tiers should be denied. Therefore, the Security Group on the DB server must be configured to allow access from the Application Server tier and deny access from the other tiers.
+In AWS, Security Groups act as virtual firewalls that control the inbound and outbound traffic for instances. Security Groups are associated with instances or network interfaces, and they filter traffic based on the rules defined in them. A Security Group rule defines the type of traffic, the protocol, and the port range that are allowed or denied for the inbound or outbound traffic.
+Given the CIDR ranges for each subnet and the corresponding servers, we can see that the Application Server tier is in the subnet 10.16.1.0/25 and 10.16.1.128/25, and the DB Server tier is in the subnet 10.16.2.0/25 and 10.16.2.128/25. Therefore, to allow access from the Application Server tier and deny access from the other tiers, we need to create a Security Group rule that allows inbound traffic to the DB server on port 3306 from the CIDR range of the Application Server tier and denies inbound traffic from the CIDR ranges of the other tiers.
+From the given options, the Security Group rule that meets this requirement is:
+C. Type : MySQL | Protocol: TCP | Port : 3306 | Source: 10.16.1.0/24
+This rule allows inbound traffic to the DB server on port 3306 from the CIDR range 10.16.1.0/24, which includes the IP addresses of the Application Server tier. This rule denies inbound traffic to the DB server from the CIDR ranges of the Web Server tier and the DB Server tier.
+Option A is incorrect because it allows inbound traffic to the DB server from the CIDR range of the Web Server tier, which is 10.16.0.0/24.
+Option B is incorrect because it allows inbound traffic to the DB server from the CIDR range of the DB Server tier, which is 10.16.2.0/24.
+Option D is incorrect because it allows inbound traffic to the DB server from the CIDR range of the Web Server and Application Server tiers, which is 10.16.3.128/25. This is not a valid CIDR range as it overlaps with the subnet CIDR ranges.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question467:"link"
+
+

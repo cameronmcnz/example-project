@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1035 - You maintain a DynamoDB table that store"
+---
+
+
+[.question]
+== 1035-64a1fa91f053625db51ddefb.
+
+
+****
+
+[.query]
+--
+You maintain a DynamoDB table that stores customers' subscription data.
+High availability is very important for the table.
+Even if there is an outage in an AWS region, the application should still access the data from other regions.
+Which method would you take to achieve this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a read replica in another region as a backup.
+* [ ] B. Configure a Multi-AZ backup for the DynamoDB table.
+* [*] C. Configure a global table to use DynamoDB as a multi-region database.
+* [ ] D. No actions required as DynamoDB is a global service.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Amazon DynamoDB global tables provide a solution for deploying a multi-region, multi-master database.
+The reference can be found in this link- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html.
+Option A is incorrect: Because DynamoDB does not have such a feature.
+Option B is incorrect: Because there is no need to configure Multi-AZ for a DynamoDB table, and it is highly available by default.
+Option C is CORRECT: With the DynamoDB global table, when one AWS region becomes unavailable, users can still access the same data in other regions.
+Option D is incorrect: Refer to option.
+C.
+The best option to achieve high availability and fault tolerance for a DynamoDB table across regions is to configure a global table. Therefore, the correct answer is C.
+Explanation:
+DynamoDB is a managed NoSQL database service provided by Amazon Web Services (AWS), which is designed to provide high availability and fault tolerance. DynamoDB is a regional service, which means that it stores data within a single region. However, to ensure high availability and fault tolerance, DynamoDB offers different options, such as Multi-AZ and Global Tables.
+Option A is incorrect because creating a read replica in another region only provides a backup for read operations. It doesn't provide high availability for write operations. Additionally, read replicas are not synchronized in real-time, which means that there may be some delay between the original table and the read replica.
+Option B is also incorrect because Multi-AZ backup only replicates data within the same region. Multi-AZ backup provides high availability within a region but does not provide fault tolerance across regions.
+Option D is incorrect because although DynamoDB is a global service, it only stores data within a single region. Therefore, in the event of an outage in a region, the application cannot access the data from other regions.
+Option C is the correct answer because a global table is a fully managed solution that enables automatic replication of tables across multiple regions. When a global table is created, DynamoDB automatically creates replicas of the table in all selected regions. This provides high availability and fault tolerance for both read and write operations, as well as the ability to scale globally. As a result, if an outage occurs in one region, the application can still access the data from another region.
+In conclusion, the best option to achieve high availability and fault tolerance for a DynamoDB table across regions is to configure a global table.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question268:"link"
+
+

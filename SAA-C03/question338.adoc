@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1138 - You are working for a financial institut"
+---
+
+
+[.question]
+== 1138-64a1fac4f053625db51ddf79.
+
+
+****
+
+[.query]
+--
+You are working for a financial institute using AWS cloud infrastructure.
+All project-related data is uploaded to Amazon EFS.
+This data is retrieved from an on-premises data center connecting to VPC via AWS Direct Connect.
+You need to ensure that all client access to EFS is encrypted using TLS 1.2 to adhere to the security team's latest security guidelines.
+Which of the following is a cost-effective recommended practice for securing data in transit while accessing data from Amazon EFS?
+
+
+--
+
+[.list]
+--
+* [*] A. Use EFS mount helper to encrypt data in transit.
+* [ ] B. Use stunnel to connect to Amazon EFS & encrypt traffic in transit.
+* [*] C. Use third-party tool to encrypt data in transit.
+* [ ] D. Use NFS client to encrypt data in transit.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+While mounting Amazon EFS, if encryption of data in transit is enabled, the EFS Mount helper initializes the client Stunnel process to encrypt data in transit.
+EFS Mount helper uses TLS 1.2 to encrypts data in transit.
+Option B is incorrect as using Stunnel for encryption of data in transit will work fine, but additional admin work is needed to download &amp; install Stunnel for each mount.
+Option C is incorrect as using a third-party tool will be a costly option.
+Option D is incorrect as the NFS client can't be used to encrypt data in transit.
+The amazon-efs-utils package can be used, which consists of an EFS mount helper.
+For more information on encrypting of data in transit for EFS, refer to the following URL-
+https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html#encrypt-mount
+To ensure that client access to Amazon EFS is encrypted using TLS 1.2, the recommended practice is to use the EFS mount helper to encrypt data in transit. This is a cost-effective solution because it is built into Amazon EFS and does not require the use of any third-party tools.
+The EFS mount helper is a tool that simplifies the process of mounting Amazon EFS file systems on Amazon EC2 instances. It also enables encryption of data in transit using TLS 1.2. When using the EFS mount helper, all traffic between the EC2 instance and EFS is encrypted using TLS 1.2. This ensures that all data transmitted between the EC2 instance and EFS is protected from unauthorized access.
+Using stunnel to connect to Amazon EFS and encrypt traffic in transit is not a recommended practice because it is a third-party tool that requires additional configuration and maintenance. It may also incur additional costs. Similarly, using a third-party tool to encrypt data in transit is not necessary because Amazon EFS provides built-in encryption.
+Using NFS client to encrypt data in transit is also not a recommended practice because NFS is not a secure protocol and does not provide encryption. Although it is possible to use NFS over SSH or VPN, this is not a cost-effective solution and is more complex than using the EFS mount helper.
+In conclusion, the recommended practice for securing data in transit while accessing data from Amazon EFS is to use the EFS mount helper to encrypt data in transit. This is a cost-effective solution that ensures data transmitted between the EC2 instance and EFS is protected from unauthorized access using TLS 1.2 encryption.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question395:"link"
+
+

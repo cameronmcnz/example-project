@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "994 - Youve created a temporary application th"
+---
+
+
+[.question]
+== 994-64a1df3eaa736d27b1db93cf.
+
+
+****
+
+[.query]
+--
+You've created a temporary application that accepts image uploads, stores them in S3, and records information about the image in RDS.
+After building this architecture and accepting images for the duration required, it's time to delete the CloudFormation template.
+However, your manager has informed you that the RDS data needs to be stored for archival reasons, and the S3 bucket with the images needs to remain.
+Your manager has also instructed you to ensure that the application can be restored by a CloudFormation template and run next year during the same period.
+
+
+--
+
+[.list]
+--
+* [*] A. Enable S3 bucket replication on the source bucket to a destination bucket to maintain a copy of all the S3 objects, set the deletion policy for the RDS instance to snapshot.
+* [ ] B. For both the RDS and S3 resource types on the CloudFormation template, set the DeletionPolicy to retain.
+* [ ] C. Set the DeletionPolicy on the S3 resource to snapshot and the DeletionPolicy on the RDS resource to snapshot.
+* [*] D. Set the DeletionPolicy on the S3 resource declaration in the CloudFormation template to retain, set the RDS resource declaration DeletionPolicy to snapshot.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The main points in this question are (i) the need for an ability by which the RDS data can be restored if needed and (ii) the S3 bucket with the images needs to retain.
+Option A is incorrect because it replicates the images into another bucket, but does not ensure that the bucket itself would retain.
+Option B is incorrect because RDS data does not need to be retained.
+You just need the ability to restore the RDS data - for which you need to use a snapshot policy.
+Option C is incorrect because the S3 bucket itself needs to be retained.
+Hence you need to use the retain policy for the S3 bucket.
+Option D is CORRECT because it uses a retain policy for the S3 bucket and a snapshot policy for RDS such that the data can be restored when needed.
+More information on DeletionPolicy Options:
+Delete.
+AWS CloudFormation deletes the resource and all its content if applicable during stack deletion.
+Retain.
+AWS CloudFormation keeps the resource without deleting the resource or its contents when its stack is deleted.
+Snapshot.
+For resources that support snapshots (AWS::EC2::Volume, AWS::ElastiCache::CacheCluster, AWS::ElastiCache::ReplicationGroup, AWS::RDS::DBInstance, AWS::RDS::DBCluster, and AWS::Redshift::Cluster), AWS CloudFormation creates a snapshot for the resource before deleting it.
+For more information on CloudFormation deletion policy, please visit the below URL:
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+Sure, I can provide a detailed explanation of the options and help you understand which one is the correct answer.
+The scenario here is that you have created a temporary application that accepts image uploads, stores them in S3, and records information about the image in RDS. You need to delete the CloudFormation template, but your manager has instructed you to ensure that the RDS data is stored for archival reasons and the S3 bucket with images remains. Additionally, the application needs to be restored by a CloudFormation template and run next year during the same period.
+Option A: Enable S3 bucket replication on the source bucket to a destination bucket to maintain a copy of all the S3 objects, set the deletion policy for the RDS instance to snapshot.
+Explanation: S3 bucket replication can be used to replicate objects from one S3 bucket to another. While it can help maintain a copy of all S3 objects, it does not address the retention of the RDS data. Setting the deletion policy for the RDS instance to snapshot does ensure that a snapshot of the RDS instance is taken before deletion, but it does not retain the RDS data.
+Option B: For both the RDS and S3 resource types on the CloudFormation template, set the DeletionPolicy to retain.
+Explanation: This option is a good solution. Setting the DeletionPolicy to retain ensures that the resources are not deleted when the CloudFormation template is deleted. The S3 bucket with the images and the RDS instance with the data will both be retained. This satisfies the requirement to store the RDS data for archival reasons and to maintain the S3 bucket with the images.
+Option C: Set the DeletionPolicy on the S3 resource to snapshot and the DeletionPolicy on the RDS resource to snapshot.
+Explanation: This option is not correct because the snapshot deletion policy does not address the requirement to retain the RDS data. While taking a snapshot is useful for backup purposes, it does not ensure that the data is retained.
+Option D: Set the DeletionPolicy on the S3 resource declaration in the CloudFormation template to retain, set the RDS resource declaration DeletionPolicy to snapshot.
+Explanation: This option is not the best solution because it only retains the S3 bucket with the images and does not ensure the retention of the RDS data. While taking a snapshot of the RDS instance is useful for backup purposes, it does not address the requirement to retain the RDS data.
+Therefore, option B is the correct answer. It satisfies the requirement to store the RDS data for archival reasons and maintain the S3 bucket with the images, and it allows the application to be restored by a CloudFormation template and run next year during the same period.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question286:"link"
+
+

@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1281 - You are working in a gaming company with"
+---
+
+
+[.question]
+== 1281-64a1fb0cf053625db51de025.
+
+
+****
+
+[.query]
+--
+You are working in a gaming company with four departments that make games for iOS, Android, Windows, and PlayStation.
+For that, they just recently adopted a hybrid cloud architecture where their on-premise data center is connected to their Amazon VPC.
+Your VPC is configured with a CIDR block of 10.0.0.0/24 (256 IPs)
+Your supervisor told you that they need such security in all four departments so that information from one department should not reach other departments.
+They don't want to have a new network that can be expensive and will create more overhead.
+As a Solutions Architect, how will you configure your network to accomplish this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create four subnets where first one subnet will use CIDR block 10.0.0.0/28 (for addresses 10.0.0.0 - 10.0.0.63), the second subnet will use CIDR block 10.0.0.64/28 (for addresses 10.0.0.64 - 10.0.0.127), third subnet will use CIDR block 10.0.0.128/28 (for addresses 10.0.0.128 - 10.0.0.191), the fourth one will use CIDR block 10.0.0.192/28 (for addresses 10.0.0.192 - 10.0.0.255).
+* [*] B. Create four subnets where first one subnet will use CIDR block 10.0.0.0/26 (for addresses 10.0.0.0 - 10.0.0.63), the second subnet will use CIDR block 10.0.0.64/26 (for addresses 10.0.0.64 - 10.0.0.127), third subnet will use CIDR block 10.0.0.128/26 (for addresses 10.0.0.128 - 10.0.0.191), the fourth one will use CIDR block 10.0.0.192/26 (for addresses 10.0.0.192 - 10.0.0.255).
+* [*] C. Create four subnets where first one subnet will use CIDR block 10.0.0.0/32 (for addresses 10.0.0.0 - 10.0.0.63), the second subnet will use CIDR block 10.0.0.64/32 (for addresses 10.0.0.64 - 10.0.0.127), third subnet will use CIDR block 10.0.0.128/32 (for addresses 10.0.0.128 - 10.0.0.191), the fourth one will use CIDR block 10.0.0.192/32 (for addresses 10.0.0.192 - 10.0.0.255)
+* [ ] D. Create four subnets where first one subnet will use CIDR block 10.0.0.0/26 (for addresses 10.0.0.0 - 10.0.0.64), the second subnet will use CIDR block 10.0.0.65/26 (for addresses 10.0.0.65 - 10.0.0.128), third subnet will use CIDR block 10.0.0.129/26 (for addresses 10.0.0.129 - 10.0.0.192), the fourth one will use CIDR block 10.0.0.193/26 (for addresses 10.0.0.193 - 10.0.0.255)
+* [ ] E. The requirement proposed by the supervisor is impossible.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer - B
+Option B is CORRECT because to achieve the requirement, you should create four subnets and CIDR 24
+After creating four Subnets, it will be CIDR 26, and the range will start from 0 to 63, 64 to 127, 128 to 191, and 192 to 255.
+Option A is incorrect because CIDR 28 will result in 16 subnets.
+Option C is incorrect because CIDR 32 represents the IP address itself.
+Option D is incorrect because CIDR block 10.0.0.0/26 represents 10.0.0.0 - 10.0.0.63 not 10.0.0.0 - 10.0.0.64, then it becomes 65 IP addresses which is incorrect.
+Option E is incorrect because the supervisor's requirement can be configured.
+Refer: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html.
+The correct answer is A. Create four subnets where first one subnet will use CIDR block 10.0.0.0/28 (for addresses 10.0.0.0 - 10.0.0.63), the second subnet will use CIDR block 10.0.0.64/28 (for addresses 10.0.0.64 - 10.0.0.127), third subnet will use CIDR block 10.0.0.128/28 (for addresses 10.0.0.128 - 10.0.0.191), the fourth one will use CIDR block 10.0.0.192/28 (for addresses 10.0.0.192 - 10.0.0.255).
+Explanation:
+Amazon Virtual Private Cloud (VPC) is a logically isolated section of Amazon Web Services (AWS) that allows you to launch AWS resources in a virtual network. A VPC provides you with complete control over your virtual networking environment, including the selection of your IP address range, creation of subnets, and configuration of route tables and network gateways.
+In this scenario, the gaming company has adopted a hybrid cloud architecture where their on-premise data center is connected to their Amazon VPC. The VPC has a CIDR block of 10.0.0.0/24, which means it has 256 IP addresses. The requirement is to create four subnets where each department will have its own subnet, and no information should be shared between the departments.
+To achieve this requirement, we need to divide the available IP addresses into four subnets. The subnet size must be such that it can accommodate the required number of hosts while still being able to provide enough IP addresses for future growth. Additionally, it should be small enough to prevent unnecessary IP address wastage.
+Option A proposes the creation of four subnets, each with a CIDR block of /28. A /28 subnet has 16 IP addresses, out of which two IP addresses are reserved for network address and broadcast address, leaving 14 usable IP addresses per subnet. Using this approach, we can create four subnets, each with 14 IP addresses, which will accommodate the required number of hosts.
+Option B proposes the creation of four subnets, each with a CIDR block of /26. A /26 subnet has 64 IP addresses, out of which two IP addresses are reserved for network address and broadcast address, leaving 62 usable IP addresses per subnet. While this approach will provide enough IP addresses for future growth, it will also result in unnecessary IP address wastage, as each department requires only a few hosts.
+Option C proposes the creation of four subnets, each with a CIDR block of /32. A /32 subnet has only one IP address, making it unsuitable for creating multiple hosts in a subnet. Therefore, this option is not feasible.
+Option D proposes the creation of four subnets, each with a CIDR block of /26. However, the second subnet is using CIDR block 10.0.0.65/26, which overlaps with the first subnet. Overlapping subnets will result in IP address conflicts and will prevent the network from functioning correctly. Therefore, this option is also not feasible.
+Option E suggests that the requirement proposed by the supervisor is impossible, but this is not true. It is possible to create multiple subnets within a VPC to ensure that different departments are isolated from each other.
+In conclusion, option A is the correct answer because it creates four subnets, each with a CIDR block of /28, which is the appropriate size to accommodate the required number of hosts while minimizing IP address wastage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question567:"link"
+
+

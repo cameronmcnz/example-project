@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "862 - Which two code blocks correctly initiali"
+---
+
+
+[.question]
+== 862-64a1a850ef3e8462333a9c74.
+
+
+****
+
+[.query]
+--
+Which two code blocks correctly initialize a Locale variable? (Choose two.)
+
+
+--
+
+[.list]
+--
+* [ ] A. Locale loc1 = "UK";
+* [ ] B. Locale loc2 = Locale.getInstance("ru");
+* [ ] C. Locale loc3 = Locale.getLocaleFactory("RU");
+* [*] D. Locale loc4 = Locale.UK;
+* [*] E. Locale loc5 = new Locale ("ru", "RU");
+
+--
+****
+
+[.answer]
+DE
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

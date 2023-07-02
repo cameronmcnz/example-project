@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "1047 - A company requires to deploy an existing"
+---
+
+
+[.question]
+== 1047-64a1fa97f053625db51ddf09.
+
+
+****
+
+[.query]
+--
+A company requires to deploy an existing Java-based web application to AWS.
+Which of the following should be used to fulfill this requirement in the quickest way possible?
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy to an S3 bucket and enable website hosting.
+* [*] B. Use the Elastic Beanstalk service to provision the environment.
+* [*] C. Use EC2 with Auto Scaling for the environment.
+* [ ] D. Use AMIs to build EC2 instances for deployment.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS.
+You can upload your code.
+And Elastic Beanstalk will automatically handle the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring.
+At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time.
+For more information on the Elastic Beanstalk service, please visit the following URL-
+https://aws.amazon.com/elasticbeanstalk/
+Out of the given options, the quickest way to deploy an existing Java-based web application to AWS is by using the Elastic Beanstalk service to provision the environment.
+Option A: Deploy to an S3 bucket and enable website hosting is not an appropriate method for deploying Java-based web applications as S3 is a storage service for static content such as HTML, CSS, JavaScript, images, and videos.
+Option C: Use EC2 with Auto Scaling for the environment requires configuring and managing the underlying infrastructure which can be time-consuming and not the quickest way to deploy the application.
+Option D: Use AMIs to build EC2 instances for deployment requires creating the AMIs, configuring the instances, and managing the underlying infrastructure, which can be time-consuming and not the quickest way to deploy the application.
+Therefore, option B: Use the Elastic Beanstalk service to provision the environment is the quickest way to deploy an existing Java-based web application to AWS. Elastic Beanstalk is a fully managed service that allows for easy deployment, scaling, and management of web applications. It automatically provisions the infrastructure, deploys the application, and monitors the environment, thus reducing the time and effort required for deployment. Additionally, Elastic Beanstalk supports Java applications, making it a suitable option for deploying the given application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question283:"link"
+
+

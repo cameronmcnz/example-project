@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1080 - Videos are uploaded to an S3 bucket and "
+---
+
+
+[.question]
+== 1080-64a1faa6f053625db51ddf2e.
+
+
+****
+
+[.query]
+--
+Videos are uploaded to an S3 bucket, and you need to provide access to users to view the same.
+What is the best way to do so while maintaining a good user experience for all users regardless of the region in which they are located?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable Cross-Region Replication for the S3 bucket to all regions.
+* [*] B. Use CloudFront with the S3 bucket as the source.
+* [*] C. Use API Gateway with S3 bucket as the source.
+* [ ] D. Use AWS Lambda functions to deliver the content to users.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following to back up this requirement.
+Amazon CloudFront is a web service that speeds up the distribution of static and dynamic web content, such as .html, .css, .js, and image files to your users.
+CloudFront delivers your content through a worldwide network of data centers called edge locations.
+When a user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency (time delay) so that content is delivered with the best possible performance.
+If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately.
+If the content is not in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
+Option A is incorrect.
+S3 Cross-region replication is a feature that enables an automatic and asynchronous copy of user data from one destination bucket to another destination bucket located in one of the other AWS regions.
+It is region-based rather than a global scale, which is what the question asks regarding all users having a good experience, regardless of region locale.
+For more information on Amazon CloudFront, please visit the following URL-
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+The best way to provide access to users to view videos uploaded to an S3 bucket while maintaining a good user experience for all users regardless of the region in which they are located is to use CloudFront with the S3 bucket as the source (Option B).
+Amazon CloudFront is a content delivery network (CDN) that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, and no minimum usage commitments. It caches content at edge locations, which are data centers located in multiple geographic locations around the world, providing faster access to content for users.
+Using CloudFront with S3 as the origin allows you to take advantage of the benefits of a CDN, including faster content delivery, improved user experience, and lower costs, while also leveraging the reliability and scalability of S3 for storing your video files.
+In addition, CloudFront has built-in features that allow you to optimize the delivery of video content, such as:
+1.
+On-demand streaming: CloudFront supports on-demand streaming of video content, which means that users can start watching a video before it has finished downloading.
+2.
+Adaptive bitrate streaming: CloudFront supports adaptive bitrate streaming, which means that users can receive video content at the highest quality that their device and internet connection can support, ensuring a smooth and uninterrupted viewing experience.
+3.
+Content protection: CloudFront supports various content protection mechanisms, including signed URLs and signed cookies, to ensure that your video content is delivered securely and only to authorized users.
+Therefore, the correct answer is B: Use CloudFront with the S3 bucket as the source.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question320:"link"
+
+

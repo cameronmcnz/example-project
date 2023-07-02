@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "971 - You created three S3 buckets  mydomainco"
+---
+
+
+[.question]
+== 971-64a1df34aa736d27b1db939f.
+
+
+****
+
+[.query]
+--
+You created three S3 buckets - “mydomain.com” ( root domain ), “downloads.mydomain.com” ( subdomain ), and “www.mydomain.com” ( subdomain )
+You uploaded your files ( including the "index.html" and "error.html" files ), enabled static website hosting, specified both of the default documents under the “enable static website hosting” header, and set the “Make Public” permission for the objects in each of the three buckets.
+After creating Route 53 Aliases for the three buckets, you will have your end-users test your websites by browsing to http://mydomain.com/error.html, http://downloads.mydomain.com/index.html, and http://www.mydomain.com.
+What problems will your testers encounter?
+
+
+--
+
+[.list]
+--
+* [*] A. http://mydomain.com/error.html will not work because you did not set a value for the error.html file.
+* [ ] B. http://www.mydomain.com will not work because the URL does not include a file name at the end of it.
+* [*] C. There will be no problems, all three sites should work.
+* [ ] D. http://downloads.mydomain.com/index.html will not work because the “downloads” prefix is not a supported prefix for S3 websites using Route 53 aliases.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Previously we are only allowed domain prefix, when creating AWS Route53 aliases for AWS S3 static websites was the “www”.
+However, this is no longer the case.
+You can now use other sub-domains.
+For more information on S3 web site hosting, please visit the below link-
+http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
+Based on the information provided, you created three S3 buckets: "mydomain.com" for the root domain, "downloads.mydomain.com" for the subdomain, and "www.mydomain.com" for another subdomain. You uploaded files, including the "index.html" and "error.html" files, enabled static website hosting, specified both of the default documents under the "enable static website hosting" header, and set the "Make Public" permission for the objects in each of the three buckets.
+After creating Route 53 Aliases for the three buckets, your end-users will test your websites by browsing to the following URLs:
+http://mydomain.com/error.html
+http://downloads.mydomain.com/index.html
+http://www.mydomain.com
+Let's examine each URL and see if there are any problems:
+1.
+http://mydomain.com/error.html This URL should work if you have set the "index.html" and "error.html" files as the default documents under the "enable static website hosting" header. Therefore, Option A is incorrect.
+2.
+http://downloads.mydomain.com/index.html This URL should work if you have created the "downloads.mydomain.com" subdomain and created an S3 bucket with that name. Additionally, you must have set up Route 53 Aliases correctly for the subdomain. Therefore, Option D is incorrect.
+3.
+http://www.mydomain.com This URL may not work because it does not include a file name at the end of it. By default, S3 will look for "index.html" as the default document if no file is specified in the URL. If you have set "index.html" as the default document for the "www.mydomain.com" bucket, this URL should work. However, if you have not set the default document, this URL may not work. Therefore, Option B is correct.
+4.
+All three sites should work. Option C is incorrect because as explained above, there is a possibility that the URL "http://www.mydomain.com" may not work if the default document is not set up correctly.
+In conclusion, the correct answer is Option B: http://www.mydomain.com will not work because the URL does not include a file name at the end of it.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question237:"link"
+
+

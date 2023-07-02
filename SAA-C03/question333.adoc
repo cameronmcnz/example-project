@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1133 - Your company runs an automobile resellin"
+---
+
+
+[.question]
+== 1133-64a1fac2f053625db51ddf73.
+
+
+****
+
+[.query]
+--
+Your company runs an automobile reselling company that has a popular online store on AWS.
+The application sits behind an Auto Scaling group and requires new instances of the Auto Scaling group to identify their public and private IP addresses.
+Which of the following is the correct AWS option to identify the IP addresses?
+
+
+--
+
+[.list]
+--
+* [*] A. By using Ipconfig for windows or Ifconfig for Linux.
+* [ ] B. By using a CloudTrail.
+* [*] C. Using a Curl or Get Command to get the latest meta-data from http://169.254.169.254/latest/meta-data/
+* [ ] D. Using a Curl or Get Command to get the latest user-data from http://169.254.169.254/latest/user-data/
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+To get the private and public IP addresses, you can run the following commands on the running instance.
+http://169.254.169.254/latest/meta-data/local-ipv4 http://169.254.169.254/latest/meta-data/public-ipv4
+Option A is partially correct, but it is an overhead when you already have the service running in AWS.
+Option B is incorrect because CloudTrail is used for tracking the API activities of a resource.
+Option D is incorrect because user-data cannot get the IP addresses.
+For more information on instance metadata, please refer to the below URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html
+The correct option to identify the public and private IP addresses of new instances in an Auto Scaling group on AWS is C - Using a Curl or Get Command to get the latest meta-data from http://169.254.169.254/latest/meta-data/.
+Explanation:
+Amazon EC2 instances come with metadata that can be accessed by making a request to a special IP address - http://169.254.169.254/. This IP address is available to every EC2 instance, and it provides a way for the instance to learn about its own metadata regardless of the operating system or network configuration.
+The metadata contains a wealth of information about the instance, including its instance ID, instance type, hostname, public and private IP addresses, security groups, and more. To access the metadata, you can use a command-line tool like Curl or a programming language like Python to make an HTTP request to the metadata endpoint.
+To get the public and private IP addresses of a new instance in an Auto Scaling group, you can make an HTTP GET request to http://169.254.169.254/latest/meta-data/public-ipv4 and http://169.254.169.254/latest/meta-data/local-ipv4, respectively. These requests will return the instance's public and private IP addresses as plain text.
+Option A is incorrect because Ipconfig and Ifconfig are commands to display network interface information on the local machine, not EC2 instances.
+Option B is incorrect because CloudTrail is a service that logs AWS API calls and can be used for auditing and security purposes. It does not provide information about individual EC2 instances.
+Option D is incorrect because user-data is information that can be passed to an instance when it is launched, typically in the form of a shell script or cloud-init script. It does not provide information about the instance's IP addresses.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question389:"link"
+
+

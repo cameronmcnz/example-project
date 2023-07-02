@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "1137 - Your company has a set of EC2 Instances "
+---
+
+
+[.question]
+== 1137-64a1fac4f053625db51ddf78.
+
+
+****
+
+[.query]
+--
+Your company has a set of EC2 Instances hosted on the AWS Cloud.
+As an architect, you have been told to ensure that if the status of any of the instances is related to failure, then the instances should restart automatically.
+How can you achieve this in the most efficient way possible?
+
+
+--
+
+[.list]
+--
+* [*] A. Create CloudWatch alarms that stop and start the instance based off of status check alarms.
+* [ ] B. Write a script that queries the EC2 API for each instance status check.
+* [ ] C. Write a script that periodically shuts down and starts instances based on certain stats.
+* [ ] D. Implement a third-party monitoring tool.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Using Amazon CloudWatch alarm actions, you can create alarms that automatically stop, terminate, reboot, or recover your EC2 instances.
+You can use the stop or terminate actions to help you save money when you no longer need an instance to be running.
+You can use the reboot and recover actions to automatically reboot those instances or recover them onto new hardware if a system impairment occurs.
+All other options are possible but would be an extra maintenance overhead.
+For more information on using alarm actions, please refer to the below link-
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingAlarmActions.html
+The most efficient way to ensure that EC2 instances restart automatically when their status is related to failure is to create CloudWatch alarms that stop and start the instance based on status check alarms.
+CloudWatch is a monitoring and management service provided by AWS that allows users to collect and track metrics, collect and monitor log files, and set alarms. CloudWatch provides various metrics related to EC2 instances, including the status check metrics. When an EC2 instance fails a status check, CloudWatch can trigger an alarm that can then perform an action, such as stopping and starting the instance.
+Creating a CloudWatch alarm to monitor the status of an EC2 instance is a simple process. First, the user needs to create a metric filter to filter out the desired metric. In this case, the metric filter should filter out the status check metric for the EC2 instance. Next, the user can create an alarm based on the metric filter. The alarm can then be configured to perform an action, such as stopping and starting the instance, when the alarm is triggered.
+Writing a script that queries the EC2 API for each instance status check, or periodically shutting down and starting instances based on certain stats, are possible solutions but are not as efficient as creating CloudWatch alarms. Writing a script requires additional maintenance and monitoring, and is prone to errors. Additionally, these methods may not be as flexible as CloudWatch alarms, which allow for more complex conditions to trigger the action. Implementing a third-party monitoring tool may also be an option, but may require additional costs and setup time. Therefore, creating CloudWatch alarms is the most efficient way to achieve this goal.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question394:"link"
+
+

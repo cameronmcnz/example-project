@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1092 - Your company deploys an internal applica"
+---
+
+
+[.question]
+== 1092-64a1df61aa736d27b1db9459.
+
+
+****
+
+[.query]
+--
+Your company deploys an internal application in an Elastic Beanstalk environment which is created in a private VPC and has no access to the internet.
+The application is used for monitoring and logging, and other VPC applications need to send requests to the internal application.
+For security purposes, the traffic to the Elastic Beanstalk service should stay inside the Amazon network without exposure to the internet.
+How would you achieve this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a NAT Gateway in the public subnet. Modify the route table to connect other applications and the Elastic Beanstalk service through the NAT Gateway.
+* [*] B. Configure an interface VPC endpoint for the Elastic Beanstalk service. Requests are sent to Elastic Beanstalk through AWS PrivateLink.
+* [*] C. Disable DNS name in the Elastic Beanstalk environment to disallow the connections through the public endpoint of Elastic Beanstalk.
+* [ ] D. Nothing needs to be done as Elastic Beanstalk provides the private DNS “com.amazonaws.region.elasticbeanstalk” by default.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is incorrect because NAT Gateway is used to provide internet connectivity to private subnets.
+So, there is no need for NAT Gateway for the above-mentioned requirement.
+Option B is CORRECT because the traffic to Elastic Beanstalk needs to be private without being exposed to the internet.
+This requirement can be achieved by the VPC endpoint service powered by AWS PrivateLink.
+With PrivateLink, users do not need to configure other connectivity services such as VPN connection or AWS Direct Connect.
+Check the following snapshot for how to create the VPC endpoint:
+Option C is incorrect because disabling the DNS name is not a feasible option in an Elastic Beanstalk environment.
+Option D is incorrect because, in order to send other applications' traffic to the Elastic Beanstalk service, something must be used, i.e., VPC endpoint.
+References:
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/vpc.html https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/vpc-vpce.html
+The requirement is to allow other VPC applications to send requests to an Elastic Beanstalk environment, which is created in a private VPC and has no access to the internet, without exposing the traffic to the internet for security purposes.
+Option A suggests creating a NAT Gateway in the public subnet and modifying the route table to connect other applications and the Elastic Beanstalk service through the NAT Gateway. This option is correct as NAT Gateway allows instances in a private subnet to connect to the internet or other AWS services, such as Elastic Beanstalk, through a public IP address without exposing the traffic to the internet. In this case, the NAT Gateway is placed in the public subnet, and the route table for the private subnet is updated to route traffic to the Elastic Beanstalk service via the NAT Gateway.
+Option B suggests configuring an interface VPC endpoint for the Elastic Beanstalk service. Requests are sent to Elastic Beanstalk through AWS PrivateLink. This option is also correct as AWS PrivateLink enables private connectivity between VPCs and AWS services, such as Elastic Beanstalk, without using public IPs or requiring traffic to traverse the internet. By configuring an interface VPC endpoint for Elastic Beanstalk, traffic is routed through a private IP address and remains within the Amazon network.
+Option C suggests disabling the DNS name in the Elastic Beanstalk environment to disallow connections through the public endpoint of Elastic Beanstalk. This option is incorrect as disabling the DNS name in Elastic Beanstalk environment will not prevent connections from other VPC applications. Furthermore, the Elastic Beanstalk environment requires DNS to resolve the endpoints for the services.
+Option D suggests that nothing needs to be done as Elastic Beanstalk provides the private DNS “com.amazonaws.region.elasticbeanstalk” by default. This option is incorrect as the private DNS name does not provide connectivity between VPCs and Elastic Beanstalk.
+Therefore, the correct options to achieve the requirement are A and B. Option A can be used when a NAT Gateway is preferred, and Option B can be used when using PrivateLink is preferred.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question424:"link"
+
+

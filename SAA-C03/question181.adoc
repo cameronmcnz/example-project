@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "981 - A company is planning to use the AWS Red"
+---
+
+
+[.question]
+== 981-64a1fa7bf053625db51ddebe.
+
+
+****
+
+[.query]
+--
+A company is planning to use the AWS Redshift service.
+The Redshift service and data on it would be used continuously for the next 3 years as per the current business plan.
+What would be the most cost-effective solution in this scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. Consider using On-demand instances for the Redshift Cluster.
+* [ ] B. Enable Automated backup.
+* [*] C. Consider using Reserved Instances for the Redshift Cluster.
+* [ ] D. Consider not using a cluster for the Redshift nodes.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+AWS documentation mentions the following:
+If you intend to keep your Amazon Redshift cluster running continuously for a prolonged period, you should consider purchasing reserved node offerings.
+These offerings provide significant savings over on-demand pricing, but they require you to reserve compute nodes and commit to paying for those nodes for either a one-year or three-year duration.
+For more information on Reserved Nodes in Redshift, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html
+In this scenario, the company plans to use AWS Redshift continuously for the next 3 years. The most cost-effective solution would be to consider using Reserved Instances for the Redshift Cluster.
+Reserved Instances provide a significant discount compared to On-Demand instances, which are charged at a higher rate. By purchasing a Reserved Instance, the company can reserve capacity for the Redshift cluster for a specific period, typically for 1 or 3 years, at a lower hourly rate compared to On-Demand instances. This means that the company can save up to 75% on the hourly rate by using Reserved Instances.
+Enabling automated backup is a best practice to ensure data durability and recoverability, but it does not directly impact the cost of using Redshift.
+Considering not using a cluster for the Redshift nodes would not be practical, as Redshift is a columnar data store designed to work with large data sets, and a cluster provides scalability and fault tolerance.
+Therefore, the most cost-effective solution for a company planning to use AWS Redshift continuously for the next 3 years is to consider using Reserved Instances for the Redshift Cluster.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question205:"link"
+
+

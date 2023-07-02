@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1234 - Your team uses Amazon ECS to manage cont"
+---
+
+
+[.question]
+== 1234-64a1faf6f053625db51ddff0.
+
+
+****
+
+[.query]
+--
+Your team uses Amazon ECS to manage containers for several micro-services.
+To save cost, multiple ECS tasks should run at a single container instance.
+When a task is launched, the host port should be dynamically chosen from the container instance's ephemeral port range.
+The ECS service should select a load balancer that supports dynamic mapping.
+Which types of load balancers are appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Application Load Balancer or Network Load Balancer.
+* [ ] B. Application Load Balancer only.
+* [*] C. Network Load Balancer only.
+* [ ] D. Application Load Balancer or Classic Load Balancer.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is CORRECT because both Application Load Balancer and Network Load Balancer support dynamic mapping.
+You can configure the ECS service to use the load balancer, and a dynamic port will be selected for each ECS task automatically.
+With Dynamic mapping, multiple copies of a task can run on the same instance.
+Option B and C are incorrect: Please check the below references.
+Option D is incorrect because Classic Load Balancer does not support dynamic mapping.
+With Classic Load Balancer, you have to define the port mappings on a container instance statically.
+Reference:
+https://docs.aws.amazon.com/AmazonECS/latest/userguide/load-balancer-types.html. https://aws.amazon.com/premiumsupport/knowledge-center/dynamic-port-mapping-ecs/.
+The appropriate load balancers for the given requirements are either Application Load Balancer (ALB) or Network Load Balancer (NLB).
+Explanation:
+ALB is a Layer 7 load balancer that can distribute traffic based on application-level content such as HTTP/HTTPS requests, and can dynamically route traffic to container instances based on the content of the request. This makes ALB suitable for containerized applications running in ECS that require high levels of traffic routing flexibility and content-based routing. Additionally, ALB supports dynamic port mapping which allows the ECS service to automatically assign a port to the task from the container instance's ephemeral port range, which meets the requirement of the question.
+NLB, on the other hand, is a Layer 4 load balancer that can distribute traffic based on IP protocol data, such as TCP and UDP, making it suitable for high-volume, low-latency applications. NLB also supports dynamic port mapping, which allows ECS service to automatically assign a port from the ephemeral port range of the container instance. NLB does not support content-based routing like ALB, so it may not be suitable for applications that require advanced routing based on application-level content.
+Classic Load Balancer (CLB) is an older load balancer that does not support dynamic port mapping and content-based routing like ALB. Hence, CLB is not suitable for this scenario.
+Therefore, the appropriate load balancers for the given requirements are either Application Load Balancer or Network Load Balancer, making options A and B the correct answers, while options C and D are incorrect.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question514:"link"
+
+

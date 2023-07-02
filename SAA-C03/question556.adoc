@@ -1,0 +1,128 @@
+---
+layout: default 
+title: "1356 - Your organization had created an S3 buck"
+---
+
+
+[.question]
+== 1356-64a1fb3af053625db51de097.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_29547.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization had created an S3 bucket for static website hosting.
+They had created and configured all necessary components for the static website with the S3 website endpoint http://example-bucket.com.s3-website-us-east-2.amazonaws.com.
+They would like to get the website served through the domain name www.example-bucket.com which is already registered.
+You want to create a record in Route 53 to route to the S3 website endpoint.
+Which type of record set you need to create?
+
+
+[source,java]
+----
+Step 10: Add Alias Records for Your Domain and Subdomain
+
+In this step, you create the alias records that you add to the hosted zone for your domain maps example. com and win .example..com. Instead of using IP addresses, the
+alias records use the Amazon S3 website endpoints. Amazon Route 53 maintains a mapping between the alias records and the IP addresses where the Amazon S3 buckets
+reside. You create two alias records, one for your root domain and one for your subdomain.
+
+To add an alias record for your root domain (example..com)
+1. Open the Route 53 console at https://console.aws.amazon.com/routeS3/@.
+
+© Note
+If you don't already use Route 53, see Step 1: Register @ Domain in the Amazon Route 53 Developer Guide. After completing your setup, you can resume the
+
+instructions.
+. Choose Hosted Zones.
+
+. In the list of hosted zones, choose the name of the hosted zone that matches your domain name.
+
+|. Choose Create Record Set.
+
+vewn
+
+. Specify the following values:
+Name
+
+‘Accept the default value, which is the name of your hosted zone and your domain.
+For the root domain, you don't need to enter any additional information in the Name field.
+
+Type
+Choose A - IPv4 address.
+
+Choose Yes.
+Alias Target
+In the $3 website endpoints section of the list, choose your bucket name.
+
+The bucket name should match the name that appears in the Name box. In the Alias Target listing, the bucket name is followed by the Amazon S3 website
+‘endpoint for the Region where the bucket was created, for example example.com (s3-website-us-west-2). Alias Target lists a bucket if
+----
+
+
+--
+
+[.list]
+--
+* [*] A. A - IPv4 Address with Alias=NO
+* [*] B. A - IPv4 Address with Alias=YES
+* [ ] C. CNAME - Canonical Name with ALIAS=NO
+* [ ] D. CNAME - Canonical Name with ALIAS=YES.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+AWS Documentation:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html#root-domain-walkthrough-s3-tasks
+We can't create a CNAME record for the Parent, Naked, or Apex domain, whereas we can use an alias record to point to the parent domain.
+Below scenarios given are not possible.
+www.example-bucket.com CNAME http://example-bucket.com.s3-website-us-east-2.amazonaws.com.
+or
+example-bucket.com CNAME http://example-bucket.com.s3-website-us-east-2.amazonaws.com.
+But with an alias, they are possible.
+example-bucket.com Alias(A) http://example-bucket.com.s3-website-us-east-2.amazonaws.com.
+Option A is incorrect as explained above A record Alias should be yes.
+Options C and D are incorrect because a CNAME record set is mainly used to route the traffic to another DNS name.
+But it cannot route it to an S3 website endpoint.
+To route traffic from the registered domain name www.example-bucket.com to the S3 website endpoint http://example-bucket.com.s3-website-us-east-2.amazonaws.com, we need to create a record in Route 53.
+Route 53 is a highly scalable and available DNS web service provided by AWS. It allows you to manage your domain names and the IP addresses and resources associated with them. It provides a variety of record types, and the record type we should use in this scenario is the A record or the CNAME record.
+The A record maps a domain name to an IPv4 address, and the CNAME record maps a domain name to another domain name. In this scenario, since we want to route traffic from the registered domain name www.example-bucket.com to the S3 website endpoint, we need to use a CNAME record.
+Now the question is, should we use an ALIAS or NO-ALIAS CNAME record?
+The ALIAS record is a special type of record that allows you to map your domain name to AWS resources, such as an S3 bucket, CloudFront distribution, or Elastic Load Balancer, without using a CNAME record. It provides seamless integration between Route 53 and other AWS services and ensures that the DNS name resolution works correctly in all cases.
+In this scenario, since we want to route traffic from the registered domain name www.example-bucket.com to the S3 website endpoint, we should use an ALIAS CNAME record.
+Option B: A - IPv4 Address with Alias=YES is incorrect because an A record maps a domain name to an IPv4 address, and we need to map a domain name to another domain name in this scenario.
+Option A: A - IPv4 Address with Alias=NO is incorrect because it does not allow us to map a domain name to an S3 bucket or any other AWS resource. We need to use a CNAME record for that purpose.
+Option C: CNAME - Canonical Name with ALIAS=NO is incorrect because it does not provide the seamless integration that the ALIAS CNAME record provides. Also, it does not work correctly if the domain name is the root domain, such as example-bucket.com (without www).
+Therefore, the correct answer is option D: CNAME - Canonical Name with ALIAS=YES.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question682:"link"
+
+

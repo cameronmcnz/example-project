@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "802 - Given IntStream stream  IntStreamof 123 "
+---
+
+
+[.question]
+== 802-64a1a838ef3e8462333a9c38.
+
+
+****
+
+[.query]
+--
+Given: IntStream stream = IntStream.of (1,2,3); IntFunction<Integer> inFu= x -> y -> x*y;//line n1 IntStream newStream = stream.map(inFu.apply(10)); //line n2 newStream.forEach(System.output::print); Which modification enables the code fragment to compile?
+
+
+--
+
+[.list]
+--
+* [ ] A. Replace line n1 with: IntFunction inFu = x -> y -> x*y;
+* [*] B. Replace line n1 with: IntFunction inFu = x -> y -> x*y;
+* [ ] C. Replace line n1 with: BiFunction inFu = x -> y -> x*y;
+* [ ] D. Replace line n2 with: IntStream newStream = stream.map(inFu.applyAsInt (10));
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

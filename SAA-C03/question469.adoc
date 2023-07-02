@@ -1,0 +1,118 @@
+---
+layout: default 
+title: "1269 - You are taking over the AWS platform in "
+---
+
+
+[.question]
+== 1269-64a1fb06f053625db51de018.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_2pvhtp.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are taking over the AWS platform in your organization.
+You were asked to build a new application that would require a fleet of 20 EC2 instances inside a private VPC that should communicate with each other and no traffic going into the EC2 instances from the internet but should receive requests from all other EC2 instances inside the VPC.
+When you looked at the existing VPC, it was created with 10.10.0.0/24 CIDR range containing only 256 IP addresses.
+You noticed that 8 subnets were consuming all 256 IP addresses with /27 CIDR ranges.
+How can you change the CIDR range of the VPC?
+
+
+[source,java]
+----
+VPC with 1 CIDR block
+
+vec
+10.0.0.016
+
+VPC with 2 CIDR blocks
+
+‘Subnet 2
+10.0.128017
+
+10.0.0.0/16 (primary CIDA)
+10.2.0.0/16 (secondary CIDR)
+
+100.0016 local
+
+Region
+
+10.0.0.076
+
+Destination Target
+tocal
+tocal
+
+1020.06
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create a new VPC, setup 20 EC2 instances in new VPC and peer with existing VP.
+* [*] B. Add secondary CIDR range for the VP.
+* [ ] C. Edit subnet CIDR ranges to /28 and free up unused IP addresses.
+* [ ] D. Launch EC2 instances in different subnets and setup Network ACLs and Security Groups to allow traffic between EC2 instances.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+You can associate secondary IPv4 CIDR blocks with your VPC.
+When you associate a CIDR block with your VPC, a route is automatically added to your VPC route tables to enable routing within the VPC (the destination is the CIDR block and the target is local).
+In the following example, the VPC on the left has a single CIDR block (10.0.0.0/16) and two subnets.
+The VPC on the right represents the architecture of the same VPC after you've added a second CIDR block (10.2.0.0/16) and created a new subnet from the range of the second CIDR.
+https://aws.amazon.com/about-aws/whats-new/2017/08/amazon-virtual-private-cloud-vpc-
+For option A, although creating a new VPC, peering with the existing VPC would work, it creates a lot of configuration.
+This solution is suited when you want to isolate certain resources within each VPC and communicate certain resources in VPCs, or if the VPCs belong to different accounts, or if VPCs are in different regions.
+There is a limit of 5 VPCs per region, and creating VPCs without a definite need might hit the limit in the long run.
+For option B, adding a secondary CIDR to the existing VPC is a simple configuration and can enable more IP addresses to the current VPC.For option C, a subnet's CIDR cannot be edited once created.
+Although this option works for option D, this would create a lot of complexity around setting up new Security Groups and network ACLs.
+This setup would be difficult to maintain and troubleshoot in case of any issues.
+So, with given options, although there are multiple working solutions, option B is the recommended solution.
+To fulfill the requirement of building a new application that would require a fleet of 20 EC2 instances inside a private VPC that should communicate with each other and no traffic going into the EC2 instances from the internet but should receive requests from all other EC2 instances inside the VPC, we need to consider the existing VPC's CIDR range.
+According to the given information, the existing VPC was created with a 10.10.0.0/24 CIDR range, which contains only 256 IP addresses, and 8 subnets are already using /27 CIDR ranges, which consume all 256 IP addresses. So, we need to find a solution that accommodates the required 20 EC2 instances in the existing VPC.
+Now, let's evaluate the given options one by one:
+A. Create a new VPC, setup 20 EC2 instances in new VPC and peer with existing VP.
+This option suggests creating a new VPC and peering it with the existing VPC to fulfill the requirement. However, this solution would not make efficient use of existing resources and increase complexity. Therefore, this option can be discarded.
+B. Add secondary CIDR range for the VP.
+This option suggests adding a secondary CIDR range for the VPC to accommodate the required 20 EC2 instances. This solution is a viable option, but it requires modifying the existing VPC, which may affect other resources in the VPC. It is essential to consider the impact on other resources before modifying the VPC.
+C. Edit subnet CIDR ranges to /28 and free up unused IP addresses.
+This option suggests editing the existing subnets' CIDR ranges to /28 to free up unused IP addresses. This solution is also a viable option, but it may require modifying the existing subnets, which may affect other resources in the subnets. It is essential to consider the impact on other resources before modifying the subnets.
+D. Launch EC2 instances in different subnets and setup Network ACLs and Security Groups to allow traffic between EC2 instances.
+This option suggests launching EC2 instances in different subnets and setting up Network ACLs and Security Groups to allow traffic between EC2 instances. This solution is also a viable option, but it may require more management overhead and could affect the efficiency of the network traffic.
+Considering all the above options, the most efficient and feasible solution would be to choose option B, adding a secondary CIDR range for the VPC. This option would not require creating a new VPC or modifying existing subnets, and it would efficiently accommodate the required 20 EC2 instances. However, it is crucial to consider the impact of modifying the VPC before proceeding.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question554:"link"
+
+

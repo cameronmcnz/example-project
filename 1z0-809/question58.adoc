@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "858 - Given the code fragment String str  Java"
+---
+
+
+[.question]
+== 858-64a1a84fef3e8462333a9c70.
+
+
+****
+
+[.query]
+--
+Given the code fragment: String str = "Java is a programming language"; ToIntFunction<String> indexVal = str: : indexOf;//line n1 int x = indexVal.applyAsInt("Java");//line n2 System.out.println(x); What is the result?
+
+
+--
+
+[.list]
+--
+* [*] A. 0
+* [ ] B. 1
+* [ ] C. A compilation error occurs at line n1.
+* [ ] D. A compilation error occurs at line n2.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

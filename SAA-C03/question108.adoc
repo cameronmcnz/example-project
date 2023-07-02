@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "908 - You have a local data center onpremise t"
+---
+
+
+[.question]
+== 908-64a1fa62f053625db51dde6e.
+
+
+****
+
+[.query]
+--
+You have a local data center on-premise that stores archived files.
+The total amount of the files is about 70TB.
+The data needs to be transferred to Amazon Simple Storage Service (S3)
+After the data transfer is finished, the local data center will not be used.
+Which solution is the most appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Direct Connect.
+* [*] B. AWS Snowball.
+* [*] C. Amazon S3 Transfer Acceleration.
+* [ ] D. AWS Global Accelerator.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Snowball has 80TB and 50TB models.
+The 80TB model is suitable to transfer 70TB of data to AWS.
+Please refer to https://docs.aws.amazon.com/snowball/latest/ug/whatissnowball.html.
+Option A is incorrect: Because Direct Connect establishes a network connection from on-premises to an AWS Region.
+It is not suitable to move 70TB of data.
+Option B is CORRECT: Because AWS Snowball is a data transport solution that accelerates moving terabytes to petabytes of data to AWS.
+Option C is incorrect: S3 Transfer Acceleration uses Amazon CloudFront's globally distributed edge locations.
+It does not help in this scenario.
+Option D is incorrect: Because AWS Global Accelerator improves availability and performance for applications, which does not help on the data transfer.
+Option B, AWS Snowball, is the most appropriate solution for transferring 70TB of archived files from a local data center to Amazon S3.
+AWS Direct Connect (option A) is a service that provides dedicated network connections between an on-premises data center and AWS. It is useful for situations where high-bandwidth connectivity is required for frequently accessing data between the on-premises data center and AWS. However, it is not designed for transferring large amounts of data.
+Amazon S3 Transfer Acceleration (option C) is a service that uses Amazon CloudFront's globally distributed edge locations to accelerate transfers over the public internet to Amazon S3. It can speed up transfers for small to medium-sized files, but it is not designed for transferring large amounts of data, especially in cases where the source location is on-premises.
+AWS Global Accelerator (option D) is a service that improves the availability and performance of applications by providing static IP addresses and routing traffic over the AWS global network. It is useful for situations where users access applications from different regions of the world and need low-latency access to these applications. However, it is not designed for transferring large amounts of data.
+AWS Snowball (option B) is a petabyte-scale data transport solution that uses a physical device to transfer large amounts of data into and out of AWS. It is designed to handle large-scale data transfers quickly and securely, with a data transfer rate of up to 100TB per appliance. In this scenario, the 70TB of archived files can be transferred onto a Snowball appliance, which can then be shipped to AWS for data transfer to S3. Once the data transfer is complete, the local data center can be decommissioned.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question125:"link"
+
+

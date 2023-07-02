@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1323 - When configuring AWS SQS as event source"
+---
+
+
+[.question]
+== 1323-64a1fb27f053625db51de067.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_l2ay7c.png[]
+
+--
+
+
+****
+
+[.query]
+--
+When configuring AWS SQS as event source for AWS Lambda function, what is the maximum batch size supported by AWS SQS for ReceiveMessage call?
+
+
+[source,java]
+----
+* Enabled: A flag to signal AWS Lambda that it should start polling your specified Amazon SQS queue.
+* EventSourceArn: The ARN (Amazon Resource Name) of your Amazon SQS queue that AWS Lambda is monitoring for new messages.
+* FunctionName: The Lambda function to invoke when AWS Lambda detects new messages on your configured Amazon SQS queue.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. 20
+* [ ] B. 40
+* [*] C. 10
+* [ ] D. 100
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Here are other parameters apart from batch size.
+https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html.
+When configuring AWS SQS as an event source for AWS Lambda, the Lambda function can be triggered in response to messages arriving in the queue. To retrieve messages from SQS, the Lambda function needs to call the SQS API method ReceiveMessage.
+When the Lambda function reads messages from the SQS queue, it can specify the maximum number of messages to read in a single batch. This is known as the "batch size". The maximum batch size supported by AWS SQS for the ReceiveMessage call is 10.
+Therefore, the correct answer to this question is option C: 10.
+It's important to note that when configuring a Lambda function to read messages from an SQS queue, you can configure the BatchSize parameter of the event source mapping. The value of BatchSize can be between 1 and 10, and specifies the maximum number of messages that the Lambda function can receive in a single batch.
+If you need to process more than 10 messages at a time, you can use parallel processing in your Lambda function to process multiple batches of messages simultaneously. However, keep in mind that there are limits to the number of concurrent executions of a Lambda function, so you should design your architecture accordingly to ensure that you don't exceed those limits.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question634:"link"
+
+

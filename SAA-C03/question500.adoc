@@ -1,0 +1,120 @@
+---
+layout: default 
+title: "1300 - Your organization has an existing VPC in"
+---
+
+
+[.question]
+== 1300-64a1fb18f053625db51de041.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_kd6jqi.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization has an existing VPC in us-east-1 with two subnets in us-east-1b.
+They are running few EC2 instances each in both subnets and would need a low latency common File Store for all instances to share files for heavy workloads.
+They have created an EFS, mounted on all the EC2 instances, and share files across all the EC2 instances.
+You were tasked to increase the number of instances due to the increase in workload.
+You created a new subnet in us-east-1c and launched a few instances.
+When you tried to mount the previously created EFS on new EC2 instances, the operations fail.
+What could be the reason?
+
+
+[source,java]
+----
+Creating or Deleting Mount Targets in a VPC
+
+To access an Amazon EFS file system in a VPC, you need mount targets. For an Amazon EFS file system, the following is
+true:
+
+* You can create one mount target in each Availability Zone.
+
+¢ If the VPC has multiple subnets in an Availability Zone, you can create a mount target in only one of those
+subnets. All EC2 instances in the Availability Zone can share the single mount target.
+
+Note
+
+We recommend that you create a mount target in each of the Availability Zones. There are cost
+considerations for mounting a file system on an EC2 instance in an Availability Zone through a mount
+target created in another Availability Zone. For more information, see Amazon EFS. In addition, by always
+using a mount target local to the instance's Availability Zone, you eliminate a partial failure scenario. If the
+mount target's zone goes down, you can't access your file system through that mount target.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. AWS EFS does not support cross availability zone mounting.
+* [ ] B. By default, EFS is only available in one availability zone. Create a case with AWS support to increase EFS availability zones.
+* [ ] C. EFS created with mount targets in an us-east-1b availability zone. Instances in us-east-1c cannot use the EFS mount target in us-east-1b.
+* [*] D. EFS mount target security group inbound rules do not allow traffic from new EC2 instances.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Amazon EFS provides scalable file storage for use with Amazon EC2
+You can create an EFS file system and configure your instances to mount the file system.
+You can use an EFS file system as a common data source for workloads and applications running on multiple instances.
+For options A, B, C, EFS mount targets from one availability zone can be mounted on another availability zone, although this approach is not recommended.
+However, this approach will not cause operations to fail.
+Creating or Deleting Mount Targets in a VPC.
+A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private Internet Protocol version 4 (IPv4) or Internet Protocol version 6 (IPv6) addresses.
+For more information on VPC peering, see What is VPC Peering? in the Amazon VPC Peering Guide.
+You can mount Amazon EFS file systems over VPC connections by using VPC peering within a single AWS Region when using the Amazon EC2 instance types T3, C5, C5d, I3.metal, M5, M5d, R5, R5d, and z1d.
+However, other VPC private connectivity mechanisms such as inter-region VPC peering and VPC peering within an AWS Region using other instance types are not supported.
+Note the following restrictions:
+You can mount an Amazon EFS file system on instances in only one VPC at a time.
+Both the file system and VPC must be in the same AWS Region.
+For option D, when using Amazon EFS, you specify Amazon EC2 security groups for the EFS mount targets associated with the file system.
+Security groups act as a firewall, and the rules you add define the traffic flow.
+You can authorize inbound and outbound access to your EFS file system.
+To do so, you add rules that allow your EC2 instance to connect to your Amazon EFS file system through the mount target using the Network File System (NFS) port.
+The reason for the failure of mounting the previously created EFS on new EC2 instances in the newly created subnet (us-east-1c) could be due to option C, which states that the EFS was created with mount targets in an us-east-1b availability zone. Instances in us-east-1c cannot use the EFS mount target in us-east-1b.
+Amazon Elastic File System (EFS) is a scalable and fully managed file storage service that provides an interface to create and manage file systems in the AWS Cloud. EFS is designed to provide shared file storage for multiple Amazon Elastic Compute Cloud (EC2) instances.
+When creating an EFS file system, it is important to note that EFS is designed for high availability and durability within a single availability zone (AZ) by default. To provide multi-AZ support, EFS uses a feature called "EFS Mount Targets," which creates a mount point for the EFS file system in each availability zone.
+In this scenario, the EFS was created with mount targets in an us-east-1b availability zone. This means that the EFS file system is only accessible by EC2 instances in the us-east-1b subnet. When new EC2 instances are launched in a different subnet, such as us-east-1c, they cannot access the EFS file system because there are no EFS mount targets available in us-east-1c.
+To resolve this issue, new EFS mount targets must be created in the us-east-1c availability zone, which can be done by following these steps:
+1. Open the Amazon EFS console.
+2. Choose the EFS file system that you want to add mount targets to.
+3. Choose the "Add Mount Targets" button.
+4. Select the VPC and the new subnet in which you want to add mount targets.
+5. Choose "Add Mount Targets."
+After creating new EFS mount targets in us-east-1c, EC2 instances in the us-east-1c subnet can now access the EFS file system.
+Option A is incorrect because EFS does support cross-AZ mounting through the use of EFS Mount Targets.
+Option B is incorrect because there is no need to create a case with AWS support to increase EFS availability zones. EFS availability zones are based on the availability zones of the VPC subnets in which EFS mount targets are created.
+Option D is incorrect because the EFS mount target security group inbound rules are not related to the ability of new EC2 instances to mount the EFS file system. If the inbound rules were not configured correctly, the EC2 instances would not be able to access the EFS mount target at all, but this is not the issue presented in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question596:"link"
+
+

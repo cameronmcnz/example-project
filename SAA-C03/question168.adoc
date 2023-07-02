@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "968 - Your current setup in AWS consists of th"
+---
+
+
+[.question]
+== 968-64a1fa76f053625db51ddeae.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_1izb7v.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your current setup in AWS consists of the following architecture: 2 public subnets, one subnet with web servers accessed by users across the Internet and another subnet for the database server.
+Which of the following changes to the architecture would add a better security boundary to the resources hosted in this setup?
+
+
+[source,java]
+----
+19051
+19851
+
+1985.
+
+10.00.0116
+
+Region
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Consider moving the web server to a private subnet.
+* [*] B. Create a private subnet and move the database server to a private subnet.
+* [*] C. Consider moving both the web and database servers to a private subnet.
+* [ ] D. Consider creating a private subnet and adding a NAT Instance to that subnet.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The ideal setup is to host the web server in the public subnet so that users on the Internet can access it.
+The database server can be hosted in the private subnet.
+The below diagram from AWS Documentation shows the set up:
+The current architecture has two public subnets, one containing web servers that are accessed by users across the internet and the other containing the database server. The architecture can be improved by adding a better security boundary to the resources hosted in this setup.
+Option A - Consider moving the web server to a private subnet. Moving the web server to a private subnet will help to increase the security of the web server by limiting access to the internet. The private subnet can be configured to allow access only from the necessary IP addresses or CIDR blocks. This will ensure that only authorized requests are allowed to the web server.
+Option B - Create a private subnet and move the database server to a private subnet. Creating a private subnet and moving the database server to it will provide a higher level of security for the database. This will help to reduce the risk of unauthorized access to the database server, as it will only be accessible from within the private subnet.
+Option C - Consider moving both the web and database servers to a private subnet. Moving both the web and database servers to a private subnet will provide a higher level of security for both servers. This will reduce the risk of unauthorized access to the web server and database server.
+Option D - Consider creating a private subnet and adding a NAT Instance to that subnet. Creating a private subnet and adding a NAT instance to it will provide access to the internet for resources within the private subnet. This option can be useful when resources within the private subnet need to access the internet, but the subnet needs to be protected from inbound traffic from the internet.
+In summary, options A, B, and C all add a better security boundary to the resources hosted in this setup, while option D provides a way for resources within a private subnet to access the internet while being protected from inbound traffic from the internet.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question189:"link"
+
+

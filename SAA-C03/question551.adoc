@@ -1,0 +1,128 @@
+---
+layout: default 
+title: "1351 - Which of the following statement is inco"
+---
+
+
+[.question]
+== 1351-64a1fb37f053625db51de090.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_8z3hm1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following statement is incorrect, provided there is an auto-scaling group setup using launch configuration, with a default termination policy for scale in?
+
+
+[source,java]
+----
+The following flow diagram illustrates how the default termination policy works.
+
+Select the Avalabilty Zones
+
+‘re there instances
+(eth the most instances
+
+‘i matipe Availabilty
+Zones?
+
+No
+
+Y
+
+Select the instances with the
+j«—____]
+
+‘oldest launch configuration
+
+fre there multiple
+instances using the oldest
+launch configuration?
+
+Yes
+
+Select the instances closest to
+the next billing hour
+
+‘re there multiple
+instances closest tothe
+next biling hour?
+
+Yes
+
+Y
+
+Select ninstance at andom
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Determine unprotected instances in the selected Availability Zone which uses the oldest launch configuration. If there is one such instance, terminate it.
+* [*] B. Determine unprotected instances in the selected Availability Zone use the newest launch configuration. If there is one such instance, terminate it.
+* [ ] C. If multiple instances use the oldest launch configuration, determine which unprotected instances are closest to the next billing hour and terminate it.
+* [ ] D. If there is more than one unprotected instance closest to the next billing hour, select one of the instances randomly.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option B is the only false statement, the rest of them are true statements.
+The default termination policy applies multiple termination criteria before selecting an instance to terminate.
+When Amazon EC2 Auto Scaling terminates instances, it first determines which Availability Zones have the most instances, and it finds at least one instance that is not protected from scale-in.
+Determine whether any of the instances eligible for termination use the oldest launch template or configuration:
+[For Auto Scaling groups that use a launch template]
+Determine whether any of the instances use the oldest launch template unless there are instances that use a launch configuration.
+Amazon EC2 Auto Scaling terminates instances that use a launch configuration before it terminates instances that use a launch template.
+[For Auto Scaling groups that use a launch configuration]
+Determine whether any of the instances use the oldest launch configuration.
+After applying the preceding criteria, if there are multiple unprotected instances to terminate, determine which instances are closest to the next billing hour.
+If there are multiple unprotected instances closest to the next billing hour, terminate one of these instances at random.
+Reference:
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html
+Auto Scaling group is a service provided by AWS which enables users to launch or terminate EC2 instances automatically based on pre-defined rules, in order to handle changes in demand for an application or service.
+When creating an Auto Scaling group, users can define a Launch Configuration, which defines the configuration of the instances launched by the Auto Scaling group. Additionally, users can define a Termination Policy, which specifies the order and criteria for selecting instances to terminate when scaling in.
+The provided options are all related to the default termination policy for scale in. The default termination policy selects instances for termination based on the criteria listed below:
+A. Determine unprotected instances in the selected Availability Zone which uses the oldest launch configuration. If there is one such instance, terminate it.
+This statement is correct. The default termination policy selects the unprotected instances in the selected Availability Zone which use the oldest launch configuration for termination.
+B. Determine unprotected instances in the selected Availability Zone use the newest launch configuration. If there is one such instance, terminate it.
+This statement is incorrect. The default termination policy selects the instances which use the oldest launch configuration for termination, not the newest.
+C. If multiple instances use the oldest launch configuration, determine which unprotected instances are closest to the next billing hour and terminate it.
+This statement is correct. If multiple instances use the oldest launch configuration, the default termination policy selects the unprotected instances which are closest to the next billing hour for termination.
+D. If there is more than one unprotected instance closest to the next billing hour, select one of the instances randomly.
+This statement is correct. If there is more than one unprotected instance closest to the next billing hour, the default termination policy selects one of the instances randomly for termination.
+In conclusion, the correct statement is A, while the incorrect statement is B. The default termination policy selects unprotected instances using the oldest launch configuration for termination, not the newest.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question675:"link"
+
+

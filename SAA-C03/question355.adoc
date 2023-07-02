@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1155 - You are working as an AWS consultant for"
+---
+
+
+[.question]
+== 1155-64a1facef053625db51ddf8f.
+
+
+****
+
+[.query]
+--
+You are working as an AWS consultant for a banking institute.
+They have deployed a digital wallet platform for clients using multiple EC2 instances in the us-east-1 region.
+The application establishes a secure encrypted connection between clients & EC2 instances for each transaction using custom TCP port 5810. Due to the increasing popularity of this digital wallet, they observe load on backend servers resulting in delay in transaction.
+For security purpose, all client IP address accessing this application should be preserved & logged.
+The technical team of the banking institution is looking for a solution that will address this delay & also proposed solution should be compatible with millions of transactions done simultaneously.
+Which of the following is a recommended option to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Network Load Balancers with SSL certificate. Configure TLS Listeners on this NLB with custom security policy consisting of protocols & ciphers.
+* [*] B. Use Network Load Balancers with SSL certificate. Configure TLS Listeners on this NLB with default security policy consisting of protocols & ciphers.
+* [*] C. Use Network Load Balancers with SSL certificate. Configure TLS Listeners on this NLB with default security policy consisting of protocols & TCP port 5810.
+* [ ] D. Use Network Load Balancers with SSL certificate. Configure TLS Listeners on this NLB with custom security policy consisting of protocols & TCP port 5810.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Network Load Balancer can terminate TLS connections instead of back end instance, reducing the load on this instance.
+With Network Load Balancers, millions of simultaneous sessions can be established with no impact on latency along with preserving client IP address.
+To negotiate TLS connections with clients, NLB uses a security policy that consists of protocols &amp; ciphers.
+Option A is incorrect as Network Load Balancers does not support a custom security policy.
+Option C is incorrect as Network Load Balancers should consist of security policies comprising of Protocols &amp; Ciphers.
+Option D is incorrect as Network Load Balancers do not support custom security policy, and security policies should comprise protocols &amp; ciphers.
+For more information on Security Policies for TLS termination on Network Load Balancers, refer to the following URL-
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html
+The recommended option to meet the requirement of reducing delays in transactions and preserving client IP address while logging is to use Network Load Balancers (NLB) with SSL certificate and configuring TLS Listeners on the NLB.
+Option A is the correct answer, as it includes configuring a custom security policy consisting of protocols and ciphers.
+Explanation: Network Load Balancers (NLBs) are designed to handle millions of simultaneous connections and provide high availability and low latency. By using NLBs, traffic can be distributed evenly among multiple EC2 instances, thus reducing the load on each instance and improving the overall performance of the application.
+To ensure security, SSL certificates can be used to establish a secure connection between clients and the NLB. This ensures that all communication between the client and the application is encrypted and secure.
+TLS (Transport Layer Security) Listeners can be configured on the NLB to accept incoming traffic on a specific port (in this case, TCP port 5810). By using a custom security policy consisting of protocols and ciphers, the NLB can ensure that only secure connections are established and can block any insecure connections.
+Preserving client IP address while logging is important for security and compliance purposes. By using NLBs with TCP protocol, client IP addresses can be preserved and logged, allowing the banking institution to track and monitor all transactions.
+Option A is the correct answer as it provides a custom security policy that can be tailored to the specific requirements of the banking institution, while still ensuring the highest level of security for all transactions. The other options do not provide custom security policies, and some options do not include TCP port 5810, which is required for this application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question417:"link"
+
+

@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "993 - A startup company has developed its onpr"
+---
+
+
+[.question]
+== 993-64a1df3eaa736d27b1db93cd.
+
+
+****
+
+[.query]
+--
+A startup company has developed its on-premises SAAS product using standard Kubernetes.
+Kubernetes has proved to be a success because of its feature of easily deploying, managing the worker nodes and managing containerized applications at scale.
+The R&D team also gained adequate Kubernetes experiences, including related tools like kubectl.
+Recently, the CTO of the company has proposed to migrate the whole product to the AWS platform.
+They need a managed service that runs Kubernetes on AWS without installing, operating, and maintaining their own Kubernetes control plane or nodes.
+How should they easily design the migration and manage Kubernetes with the least code modification?
+
+
+--
+
+[.list]
+--
+* [*] A. Provision and run Kubernetes on powerful EC2 instance types such as c5 to fully manage the Kubernetes deployment.
+* [*] B. Run Kubernetes in Amazon Elastic Kubernetes Service (EKS) without needing to provision or manage master instances.
+* [*] C. In Amazon ECR, store, encrypt, and manage container images for fast deployment. Manage and run Kubernetes clusters in Amazon Elastic Container Service (ECS).
+* [ ] D. Configure and run Kubernetes in AWS Elastic Container Registry without having to manage servers or clusters.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect because this option should be used when you want to manage Kubernetes by yourself fully.
+Option B is CORRECT because applications running on Amazon EKS are fully compatible with applications running on any standard Kubernetes environment, and can be easily migrated, whether running in on-premises datacenters or public clouds.
+With EKS, there is no need to refactor the code.
+According to https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html, Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
+Option C is incorrect because the appropriate service to manage and run Kubernetes should be EKS instead of ECS.
+Option D is incorrect because AWS ECR is a docker registry service.
+It is not the service to manage the Kubernetes services.
+The best option for the startup company to migrate their on-premises SAAS product to AWS with minimal code modifications is to use Amazon Elastic Kubernetes Service (EKS) - Option B.
+Amazon EKS is a managed Kubernetes service that makes it easy to run Kubernetes on AWS without needing to provision or manage master instances. With Amazon EKS, the startup can easily deploy, manage, and scale containerized applications using Kubernetes on AWS.
+Here are some benefits of using Amazon EKS:
+1.
+Easy to use: With Amazon EKS, the startup can easily deploy, manage, and scale containerized applications using Kubernetes on AWS. Amazon EKS automatically deploys the Kubernetes control plane across multiple availability zones to ensure high availability and scalability.
+2.
+Scalability: Amazon EKS can easily scale up or down based on the workload requirements. This means that the startup can easily add or remove worker nodes as required to meet the demands of their application.
+3.
+Security: Amazon EKS is designed to be secure by default. It integrates with AWS Identity and Access Management (IAM) for authentication and authorization and encrypts all data at rest and in transit.
+4.
+High Availability: Amazon EKS runs the Kubernetes control plane across multiple availability zones to ensure high availability and resilience.
+5.
+Cost-effective: With Amazon EKS, the startup only pays for the resources they use. They don't have to worry about the cost of maintaining and managing their own Kubernetes control plane or worker nodes.
+Option A (Provision and run Kubernetes on powerful EC2 instance types such as c5) requires the startup to manage the Kubernetes control plane and worker nodes themselves. This can be time-consuming and can take away resources from other important business operations.
+Option C (Store, encrypt, and manage container images for fast deployment in Amazon ECR and manage and run Kubernetes clusters in Amazon Elastic Container Service (ECS)) requires the startup to use Amazon ECS, which is not a true Kubernetes service. This could result in code modifications to their existing Kubernetes infrastructure and tools.
+Option D (Configure and run Kubernetes in AWS Elastic Container Registry without having to manage servers or clusters) is not a valid option as AWS Elastic Container Registry is a container registry and does not offer a managed Kubernetes service.
+In conclusion, Amazon EKS is the best option for the startup company to migrate their on-premises SAAS product to AWS with minimal code modifications.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question284:"link"
+
+

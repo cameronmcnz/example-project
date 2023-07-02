@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1064 - You work for a big company having multip"
+---
+
+
+[.question]
+== 1064-64a1fa9ef053625db51ddf1b.
+
+
+****
+
+[.query]
+--
+You work for a big company having multiple web applications that are very different from each other.
+These applications are built using different programming languages.
+How could you deploy these applications as quickly as possible?
+
+
+--
+
+[.list]
+--
+* [*] A. Develop all the apps in a single Docker container and deploy using Elastic Beanstalk.
+* [ ] B. Create a Lambda function deployment package consisting of code and any dependencies.
+* [*] C. Develop each app in a separate Docker container and deploy using Elastic Beanstalk.
+* [ ] D. Develop each app in separate Docker containers and deploy using CloudFormation.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Elastic Beanstalk supports the deployment of web applications from Docker containers.
+With Docker containers, you can define your own runtime environment.
+You can choose your own platform, programming language, and application dependencies (such as package managers or tools) that aren't supported by other platforms.
+Docker containers are self-contained and include all the configuration information and software your web application requires to run.
+Option A is incorrect because the requirement is to deploy multiple apps that are very different from each other and developed with different programming languages.
+Option B is ideally used for running code and not packaging the applications and dependencies.
+Option D is incorrect as Deploying Docker containers using CloudFormation is also not an ideal choice.
+For more information on Docker and Elastic Beanstalk, please visit the URL below.
+http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.html
+The best option for deploying multiple web applications that are very different from each other, and built using different programming languages, would be to develop each app in separate Docker containers and deploy using Elastic Beanstalk (option C). Here's why:
+1.
+Docker containers: Docker is a platform that enables developers to package an application and its dependencies into a container. Containers are lightweight and portable, making it easy to move them between different environments. Each application can be packaged in its own container, with all the necessary dependencies included, ensuring consistency across different environments.
+2.
+Elastic Beanstalk: Elastic Beanstalk is a fully managed service provided by AWS that simplifies the deployment of web applications. It provides an easy-to-use console to manage and deploy applications, including the ability to scale up or down as needed. Elastic Beanstalk supports Docker containers, making it an ideal choice for deploying applications packaged in Docker containers.
+3.
+Separate containers: Developing each application in a separate Docker container provides a number of advantages. Firstly, it enables each application to be deployed independently, without affecting other applications. Secondly, it allows for greater flexibility in terms of the underlying technology stack, enabling different programming languages, frameworks, and libraries to be used for each application. Finally, it ensures that each application is isolated from other applications, improving security and reducing the risk of conflicts.
+Option A (Develop all the apps in a single Docker container and deploy using Elastic Beanstalk) is not recommended as it would result in a monolithic container that would be difficult to manage and scale. Additionally, different applications may require different dependencies, making it difficult to manage in a single container.
+Option B (Create a Lambda function deployment package consisting of code and any dependencies) is not recommended as Lambda functions are designed for short-lived, event-driven applications. They may not be suitable for web applications that require persistent connections.
+Option D (Develop each app in separate Docker containers and deploy using CloudFormation) is also a valid option. However, Elastic Beanstalk provides a simpler, more streamlined approach to deploying and managing web applications. CloudFormation is better suited for complex infrastructures, such as those with multiple services and dependencies.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question301:"link"
+
+

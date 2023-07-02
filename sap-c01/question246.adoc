@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1046 - A user has configured an SSLsecure TCP l"
+---
+
+
+[.question]
+== 1046-64a1df50aa736d27b1db9412.
+
+
+****
+
+[.query]
+--
+A user has configured an SSL(secure TCP) listener at a Classic Load Balancer for the back-end instances.
+Which of the below mentioned statements helps the user understand ELB traffic handling with respect to the SSL listener?
+
+
+--
+
+[.list]
+--
+* [*] A. It is not possible to have the SSL listener both at ELB and back-end instances.
+* [ ] B. ELB will modify headers to add requestor details.
+* [ ] C. ELB will intercept the request to add the cookie details if sticky session is enabled.
+* [*] D. ELB will not modify the headers.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is invalid because if the front-end connection uses TCP or SSL, your back-end connections can use either TCP or SSL.
+If the front-end connection uses HTTP or HTTPS, then your back-end connections can use either HTTP or HTTPS.
+Option B is invalid because when you use TCP/SSL for both front-end and back-end connections, your load balancer forwards the request to the back-end instances without modifying the headers.
+Option C is invalid because with this configuration you do not receive cookies for session stickiness.
+But, when you use HTTP/HTTPS, you can enable sticky sessions on your load balancer.
+Option D is CORRECT because with SSL configuration the load balancer will forward the request to the back-end instances without modifying the headers.
+For more information on ELB, please visit the link:
+http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html
+The correct answer is D: ELB will not modify the headers.
+When a user configures an SSL listener at a Classic Load Balancer, the ELB acts as a pass-through for the SSL traffic, meaning the SSL traffic is terminated at the back-end instances rather than at the ELB. The SSL listener at the ELB is responsible for decrypting the SSL traffic and passing it along to the back-end instances in an unencrypted form.
+When the ELB passes traffic to the back-end instances, it does not modify any headers in the requests. This means that any headers that were present in the original request, such as user agent or referrer, will be passed through to the back-end instances unchanged.
+Furthermore, when sticky sessions are enabled, ELB will add a cookie to the request to ensure that subsequent requests from the same client are sent to the same back-end instance. This cookie is added as a separate header and does not modify any existing headers.
+To summarize, when an SSL listener is configured at a Classic Load Balancer, ELB acts as a pass-through for the SSL traffic and does not modify any headers in the requests. If sticky sessions are enabled, ELB adds a cookie as a separate header to the request to ensure that subsequent requests from the same client are sent to the same back-end instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question353:"link"
+
+

@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "1190 - A telecom company has installed radio de"
+---
+
+
+[.question]
+== 1190-64a1fae0f053625db51ddfb9.
+
+
+****
+
+[.query]
+--
+A telecom company has installed radio devices across the country.
+On a daily basis, they are looking to collect logs from these thousands of devices & analyze them further to monitor faults & uptime trends.
+For analysis of logs, they are planning to use Amazon Redshift.
+No additional processing needs to be done on these logs.
+The company is concerned about collecting data & sending compressed data to Amazon Redshift & is looking for a scalable solution without any ad-hoc administration. Which of the following services can be used to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an Amazon Kinesis Streams, save compressed data in Amazon EC2 and then copy data to Amazon Redshift.
+* [*] B. Create an Amazon Kinesis Data Firehose Delivery Stream, save compressed data in the Amazon S3 bucket and then copy data to Amazon Redshift.
+* [*] C. Create an Amazon Kinesis Data Firehose Delivery Stream, save compressed data in Amazon EC2 and then copy data to Amazon Redshift.
+* [ ] D. Create an Amazon Kinesis Streams, save compressed data in the Amazon S3 bucket and then copy data to Amazon Redshift.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Amazon Kinesis Data Firehose can be used to deliver data from thousands of sources to AWS service for further analysis.
+In the above case, the telecom company will use Amazon Redshift as an analytical service, so Amazon Kinesis Data Firehose Delivery Stream can be created to collect logs from thousands of radio devices.
+Amazon Kinesis Data Firehose cannot directly send data logs to Amazon Redshift but needs to first store in the Amazon S3 bucket &amp; then it copies data to Amazon Redshift.
+Amazon Kinesis Data Firehose is used when real-time streaming data is required to be delivered to destinations like Amazon S3 bucket, Amazon Redshift, Amazon OpenSearch (Amazon ES), and AWS Splunk.
+While delivering data to destinations, it supports the transformation of data like compression, batch, or encryption.
+Amazon Kinesis Data Firehose stores data only up to 24 hours if the destination is unavailable.
+Options A and D are incorrect as the telecom company is not looking for additional processing or storing logs as all these logs would be generated daily.
+Creating Amazon Kinesis Data Firehose Delivery Stream is a better option than using Amazon Kinesis Streams.
+Option C is incorrect as Amazon Kinesis Data Firehose cannot save data to the Amazon EC2 instance.
+For more information on Amazon Kinesis Data Firehose, refer to the following URL-
+https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html https://docs.aws.amazon.com/firehose/latest/dev/create-destination.html
+Option B - Create an Amazon Kinesis Data Firehose Delivery Stream, save compressed data in the Amazon S3 bucket and then copy data to Amazon Redshift is the correct answer for the given requirements.
+Explanation: Amazon Kinesis Data Firehose is a fully managed service for delivering real-time streaming data to destinations such as Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and Splunk. It can capture, transform, and load streaming data into data stores or analytics tools, without requiring you to write any custom applications.
+In this scenario, the telecom company has thousands of devices generating logs on a daily basis. They want to collect these logs and analyze them further to monitor faults and uptime trends. Amazon Redshift is the chosen data store for storing and analyzing the logs.
+To send these logs to Amazon Redshift, we need a scalable, reliable, and low-maintenance solution. Amazon Kinesis Data Firehose fits the requirement. We can create a delivery stream in Amazon Kinesis Data Firehose, which acts as a pipeline that ingests and delivers the data to the destination.
+The steps involved in using Amazon Kinesis Data Firehose for this scenario are:
+1. Create a delivery stream in Amazon Kinesis Data Firehose.
+2. Choose Amazon S3 as the delivery destination, where the logs will be temporarily stored before being copied to Amazon Redshift.
+3. Enable compression in the delivery stream to reduce the size of the data being stored in Amazon S3.
+4. Configure the delivery stream to copy the compressed logs from Amazon S3 to Amazon Redshift.
+Using Amazon Kinesis Data Firehose for this scenario has several advantages:
+1. Scalability - Amazon Kinesis Data Firehose is highly scalable and can handle thousands of devices generating logs on a daily basis.
+2. Reliability - Amazon Kinesis Data Firehose automatically retries failed deliveries, and provides monitoring and alerting for errors.
+3. Low-maintenance - Amazon Kinesis Data Firehose is a fully managed service that eliminates the need for ad-hoc administration.
+Option A - Create an Amazon Kinesis Streams, save compressed data in Amazon EC2, and then copy data to Amazon Redshift, is not the best choice because it requires additional administration and is more complex compared to Amazon Kinesis Data Firehose.
+Option C - Create an Amazon Kinesis Data Firehose Delivery Stream, save compressed data in Amazon EC2, and then copy data to Amazon Redshift, is not the best choice because it is unnecessary to store the data in Amazon EC2 before copying it to Amazon Redshift.
+Option D - Create an Amazon Kinesis Streams, save compressed data in the Amazon S3 bucket, and then copy data to Amazon Redshift, is not the best choice because it requires additional processing using Amazon Kinesis Streams before copying the data to Amazon Redshift, which is not required in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question459:"link"
+
+

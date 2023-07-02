@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1083 - Which of the following is an example of "
+---
+
+
+[.question]
+== 1083-64a1df5eaa736d27b1db944d.
+
+
+****
+
+[.query]
+--
+Which of the following is an example of a good Amazon DynamoDB hash key schema for provisioned throughput efficiency?
+
+
+--
+
+[.list]
+--
+* [*] A. Student ID where every student has a unique I.
+* [ ] B. College ID where there are two colleges in the university.
+* [ ] C. Class ID where every student is in one of the four classes.
+* [ ] D. Tuition Plan where the vast majority of students are in state and the rest are out of state.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because DynamoDB stores and retrieves each item based on the primary key (hash key) value which must be unique.
+Every student would surely have a Student ID.
+Hence, the data would be partitioned for each ID, which will make the data retrieval efficient.
+Option B is incorrect because the data should spread evenly across all partitions for the best throughput.
+With only two colleges, there would be only two partitions.
+This will not be as efficient as making Student ID the hash key.
+Option C is incorrect because partitioning on the Class ID will not be as efficient as doing so on the Student ID.Option D is incorrect because there are only two possible options: in-state and out-of-state.
+This will not be as efficient as making Student ID the hash key.
+For more information on DynamoDB tables, please visit the URL:
+http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html
+To answer this question, we need to understand how Amazon DynamoDB works and how it handles throughput. Amazon DynamoDB is a NoSQL database that provides consistent, single-digit millisecond latency at any scale. When designing a DynamoDB table, the choice of the partition key or hash key can significantly impact the performance and cost efficiency of the system.
+In DynamoDB, data is partitioned across multiple physical storage partitions based on the partition key. Each partition has a maximum throughput limit, which is measured in read and write capacity units (RCUs and WCUs). To achieve optimal performance, it is essential to choose a hash key schema that evenly distributes the data across the partitions and minimizes hot partitions (partitions that receive significantly more requests than others).
+Now let's examine each of the options given in the question:
+A. Student ID where every student has a unique I. This is a good choice for a hash key as it is unique and evenly distributes the data across the partitions, minimizing the risk of hot partitions.
+B. College ID where there are two colleges in the university. This is not a good choice for a hash key, as it will result in only two partitions, and one partition will be much more active than the other, leading to a hot partition.
+C. Class ID where every student is in one of the four classes. This is not a good choice for a hash key, as it will result in only four partitions, and one partition will be much more active than the others, leading to a hot partition.
+D. Tuition Plan where the vast majority of students are in-state and the rest are out of state. This is not a good choice for a hash key, as it will result in only two partitions, and one partition will be much more active than the other, leading to a hot partition.
+Therefore, the correct answer is A. Student ID where every student has a unique ID, as it is unique and evenly distributes the data across the partitions, minimizing the risk of hot partitions, and therefore ensuring provisioned throughput efficiency.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question412:"link"
+
+

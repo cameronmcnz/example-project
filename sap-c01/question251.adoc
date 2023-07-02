@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1051 - An organization Account ID 123412341234
+"
+---
+
+
+[.question]
+== 1051-64a1df52aa736d27b1db941b.
+
+
+****
+
+[.query]
+--
+An organization (Account ID 123412341234)
+has attached the below-mentioned IAM policy to a user.
+What does this policy statement entitle the user to perform?
+
+
+--
+
+[.list]
+--
+* [*] A. The policy allows the IAM user to modify all IAM user’s credentials using the console, SDK, CLI, or APIs.
+* [ ] B. The policy will give an invalid resource error.
+* [ ] C. The policy allows the IAM user to modify all credentials using only the console.
+* [*] D. The policy allows the user to modify the IAM user’s password, signing certificates and access keys only.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+First, to give a user a certain set of policies, you need to mention the following line.
+The aws:username will apply to the AWS logged in user.
+Resource": "arn:aws:iam::account-id-without-hyphens:user/${aws:username}
+Next, the policies will give the permissions to modify the IAM user's password, sign in certificates, and access keys.
+“iam:*LoginProfile”,
+“iam:*AccessKey*”,
+“iam:*SigningCertificate*”
+For information on IAM security policies, please visit the link:
+http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+The IAM policy statement attached to the user in question is not provided in the question. Without the policy statement, it is not possible to determine what actions the user is entitled to perform.
+However, if we assume that the policy statement is provided and looks like the following:
+jsonCopy code{     "Version": "2012-10-17",     "Statement": [         {             "Effect": "Allow",             "Action": [                 "iam:ChangePassword",                 "iam:CreateLoginProfile",                 "iam:DeleteLoginProfile",                 "iam:GetLoginProfile",                 "iam:ListMFADevices",                 "iam:CreateVirtualMFADevice",                 "iam:DeleteVirtualMFADevice",                 "iam:EnableMFADevice",                 "iam:ResyncMFADevice",                 "iam:UpdateLoginProfile"             ],             "Resource": "*"         }     ] } 
+Then, the policy statement allows the user to perform certain IAM actions related to password and multi-factor authentication (MFA) management. These actions include changing the password, creating, deleting, and getting login profiles, listing and creating virtual MFA devices, enabling and resyncing MFA devices, and updating login profiles.
+However, the user is not allowed to modify all IAM user credentials using the console, SDK, CLI, or APIs as option A suggests. Similarly, option B is incorrect as it implies that the policy statement is invalid, which is not the case. Option C is incorrect as it limits the actions to only be performed through the console, while the policy statement includes actions that can be performed using the CLI and APIs as well. Therefore, option D is the closest to the correct answer, but it is important to note that the policy statement also allows the user to manage virtual MFA devices.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question362:"link"
+
+

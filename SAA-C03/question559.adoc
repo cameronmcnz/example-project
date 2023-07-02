@@ -1,0 +1,110 @@
+---
+layout: default 
+title: "1359 - You have a web application hosted on AWS"
+---
+
+
+[.question]
+== 1359-64a1fb3bf053625db51de09a.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_qys7iv.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have a web application hosted on AWS VPC with a single EC2 instance with Auto Scaling enabled.
+You have also assigned elastic IP address to the EC2 instance.
+When you access the elastic IP address, you are able to successfully connect to your web application.
+You decided to route requests to your application from a custom domain through Route 53
+You have performed the setup on Route 53
+However, when you access your custom domain name from internet, you get “Server Not Found” error.
+Which of the following could be a reason?
+
+
+[source,java]
+----
+My browser displays a "Server not found" error
+
+If your browser displays a "Server not found” error when you try to browse to a domain (example.com) or a subdomain (www.example.com), here are some common explanations.
+Topics
+
+* You didn't create a record for the domain or subdomain name
+* You created a record but specified the wrong value
+
+* The resource that you're routing traffic to is unavailable
+
+You didn't create a record for the domain or subdomain name
+
+If you don't create a record for the domain or subdom
+with Records.
+
+| then DNS doesn't know where to route traffic when someone enters that name in a browser. For more information, see Working
+
+You created a record but specified the wrong value
+
+When you create a record, it's easy to specify the wrong value, such as the IP address for a web server or the domain name that CloudFront assigned to your web dis
+exists but you're still getting a "Server not found” error, we recommend that you confirm that the value is correct.
+
+The resource that you're routing traffic to is unavailable
+
+If a record specifies a resource such as a web server that's unavailable, a browser will return a "Server not found” error. We recommend that you check the status of the resource that you're
+routing traffic to.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Route 53 service is for internal application routing. It does not support routing traffic from internet.
+* [ ] B. You must configure elastic load balancer in order to use Route 53 for web application hosting.
+* [*] C. IP address configured in Route 53 DNS record set might be incorrect.
+* [ ] D. The resource on EC2 instance that you`re routing traffic to is unavailable.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Option A and B are not valid statements.
+Option C is correct.
+Although option D looks correct, the question states the connection to web application was successful when connected through elastic IP address.
+So this option is not the cause of failure.
+The correct answer is C. IP address configured in Route 53 DNS record set might be incorrect.
+Explanation:
+When you access your web application through the elastic IP address, you are directly accessing the EC2 instance. However, when you want to access it through a custom domain name using Route 53, you need to configure a DNS record set in Route 53 that points to the elastic IP address of your EC2 instance.
+If the IP address configured in the DNS record set is incorrect or invalid, you will not be able to access your web application using the custom domain name. This could be the reason why you are getting the “Server Not Found” error.
+Option A is incorrect as Route 53 is a public DNS service provided by AWS and can be used to route traffic from the internet to your application running in a VPC.
+Option B is also incorrect because you can use Route 53 to route traffic to a single EC2 instance with an Elastic IP address without using an Elastic Load Balancer.
+Option D is also a possibility, but before checking the resource on EC2 instance, you should verify the DNS configuration in Route 53. If the DNS configuration is correct, then you can check the resource on the EC2 instance to see if it is available or not.
+In conclusion, the most likely reason for the "Server Not Found" error is an incorrect IP address configured in the DNS record set in Route 53.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question685:"link"
+
+

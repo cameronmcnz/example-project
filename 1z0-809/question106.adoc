@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "906 - Given
+Which two code fragments when inse"
+---
+
+
+[.question]
+== 906-64a1a860ef3e8462333a9ca0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0009800001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which two code fragments, when inserted at line n1 independently, enable the code to print TruckCarBike?
+
+
+[source,java]
+----
+public class Vehicle {
+int vid;
+String vName;
+public Vehicle(int vIdarg, String
+this.vId = vIdargs
+this.vName = vNameArg;
+}
+public int getvid() { return vid;
+public string getvName() { return
+public String toString() {
+return vName;
+,
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. .sorted ((v1, v2) -> v1.getVId() < v2.getVId())
+* [ ] B. .sorted (Comparable.comparing (Vehicle: :getVName)).reversed ()
+* [ ] C. .map (v -> v.getVid()) .sorted ()
+* [*] D. .sorted((v1, v2) -> Integer.compare(v1.getVId(), v2.getVid()))
+* [*] E. .sorted(Comparator.comparing ((Vehicle v) -> v.getVId()))
+
+--
+****
+
+[.answer]
+DE
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

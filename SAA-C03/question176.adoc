@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "976 - You have an application hosted in EC2
+Th"
+---
+
+
+[.question]
+== 976-64a1fa79f053625db51ddeb7.
+
+
+****
+
+[.query]
+--
+You have an application hosted in EC2
+This application is accessed by users in different countries and needs high performance.
+The application also needs static IPs that should not be changed.
+What service could be used to achieve these requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Global Accelerator.
+* [ ] B. Place an ALB before the instances and assign the ALB a public IP.
+* [*] C. AWS CloudFront.
+* [ ] D. AWS Direct Connect.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is CORRECT.
+AWS Global Accelerator provides two static IPs as endpoints.
+AWS Global Accelerator also improves the application's performance by directing traffic to endpoints over the AWS global network.
+More details:
+https://aws.amazon.com/global-accelerator/faqs/
+Option B is incorrect.
+ALB cannot provide static IPs for the application.
+Option C is incorrect.
+AWS CloudFront does not provide static IPs for the application.
+Option D is incorrect.
+AWS Direct Connect is used to provide a private network connection from the On-Premise datacenter to AWS.
+It does not improve the performance of the application hosted in EC2.
+Option A: AWS Global Accelerator AWS Global Accelerator is a service that is designed to improve the availability and performance of applications for local and global users. It works by routing traffic to optimal AWS endpoints based on geographic proximity, health, and routing policies. It can also provide a static IP address that is mapped to multiple AWS resources, including EC2 instances, AWS Elastic IP addresses, and ALBs. Therefore, this option could be a viable solution for meeting the requirements of high performance and static IPs.
+Option B: Place an ALB before the instances and assign the ALB a public IP Amazon Elastic Load Balancing (ELB) is a service that distributes incoming traffic across multiple EC2 instances. By placing an Application Load Balancer (ALB) in front of the instances and assigning it a public IP, traffic can be load-balanced across the instances to improve performance. However, this option does not provide static IPs, and the IP address of the ALB could change over time.
+Option C: AWS CloudFront AWS CloudFront is a content delivery network (CDN) service that delivers content, including webpages, videos, and images, to users around the world with low latency and high data transfer speeds. It can also provide static IP addresses for the distribution, which could meet the requirement for static IPs. However, this option may not be the best fit for an application that requires dynamic content, as it is more geared towards static content delivery.
+Option D: AWS Direct Connect AWS Direct Connect is a service that enables customers to establish a dedicated network connection from their premises to AWS. This can improve performance by providing a dedicated network connection with lower latency and higher bandwidth. However, this option does not provide static IPs and may not be necessary for an application hosted entirely in EC2.
+Based on the requirements specified in the question, Option A (AWS Global Accelerator) seems to be the best fit, as it can provide both high performance and static IPs that should not be changed. However, it is always important to consider other factors such as cost, complexity, and security when selecting a solution.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question198:"link"
+
+

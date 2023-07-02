@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1079 - Which of the following types of servers "
+---
+
+
+[.question]
+== 1079-64a1df5daa736d27b1db9449.
+
+
+****
+
+[.query]
+--
+Which of the following types of servers would this CloudFormation template be most appropriate for? Choose a correct answer from the below options.
+
+
+--
+
+[.list]
+--
+* [*] A. Domain Controller
+* [ ] B. Log collection server
+* [ ] C. Database server
+* [*] D. Bastion host.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The bastion host needs a minimum configuration and a public IP address.
+The above CloudFormation template best fits this.
+For more information on CloudFormation, please visit the below link-
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html
+To answer this question, we would need to see the CloudFormation template in question. However, given the options provided, we can make an educated guess based on the requirements of each server type.
+A. Domain Controller: A domain controller is typically used in a Microsoft Windows environment to manage user access and permissions. A CloudFormation template for this server would likely include the installation of Active Directory, DNS, and other related services. As such, it would require a Windows Server instance and associated licensing.
+B. Log collection server: A log collection server is used to collect and store log data from various sources for analysis and troubleshooting purposes. A CloudFormation template for this server would likely include the installation of a log collection tool such as Logstash or Fluentd, and the necessary configuration to collect and forward logs to a central repository such as Elasticsearch or Splunk. As such, it could be run on either Windows or Linux instances, depending on the log collection tool being used.
+C. Database server: A database server is used to store and manage data for an application or system. A CloudFormation template for this server would likely include the installation of a database management system such as Microsoft SQL Server, Oracle, or MySQL, and the necessary configuration to create and manage databases and users. As such, it would require either a Windows or Linux instance, depending on the database management system being used.
+D. Bastion host: A bastion host is used as a secure entry point into a private network, typically for administrative purposes. A CloudFormation template for this server would likely include the installation of an SSH or RDP server, and the necessary security group rules to restrict access to authorized users. As such, it could be run on either Windows or Linux instances, depending on the protocol being used.
+Based on the above descriptions, it is difficult to determine which type of server the CloudFormation template is most appropriate for without seeing the template itself. However, we can make some assumptions based on the typical requirements for each server type.
+If the CloudFormation template includes the installation of Active Directory and related services, it is likely most appropriate for a Domain Controller.
+If the CloudFormation template includes the installation of a log collection tool, it could be appropriate for a Log collection server.
+If the CloudFormation template includes the installation of a database management system, it is likely most appropriate for a Database server.
+If the CloudFormation template includes the installation of an SSH or RDP server, it could be appropriate for a Bastion host.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question408:"link"
+
+

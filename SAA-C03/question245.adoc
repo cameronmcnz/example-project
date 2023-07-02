@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1045 - Your company uses an S3 bucket to store "
+---
+
+
+[.question]
+== 1045-64a1fa96f053625db51ddf07.
+
+
+****
+
+[.query]
+--
+Your company uses an S3 bucket to store data for an application.
+Sometimes the team also downloads the S3 files for further analysis.
+As the data is very important, you need to protect against accidental deletions initiated by someone or an application and restore the files when needed.
+Which of the following options is appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable the versioning feature in the S3 bucket.
+* [ ] B. Modify the S3 bucket to be read-only.
+* [*] C. Use an S3 Lifecycle policy to transfer objects to a lower cost storage.
+* [ ] D. Enable the Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS).
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is CORRECT: The versioning feature in Amazon S3 helps retain prior versions of objects stored in S3
+Even if the current version is deleted accidentally, the data can still be recovered from the previous version.
+Check the reference here https://d1.awsstatic.com/whitepapers/aws-building-fault-tolerant-applications.pdf.
+Option B is incorrect: The application may still need to write data in the S3 bucket.
+So the option is not appropriate.
+Option C is incorrect: This method helps to save costs but not protect the data.
+Option D is incorrect: Because the Server-Side Encryption cannot protect against accidental deletions.
+The appropriate option for protecting against accidental deletions and restoring files when needed is to enable the versioning feature in the S3 bucket.
+Option A: Enable the versioning feature in the S3 bucket. When versioning is enabled, S3 automatically creates a new version of an object every time it is updated or deleted. This means that even if an object is deleted or overwritten, the previous version(s) will still be available, and they can be restored at any time. Versioning can also help protect against data corruption or accidental overwriting of data.
+Option B: Modify the S3 bucket to be read-only. Making the bucket read-only means that no one will be able to write or delete objects from the bucket, which would protect against accidental deletions. However, it would also prevent the team from downloading the S3 files for further analysis, which is not desirable.
+Option C: Use an S3 Lifecycle policy to transfer objects to a lower cost storage. This option is not relevant for protecting against accidental deletions or restoring files. S3 Lifecycle policies are used to automatically transition objects to a lower cost storage class or delete them after a certain period of time.
+Option D: Enable the Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS). Enabling SSE-KMS would encrypt the data at rest and protect it from unauthorized access, but it does not provide protection against accidental deletions or overwrite.
+Therefore, option A is the appropriate option for protecting against accidental deletions and restoring files when needed.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question281:"link"
+
+

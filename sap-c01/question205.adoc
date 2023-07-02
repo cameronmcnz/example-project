@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1005 - Someone on your team configured a Virtua"
+---
+
+
+[.question]
+== 1005-64a1df42aa736d27b1db93dc.
+
+
+****
+
+[.query]
+--
+Someone on your team configured a Virtual Private Cloud with two public subnets in two separate AZs and two private subnets in two separate AZs.
+Each public subnet AZ has a matching private subnet AZ.
+The VPC and its subnets are properly configured.
+There are multiple webserver instances in the private subnet.
+You are told to set up a public-facing Elastic Load Balancer in the public subnets to accept requests from clients and distribute those requests to the webserver instances.
+How can you set this up?
+
+
+--
+
+[.list]
+--
+* [*] A. Select both of the private subnets which contain the webserver instances when configuring the EL.
+* [ ] B. Move the webserver instances from the public subnets to the private subnets and then configure the ELB with those subnets.
+* [*] C. Select both of the public subnets when configuring the EL.
+* [ ] D. You can`t. The ELB must be in the same private subnets as the webserver instances.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because you need to set up the internet-facing load balancer.
+So the public subnets need to be associated.
+Option B is incorrect because web servers need to remain in the private subnets.
+There is no need to shifting them to the public subnet.
+Option C is CORRECT because you need to associate the public subnets with the internet-facing load balancer.
+You would also need to ensure that the security group of the load balancer has the listener ports open and the security groups of the private instances allow traffic on the listener ports and the health check ports.
+Option D is incorrect because you can configure the internet-facing load balancer with the public subnet.
+For more information on the AWS ELB, please refer to the below links.
+https://aws.amazon.com/premiumsupport/knowledge-center/public-load-balancer-private-ec2/ https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/
+To set up a public-facing Elastic Load Balancer (ELB) in the public subnets to accept requests from clients and distribute those requests to the webserver instances in the private subnets, we need to follow the steps below:
+1. Create an Elastic Load Balancer
+Navigate to the EC2 console, click on "Load Balancers" under the "Load Balancing" category.
+Click on "Create Load Balancer" and select "Application Load Balancer" or "Network Load Balancer" depending on your needs.
+Configure the ELB by selecting the VPC and then selecting the two public subnets in different AZs where you want to place the ELB.
+Add the required security groups to allow incoming traffic on the ELB.
+1. Configure the Target Group
+Create a new target group and select the same VPC as the ELB.
+Choose the protocol and port that your webserver instances use to communicate with each other.
+Select the two private subnets in different AZs where the webserver instances are running.
+1. Register the Instances
+Register the webserver instances with the target group by adding their IP addresses or instance IDs.
+Once the above steps are complete, the ELB will accept incoming requests and distribute them to the registered webserver instances in the private subnets. Clients can access the web applications through the ELB's public DNS name or IP address.
+Answer: C. Select both of the public subnets when configuring the EL.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question299:"link"
+
+

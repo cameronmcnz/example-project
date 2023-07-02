@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "940 - An International company has deployed a "
+---
+
+
+[.question]
+== 940-64a1df29aa736d27b1db9375.
+
+
+****
+
+[.query]
+--
+An International company has deployed a multi-tier web application with DynamoDB in a single region.
+For regulatory reasons, they need disaster recovery capabilities in a separate region with a Recovery Time Objective of 5 hours and a Recovery Point Objective 24 hours.
+They should synchronize their data regularly and be able to provision the web application rapidly using CloudFormation.
+The objective is to minimize changes to the existing web application and replicate data for the DynamoDB table efficiently between two regions.
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Data Pipeline to schedule a DynamoDB Cross-Region copy once a day and create a “Last updated” attribute in your DynamoDB table representing the timestamp of the last update and use it as a filter.
+* [ ] B. Use EMR and write a custom script to retrieve data from DynamoDB in the current region using a SCAN operation and push it to DynamoDB in the second region.
+* [*] C. Configure DynamoDB global tables for deploying the multi-active database in two AWS Regions.
+* [ ] D. Send each item into an SQS queue in the second region; use an auto-scaling group behind the SQS queue to replay the write in the second region.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is INCORRECT because you need to use AWS Data Pipeline to export data from DynamoDB table to a file in an Amazon S3 bucket and then import data from Amazon S3 into another DynamoDB table in the second region.
+However, DynamoDB global tables can automatically synchronize data between two regions.
+Option B is INCORRECT because you have to build your own logic to replicate data.
+This is not the most efficient way.
+Option C is CORRECT because DynamoDB global tables provide a fully managed solution to synchronize data for DynamoDB.
+Users do not need to build their own replication solution.
+This is the most efficient method.
+Option D is INCORRECT because this method does not explain how to replicate data for the DynamoDB table.
+Please check the below link to know more about DynamoDB Global Tables.
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html
+The scenario presented in the question requires a disaster recovery solution with a Recovery Time Objective (RTO) of 5 hours and a Recovery Point Objective (RPO) of 24 hours for a multi-tier web application with DynamoDB in a single region. The company needs to synchronize data regularly and provision the web application quickly using CloudFormation. The solution should minimize changes to the existing web application and replicate data efficiently between the two regions.
+Option A: Use AWS Data Pipeline to schedule a DynamoDB Cross-Region copy once a day and create a “Last updated” attribute in your DynamoDB table representing the timestamp of the last update and use it as a filter.
+This solution suggests using AWS Data Pipeline to schedule a copy of the DynamoDB table to a different region once a day. It also recommends creating a "Last updated" attribute in the table to keep track of the last update timestamp and use it as a filter. However, this solution doesn't meet the RTO and RPO requirements specified in the scenario since the data would be copied only once a day, and the RTO is set to 5 hours.
+Option B: Use EMR and write a custom script to retrieve data from DynamoDB in the current region using a SCAN operation and push it to DynamoDB in the second region.
+This solution suggests using Elastic MapReduce (EMR) to write a custom script that retrieves data from DynamoDB using a SCAN operation in the current region and pushes it to DynamoDB in the second region. This solution does not meet the RTO requirement since the data synchronization is not real-time, and it only meets the RPO requirement of 24 hours. Additionally, using the SCAN operation can be inefficient and expensive, especially for large datasets.
+Option C: Configure DynamoDB global tables for deploying the multi-active database in two AWS Regions.
+This solution suggests using DynamoDB Global Tables, which enables automatic, real-time, and bi-directional replication of data across multiple regions. This option meets both the RTO and RPO requirements and can provision the web application quickly using CloudFormation. Additionally, Global Tables minimize changes to the existing web application since they don't require any code changes.
+Option D: Send each item into an SQS queue in the second region; use an auto-scaling group behind the SQS queue to replay the write in the second region.
+This solution suggests using Amazon Simple Queue Service (SQS) to send each item to a queue in the second region, and then using an auto-scaling group to replay the writes in the second region. While this option meets the RTO requirement since the data synchronization is real-time, it does not meet the RPO requirement since it may take longer than 24 hours to replay all the writes. Additionally, this solution may require significant modifications to the existing web application to implement the queuing mechanism.
+In conclusion, Option C (Configure DynamoDB global tables for deploying the multi-active database in two AWS Regions) is the best solution since it meets both the RTO and RPO requirements and can provision the web application quickly using CloudFormation. Global Tables also minimize changes to the existing web application since they don't require any code changes.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question195:"link"
+
+

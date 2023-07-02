@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "936 - An IoT company has a new product which i"
+---
+
+
+[.question]
+== 936-64a1df27aa736d27b1db936f.
+
+
+****
+
+[.query]
+--
+An IoT company has a new product which is a camera device.
+The device has installed several sensors and can record video as required.
+The device has AWS Kinesis Video Streams SDK in the software and can transmit recorded video in real-time to AWS Kinesis.
+Then the end-users can use a desktop or web client to view, download, or share the video stream.
+The client app should be simple and use a third-party player such as Google Shaka Player to display the video stream from Kinesis.
+How should the client app be designed?
+
+
+--
+
+[.list]
+--
+* [*] A. The client can use HTTP Live Streaming (HLS) for live playback. Use GetMedia API to process and play Kinesis video streams.
+* [*] B. The client can use HLS for live playback. Use GetHLSStreamingSessionURL API to retrieve the HLS streaming session URL, then provide the URL to the video player.
+* [*] C. The client can use Adobe HTTP Dynamic Streaming (HDS) for live playback. Use GetHDSStreamingSessionURL API to retrieve the HDS streaming session URL, then provide the URL to the video player.
+* [ ] D. The client can use Microsoft Smooth Streaming (MSS) for live playback. Use GetMSSStreaming API to retrieve the MSS streaming to the video player.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The most straightforward way to view or live playback the video in Kinesis Video Streams is by using HLS.
+Option A is incorrect: Because although GetMedia API may work, it is not as simple as HLS.
+You may have to create a player that uses GetMedia and build it yourself.
+However, in this case, a third-party player is needed.
+Reference is in https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-hls.html#how-hls-ex1-session.
+Option B is CORRECT: Because GetHLSStreamingSessionURL API is required for third-party players to play the HLS streams.
+Option C is incorrect: Because HTTP Live Streaming (HLS) should be used to playback the Kinesis Video Streams.
+Option D is incorrect: Same reason as Option.
+C.
+The correct answer to this question is B. The client can use HLS for live playback. Use GetHLSStreamingSessionURL API to retrieve the HLS streaming session URL, then provide the URL to the video player.
+The given scenario involves an IoT device that records video and sends it to AWS Kinesis Video Streams in real-time. The end-users can use a simple desktop or web client to view, download or share the video stream. The client app should use a third-party player such as Google Shaka Player to display the video stream from Kinesis.
+HTTP Live Streaming (HLS) is a protocol that allows streaming of live or pre-recorded multimedia content over HTTP. It is widely used for video streaming and is supported by many platforms, including web browsers and mobile devices. The client app can use HLS for live playback of the video stream from Kinesis.
+The GetHLSStreamingSessionURL API is used to retrieve the HLS streaming session URL for a Kinesis video stream. This API returns a signed URL that is valid for a limited time period. The client app can use this URL to access the HLS stream from Kinesis.
+Adobe HTTP Dynamic Streaming (HDS) and Microsoft Smooth Streaming (MSS) are also protocols for streaming video content over HTTP. However, these protocols are not supported by all platforms and may require additional software or plugins to be installed on the client device. Therefore, using HLS is a better option for maximum compatibility and ease of use.
+In summary, the client app should be designed to use HLS for live playback and should use the GetHLSStreamingSessionURL API to retrieve the HLS streaming session URL from Kinesis Video Streams. The URL should then be provided to the third-party video player for display.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question189:"link"
+
+

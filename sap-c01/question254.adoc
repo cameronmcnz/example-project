@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1054 - While managing your instances in the cur"
+---
+
+
+[.question]
+== 1054-64a1df53aa736d27b1db9421.
+
+
+****
+
+[.query]
+--
+While managing your instances in the current OpsWorks stack, you suddenly started getting the following error.
+
+
+--
+
+[.list]
+--
+* [*] A. Check the IAM role which was attached to the instance.
+* [ ] B. Check if the EC2 instances were manually added to the EL.
+* [ ] C. Check if the stack is configured properly.
+* [ ] D. Check if the OpsWorks client is configured properly.
+
+--
+****
+
+[.answer]
+Answer A and
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A and.
+B.This can occur if a resource outside AWS OpsWorks on which the instance depends was edited or deleted.
+The following are examples of resource changes that can break communications with an instance.
+An IAM user or role associated with the instance has been deleted accidentally, outside of AWS OpsWorks Stacks.
+This causes a communication failure between the AWS OpsWorks agent that is installed on the instance and the AWS OpsWorks Stacks service.
+The IAM user that is associated with an instance is required throughout the life of the instance.
+Editing volume or storage configurations while an instance is offline can make an instance unmanageable.
+Adding EC2 instances to an ELB manually.
+AWS OpsWorks reconfigures an assigned Elastic Load Balancing load balancer when an instance enters or leaves the online state.
+AWS OpsWorks only considers instances it knows about to be valid members.
+Instances that are added outside of AWS OpsWorks, or by some other process, are removed.
+Every other instance is removed.
+For more information on troubleshooting OpsWorks, please visit the link:
+http://docs.aws.amazon.com/opsworks/latest/userguide/common-issues-troubleshoot.html
+The error could be related to any number of factors, so it's important to first try to identify the root cause. Here's a more detailed explanation of each possible answer:
+A. Check the IAM role which was attached to the instance. If an instance is not properly configured with the right IAM role, it may not have the permissions required to perform the necessary operations in the OpsWorks stack. Therefore, it's important to check if the IAM role is properly configured and has the necessary permissions.
+B. Check if the EC2 instances were manually added to the EL. If EC2 instances were manually added to the Elastic Load Balancer (EL), they may not have been added properly or may be using incorrect settings. As a result, it's important to check if the instances were added properly to the EL and that the settings are correct.
+C. Check if the stack is configured properly. If the OpsWorks stack is not configured properly, it may result in errors when managing instances. This could be due to a variety of factors, such as incorrect settings or configurations, misconfigured permissions, or other issues.
+D. Check if the OpsWorks client is configured properly. The OpsWorks client must be installed and properly configured on the instance to ensure that it can communicate with the OpsWorks stack. If the client is not properly configured or installed, it may result in errors when managing instances.
+In summary, it's important to carefully examine each possible answer to identify the root cause of the error. This may require further investigation and troubleshooting to resolve the issue.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question368:"link"
+
+

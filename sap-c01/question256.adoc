@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1056 - A client is using CloudFront with a sour"
+---
+
+
+[.question]
+== 1056-64a1df55aa736d27b1db9429.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_6bpwts.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A client is using CloudFront with a source that normally serves dynamic content.
+There is a requirement that as soon the content is changed in the source, it is delivered to the client.
+Which of the following configuration can be made to fulfill this requirement?
+
+
+[source,java]
+----
+Low TTLs
+
+Amazon CloudFront uses the expiration period you set on your files (through cache control headers) to determine whether it needs
+to check the origin for an updated version of the fil. If you expect that your files will change frequently, you can set a short
+expiration period on the file. Amazon CloudFront accepts expiration periods as short as 0 seconds (in which case Amazon
+(CloudFront will revalidate each viewer request with the origin). Amazon CloudFront also honors special cache control directives
+such as private, no-store, etc.; these are often useful when delivering dynamic content that may not be cached at the edge.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use the fast invalidate feature provided in CloudFront.
+* [ ] B. Set TTL to 10 seconds.
+* [*] C. Set TTL to 0 seconds.
+* [ ] D. Dynamic content cannot be served from the CloudFront.
+* [ ] E. You have to contact the AWS support center to enable this feature.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - C.
+In CloudFront, to enforce content delivery to the user as soon as it gets changed by the origin, the time to live (TTL) should be set to 0.
+Option A is incorrect because invalidate is used to remove the content from CloudFront edge locations cache before it expires.
+The next time a viewer requests the object, CloudFront fetches the content from the origin; whereas, setting TTL to 0 enforces CloudFront to deliver the latest content as soon as the origin updates it.
+Option B is incorrect because setting TTL to 10 will keep the content in the cache for some time even though the origin updates it.
+Option C is CORRECT because setting TTL to 0 will enforce content delivery to the user as soon as it gets changed by the origin.
+Option D is incorrect as CloudFront surely serves dynamic content.
+Option E is incorrect as you do not have to contact the AWS support center for this scenario.
+More information on TTL in CloudFront:
+You can control how long your objects stay in a CloudFront cache before CloudFront forwards another request to your origin.
+Reducing the duration allows you to serve dynamic content.
+The low TTL is also given in the AWS documentation.
+For more information on CloudFront dynamic content, please refer to the below URL:
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html
+The requirement is to deliver the updated content to the client as soon as it is changed in the source. This can be achieved by configuring the Time-To-Live (TTL) value of the CloudFront distribution.
+TTL is the amount of time that CloudFront caches an object before requesting the object again from the origin. By default, the TTL value for dynamic content is set to 24 hours, which means that CloudFront caches the content for 24 hours before requesting it again from the origin. However, this default behavior can be overridden by setting a different TTL value.
+Option A suggests using the fast invalidate feature provided in CloudFront. This feature allows you to invalidate the cached objects before their TTL expires. This would achieve the requirement of delivering updated content to the client as soon as it is changed in the source. However, this feature is not instantaneous and may take several minutes to propagate through the CloudFront network. Also, it incurs additional costs for invalidation requests.
+Option B suggests setting the TTL to 10 seconds. This means that CloudFront caches the content for only 10 seconds before requesting it again from the origin. This would achieve the requirement of delivering updated content to the client as soon as it is changed in the source. However, it also means that CloudFront will request the content from the origin every 10 seconds, which may increase the load on the origin server.
+Option C suggests setting the TTL to 0 seconds. This means that CloudFront does not cache the content at all and requests it from the origin every time it is requested by a client. This would achieve the requirement of delivering updated content to the client as soon as it is changed in the source. However, it also means that CloudFront does not provide any caching benefits, which may increase the load on the origin server.
+Option D suggests that dynamic content cannot be served from CloudFront, which is incorrect. CloudFront can serve dynamic content, and the TTL value can be configured to achieve the requirement.
+Option E suggests that you have to contact the AWS support center to enable this feature, which is incorrect. The TTL value can be configured through the CloudFront console or API.
+Therefore, the best option to fulfill the requirement of delivering updated content to the client as soon as it is changed in the source is option B, setting the TTL to 10 seconds. However, the trade-off is that it may increase the load on the origin server due to frequent requests. Option A can also be used, but it incurs additional costs for invalidation requests and may take some time to propagate through the CloudFront network. Option C should be avoided as it does not provide any caching benefits. Option D is incorrect as CloudFront can serve dynamic content. Option E is also incorrect as no support center intervention is needed to configure the TTL value.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question376:"link"
+
+

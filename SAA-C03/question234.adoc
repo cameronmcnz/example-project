@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1034 - A company plans to deploy a businesscrit"
+---
+
+
+[.question]
+== 1034-64a1fa90f053625db51ddef9.
+
+
+****
+
+[.query]
+--
+A company plans to deploy a business-critical application on Amazon EC2 instances.
+This application should be scalable in a clustered environment.
+It supports high-performance computing (HPC) with consistency latency and highest throughput. How can this be achieved by meeting all the requirements above?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the application on EC2 instances with enhanced networking enabled using the Elastic Network Adapter (ENA).
+* [*] B. Configure the application on EC2 instances with enhanced networking enabled using the Elastic Fabric Adapter (EFA).
+* [ ] C. Configure the application on EC2 instances with enhanced networking enabled using the Elastic Network Interface (ENI).
+* [ ] D. Configure the application on EC2 instances with enhanced networking enabled using the Elastic Network (EN).
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect.
+Although ENA supports low latency and high throughput, it doesn't meet high-performance requirements.
+Option B is CORRECT.
+EFA supports low latency and high throughput with high-performance computing with the scalability, flexibility, and elasticity provided by the AWS Cloud.
+Option C is incorrect as ENI is used for creating management networks and deploying low budget solutions.
+This will not meet HPC and low latency requirements.
+Option D is incorrect.
+However, ENA or EN supports low latency and high throughput.
+But it doesn't meet high-performance requirements.
+References:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html https://medium.com/@varunmanik1/aws-eni-vs-en-vs-efa-22250513590f https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html
+To achieve scalability in a clustered environment and support high-performance computing with consistent latency and highest throughput, the best option would be to configure the application on EC2 instances with enhanced networking enabled using the Elastic Fabric Adapter (EFA).
+EFA is a network interface designed for HPC workloads and provides low-latency, high-bandwidth connectivity between EC2 instances. It enables a direct, high-speed communication between instances without going through the network infrastructure. EFA provides the lowest network latency in EC2 and is the most performant option for HPC applications.
+The other options provided, ENA, ENI, and EN, are also network interfaces that offer enhanced networking features for EC2 instances. However, they may not provide the same level of performance and low latency that is required for a high-performance computing workload.
+Therefore, option B, Configure the application on EC2 instances with enhanced networking enabled using the Elastic Fabric Adapter (EFA), would be the best option to meet all the requirements for a scalable, high-performance computing workload on Amazon EC2 instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question266:"link"
+
+

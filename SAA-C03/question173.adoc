@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "973 - You run an adsupported photo sharing web"
+---
+
+
+[.question]
+== 973-64a1fa77f053625db51ddeb3.
+
+
+****
+
+[.query]
+--
+You run an ad-supported photo sharing website using S3 to serve photos to visitors of your site.
+At some point, you find out that other sites have been linking to the photos on your site, causing loss to your business.
+What would be an effective method to mitigate this?
+
+
+--
+
+[.list]
+--
+* [*] A. Remove public read access and use presigned URL with expiry dates.
+* [ ] B. Use CloudFront distributions for static content.
+* [*] C. Block the IPs of the offending websites in Security Groups.
+* [ ] D. Store photos on an EBS Volume of the web server.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+When you create a presigned URL, you must provide your security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and an expiration date and time.
+The presigned URLs are valid only for the specified duration.
+Option B is incorrect because CloudFront is used to distribute content across edge or region locations, distribution is not the requirement above.
+Option C is not feasible.
+Because of their dynamic nature, blocking IPs is challenging, and you will not know which sites are accessing your main site.
+Option D is incorrect since storing photos on an EBS Volume is neither good practice nor an ideal architectural approach for an AWS Solutions Architect.
+For more information on signed cookies, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html
+The most effective method to mitigate the issue of other sites linking to photos on your website and causing loss to your business would be option A: Remove public read access and use presigned URL with expiry dates.
+Option A involves removing public read access from S3 buckets and using presigned URLs with expiry dates to allow access to the photos. Public read access allows anyone to access the photos in the S3 bucket, which can lead to other websites linking to the photos and causing loss of business. By removing public read access, only authorized users or applications can access the photos. Presigned URLs with expiry dates can be used to grant temporary access to the photos, which means that the URL will only work for a specified period of time. This ensures that unauthorized users cannot access the photos even if they somehow obtain the URL.
+Option B, using CloudFront distributions for static content, is a good method to improve the performance and availability of your website. CloudFront can cache content at edge locations, reducing the load on your origin server and improving the speed at which content is delivered to users. However, it does not address the issue of other sites linking to your photos.
+Option C, blocking the IPs of the offending websites in Security Groups, is not an effective method because IP addresses can easily be changed or spoofed. Moreover, it does not address the root cause of the problem.
+Option D, storing photos on an EBS volume of the web server, is not a recommended approach for serving photos because EBS volumes are not designed for high throughput, low latency, or high durability storage of large files like photos. Additionally, storing photos on the web server can lead to scalability issues as the traffic to the website increases.
+In summary, the most effective method to mitigate the issue of other sites linking to photos on your website and causing loss to your business would be to remove public read access and use presigned URLs with expiry dates.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question194:"link"
+
+

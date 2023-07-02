@@ -1,0 +1,107 @@
+---
+layout: default 
+title: "1357 - Which of the following is not an AWS ser"
+---
+
+
+[.question]
+== 1357-64a1fb3af053625db51de098.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_mujwkg.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following is not an AWS service that AWS Route 53 can route traffic to?
+
+
+[source,java]
+----
+Routing Traffic to Other AWS Resources
+
+You can use Amazon Route 53 to route traffic to a variety of AWS resources.
+
+Amazon CloudFront
+
+To speed up delivery of your web content, you can use Amazon CloudFront, the AWS content delivery network (CDN).
+CloudFront can deliver your entire website—including dyna
+
+static, streaming, and interactive content—by using a global
+network of edge locations. CloudFront routes requests for your content to the edge location that gives your users the lowest
+latency. You can use Route 53 to route traffic for your domain to your CloudFront distribution. For more information, see
+Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name.
+
+Amazon EC2
+
+Amazon EC2 provides scalable computing capacity in the AWS Cloud. You can launch an EC2 virtual computing environment
+(an instance) using a preconfigured template (an Amazon Machine Image, or AMI). When you launch an EC2 instance, EC2
+
+automatically installs the operating system (Linux or Microsoft Windows) and additional software included in the AMI, such as
+web server or database software.
+
+If you host a website or run a web application on an EC2 instance, you can route traffic for your domain, such as
+
+example.com, to your server by using Route 53. For more information, see Routing Traffic to an Amazon EC2 Instance.
+AWS Elastic Beanstalk
+
+If you use AWS Elastic Beanstalk to deploy and manage applications in the AWS Cloud, you can use Route 53 to route DNS
+
+traffic for your domain, such as example.com, to an Elastic Beanstalk environment. For more information, see Routing Traffic
+to an AWS Elastic Beanstalk Environment.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon CloudFront
+* [ ] B. Elastic Load Balancing
+* [ ] C. Amazon RDS
+* [*] D. Amazon CloudWatch.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Amazon Route 53 integrates with Amazon CloudWatch for monitoring, not for routing traffic.
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/integration-with-other-services.html
+AWS Route 53 is a highly available and scalable cloud-based Domain Name System (DNS) web service that can route traffic to a variety of AWS services. It can also route traffic to non-AWS resources, such as on-premises servers or resources hosted with other cloud providers.
+Among the given options, the correct answer to the question is option D - Amazon CloudWatch. AWS Route 53 cannot route traffic to Amazon CloudWatch.
+Here is a brief overview of the other options and how Route 53 can route traffic to them:
+A. Amazon CloudFront: This is a content delivery network (CDN) service that distributes content such as HTML, CSS, and JavaScript files, videos, and other web assets globally. AWS Route 53 can route traffic to Amazon CloudFront by creating an alias record that points to the CloudFront distribution.
+B. Elastic Load Balancing: This service distributes incoming traffic across multiple EC2 instances or containers in multiple Availability Zones to ensure high availability and fault tolerance. AWS Route 53 can route traffic to Elastic Load Balancing by creating an alias record that points to the load balancer.
+C. Amazon RDS: This is a relational database service that provides managed database solutions for various database engines, such as MySQL, Oracle, SQL Server, and PostgreSQL. AWS Route 53 can route traffic to Amazon RDS by creating a CNAME record that points to the RDS endpoint.
+D. Amazon CloudWatch: This is a monitoring and observability service that collects and analyzes metrics, logs, and events from various AWS resources and applications. AWS Route 53 cannot route traffic to Amazon CloudWatch since it is not a resource that can receive incoming traffic.
+In conclusion, AWS Route 53 is a powerful DNS web service that can route traffic to a variety of AWS services and non-AWS resources. When using Route 53 to route traffic to AWS services, it is important to understand which services can and cannot receive incoming traffic.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question683:"link"
+
+

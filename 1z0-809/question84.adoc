@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "884 - Given the code fragment ListString color"
+---
+
+
+[.question]
+== 884-64a1a85aef3e8462333a9c8a.
+
+
+****
+
+[.query]
+--
+Given the code fragment: List<String> colors = Arrays.asList("red", "green", "yellow"); Predicate<String> test = n - > { System.out.println("Searching""); return n.contains("red"); }; colors.stream() .filter(c -> c.length() > 3) .allMatch(test); What is the result?
+
+
+--
+
+[.list]
+--
+* [*] A. Searching...
+* [ ] B. Searching... Searching...
+* [ ] C. Searching... Searching... Searching...
+* [ ] D. A compilation error occurs.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "897 - Given
+Your design requires that  fuelLev"
+---
+
+
+[.question]
+== 897-64a1a85def3e8462333a9c97.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0008500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Your design requires that: -> fuelLevel of Engine must be greater than zero when the start() method is invoked.
+-> The code must terminate if fuelLevel of Engine is less than or equal to zero.
+Which code fragment should be added at line n1 to express this invariant condition?
+
+
+[source,java]
+----
+class Engine {
+double fuelLevel;
+Engine(int fuelLevel) { this.fuelLevel = fuelLevel; }
+public void start() {
+// line ni
+System. out .print1n ("Started");
+}
+public void stop() { System.out.println("Stopped"); }
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. assert (fuelLevel) : "Terminating"¦";
+* [ ] B. assert (fuelLevel > 0) : System.out.println ("Impossible fuel");
+* [*] C. assert fuelLevel < 0: System.exit(0);
+* [ ] D. assert fuelLevel > 0: "Impossible fuel" ;
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1073 - Youve been working on a CloudFront whole"
+---
+
+
+[.question]
+== 1073-64a1df5baa736d27b1db9443.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_50162.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You've been working on a CloudFront whole site CDN.
+After configuring the whole site CDN with a custom CNAME and supported HTTPS custom domain (i.e., https://domain.com), you open domain.com and receive the HTTP 502 status code (Bad Gateway).
+
+
+[source,java]
+----
+HTTP 502 Status Code (Bad Gateway)
+
+por | Kindle | RSS
+
+An HTTP 502 status code (Bad Gateway) indicates that CloudFront wasn't able to serve
+the requested object because it couldn't connect to the origin server.
+
+Topics
+
+SSL/TLS Negotiation Failure Between CloudFront and a Custom Origin Server
+Origin Is Not Responding with Supported Ciphers/Protocols
+
+SSL/TLS Certificate on the Origin Is Expired, Invalid, Self-signed, or the Certificate
+Chain Is in the Wrong Order
+
+Origin Is Not Responding on Specified Ports in Origin Settings
+CloudFront Was Not Able to Resolve Your Origin Domain Due to DNS Issues
+Lambda@Edge Function Validation Errors
+----
+
+
+--
+
+[.list]
+--
+* [*] A. The SSL/TLS certificate on the Origin has expired or missing a third-party signer. To resolve this purchase, add a new SSL certificate.
+* [ ] B. HTTPS isn`t configured on the CloudFront distribution, but it is configured on the CloudFront origin.
+* [ ] C. The user does not have enough permissions to login to the website.
+* [ ] D. The validation Lambda has failed to validate the request.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Options B, C, and D are INCORRECT because these options do not result in the 502 status code (Bad Gateway).
+For more information on CloudFront CDN, please see the below links.
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-502-bad-gateway.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AmazonCloudFront_DevGuide.pdf http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-502-bad-gateway.html#ssl-certificate-expired
+Based on the information provided, it is likely that the HTTP 502 Bad Gateway error is related to a problem with the CloudFront distribution or its origin server. Let's examine each answer option to determine which one is the most likely cause of the issue:
+A. The SSL/TLS certificate on the Origin has expired or missing a third-party signer. To resolve this purchase, add a new SSL certificate.
+This option is a valid possibility because CloudFront requires a valid SSL/TLS certificate on the origin server to establish an encrypted connection. If the SSL/TLS certificate on the origin server is expired or missing a third-party signer, it can cause CloudFront to fail to establish a secure connection with the origin server. In this case, purchasing and adding a new SSL certificate to the origin server can resolve the issue.
+B. HTTPS isn't configured on the CloudFront distribution, but it is configured on the CloudFront origin.
+This option is less likely to be the cause of the issue because CloudFront requires that HTTPS be configured on both the CloudFront distribution and the origin server. If HTTPS is not configured on the CloudFront distribution, it would typically result in a different error, such as a redirect loop or a security warning.
+C. The user does not have enough permissions to log in to the website.
+This option is unlikely to be the cause of the issue because the HTTP 502 Bad Gateway error is related to a failure to establish a connection between CloudFront and the origin server, rather than a user authentication issue.
+D. The validation Lambda has failed to validate the request.
+This option is also unlikely to be the cause of the issue because the HTTP 502 Bad Gateway error is related to a failure to establish a connection between CloudFront and the origin server, rather than a problem with Lambda validation.
+Overall, based on the information provided, option A seems to be the most likely cause of the issue. It is recommended to check the SSL/TLS certificate on the origin server to ensure it is valid and properly configured. If the issue persists, additional troubleshooting steps may be necessary, such as checking the CloudFront distribution configuration, verifying DNS settings, or checking the health of the origin server.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question402:"link"
+
+

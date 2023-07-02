@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1063 - You have a web application that processe"
+---
+
+
+[.question]
+== 1063-64a1fa9df053625db51ddf19.
+
+
+****
+
+[.query]
+--
+You have a web application that processes customer orders.
+The frontend application forwards the order messages to an SQS queue.
+The backend contains an Elastic Load Balancer and an Auto Scaling group.
+You want the ASG to auto-scale depending on the queue size.
+Which of the following CloudWatch metrics would you choose to discover the SQS queue length?
+
+
+--
+
+[.list]
+--
+* [*] A. ApproximateNumberOfMessagesVisible
+* [ ] B. NumberOfMessagesReceived
+* [*] C. NumberOfMessagesDeleted
+* [ ] D. ApproximateNumberOfMessagesNotVisible.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+The backend nodes can scale based on the queue length.
+Check the reference in https://aws.amazon.com/blogs/compute/building-loosely-coupled-scalable-c-applications-with-amazon-sqs-and-amazon-sns/.
+Option A is CORRECT: ApproximateNumberOfMessagesVisible describes the number of messages available for retrieval.
+It can be used to decide the queue length.
+Option B is incorrect: Because NumberOfMessagesReceived is the number of messages returned by calls to the ReceiveMessage action.
+It does not measure the queue length.
+Option C is incorrect: Because NumberOfMessagesDeleted is the number of messages deleted from the queue.
+It is not suitable to be used in this scenario.
+Option D is incorrect: Because ApproximateNumberOfMessagesNotVisible measures the number of messages in flight.
+It should not be used here.
+The correct answer is A. ApproximateNumberOfMessagesVisible.
+The ApproximateNumberOfMessagesVisible metric reports the approximate number of messages available for retrieval from the queue. This is the most suitable metric for determining the queue size because it includes all messages that are visible and available for processing by the consumers. This metric can be used to trigger an alarm in CloudWatch that can then trigger a scaling action on the Auto Scaling group.
+The NumberOfMessagesReceived metric reports the number of messages that have been received by the queue, but not yet processed. This metric is not a good indicator of queue size because it does not take into account messages that have already been retrieved by consumers but have not been deleted.
+The NumberOfMessagesDeleted metric reports the number of messages that have been successfully deleted from the queue. This metric is not useful for determining the queue size because it only reports on messages that have been deleted and does not take into account messages that are still in the queue.
+The ApproximateNumberOfMessagesNotVisible metric reports the approximate number of messages that have been received by the queue, but are not available for retrieval by consumers. This includes messages that have been retrieved by consumers but not yet deleted, and messages that are being processed by consumers. This metric is not a good indicator of queue size because it does not include messages that are available for retrieval by consumers.
+Therefore, A. ApproximateNumberOfMessagesVisible is the correct metric to use for determining the queue size in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question299:"link"
+
+

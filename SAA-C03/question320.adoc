@@ -1,0 +1,88 @@
+---
+layout: default 
+title: "1120 - You need to host a set of web servers an"
+---
+
+
+[.question]
+== 1120-64a1fab9f053625db51ddf5b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_sqygvo.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You need to host a set of web servers and database servers in an AWS VPC.
+What would be the best practice in designing a multi-tier infrastructure?
+
+
+[source,java]
+----
+19051
+19851
+
+1985.
+
+10.00.0116
+
+Region
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use a public subnet for the web tier and a public subnet for the database layer.
+* [*] B. Use a public subnet for the web tier and a private subnet for the database layer.
+* [*] C. Use a private subnet for the web tier and a private subnet for the database layer.
+* [ ] D. Use a private subnet for the web tier and a public subnet for the database layer.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The ideal setup ensures that the web server is hosted in the public subnet so that users on the internet can access it.
+The database server can be hosted in the private subnet.
+The below diagram from AWS Documentation shows how this can be set up.
+For more information on public and private subnets in AWS, please visit the following URL-
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
+When designing a multi-tier infrastructure on AWS VPC, it's best to follow the principle of least privilege, which means granting the minimum required permissions to each component of the infrastructure. Based on this principle, the best practice for hosting a set of web servers and database servers in an AWS VPC is to use a public subnet for the web tier and a private subnet for the database layer. Therefore, option B is the correct answer.
+Here's why:
+1.
+Public Subnet: A public subnet is a subnet that has a route to the internet through an Internet Gateway (IGW). By placing the web servers in a public subnet, you can make them accessible to the internet, and users can connect to them using public IP addresses.
+2.
+Private Subnet: A private subnet, on the other hand, is a subnet that does not have a direct route to the internet. By placing the database servers in a private subnet, you can prevent them from being directly accessible from the internet.
+This separation of the web and database layers provides additional security, as it prevents any potential attacker from directly accessing the database servers. The web servers in the public subnet can communicate with the database servers in the private subnet using a NAT (Network Address Translation) Gateway or a Bastion Host, which acts as a secure gateway to access the private subnet.
+In summary, the best practice for designing a multi-tier infrastructure on AWS VPC is to use a public subnet for the web tier and a private subnet for the database layer, which provides additional security and follows the principle of least privilege.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question365:"link"
+
+

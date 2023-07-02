@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "926 - A company has an entire infrastructure h"
+---
+
+
+[.question]
+== 926-64a1fa68f053625db51dde81.
+
+
+****
+
+[.query]
+--
+A company has an entire infrastructure hosted on AWS.
+It requires to create code templates used to provide the same set of resources in another region in case of a disaster in the primary region.
+Which AWS service can be helpful in this regard?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Beanstalk
+* [*] B. AWS CloudFormation
+* [*] C. AWS CodeBuild
+* [ ] D. AWS CodeDeploy.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation provides the following information to support this requirement:
+AWS CloudFormation provisions your resources in a safe and repeatable manner, allowing you to build and rebuild your infrastructure and applications, without having to perform manual actions or write custom scripts.
+CloudFormation takes care of determining the right operations to perform while managing your stack and rolls back changes automatically if errors are detected.
+For more information on AWS CloudFormation, please visit the following URL:
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html
+AWS Beanstalk is an orchestration service for deploying applications that orchestrate various AWS Services, including EC2, S3, SNS, CloudWatch, AutoScaling, and ELB.https://aws.amazon.com/elasticbeanstalk/
+AWS CodeBuild is a fully managed continuous integration(CI) service that compiles source code, run tests, and produces software packages that are ready to deploy.
+Using it, you don't need to provision, manage, and scale your own build servers.
+https://aws.amazon.com/codebuild/
+AWS CodeDeploy is a service that automates application deployments to various computing services, including EC2, Fargate, Lambda, and on-premises instances.
+It protects your application from downtime during deployments through rolling updates and deployment health tracking.
+https://aws.amazon.com/codedeploy/
+The AWS service that can be helpful in this scenario is AWS CloudFormation (Option B).
+AWS CloudFormation is an Infrastructure as Code (IaC) service that allows developers to create and manage a collection of AWS resources as code templates. CloudFormation templates are written in either JSON or YAML format and can be version controlled just like any other code.
+In this scenario, the company can create a CloudFormation template for their entire infrastructure in the primary region, including EC2 instances, RDS databases, load balancers, security groups, etc. This CloudFormation template can then be used to create an identical infrastructure in another region, providing redundancy and disaster recovery capabilities.
+If a disaster occurs in the primary region, the company can simply run the CloudFormation template in the secondary region to recreate the entire infrastructure. This saves time and effort compared to manually creating the infrastructure in another region and ensures that the infrastructure is consistent across both regions.
+AWS Beanstalk (Option A) is a service that simplifies the deployment and management of applications in the AWS Cloud. It is not suitable for creating and managing an entire infrastructure.
+AWS CodeBuild (Option C) is a fully-managed build service that compiles source code, runs tests, and produces software packages that are ready to deploy. It is not relevant to this scenario as it does not create or manage AWS resources.
+AWS CodeDeploy (Option D) is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises. It is not relevant to this scenario as it does not create or manage AWS resources at scale.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question144:"link"
+
+

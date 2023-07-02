@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1012 - You are managing the AWS account of a bi"
+---
+
+
+[.question]
+== 1012-64a1df44aa736d27b1db93e6.
+
+
+****
+
+[.query]
+--
+You are managing the AWS account of a big organization.
+The organization already has a third-party service to perform the user authentication.
+The organization has more than 1000+ employees, and they want to provide access to various AWS services to most of the employees.
+Which of the below mentioned options is the best possible solution in this case?
+
+
+--
+
+[.list]
+--
+* [*] A. The user should create a separate IAM user for each employee and provide access to them as per the policy.
+* [ ] B. The user should create an IAM role and attach STS with the role. The user should attach that role to the EC2instance and setup AWS authentication on that server.
+* [ ] C. The user should create IAM groups for each user as per the organization’s departments and add each user to the group for better access control.
+* [*] D. Create IAM roles to work with the organization’s authentication service to authorize users for various AWS services.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The best practice for IAM is to create roles that have specific access to an AWS service and then give the user permission to the AWS service via the role.
+Option A is incorrect because creating a separate IAM user is not a feasible solution here.
+Instead, creating an IAM role would be a more appropriate solution.
+Option B is incorrect because this is an invalid workflow of using IAM roles for authenticating the users.
+Option C is incorrect because creating an IAM group for each user is not a best practice.
+Option D is CORRECT because it authenticates the users with the organization's authentication service and associates an appropriate IAM Role for accessing the AWS services.
+For the best practices on IAM policies, please visit the link.
+http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
+The best possible solution in this case would be option D: Create IAM roles to work with the organization's authentication service to authorize users for various AWS services.
+Explanation:
+Since the organization already has a third-party service to perform user authentication, it would be more efficient to leverage this existing authentication service rather than creating separate IAM users or groups for each employee. Using IAM roles to work with the organization's authentication service would allow the organization to centralize its user management and access control policies.
+IAM roles allow AWS resources, such as EC2 instances or Lambda functions, to assume the permissions associated with the role. By creating IAM roles that work with the organization's existing authentication service, the organization can authorize users to access various AWS services based on their permissions in the authentication service. This also allows for easier management of user permissions, as the organization can simply update the permissions in the authentication service and those changes will be reflected in the IAM roles.
+Option A, creating a separate IAM user for each employee, would be impractical and difficult to manage for an organization with 1000+ employees. Additionally, it would not leverage the organization's existing authentication service.
+Option B, creating an IAM role and attaching STS with the role, would allow for temporary access to AWS services, but it would not necessarily integrate with the organization's existing authentication service.
+Option C, creating IAM groups for each user based on the organization's departments, could be a valid option but may not be the most efficient. It would require the organization to manage group membership for each employee, and any changes to group membership would have to be managed separately from the authentication service.
+Therefore, option D is the best solution as it leverages the existing authentication service and allows for centralized user management and access control policies.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question309:"link"
+
+

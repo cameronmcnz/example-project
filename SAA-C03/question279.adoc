@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1079 - A global conglomerate is looking for a M"
+---
+
+
+[.question]
+== 1079-64a1faa6f053625db51ddf2d.
+
+
+****
+
+[.query]
+--
+A global conglomerate is looking for a Multi-site DR plan for an application deployed on a server fleet at the on-premises Data Centre.
+There is also a large database that needs to back up daily.
+Incomplete backups can impact RPO in case of failure.
+They are looking for high bandwidth links with fast data transfer speed from on-premises to AWS VPC.
+The connections should be reliable with redundancy.
+Which of the following is the most appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a Direct Connection between on-premise and VP.
+* [*] B. Create multiple Direct Connections with LAG enabled in active mode to provide redundancy.
+* [*] C. Create multiple VPN connections with LAG enabled in active mode to provide secure connections.
+* [ ] D. Create a VPN CloudHub.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+For higher throughput, LAG can aggregate multiple DX connections to give a maximum of 40 Gig bandwidth.
+Option A is incorrect because there is no redundancy provided in this option.
+Option C is incorrect because the VPN connections cannot provide high performance.
+Option D is incorrect because this option does not provide high speed connections.
+For more information on using LAG over AWS Direct Connect, refer to the following URLs-
+https://docs.aws.amazon.com/directconnect/latest/UserGuide/lags.html
+The best solution for the scenario described in the question is option B, which suggests creating multiple Direct Connections with Link Aggregation Group (LAG) enabled in active mode to provide redundancy.
+A Direct Connection is a dedicated network connection between on-premises infrastructure and AWS cloud. It provides higher bandwidth and lower latency compared to VPN connections. Direct Connections can be established over a physical fiber-optic cable, and they are more reliable and secure than VPN connections.
+Link Aggregation Group (LAG) is a mechanism to combine multiple physical connections into a logical connection to increase bandwidth and provide redundancy. With LAG enabled in active mode, all physical connections are active and carry traffic simultaneously, and if any connection fails, the traffic is automatically redirected to the remaining active connections.
+By creating multiple Direct Connections with LAG enabled in active mode, the global conglomerate can have a highly available and reliable connection between on-premises infrastructure and AWS VPC. This will ensure that the Multi-site DR plan and daily backups of the database are carried out smoothly without any impact on RPO.
+Option A, which suggests creating a single Direct Connection, does not provide redundancy in case of failure, which makes it less appropriate than option B.
+Option C, which suggests creating multiple VPN connections with LAG enabled in active mode, is less suitable than option B because VPN connections have lower bandwidth and higher latency than Direct Connections. Also, VPN connections are less reliable and secure than Direct Connections.
+Option D, which suggests creating a VPN CloudHub, is not appropriate for the scenario described in the question because it does not provide the required high bandwidth and fast data transfer speed between on-premises infrastructure and AWS VPC. A VPN CloudHub is used to connect multiple remote sites to a central hub using VPN connections.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question319:"link"
+
+

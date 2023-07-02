@@ -1,0 +1,106 @@
+---
+layout: default 
+title: "1110 - Your team is developing an Android app
+Y"
+---
+
+
+[.question]
+== 1110-64a1df67aa736d27b1db9473.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_234.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your team is developing an Android app.
+You need to use an Amazon Cognito Identity Pool to create unique identities for the app users and federate them with the identity provider from Google.
+You also want to allow unauthenticated guest access for the application.
+Guests can get temporary tokens for limited access.
+How would you implement the guest access using Amazon Cognito?
+
+
+[source,java]
+----
+Create new identity pool
+Identity pools are used to store end user identities. To declare a new identity pool, enter a unique name.
+
+Identity pool name* _Test!dentiy iv)
+
+Example: My App Name
+
+~v Unauthenticated identities e
+
+Amazon Cognito can support unauthenticated identities by providing a unique identifier and AWS credentials for users who do not authenticate with an identity provider.
+If your application allows customers to use the application without logging in, you can enable access for unauthenticated identities. Learn more about unauthenticated
+identities.
+
+Enable access to unauthenticated identities
+
+Enabling this option means that anyone with internet access can be granted AWS credentials. Unauthenticated identities are typically users who do not log in
+to your application. Typically, the permissions that you assign for unauthenticated identities should be more restrictive than those for authenticated identities.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Enable the unauthenticated access in Cognito Identity Pool. Guest users can request an identity ID via the GetId API.
+* [ ] B. Activate the unauthenticated access feature in Cognito User Pool. Link the User Pool in Cognito Identity Pool.
+* [*] C. Users can get guest credentials via the GetCredentialsForIdentity API with a request type as Guest.
+* [ ] D. Guest users can request temporary tokens by using the GetOpenIdToken API.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+About how to use Identity Pool for federated identities in AWS Cognito, please refer to.
+https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html
+The authentication flow can be found in https://docs.aws.amazon.com/en_pv/cognito/latest/developerguide/authentication-flow.html.
+Option A is CORRECT: Because the unauthenticated access feature can be enabled in Cognito Identity Pool as below:
+Option B is incorrect: Because the feature of unauthenticated identities is managed in Cognito Identity Pool instead of User Pool.
+Option C is incorrect: Because the GetCredentialsForIdentity API does not have a request type of Guest.
+Option D is incorrect: Because the GetOpenIdToken API does not provide the temporary tokens.
+Users can request a new temporary identity ID via the GetId API.
+Sure, I can provide you with a detailed explanation of how to implement guest access using Amazon Cognito for your Android app.
+Amazon Cognito is a service that provides authentication, authorization, and user management for your web and mobile apps. Cognito supports user sign-up, sign-in, and access control. Cognito Identity Pool is a Cognito component that enables you to create unique identities for your app users and federate them with identity providers such as Google, Facebook, or Amazon.
+To implement guest access using Amazon Cognito, you can follow these steps:
+1.
+Create an Amazon Cognito Identity Pool: You can create an Amazon Cognito Identity Pool by going to the Amazon Cognito console and clicking on "Manage Federated Identities." From there, you can create a new identity pool and specify the identity providers you want to use, including Google.
+2.
+Enable unauthenticated access: Once you have created the identity pool, you need to enable unauthenticated access. Enabling unauthenticated access allows guest users to access your app without signing in. To enable unauthenticated access, go to the "Authentication providers" tab of your identity pool and select "Enable access to unauthenticated identities."
+3.
+Implement guest access: To implement guest access, you need to use the Amazon Cognito Identity Pool API to request temporary credentials for your guest users. You can use the GetOpenIdToken API to get temporary tokens for your guest users. These temporary tokens allow your guest users to access your app with limited privileges.
+In summary, the correct answer to the question is D. Guest users can request temporary tokens by using the GetOpenIdToken API. By using this API, you can provide temporary access to your app for guest users, while still maintaining secure authentication and authorization for your authenticated users.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question450:"link"
+
+

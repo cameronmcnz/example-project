@@ -1,0 +1,92 @@
+---
+layout: default 
+title: "1330 - You are setting up AWS Lambda function t"
+---
+
+
+[.question]
+== 1330-64a1fb2bf053625db51de073.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_zcsozz.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are setting up AWS Lambda function to receive messages from SQS queue, process the message body and insert one record in MySQL RDS instance.
+You have setup SQS event trigger as AWS Lambda function.
+However, for connecting to RDS instance, you need MySQL details such as hostname, username and password.
+Where would you configure them?
+
+
+[source,java]
+----
+Storing Sensitive Information
+
+As mentioned in the previous section, when you deploy your Lambda function, all the environment variables you've specified are encrypted
+by default after, but not during, the deployment process. They are then decrypted automatically by AWS Lambda when the function is
+invoked. If you need to store sensitive information in an environment variable, we strongly suggest you encrypt that information before
+deploying your Lambda function.
+
+Fortunately, the Lambda console makes that easier for you by providing encryption helpers that leverage AWS Key Management Service to
+store that sensitive information as Ciphertext. The Lambda console also provides decryption helper code to decrypt that information for
+use in your in Lambda function code. For more information, see Create a Lambda Function Using Environment Variables To Store Sensitive
+Information.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use environment variables to pass configuration. They are automatically encrypted by AWS default KMS keys and decrypted when used in Lambda function.
+* [*] B. Use environment variables to pass configuration. Use encryption helpers to encrypt sensitive information by your own KMS key. Decrypt the variable using decryption helper code provided in the console.
+* [ ] C. Use properties file in AWS Lambda function for any such configuration. Properties files are encrypted by AWS in transit and at rest.
+* [ ] D. Store such configuration in AWS S3 bucket and enable encryption on S3 bucket. Perform S3 get object to get the configuration details in the Lambda function code.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html?shortFooter=true.
+Option A is not correct.
+The statement is true, however the encryption only happens after deployment of lambda function.
+Option C is not a valid statement.
+Option D looks correct.
+However, out of given options, Option B is more valid and recommended.
+When setting up an AWS Lambda function to receive messages from an SQS queue, process the message body, and insert a record in MySQL RDS instance, you will need MySQL details such as hostname, username, and password to connect to the RDS instance. There are various ways to configure these details securely.
+Option A suggests using environment variables to pass configuration. AWS Lambda supports environment variables that can be used to pass configuration values to your function. These environment variables are automatically encrypted by AWS default KMS keys and decrypted when used in the Lambda function. This approach ensures that sensitive information is kept secure, and you don't have to worry about encrypting and decrypting data manually.
+Option B also suggests using environment variables to pass configuration, but this time, it recommends using encryption helpers to encrypt sensitive information by your own KMS key. You can then decrypt the variable using decryption helper code provided in the console. This approach gives you more control over the encryption of sensitive data, but it requires more effort to set up.
+Option C suggests using properties files in AWS Lambda function for any such configuration. Properties files are plain text files that contain key-value pairs of configuration values. These files can be encrypted by AWS in transit and at rest, ensuring that sensitive data is kept secure. This approach is similar to using environment variables, but it requires creating and managing properties files, which can be cumbersome.
+Option D suggests storing configuration details in an S3 bucket and enabling encryption on the S3 bucket. You can then perform S3 get object to get the configuration details in the Lambda function code. This approach gives you the flexibility to store configuration data separately from the Lambda function code, but it requires additional permissions to access the S3 bucket and retrieve the configuration details.
+In summary, Option A and Option B are both viable solutions to configure MySQL details securely when setting up an AWS Lambda function to receive messages from an SQS queue, process the message body, and insert a record in MySQL RDS instance. Option C and Option D are also possible but require more effort to set up and manage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question646:"link"
+
+

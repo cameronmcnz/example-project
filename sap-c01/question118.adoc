@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "918 - An administrator in your company has cre"
+---
+
+
+[.question]
+== 918-64a1df20aa736d27b1db934e.
+
+
+****
+
+[.query]
+--
+An administrator in your company has created a VPC with an IPv4 CIDR block 10.0.0.0/24
+Now they want to add additional address space outside of the current VPC CIDR.
+Because there is a requirement to host more resources in that VPC.
+Which of the below requirement can be used to accomplish this? Choose an answer from the below options.
+
+
+--
+
+[.list]
+--
+* [*] A. You cannot change a VPC`s size. Currently, to change the size of a VPC, you must terminate your existing VPC and create a new one.
+* [*] B. Expand your existing VPC by adding secondary IPv4 IP ranges (CIDRs) to your VP.
+* [ ] C. Delete all the subnets in the VPC and expand the VP.
+* [ ] D. Create a new VPC with a greater range and then connect the older VPC to the newer one.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+An existing CIDR for a VPC is not modifiable.
+However, you can add additional CIDR blocks, i.e., up to four secondary IPv4 CIDR blocks to an already existing VPC.Option A is incorrect because you can change the CIDR of VPC by adding up to 4 secondary IPv4 IP CIDRs to your VPC.Option B is CORRECT because you can expand your existing VPC by adding up to four secondary IPv4 IP ranges (CIDRs) to your VPC.Option C is incorrect because deleting the subnets is unnecessary.
+Option D is incorrect because this configuration would peer the VPC.
+It will not alter the existing VPC's CIDR.
+For more information on VPC and its FAQs, please refer to the following links-
+https://aws.amazon.com/about-aws/whats-new/2017/08/amazon-virtual-private-cloud-vpc-now-allows-customers-to-expand-their-existing-vpcs/ https://aws.amazon.com/vpc/faqs/
+The correct answer to the question is B. Expand your existing VPC by adding secondary IPv4 IP ranges (CIDRs) to your VPC.
+Explanation: A Virtual Private Cloud (VPC) in AWS is a virtual network that allows you to launch AWS resources such as Amazon EC2 instances, RDS databases, and Elastic Load Balancers, among others. When you create a VPC, you specify an IPv4 CIDR block for the VPC, which is the IP address range for the VPC. This IP address range can be expanded or decreased based on your requirements.
+In this scenario, the administrator has created a VPC with an IPv4 CIDR block of 10.0.0.0/24, which means that the VPC can have up to 256 IP addresses. However, now they want to add more resources to the VPC, which would require more IP addresses. To accomplish this, the administrator needs to expand the IP address range of the VPC.
+Option A, "You cannot change a VPC's size. Currently, to change the size of a VPC, you must terminate your existing VPC and create a new one," is incorrect because you can change the size of a VPC by expanding or decreasing the IPv4 CIDR block.
+Option C, "Delete all the subnets in the VPC and expand the VPC," is also incorrect because deleting all the subnets in the VPC would not expand the IP address range of the VPC.
+Option D, "Create a new VPC with a greater range and then connect the older VPC to the newer one," is technically possible, but it is not the most efficient solution. Connecting two VPCs requires setting up a VPC peering connection, which adds complexity and can result in higher network latency.
+Option B, "Expand your existing VPC by adding secondary IPv4 IP ranges (CIDRs) to your VPC," is the correct answer. You can add secondary IPv4 CIDR blocks to a VPC, which increases the IP address range of the VPC. This can be done by going to the VPC console, selecting the VPC, and then choosing "Edit CIDRs" from the "Actions" menu. You can then add one or more CIDR blocks to the VPC. Once you have added the CIDR blocks, you can create new subnets in the VPC using those CIDR blocks, which will provide more IP addresses for your resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question155:"link"
+
+

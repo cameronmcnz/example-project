@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1053 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 1053-64a1fa99f053625db51ddf0f.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a start-up company.
+You have developed an application that will read out AWS Blogs to AWS professionals using "Amazon Polly." You need to perform a trial with the "Amazon S3" blog, in which "S3" should be read as "Amazon Simple Storage Service". This test needs to be done in 2 different regions, us-west-1 & us-east-1
+What could be done to perform the test successfully?
+
+
+--
+
+[.list]
+--
+* [*] A. Use a Lexicon to create an alias for the word “S3”. Configure the Lexicon globally through Amazon Polly Console.
+* [*] B. Use a Lexicon to create an alias for the word “S3”. Configure the Lexicon in both the us-west-1 region and the us-east-1 region.
+* [*] C. In the Neural TTS (NTTS) system of Amazon Polly, add an entry for the word "S3" and translate it to "Amazon Simple Storage Service".
+* [ ] D. No actions are required as Amazon Polly can automatically translate "S3" to "Amazon Simple Storage Service".
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Lexicons are specific to a region.
+You will need to upload Lexicon in each region where you need to use it.
+Option A is incorrect as Lexicons need to upload in all regions where content uses Amazon Polly.
+Option C is incorrect because there is no such configuration.
+Option D is incorrect because Amazon Polly does not automactially translate it.
+You need to achieve this function through Lexicons.
+For more information on managing Lexicons, refer to the following URL-
+https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html
+The correct answer is B. Use a Lexicon to create an alias for the word “S3”. Configure the Lexicon in both the us-west-1 region and the us-east-1 region.
+Explanation: Amazon Polly is a text-to-speech service that converts text into spoken audio. Polly uses machine learning to generate lifelike speech, and it supports several languages and voices. In this scenario, the application needs to read out the word "S3" as "Amazon Simple Storage Service" in two different regions, us-west-1 and us-east-1.
+To achieve this, we can create a Lexicon in Amazon Polly, which is a dictionary of words and their pronunciations. In this case, we can create an entry for "S3" in the Lexicon and map it to "Amazon Simple Storage Service". When the application requests Polly to read out "S3", Polly will look up the Lexicon and read out "Amazon Simple Storage Service" instead.
+Since the trial needs to be performed in two different regions, we need to configure the Lexicon in both regions. This ensures that the application in both regions can access the same Lexicon and get the correct pronunciation for "S3".
+Option A is incorrect because configuring the Lexicon globally through Amazon Polly Console would only affect one region, and we need to configure it in both regions.
+Option C is incorrect because the Neural TTS (NTTS) system of Amazon Polly is used to generate more natural-sounding speech, but it's not necessary in this case. The standard text-to-speech system is sufficient.
+Option D is incorrect because Amazon Polly does not automatically translate words. We need to create a Lexicon to map "S3" to "Amazon Simple Storage Service".
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question289:"link"
+
+

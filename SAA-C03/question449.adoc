@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1249 - An application is hosted in an AWS EC2 i"
+---
+
+
+[.question]
+== 1249-64a1fafdf053625db51de000.
+
+
+****
+
+[.query]
+--
+An application is hosted in an AWS EC2 instance in a VPC private subnet.
+The application frequently downloads a large amount of files stored in an S3 bucket.
+A NAT Gateway is configured in the public subnet for the EC2 instance to connect with the S3 bucket.
+Now you need to take some actions to reduce the cost of AWS infrastructure.
+Which method is the most appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Replace the NAT Gateway with a t2.micro NAT instance.
+* [*] B. Configure a gateway endpoint for Amazon S3. Delete the NAT Gateway.
+* [*] C. Place the EC2 instance in the public subnet. Delete the NAT Gateway.
+* [ ] D. Replace the NAT Gateway with an Internet Gateway. Configure an AWS PrivateLink for Amazon S3.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect: Because the NAT instance is not recommended because of its performance issue.
+In this scenario, NAT Gateway can be deleted if the VPC gateway endpoint is configured for S3.
+Option B is CORRECT: Because with this method, you do not need to pay for the NAT Gateway or the internet data transfer for S3
+Besides, the VPC gateway endpoint is a free service.
+Option C is incorrect: Because you still need to pay for the internet data transfer for S3
+It may also cause security issues as the EC2 instance is put in the public subnet.
+Option D is incorrect: Because the Internet Gateway cannot replace the NAT Gateway.
+Reference:
+https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#gateway-endpoint-pricing
+The most appropriate method to reduce the cost of AWS infrastructure in this scenario is to configure a gateway endpoint for Amazon S3 and delete the NAT Gateway. Therefore, the correct answer is B.
+Explanation:
+In the given scenario, an application is hosted in an EC2 instance in a VPC private subnet, and the application frequently downloads a large amount of files stored in an S3 bucket. A NAT Gateway is configured in the public subnet for the EC2 instance to connect with the S3 bucket. However, NAT Gateway incurs additional cost, and thus, to reduce the cost, we need to explore other options.
+Option A: Replace the NAT Gateway with a t2.micro NAT instance.
+This option does not help in reducing the cost as the t2.micro NAT instance also incurs additional cost, and also requires manual maintenance, which may be time-consuming.
+Option B: Configure a gateway endpoint for Amazon S3. Delete the NAT Gateway.
+This option is the most appropriate in the given scenario to reduce the cost of AWS infrastructure. A gateway endpoint for Amazon S3 enables EC2 instances in a VPC to access S3 buckets without requiring an internet gateway or NAT Gateway in the VPC. This approach can help save on data transfer costs and NAT Gateway charges. Additionally, the gateway endpoint provides better security as it allows private communication between the VPC and S3 bucket. Therefore, deleting the NAT Gateway and configuring a gateway endpoint for Amazon S3 is the most cost-effective option.
+Option C: Place the EC2 instance in the public subnet. Delete the NAT Gateway.
+This option is not suitable in the given scenario as placing the EC2 instance in a public subnet exposes it to the internet, which may not be desired. It also increases the attack surface of the application, and it incurs additional data transfer cost.
+Option D: Replace the NAT Gateway with an Internet Gateway. Configure an AWS PrivateLink for Amazon S3.
+This option is not appropriate in the given scenario as replacing the NAT Gateway with an Internet Gateway again incurs additional cost. Additionally, configuring AWS PrivateLink for S3 requires additional setup and may not be cost-effective in this scenario.
+Therefore, option B is the most appropriate method to reduce the cost of AWS infrastructure in the given scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question530:"link"
+
+

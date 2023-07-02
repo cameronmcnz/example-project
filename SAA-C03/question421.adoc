@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1221 - A company has recently chosen to use the"
+---
+
+
+[.question]
+== 1221-64a1faeff053625db51ddfde.
+
+
+****
+
+[.query]
+--
+A company has recently chosen to use the AWS API Gateway service for managing their API's.
+It needs to be ensured that code hosted in other domains can access the API's behind the API gateway service.
+Which of the below security features of the API gateway can be used to ensure that API's resources can receive requests from a domain other than the API's own domain?
+
+
+--
+
+[.list]
+--
+* [*] A. API Stages
+* [ ] B. API Deployment
+* [*] C. API CORS
+* [ ] D. API Access.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+The AWS Documentation mentions the following.
+When your API's resources receive requests from a domain other than the API's own domain, you must enable cross-origin resource sharing (CORS) for selected methods on the resource.
+This amounts to having your API respond to the OPTIONS preflight request with at least the following CORS-required response headers:
+Access-Control-Allow-Methods.
+Access-Control-Allow-Headers.
+Access-Control-Allow-Origin.
+Option A and B are invalid because these are used to ensure users can call API's.
+Option D is invalid because there is no such thing as API Access.
+For more information on enabling CORS, please refer to the below URL-
+http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html
+The correct answer is C. API CORS.
+AWS API Gateway is a fully managed service that makes it easy to create, deploy, and manage APIs at any scale. When creating an API in AWS API Gateway, the API owner needs to ensure that the API resources can receive requests from a domain other than the API's own domain. This is where Cross-Origin Resource Sharing (CORS) comes into play.
+CORS is a security feature implemented in web browsers that restricts web pages from making requests to a different domain than the one that served the original web page. This security feature is implemented by adding HTTP headers to API responses that instruct the browser to allow or deny cross-domain requests.
+AWS API Gateway provides a simple and configurable way to enable CORS for APIs. When configuring CORS in API Gateway, the API owner specifies the allowed domains that can access the API resources. This is done by setting the "Access-Control-Allow-Origin" header in the API response to the allowed domain.
+To configure CORS in API Gateway, the following steps need to be performed:
+1. Open the API Gateway console in the AWS Management Console.
+2. Select the API that needs to be configured for CORS.
+3. Click on the "Actions" button and select "Enable CORS".
+4. Configure the CORS settings as required, including the allowed domains, headers, and methods.
+5. Save the CORS configuration.
+Once the CORS configuration is saved, the API Gateway service will automatically add the necessary headers to the API responses to enable cross-domain access.
+In summary, API Gateway's CORS security feature allows an API owner to enable cross-domain access to the API's resources. This is achieved by adding HTTP headers to the API responses that instruct the browser to allow or deny cross-domain requests.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question496:"link"
+
+

@@ -1,0 +1,124 @@
+---
+layout: default 
+title: "1100 - As an AWS Solutions Architect you are in"
+---
+
+
+[.question]
+== 1100-64a1df64aa736d27b1db9466.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_2.1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+As an AWS Solutions Architect, you are in charge of configuring a new AWS Organization among several AWS accounts.
+You already created an Organization and sent invitations for other accounts to join.
+Most AWS accounts can join the Organization successfully.
+However, for one AWS account, it did not receive the invitation email so that it did not know how to join.
+How should you fix the problem?
+
+
+[source,java]
+----
+@ AWS Organizations
+
+Accounts
+
+Email or account ID
+
+HT
+
+Organize accounts
+
+Policies
+
+Request date
+
+10/2/19 10:41 PM
+
+10/2/19 10:40 PM
+
+10/2/19 10:25 PM
+
+Expiration
+
+10/17/19 11:41 PM
+
+10/17/19 11:40 PM
+
+10/17/19 11:25 PM
+
+Invitations
+
+Status Actions
+
+OPEN
+
+CANCELED
+
+CANCELED
+
+Settings
+----
+
+
+--
+
+[.list]
+--
+* [*] A. In the root AWS account, select the pending invitation and choose “resend email”.
+* [*] B. In the root AWS account of the Organization Master Account, cancel the invitation and then create a new invitation to this AWS account.
+* [*] C. Contact AWS enterprise support to help you resend the invitation email to this AWS account.
+* [ ] D. In the root AWS account of the Organization, wait until the invitation expires and then create a new invitation to the AWS account.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Refer to the below screenshot on how to manage invitations:
+One thing to note is that for open invitations, users can only perform the Cancel operation.
+Option A is incorrect because the user cannot resend the same invitation if it is still in the Open state.
+Option B is CORRECT because only after the first invitation is canceled, the user can create a new one to the same email id.
+If there is already one open invitation, the user cannot create another one to the same account.
+The error can be found below:
+Option C is incorrect because this is not required.
+Option B is more appropriate.
+Option D is incorrect because it has to wait for 15 days until it expires, which is unnecessary.
+As an AWS Solutions Architect, if an AWS account does not receive an invitation email to join an AWS organization, the following steps should be taken to fix the issue:
+Option A: Resend the invitation email from the root AWS account of the organization. This option is recommended as it is a simple and quick fix. The root AWS account can select the pending invitation and choose “resend email.” This option ensures that the invitation is resent to the email address associated with the AWS account. If the email address was incorrect, it would not fix the problem.
+Option B: Cancel the invitation and then create a new invitation to the AWS account. This option should be taken if the first option did not work. Cancelling the invitation will remove it from the AWS account's invitation queue, and creating a new one will ensure that the invitation is sent to the correct email address.
+Option C: Contact AWS enterprise support to help you resend the invitation email to the AWS account. This option should be taken if the first two options fail. AWS enterprise support can assist in locating and resolving the issue with the invitation.
+Option D: Wait until the invitation expires and then create a new invitation to the AWS account. This option should only be taken if the first three options fail. Invitations expire after a set period, and creating a new one will ensure that the AWS account can join the organization. However, waiting for the invitation to expire will delay the AWS account's access to the organization's resources.
+In summary, the best option to fix an AWS account not receiving an invitation email to join an AWS organization is to resend the invitation email from the root AWS account of the organization. If this fails, cancel the invitation and create a new one. If this still fails, contact AWS enterprise support for assistance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question437:"link"
+
+

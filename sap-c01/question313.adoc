@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1113 - You work in a DevOps team and your team "
+---
+
+
+[.question]
+== 1113-64a1df69aa736d27b1db9477.
+
+
+****
+
+[.query]
+--
+You work in a DevOps team, and your team maintains several applications deployed in AWS.
+At the moment, there are dozens of server certificates stored in IAM.
+These certificates are used for different purposes and have different expiry date.
+You have to renew the certificates before they expire.
+Otherwise, the services will be impacted.
+You want to use another approach to renew and manage these certificates.
+Which method is the best?
+
+
+--
+
+[.list]
+--
+* [*] A. In the IAM console, add a new strategy for server certificates to renew one month before the expiry date automatically.
+* [*] B. Provision and manage the server certificates in AWS Certificate Manager (ACM). The certificates requested from ACM are automatically renewed.
+* [*] C. In IAM console, migrate the certificates from IAM to ACM then ACM can automatically renew the certificates one month before the expiry date.
+* [ ] D. Import all third-party certificates into ACM. ACM is responsible for the automatic renew for both third-party certificates and ACM provided certificates.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Check https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html on how to manage server certificates in IAM and ACM.
+Option A is incorrect: Because for the imported server certificates in IAM, there is no IAM console to manage them.
+This is one major disadvantage of managing certificates in IAM.
+Option B is CORRECT: Because ACM is a preferred solution.
+Certificates requested by ACM are free and automatically renew.
+Option C is incorrect: Because you cannot migrate the certificates from IAM to ACM directly.
+There is no such console to do that.
+For ACM, you can import third-party certificates to the service.
+Option D is incorrect: Because ACM cannot automatically renew imported third-party certificates.
+You are responsible for monitoring the expiration date.Please check the reference in.
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html
+Option B is the best method to renew and manage server certificates in AWS. Provisioning and managing server certificates in AWS Certificate Manager (ACM) is a recommended approach to secure your application's communication with HTTPS. AWS Certificate Manager takes care of the renewal process of the certificates for you automatically.
+ACM is a service that lets you provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services and your internal connected resources. ACM is integrated with several AWS services such as Elastic Load Balancing, CloudFront, Elastic Beanstalk, and API Gateway.
+With ACM, you don't need to worry about renewing your SSL/TLS certificates manually or tracking the expiration dates of your certificates. ACM will automatically renew the certificates before they expire, and it will replace the expired certificates with new ones.
+Option A is not recommended since IAM is not designed to manage SSL/TLS certificates. It is a best practice to use a service that is specifically designed to manage certificates like AWS Certificate Manager.
+Option C is a possible solution, but it requires manual effort to migrate the certificates from IAM to ACM. Also, you would still need to create a renewal strategy manually in ACM to ensure that the certificates are renewed before they expire.
+Option D is not the best method since importing all third-party certificates into ACM is not always feasible. Additionally, it is not recommended to manage third-party certificates using a service that is specifically designed for managing certificates that are issued by AWS.
+In summary, the best method to renew and manage server certificates in AWS is to provision and manage them using AWS Certificate Manager.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question454:"link"
+
+

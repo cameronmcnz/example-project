@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1040 - You work for an ecommerce retailer as an"
+---
+
+
+[.question]
+== 1040-64a1df4eaa736d27b1db940a.
+
+
+****
+
+[.query]
+--
+You work for an e-commerce retailer as an AWS Solutions Architect.
+Your company is looking to improve customer loyalty programs by partnering with other third parties to offer a more comprehensive selection of customer rewards.
+You plan to use Amazon Managed Blockchain to implement a blockchain network that allows your company and third parties to share and validate rewards information quickly and transparently.
+How do you add members to this blockchain?
+
+
+--
+
+[.list]
+--
+* [*] A. When Amazon Managed Blockchain is set up, there is an initial member in the AWS account. Then new members can be added to this AWS account by sending an invitation or a network invitation can be created for a member in a different AWS account.
+* [ ] B. While Amazon Managed Blockchain is configured, there is an initial member in the AWS account. Then new members can be added to this AWS account without having to send an invitation. You cannot add new members from other AWS accounts.
+* [*] C. When Amazon Managed Blockchain is created, there would be no member in the AWS account. Then new members can be added to this AWS account or other accounts by sending out an invitation.
+* [ ] D. When Amazon Managed Blockchain is first created, there would be no member in the AWS account. Then new members can be added to this AWS account. For other accounts, they can join this net blockchain network by using the network I.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+By using Amazon Managed Blockchain, it is very convenient to manage members.
+New members can be added to your own account without sending an invitation to yourself, or you can create a network invitation for a member in a different AWS account.
+Refer to https://docs.aws.amazon.com/managed-blockchain/latest/managementguide/get-started-joint-channel.html on how to “Invite Another AWS Account to be a Member and Create a Joint Channel”.
+Option A is CORRECT: Because for members in other AWS accounts, you need to send out an invitation.
+Option B is incorrect: Because you can invite members from other AWS accounts.
+Option C is incorrect: Because there is already an initial account while the blockchain is set up.
+Option D is incorrect: Because there is already an initial account while the blockchain is set up.
+Also, an invitation is required for members in other AWS accounts.
+The correct answer is A: When Amazon Managed Blockchain is set up, there is an initial member in the AWS account. Then new members can be added to this AWS account by sending an invitation or a network invitation can be created for a member in a different AWS account.
+Amazon Managed Blockchain is a fully managed service that makes it easy to create and manage scalable blockchain networks. It allows you to create blockchain networks using popular open source frameworks like Ethereum and Hyperledger Fabric.
+When you create a blockchain network using Amazon Managed Blockchain, there is an initial member in the AWS account. This member is responsible for creating the network and adding other members to the network. To add new members to the network, you can send them an invitation to join the network. The invitation can be sent to an email address or to an AWS account.
+If you want to add a member from a different AWS account, you can create a network invitation for them. This creates a cross-account trust relationship between the two AWS accounts, allowing members from both accounts to join the network.
+In summary, Amazon Managed Blockchain allows you to add new members to your blockchain network by sending invitations or creating network invitations for members in different AWS accounts.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question345:"link"
+
+

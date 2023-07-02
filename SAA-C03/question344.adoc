@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1144 - Your company has a set of AWS RDS Instan"
+---
+
+
+[.question]
+== 1144-64a1fac9f053625db51ddf84.
+
+
+****
+
+[.query]
+--
+Your company has a set of AWS RDS Instances.
+Your management has asked you to disable Automated backups to save on cost.
+When you disable automated backups for AWS RDS, what are you compromising on?
+
+
+--
+
+[.list]
+--
+* [*] A. Nothing,you are actually saving resources on aws
+* [*] B. You are disabling the point-in-time recovery.
+* [ ] C. Nothing really, you can still take manual backups.
+* [ ] D. You cannot disable automated backups in RDS.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Amazon RDS creates a storage volume snapshot of your DB instance, backing up the entire DB instance, not just individual databases.
+You can set the backup retention period when you create a DB instance.
+If you don't set the backup retention period, Amazon RDS uses a default period retention period of one day.
+You can modify the backup retention period; valid values are 0 (for no backup retention) to a maximum of 35 days.
+Automatic Backups are taken daily when we specify the point in time recovery feature that enables the recovery of the database at any point in time.
+AWS applies the transaction logs to the most appropriate DB backup.
+At the same time, DB snapshots are a manual thing where we user manually triggers the backup and then restores it from the desired time period.
+You will also specifically see AWS mentioning the risk of not allowing automated backups.
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.Disabling
+Important.
+We highly discourage disabling automated backups because it disables point-in-time recovery.
+If you disable and then re-enable automated backups, you can only restore starting from the time you re-enabled automated backups.
+Manual snapshots are user-initiated backups of your instance stored in Amazon S3 that are kept until you explicitly delete them.
+You can create a new instance from a database snapshot whenever you desire.
+Although database snapshots serve operationally as full backups, you are billed only for incremental storage use.
+Because of the risk which is clearly mentioned in the AWS Documentation, all other options are incorrect.
+For more information on Automated backups, please visit.
+http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html
+When you disable automated backups for AWS RDS, you are compromising on the ability to perform point-in-time recovery.
+Point-in-time recovery allows you to restore your database to a specific point in time within a specified retention period. This is a useful feature in case of accidental data deletion or database corruption. Automated backups are the basis of point-in-time recovery, and if you disable automated backups, you lose the ability to restore your database to a specific point in time.
+While you can still take manual backups, they do not provide the same level of granularity as automated backups. Manual backups can only be taken at specific points in time and are not automatically scheduled, so you may miss critical recovery points if you rely solely on manual backups.
+Additionally, disabling automated backups for RDS does save some AWS resources and reduce costs, but it also increases the risk of data loss and downtime if you do not have a proper backup and recovery plan in place. Therefore, it's important to carefully evaluate the cost-benefit of disabling automated backups and ensure that you have a robust backup and recovery strategy in place.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question406:"link"
+
+

@@ -1,0 +1,86 @@
+---
+layout: default 
+title: "1113 - You are working for a Pharma firm
+You ar"
+---
+
+
+[.question]
+== 1113-64a1fab5f053625db51ddf52.
+
+
+****
+
+[.query]
+--
+You are working for a Pharma firm.
+You are using S3 buckets to save a large amount of sensitive project documents for new medical research.
+You need to ensure that all data at rest in these buckets are encrypted.
+All the keys need to be managed by the in-house Security team.
+Which of the following can be used as a best practice to encrypt all data securely?
+
+
+--
+
+[.list]
+--
+* [*] A. Generate a data key using Customer managed CMK. Encrypt data with Plaintext data key & delete Plaintext data key. Store Encrypted data key & data in S3 buckets. For decryption, use CMK to decrypt the Encrypted data key into the Plaintext data key & then decrypt data using the Plaintext data key.
+* [ ] B. Generate a data key using AWS-managed CMK. Encrypt data with Plaintext data key & delete Plaintext data key. Store Encrypted data key & data in S3 buckets. For decryption, use CMK to decrypt the Encrypted data key into the Plaintext data key & then decrypt data using the Plaintext data key.
+* [*] C. Generate a data key using Customer managed CMK. Encrypt data with Plaintext data key & do not delete Plaintext data key. Store Encrypted data key & data in S3 buckets. For decryption, use the Plaintext data key to decrypt data.
+* [ ] D. Generate a data key using AWS-managed CMK. Encrypt data with Plaintext data key & do not delete Plaintext data key. Store Encrypted data key & data in S3 buckets. For decryption, use the Plaintext data key to decrypt data.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Since the In-house security team will do key Management, Customer Managed CMK needs to be used.
+Customer-managed CMK will generate plain text Data Key &amp; encrypted Data Keys.
+All project-related sensitive documents will be encrypted using these plain text Data Keys.
+After encryption, plain text Data keys need to be deleted to avoid any inappropriate use, and encrypted Data Keys and encrypted data are stored in S3 buckets.
+Data keys = Plaintext Data Key and Encrypted Data Key.
+While decryption, encrypted Data Key is decrypted using Customer CMK into plain text Key, which is further used to decrypt documents.
+This Envelope Encryption ensures that data is protected by a Data key, which is further protected by another key.
+Option B is incorrect.
+Since all keys need to manage by the in-house customer Security team, AWS-managed CMKs cannot be used.
+Option C is incorrect as it's not the best practice to save data key files in plain text format.
+All plain text data keys should be deleted and only encrypted data keys need to be saved.
+Option D is incorrect since all keys need to be managed by the in-house customer Security team.
+AWS-managed CMKs cannot be used.
+Also, all plain text data keys should be deleted and only encrypted data keys need to be saved.
+For more information on AWS KMS, refer to the following URLs-
+https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys.
+https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf.
+As a best practice to encrypt all data at rest in S3 buckets, the answer is (A): Generate a data key using Customer managed CMK. Encrypt data with Plaintext data key & delete Plaintext data key. Store Encrypted data key & data in S3 buckets. For decryption, use CMK to decrypt the Encrypted data key into the Plaintext data key & then decrypt data using the Plaintext data key.
+Here's why:
+Customer managed CMK (KMS) enables you to create, rotate, disable, or delete your encryption keys as needed. It gives you greater control over key management.
+Generate a data key using Customer managed CMK, which means that the key is managed by the in-house security team.
+Encrypt data with the generated Plaintext data key.
+Delete the Plaintext data key as soon as possible, so it's not stored in plain text.
+Store the Encrypted data key and data in S3 buckets. This ensures that the data is encrypted both in transit and at rest.
+For decryption, use CMK to decrypt the Encrypted data key into the Plaintext data key.
+Decrypt the data using the Plaintext data key.
+The other options (B, C, and D) are not recommended because:
+(B) AWS-managed CMK is not managed by the in-house security team. This gives less control over key management.
+(C and D) The Plaintext data key is not deleted after encryption, which means that it is stored in plain text, which makes it vulnerable to unauthorized access.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question356:"link"
+
+

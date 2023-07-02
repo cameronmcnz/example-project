@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1052 - A company is planning on moving its appl"
+---
+
+
+[.question]
+== 1052-64a1fa99f053625db51ddf0e.
+
+
+****
+
+[.query]
+--
+A company is planning on moving its applications to the AWS Cloud.
+They have some large SQL data sets that need to be hosted in a data store on the cloud.
+The data store needs to have features that support client connections with many types of applications, including business intelligence (BI), reporting, data, and analytics tools.
+Which of the following service should be considered for this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon DynamoDB
+* [*] B. Amazon Redshift
+* [*] C. Amazon Kinesis
+* [ ] D. Amazon Simple Queue Service.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+The AWS Documentation mentions the following.
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud.
+You can start with just a few hundred gigabytes of data and scale to a petabyte or more.
+This enables you to use your data to acquire new insights for your business and customers.
+Although Kinesis has capabilities for analyzing &amp; transforming streaming data, the question refers to having a data store for storing data from different applications BI, Reporting …which is where a Data Lake or Data Warehouse solutions come into the picture.
+Kinesis would be more appropriate in situations where one needs to process streaming data.
+Amazon Redshift supports client connections with many types of applications, including business intelligence (BI), reporting, data, and analytics tools.
+Option A is incorrect since DynamoDB is used for NoSQL datastore.
+Option C is incorrect since Kinesis is used for analyzing &amp; transforming streaming data.
+Option D is incorrect since SQS is a message queue service used by distributed applications to exchange messages through a polling mode.
+For more information on AWS Redshift, please visit the below URL-
+https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html https://aws.amazon.com/kinesis/data-streams/
+The service that should be considered for hosting large SQL data sets with features that support client connections with many types of applications, including business intelligence (BI), reporting, data, and analytics tools is Amazon Redshift.
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently analyze data using existing business intelligence tools. Redshift is optimized for complex queries and large-scale data analytics, and can handle large SQL data sets with ease.
+Redshift also supports client connections with many types of applications, including BI, reporting, data, and analytics tools, through industry-standard ODBC and JDBC connections. It is compatible with most popular ETL tools, including AWS Glue, making it easy to move data into and out of Redshift.
+Amazon DynamoDB is a NoSQL database service that is optimized for fast and flexible document and key-value storage, but it may not be the best fit for hosting large SQL data sets. Amazon Kinesis is a real-time streaming data service that is designed for ingesting and processing large volumes of streaming data, but it may not be the best fit for hosting large SQL data sets either. Amazon Simple Queue Service is a messaging service that enables decoupling and scaling of microservices, but it is not designed for hosting large SQL data sets.
+Therefore, Amazon Redshift is the most appropriate service for hosting large SQL data sets with features that support client connections with many types of applications, including business intelligence (BI), reporting, data, and analytics tools.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question288:"link"
+
+

@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "812 - Given the code fragment Path file  Paths"
+---
+
+
+[.question]
+== 812-64a1a83cef3e8462333a9c42.
+
+
+****
+
+[.query]
+--
+Given the code fragment: Path file = Paths.get ("courses.txt"); // line n1 Assume the courses.txt is accessible.
+Which code fragment can be inserted at line n1 to enable the code to print the content of the courses.txt file?
+
+
+--
+
+[.list]
+--
+* [ ] A. List fc = Files.list(file); fc.stream().forEach (s - > System.out.println(s));
+* [ ] B. Stream fc = Files.readAllLines (file); fc.forEach (s - > System.out.println(s));
+* [ ] C. List fc = readAllLines(file); fc.stream().forEach (s - > System.out.println(s));
+* [*] D. Stream fc = Files.lines (file); fc.forEach (s - > System.out.println(s));
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "1031 - A company has a businesscritical standar"
+---
+
+
+[.question]
+== 1031-64a1fa8ff053625db51ddef6.
+
+
+****
+
+[.query]
+--
+A company has a business-critical standard three-tier highly available web portal in AWS.
+The web tier runs on different types of Amazon EC2 family.
+The application tier runs on one set ofEC2 family, and the database tier runs on Amazon RDS.
+The company's leadership team asked the Solutions Architect to reduce the costs of this solution without any impact on the company's business.
+Which of the following options is the most cost-effective while maintaining reliability and a high availability?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Compute Savings Plans for the web tier, EC2 Instance Savings Plans for the application tier, and Reserved Instances for the database tier.
+* [ ] B. Use Compute Savings Plans for the web tier, EC2 Instance Savings Plans for the application tier and the database tier.
+* [ ] C. Use EC2 Instance Savings Plans for the web tier, Compute Savings Plans for the application tier and the database tier.
+* [ ] D. Use EC2 Instance Savings Plans for the web tier, Compute Savings Plans for the application tier, and OnDemand Instances for the database tier.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Option A is CORRECT.
+Compute Savings plans automatically apply to EC2 instance usage regardless of instance family, size, AZ, region, and OS.
+The web tier consists of multiple types of instance family.
+EC2 Instance Savings Plans automatically reduce cost on the selected instance family in that region regardless of AZ, size, OS, or tenancy.
+Since application tiers use the same set of instance families.
+The savings plan doesn't support the RDS.
+So, Reserved instances are the best option.
+Option B is incorrect because Savings plans don't support RDS.
+To Reserved option is the best option.
+Option C is incorrect because EC2 Instance Savings Plans for the web tier don't support multiple instance families.
+Option D is incorrect because On-demand instances won't save cost for the long run.
+References:
+https://aws.amazon.com/savingsplans/ https://go.forrester.com/blogs/aws-savings-plans-what-they-are-and-why-you-should-care/
+The question is asking for the most cost-effective way to reduce the costs of a highly available three-tier web portal in AWS, without impacting business operations.
+Firstly, let's understand what the different types of pricing plans mean:
+1.
+On-Demand Instances: This is the most flexible option, where you pay for compute capacity by the hour or second with no long-term commitments or upfront payments. It is suitable for applications with short-term, spiky, or unpredictable workloads that cannot be interrupted.
+2.
+Reserved Instances (RIs): This is a billing discount applied to EC2 instances that are purchased for a one-time upfront fee for a 1- or 3-year term commitment. The more you pay upfront and the longer the term commitment, the greater the discount. It is suitable for steady-state or predictable usage applications.
+3.
+Savings Plans: Savings Plans is a flexible pricing model that offers savings of up to 72% on Amazon EC2 and Fargate usage. Savings Plans offer significant savings over On-Demand prices by committing to a consistent amount of usage, measured in dollars per hour, for a 1- or 3-year term. You can use them to reduce costs on any Amazon EC2 instance, regardless of region, instance family, OS, or tenancy.
+Based on the above options, we can eliminate options D, as it suggests using On-Demand instances for the database tier, which is a business-critical application and needs to be highly available and reliable. So, it is not the best option.
+Option A suggests using Compute Savings Plans for the web tier, EC2 Instance Savings Plans for the application tier, and Reserved Instances for the database tier. This option is a good choice because Compute Savings Plans offer savings on any instance family, which is suitable for the web tier that runs on different types of EC2 families. EC2 Instance Savings Plans can be applied to a specific EC2 instance family, which is suitable for the application tier running on a single set of EC2 family. Reserved Instances provide a higher discount but need upfront payment, which is suitable for the database tier that requires steady-state and predictable usage.
+Option B suggests using Compute Savings Plans for the web tier, EC2 Instance Savings Plans for the application tier, and database tier. This option is similar to option A but does not suggest using Reserved Instances for the database tier, which could provide a higher discount.
+Option C suggests using EC2 Instance Savings Plans for the web tier, Compute Savings Plans for the application tier, and database tier. This option is not the best choice because EC2 Instance Savings Plans are only suitable for a specific EC2 instance family, which is not suitable for the web tier running on different types of EC2 families.
+Therefore, the most cost-effective option while maintaining reliability and a high availability is option A: Use Compute Savings Plans for the web tier, EC2 Instance Savings Plans for the application tier, and Reserved Instances for the database tier.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question263:"link"
+
+

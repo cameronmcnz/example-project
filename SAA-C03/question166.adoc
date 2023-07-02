@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "966 - A company needs to extend its storage in"
+---
+
+
+[.question]
+== 966-64a1fa75f053625db51ddeac.
+
+
+****
+
+[.query]
+--
+A company needs to extend its storage infrastructure to the AWS Cloud.
+The storage needs to be available as iSCSI devices for on-premises application servers.
+What should be done to fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a Glacier vault. Use a Glacier Connector and mount it as an iSCSI device.
+* [ ] B. Create an S3 bucket. Use an S3 Connector and mount it as an iSCSI device.
+* [*] C. Use the EFS file service and mount the different file systems to the on-premises servers.
+* [*] D. Use the AWS Storage Gateway-cached volumes service.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Documentation mentions the following:
+By using cached volumes, you can use Amazon S3 as your primary data storage, while retaining frequently accessed data locally in your storage gateway.
+Cached volumes minimize the need to scale your on-premises storage infrastructure while still providing your applications with low-latency access to their frequently accessed data.
+You can create storage volumes up to 32 TB in size and attach iSCSI devices to them from your on-premises application servers.
+Your gateway stores data that you write to these volumes in Amazon S3, retains recently read data in your on-premises storage gateway's cache, and upload buffer storage.
+Options A, B and C are incorrect because they cannot be mounted as iSCSI devices to the on-premises application servers.
+Option D is CORRECT because AWS Storage Gateway connects an on-premises software appliance with cloud-based storage to provide seamless integration with data security features between your on-premises IT environment and the AWS storage infrastructure.
+The storage can also be mounted as iSCSI devices to the on-premises application servers.
+For more information on AWS Storage Gateways, please visit the following URL:
+https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html
+The correct answer for this scenario is D. Use the AWS Storage Gateway-cached volumes service.
+Explanation:
+The AWS Storage Gateway service is a hybrid storage service that allows on-premises applications to use AWS cloud storage. It supports several types of storage protocols, including iSCSI.
+The Storage Gateway service provides three types of storage volumes - cached volumes, stored volumes, and tape gateway. In this scenario, the appropriate service to fulfill the requirement is the Storage Gateway-cached volumes service.
+The Storage Gateway-cached volumes service stores frequently accessed data on-premises while keeping a copy of all the data securely in Amazon S3. This service allows customers to use AWS storage with their existing applications and provides low-latency access to frequently accessed data while still benefiting from the durability and scalability of Amazon S3.
+Here's how to set up the Storage Gateway-cached volumes service:
+1.
+Launch the AWS Storage Gateway service from the AWS Management Console.
+2.
+Select the "cached volumes" option and create a gateway.
+3.
+Install the Storage Gateway virtual machine or software appliance on-premises and connect it to the gateway.
+4.
+Configure the iSCSI target on the Storage Gateway service.
+5.
+Mount the iSCSI device on the on-premises application servers.
+With these steps, the iSCSI devices are now available for the on-premises application servers.
+Option A is incorrect because Glacier is an archival storage service designed for infrequently accessed data, and Glacier Connector is not used to mount data as iSCSI devices.
+Option B is incorrect because S3 is an object storage service and cannot be mounted as an iSCSI device directly.
+Option C is incorrect because EFS is a file storage service, and while it can be mounted to on-premises servers, it does not support iSCSI.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question187:"link"
+
+

@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1043 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 1043-64a1fa95f053625db51ddf04.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a global insurance firm.
+For the web application, you are using S3 buckets and have configured CloudFront to cache image files.
+For audit purposes, you have created a CloudTrail trail in each region.
+The events logs files are logged in the S3 bucket in the us-west-1 region. There have been changes in CloudFront, which have caused all traffic to be routed to the origin, resulting in increased latency for users in other continents.
+After scrutinizing CloudTrail logs, you found that duplicate CloudFront events are being logged.
+What configuration changes would you perform to eliminate duplicate CloudFront logs?
+
+
+--
+
+[.list]
+--
+* [*] A. Using AWS CLI, update CloudTrail trail to disable global service events that are delivered in all regions except US-West-1.
+* [ ] B. Using AWS CLI, change the configuration of a trail to logging a single region instead of logging all regions.
+* [*] C. Using AWS console, update CloudTrail trail to disable global service events to be delivered in all regions except US-West-1.
+* [ ] D. Using the AWS console, change the configuration of a trail to logging a single region instead of logging all regions.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Amazon CloudFront is a global service for which events are delivered to CloudTrail trails, including global services.
+To avoid duplicate Amazon CloudFront events, you can disable these events from delivering to CloudTrail trails in all regions &amp; enable them in only one region.
+Options B &amp; D is incorrect as if CloudTrail trail is changed to logging a single region.
+Global service event logging is off automatically.
+This will disable CloudFront events being logged instead of avoiding duplicate logs.
+Option C is incorrect as Changes to Global service event logs can be done only via AWS CLI &amp; not via AWS console.
+For more information on Global Service Events with CloudTrail, refer to the following URL-
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-regional-and-global-services
+As an AWS Architect for a global insurance firm, you have configured CloudFront to cache image files and created a CloudTrail trail in each region to monitor the events logs. However, you have found that duplicate CloudFront events are being logged, and this is causing increased latency for users in other continents.
+To eliminate the duplicate CloudFront logs, you need to configure the CloudTrail trail appropriately. There are two options available to you:
+Option A: Using AWS CLI, update CloudTrail trail to disable global service events that are delivered in all regions except US-West-1. Option B: Using AWS CLI, change the configuration of a trail to logging a single region instead of logging all regions.
+Option A involves disabling global service events that are delivered in all regions except US-West-1. This option can be accomplished using the AWS CLI. By disabling global service events in all regions except US-West-1, you can prevent duplicate CloudFront events from being logged in other regions. This will help reduce the traffic routed to the origin, resulting in decreased latency for users in other continents. This option is recommended if you want to continue logging CloudTrail events in all regions but only want to disable global service events in other regions.
+Option B involves changing the configuration of the CloudTrail trail to log only a single region instead of logging all regions. This option can also be accomplished using the AWS CLI. By logging only a single region, you can prevent duplicate CloudFront events from being logged in other regions. This will help reduce the traffic routed to the origin, resulting in decreased latency for users in other continents. This option is recommended if you only want to log CloudTrail events in a specific region and do not need to log events in other regions.
+Both options can be accomplished using either the AWS CLI or the AWS console. However, option C and D are incorrect as they do not address the issue of eliminating duplicate CloudFront logs. Therefore, the correct answers are either option A or B depending on the requirements of the situation.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question278:"link"
+
+

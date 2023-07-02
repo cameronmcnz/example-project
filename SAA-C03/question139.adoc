@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "939 - A Large Medical Institute is using a leg"
+---
+
+
+[.question]
+== 939-64a1fa6cf053625db51dde8f.
+
+
+****
+
+[.query]
+--
+A Large Medical Institute is using a legacy database for saving all its patient details.
+Due to compatibility issues with the latest software, they plan to migrate this database to AWS cloud infrastructure.
+This large size database will be using a NoSQL database Amazon DynamoDB in AWS.
+As an AWS consultant, you need to ensure that all the current legacy database tables are migrated without a glitch to Amazon DynamoDB.
+Which of the following is the most cost-effective way of transferring legacy databases to Amazon DynamoDB?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS DMS with AWS Schema Conversion Tool to save data to Amazon S3 bucket & then upload all data to Amazon DynamoD.
+* [ ] B. Use AWS DMS with engine conversion tool to save data to Amazon S3 bucket & then upload all data to Amazon DynamoD.
+* [*] C. Use AWS DMS with engine conversion tool to save data to Amazon EC2 & then upload all data to Amazon DynamoD.
+* [ ] D. Use AWS DMS with AWS Schema Conversion Tool to save data to Amazon EC2 instance & then upload all data to Amazon DynamoD.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+In this case, Legacy Database will be converted to Amazon DynamoDB, which will be a heterogenous conversion.
+Using AWS Schema Conversion Tool is best suited for such conversion along with AWS DMS to transfer data from on-premise to AWS.
+Using Amazon S3 bucket will help to save any amount of data most cost-effectively before uploading the data to Amazon DynamoDB.Option B is incorrect as the engine conversion tool is best suited for homogeneous database migration.
+In this case, it's a heterogeneous database.
+So using AWS SCT along with AWS DMS is the best option.
+Option C &amp; D are incorrect as using the Amazon S3 bucket is a more cost-effective option than using the Amazon EC2 instance.
+For more information on using AWS Database Migration Service with AWS SCT, refer to the following URL:
+https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.html#CHAP_BestPractices.SchemaConversion
+The most cost-effective way of transferring a legacy database to Amazon DynamoDB is option B: Use AWS DMS with engine conversion tool to save data to Amazon S3 bucket & then upload all data to Amazon DynamoDB.
+Amazon Database Migration Service (AWS DMS) is a managed service that can help migrate databases to AWS quickly and securely. It can migrate data from various sources to various target databases. In this case, it will migrate data from a legacy database to Amazon DynamoDB.
+Amazon DynamoDB is a NoSQL database that is designed to handle large amounts of data with low latency and high performance. It is a fully managed database service, which means that AWS takes care of the infrastructure and maintenance of the database.
+The engine conversion tool is a feature of AWS DMS that helps convert data from one database engine to another. In this case, it will convert the data from the legacy database engine to the Amazon DynamoDB engine. This tool is helpful when migrating from one database engine to another and ensures that data is migrated correctly.
+The steps involved in the migration process are:
+1. Set up an Amazon S3 bucket to store the data temporarily during migration.
+2. Create an AWS DMS migration task and select the legacy database as the source and Amazon DynamoDB as the target.
+3. Use the engine conversion tool to convert the data from the legacy database engine to the Amazon DynamoDB engine.
+4. Migrate the data to the Amazon S3 bucket using AWS DMS.
+5. Finally, upload the data from the S3 bucket to Amazon DynamoDB.
+This method is cost-effective because Amazon S3 and Amazon DynamoDB are both highly scalable and pay-as-you-go services, which means that you only pay for what you use. Also, using the engine conversion tool reduces the manual effort involved in the migration process, which saves time and money.
+Option A, using AWS DMS with AWS Schema Conversion Tool to save data to Amazon S3 bucket & then upload all data to Amazon DynamoDB, is not as cost-effective as option B because the schema conversion tool is not necessary for migrating data from a legacy database to Amazon DynamoDB.
+Option C, using AWS DMS with engine conversion tool to save data to Amazon EC2 & then upload all data to Amazon DynamoDB, is not as cost-effective as option B because it involves the additional cost of an Amazon EC2 instance, which is not necessary for the migration process.
+Option D, using AWS DMS with AWS Schema Conversion Tool to save data to Amazon EC2 instance & then upload all data to Amazon DynamoDB, is not as cost-effective as option B because it involves the additional cost of an Amazon EC2 instance and the unnecessary use of the schema conversion tool.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question158:"link"
+
+

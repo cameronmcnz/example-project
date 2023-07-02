@@ -1,0 +1,128 @@
+---
+layout: default 
+title: "1092 - You are the architect for a business int"
+---
+
+
+[.question]
+== 1092-64a1faacf053625db51ddf3c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_aws1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are the architect for a business intelligence application that reads data from a MySQL database hosted on an EC2 Instance.
+The application experiences a high number of read and write requests. Which Amazon EBS Volume type can meet the performance requirements of this database?
+
+
+[source,java]
+----
+General Purpose SSD
+
+Volume type gp3 gp2
+
+Durability 99.8% - 99.9% 99.8% - 99.9%
+durability (0.1% - durability (0.1% -
+0.2% annual 0.2% annual
+failure rate) failure rate)
+
+Use cases * Low-latency interactive apps
+
+* Development and test environments
+
+io2 Block Express $
+
+99.999% durability
+(0.001% annual failure
+rate)
+
+Workloads that require:
+
+* Sub-millisecond
+latency
+
+* Sustained IOPS
+performance
+
+* More than 64,000
+IOPS or 1,000 MiB/s
+of throughput
+
+Provisioned IOPS SSD
+ji02
+99.999%
+durability
+
+(0.001% annual
+failure rate)
+
+iol
+
+99.8% - 99.9%
+durability (0.1% -
+0.2% annual
+failure rate)
+
+* Workloads that require sustained
+IOPS performance or more than
+
+16,000 IOPS
+
+* 1/O-intensive database workloads
+----
+
+
+--
+
+[.list]
+--
+* [*] A. EBS Provisioned IOPS SSD
+* [ ] B. EBS Throughput Optimized HDD
+* [*] C. EBS General Purpose SSD
+* [ ] D. EBS Cold HDD.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Since there is a Business intelligence requirement with a large number of read and write requests, one needs to opt for EBS Provisioned IOPS SSD.Reference:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+For a business intelligence application that generates a high number of read and write requests from a MySQL database hosted on an EC2 instance, the Amazon EBS Provisioned IOPS SSD volume type can meet the performance requirements.
+Here is the detailed explanation for each of the options:
+A. EBS Provisioned IOPS SSD: This volume type is designed to deliver predictable and consistent high performance for mission-critical and I/O intensive workloads. It is ideal for applications that require low-latency access to data, such as databases. It allows the user to provision a specific level of IOPS (input/output operations per second) based on their performance needs.
+B. EBS Throughput Optimized HDD: This volume type is designed for frequently accessed, throughput-intensive workloads. It is ideal for big data applications, data warehouses, and log processing applications that require low-cost storage and high throughput.
+C. EBS General Purpose SSD: This volume type is designed for a broad range of workloads, including small to medium-sized databases, development and test environments, and boot volumes. It provides a balance of price and performance and is a good choice for most workloads that require low to moderate IOPS.
+D. EBS Cold HDD: This volume type is designed for infrequently accessed workloads and provides low-cost storage for data that is accessed less than once a month. It is ideal for backups, disaster recovery, and long-term archival storage.
+Considering the performance requirements of a business intelligence application with a high number of read and write requests, the EBS Provisioned IOPS SSD volume type is the most appropriate option. It provides the ability to provision the required level of IOPS, ensuring consistent and predictable performance for the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question334:"link"
+
+

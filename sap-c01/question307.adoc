@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1107 - In your organization your DevOps team is"
+---
+
+
+[.question]
+== 1107-64a1df67aa736d27b1db9470.
+
+
+****
+
+[.query]
+--
+In your organization, your DevOps team is in charge of provisioning resources in an AWS account.
+Tim was a team member and created a Customer Managed Key in KMS several months ago.
+The default key policy is removed, and the key policy is as below.
+
+
+--
+
+[.list]
+--
+* [*] A. Contact AWS Support to regain access to the CMK.
+* [ ] B. Log in as the root user of the AWS account and add another user as the key administrator.
+* [*] C. Use the IAM admin user to edit the key policy to allow all actions for the principal of arn:aws:iam::111122223333:root. Add other IAM users as key administrators or users if required.
+* [ ] D. Create an IAM policy that allows the action of kms:PutKeyPolicy and attach the policy to an IAM user. Login into AWS console with the user and modify the key policy to the default one.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+About the default and recommended key policies in KMS, check the AWS documentation in https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default.
+The default key policy is as below:
+{
+"Sid": "Enable IAM User Permissions",
+"Effect": "Allow",
+"Principal": {"AWS": "arn:aws:iam::111122223333:root"},
+"Action": "kms:*",
+"Resource": "*"
+}
+This allows the permissions of the key to be managed by IAM policies.
+Option A is CORRECT: Because even the root user cannot manage it.
+You have to contact AWS Support to restore it.
+Option B is incorrect: Because the root user cannot manage the key policy either as the user is not allowed to do that.
+Option C is incorrect: Because the key policy cannot be modified by any IAM user anymore.
+Option D is incorrect: Because the key policy still denies the action even if the IAM user has an IAM policy to allow it.
+In this scenario, Tim, a team member of the DevOps team, created a Customer Managed Key (CMK) in KMS several months ago. However, the default key policy has been removed, and the key policy has been modified. As a result, the DevOps team has lost access to the CMK, and they need to regain access to it.
+Option A, "Contact AWS Support to regain access to the CMK," is not the best option in this scenario. Although AWS Support can help, it may take time to get a response, and the team may need to take immediate action.
+Option B, "Log in as the root user of the AWS account and add another user as the key administrator," is not the best option either. In general, logging in as the root user is not recommended because it provides too much power and access. Additionally, this option does not explain how to recover the key policy that was removed.
+Option C, "Use the IAM admin user to edit the key policy to allow all actions for the principal of arn:aws:iam::111122223333:root. Add other IAM users as key administrators or users if required," is the best option in this scenario. This option involves editing the key policy to add back the necessary permissions. It specifies adding back the principal of arn:aws:iam::111122223333:root, which allows the root user to have access to the CMK. The option also mentions adding other IAM users as key administrators or users if required, which is a good practice for team management.
+Option D, "Create an IAM policy that allows the action of kms:PutKeyPolicy and attach the policy to an IAM user. Login into AWS console with the user and modify the key policy to the default one," is not the best option because it involves creating an IAM policy to modify the key policy. This option does not provide a clear solution for recovering the key policy that was removed.
+Therefore, Option C is the best answer to this question.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question447:"link"
+
+

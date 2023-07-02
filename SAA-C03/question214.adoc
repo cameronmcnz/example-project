@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "1014 - A company plans to use SQS queue and AWS"
+---
+
+
+[.question]
+== 1014-64a1fa87f053625db51ddee3.
+
+
+****
+
+[.query]
+--
+A company plans to use SQS queue and AWS Lambda to leverage the serverless aspects of the AWS Cloud.
+There is a requirement to send a message to an SQS queue by each invocation of AWS Lambda.
+What should be required to achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. The queue must be a FIFO queue.
+* [*] B. An IAM Role must have the required permissions.
+* [*] C. The code for Lambda must be written in C#.
+* [ ] D. An IAM Group must have the required permissions.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+While working with AWS Lambda functions, if there is a need to access other resources, you ensure that an IAM role is in place.
+The IAM role will have the required permissions to access the SQS queue.
+For more information on AWS IAM Roles, please visit the following URL-
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+The correct answer is B. An IAM Role must have the required permissions.
+Explanation: AWS Lambda is a serverless computing service that allows users to run code without having to manage servers. Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables users to decouple and scale microservices, distributed systems, and serverless applications.
+To send a message to an SQS queue by each invocation of AWS Lambda, the Lambda function needs to have the necessary permissions to interact with the SQS queue. These permissions can be granted by creating an IAM role with the appropriate permissions and then assigning this role to the Lambda function.
+Option A, The queue must be a FIFO queue, is not correct as the type of SQS queue does not impact the ability to send messages from Lambda to SQS.
+Option C, The code for Lambda must be written in C#, is not correct as AWS Lambda supports various programming languages such as Node.js, Python, Java, Go, and more.
+Option D, An IAM Group must have the required permissions, is not correct as IAM groups are not used to grant permissions to Lambda functions.
+Therefore, the correct answer is B, An IAM Role must have the required permissions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question244:"link"
+
+

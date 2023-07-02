@@ -1,0 +1,96 @@
+---
+layout: default 
+title: "979 - What would happen to an RDS Relational D"
+---
+
+
+[.question]
+== 979-64a1df37aa736d27b1db93ac.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_wgn6rf.png[]
+
+--
+
+
+****
+
+[.query]
+--
+What would happen to an RDS (Relational Database Service) Multi-Availability Zone deployment if the primary DB instance fails?
+
+
+[source,java]
+----
+Q: What happens during Multi-AZ failover and how long does it take?
+
+Failover is automatically handled by Amazon RDS so that you can resume database operations as quickly as possible without
+administrative intervention. When failing over, Amazon RDS simply flips the canonical name record (CNAME) for your DB instance to
+point at the standby, which is in turn promoted to become the new primary. We encourage you to follow best practices and implement
+
+database connection retry at the application layer.
+
+Failovers, as defined by the interval between the detection of the failure on the primary and the resumption of transactions on the
+standby, typically complete within one to two minutes. Failover time can also be affected by whether large uncommitted transactions
+must be recovered; the use of adequately large instance types is recommended with Multi-AZ for best results. AWS also recommends
+the use of Provisioned IOPS with Multi-AZ instances, for fast, predictable, and consistent throughput performance.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. The IP address of the primary DB instance is switched to the standby DB instance.
+* [ ] B. The primary RDS (Relational Database Service) DB instance reboots and remains as primary.
+* [ ] C. A new DB instance is created in the standby availability zone.
+* [*] D. The canonical name record (CNAME) is re-pointed from the primary to the secondary instance (standby).
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because the IP address of the primary and standby instances remain the same and are not changed.
+Option B is incorrect because the CNAME record of the primary DB instance changes to the standby instance.
+Option C is incorrect because there is no new instance created in the standby AZ.
+Option D is CORRECT because the CNAME of the primary DB instance changes to the standby instance so that there is no impact on the application setting or any reference to the primary instance.
+More information on Amazon RDS Multi-AZ deployment:
+Amazon RDS Multi-AZ deployments provide enhanced availability and durability for Database (DB) Instances, making them a natural fit for production database workloads.
+When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ)
+Each AZ runs on its own physically distinct, independent infrastructure, and is engineered to be highly reliable.
+In case of an infrastructure failure (for example, instance hardware failure, storage failure, or network disruption), Amazon RDS performs an automatic failover to the standby so that you can resume database operations as soon as the failover is complete.
+And as per the AWS documentation, the CNAME is changed to the standby DB when the primary one fails.
+https://aws.amazon.com/rds/faqs/
+For more information on Multi-AZ RDS, please visit the link-
+https://aws.amazon.com/rds/details/multi-az/
+In an RDS Multi-Availability Zone (Multi-AZ) deployment, a standby replica is automatically created in a different Availability Zone (AZ) from the primary DB instance. This replica is kept in sync with the primary through synchronous replication of the database writes.
+If the primary DB instance fails, AWS automatically promotes the standby replica to the primary instance, and reconfigures the DNS name of the DB instance endpoint to point to the new primary. This process is automated and occurs without any manual intervention.
+Therefore, the correct answer is:
+A. The IP address of the primary DB instance is switched to the standby DB instance.
+Option B is incorrect because the primary instance cannot remain as primary if it fails. Option C is also incorrect because a new DB instance is not created, but rather the standby instance is promoted to be the new primary. Option D is incorrect because the canonical name record (CNAME) is not re-pointed from the primary to the secondary instance, but rather the endpoint is reconfigured to point to the new primary instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question250:"link"
+
+

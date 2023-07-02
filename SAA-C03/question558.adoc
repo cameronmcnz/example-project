@@ -1,0 +1,109 @@
+---
+layout: default 
+title: "1358 - Your organization had set up a web appli"
+---
+
+
+[.question]
+== 1358-64a1fb3bf053625db51de099.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgCSAA-route-4.PNG[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization had set up a web application on AWS VPC with 4 EC2 instances in a private subnet.
+They had configured an elastic load balancer to distribute traffic between all 4 EC2 instances.
+They decided to route traffic from the internet to the elastic load balancer resource via the domain, “www.example-web-application.com” they had already registered.
+Which type of record set do you need to create in Route 53?
+
+
+[source,java]
+----
+Routing traffic to an ELB load balancer
+
+PDF | Kindle | RSS
+
+If you host a website on multiple Amazon EC2 instances, you can distribute traffic to your website
+across the instances by using an Elastic Load Balancing (ELB) load balancer. The ELB service
+automatically scales the load balancer as traffic to your website changes over time. The load
+balancer also can monitor the health of its registered instances and route domain traffic only to
+healthy instances.
+
+To route domain traffic to an ELB load balancer, use Amazon Route 53 to create an alias record that
+points to your load balancer. An alias record is a Route 53 extension to DNS. It's similar to a CNAME
+record, but you can create an alias record both for the root domain, such as example.com, and for
+subdomains, such as www.example.com. (You can create CNAME records only for subdomains.)
+
+@® Note
+
+Route 53 doesn't charge for alias queries to ELB load balancers or other AWS resources.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. A - IPv4 Address with Alias=NO and select the ELB resource
+* [*] B. A - IPv4 Address with Alias=YES and select the ELB resource
+* [ ] C. CNAME - Canonical Name with ALIAS=NO and select the ELB IP addresses
+* [ ] D. CNAME - Canonical Name with ALIAS=YES and select the ELB resource.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+While using an Alias record to route traffic to AWS resources, Route 53 automatically recognizes the change in the resource eg an IP change in a Load Balancer will prompt route 53 to automatically send queries to the new IP address.
+Alias routing comes at no additional cost as compared to CNAME routing which incurs cost depending on the nature of its routing queries.
+A CNAME record redirects DNS queries for a record name regardless of the record type specified in the DNS query, such as A or AAAA.Option A is incorrect because for A record, when Alias is not enabled, an IP address needs to be configured.
+For an ELB resource, this is not applicable.
+Option B is CORRECT because when Alias is enabled in A record, you can select the ELB resource in the target.
+Route 53 responds to a DNS query only when the name of the alias record (such as xyz.example.com) and the type of the alias record (such as A or AAAA) match the name and type in the DNS query.
+Option C is incorrect because, for a CNAME record, you need to configure a DNS name instead of an IP address.
+Option D is incorrect because the CNAME Alias record does not support ELB resources.
+'CNAME record with Alias=Yes' can work for the scenario given in the question, but it is not best suitable.
+Please check the youtube link given below.
+https://www.youtube.com/watch?v=YPNzeuNd-lA
+References:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html
+To route traffic from the internet to an Elastic Load Balancer (ELB) resource via a domain registered with Route 53, you would need to create a DNS record set in Route 53 that maps the domain name to the ELB resource.
+There are two types of record sets that can be created in Route 53 for this purpose: A record sets and CNAME record sets.
+A record sets map a domain name to an IPv4 address, while CNAME record sets map a domain name to another domain name.
+In this case, since the ELB is the target resource, we can rule out creating a CNAME record set that maps the domain name to the ELB's IP address (Option C). The reason for this is that an ELB is a highly available, scalable service and the IP addresses associated with the ELB can change frequently, making it difficult to manage DNS records.
+Therefore, we would want to create an A record set or an ALIAS record set that maps the domain name to the ELB resource.
+Option A suggests creating an A record set with Alias=NO and selecting the ELB resource. However, this is not the recommended approach for mapping a domain name to an ELB resource. The reason for this is that A record sets are not dynamic and cannot be updated if the ELB's IP address changes.
+Option B suggests creating an A record set with Alias=YES and selecting the ELB resource. This is the recommended approach for mapping a domain name to an ELB resource. The Alias option allows you to create a dynamic record set that automatically maps to the current IP addresses associated with the ELB.
+Option D suggests creating a CNAME record set with Alias=YES and selecting the ELB resource. However, CNAME record sets cannot be used to map a domain name to an ELB resource directly.
+Therefore, the correct answer is Option B - A - IPv4 Address with Alias=YES and select the ELB resource.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question684:"link"
+
+

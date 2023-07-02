@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1232 - A CloudFront distribution delivers the w"
+---
+
+
+[.question]
+== 1232-64a1faf5f053625db51ddfee.
+
+
+****
+
+[.query]
+--
+A CloudFront distribution delivers the web content of an application.
+Some static files are cached in the CloudFront distribution, and the TTL is set to 1 day.
+You upgrade the origin server, and a configuration JSON file is updated.
+However, when users access the website, the old file cached in CloudFront is returned, and some services are impacted.
+How would you resolve this problem?
+
+
+--
+
+[.list]
+--
+* [*] A. Wait for a day and the file will be updated automatically.
+* [*] B. Invalidate the object in CloudFront so that the object is removed from the CloudFront edge cache.
+* [*] C. Modify the default TTL to be 0 in the CloudFront cache setting.
+* [ ] D. Upgrade the origin application again and add a cache-control header to inform CloudFront to remove the JSON file from its cache.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect because, with the method, the service will be impacted for a day.
+A better approach is to invalidate the object from the cache.
+Option B is CORRECT because invalidating the object removes it from the CloudFront edge cache to return the correct file to the user.
+The issue can be resolved immediately with this method.
+Option C is incorrect because the default TTL impacts all objects served by the CloudFront distribution.
+In this scenario, there is only 1 file that needs to be cleared from the cache.
+Option D is incorrect because the application has to be upgraded again, which is unnecessary.
+Option B is faster and simpler.
+Reference:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html.
+The correct answer to this question is B. Invalidate the object in CloudFront so that the object is removed from the CloudFront edge cache.
+When a CloudFront distribution delivers content, it caches the content at edge locations around the world. This means that users accessing the content from these edge locations will receive the cached content instead of making a request to the origin server each time. The time-to-live (TTL) value determines how long the content will remain cached in the edge location before it is considered stale and a new request is made to the origin server.
+In this scenario, the origin server has been updated, but the old JSON file is still cached in CloudFront, causing issues for users. To resolve this, we need to remove the old cached file from CloudFront so that the new version can be fetched from the origin server.
+The process of removing an object from CloudFront's cache is called invalidation. An invalidation request is sent to CloudFront to remove the specified object from all edge locations, which ensures that the next time the object is requested, it will be fetched from the origin server and cached again with the updated version.
+Option A, waiting for a day, is not a practical solution in this scenario because the TTL for the JSON file is set to 1 day, so users will continue to experience issues until the cache expires.
+Option C, modifying the default TTL to be 0, would force CloudFront to fetch content from the origin server every time it is requested, which can cause unnecessary load on the origin server and increase latency for users.
+Option D, upgrading the origin application again and adding a cache-control header to inform CloudFront to remove the JSON file from its cache, is not the most efficient solution. It requires an additional upgrade to the origin server, and the cache-control header would only work for subsequent requests, not the current requests that are causing issues.
+In conclusion, the best solution to resolve the issue of old cached files in CloudFront is to use the invalidation feature to remove the specific object from all edge locations.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question512:"link"
+
+

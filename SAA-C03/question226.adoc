@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1026 - Currently you have a set of Lambda funct"
+---
+
+
+[.question]
+== 1026-64a1fa8df053625db51ddef1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_qkiudt.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Currently, you have a set of Lambda functions that have business logic embedded in them.
+You want customers to have the ability to call these functions via HTTPS.
+How could this be achieved?
+
+
+--
+
+[.list]
+--
+* [*] A. Use the API Gateway and provide integration with the AWS Lambda functions.
+* [ ] B. Enable HTTP access on the AWS Lambda functions.
+* [*] C. Add EC2 Instances with an API server installed. Integrate the server with AWS Lambda functions.
+* [ ] D. Use S3 websites to make calls to the Lambda functions.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+An API Gateway provides the ideal access to your back end services via APIs.
+For more information on the API Gateway service, please visit the following URL-
+https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html
+The correct answer is A. Use the API Gateway and provide integration with the AWS Lambda functions.
+Explanation: AWS Lambda is a serverless computing service that allows you to run code without provisioning or managing servers. However, you need a way to expose your Lambda functions to external clients, such as mobile applications, web applications, or other systems. One way to achieve this is by using Amazon API Gateway, which is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
+API Gateway allows you to create RESTful APIs or WebSocket APIs that act as a front door for your Lambda functions. You can configure your API Gateway to map incoming requests to specific Lambda functions, and then transform the output of the Lambda functions into the format that the client expects. You can also use API Gateway to manage API versions, throttling, caching, and access control.
+To enable HTTPS access to your Lambda functions via API Gateway, you need to follow these steps:
+1. Create a new REST API or WebSocket API in API Gateway.
+2. Define the resources, methods, and integration points for your API.
+3. Configure the integration type as AWS Lambda, and select the Lambda function you want to invoke.
+4. Map the request parameters and payloads to the input of the Lambda function, and map the output of the Lambda function to the response.
+5. Enable HTTPS access by creating a custom domain name or by using the default domain name provided by API Gateway.
+6. Deploy your API to a stage, which is a snapshot of your API configuration and resources at a specific point in time.
+7. Test your API using the API Gateway console, a client application, or a tool such as Postman.
+By using API Gateway to expose your Lambda functions, you can separate the business logic from the presentation layer, and you can also scale your API independently of your Lambda functions. You can also apply security policies, such as API keys, IAM roles, and OAuth 2.0, to restrict access to your API and protect your resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question258:"link"
+
+

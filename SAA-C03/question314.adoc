@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1114 - A company is building a service using Am"
+---
+
+
+[.question]
+== 1114-64a1fab6f053625db51ddf53.
+
+
+****
+
+[.query]
+--
+A company is building a service using Amazon EC2 as a worker instance to process an uploaded audio file and generate a text file.
+You must store both of these files in the same durable storage until the text file is retrieved.
+You do not know what the storage capacity requirements are.
+Which storage option is both cost-efficient and scalable?
+
+
+--
+
+[.list]
+--
+* [*] A. Multiple Amazon EBS Volume with snapshots
+* [ ] B. A single Amazon Glacier vault
+* [*] C. A single Amazon S3 bucket
+* [ ] D. Multiple instance stores.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Amazon S3 is the best storage option for this.
+It is durable and highly available.
+For more information on Amazon S3, please refer to the below URL-
+https://aws.amazon.com/s3/
+The most cost-efficient and scalable storage option for this scenario would be a single Amazon S3 bucket (option C). Here's why:
+1.
+Scalability: Amazon S3 is highly scalable and can handle an unlimited amount of data. This means that as your storage needs grow, you can easily scale up your storage capacity without worrying about running out of space.
+2.
+Cost-Efficiency: Amazon S3 is a highly cost-effective storage solution. You only pay for the storage you use, and there are no upfront costs or minimum fees. Additionally, S3 offers a tiered pricing structure where you pay less per GB for higher levels of storage.
+3.
+Durable Storage: Amazon S3 is designed to provide highly durable storage for your data. By default, S3 stores data across multiple Availability Zones (AZs) within a region to ensure high availability and durability.
+4.
+Security: Amazon S3 offers a variety of security features to help protect your data, including server-side encryption, access control lists (ACLs), and bucket policies.
+On the other hand, the other options have their drawbacks:
+A. Multiple Amazon EBS Volume with snapshots: This option involves using multiple Amazon EBS volumes to store the uploaded audio and generated text files. While this option is scalable and provides durable storage, it can quickly become costly as you need to pay for each EBS volume and the associated snapshots.
+B. A single Amazon Glacier vault: This option involves using Amazon Glacier, which is a low-cost storage solution designed for long-term data archiving. While Glacier is highly cost-effective, it is not suitable for storing data that needs to be frequently accessed, such as the generated text file in this scenario.
+D. Multiple instance stores: This option involves using the local instance stores on the EC2 instances to store the uploaded audio and generated text files. However, instance stores are not durable and data stored on them can be lost if the instance fails or is terminated. Additionally, instance stores are not scalable and the storage capacity is limited to the instance type.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question357:"link"
+
+

@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "927 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 927-64a1fa68f053625db51dde82.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a start-up company.
+The company has web-servers deployed in all AZ's in the AWS eu-central-1 (Frankfurt) region.
+These web servers provide news for users from Germany.
+The application is deployed in multiple EC2 servers with several static IP addresses and you need to create a record set for the application.
+How would you configure the record set in Route 53?
+
+
+--
+
+[.list]
+--
+* [*] A. Latency routing policy
+* [ ] B. Weighted routing policy
+* [*] C. Multivalue answer routing policy
+* [ ] D. Geolocation routing policy.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+When Route 53 is configured with Multi-value answer routing, it returns multiple values for web-servers.
+Route 53 responds to DNS queries with up to eight healthy records.
+Traffic is approximately load-balanced between these multiple web-servers.
+Option A is incorrect.
+Latency routing policy is used when multiple resources are mapped with a single domain &amp; the resource with the best latency to the resource is provided.
+Since most of the time, these servers will be accessing locally from the German region, latency to the web servers will be approximately the same.
+Option B is incorrect.
+Weighted routing policy is used when multiple resources are mapped with a single domain &amp; you need to route traffic in a weighted proportionate to each resource.
+As in this case, the requirement is to use all web servers randomly, the weighted routing policy will not be an ideal option.
+Option D is incorrect as the Geolocation routing policy is used to choose resources based upon the user's location.
+In this case, all users will be Germany-based.
+So there would not be random selection on the resource.
+For more information on using Multi-value Answer Routing for Route 53, refer to the following URL:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue
+Given the scenario, the objective is to create a record set in Route 53 for an application that is deployed in multiple EC2 servers with several static IP addresses, which provides news for users from Germany in all availability zones of the eu-central-1 (Frankfurt) region.
+The correct routing policy to choose in this scenario would be the Geolocation routing policy, which allows routing traffic based on the geographic location of the end-user. This policy can be configured to route traffic based on the country, continent, or state/region of the user.
+Here, since the target audience is in Germany, the Geolocation routing policy would be the most appropriate option to route traffic to the web servers deployed in the eu-central-1 (Frankfurt) region. The policy can be configured to route traffic to the nearest available web server to provide the best user experience.
+The other routing policies available in Route 53 are:
+A. Latency routing policy: This policy routes traffic to the AWS region that provides the lowest latency to the end-user. This policy is useful when the application needs to be highly responsive and latency is a critical factor.
+B. Weighted routing policy: This policy is used to distribute traffic across multiple resources in proportion to their respective weights. This policy is useful when you want to distribute traffic evenly across different resources.
+C. Multivalue answer routing policy: This policy returns multiple IP addresses for a single DNS name. It can be used to spread traffic across multiple resources and provide fault tolerance.
+In conclusion, the correct routing policy to configure the record set in Route 53 for the scenario described would be the Geolocation routing policy, which allows routing traffic based on the geographic location of the end-user, providing the best user experience.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question145:"link"
+
+

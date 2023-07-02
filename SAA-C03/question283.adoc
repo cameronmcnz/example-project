@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1083 - An organization has an onpremises messag"
+---
+
+
+[.question]
+== 1083-64a1faa8f053625db51ddf31.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgucYFJXKWF3wqEW4ofD7ctZVxg7nHeplXc8yEv4adelTLoTl6GAAZRLeGgCHxHSPT4Zv8uD4rwxDpvCazcANtidnHpA8PvJlU759X6KNESMDSzmEO1KAVU12L-sMAGhpUpEt3TnHuVuvUcbDXSQ[]
+
+--
+
+
+****
+
+[.query]
+--
+An organization has an on-premises messaging application.
+They want to migrate this application to the AWS cloud without making much code changes while running an on-prem system parallel with the AWS cloud in the hybrid model. How would Solution Architect migrate the highly available solution and support JMS APIs, AMQP, and MQTT protocols?
+
+
+--
+
+[.list]
+--
+* [*] A. Design the solutions using SNS that also supports integration with other AWS services.
+* [ ] B. Design the solutions using SQS that also supports integration with other AWS services.
+* [*] C. Design the solutions using SQS, SNS and Lambda.
+* [*] D. Design the solutions using Amazon MQ in 2 private subnets across multiple Availability Zones.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer : D.
+Key points to note in this question are hybrid running two systems.
+Systems should be highly available, cloud migration, supports both queues and topics (pub and sub), supports JMS API and MQTT protocols, without making code change.
+Option A is incorrect: SNS is a highly available AWS service that provides topics but doesn't make code change requirements and hybrid running of two systems.
+SNS supports the push model of asynchronous communications in the following picture.
+Option B is incorrect: SQS is a highly available AWS service that provides queues but doesn't make code change requirements and hybrid running of two systems.
+Option C is incorrect: SQS and SNS are highly available AWS services that provide queues and topics but don't make code change requirements.
+This will be a good solution for the long run if I need to rewrite with SNS and SQS that supports other AWS services.
+Option D is CORRECT: Amazon MQ is a managed AWS service for Apache Active MQ that meets both SQS (queues) and SNS (Topics) functionality.It also supports JMS API and other key protocols like MQTT etc.
+This is a good fit to migrate on-prem applications using traditional message brokers.
+Reference:
+https://aws.amazon.com/amazon-mq/?amazon-mq.sort-by=item.additionalFields.postDateTime&amp;amazon-mq.sort-order=des
+The organization wants to migrate an on-premises messaging application to AWS cloud while running the on-premises system in parallel. The migration should require minimal code changes and should support JMS APIs, AMQP, and MQTT protocols.
+To meet these requirements, the recommended approach is to use a messaging service that can support these protocols and can integrate with other AWS services. There are multiple messaging services available on AWS, including Amazon SNS, Amazon SQS, and Amazon MQ.
+Option A: Design the solutions using SNS that also supports integration with other AWS services. Amazon SNS (Simple Notification Service) is a messaging service that can support JMS APIs, AMQP, and MQTT protocols. It can integrate with other AWS services such as AWS Lambda, AWS CloudFormation, and Amazon EC2 instances. However, SNS is not a queue-based messaging system, and it may not be suitable for applications that require message buffering or queuing. Therefore, this option may not be the best fit for this scenario.
+Option B: Design the solutions using SQS that also supports integration with other AWS services. Amazon SQS (Simple Queue Service) is a fully managed message queuing service that supports JMS APIs, AMQP, and MQTT protocols. It can integrate with other AWS services such as AWS Lambda, AWS CloudFormation, and Amazon EC2 instances. With SQS, the organization can migrate the application with minimal code changes and keep both on-premises and AWS systems running in parallel. Therefore, this option is a good fit for this scenario.
+Option C: Design the solutions using SQS, SNS and Lambda. This option includes using Amazon SQS for message queuing and Amazon SNS for notification and AWS Lambda for serverless computing. It can be used to build a highly scalable and fault-tolerant messaging system that can handle a large volume of messages. However, this option may be more complex than required for this scenario, and it may require significant code changes to implement.
+Option D: Design the solutions using Amazon MQ in 2 private subnets across multiple Availability Zones. Amazon MQ is a managed message broker service that supports JMS APIs, AMQP, and MQTT protocols. It can be deployed in multiple Availability Zones to provide high availability and fault tolerance. This option may require minimal code changes and can support the desired protocols, but it may require more setup and configuration than other options.
+Based on the requirements and considerations, Option B: Design the solutions using SQS that also supports integration with other AWS services, is the most suitable solution.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question323:"link"
+
+

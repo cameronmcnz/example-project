@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1042 - Which of the following must be done whil"
+---
+
+
+[.question]
+== 1042-64a1df4eaa736d27b1db940d.
+
+
+****
+
+[.query]
+--
+Which of the following must be done while generating a pre-signed URL in S3 to ensure that the user who is given the pre-signed URL has the permission to upload the object?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure the user has write permission to S3.
+* [ ] B. Ensure the user has read permission to S3.
+* [*] C. Ensure that the person who has created the pre-signed URL has the permission to upload the object to the appropriate S3 bucket.
+* [ ] D. Create a CloudFront distribution.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is INCORRECT because this is not a required step.
+With a pre-signed URL, the user itself does not need to have the write permission to S3.
+Option B is INCORRECT because this is not a required step.
+With a pre-signed URL, the user itself does not need to have the read permission to S3.
+Option C is CORRECT because to upload an object to S3 successfully, the pre-signed URL must be created by someone who has permission to perform the operation that the pre-signed URL is based upon.
+Option D is INCORRECT because CloudFront distribution is not needed in this scenario.
+For more information on pre-signed URL's, please visit the below URL.
+http://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html
+When generating a pre-signed URL in S3, it is important to ensure that the user who is given the pre-signed URL has the permission to upload the object. To accomplish this, you need to follow these steps:
+1.
+Ensure the user has write permission to S3: The user who is given the pre-signed URL must have write permission to S3. You can grant this permission by using AWS Identity and Access Management (IAM) to create a policy that allows the user to write to the appropriate S3 bucket.
+2.
+Ensure the user has read permission to S3: Additionally, the user may also need read permission to S3 to download the object after it has been uploaded. You can grant this permission by using IAM to create a policy that allows the user to read from the appropriate S3 bucket.
+3.
+Ensure that the person who has created the pre-signed URL has the permission to upload the object to the appropriate S3 bucket: The person who creates the pre-signed URL must have permission to upload the object to the appropriate S3 bucket. This permission can be granted by using IAM to create a policy that allows the person to upload to the appropriate S3 bucket.
+4.
+Create a CloudFront distribution (optional): Creating a CloudFront distribution is not necessary to ensure that the user who is given the pre-signed URL has the permission to upload the object. However, using CloudFront can help improve the performance and security of your S3 objects.
+In summary, the correct answer to the question is A. Ensure the user has write permission to S3, and C. Ensure that the person who has created the pre-signed URL has the permission to upload the object to the appropriate S3 bucket. Answer B is not necessary to ensure that the user who is given the pre-signed URL has the permission to upload the object, and answer D is optional and not directly related to the permissions required for pre-signed URLs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question348:"link"
+
+

@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "974 - In your CloudFormation template you have"
+---
+
+
+[.question]
+== 974-64a1df35aa736d27b1db93a5.
+
+
+****
+
+[.query]
+--
+In your CloudFormation template, you have an "EnvironmentType" input parameter (Dev/Staging/Production)
+AWS CloudFormation creates an Amazon EC2 instance for a production environment and attaches a volume to the instance.
+For other environments, AWS CloudFormation creates only the Amazon EC2 instance.
+Which section in your CloudFormation template would you add to implement this logic?
+
+
+--
+
+[.list]
+--
+* [*] A. Outputs
+* [ ] B. Resources
+* [ ] C. Mappings
+* [*] D. Conditions.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The optional Conditions section includes statements that define when a resource is created or when a property is defined.
+For example, you can compare whether a value is equal to another value.
+Based on the result of that condition, you can conditionally create resources.
+If you have multiple conditions, separate them with commas.
+For more information on Cloudformation conditions, please visit the below link-
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+Note:
+As per AWS documentation,
+You might use conditions when you want to reuse a template that can create resources in different contexts, such as a test environment versus a production environment.
+In your template, you can add an EnvironmentType input parameter, which accepts either prod or test as inputs.
+For the production environment, you might include Amazon EC2 instances with certain capabilities.
+However, for the test environment, you want to use reduced capabilities to save money.
+With conditions, you can define which resources are created and how they're configured for each environment type.
+Refer to page 276 on the link: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-ug.pdf.
+Conditions are evaluated based on input parameter values that you specify when you create or update a stack.
+Within each condition, you can reference another condition, a parameter value, or a mapping.
+After you define all your conditions, you can associate them with resources and resource properties in the Resources and outputs sections of a template.
+Options A, B, C are incorrect because they cannot define the circumstances under which entities are created or configured or not.
+For more details, please check the below AWS Docs.
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html
+To implement this logic in the CloudFormation template, you would add the logic to the "Conditions" section.
+The "Conditions" section of a CloudFormation template allows you to specify conditions that determine whether certain resources or properties are created or updated during stack creation or update.
+Here's an example of how you could use the "Conditions" section to create an EC2 instance and attach a volume only for the production environment:
+jsonCopy code"Conditions": {   "IsProduction": {"Fn::Equals": [{"Ref": "EnvironmentType"}, "Production"]} },  "Resources": {   "EC2Instance": {     "Type": "AWS::EC2::Instance",     "Properties": {       "ImageId": "ami-0abc123",       "InstanceType": "t2.micro",       "KeyName": "myKeyPair",       "Tags": [         {"Key": "Name", "Value": "My EC2 Instance"}       ],       "BlockDeviceMappings": [         {           "DeviceName": "/dev/sda1",           "Ebs": {             "VolumeSize": 50,             "VolumeType": "gp2"           }         }       ],       "Condition": "IsProduction"     }   } } 
+In this example, the "IsProduction" condition is defined using the "Fn::Equals" intrinsic function, which compares the value of the "EnvironmentType" parameter to the string "Production". If the condition is true, then the EC2 instance and volume resources are created. If the condition is false, then only the EC2 instance resource is created.
+Note that the "Condition" property is set to "IsProduction" for the EC2 instance resource. This tells CloudFormation to only create the EC2 instance when the "IsProduction" condition is true.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question243:"link"
+
+

@@ -1,0 +1,107 @@
+---
+layout: default 
+title: "1340 - You are using AWS EC2 linux instance for"
+---
+
+
+[.question]
+== 1340-64a1fb31f053625db51de081.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_volume.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are using AWS EC2 linux instance for log processing which would require high throughput.
+You chose Throughput optimized HDD storage with 500 GB in size.
+You deployed your application to production mode and it is running as expected.
+After a month, you see anincrease in log files and you are fast approaching the 500 GB size and running out of space onthe EBS volume.
+Which of the following is a best approach to mitigate the situation with minimal configuration?
+
+
+[source,java]
+----
+Create Volume
+
+Volume Type
+Size (GiB)
+
+lors
+
+Availability Zone"
+Throughput (MB/s)
+Snapshot ID
+
+Encryption
+
+Throughput Optimized HDD (st!) »v @
+
+500 (Min: 500 GiB, Max: 16384 GiB)
+Not applicable e
+us-east-1a e
+
+20/123 (Baseline: 40 MB/s per TiB) @&
+Select a snapshot
+
+G Encrypt this volume @
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Add a new EBS volume, mount on EC2 instance and configure your application accordingly.
+* [*] B. Increase the size of the existing EBS volume.
+* [ ] C. EBS volume size cannot be changed. Build purging logic for your old log files
+* [ ] D. You can have only one EBS volume per instance. Snapshot existing EBS volume, detach current volume, create a new volume from snapshot with bigger size and attached to EC2 instance.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Although option A looks correct, it is not the best approach since it involves more configuration and changes to the application to point to a new EBS mount point.
+Option B is correct.
+You can modify the volume and increase in volume size.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html
+Option C is incorrect.
+The reason for Option C to be wrong is, we can increase the volume size but the option mentioned about "EBS volume size cannot be changed' is the reason.
+Option D is not correct.
+You can attach multiple EBS volumes to the single EC2 instances.
+When using AWS EC2 instances for log processing, it is important to consider the storage requirements and make sure that enough space is available to store the log files. In this case, the instance was initially configured with a 500 GB Throughput Optimized HDD storage. However, after a month, the log files have increased, and the current storage is about to run out of space. To mitigate this situation, there are several options available.
+A. Add a new EBS volume, mount on EC2 instance and configure your application accordingly. This option involves adding a new EBS volume to the EC2 instance and configuring the application to use the new volume for storing log files. This approach can be a quick solution to the problem as it involves minimal configuration changes. However, it requires monitoring the space usage of both volumes to prevent running out of space again.
+B. Increase the size of the existing EBS volume. Another option is to increase the size of the existing EBS volume. This can be done by modifying the volume size from the AWS Management Console or using the AWS CLI. This option requires stopping the instance to modify the volume, which may result in some downtime. Additionally, it may not be possible to increase the size beyond a certain limit, depending on the instance type and EBS volume type.
+C. EBS volume size cannot be changed. Build purging logic for your old log files This option involves building purging logic to remove old log files and free up space on the existing EBS volume. While this option can help mitigate the situation with minimal configuration changes, it may not be a long-term solution. If the log files continue to increase in size, the instance may still run out of space.
+D. You can have only one EBS volume per instance. Snapshot existing EBS volume, detach current volume, create a new volume from snapshot with bigger size and attached to EC2 instance. This option involves taking a snapshot of the existing EBS volume, detaching the current volume, creating a new volume from the snapshot with a larger size, and attaching the new volume to the EC2 instance. This approach requires some downtime to detach and attach the volumes but can be a reliable long-term solution.
+In summary, the best approach to mitigate the situation with minimal configuration changes would be to add a new EBS volume and configure the application accordingly (option A). However, if a long-term solution is needed, it would be best to take a snapshot of the existing EBS volume and create a new volume with a larger size (option D).
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question660:"link"
+
+

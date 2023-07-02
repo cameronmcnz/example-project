@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "970 - Your company is running a highvolume onl"
+---
+
+
+[.question]
+== 970-64a1df33aa736d27b1db939d.
+
+
+****
+
+[.query]
+--
+Your company is running a high-volume online e-commerce site.
+The main database is deployed in RDS MySQL configured with Multi-AZ and few read replicas.
+The main website runs on EC2 instances behind a load balancer, and the setup also includes a cluster of Redis to offload repeated queries from the main database.
+The backup window is set in the early morning when the traffic is usually very low.
+Due to the holiday season, the site is receiving a huge amount of traffic during the daytime.
+The development team has recently finished a critical feature and delivered it to the QA team for the final testing.
+The management has decided to perform the full-scale DR exercise around midnight before rolling out new features.
+The resources in one Availability Zone will be taken down during the test.
+Select the option which would restore the RDS database to the latest point.
+
+
+--
+
+[.list]
+--
+* [*] A. Restore the database from the last automated snapshot onto the new database.
+* [ ] B. Restore the database by promoting the read-replica and modify the application to use the new DB instance as the database master.
+* [*] C. Amazon RDS automatically switches to the standby replica in another Availability Zone.
+* [ ] D. Use the RDS Copy Database option to create a new database from an existing database.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is INCORRECT because restoring from the last automated snapshot will not be the latest data.
+As per the timeline mentioned, the backup window is around early morning, and the exercise time is around midnight.
+So the automated snapshot will be nearly a day old.
+Option B is INCORRECT because it does not restore the database to the latest point.
+Option C is CORRECT.
+Because as Multi-AZ is enabled, when the primary DB instance has an issue, it will automatically switch to the standby replica in another AZ.
+Option D is INCORRECT because there is no Copy Database option available in the RDS.
+In this scenario, the company is running a high-volume online e-commerce site with a main database deployed in RDS MySQL configured with Multi-AZ and a few read replicas. The main website runs on EC2 instances behind a load balancer, and there is also a cluster of Redis to offload repeated queries from the main database. The backup window is set in the early morning when the traffic is usually very low. Due to the holiday season, the site is receiving a huge amount of traffic during the daytime. The development team has recently finished a critical feature and delivered it to the QA team for the final testing. The management has decided to perform the full-scale DR exercise around midnight before rolling out new features. The resources in one Availability Zone will be taken down during the test.
+In the event of a disaster, it is important to have a backup and recovery plan in place to restore the RDS database to the latest point. There are several options available to restore the RDS database to the latest point, including:
+A. Restore the database from the last automated snapshot onto the new database. This option involves restoring the database from the last automated snapshot onto a new database. The snapshot is taken automatically by RDS during the backup window. However, this option will result in some data loss as the restored database will only contain data up until the time of the last snapshot.
+B. Restore the database by promoting the read-replica and modify the application to use the new DB instance as the database master. This option involves promoting one of the read replicas to become the new master database instance. The application is then modified to use the new DB instance as the database master. This option has minimal data loss and minimal downtime, as the read replica is already up-to-date with the master database instance.
+C. Amazon RDS automatically switches to the standby replica in another Availability Zone. This option involves relying on Amazon RDS to automatically switch to the standby replica in another Availability Zone if the primary database instance becomes unavailable. This option has minimal data loss and minimal downtime, but it is not suitable for a planned DR exercise.
+D. Use the RDS Copy Database option to create a new database from an existing database. This option involves using the RDS Copy Database option to create a new database from an existing database. This option has minimal data loss and minimal downtime, as the new database will be a copy of the existing database at a specific point in time.
+Given the scenario described, the best option would be B. Restore the database by promoting the read-replica and modify the application to use the new DB instance as the database master. This option has minimal data loss and minimal downtime, as the read replica is already up-to-date with the master database instance. Option A would result in data loss, Option C is not suitable for a planned DR exercise, and Option D would take longer and result in more downtime.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question235:"link"
+
+

@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1045 - An organization has added 3 of its AWS a"
+---
+
+
+[.question]
+== 1045-64a1df4faa736d27b1db9411.
+
+
+****
+
+[.query]
+--
+An organization has added 3 of its AWS accounts to consolidated billing.
+One of the AWS accounts has purchased a Reserved Instance (RI) of a small instance size in the US-East-1a zone.
+All other AWS accounts are running instances of a small size in the same zone.
+What will happen in this case for the RI pricing?
+
+
+--
+
+[.list]
+--
+* [*] A. Only the account that has purchased the RI will get the advantage of RI pricing.
+* [ ] B. One instance of a small size and running in the US-East-1a zone of each AWS account will benefit RI pricing.
+* [*] C. Any single instance from any of the three accounts can benefit AWS RI pricing if they are running in the same zone and are of the same size, but only one instance at a time since only 1 RI was purchased.
+* [ ] D. All of the accounts will be able to benefit from the RI at the same time.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because the price benefit of the reserved instances is applicable to all the accounts that are part of the consolidated billing group, not just the payer account (or the account that has reserved the instance) - for the total number of instances reserved.
+Option B is incorrect because, since only a single instance is reserved, any one instance across all the accounts will receive the reserved instance price benefit.
+Option C is CORRECT because the reserved price benefit will be applied to a single EC2 instance across all the accounts.
+Option D is incorrect because the total number of accounts that will receive the cost-benefit will be the same as the total number of reserved instances (in this case, it's one).
+More information on Consolidated Billing:
+As per the AWS documentation for billing purposes, AWS treats all the accounts on the consolidated bill as if they were one account.
+Some services, such as Amazon EC2 and Amazon S3, have volume pricing tiers across certain usage dimensions that give you lower prices when you use the service more.
+With consolidated billing, AWS combines the usage from all accounts to determine which volume pricing tiers to apply, giving you a lower overall price whenever possible.
+For more information on Consolidated billing, please visit the URL:
+http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html
+When an organization adds multiple AWS accounts to consolidated billing, the billing is consolidated into a single bill, and the accounts are treated as a single entity for billing purposes.
+In the given scenario, one of the accounts has purchased a Reserved Instance (RI) of a small instance size in the US-East-1a zone. Reserved Instances provide a significant discount compared to On-Demand instances, but the discount applies only to instances that match the RI's specifications.
+The other AWS accounts are running instances of a small size in the same zone. The question is about what will happen to the RI pricing in this case.
+Option A states that only the account that has purchased the RI will get the advantage of RI pricing. This option is incorrect because RI pricing benefits can be shared among accounts within consolidated billing.
+Option B states that one instance of a small size and running in the US-East-1a zone of each AWS account will benefit RI pricing. This option is also incorrect because the RI pricing benefit applies to instances that match the RI's specifications, and only one RI has been purchased.
+Option C states that any single instance from any of the three accounts can benefit AWS RI pricing if they are running in the same zone and are of the same size, but only one instance at a time since only 1 RI was purchased. This option is correct. Since the three accounts are under consolidated billing, any instance that matches the RI's specifications in the US-East-1a zone will get the RI pricing benefit, but only one instance at a time, as only one RI has been purchased.
+Option D states that all of the accounts will be able to benefit from the RI at the same time. This option is incorrect because the RI pricing benefit applies to instances that match the RI's specifications, and only one RI has been purchased.
+Therefore, the correct answer is option C. Any single instance from any of the three accounts can benefit AWS RI pricing if they are running in the same zone and are of the same size, but only one instance at a time since only 1 RI was purchased.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question352:"link"
+
+

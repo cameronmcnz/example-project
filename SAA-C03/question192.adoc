@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "992 - Your company has an application that tak"
+---
+
+
+[.question]
+== 992-64a1fa7ef053625db51ddec9.
+
+
+****
+
+[.query]
+--
+Your company has an application that takes care of uploading, processing, and publishing videos posted by users.
+The current architecture for this application includes the following: a) A set of EC2 Instances to transfer user-uploaded videos to S3 buckets. b) A set of EC2 worker processes to process and publish the videos. c) An Auto Scaling Group for the EC2 worker processes. Which of the following AWS Services can be added to the architecture to make it more integrated and decoupled?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon SQS
+* [ ] B. Amazon SNS
+* [*] C. Amazon CloudFront
+* [ ] D. Amazon SES.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Amazon SQS is used to decouple systems.
+It can store requests to process videos, to be picked up by the worker processes.
+AWS Documentation mentions the following:
+Amazon Simple Queue Service (Amazon SQS) offers a reliable, highly scalable, hosted queue for storing messages as they travel between applications or microservices.
+It moves data between distributed application components and helps you decouple these components.
+Option B is incorrect because it is not used for decoupling.
+Option C is incorrect because it does not use EC2 worker processes to process anything.
+It does not relate to the requirements.
+Option D is incorrect because it is an email service.
+For more information on AWS SQS, please visit the following URL:
+https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/Welcome.html https://aws.amazon.com/blogs/compute/running-cost-effective-queue-workers-with-amazon-sqs-and-amazon-ec2-spot-instances/
+To make the architecture more integrated and decoupled, the following AWS services can be added:
+1.
+Amazon Simple Queue Service (SQS) SQS is a fully-managed message queuing service that enables decoupling and scalability of microservices, distributed systems, and serverless applications. By using SQS, messages can be sent between different components of the application, allowing for asynchronous communication between services. In this case, SQS can be used to transfer messages between the EC2 instances and the worker processes. When a user uploads a video, the EC2 instances can send a message to SQS, which can then be processed by the worker processes. SQS ensures that messages are delivered once and in the order in which they are sent.
+2.
+Amazon Simple Notification Service (SNS) SNS is a fully-managed pub/sub messaging service that enables the distribution of messages to multiple subscribers. It can be used to send notifications or alerts to multiple endpoints, such as email, SMS, or HTTP/HTTPS. In this case, SNS can be used to send notifications to subscribers when videos are processed and published. For example, users can receive an email or SMS notification when their video is ready to be viewed.
+3.
+Amazon CloudFront CloudFront is a content delivery network (CDN) that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds. It can be used to accelerate the delivery of video content to users. In this case, CloudFront can be used to distribute the videos to users, reducing the load on the EC2 instances and improving the performance of the application.
+4.
+Amazon Simple Email Service (SES) SES is a flexible and scalable email service that enables the sending and receiving of email using a simple API. It can be used to send notifications, alerts, or marketing emails to users. In this case, SES can be used to send email notifications to users when their video is processed and published, or to send marketing emails promoting new features or content on the application.
+Therefore, in this scenario, the most suitable AWS services to make the architecture more integrated and decoupled are Amazon Simple Queue Service (SQS) and Amazon Simple Notification Service (SNS).
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question217:"link"
+
+

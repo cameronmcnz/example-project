@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1095 - You have 2 development environments host"
+---
+
+
+[.question]
+== 1095-64a1faaef053625db51ddf3f.
+
+
+****
+
+[.query]
+--
+You have 2 development environments hosted in 2 different VPCs in an AWS account in the same region.
+There is now a requirement to access the resources of one VPC from another.
+How could this be accomplished?
+
+
+--
+
+[.list]
+--
+* [*] A. Establish a Direct Connect connection.
+* [ ] B. Establish a VPN connection.
+* [*] C. Establish VPC Peering.
+* [ ] D. Establish Subnet Peering.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+AWS Documentation mentions the following.
+A VPC peering connection is a networking connection between two VPCs that enable you to route traffic between them privately.
+Instances in either VPC can communicate with each other as if they are within the same network.
+You can create a VPC peering connection between your own VPCs, with a VPC in another AWS account, or with a VPC in a different AWS Region.
+For more information on VPC peering, please visit the URL below.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-peering.html
+The requirement to access resources of one VPC from another VPC can be achieved by either establishing a Direct Connect connection, a VPN connection, VPC Peering, or Subnet Peering. Here are the explanations of each option:
+A. Direct Connect:
+Direct Connect is a dedicated network connection between an organization's data center and AWS. This option involves setting up a physical connection between the on-premises data center and the AWS cloud. By establishing a Direct Connect connection, the two VPCs can communicate with each other directly over the dedicated network connection.
+B. VPN Connection:
+A VPN (Virtual Private Network) connection allows users to securely connect to a private network over the internet. To establish a VPN connection between the two VPCs, you would need to set up a virtual private gateway in each VPC and create a VPN connection between them. Once the VPN connection is established, the VPCs can communicate with each other securely over the internet.
+C. VPC Peering:
+VPC Peering allows you to connect two VPCs via a private network connection. By creating a peering connection between the two VPCs, the instances in each VPC can communicate with each other as if they are on the same network.
+Note that VPC Peering works only if the two VPCs have non-overlapping IP ranges.
+D. Subnet Peering:
+Subnet Peering is a similar concept to VPC Peering, but instead of connecting two VPCs, it connects two subnets within the same VPC. Subnet Peering enables instances in one subnet to communicate with instances in another subnet using private IP addresses.
+In conclusion, the correct option to access resources of one VPC from another VPC will depend on the specific use case, network topology, and IP addressing requirements. All four options - Direct Connect, VPN connection, VPC Peering, and Subnet Peering - offer different advantages and disadvantages.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question337:"link"
+
+

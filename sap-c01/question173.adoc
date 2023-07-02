@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "973 - You are using DynamoDB to store data in "
+---
+
+
+[.question]
+== 973-64a1df34aa736d27b1db93a3.
+
+
+****
+
+[.query]
+--
+You are using DynamoDB to store data in your application.
+You create a table named "Users" with "UserID" as the Primary Key.
+However, you envision that, in some cases, you might need to query the table by "UserName" which cannot be set as the primary key.
+What changes would you make to this table to be able to query using UserName?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a second table that contains all the information, but make UserName the primary key.
+* [ ] B. Create a hash and change the primary key.
+* [*] C. Create a Global secondary index.
+* [ ] D. Partition the table using UserName rather than UserI.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Some applications might need to perform many kinds of queries, using a variety of different attributes as query criteria.
+To support these requirements, you can create one or more global secondary indexes and issue
+Query.
+requests against these indexes in Amazon DynamoDB.To speed up queries on non-key attributes, you can create a global secondary index.
+A global secondary index contains a selection of attributes from the base table, but they are organized by a primary key that is different from that of the table.
+The index key does not need to have any of the key attributes from the table.
+It doesn't even need to have the same key schema as a table.
+Option A is incorrect because creating another table is costly and unnecessary.
+Option B is incorrect because UserName cannot be the primary key.
+Option C is CORRECT because, as mentioned above, creating a global secondary index on UserName would allow the user to efficiently access the table via querying on this attribute rather than UserID which is the primary key.
+Option D is incorrect because DynamoDB tables are partitioned based on the primary key, and you cannot make UserName as the primary key.
+AWS Reference Docs:
+http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
+To enable querying by a non-primary key attribute in DynamoDB, you can create a Global Secondary Index (GSI). A GSI is a separate index with its own partition key and sort key that allows you to query the table using different attributes than the primary key.
+In this scenario, creating a GSI with "UserName" as the partition key would allow you to query the "Users" table by this attribute. To create a GSI, you can use the AWS Management Console, AWS CLI, or an SDK.
+The other options provided in the answer choices are not ideal solutions for this scenario:
+A. Creating a separate table would lead to data duplication and management overhead. B. Changing the primary key would require recreating the entire table and migrating the data. D. Partitioning the table using "UserName" as the partition key would not allow for efficient querying and would result in hot partitions.
+Therefore, the correct answer is C. Create a Global Secondary Index.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question241:"link"
+
+

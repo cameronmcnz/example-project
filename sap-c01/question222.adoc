@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1022 - A customer runs an application in the US"
+---
+
+
+[.question]
+== 1022-64a1df47aa736d27b1db93f3.
+
+
+****
+
+[.query]
+--
+A customer runs an application in the US-West region in one of the availability zones and wants to set up the failover to another availability zone.
+The customer is also interested in implementing RDS Multi-AZ for high availability.
+However, you are worried that the synchronous replication between the primary DB and backup DB may impact the performance and the write and commit latency may increase.
+Which of the following actions can help you to address this concern?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure several RDS read-replicas in each availability zone.
+* [*] B. Use Provisioned IOPS and DB instance classes that are optimized for Provisioned IOPS.
+* [ ] C. Configure a VPC peering connection between two availability zones for the RDS instances.
+* [ ] D. No actions are required as RDS Multi-AZ synchronous replication does not impact the performance.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is incorrect because RDS read-replicas will not improve the performance for the write and commit latency.
+Read-replicas can help to share the read traffic.
+Option B is CORRECT because this method can improve the RDS instances' performance with the Multi-AZ deployments.
+Option C is incorrect because VPC peering connection can establish the communication between two different VPCs.
+But it does not improve the performance of the Multi-AZ DB instances.
+Option D is incorrect.
+Please check the explanations of option.
+B.The reference can be found in https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html.
+The correct answer is B. Use Provisioned IOPS and DB instance classes that are optimized for Provisioned IOPS.
+RDS Multi-AZ is a feature that automatically provisions and maintains a synchronous standby replica of the primary database in a different availability zone. This is done to ensure high availability and minimize downtime in case of a failure in the primary availability zone. However, synchronous replication can impact the performance of the database, especially during write operations, as the write and commit latency may increase.
+To address this concern, you can use Provisioned IOPS and DB instance classes that are optimized for Provisioned IOPS. Provisioned IOPS allow you to provision a specific level of I/O operations per second (IOPS) for your database, ensuring consistent performance. By using Provisioned IOPS, you can ensure that the database can handle the increased write and commit latency without compromising performance.
+Option A, configuring several RDS read-replicas in each availability zone, does not address the concern about the impact of synchronous replication on performance. Read-replicas are used for scaling read-heavy workloads and do not provide the same level of high availability as Multi-AZ.
+Option C, configuring a VPC peering connection between two availability zones for the RDS instances, does not address the concern about the impact of synchronous replication on performance. VPC peering is a way to connect two VPCs so that they can communicate with each other as if they were in the same network. It does not affect the performance of the database.
+Option D, stating that no actions are required as RDS Multi-AZ synchronous replication does not impact the performance, is incorrect. As mentioned earlier, synchronous replication can impact the performance of the database, especially during write operations.
+Therefore, the correct answer is B. Use Provisioned IOPS and DB instance classes that are optimized for Provisioned IOPS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question322:"link"
+
+

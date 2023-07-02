@@ -1,0 +1,88 @@
+---
+layout: default 
+title: "1101 - A company is currently utilizing a Redsh"
+---
+
+
+[.question]
+== 1101-64a1fab0f053625db51ddf45.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_w4d4rq.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company is currently utilizing a Redshift cluster as its production warehouse.
+As a cloud architect, you are tasked to ensure that disaster recovery is in place.
+Which would be the best option in addressing this issue?
+
+
+[source,java]
+----
+Configure Cross-Region Snapshots
+
+You can configure cross-regional snapshots when you want Amazon Redshift to
+‘automatically copy snapshots (automated or manual) to another region for backup
+purposes. Note that copying snapshots from the source region to a destination region
+incurs data transfer charges.
+
+Enable Cross-Region Snapshots @ Yes © No
+Destination Region* us-east-1
+Retention Period 1 [=] @
+
+| save contiguraton Ea
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Take a copy of the underlying EBS volumes to S3 and then do Cross-Region Replication.
+* [*] B. Enable Cross-Region Snapshots for the Redshift Cluster.
+* [*] C. Create a CloudFormation template to restore the Cluster in another region.
+* [ ] D. Enable Cross Availability Zone Snapshots for the Redshift Cluster.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The below diagram shows that snapshots are available for Redshift clusters enabling them to be available in different regions.
+For more information on managing Redshift Snapshots, please visit the following URL-
+https://docs.aws.amazon.com/redshift/latest/mgmt/managing-snapshots-console.html
+To ensure disaster recovery for a production Redshift cluster, enabling cross-region snapshots would be the best option.
+Option A, taking a copy of the underlying EBS volumes to S3 and then doing cross-region replication, could be a viable option, but it is not as efficient as using cross-region snapshots. This approach requires more manual work and has a higher risk of data loss or corruption during the transfer.
+Option C, creating a CloudFormation template to restore the cluster in another region, would provide a way to recover the Redshift cluster in the event of a disaster, but it would require a longer recovery time as it involves rebuilding the entire infrastructure from scratch.
+Option D, enabling cross-availability zone snapshots for the Redshift cluster, is not a good option for disaster recovery because the snapshots would be stored in the same region as the cluster, and thus would not protect against a region-wide outage.
+Therefore, the best option for disaster recovery is to enable cross-region snapshots for the Redshift cluster. Cross-region snapshots provide a point-in-time copy of the cluster, including all data, metadata, and configuration settings, and store them in a different region than the production cluster. This approach allows for quick and efficient recovery of the cluster in the event of a disaster, minimizing the impact on the business.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question343:"link"
+
+

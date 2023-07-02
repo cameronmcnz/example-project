@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1215 - Your company currently stores documents "
+---
+
+
+[.question]
+== 1215-64a1faecf053625db51ddfd7.
+
+
+****
+
+[.query]
+--
+Your company currently stores documents in an S3 bucket.
+They want to transfer the files to a low-cost storage unit after a duration of 2 months to save on cost.
+Which of the following can be used to perform this activity automatically?
+
+
+--
+
+[.list]
+--
+* [*] A. Use the events of the S3 bucket to transfer the files to Amazon Glacier.
+* [ ] B. Use the events of the S3 bucket to transfer the files to EBS volumes – Cold HD.
+* [*] C. Use the lifecycle policies of the S3 bucket to transfer the files to Amazon Glacier.
+* [ ] D. Use the lifecycle policies of the S3 bucket to transfer the files to EBS volumes – Cold HD.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS Documentation mentions the following.
+To manage your objects so that they are stored cost-effectively throughout their lifecycle, configure their lifecycle.
+A lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects.
+There are two types of actions.
+Transition actions-Define when objects transition to another storage class.
+For example, you might choose to transition objects to the STANDARD_IA storage class 30 days after you created them or archive objects to the GLACIER storage class one year after creating them.
+Expiration actions-Define when objects expire.
+Amazon S3 deletes expired objects on your behalf.
+Options B and D are incorrect because ideally you don't transfer to EBS volumes - Cold HDD.Option A is incorrect because you need to use lifecycle policies.
+For more information on lifecycle policies, please refer to the below URL-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+The correct answer for this scenario is Option C: Use the lifecycle policies of the S3 bucket to transfer the files to Amazon Glacier.
+Amazon S3 (Simple Storage Service) is an object storage service that provides industry-leading scalability, data availability, security, and performance. It is designed for developers and IT teams to store and retrieve any amount of data from anywhere on the web. S3 provides various storage classes to help customers optimize costs based on access frequency and retrieval time requirements.
+Amazon Glacier is a low-cost storage service that provides secure, durable, and flexible long-term storage for data archiving and backup. It is designed for data that is infrequently accessed and for which retrieval time of several hours is acceptable. Glacier is optimized for data that is rarely accessed and that is retained for months, years, or even decades.
+Lifecycle policies in Amazon S3 allow users to automatically manage the lifecycle of objects in S3 buckets. Using lifecycle policies, objects can be transitioned to different storage classes, expire, or be deleted. For this scenario, we can set up a lifecycle policy to transition the documents to Amazon Glacier storage after a duration of 2 months.
+Option A and Option B are incorrect because Amazon Glacier and EBS volumes are not interchangeable. Glacier is a separate storage service optimized for long-term storage, while EBS volumes are block-level storage devices that are attached to EC2 instances. Furthermore, Cold HD is not a valid EBS volume type.
+Option D is incorrect because EBS volumes are not a suitable storage service for long-term storage, and they are not designed for data archiving or backup purposes.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question489:"link"
+
+

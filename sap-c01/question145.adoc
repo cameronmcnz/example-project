@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "945 - An ERP application is deployed in multip"
+---
+
+
+[.question]
+== 945-64a1df2baa736d27b1db9380.
+
+
+****
+
+[.query]
+--
+An ERP application is deployed in multiple Availability Zones in a single region.
+The application uses a MySQL database deployed in EC2
+In the event of failure, the RTO must be less than 3 hours, and the RPO is 15 minutes.
+The customer realizes that data corruption occurred roughly 10 Mins ago.
+Which DR strategy can be used to achieve this RTO and RPO in the event of this kind of failure?
+
+
+--
+
+[.list]
+--
+* [*] A. Take 15-minute DB backups stored in Amazon Glacier, with transaction logs stored in Amazon S3 every 5 minutes.
+* [ ] B. Use synchronous database master-standby replication between two Availability Zones.
+* [*] C. Take hourly DB backups to Amazon S3, with transaction logs stored in S3 every 5 minutes.
+* [ ] D. Take hourly DB backups to an Amazon EC2 instance store volume, with transaction logs stored in Amazon S3 every 5 minutes.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because restoring the backups from Amazon Glacier would be slow and will definitely not meet the RTO and RPO.
+Option B is incorrect because you cannot go back to the point in time recovery with the synchronous replication.
+You will always have the latest data.
+Option C is CORRECT because it takes hourly backups to Amazon S3, restoring the backups quickly.
+Since the transaction logs are stored in S3 every 5 minutes, it will help restore the application to a state within the RPO of 15 minutes.
+Option D is incorrect because instance store volume is ephemeral.
+i.e.
+the data can get lost when the instance is terminated.
+Note:
+Although Glacier supports expedited retrieval (On-Demand and Provisioned), it is an expensive option and is recommended only for the occasional urgent request for a small number of archives.
+Having said this (and even if we go with the Glacier as a solution), the option also mentions taking database snapshots every 15 minutes.
+Now, if you keep taking backups every 15 mins, the database users will face a lot of outages during the backup (due to I/O suspension especially in non-AZ deployment)
+Also, within 15 minutes, the backup process may not even finish!
+As an architect, you need to use the database change (transaction) logs along with the backups to restore your database to a point in time.
+Since option (c) stores the transaction details up to the last 5 minutes, you can easily restore your database and meet the RPO of 15 minutes.
+Hence, C is the best choice.
+To achieve a recovery time objective (RTO) of less than 3 hours and a recovery point objective (RPO) of 15 minutes in the event of a failure, the following DR strategy can be used:
+B. Use synchronous database master-standby replication between two Availability Zones.
+Explanation: Synchronous database replication is a DR strategy that involves replicating changes from a primary database to a secondary database in real-time, ensuring that the secondary database is always in sync with the primary database. In the event of a failure, the secondary database can be promoted to become the primary database, with minimal data loss and downtime.
+Using synchronous replication between two Availability Zones in a single region will ensure that the secondary database is always in sync with the primary database. In the event of a failure, the secondary database can be promoted to become the primary database with minimal data loss and downtime.
+Option A, taking 15-minute database backups stored in Amazon Glacier, with transaction logs stored in Amazon S3 every 5 minutes, is not suitable for achieving the RPO of 15 minutes, as the data loss can be up to 15 minutes.
+Option C, taking hourly database backups to Amazon S3, with transaction logs stored in S3 every 5 minutes, is not suitable for achieving the RPO of 15 minutes, as the data loss can be up to 1 hour.
+Option D, taking hourly database backups to an Amazon EC2 instance store volume, with transaction logs stored in Amazon S3 every 5 minutes, is not suitable for achieving the RPO of 15 minutes, as the data loss can be up to 1 hour.
+In conclusion, using synchronous database master-standby replication between two Availability Zones in a single region is the best DR strategy to achieve the RTO of less than 3 hours and the RPO of 15 minutes in the event of a failure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question206:"link"
+
+

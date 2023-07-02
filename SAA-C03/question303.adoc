@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1103 - Your current log analysis application ta"
+---
+
+
+[.question]
+== 1103-64a1fab1f053625db51ddf47.
+
+
+****
+
+[.query]
+--
+Your current log analysis application takes more than four hours to generate a report of the top 10 users of your web application.
+You have been asked to implement a system that can report this information in real-time.
+You need to ensure that the report is always up to date, and handle increases in the number of requests to your web application.
+Which of the following is a cost-effective option to fulfill these requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Publish your data to CloudWatch Logs, and configure your application to Auto Scale to handle the load on demand.
+* [ ] B. Publish your log data to an Amazon S3 bucket. Use AWS CloudFormation to create an Auto Scaling group to scale your post-processing application which is configured to pull down your log files stored in Amazon S3.
+* [*] C. Post your log data to an Amazon Kinesis data stream, and subscribe your log-processing application so that it is configured to process your logging data.
+* [ ] D. Configure an Auto Scaling group to increase the size of your Amazon EMR cluster.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+AWS Documentation mentions the below.
+Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information.
+Amazon Kinesis offers key capabilities to cost-effectively process streaming data at any scale, along with the flexibility to choose the tools that best suit the requirements of your application.
+With Amazon Kinesis, you can ingest real-time data such as application logs, website clickstreams, IoT telemetry data, and more into your databases, data lakes, and data warehouses, or build your own real-time applications using this data.
+Amazon Kinesis enables you to process and analyze data as it arrives and respond in real-time instead of having to wait until all your data is collected before the processing can begin.
+For more information on AWS Kinesis, please see the below link-
+https://aws.amazon.com/kinesis/
+The best option for this scenario is to use Amazon Kinesis to stream your log data and configure a log-processing application to consume and process the log data. Option C is the correct answer.
+Explanation:
+Amazon Kinesis is a fully managed service that makes it easy to collect, process, and analyze real-time streaming data. With Kinesis, you can ingest, buffer, and process streaming data in real-time, and then route it to other services such as Amazon S3, Amazon Redshift, or Elasticsearch. By using Kinesis, you can build applications that process real-time data feeds, such as log data.
+Option A suggests using CloudWatch Logs to publish log data and configure your application to auto-scale to handle the load on demand. While CloudWatch Logs can be used for log aggregation and analysis, it is not suitable for real-time processing of large volumes of data. Auto-scaling is a good option for handling varying loads, but it does not address the challenge of real-time processing.
+Option B suggests publishing log data to an S3 bucket and using CloudFormation to create an auto-scaling group to scale your post-processing application. This option can work, but it involves several steps and may not be as cost-effective as using Kinesis. Moreover, S3 is not suitable for real-time processing of streaming data.
+Option D suggests configuring an auto-scaling group to increase the size of your Amazon EMR cluster. Amazon EMR is a managed Hadoop framework for processing large amounts of data. While EMR can be used for real-time processing of data, it is not suitable for handling streaming data in real-time.
+Therefore, the best option is to use Amazon Kinesis to stream your log data and configure a log-processing application to consume and process the log data. By using Kinesis, you can process data in real-time and scale your application to handle increasing loads. Kinesis also provides a cost-effective solution for real-time data processing, as you only pay for the data you stream and process.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question345:"link"
+
+

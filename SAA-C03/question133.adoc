@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "933 - A company with a set of admin jobs NET c"
+---
+
+
+[.question]
+== 933-64a1fa6af053625db51dde88.
+
+
+****
+
+[.query]
+--
+A company with a set of admin jobs (.NET core) in the C# programming language is moving its infrastructure to AWS.
+What would be an efficient mean of hosting the admin related jobs in AWS?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS DynamoDB to store the jobs and then run them on demand.
+* [*] B. Use AWS Lambda functions with C# for the Admin jobs.
+* [*] C. Use AWS S3 to store the jobs and then run them on demand.
+* [ ] D. Use AWS Config functions with C# for the Admin jobs.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The best and most efficient option is to host the jobs using AWS Lambda.
+This service has the facility to have the code run in the C# programming language.
+AWS Documentation mentions the following on AWS Lambda:
+AWS Lambda is a compute service that lets you run code without provisioning or managing servers.
+AWS Lambda executes your code only when needed and scales automatically, from a few requests per day to thousands per second.
+You pay only for the compute time you consume - there is no charge when your code is not running.
+With AWS Lambda, you can run code virtually for any type of application or backend service - all with zero administration.
+For more information on AWS Lambda, please visit the following URL:
+https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+Of the options presented, the most efficient means of hosting the admin related jobs in AWS is B. Use AWS Lambda functions with C# for the Admin jobs.
+AWS Lambda is a serverless computing platform that allows users to run code without having to manage servers. This means that the admin jobs can be executed without the need for the company to provision or manage any infrastructure. With AWS Lambda, the company can write the admin jobs in C# and deploy them as functions. The Lambda function can be triggered by events, such as changes to data in AWS S3 or a message arriving in an Amazon Simple Notification Service (SNS) topic.
+AWS Lambda is also highly scalable, which makes it ideal for processing jobs that can be executed in parallel. The company can set the number of concurrent executions for the Lambda function, and AWS will automatically scale up or down based on demand.
+Another advantage of using AWS Lambda for the admin jobs is the pay-per-use pricing model. The company will only be charged for the number of times the function is executed, and the amount of compute time used.
+In contrast, using AWS DynamoDB or AWS S3 to store the admin jobs and then run them on demand would require the company to manage infrastructure and provision resources to run the jobs. AWS Config, while useful for managing resources, is not designed for running code.
+In summary, AWS Lambda with C# is the most efficient means of hosting admin related jobs in AWS, as it offers serverless computing, scalability, and cost-effective pay-per-use pricing.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question151:"link"
+
+

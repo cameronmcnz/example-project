@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1094 - Your company is planning to use the API "
+---
+
+
+[.question]
+== 1094-64a1faadf053625db51ddf3e.
+
+
+****
+
+[.query]
+--
+Your company is planning to use the API Gateway service to manage APIs for developers and users.
+There is a requirement to segregate access rights for both developers and users.
+How could this be accomplished?
+
+
+--
+
+[.list]
+--
+* [*] A. Use IAM permissions to control the access.
+* [ ] B. Use AWS Access keys to manage the access.
+* [*] C. Use AWS KMS service to manage the access.
+* [ ] D. Use AWS Config Service to control the access.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following.
+You can control access to Amazon API Gateway with IAM permissions by controlling access to the following two API Gateway component processes.
+To create, deploy, and manage an API in API Gateway, you must grant the API developer permissions to perform the required actions supported by the API management component of API Gateway.
+To call a deployed API or to refresh the API caching, you must grant the API caller permissions to perform required IAM actions supported by the API execution component of API Gateway.
+For more information on permissions for the API gateway, please visit the following URL-
+https://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html
+The correct answer is A. Use IAM permissions to control the access.
+API Gateway is a fully managed service that enables developers to create, publish, monitor, and secure APIs at any scale. It provides features such as authentication, authorization, throttling, and caching to ensure that only authorized users and applications can access your API.
+To segregate access rights for developers and users, you can use AWS Identity and Access Management (IAM) permissions to control access to your API. IAM is a web service that helps you securely control access to AWS resources. With IAM, you can create and manage AWS users and groups, and apply granular permissions to allow or deny access to specific resources.
+To get started, you can create two IAM groups: one for developers and another for users. You can then create IAM policies that grant the appropriate permissions to each group. For example, you can create a policy that allows developers to create, update, and delete APIs, while users can only access and execute APIs.
+Once you have created the IAM groups and policies, you can attach them to your API Gateway resources. This will ensure that only users with the appropriate permissions can access and interact with your APIs.
+Option B, using AWS Access keys, is not a recommended approach for managing access to APIs because access keys are long-term credentials that can be easily compromised if not properly secured.
+Option C, using AWS KMS service, is a service for managing encryption keys and is not directly related to managing access to APIs.
+Option D, using AWS Config Service, is a service for tracking resource inventory and changes over time and is not directly related to managing access to APIs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question336:"link"
+
+

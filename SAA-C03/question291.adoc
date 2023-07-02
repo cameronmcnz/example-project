@@ -1,0 +1,123 @@
+---
+layout: default 
+title: "1091 - A solutions Architect has been asked to "
+---
+
+
+[.question]
+== 1091-64a1faacf053625db51ddf3b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgQOOMhRJxot_MB0VQ3_WMCZBp1Ysz4db5EvrjPgKg5n3nxbRkv32AF5ZjEP4eSoldMOfddoTciymyk3V_lIl98cwKTEw2POF2xbc6IKrMvcascnGW7UII2Pn0dCoeSCwvwJLww6ppi71Qo-T9VA[]
+
+--
+
+
+****
+
+[.query]
+--
+A solutions Architect has been asked to design a serverless media upload web application that will have the functionality to upload thumbnail images, transcode videos, index files, validate contents, and aggregate data in real-time.
+He needs to visualize the distributed components of his architecture through a graphical console. How can this be designed wisely?
+
+
+[source,java]
+----
+‘Sane webAppaton
+
+8-86
+
+Upoated matates
+
+State Machine
+
+Lambda
+invokes
+Recogniti
+ona
+
+Barats
+image
+metadata
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Host a static web application using Amazon S3, upload images to Amazon S3, trigger a Lambda function when media files are uploaded, coordinate other media files processing Lambdas using several SQS queues, and store the aggregated data in DynamoD.
+* [ ] B. Host a static web application using Amazon S3, upload images to Amazon S3, trigger a Lambda function when media files are uploaded, coordinate other media files processing Lambdas using Simple Workflow Service, and store the aggregated data in DynamoD.
+* [*] C. Host a static web application using Amazon S3, upload images to Amazon S3, trigger a Lambda function when media files are uploaded, process media files using various Lambdas, and store the aggregated data in DynamoD.
+* [*] D. Host a static web application using Amazon S3, upload images to Amazon S3, use S3 event notification to trigger a Lambda function when media files are uploaded, coordinate other media files processing Lambda using Step functions, and store the aggregated data in DynamoD.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer : D.
+As an above diagram, Steps functions are used to coordinate processing Lambda functions and store the data on DynamoDB.Differences between Steps function and SWF are as follows:
+Step Functions.
+SWF.
+Good for any new serverless application where coordination is required between various components using a visual workflow.
+Need external signals to intervene in processes, OR Good if there are child processes and those require passing signals to parents.
+Easy to use while developing application.
+More complex while developing application but complete control of orchestration logic.
+Uses declarative JAON to write state machine.
+Need to write decider program (programing of your choice) to separate activities between steps or use AWS flow framework.
+Serverless, lower admin overhead.
+Uses servers.
+Short running workflows.
+Long-running workflows,
+Mostly used for synchronous tasks.
+Mostly used for asynchronous tasks.
+New AWS Service, less complex applications.
+Legacy application, Complex decisions (custom decide application)
+Integrate with AWS Mechanical Turk.
+Option A is incorrect: Using SQS queues to coordinate several Lambda functions is not suitable.
+Option B is incorrect: SWF can manage workflows, but managing Lambda functions with step functions are better.
+SWF is used to manage the infrastructure that runs workflow logic and tasks.
+SWF is the least used service.
+Option C is incorrect: Managing Lambda functions will be challenging without a managed workflow service such as Step functions.
+Option D is CORRECT: This is the best answer as Step functions are used to coordinate the processing of Lambda functions.
+It also provides a graphical way to visualize the processing steps.
+Reference:
+https://aws.amazon.com/step-functions/faqs/ https://aws.amazon.com/step-functions/use-cases/
+The best solution for the given scenario is D: Host a static web application using Amazon S3, upload images to Amazon S3, use S3 event notification to trigger a Lambda function when media files are uploaded, coordinate other media files processing Lambda using Step functions, and store the aggregated data in DynamoDB.
+Here's a detailed explanation of the components and their roles in the architecture:
+1.
+Static Web Application - Host the static web application using Amazon S3. S3 is an object storage service that offers high availability, durability, and scalability. The static web application can be served directly from S3, and it eliminates the need for a web server. S3 can also be used to store the media files uploaded by users.
+2.
+S3 Event Notification - When a user uploads media files to S3, an event notification is triggered. This notification can be used to invoke a Lambda function.
+3.
+Lambda Function - A Lambda function can be used to process the uploaded media files. For example, it can generate thumbnail images, transcode videos, validate contents, and index files. The Lambda function can also be used to store data in DynamoDB.
+4.
+Step Functions - Step Functions can be used to coordinate multiple Lambda functions into a workflow. In this architecture, Step Functions can be used to coordinate the processing of media files. For example, a Step Function can be used to transcode a video file, and then pass the transcoded file to another Lambda function for validation.
+5.
+DynamoDB - DynamoDB can be used to store aggregated data in real-time. DynamoDB is a NoSQL database that offers high performance, scalability, and availability. It can be used to store data generated by Lambda functions, as well as data aggregated by Step Functions.
+By using this architecture, the Solutions Architect can create a serverless media upload web application that can process media files in real-time. The use of S3, Lambda, Step Functions, and DynamoDB offers a scalable and cost-effective solution for media processing and storage. Additionally, the graphical console can be used to visualize the components of the architecture and monitor the workflow.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question333:"link"
+
+

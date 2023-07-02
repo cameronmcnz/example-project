@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "849 - Which statement is true about javautilst"
+---
+
+
+[.question]
+== 849-64a1a84bef3e8462333a9c67.
+
+
+****
+
+[.query]
+--
+Which statement is true about java.util.stream.Stream?
+
+
+--
+
+[.list]
+--
+* [ ] A. A stream cannot be consumed more than once.
+* [*] B. The execution mode of streams can be changed during processing.
+* [ ] C. Streams are intended to modify the source data.
+* [ ] D. A parallel stream is always faster than an equivalent sequential stream.
+* [ ] E. Stream operation accepts lambda expressions as its parameters.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

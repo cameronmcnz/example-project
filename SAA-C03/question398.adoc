@@ -1,0 +1,94 @@
+---
+layout: default 
+title: "1198 - You launched 9 spot instances for a spec"
+---
+
+
+[.question]
+== 1198-64a1fae3f053625db51ddfc2.
+
+
+****
+
+[.query]
+--
+You launched 9 spot instances for a specific workload in your AWS Account.
+Your bid price was $0.07 per hour, and the spot price at the time of launch was $0.06 per hour.After 1.5 hours, the spot price rises to $0.08 an hour.
+What is the cost incurred?
+
+
+--
+
+[.list]
+--
+* [*] A. $0.54
+* [ ] B. $0.24
+* [ ] C. $0.00
+* [ ] D. $0.44
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Spot instances are those instances for which a user has to place a bid on the AWS portal.
+If the bid price is greater than the amazon price (i.e., spot price), then the spot instances are automatically granted.
+The user would be charged based on the ‘spot' price instead of the ‘bid' price.
+If the bid price is lower than the amazon price (i.e., spot price), then the spot instances are cancelled.
+Now, if a user has got a spot instance running and if suddenly the spot price goes up, then amazon automatically cancels the instance, and the user is not charged for the extra minutes (rounded to one hour)
+This is called as amazon's termination of the spot instance.
+In a second case, if a user has got a spot instance running (when the bid price is greater than the spot price and the user is granted the ‘spot instance' on the ‘spot' price) and the user by himself voluntarily terminates the spot instance, then the user is charged till the minute he has used the spot instance.
+This is called the user's voluntary termination of the spot instance.
+With the above introduction, we can proceed with the below calculation.
+In the first hour,
+Bid price = $0.07
+Spot price = $0.06
+Therefore the user is granted the spot instance.
+Now the price for ‘9' instances for the first hour would be = $0.06 * 9 = $0.54
+In the second hour (i.e., for 0.5 hour)
+Bid price = $0.07
+Spot price = $0.08
+Now the spot price is greater than the bid price which will end up in the spot instance being terminated by amazon, and the user is not charged any amount for the instances for the 0.5 hours that the instances ran.
+Therefore the total payable amount by the user for ‘9' instances is = $0.54
+Therefore Option ‘A' is the correct answer.
+Option ‘B' is incorrect because the total cost is $0.24 which is lesser than $0.54
+Option ‘C' is incorrect because the total cost is $0.00 which is lesser than $0.54
+Option ‘D' is incorrect because the total cost is $0.44 which is lesser than $0.54
+For details on spot instances, please refer to the following link-
+https://aws.amazon.com/ec2/spot/pricing/
+To calculate the cost incurred, we need to determine how many hours the instances ran and at what price.
+The instances were launched at a bid price of $0.07 per hour, and the spot price at the time of launch was $0.06 per hour. This means that the instances were launched at a bid price higher than the current spot price, so they should have been launched immediately.
+After 1.5 hours, the spot price rose to $0.08 an hour. We need to determine how many hours the instances ran at each price.
+For the first 1.5 hours, the instances ran at the bid price of $0.07 per hour, which means that the cost incurred during this time is:
+9 instances x $0.07 per instance per hour x 1.5 hours = $0.945
+After 1.5 hours, the spot price rose to $0.08 an hour. We need to determine how many more hours the instances ran at this higher price.
+To do this, we need to find out if the bid price of $0.07 is still higher than the current spot price of $0.08. If it is, the instances will continue to run. If not, the instances will be terminated.
+Since the bid price is lower than the current spot price, the instances will be terminated. However, we need to determine how many more hours the instances would have run if the spot price had remained at $0.06 per hour.
+To do this, we need to find out the difference between the bid price and the current spot price, and then divide the bid price by this difference:
+$0.07 - $0.06 = $0.01
+$0.07 / $0.01 = 7
+This means that the instances would have run for 7 more hours if the spot price had remained at $0.06 per hour.
+Therefore, the total cost incurred is:
+$0.945 for the first 1.5 hours + (9 instances x $0.06 per instance per hour x 7 hours) = $0.945 + $3.78 = $4.725
+However, since these are spot instances, the actual cost incurred may be lower if the instances were terminated before the full 7 hours at the higher spot price.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question468:"link"
+
+

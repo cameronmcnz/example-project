@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1177 - Your company has just started using the "
+---
+
+
+[.question]
+== 1177-64a1fad9f053625db51ddfa9.
+
+
+****
+
+[.query]
+--
+Your company has just started using the AWS RDS service.
+They have an application making requests to a MySQL instance on this service.
+Due to the sudden surge of high requests, you need to ensure that the backup activities on the database do not interfere with the database's normal operation.
+Which of the following would help in this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure that the underlying instance type RDS instance is using General Purpose SSD storage. This type of storage will have minimal impact on such operations.
+* [ ] B. Ensure that the underlying instance type RDS instance is using Enhanced Networking. This type of setting will have minimal impact on such operations.
+* [*] C. Ensure that the Multi-AZ feature has been enabled for the underlying RDS Instance.
+* [ ] D. Ensure that cross-region replication is enabled for the underlying RDS Instance.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option C is correct because, in a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone.
+The primary DB instance is synchronously replicated across Availability Zones to a standby replica to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups.
+Running a DB instance with high availability can enhance availability during planned system maintenance and help protect your databases against DB instance failure and Availability Zone disruption.
+Points to remember for Multi-AZ deployments:
+No failover occurs for DB operations: long-running queries, deadlocks, or database corruption errors.
+We know that during the backups, for instance, taking snapshots, there is usually an I/O consumption that takes place.
+To avoid this when using a multi-AZ enabled RDS database engine, create a backup on the standby instance.
+With automated backups, I/O activity is no longer suspended on your primary during your preferred backup window since backups are taken from the standby.
+Options A and B are incorrect because, using General Purpose SSD Storage or using Enhanced networking, our backup activities will interfere with normal database operation.
+Option D is incorrect, Cross-region replication is a time-consuming process.
+Depending on the amount of data in the databases, this process can take hours to complete.
+References:
+https://aws.amazon.com/rds/faqs/ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.XRgn.html
+The correct answer is C. Ensure that the Multi-AZ feature has been enabled for the underlying RDS Instance.
+Explanation: Amazon RDS (Relational Database Service) is a managed database service provided by Amazon Web Services (AWS) that supports several popular database engines, including MySQL, PostgreSQL, Oracle, and Microsoft SQL Server. RDS provides a scalable and highly available database solution for applications running in the AWS cloud.
+When it comes to managing backups in RDS, there are several options available. Amazon RDS provides automated backups, which allow you to recover your database to any point in time within a retention period. These backups do not impact the performance of your database, as they are taken in the background and use Amazon S3 for storage.
+To ensure that the backup activities do not interfere with the normal operation of your database, it is recommended to enable the Multi-AZ feature for your RDS instance. Multi-AZ (Availability Zone) deployment provides automatic failover to a standby instance in case of a primary instance failure. This feature ensures that your database is always available, even during maintenance windows and backup activities. It also provides the additional benefit of automatic backups being taken from the standby instance, which further reduces the impact on the primary instance's performance.
+Option A is incorrect because choosing General Purpose SSD storage for the RDS instance has no direct impact on the backup activities. General Purpose SSD storage is recommended for most workloads as it provides a balance of price and performance.
+Option B is incorrect because Enhanced Networking is a setting that provides higher network performance for certain instance types. It does not have any direct impact on backup activities.
+Option D is incorrect because cross-region replication is a feature that allows you to replicate data from one RDS instance to another in a different region. It does not have any direct impact on backup activities.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question443:"link"
+
+

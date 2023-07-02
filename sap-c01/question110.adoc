@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "910 - Your company is planning to develop an a"
+---
+
+
+[.question]
+== 910-64a1df1daa736d27b1db9341.
+
+
+****
+
+[.query]
+--
+Your company is planning to develop an application in which the front end is in .Net and the backend is in DynamoDB.
+It is expected that there would be an intermittent high load on the application.
+How could you ensure the application's scalability and cost-effectiveness to reduce the load on the DynamoDB database? Choose an answer from the below options.
+
+
+--
+
+[.list]
+--
+* [*] A. Add more DynamoDB databases to handle the load.
+* [ ] B. Increase the write capacity of Dynamo DB to meet the peak loads.
+* [*] C. Use SQS to hold the database requests instead of overloading the DynamoDB database. Then have a service that asynchronously pulls the messages and writes them to DynamoD.
+* [ ] D. Launch DynamoDB in Multi-AZ configuration with a global index to balance writes.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+This question asks for an option that can be used to reduce the load on the DynamoDB database.
+The option has to be scalable.
+In such a scenario, the best option to use is SQS, because it is scalable and cost-efficient as well.
+Option A is incorrect because adding more databases will not reduce the load on the existing DynamoDB database.
+Also, this is not a cost-efficient solution.
+Option B is incorrect because increasing the write capacity is an expensive option.
+Option C is CORRECT because it uses SQS to assist in taking over the load from storing the data in DynamoDB, and it is scalable and cost-efficient.
+Option D is incorrect because the MultiAZ configuration is not going to help reduce the load.
+In fact, it will affect the performance as the records in DynamoDB would get replicated in multiple availability zones.
+More information on SQS:
+When the idea comes for scalability, then SQS is the best option.
+Normally DynamoDB is scalable, but since one is looking for a cost-effective solution, the messaging in SQS can help manage the situation mentioned in the question.
+Amazon Simple Queue Service (SQS) is a fully-managed message queuing service for reliably communicating among distributed software components and microservices - at any scale.
+Building applications from individual components that perform a discrete function improves scalability and reliability and is the best practice design for modern applications.
+SQS makes it simple and cost-effective to decouple and coordinate the components of a cloud application.
+Using SQS, you can send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be always available.
+For more information on SQS, please refer to the below URL-
+https://aws.amazon.com/sqs/
+Option A: Adding more DynamoDB databases to handle the load: Adding more databases might increase the overall capacity of the system, but it will not ensure scalability and cost-effectiveness. The application would still need to handle the complexity of managing multiple databases and ensure data consistency across them. Additionally, this approach might result in higher costs due to the added operational overhead and duplication of data.
+Option B: Increasing the write capacity of DynamoDB to meet the peak loads: Increasing the write capacity of DynamoDB might help in handling the peak loads, but it might not be a scalable and cost-effective solution in the long term. Provisioned throughput in DynamoDB is expensive, and it might not be possible to predict the exact amount of capacity needed to handle the load. Additionally, increasing the capacity might not be feasible when the application requires consistency in reads.
+Option C: Using SQS to hold the database requests instead of overloading the DynamoDB database: Using SQS to buffer the requests is a scalable and cost-effective approach. SQS can handle a large number of requests, and the application can asynchronously process the messages in a controlled manner to ensure that DynamoDB is not overwhelmed with requests. The approach also decouples the frontend from the backend, which helps in improving the application's overall performance and reliability.
+Option D: Launching DynamoDB in Multi-AZ configuration with a global index to balance writes: Launching DynamoDB in Multi-AZ configuration with a global index can help in distributing the load across multiple availability zones and improve the application's overall availability. However, it might not be a scalable and cost-effective solution for handling high write loads. The approach might result in higher costs due to the added operational overhead and the cost of maintaining the global index.
+Overall, Option C, i.e., using SQS to buffer the requests, is the most suitable and cost-effective approach for handling intermittent high loads in the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question141:"link"
+
+

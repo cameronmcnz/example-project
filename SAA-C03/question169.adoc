@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "969 - You have a cluster of windows instances "
+---
+
+
+[.question]
+== 969-64a1fa76f053625db51ddeaf.
+
+
+****
+
+[.query]
+--
+You have a cluster of windows instances joined to an AWS Managed Active Directory.
+You want to have a shared storage for all these instances and control this storage access with the Managed Active Directory.
+What service allows you to achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. FSx for Lustre.
+* [*] B. FSx for Windows File Server.
+* [*] C. EFS.
+* [ ] D. S3 and AD Connector.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is incorrect.
+FSx for Lustre is mainly used to do high-performance compute, read and write data into S3, and only works with Linux instances.
+more details:
+https://aws.amazon.com/fsx/lustre/
+Option B is CORRECT.
+FSx for windows can connect to Manage Active Directory and to Windows instances.
+Inside managed Active Directory, you can manage the permissions for it.
+More details:
+https://aws.amazon.com/fsx/windows/
+Option C is incorrect.
+EFS is an NFS storage system to work with Linux instances.
+More details:
+https://aws.amazon.com/efs/
+Option D is incorrect.
+S3 and AD Connector are not related.
+And are not designed for this purpose.
+The service that allows you to have a shared storage for all these instances and control this storage access with the Managed Active Directory is FSx for Windows File Server (option B).
+FSx for Windows File Server is a fully managed file storage service that is built on Windows Server and integrates with AWS Managed Active Directory to provide an enterprise-ready shared file storage solution. With FSx for Windows File Server, you can create file shares that are accessible from multiple instances, including Windows instances, using the SMB protocol.
+FSx for Windows File Server integrates with AWS Managed Active Directory, which is a managed Microsoft Active Directory service that allows you to use existing Windows-based applications and tools while managing users and groups in the cloud. This integration enables you to control access to the file shares using the security groups and permissions you have defined in your AWS Managed Active Directory.
+Option A (FSx for Lustre) is a high-performance file system service that is optimized for processing large data sets with high throughput and low latency, and it is not optimized for Windows environments. Therefore, it is not the best option for this scenario.
+Option C (EFS) is a fully managed, scalable, and highly available file storage service that is designed for use with Linux-based systems. While it can be accessed from Windows instances, it does not integrate with AWS Managed Active Directory, so it does not provide the level of integration required for this scenario.
+Option D (S3 and AD Connector) is not a direct solution to create shared storage for Windows instances. S3 is an object storage service, and AD Connector is a service that allows you to connect your on-premises Microsoft Active Directory to AWS. While it can be used to manage access to S3 buckets, it does not provide the level of integration required for this scenario, and it does not provide a shared file system for Windows instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question190:"link"
+
+

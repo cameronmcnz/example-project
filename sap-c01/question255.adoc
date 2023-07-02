@@ -1,0 +1,93 @@
+---
+layout: default 
+title: "1055 - You were just hired by an IT company as "
+---
+
+
+[.question]
+== 1055-64a1df54aa736d27b1db9426.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_10.1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You were just hired by an IT company as an AWS solutions architect.
+Your company has several Windows EC2 instances for multiple projects.
+You found that these EC2 instances did not have a plan to install system patches.
+You start using Patch Manager in AWS Systems Manager to configure when and how the patches should be installed.
+When patching activity is being configured, which method is NOT a valid one for instances to be selected?
+
+
+[source,java]
+----
+How it works
+
+@ Use default (2) Organize @ Automate the © Monitor patch
+patch baselines, instances into patching status to ensure
+or create your patch groups schedule by compliance
+own (optional) using
+
+Maintenance
+Windows
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Specify one or more instance tag key/value pairs to identify the instances you want to patch.
+* [ ] B. Use one or more patch groups to identify the instances you want to patch. Patch groups require the use of the tag key “Patch Group”.
+* [*] C. Manually select the required instances.
+* [*] D. Select the required EC2 instances based on security group identities/names.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Systems Manager Patch Manager is a native AWS solution to automate patching.
+The below diagram explains how it works.
+Step 2 is optional, and there are several methods for the instances to be chosen as the target.
+Option A is incorrect because one or several tag key/value pairs can be used to select instances.
+Option B is incorrect because a patch group is a tag with the key as “Patch Group”, which is also a supported method to organize patching activities.
+Option C is incorrect because selecting instances manually is supported.
+Option D is CORRECT because security group identities/names are not used to choose instances for patching activities in Patch Manager.
+As an AWS solutions architect, you have identified that your company's Windows EC2 instances are not being patched regularly. To address this, you have decided to use Patch Manager in AWS Systems Manager to configure when and how the patches should be installed.
+When configuring the patching activity, you will need to select the instances that you want to patch. There are several methods available for doing so, but one of them is not valid. Let's examine each of the methods listed in the question:
+A. Specify one or more instance tag key/value pairs to identify the instances you want to patch. This method allows you to select instances based on the tags associated with them. For example, you could select all instances that have the tag "Environment" with a value of "Production". This is a commonly used method for selecting instances for patching.
+B. Use one or more patch groups to identify the instances you want to patch. Patch groups require the use of the tag key “Patch Group”. Patch groups are a way to group instances together based on the tag key "Patch Group". This is useful if you have multiple groups of instances that need to be patched at different times or with different patch baselines. For example, you could have a patch group for "Development" instances and a separate patch group for "Production" instances.
+C. Manually select the required instances. This method allows you to manually select the instances that you want to patch. This may be useful if you have only a small number of instances to patch, but it can be time-consuming if you have a large number of instances.
+D. Select the required EC2 instances based on security group identities/names. This method is not a valid option for selecting instances for patching. While security groups can be used to control network access to EC2 instances, they do not provide a way to identify specific instances for patching.
+In summary, the method that is NOT a valid one for selecting instances for patching is D. Select the required EC2 instances based on security group identities/names. The other methods (A, B, and C) are all valid options for selecting instances for patching using Patch Manager in AWS Systems Manager.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question373:"link"
+
+

@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1182 - You have a set of EC2 Instances in a cus"
+---
+
+
+[.question]
+== 1182-64a1fadcf053625db51ddfaf.
+
+
+****
+
+[.query]
+--
+You have a set of EC2 Instances in a custom VPC.
+You have installed a web application and need to ensure that only HTTP and HTTPS traffic is allowed into the instance.
+Which of the following would you consider for this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Add a security group rule to allow HTTP and HTTPS Traffic.
+* [ ] B. Add a security group rule to an explicit DENY all traffic and a default allow on HTTP and HTTPS Traffic.
+* [ ] C. Add a security group rule to deny explicit traffic on HTTP and HTTPS Traffic.
+* [ ] D. Add a security group rule to allow all traffic.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A
+Option A is correct because we need to specify the allowed traffic in the security group, i.e., HTTP and HTTPS Traffic must be allowed from all sources.No inbound traffic is allowed by default.
+By adding security group rules, you can specify which traffic you want to allow.
+This is essentially a whitelist.
+Options B is incorrect since, by default, nothing is allowed, and in the Security group, we can't specify what is denied.
+We don't have any deny option in Security Groups.
+Option C is incorrect because we can specify what is allowed in the security group but not what is denied.
+If you want to deny explicitly, you should use the Network Access control list.
+Option D is incorrect since this would be a security issue.
+For more information on VPC Security groups, please refer to the below URL-
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
+The correct answer is A. Add a security group rule to allow HTTP and HTTPS Traffic.
+Explanation:
+A security group acts as a virtual firewall that controls the traffic for one or more instances. It allows you to specify inbound and outbound traffic to your instances.
+To allow only HTTP and HTTPS traffic into the instance, we need to add a security group rule that allows inbound traffic on ports 80 (HTTP) and 443 (HTTPS).
+Option A is the correct answer because it allows only the necessary traffic, HTTP and HTTPS, and denies all other traffic.
+Option B is incorrect because it explicitly denies all traffic before allowing HTTP and HTTPS, which means that no other traffic can be allowed even if it is necessary.
+Option C is also incorrect because it denies all explicit traffic on HTTP and HTTPS, which means that even the necessary traffic for the web application would be denied.
+Option D is incorrect because it allows all traffic, including unnecessary and potentially harmful traffic.
+Therefore, the correct approach is to add a security group rule that allows HTTP and HTTPS traffic.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question449:"link"
+
+

@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "1321 - Which of the following is NOT a potentia"
+---
+
+
+[.question]
+== 1321-64a1fb26f053625db51de065.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_atll9q.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following is NOT a potential use case for using AWS Lambda?
+
+
+[source,java]
+----
+Q: What if I need scratch space on disk for my AWS Lambda function?
+
+Each Lambda function receives SOOMB of non-persistent disk space in its own /tmp directory.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Periodically check the log files for errors in CloudWatch or CloudTrail and send out notifications through SNS.
+* [*] B. Download S3 bucket objects of size varying between 500 MB-2 GB to a Lambda Ephemeral disk or temp location, read and analyze them for keywords and add the keywords to the metadata of file object for search purposes.
+* [ ] C. Schedule a job and invoke a Lambda function to generate AWS resource usage reports based on certain tags.
+* [ ] D. A website with highly scalable backend layer that will persist data into RDS or DynamoD.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is a potential use case for AWS Lambda.
+You can use Lambda as a scheduled event and read log files from AWS CloudWatch or CloudTrail and report any errors through SNS notifications.
+Option C is a potential use case.
+For more information on scheduling Lambda functions, refer to documentation here.
+https://docs.aws.amazon.com/lambda/latest/dg/with-scheduled-events.html?shortFooter=true
+Option D is a potential use case.
+You can host the web frontend on S3 and accelerate content delivery with Cloudfront caching.
+The web frontend can send requests to Lambda functions via API Gateway HTTPS endpoints.
+Lambda can handle the application logic and persist data to a fully managed database service.
+(RDS for relational, or DynamoDB for non-relational database)
+You can host your Lambda functions and databases within a VPC to isolate them from other networks.
+Here is the documentation for building a serverless website.
+https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
+Option B looks like a potential use case.
+But the scenario will fail due to the /tmp directory space limitation.
+AWS Lambda is a serverless compute service offered by Amazon Web Services (AWS) that allows you to run code without the need to provision or manage servers. It automatically scales up or down based on incoming requests or events, making it an ideal choice for a wide range of use cases.
+Let's analyze each answer option to find the one that is NOT a potential use case for using AWS Lambda:
+A. Periodically check the log files for errors in CloudWatch or CloudTrail and send out notifications through SNS.
+This is a valid use case for AWS Lambda. You can create a Lambda function that is triggered by CloudWatch or CloudTrail logs, which then sends notifications through SNS. This helps you proactively detect and fix issues before they become critical.
+B. Download S3 bucket objects of size varying between 500 MB-2 GB to a Lambda Ephemeral disk or temp location, read and analyze them for keywords and add the keywords to the metadata of file object for search purposes.
+This is also a valid use case for AWS Lambda. You can create a Lambda function that reads and analyzes S3 objects for specific keywords, and then adds those keywords to the metadata of the file object for search purposes.
+C. Schedule a job and invoke a Lambda function to generate AWS resource usage reports based on certain tags.
+This is another valid use case for AWS Lambda. You can create a Lambda function that is invoked on a schedule, which generates AWS resource usage reports based on certain tags.
+D. A website with highly scalable backend layer that will persist data into RDS or DynamoDB.
+This is the answer that is NOT a potential use case for using AWS Lambda. While Lambda can be used for backend processing of a website, it is not the best choice for persisting data into RDS or DynamoDB. For persisting data, it is better to use Amazon RDS or Amazon DynamoDB directly.
+In conclusion, the answer that is NOT a potential use case for using AWS Lambda is D.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question632:"link"
+
+

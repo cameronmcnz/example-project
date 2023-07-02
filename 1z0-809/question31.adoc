@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "831 - Given the code fragment StreamPath files"
+---
+
+
+[.question]
+== 831-64a1a845ef3e8462333a9c55.
+
+
+****
+
+[.query]
+--
+Given the code fragment: Stream<Path> files = Files.walk(Paths.get(System.getProperty("user.home"))); files.forEach (fName -> {//line n1 try { Path aPath = fName.toAbsolutePath(); //line n2 System.out.println(fName + ":" + Files.readAttributes(aPath, Basic.File.Attributes.class).creationTime ()); } catch (IOException ex) { ex.printStackTrace(); }); What is the result?
+
+
+--
+
+[.list]
+--
+* [*] A. All files and directories under the home directory are listed along with their attributes.
+* [ ] B. A compilation error occurs at line n1.
+* [ ] C. The files in the home directory are listed along with their attributes.
+* [ ] D. A compilation error occurs at line n2.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

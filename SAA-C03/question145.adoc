@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "945 - You use a CloudFront distribution for a "
+---
+
+
+[.question]
+== 945-64a1fa6ef053625db51dde95.
+
+
+****
+
+[.query]
+--
+You use a CloudFront distribution for a website and the origin is an Amazon S3 bucket that supports HTTPS communication.
+You require HTTPS for the communication between CloudFront and Amazon S3
+When viewers access the content in the CloudFront edge locations using HTTP, you want the HTTP requests to be automatically redirected to HTTPS requests.
+How would you achieve this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. No actions are needed as it is the default behavior.
+* [ ] B. Configure the Viewer Protocol Policy of the CloudFront distribution to be "HTTPS only".
+* [*] C. Configure the Origin Protocol Policy of the CloudFront distribution to be "HTTPS".
+* [*] D. Configure the Viewer Protocol Policy of the CloudFront distribution to be "Redirect HTTP to HTTPS".
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+When your origin is an Amazon S3 bucket that supports HTTPS communication, CloudFront always forwards requests to S3 by using the protocol that viewers used to submit the requests.
+The default setting for the Origin Protocol Policy setting is Match Viewer and can't be changed.
+If you want to require HTTPS for communication between CloudFront and Amazon S3, you must change the value of Viewer Protocol Policy to Redirect HTTP to HTTPS or HTTPS Only.
+The procedure later in this section explains how to use the CloudFront console to change the Viewer Protocol Policy.
+For information about using the CloudFront API to update the
+ViewerProtocolPolicy.
+element for a distribution, see UpdateDistribution in the Amazon CloudFront API Reference.
+Option A is incorrect because this is not the default behaviour to redirect HTTP to HTTPS for CloudFront.
+Option B is incorrect because using this option user cannot redirect HTTP requests o HTTPS requests automatically.
+It does not achieve the requirement.
+Viewers can access your content only if they're using HTTPS.
+If a viewer sends an HTTP request instead of an HTTPS request, CloudFront returns HTTP status code 403 (Forbidden) and does not return the object.
+Option C is incorrect because the Origin Protocol Policy setting is "Match Viewer" and can't be changed.
+Details please check the following reference.
+Option D is CORRECT because this configuration in Viewer Protocol Policy helps to automatically redirect HTTP requests to HTTPS requests.
+Reference:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-s3-origin.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html
+The correct answer is D. Configure the Viewer Protocol Policy of the CloudFront distribution to be "Redirect HTTP to HTTPS".
+Explanation:
+CloudFront is a content delivery network (CDN) that can be used to distribute content to edge locations for faster access to viewers. When creating a CloudFront distribution, you can specify an origin where the content is stored. In this case, the origin is an Amazon S3 bucket that supports HTTPS communication.
+To ensure that all communication between CloudFront and Amazon S3 is encrypted, you can configure the Origin Protocol Policy of the CloudFront distribution to be "HTTPS". This means that CloudFront will only communicate with the origin using HTTPS.
+However, this does not automatically redirect viewers who access the content using HTTP to HTTPS. To achieve this requirement, you need to configure the Viewer Protocol Policy of the CloudFront distribution to be "Redirect HTTP to HTTPS". This means that when viewers access the content using HTTP, CloudFront will automatically redirect them to the HTTPS version of the content.
+Option A is incorrect because the default behavior is not to automatically redirect HTTP requests to HTTPS requests.
+Option B is incorrect because it only specifies the allowed viewer protocols, not how to handle HTTP requests.
+Option C is incorrect because it only specifies the allowed origin protocol, not how to handle HTTP requests from the viewers.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question164:"link"
+
+

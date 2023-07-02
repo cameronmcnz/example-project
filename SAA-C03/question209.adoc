@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1009 - There is a requirement to host a databas"
+---
+
+
+[.question]
+== 1009-64a1fa85f053625db51ddede.
+
+
+****
+
+[.query]
+--
+There is a requirement to host a database server.
+The server needs to connect to the Internet while downloading the required database patches.
+But the ingress traffic to the instances is not allowed.
+Which of the following solutions would satisfy the above requirements at its best?
+
+
+--
+
+[.list]
+--
+* [*] A. Setup the database in a private subnet with a security group that only allows outbound traffic.
+* [ ] B. Setup the database in a public subnet with a security group that only allows inbound traffic.
+* [*] C. Setup the database in a local data center and use a private gateway to connect the application to the database.
+* [*] D. Setup the database in a private subnet that connects to the Internet via NAT Gateway.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+This setup coincides with Scenario 2 of setting up a VPC as per AWS documentation:
+Scenario 2: VPC with Public and Private Subnets (NAT)
+The instances in the public subnet can send outbound traffic directly to the internet, whereas the instances in the private subnet can't.
+Instead, the instances in the private subnet can access the internet by using a network address translation (NAT) gateway that resides in the public subnet.
+The database servers can connect to the internet for software updates using the NAT gateway, but the internet cannot establish connections to the database servers.
+References:
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html
+The requirement is to host a database server that can connect to the Internet for downloading patches, but ingress traffic to the instance is not allowed. To satisfy this requirement, we need to set up the database server in a secure manner.
+A. Setup the database in a private subnet with a security group that only allows outbound traffic. This option is a viable solution. A private subnet is not directly accessible from the Internet, so ingress traffic is blocked. The outbound traffic can be allowed through the security group, which enables the database server to connect to the Internet and download the required patches.
+B. Setup the database in a public subnet with a security group that only allows inbound traffic. This option is not secure as the database server will be directly accessible from the Internet, which poses a security risk. Even though inbound traffic is not allowed, the database server will still be publicly available, which is not the intended requirement.
+C. Setup the database in a local data center and use a private gateway to connect the application to the database. This option is not suitable as it does not meet the requirement of hosting the database server in the cloud. Additionally, setting up a private gateway can be a complex and costly solution, and it may not be necessary in this scenario.
+D. Setup the database in a private subnet that connects to the Internet via NAT Gateway. This option is a viable solution. A private subnet provides an additional layer of security, and the NAT Gateway allows the database server to connect to the Internet while blocking ingress traffic to the instance.
+In summary, options A and D are viable solutions, but option D may be preferred as it offers an additional layer of security. Therefore, the correct answer is D.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question239:"link"
+
+

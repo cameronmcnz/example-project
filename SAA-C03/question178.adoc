@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "978 - A customer has an instance hosted in the"
+---
+
+
+[.question]
+== 978-64a1fa79f053625db51ddeb9.
+
+
+****
+
+[.query]
+--
+A customer has an instance hosted in the public subnet of the default VPC.
+The subnet has the default settings for the Network Access Control List.
+An IT Administrator needs to be provided SSH access to the underlying instance.
+How could this be accomplished?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure the Network Access Control Lists allow Inbound SSH traffic from the IT Administrator’s Workstation.
+* [ ] B. Ensure the Network Access Control Lists allow Outbound SSH traffic from the IT Administrator’s Workstation.
+* [*] C. Ensure that the Security group allows Inbound SSH traffic from the IT Administrator’s Workstation.
+* [ ] D. Ensure that the Security group allows Outbound SSH traffic from the IT Administrator’s Workstation.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Ensure that the security group allows Inbound SSH traffic from the IT Administrator's Workstation.
+Since Security groups are stateful, we do not have to configure outbound traffic.
+What enters the inbound traffic is allowed in the outbound traffic too.
+Note: The default network ACL is configured to allow all traffic to flow in and out of the subnets to which it is associated.
+Based on this, Option C is the correct answer.
+Since the IT administrator needs to be provided SSH access to the instance, the traffic would be inbound to the instance.
+Security group being stateful means that return response to the allowed inbound request will be allowed and vice-versa.
+Reference:
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup
+The correct answer for this question is C. Ensure that the Security group allows Inbound SSH traffic from the IT Administrator's Workstation.
+Explanation: The scenario describes a customer instance in a public subnet of a default VPC. By default, instances launched in a public subnet are accessible from the internet, but they have no public IP addresses assigned. Thus, the instance can be accessed using an Elastic IP address, a VPN connection, or a bastion host.
+In order to provide SSH access to the IT administrator, the security group associated with the instance must be updated to allow inbound SSH traffic from the IT administrator's workstation. A security group acts as a virtual firewall that controls the traffic allowed to reach the instance. By default, all inbound traffic is denied, so a new rule must be added to allow SSH traffic from the IT administrator's workstation.
+On the other hand, Network Access Control Lists (NACLs) are stateless, meaning that you must explicitly allow both inbound and outbound traffic separately. By default, NACLs allow all inbound and outbound traffic, so they do not need to be modified to allow SSH access to the instance.
+Therefore, option A is incorrect. Options B and D are also incorrect since they refer to NACLs instead of security groups.
+In conclusion, the correct way to provide SSH access to the instance is to update the security group associated with the instance to allow inbound SSH traffic from the IT administrator's workstation.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question200:"link"
+
+

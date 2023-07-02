@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "912 - A company wants to have a fully managed "
+---
+
+
+[.question]
+== 912-64a1fa63f053625db51dde72.
+
+
+****
+
+[.query]
+--
+A company wants to have a fully managed data store in AWS.
+It should be a compatible MySQL database, which is an application requirement.
+Which of the following AWS database engines has the best throughput?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS RDS MySQL
+* [*] B. AWS Aurora
+* [*] C. AWS DynamoDB
+* [ ] D. AWS Redshift.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following:
+Amazon Aurora (Aurora) is a fully managed, MySQL and PostgreSQL compatible, relational database engine.
+It combines the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases.
+It delivers up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL without requiring changes to most of your existing applications.
+For more information on AWS Aurora, please refer to the URL below.
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Overview.html
+Note:
+RDS is a generic service to provide Relational Database service which supports 6 database engines.
+They are Aurora, MySQL, MariaDB, PostgreSQL, Oracle, and Microsoft SQL Server.
+Amazon Aurora is a MySQL and PostgreSQL compatible enterprise-class database.
+Please note that with AWS Aurora, you can get 5X the throughput of standard MySQL and 3X the throughput of standard PostgreSQL.
+Hence Option B is the correct answer.
+The AWS database engines mentioned in the question have different characteristics, and the best throughput will depend on the specific workload and use case.
+However, based on the information provided in the question, we can make some assumptions and recommendations.
+Option A: AWS RDS MySQL AWS RDS MySQL is a fully managed MySQL relational database service that can be used to run, manage, and scale MySQL databases in the cloud. Since it is a MySQL-compatible database, it meets the application requirement stated in the question.
+MySQL is a widely used open-source relational database management system that is known for its performance and scalability. AWS RDS MySQL offers high availability, automated backups, and seamless scaling, making it a popular choice for many applications.
+In terms of throughput, AWS RDS MySQL can achieve high performance levels when properly configured and optimized. It supports different instance types and can scale up or down based on demand. However, its maximum throughput will depend on factors such as the workload, instance size, and configuration.
+Option B: AWS Aurora AWS Aurora is a MySQL and PostgreSQL-compatible relational database service that is designed for high performance, scalability, and availability. It is a fully managed service that offers up to five times the throughput of standard MySQL and three times the throughput of standard PostgreSQL.
+AWS Aurora uses a distributed architecture that replicates data across multiple availability zones, providing high availability and durability. It also offers automatic scaling, fast failover, and low latency.
+In terms of throughput, AWS Aurora is designed to deliver high performance and can handle millions of transactions per second. It can automatically scale up or down based on demand and can handle large datasets with ease.
+Option C: AWS DynamoDB AWS DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. It is designed for high throughput and low latency, making it ideal for applications that require low latency and high scalability.
+DynamoDB is a non-relational database, which means that it does not support SQL queries or relational data models. Instead, it uses a key-value data model that allows for fast access and retrieval of data.
+In terms of throughput, DynamoDB is designed for high performance and can handle millions of requests per second. It automatically scales up or down based on demand and provides low latency for read and write operations.
+Option D: AWS Redshift AWS Redshift is a fully managed data warehouse service that is designed for large-scale data analytics. It is a columnar data store that uses parallel processing and compression to deliver fast query performance on large datasets.
+Redshift is not a MySQL-compatible database, so it does not meet the application requirement stated in the question. However, it can provide high throughput for large-scale analytics workloads.
+In summary, based on the information provided in the question, the best option for a fully managed MySQL-compatible database with high throughput would be either AWS RDS MySQL or AWS Aurora. Both services can deliver high performance and seamless scalability, and can handle millions of transactions per second. The choice between them will depend on factors such as the specific workload, budget, and desired features.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question129:"link"
+
+

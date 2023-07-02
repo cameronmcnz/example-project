@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "987 - Your company runs a customerfacing event"
+---
+
+
+[.question]
+== 987-64a1df3baa736d27b1db93be.
+
+
+****
+
+[.query]
+--
+Your company runs a customer-facing event registration site built with a 3-tier architecture with web and application tier servers and a MySQL database.
+The application requires 6 web tier servers and 6 application tier servers for normal operation but can run on a minimum of 65% server capacity and a single MySQL database.
+When deploying this application in a region with three availability zones (AZs) which architecture provides high availability?
+
+
+--
+
+[.list]
+--
+* [*] A. A web tier deployed across 2 AZs with 3 EC2 (Elastic Compute Cloud) instances in each AZ inside an Auto Scaling Group behind an ELB (elastic load balancer), an application tier deployed across 2 AZs with 3 EC2 instances in each AZ inside an Auto Scaling Group behind an ELB, and one RDS (Relational Database Service) instance deployed with read replicas in the other AZ.
+* [ ] B. A web tier deployed across 3 AZs with 2 EC2 (Elastic Compute Cloud) instances in each AZ inside an Auto Scaling Group behind an ELB (elastic load balancer), an application tier deployed across 3 AZs with 2 EC2 instances in each AZ inside an Auto Scaling Group behind an ELB, and one RDS (Relational Database Service) instance deployed with read replicas in the two other AZs.
+* [ ] C. A web tier deployed across 2 AZs with 3 EC2 (Elastic Compute Cloud) instances in each AZ inside an Auto Scaling Group behind an ELB (elastic load balancer), an application tier deployed across 2 AZs with 3 EC2 instances in each AZ inside an Auto Scaling Group behind an ELB, and a Multi-AZ RDS (Relational Database Service) deployment.
+* [*] D. A web tier deployed across 3 AZs with 2 EC2 (Elastic Compute Cloud) instances in each AZ inside an Auto Scaling Group behind an ELB (elastic load balancer), an application tier deployed across 3 AZs with 2 EC2 instances in each AZ inside an Auto Scaling Group behind an ELB, and a Multi-AZ RDS (Relational Database services) deployment.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+In this scenario, the application can run on a minimum of 65% of the overall server capacities.
+I.e.
+it can run on a minimum of 4 web and 4 application servers.
+Since there are 3 AZs, there are many ways the instances can be put across them.
+The most important point to consider is that even if an entire AZ becomes unavailable, there should be a minimum of 4 servers running.
+So, placing 3 servers in 2 AZs is not a good architecture.
+Based on this, options A and C are incorrect.
+The best solution would be to have 2 servers in each AZ.
+So, in case of an entire AZ being unavailable, the application still has 4 servers available.
+Now, regarding the RDS instance, the high availability is provided by the Multi-AZ deployment, not by read replicas (although they improve the performance in case of read-heavy workload)
+So, option B is incorrect.
+Hence, option D is CORRECT because (a) it places 2 EC2 instances in each of the 3 AZs, and (b) it uses the Multi-AZ deployment of RDS.
+The correct answer is D: A web tier deployed across 3 AZs with 2 EC2 instances in each AZ inside an Auto Scaling Group behind an ELB, an application tier deployed across 3 AZs with 2 EC2 instances in each AZ inside an Auto Scaling Group behind an ELB, and a Multi-AZ RDS deployment.
+Explanation:
+The question requires us to design a high availability architecture for a customer-facing event registration site that uses a 3-tier architecture with web and application tier servers and a MySQL database. The application requires 6 web tier servers and 6 application tier servers for normal operation but can run on a minimum of 65% server capacity and a single MySQL database. The architecture needs to be deployed in a region with three availability zones (AZs).
+Option A proposes deploying the web tier across 2 AZs and the application tier across 2 AZs with a single RDS instance deployed in another AZ with read replicas. While this option provides some level of fault tolerance, it doesn't meet the requirements of the application, which requires 6 web tier servers and 6 application tier servers for normal operation. Additionally, a single RDS instance with read replicas does not provide the required level of availability as the primary RDS instance is a single point of failure.
+Option B proposes deploying the web tier and application tier across all 3 AZs with 2 instances in each AZ and a single RDS instance with read replicas deployed in two other AZs. While this option deploys the required number of instances, it still relies on a single RDS instance as the primary database, which is a single point of failure.
+Option C proposes deploying the web and application tiers across 2 AZs with 3 instances in each AZ and a Multi-AZ RDS deployment. While this option provides some level of fault tolerance, it doesn't take full advantage of the availability zones available in the region and may not provide enough capacity to handle the normal operation of the application.
+Option D proposes deploying the web and application tiers across all 3 AZs with 2 instances in each AZ and a Multi-AZ RDS deployment. This option meets the requirements of the application by deploying the required number of instances and takes full advantage of the availability zones available in the region. Additionally, the use of a Multi-AZ RDS deployment provides high availability for the database tier.
+In summary, Option D is the best choice for a high availability architecture for the customer-facing event registration site.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question268:"link"
+
+

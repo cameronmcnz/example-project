@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "957 - Your Operations department is using an i"
+---
+
+
+[.question]
+== 957-64a1fa72f053625db51ddea3.
+
+
+****
+
+[.query]
+--
+Your Operations department is using an incident-based application hosted on a set of EC2 Instances.
+These instances are placed behind an Auto Scaling Group to ensure that the right number of instances are in place to support the application.
+The Operations department has expressed dissatisfaction concerning poor application performance every day at 9:00 AM.
+However, it is also noted that the system performance returns to optimal at 9:45 AM. What could be done to fix this issue?
+
+
+--
+
+[.list]
+--
+* [*] A. Create another Dynamic Scaling Policy to ensure that the scaling happens at 9:00 AM.
+* [ ] B. Add another Auto Scaling group to support the current one.
+* [*] C. Change the Cool Down Timers for the existing Auto Scaling Group.
+* [*] D. Add a Scheduled Scaling Policy at 8:30 AM.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Scheduled Scaling can be used to ensure that the capacity is peaked before 9:00 AM every day.
+AWS Documentation further mentions the following on Scheduled Scaling:
+Scaling based on a schedule allows you to scale your application in response to predictable load changes.
+For example, every week the traffic to your web application starts to increase on Wednesday, remains high on Thursday, and starts to decrease on Friday.
+You can plan your scaling activities based on the predictable traffic patterns of your web application.
+Option A is incorrect because a scheduled scaling should be used as per the requirements of the question instead of dynamic scaling.
+Option B is incorrect because adding another autoscaling group will not solve the problem.
+Option C is incorrect because changing the cooldown timers of the existing autoscaling group will not meet the requirements of the question.
+For more information on Scheduled Scaling, please refer to the URL below:
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html
+The issue described in the question involves poor application performance every day at 9:00 AM, which then returns to optimal at 9:45 AM. This suggests that there is a period of high demand on the application during that time, causing performance issues. To resolve this issue, we need to determine the root cause of the performance issue and identify the appropriate solution.
+Option A suggests creating another dynamic scaling policy to ensure that the scaling happens at 9:00 AM. While this may increase the number of instances during the period of high demand, it does not address the root cause of the performance issue. Additionally, it may lead to unnecessary scaling during other periods of low demand, increasing costs.
+Option B suggests adding another Auto Scaling group to support the current one. This solution may also increase the number of instances during the period of high demand, but it does not address the root cause of the performance issue. Additionally, it increases the complexity of the deployment, making it more difficult to manage.
+Option C suggests changing the Cool Down Timers for the existing Auto Scaling Group. This solution involves adjusting the period of time between scaling events. While this may be a viable solution, it requires knowledge of the specific scaling policies in use and the performance characteristics of the application. If the current cool-down timers are too long, it may take too long to scale up during periods of high demand. If they are too short, it may result in unnecessary scaling during periods of low demand.
+Option D suggests adding a Scheduled Scaling Policy at 8:30 AM. This solution involves scheduling a scaling event before the period of high demand, allowing the number of instances to increase before the performance issue occurs. This solution addresses the root cause of the performance issue by proactively increasing the capacity of the application during periods of high demand, rather than reacting to the issue after it occurs. Additionally, it minimizes unnecessary scaling during other periods of low demand.
+In conclusion, the most appropriate solution to fix the performance issue is Option D - adding a Scheduled Scaling Policy at 8:30 AM. This solution addresses the root cause of the issue, minimizes unnecessary scaling, and simplifies the deployment by avoiding the need for additional Auto Scaling groups or complex scaling policies.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question178:"link"
+
+

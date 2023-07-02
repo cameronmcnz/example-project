@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1071 - An IT company is managing a list of its "
+---
+
+
+[.question]
+== 1071-64a1df5aaa736d27b1db9441.
+
+
+****
+
+[.query]
+--
+An IT company is managing a list of its customers' domain names.
+The company wants to optimize its processes so that the domain names and their DNS records can be managed somewhere centralized in AWS.
+Which option do you recommend?
+
+
+--
+
+[.list]
+--
+* [*] A. Use S3 Bucket folders.
+* [*] B. Transfer existing domains to AWS route53.
+* [*] C. Configure an SQS queue.
+* [ ] D. Use VPC Peering.
+* [ ] E. Use the AL.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer: B.
+Option B is CORRECT because the Route53 is a scalable and highly available Domain Name System service within AWS.
+Existing domain names can be transferred to Route53.
+Options A, C, D, E are incorrect because they cannot be used to manage domain names in AWS.
+Among the given options, the most suitable solution for managing a list of customer domain names and their DNS records centrally in AWS is to transfer the domains to AWS Route53 (option B).
+AWS Route53 is a highly scalable and reliable Domain Name System (DNS) service that offers various features for managing domain names, routing traffic to AWS services, and other resources. By transferring the domains to AWS Route53, the company can have centralized control over its domain names and their DNS records, and can manage them easily using the AWS Management Console, AWS CLI, or API.
+S3 Bucket folders (option A) are object storage services that are commonly used to store and retrieve data such as documents, images, videos, and other types of files. While S3 can be used to host static websites and can serve DNS records, it is not recommended for managing domain names as it lacks many features and capabilities provided by Route53.
+SQS queues (option C) are message queues used for decoupling and scaling applications. While they can be used to manage messages, notifications, and events, they are not relevant to managing domain names and their DNS records.
+VPC Peering (option D) is a networking solution used to connect two or more virtual private clouds (VPCs) together using a secure and private connection. While VPC peering can be used for interconnecting resources in different VPCs, it is not relevant to managing domain names and their DNS records.
+The AL (option E) is not clear, and it is not possible to provide an answer without more information.
+In conclusion, transferring the domains to AWS Route53 is the most appropriate solution for the company to manage its domain names and their DNS records centrally in AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question400:"link"
+
+

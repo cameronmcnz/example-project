@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "996 - You are moving an existing traditional s"
+---
+
+
+[.question]
+== 996-64a1df3faa736d27b1db93d2.
+
+
+****
+
+[.query]
+--
+You are moving an existing traditional system to AWS.
+During migration, you discover that the master server is the single point of failure.
+You also discover that the server stores its state in the local MySQL database.
+To minimize downtime, you select RDS to replace the local database and configure the master to use it.
+What steps would best allow you to create a self-healing architecture?
+
+
+--
+
+[.list]
+--
+* [*] A. Migrate the local database into the Multi-AZ database. Amazon RDS detects and automatically recovers from the most common failure scenarios for Multi-AZ deployments. Configure the master node in an Auto Scaling group.
+* [ ] B. Migrate the local database into the Multi-AZ database. Place the master node into a Cross Zone ELB with a minimum of one and a maximum of one with health checks.
+* [ ] C. Replicate the local database into an RDS database with a Read Replica. Place the master node into a Cross Zone ELB with a minimum of one and a maximum of one with health checks.
+* [ ] D. Replicate the local database into an RDS database with a Read Replica. Configure the master node in an Auto Scaling group.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because, for the database, Multi-AZ architecture provides high availability and can meet the RTO and RPO requirements in case of failures since it uses synchronous replication and maintains standby instance gets promoted to primary.
+Auto Scaling group can achieve the high availability for the master server.
+Option B is incorrect because ELB cannot ensure the minimum or the maximum number of instances running.
+Option C is incorrect because ELB cannot ensure the minimum or the maximum number of instances running.
+Option D is incorrect because the Read Replica cannot achieve the self-healing requirements.
+Multi-AZ should be used.
+More information on Multi-AZ RDS architecture:
+Multi-AZ is used for highly available architecture.
+If a failover happens, the secondary DB, which is a synchronous replica, will have the data, and it's just the CNAME that changes.
+For Read replica, it's primarily used for distributing workloads.
+For more information on Multi-AZ RDS, please refer to the below link-
+https://aws.amazon.com/rds/details/multi-az/
+In the scenario described, the master server is a single point of failure, and the local MySQL database stores the system state. To create a self-healing architecture and minimize downtime, the existing local database can be replaced with Amazon RDS, which provides a managed and highly available database service. RDS offers several options for configuring high availability, which can help eliminate single points of failure.
+Answer A suggests migrating the local database into a Multi-AZ RDS deployment and configuring the master node in an Auto Scaling group. This approach is a good choice because RDS Multi-AZ deployment provides high availability and fault tolerance for the database. In a Multi-AZ configuration, RDS automatically replicates data to a standby replica in a different availability zone, which helps ensure that the database remains available in the event of a hardware failure, software issue, or planned maintenance. With Auto Scaling group configured, the master node can be replaced automatically in case of a failure, and new nodes can be launched to maintain the desired capacity. Thus, this approach is an effective way to create a self-healing architecture.
+Answer B suggests migrating the local database into a Multi-AZ RDS deployment and placing the master node into a Cross Zone ELB with a minimum of one and a maximum of one with health checks. This option can also provide high availability, but it does not include the automatic recovery that comes with Auto Scaling group. The ELB can help distribute traffic to the master node, and the health checks can detect when the master node is no longer available, and automatically route traffic to another instance. However, in this configuration, there is only one instance, and there is no automatic replacement, so the recovery process would need to be done manually, leading to potential downtime.
+Answer C suggests replicating the local database into an RDS database with a Read Replica and placing the master node into a Cross Zone ELB with a minimum of one and a maximum of one with health checks. While this approach also provides some fault tolerance, it does not eliminate the single point of failure associated with the master node. In this case, the RDS Read Replica can help offload read traffic from the master node, but if the master node goes down, it will need to be replaced manually. This can lead to potential downtime, and the recovery process may take longer than the automatic recovery of Answer A.
+Answer D suggests replicating the local database into an RDS database with a Read Replica and configuring the master node in an Auto Scaling group. This option is similar to Answer A, but it does not include the Multi-AZ configuration that provides additional fault tolerance. While Auto Scaling group can help replace failed instances automatically, the Read Replica does not provide the same level of fault tolerance as a Multi-AZ deployment. Therefore, while this approach can still provide some self-healing capability, it may not be as reliable as Answer A.
+Overall, the best approach to create a self-healing architecture in this scenario is Answer A, which suggests migrating the local database into a Multi-AZ RDS deployment and configuring the master node in an Auto Scaling group. This configuration provides high availability, fault tolerance, and automatic recovery, which can help minimize downtime and ensure that the system remains available even in the event of a failure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question289:"link"
+
+

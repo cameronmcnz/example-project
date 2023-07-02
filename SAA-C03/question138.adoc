@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "938 - A company has a lot of data hosted on th"
+---
+
+
+[.question]
+== 938-64a1fa6cf053625db51dde8e.
+
+
+****
+
+[.query]
+--
+A company has a lot of data hosted on their On-premises infrastructure.
+Running out of storage space, the company wants a quick win solution using AWS.
+There should be low latency for the frequently accessed data.
+Which of the following would allow the easy extension of their data infrastructure to AWS?
+
+
+--
+
+[.list]
+--
+* [*] A. The company could start using Gateway Cached Volumes.
+* [ ] B. The company could start using Gateway Stored Volumes.
+* [*] C. The company could start using the DEEP_ARCHIVE storage class.
+* [ ] D. The company could start using Amazon Glacier.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Volume Gateways and Cached Volumes can be used to start storing data in S3.
+AWS Documentation mentions the following:
+You store your data in Amazon Simple Storage Service (Amazon S3) and retain a copy of frequently accessed data subsets locally.
+Cached volumes offer substantial cost savings on primary storage and minimize the need to scale your storage on-premises.
+You also retain low-latency access to your frequently accessed data.
+For more information on Storage Gateways, please visit the following URL:
+https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html
+Note:
+The question states that they are running out of storage space and they need a solution to store data with AWS rather than a backup.
+For this purpose, gateway-cached volumes are appropriate, which will help them to avoid scaling their on-premises data center and store on AWS storage service while having the most recent files available for them at low latency.
+This is the difference between Cached and stored volumes:
+Cached volumes - You store your data in S3 and retain a copy of frequently accessed data subsets locally.
+Cached volumes offer substantial cost savings on primary storage and "minimize the need to scale your storage on-premises.
+You also retain low-latency access to your frequently accessed data."
+Stored volumes - If you need low-latency access to your entire data set, first configure your on-premises gateway to store all your data locally.
+Then asynchronously back up point-in-time snapshots of this data to Amazon S3
+"This configuration provides durable and inexpensive off-site backups that you can recover to your local data center or Amazon EC2." For example, if you need replacement capacity for disaster recovery, you can recover the backups to Amazon EC2.
+As described in the answer: The company wants a quick win solution to store data with AWS, avoiding scaling the on-premise setup rather than backing up the data.
+In the question, they mentioned that "A company has a lot of data hosted on their On-premises infrastructure." From On-premises to cloud infrastructure, you can use AWS storage gateways.
+Option C is talking about the storage class.
+But here, the requirement is (How) to transfer or migrate your data from On-premises to Cloud infrastructure.
+So there is no clear process mentioned in Option.
+C.
+The best option for the company in this scenario would be to use AWS Storage Gateway. The Storage Gateway service allows on-premises applications to use cloud storage through a virtual machine or hardware gateway appliance. The service provides various types of gateways, including File Gateway, Volume Gateway, and Tape Gateway, that can be used depending on the type of workload.
+In this case, the company is running out of storage space, and there is frequently accessed data that needs low latency. Therefore, the company should use Gateway Cached Volumes. This option provides low-latency access to frequently accessed data, as it caches data on the on-premises gateway appliance. As data is accessed, it is stored in the local cache, allowing for quick access. Additionally, the data is also stored in Amazon S3, providing scalable and durable storage.
+Gateway Stored Volumes, on the other hand, provide a complete copy of the data on the on-premises gateway appliance, allowing for low-latency access to the data. However, this option may not be suitable for the company as it requires more on-premises storage space to store a complete copy of the data.
+The DEEP_ARCHIVE storage class and Amazon Glacier are both used for long-term archiving and backup of data, and are not suitable for frequently accessed data due to their high retrieval latency. These options would not provide the low-latency access required by the company for their frequently accessed data.
+In summary, the company should start using Gateway Cached Volumes to extend their data infrastructure to AWS, as it provides low-latency access to frequently accessed data while also providing scalable and durable storage in Amazon S3.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question157:"link"
+
+

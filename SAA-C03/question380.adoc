@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1180 - Your company is planning on the followin"
+---
+
+
+[.question]
+== 1180-64a1fadbf053625db51ddfad.
+
+
+****
+
+[.query]
+--
+Your company is planning on the following architecture for their application. · A set of EC2 Instances hosting the web part of the application. · A relational database for the backend · A Load balancer for distribution of traffic There is critical nature of the data stored on the underlying EBS volumes attached to the EC2 Instances.
+As a Solutions Architect of the Company, your supervisor has asked you to follow best backup practices to ensure data is available in another region for disaster recovery purposes.
+Which of the following would you consider complying with this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a copy of the volume in another region.
+* [ ] B. Create a snapshot of the volume in another region.
+* [*] C. Create a snapshot. Copy the snapshot to the new region.
+* [ ] D. Create a copy of the volume. Copy the volume to the new region.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS Documentation showcases the use cases of EBS snapshots.
+Use Cases.
+Geographic expansion: Launch your applications in a new region.
+Migration: Move an application to a new region, to enable better availability and to minimize cost.
+Disaster recovery: Back up your data and logs across different geographical locations at regular intervals.
+In case of disaster, you can restore your applications using point-in-time backups stored in the secondary region.
+This minimizes data loss and recovery time.
+Encryption: Encrypt a previously unencrypted snapshot, change the key with which the snapshot is encrypted, or, for encrypted snapshots that have been shared with you, create a copy that you own to restore a volume from it.
+Data retention and auditing requirements: Copy your encrypted EBS snapshots from one AWS account to another to preserve data logs or other files for auditing or data retention.
+Using a different account helps prevent accidental snapshot deletions and protects you if your main AWS account is compromised.
+Options A and D are incorrect since you need to create a snapshot.
+Option B is incorrect since you cannot directly create a snapshot in another region.
+For more information on EBS Snapshot copy, please refer to the below URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html
+To comply with the requirement of ensuring data availability in another region for disaster recovery purposes, the best backup practice is to create a snapshot of the EBS volume in another region. The correct answer is option B: Create a snapshot of the volume in another region.
+A snapshot is a point-in-time copy of an EBS volume. It captures the data on the volume at the time the snapshot is taken and stores it in Amazon S3. Snapshots are incremental, meaning that only the blocks that have changed since the last snapshot are saved. This makes them an efficient way to back up data, as only the changes need to be stored, saving storage costs.
+Creating a snapshot of the volume in another region ensures that the data is available in another location in case of a disaster that affects the original region. This is because snapshots are stored in Amazon S3, which is a highly durable and reliable storage service designed for long-term storage of data. By creating a snapshot in another region, you can restore the data from the snapshot if the original region is unavailable.
+Option A: Create a copy of the volume in another region, is not the best backup practice because it involves creating a complete copy of the EBS volume and storing it in another region. This can be expensive and time-consuming, as it requires copying all the data on the volume. Additionally, it does not provide the same level of incremental backup as snapshots, which only store the changes to the data.
+Option C: Create a snapshot. Copy the snapshot to the new region, involves creating a snapshot and then copying it to another region. While this is a valid backup practice, it is not as efficient as creating a snapshot directly in the new region, as it involves an additional step of copying the snapshot.
+Option D: Create a copy of the volume. Copy the volume to the new region, is not the best backup practice because it involves creating a complete copy of the EBS volume and storing it in another region. This can be expensive and time-consuming, as it requires copying all the data on the volume. Additionally, it does not provide the same level of incremental backup as snapshots, which only store the changes to the data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question447:"link"
+
+

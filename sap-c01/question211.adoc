@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1011 - A user has launched a large EBS backed E"
+---
+
+
+[.question]
+== 1011-64a1df44aa736d27b1db93e5.
+
+
+****
+
+[.query]
+--
+A user has launched a large EBS backed EC2 instance in the US-East-1a region.
+The user wants to achieve Disaster Recovery (DR), for that instance, by creating another small instance in Europe.
+How can the user achieve DR?
+
+
+--
+
+[.list]
+--
+* [*] A. Copy the running instance using the “Instance Copy” command to the EU region.
+* [*] B. Create an AMI of the instance and copy the AMI to the EU region. Then launch the instance from the EU AMI.
+* [ ] C. Copy the instance from the US East region to the EU region.
+* [ ] D. Use the “Launch more like this” option to copy the instance from one region to another.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Options A and C are incorrect because you cannot directly copy the instance.
+You need to create an AMI from the instance.
+Option B is CORRECT because if you need an AMI across multiple regions, you have to copy the AMI across regions.
+Note that, by default, AMI's that you have created will not be available across all regions.
+Option D is incorrect because using "Launch More Like This..." enables you to use a current instance as a base for launching other instances in the same availability zone.
+It does not clone your selected instance; it only replicates some configuration details.
+First, create a copy of your instance, create an AMI from it, and then launch more instances from the AMI.
+For the entire details to copy AMI's, please visit the link -
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html
+To achieve Disaster Recovery (DR) for an EBS-backed EC2 instance launched in the US-East-1a region, the user can follow the below steps:
+Option A: Copy the running instance using the “Instance Copy” command to the EU region. This option is not possible as the "Instance Copy" feature is not available for copying instances across regions.
+Option B: Create an AMI of the instance and copy the AMI to the EU region. Then launch the instance from the EU AMI. This option involves creating an Amazon Machine Image (AMI) of the instance, copying the AMI to the EU region, and then launching an instance from the copied AMI. The user can follow the below steps to achieve this:
+1.
+Create an AMI of the running instance: The user needs to create an AMI of the running instance. To create an AMI, the user can select the running instance and click on the "Create Image" option. The user needs to provide a unique name and description for the AMI.
+2.
+Copy the AMI to the EU region: Once the AMI is created, the user needs to copy the AMI to the EU region. To copy the AMI, the user can select the AMI and click on the "Copy AMI" option. The user needs to select the destination region as EU and provide a unique name and description for the copied AMI.
+3.
+Launch an instance from the copied AMI: Once the AMI is copied to the EU region, the user can launch an instance from the copied AMI. To launch an instance, the user can select the copied AMI and click on the "Launch Instance" option. The user needs to select the instance type, VPC, subnet, and other details as per the requirement.
+Option C: Copy the instance from the US East region to the EU region. This option is not possible as it is not feasible to copy a running instance across regions.
+Option D: Use the “Launch more like this” option to copy the instance from one region to another. This option is not possible as the "Launch more like this" feature is not available for launching instances across regions.
+Therefore, option B is the correct answer. The user needs to create an AMI of the running instance, copy the AMI to the EU region, and launch an instance from the copied AMI to achieve DR for the instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question308:"link"
+
+

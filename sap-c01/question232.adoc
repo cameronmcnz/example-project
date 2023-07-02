@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1032 - You are maintaining an application that "
+---
+
+
+[.question]
+== 1032-64a1df4baa736d27b1db93ff.
+
+
+****
+
+[.query]
+--
+You are maintaining an application that is spread across multiple web servers and has incoming traffic balanced by ELB.
+The application allows users to upload pictures.
+Currently, each web server stores the image, and a background task synchronizes the data between servers.
+However, the synchronization task can no longer keep up with the number of images uploaded.
+
+
+--
+
+[.list]
+--
+* [*] A. Store the images in Amazon S3.
+* [ ] B. Store the images on Amazon CloudFront.
+* [ ] C. Store the images on Amazon EBS.
+* [ ] D. Store the images on the EL.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because S3 provides a durable, secure, cost-effective, and highly available storage service for the uploaded pictures.
+Option B is incorrect because the application needs just a storage solution, not a global content distribution service.
+CloudFront is also a costlier solution compared to S3.
+Option C is incorrect because you cannot share EBS volumes ( can be done only for "io1" EBS volumes) among multiple EC2 instances.
+Option D is incorrect because ELB cannot be used as a storage service.
+For more information on AWS S3, please refer to the below URL:
+http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
+The most appropriate option for storing uploaded images from multiple web servers that are load-balanced by an Elastic Load Balancer (ELB) is to store the images in Amazon S3 (Simple Storage Service). Option A is the correct answer.
+Explanation:
+Option A: Store the images in Amazon S3. Amazon S3 is a highly durable, scalable, and secure object storage service offered by AWS. Storing images in S3 allows for easy access and retrieval of images from all web servers, as each server can access the same S3 bucket. Additionally, S3 can be configured to automatically replicate data across multiple Availability Zones for high availability, and versioning can be enabled to track changes to the images. This option eliminates the need for the synchronization task and ensures that all web servers have access to the same images.
+Option B: Store the images on Amazon CloudFront. Amazon CloudFront is a content delivery network (CDN) service that caches content from the origin server to edge locations for faster content delivery. While CloudFront can be used to cache images, it is not a storage solution, and images would still need to be stored in a durable storage service such as S3. Therefore, this option is not appropriate.
+Option C: Store the images on Amazon EBS. Amazon EBS (Elastic Block Store) provides block-level storage volumes that can be attached to EC2 instances. However, EBS is not a suitable solution for storing images since it is designed for high-performance transactional processing workloads rather than long-term storage of large files like images.
+Option D: Store the images on the ELB. Elastic Load Balancer (ELB) is a service that distributes incoming traffic across multiple instances. ELB is not designed for storing data and is only responsible for load balancing traffic. Therefore, this option is not appropriate for storing uploaded images.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question334:"link"
+
+

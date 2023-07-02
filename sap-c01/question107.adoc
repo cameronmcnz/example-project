@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "907 - A web company is looking to implement an"
+---
+
+
+[.question]
+== 907-64a1df1caa736d27b1db933d.
+
+
+****
+
+[.query]
+--
+A web company is looking to implement an intrusion detection and prevention system for their deployed VPC.
+This platform should have the ability to scale to thousands of instances running inside of the VPC.
+How should they architect their solution to achieve these goals?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure an instance with monitoring software and the elastic network interface (ENI) set to promiscuous mode packet sniffing to see all traffic across the VP.
+* [*] B. Create a IDS/IPS system from AWS Marketplace to monitor security events in the VPC network and stop threats once detected.
+* [ ] C. Configure servers running in the VPC using the host-based ‘route’ commands to send all traffic through the platform to a scalable virtualized IDS/IPS.
+* [ ] D. Configure each host with an agent that collects all network traffic and sends that traffic to the IDS/IPS platform for inspection.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+This question asks you to design a scalable IDS/IPS solution (easily applicable to thousands of instances)
+Users can set up third party IDS/IPS solutions offered in AWS Marketplace.
+Option A is incorrect because AWS does not support promiscuous mode.
+Option B is CORRECT because there are various IDS/IPS solutions offered in AWS Marketplace that monitor networks and systems for malicious activity and provide layer of security for potential threats.
+Option C is incorrect.
+The incoming traffic should be passed through IDS/IPS before sending it to the servers.
+Option D is plausible, but (a) it is not a scalable solution, (b) it is only an IDS solution, not an IPS solution.
+Please check the following references:
+https://aws.amazon.com/mp/scenarios/security/ids/ https://aws.amazon.com/marketplace/solutions/infrastructure-software/ids-ips
+The best option for the web company to implement an intrusion detection and prevention system that can scale to thousands of instances running inside of their VPC would be to use a cloud-native IDS/IPS solution that is designed to integrate with AWS services.
+Option B: Create an IDS/IPS system from AWS Marketplace to monitor security events in the VPC network and stop threats once detected.
+Explanation: AWS Marketplace offers a wide range of IDS/IPS solutions from various vendors that are designed to work seamlessly with AWS services. This option allows the web company to select the most suitable solution for their needs and scale the solution as their VPC grows.
+The cloud-native IDS/IPS solution can provide automated security incident response and can integrate with AWS services, such as Amazon CloudWatch, AWS Lambda, and Amazon SNS, to deliver real-time alerts on detected security threats.
+The solution can be easily deployed and managed from the AWS Management Console or via APIs, and the web company can leverage the AWS security groups and network ACLs to enforce security policies and control access to their VPC.
+Option A: Configure an instance with monitoring software and the elastic network interface (ENI) set to promiscuous mode packet sniffing to see all traffic across the VPC.
+This option involves setting up a single instance with monitoring software to capture all network traffic in the VPC. While this solution may work for smaller VPCs, it can be challenging to scale and manage for VPCs with thousands of instances. Additionally, setting the ENI to promiscuous mode may lead to performance issues and increase the risk of false positives.
+Option C: Configure servers running in the VPC using the host-based ‘route' commands to send all traffic through the platform to a scalable virtualized IDS/IPS.
+This option requires configuring each server in the VPC to route all traffic through the IDS/IPS platform, which can be challenging to manage for VPCs with thousands of instances. Additionally, this option may impact the performance of the servers and increase the risk of false positives.
+Option D: Configure each host with an agent that collects all network traffic and sends that traffic to the IDS/IPS platform for inspection.
+This option involves installing an agent on each instance in the VPC to collect network traffic and send it to the IDS/IPS platform for inspection. While this option may work for smaller VPCs, it can be challenging to manage and scale for VPCs with thousands of instances. Additionally, the agent may impact the performance of the instances and increase the risk of false positives.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question137:"link"
+
+

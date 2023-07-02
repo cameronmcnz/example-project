@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1049 - A company has 2 accounts one is a develo"
+---
+
+
+[.question]
+== 1049-64a1df51aa736d27b1db9417.
+
+
+****
+
+[.query]
+--
+A company has 2 accounts- one is a development account, and the other is a production account.
+There are 20 people on the development account who now need various access levels provided to them on the production account.
+10 of them need read-only access to all resources on the production account, 5 of them need read/write access to EC2 resources, and the remaining 5 only need read-only access to S3 buckets.
+Which of the following options would be the best way for both practical and security-wise to accomplish this task?
+
+
+--
+
+[.list]
+--
+* [*] A. Create 3 roles in the production account with a different policy for each of the access levels needed. Add permissions to each IAM User in the development account to assume a role on the production account based on the type of access needed.
+* [ ] B. Create 3 new users on the production account with the various levels of permissions needed. Give each of the 20 users the login for whichever one of the 3 users they need depending on the level of access required.
+* [ ] C. Create encryption keys for each of the resources that need access and provide those keys to each user depending on the access required.
+* [ ] D. Copy the 20 users IAM accounts from the development account to the production account. Then change the access levels for each user on the production account.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because it creates 3 roles according to the need in the production account and adds the permissions to each of the IAM Users in the development account to assume those roles accordingly in the production account.
+Option B is incorrect because you should be creating IAM Roles in the production account, and the development users should assume those roles.
+This option is suggesting creating 3 separate users in the production account which is incorrect.
+Option C is incorrect because encryption keys are unnecessary and will not work in this scenario.
+Option D is incorrect because the creation of the IAM user accounts in the production account is unnecessary.
+You should be creating IAM Roles instead.
+For more information on "Delegating Access Across AWS Accounts Using IAM Role" - please refer to the below link.
+https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
+The best way to provide the required access levels to the 20 users on the development account for the production account would be option A: Create 3 roles in the production account with a different policy for each of the access levels needed. Add permissions to each IAM User in the development account to assume a role on the production account based on the type of access needed.
+Explanation:
+Option A involves creating roles in the production account with specific policies for each level of access required by the 20 users. The roles will be associated with an AWS Identity and Access Management (IAM) policy, which grants permissions to the users. The IAM policy can be used to define the specific actions, resources, and conditions that the user is allowed or denied to access.
+Once the roles are created, permissions to assume the roles need to be added to the IAM users in the development account. The IAM users in the development account will use temporary security credentials to access the resources in the production account. This approach ensures that access to resources in the production account is strictly controlled and monitored, enhancing the security of the production account.
+Option B involves creating new users on the production account with varying levels of access, and then providing login credentials to the 20 users based on the access level required. This approach is not scalable and requires additional management overhead to manage the users and their access levels. Furthermore, this approach does not provide fine-grained control over permissions and may result in users being granted excessive access.
+Option C involves creating encryption keys for each resource that needs access and providing these keys to the users based on the access level required. This approach is impractical as it requires creating and managing encryption keys for each resource, and the keys may need to be frequently rotated. Additionally, this approach does not provide fine-grained control over permissions, and it may be difficult to revoke access once granted.
+Option D involves copying the IAM accounts of the 20 users from the development account to the production account and then changing the access levels for each user on the production account. This approach is not recommended as it may result in users being granted excessive access to resources in the production account. Additionally, it does not provide a separation of duties between the development and production accounts, which is important for security and compliance reasons.
+In summary, option A is the best approach as it provides fine-grained control over permissions, is scalable, and enhances the security of the production account by strictly controlling access to resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question358:"link"
+
+

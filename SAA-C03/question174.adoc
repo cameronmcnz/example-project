@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "974 - You are part of the IT team of an insura"
+---
+
+
+[.question]
+== 974-64a1fa78f053625db51ddeb4.
+
+
+****
+
+[.query]
+--
+You are part of the IT team of an insurance company.
+You have 4 M5.large EC2 instances used to compute some data of your core services.
+The amount of usage of these instances has been very consistent.
+So you predict that it will not increase in the next two or three years.
+However, your CFO is asking if there is a way to reduce costs in the EC2 instances.
+The only requirement will be to be able to change the size of the instances.
+What do you suggest to get the maximum cost reduction?
+
+
+--
+
+[.list]
+--
+* [*] A. Purchase a Compute Saving plan.
+* [*] B. Purchase an EC2 instance saving plan.
+* [ ] C. Purchase a Convertible Reserved Instance.
+* [ ] D. Purchase a Dedicated Instance.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect because Compute Saving plans also offer flexibility, but the maximum cost reduction is 66%
+Option B is CORRECT because, with an EC2 saving plan, you can save up to 72% (just like Standard RIs)
+This plan applies to all of your EC2 instances using the same instance family.
+Option C is incorrect because Compute Savings Plans, which provides savings up to 66% (just like Convertible RIs), automatically reduce your cost on any EC2 instance usage regardless of region, instance family, size, OS, tenancy, and even on AWS Fargate or AWS Lambda.
+Option D is incorrect because Dedicated Instances are Amazon EC2 instances that run in a virtual private cloud (VPC) on hardware that's dedicated to a single customer.
+They cannot reduce the costs.
+References:
+https://aws.amazon.com/savingsplans/faq/
+Based on the given scenario, where the amount of usage of the 4 M5.large EC2 instances has been consistent and not expected to increase for the next two or three years, the CFO is asking for a way to reduce costs while still being able to change the instance size. There are a few different options available for cost reduction, but the best option would depend on the specific requirements and usage patterns of the instances.
+Option A: Purchase a Compute Saving Plan A Compute Saving Plan is a type of AWS Reserved Instance that provides a discount of up to 66% compared to On-Demand pricing. The discount is based on the upfront payment and the commitment to use the instance for a one or three-year term. Compute Saving Plans provide flexibility in terms of instance size and region, so they can be a good option for cost reduction if the usage is consistent over a longer period.
+However, since the usage has been consistent and not expected to increase, purchasing a Compute Saving Plan may not provide significant cost savings, as the discount is based on the commitment to use the instance for a longer period.
+Option B: Purchase an EC2 Instance Saving Plan An EC2 Instance Saving Plan is another type of AWS Reserved Instance that provides a discount of up to 72% compared to On-Demand pricing. The discount is based on the upfront payment and the commitment to use a specific instance family and size, but it provides a higher discount compared to Compute Saving Plans. However, EC2 Instance Saving Plans require a specific instance family and size commitment, which means they are less flexible compared to Compute Saving Plans.
+Since the requirement is to change the size of the instances, purchasing an EC2 Instance Saving Plan may not be the best option for cost reduction.
+Option C: Purchase a Convertible Reserved Instance A Convertible Reserved Instance is a type of AWS Reserved Instance that provides a discount of up to 54% compared to On-Demand pricing. The discount is based on the upfront payment and the commitment to use the instance for a one or three-year term, but it provides more flexibility compared to a standard Reserved Instance. Convertible Reserved Instances allow users to modify the instance family, operating system, and tenancy, which means they can be a good option for cost reduction if there is a need to change instance types in the future.
+Since the requirement is to change the size of the instances, a Convertible Reserved Instance can be a good option for cost reduction while still providing flexibility to change the instance type if needed.
+Option D: Purchase a Dedicated Instance A Dedicated Instance is an EC2 instance that is dedicated to a single customer, meaning that the underlying hardware is not shared with other customers. Dedicated Instances can provide additional security and compliance benefits, but they are more expensive compared to regular instances.
+Since the requirement is to reduce costs, purchasing a Dedicated Instance may not be the best option for cost reduction.
+In conclusion, the best option for cost reduction in this scenario would be to purchase a Convertible Reserved Instance. It provides a good balance between cost savings and flexibility to change instance types in the future.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question195:"link"
+
+

@@ -1,0 +1,144 @@
+---
+layout: default 
+title: "1023 - A user has created a VPC with CIDR 20000"
+---
+
+
+[.question]
+== 1023-64a1df48aa736d27b1db93f5.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_42825.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A user has created a VPC with CIDR 20.0.0.0/16 using the wizard.
+The user has created a public subnet CIDR (20.0.0.0/24) and VPN only subnets CIDR (20.0.1.0/24) along with the VPN gateway (vgw-12345) to connect to the user's data center.
+The user's data center has CIDR 172.28.0.0/12
+The user also has set up a NAT instance (i-12345) to allow traffic to the internet from the VPN subnet.
+Which of the below-mentioned routes should NOT be configured in the main route table in this scenario?
+
+
+[source,java]
+----
+‘) 0007 Nari
+‘Web seers 199.51,100.4 (Elastic
+
+uote abet
+sonoazs
+
+Region
+
+1000.016
+
+Gustom route table
+Destination Target
+rannone eel
+0000 les
+
+reway
+Main route table
+Destination Tovet
+roooons lec
+20000 at getoway id
+
+BServersc: Recommences Rules
+
+‘The 10 of your
+Wenservers secury
+group
+
+‘The 10 of your
+weDsenersc securny
+
+Protocol Port
+
+oP
+
+cP
+
+Range
+1493
+
+3006
+
+comments
+
+Atow inbound Wiros0M SQL Server acess rom the wed
+‘Servers assocated win the WeDServerSG securty group
+
+Atow inbound MySQL Server access tom the web servers
+‘associated wan ine WeDServerSG securty grOUD
+
+comments
+‘Atow outbound HTTP access to the Inert over IPvs (ot
+‘example, or sofware updates).
+
+‘Atow outbound HTTPS access tothe Inemet over IPv4 (oe
+‘example or sofware updates)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Destination: 20.0.1.0/24 and Target: i-12345
+* [ ] B. Destination: 0.0.0.0/0 and Target: i-12345
+* [ ] C. Destination: 172.28.0.0/12 and Target: vgw-12345
+* [ ] D. Destination: 20.0.0.0/16 and Target: local.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because the private subnet destination with NAT instance as the target is not needed in the route table.
+Option B is incorrect because you would need this entry to communicate with the internet via NAT instance (e.g.
+for patch updates).
+Option C is incorrect because you need this entry for communicating with the customer network via the virtual private gateway.
+Option D is incorrect because this entry is present by default to allow the resources in the VPC to communicate with each other.
+The below diagram shows how a typical setup for a VPC with a VPN and Internet gateway would look like.
+The only routing option which should have access to the internet gateway should be the 0.0.0.0/0 address.
+So.
+Option A is the right answer.
+For more information on VPC with the option of VPN, please visit the links.
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario3.html https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
+The main route table is automatically created by AWS when a VPC is created. It is associated with all subnets that are created in the VPC. When an instance in a subnet wants to communicate with another instance or resource outside of the VPC, the main route table is consulted to determine how to route the traffic.
+In this scenario, the user has created a VPC with CIDR 20.0.0.0/16, a public subnet with CIDR 20.0.0.0/24, and VPN-only subnets with CIDR 20.0.1.0/24. The user has also set up a VPN gateway (vgw-12345) to connect to the user's data center, which has CIDR 172.28.0.0/12. Additionally, a NAT instance (i-12345) has been set up to allow traffic to the internet from the VPN subnet.
+Now let's go through each answer option and see which one should not be configured in the main route table.
+A. Destination: 20.0.1.0/24 and Target: i-12345 This route should be configured in the main route table because it specifies that traffic destined for the VPN-only subnets should be routed to the NAT instance (i-12345) for internet access.
+B. Destination: 0.0.0.0/0 and Target: i-12345 This route should also be configured in the main route table because it specifies that all traffic not destined for the VPC should be routed to the NAT instance (i-12345) for internet access.
+C. Destination: 172.28.0.0/12 and Target: vgw-12345 This route should be configured in the main route table because it specifies that traffic destined for the user's data center (CIDR 172.28.0.0/12) should be routed through the VPN gateway (vgw-12345).
+D. Destination: 20.0.0.0/16 and Target: local This route should not be configured in the main route table because it specifies that traffic destined for the entire VPC (CIDR 20.0.0.0/16) should be routed locally. However, this is the default behavior of the main route table and is automatically configured by AWS. Therefore, there is no need to configure this route explicitly in the main route table.
+In conclusion, the route that should NOT be configured in the main route table in this scenario is D, i.e., Destination: 20.0.0.0/16 and Target: local.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question324:"link"
+
+

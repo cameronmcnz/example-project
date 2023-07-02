@@ -1,0 +1,99 @@
+---
+layout: default 
+title: "1034 - A big SaaS provider migrated one of its "
+---
+
+
+[.question]
+== 1034-64a1df4caa736d27b1db9403.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_3.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A big SaaS provider migrated one of its on-premises products to AWS since many customers (over 300) already have their own Virtual Private Clouds (VPCs) in AWS.
+Due to certain product features, one key requirement is that all traffic between the service provider and customers should be private without being exposed to the internet.
+The company's operation team already configured a VPC.
+What is the best solution that can be recommended here?
+
+
+[source,java]
+----
+Private IP: 10.0.0.6
+
+‘Subnet A
+10.0.0.024
+
+VPC A- service consumer
+10.0.0.016
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Set up a virtual private gateway in this VP.
+* [ ] B. To communicate with customer VPCs, set up a private VPN connection. Therefore, a highly available and private link is created between customers and the service provider.
+* [*] C. Create a VPC peering between this VPC and each customer’s VPC so that all connections are secure and private.
+* [ ] D. Configure an AWS endpoint service (PrivateLink) in the VP.
+* [ ] E. Other AWS customer accounts can create a connection from their VPC to the endpoint service using an interface VPC endpoint.
+* [ ] F. Create a NAT Gateway in the VP.
+* [ ] G. Modify the main route table to allow traffic to other VPCs only through this gateway to ensure that the traffic is not public.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+F.
+G.
+Correct Answer - C.
+One major requirement for this question is that traffic data should not be exposed to the public Internet.
+Private connectivity can be provided by AWS PrivateLink between the SaaS VPC and customers' VPCs from other AWS accounts.
+Option A is incorrect: Because the virtual private gateway is for VPN connection which does not work between AWS VPCs.
+Option B is incorrect: This may work, but it is not as good as option.
+C.
+VPC peering is a relatively old solution to connect two VPCs privately.
+However, it also has several limitations.
+For example, the maximum limit is 125 peering connections per VPC, and VPC peering requires non-overlapping IP addresses.
+Option C is CORRECT: Because by using AWS PrivateLink, it is very easy to connect services across different accounts and VPCs through the Amazon private network.
+Option D is incorrect: Because NAT Gateway is used to route traffic from private subnets to the internet, which cannot be used between VPCs.
+The best solution for the SaaS provider to ensure private communication with its customers' VPCs would be to set up a private VPN connection. This would provide a highly available and secure link between the SaaS provider and its customers.
+Option A, setting up a virtual private gateway, is not the best solution because this only provides a secure connection between the VPC and the provider's own data center, not with the customers' VPCs.
+Option C, creating a VPC peering between the provider's VPC and each customer's VPC, would work in theory but could become cumbersome and difficult to manage as the number of customers increases.
+Option D, configuring an AWS endpoint service (PrivateLink), is a good option but would require the customers to create a connection from their VPC to the endpoint service using an interface VPC endpoint, which may not be feasible for all customers.
+Option F, creating a NAT Gateway in the VPC, is not relevant to this particular requirement as it is used for providing Internet connectivity to resources within a private subnet.
+Option G, modifying the main route table to allow traffic to other VPCs only through a specific gateway, would not be sufficient on its own to ensure private communication between the SaaS provider and its customers' VPCs.
+Therefore, the best option is to set up a private VPN connection, which would provide a secure and private link between the SaaS provider and its customers' VPCs, allowing them to communicate without being exposed to the internet.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question338:"link"
+
+

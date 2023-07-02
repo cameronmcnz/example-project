@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1237 - The customer data of an application is s"
+---
+
+
+[.question]
+== 1237-64a1faf7f053625db51ddff3.
+
+
+****
+
+[.query]
+--
+The customer data of an application is stored in an S3 bucket.
+Your team would like to use Amazon Athena to analyze the data using standard SQL.
+However, the data in the S3 bucket is encrypted via SSE-KMS.
+How would you create the table in Athena for the encrypted data in S3?
+
+
+--
+
+[.list]
+--
+* [*] A. You need to provide the private KMS key to Athena.
+* [*] B. Athena decrypts the data automatically, and you do not need to provide key information.
+* [*] C. You need to convert SSE-KMS to SSE-S3 before creating the table in Athena.
+* [ ] D. You need to disable the server-side encryption in S3 before creating the Athena table.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect because, for SS3-KMS, Athena can determine the proper materials to decrypt the dataset when creating the table.
+You do not need to provide the key information to Athena.
+Option B is CORRECT because Athena can create the table for the S3 data encrypted by SSE-KMS.
+Options C and D are incorrect because these steps are not required.
+Athena can create tables for the dataset encrypted by SSE-KMS.
+Reference:
+https://docs.aws.amazon.com/athena/latest/ug/creating-tables-based-on-encrypted-datasets-in-s3.html.
+If you want to create a table in Athena for encrypted data stored in an S3 bucket using SSE-KMS, you need to provide the KMS key to Athena. The correct answer is A.
+Amazon Athena is a serverless query service that allows users to analyze data stored in S3 using standard SQL queries. To use Athena with encrypted data stored in S3, you need to ensure that Athena can access the encryption key used to encrypt the data. SSE-KMS is a server-side encryption mechanism that uses AWS KMS to encrypt the S3 data, and the KMS key is used to encrypt and decrypt the data.
+To create a table in Athena for encrypted data stored in an S3 bucket using SSE-KMS, you need to do the following:
+1.
+Create a KMS key: If you haven't already created a KMS key for encrypting the S3 data, you need to create one using the AWS KMS console. Make sure that you have the necessary permissions to create and manage KMS keys.
+2.
+Grant permissions to Athena: You need to grant permissions to Athena to use the KMS key. To do this, you can create an IAM policy that allows Athena to access the KMS key, and then attach the policy to the Athena service role.
+3.
+Specify the KMS key in the CREATE TABLE statement: When you create the table in Athena, you need to specify the KMS key ID in the TBLPROPERTIES clause of the CREATE TABLE statement. For example:
+sqlCopy codeCREATE EXTERNAL TABLE mytable (   col1 string,   col2 int ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LOCATION 's3://mybucket/mydata' TBLPROPERTIES ('has_encrypted_data'='true', 'encryption_type'='SSE-KMS', 'kms_key_id'='my-kms-key-id'); 
+In the above example, 'my-kms-key-id' is the ID of the KMS key that was used to encrypt the S3 data. The TBLPROPERTIES clause specifies that the data is encrypted and the encryption type is SSE-KMS.
+In summary, to create a table in Athena for encrypted data stored in an S3 bucket using SSE-KMS, you need to provide the KMS key ID in the TBLPROPERTIES clause of the CREATE TABLE statement. This ensures that Athena can access the encryption key and decrypt the data during query execution.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question517:"link"
+
+

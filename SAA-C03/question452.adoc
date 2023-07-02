@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1252 - A web application is hosted in AWS EC2 a"
+---
+
+
+[.question]
+== 1252-64a1fafef053625db51de003.
+
+
+****
+
+[.query]
+--
+A web application is hosted in AWS EC2 and serves global customers.
+As the application is getting more and more popular, the data transfer cost keeps increasing.
+You plan to use AWS CloudFront to improve the latency and reduce the cost.
+Which of the following services is free for CloudFront?
+
+
+--
+
+[.list]
+--
+* [*] A. Data transfer out to the Internet from edge locations.
+* [ ] B. Data transfer out of Amazon CloudFront to the origin server.
+* [*] C. Data transfer from origin to CloudFront edge locations (Amazon CloudFront "origin fetches").
+* [ ] D. Custom SSL certificate associated with the CloudFront distribution using the Dedicated IP version of custom SSL certificate support.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+CloudFront is a content delivery network (CDN) service that offers a simple, pay-as-you-go pricing model.
+For the Amazon CloudFront pricing details, please check the below reference.
+Options A and B are incorrect: Because the data transfer out to the internet or origin is not free.
+A different rate is charged depending on the region.
+Option C is CORRECT: If the CloudFront origin is hosted in AWS like EC2, the origin fetches are free.
+Option D is incorrect: Because for each custom SSL certificate associated with one or more CloudFront distributions using the Dedicated IP version of custom SSL certificate support, you are charged at $600 per month.
+Reference:
+https://aws.amazon.com/cloudfront/pricing/
+Sure, I can explain the details for each option and help you understand which service is free for CloudFront.
+AWS CloudFront is a content delivery network (CDN) service that speeds up the delivery of your static and dynamic web content, such as HTML, CSS, JavaScript, images, and videos. CloudFront provides a global network of edge locations to cache and serve your content from the nearest location to your users, reducing latency and improving performance.
+Now, let's analyze each option:
+A. Data transfer out to the Internet from edge locations. This option refers to the data transfer costs incurred when users access your content through CloudFront's edge locations, which act as proxies for your origin server. CloudFront charges for data transfer out from its edge locations to the Internet. However, CloudFront offers a free tier of 50 GB per month for the first 12 months for new customers. Therefore, for most small-scale applications, the cost of data transfer out to the Internet is negligible.
+B. Data transfer out of Amazon CloudFront to the origin server. This option refers to the data transfer costs incurred when CloudFront retrieves content from your origin server, such as an Amazon EC2 instance or an Amazon S3 bucket. CloudFront charges for data transfer out to the origin server based on the AWS region where the origin is located and the amount of data transferred. This cost is not free, and you will be charged according to the AWS pricing model.
+C. Data transfer from origin to CloudFront edge locations (Amazon CloudFront "origin fetches"). This option refers to the data transfer costs incurred when CloudFront fetches content from your origin server for the first time, and then caches it at its edge locations for subsequent requests. CloudFront charges for data transfer from the origin server to its edge locations based on the AWS region where the origin is located and the amount of data transferred. This cost is not free, and you will be charged according to the AWS pricing model.
+D. Custom SSL certificate associated with the CloudFront distribution using the Dedicated IP version of custom SSL certificate support. This option refers to the use of custom SSL certificates for secure connections between CloudFront and your origin server or between CloudFront and your end-users. CloudFront supports two types of SSL certificates: Server Name Indication (SNI) and Dedicated IP. SNI certificates are free, while Dedicated IP certificates require an additional fee of $600/month. Therefore, if you choose to use the SNI version of custom SSL certificates, you will not incur any additional cost.
+In summary, the only service that is free for CloudFront is the data transfer out to the Internet from its edge locations, up to 50 GB per month for the first 12 months for new customers. The other services, such as data transfer out to the origin server and data transfer from the origin to CloudFront edge locations, as well as the Dedicated IP version of custom SSL certificates, incur additional costs based on the AWS pricing model.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question533:"link"
+
+

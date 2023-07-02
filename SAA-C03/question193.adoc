@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "993 - You have a businesscritical twotier web "
+---
+
+
+[.question]
+== 993-64a1fa7ff053625db51ddecb.
+
+
+****
+
+[.query]
+--
+You have a business-critical two-tier web application, currently deployed in 2 Availability Zones in the US East region, using Elastic Load Balancing and Auto Scaling.
+The app depends on synchronous replication at the database layer.
+The application needs to remain fully available even if one application AZ suddenly goes offline and Auto Scaling cannot launch new instances in the remaining AZ.
+How could the current Elastic Load Balancing be enhanced to ensure this?
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy in 2 regions using Weighted Round Robin with Auto Scaling set at a minimum 50% peak load per region.
+* [ ] B. Deploy in 3 AZs with Auto Scaling, set to handle a minimum of 33 percent peak load per zone.
+* [*] C. Deploy in 3 AZs with Auto Scaling, set to handle a minimum 50 percent peak load per zone.
+* [ ] D. Deploy in 2 regions using Weighted Round Robin with Auto Scaling, set at minimum 100% peak load per region.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Since the requirement states that the application should never go down even if an AZ is not available, we need to maintain 100% availability.
+Options A and D are incorrect because region deployment is not possible for ELB.
+ELBs can manage traffic within a region, not between regions.
+Option B is incorrect because when one AZ goes down, we would be operating at only 66% and not the required 100%.
+NOTE:
+In the question, it is clearly mentioned that "The application needs to remain fully available even if one application AZ goes offline and if Auto Scaling cannot launch new instances in the remaining AZ."
+Here you need to maintain 100% availability.
+In option B, when you create 3 AZs with a minimum 33% load on each, if any failure occurs in one AZ, then
+33% + 33% = 66% .
+Here you can handle only 66% and the remaining 34% of the load is not handled.
+But when you select option C, when you create 3 AZs with a minimum 50% load on each, if any failure occurs in one AZ, then
+50% + 50% =100% .
+Here you can handle a full load, i.e., 100%.
+Reference:
+https://aws.amazon.com/autoscaling/ https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+The correct answer is B. Deploy in 3 AZs with Auto Scaling, set to handle a minimum of 33 percent peak load per zone.
+Explanation: The current setup has the web application deployed in 2 Availability Zones in the US East region using Elastic Load Balancing and Auto Scaling. The application also depends on synchronous replication at the database layer.
+The requirement is to ensure that the application remains fully available even if one application AZ suddenly goes offline, and Auto Scaling cannot launch new instances in the remaining AZ.
+To achieve high availability, the application needs to be deployed in at least 3 AZs to ensure that there is redundancy in case one AZ goes down.
+Option A is incorrect because deploying in 2 regions using Weighted Round Robin with Auto Scaling set at a minimum 50% peak load per region does not guarantee high availability since an entire region can still go down.
+Option C is incorrect because it recommends setting Auto Scaling to handle a minimum of 50% peak load per zone, which means that if an AZ goes down, the remaining AZs may not be able to handle the increased load, leading to service disruption.
+Option D is incorrect because it recommends setting Auto Scaling to handle a minimum of 100% peak load per region, which does not provide redundancy in case one region goes down.
+Option B is the correct answer because it recommends deploying the application in 3 AZs with Auto Scaling, set to handle a minimum of 33% peak load per zone. This ensures redundancy in case one AZ goes down, and Auto Scaling can handle the increased load on the remaining AZs.
+Therefore, option B is the best solution for ensuring high availability of the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question219:"link"
+
+

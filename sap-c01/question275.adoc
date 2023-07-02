@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1075 - A user has created a public subnet with "
+---
+
+
+[.question]
+== 1075-64a1df5baa736d27b1db9445.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_delete_subnet1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A user has created a public subnet with VPC and launched an EC2 instance within it.
+The user is trying to delete the subnet.
+What will happen in this scenario?
+
+
+[source,java]
+----
+Delete subnet
+
+Note that the following subnets cannot be deleted:
+
+The following subnets contain one or more instances, and cannot be
+deleted until those instances have been terminated. Click here to view
+your instances.
+
++ subnet-0b6995811bb9d8e54 | Default
+
+The following subnets contain one or more network interfaces, and
+cannot be deleted until those network interfaces have been deleted.
+Click here to view your network interfaces.
+
++ subnet-0b6995811bb9d8e54 | Default
+
+Close
+----
+
+
+--
+
+[.list]
+--
+* [*] A. It will delete the subnet and make the EC2 instance as a part of the default subnet.
+* [*] B. It will not allow the user to delete the subnet until the instances are terminated.
+* [ ] C. It will delete the subnet as well as terminate the instances.
+* [ ] D. The subnet can never be deleted independently, but the user has to delete the VPC first.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+In AWS, when you try to delete a subnet with instances, it will not be allowed.
+The below error message will be shown when u try to delete a subnet with instances.
+Hence, option B is the CORRECT answer.
+For more information on VPC and subnets, please visit the link.
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
+When a user creates a public subnet within a VPC and launches an EC2 instance within it, the subnet becomes associated with that instance.
+If the user tries to delete the subnet, the action will depend on whether the EC2 instance is running or terminated.
+If the instance is running, AWS will not allow the user to delete the subnet. This is because a running instance needs a subnet to function, and deleting the subnet would render the instance unusable.
+To delete the subnet, the user needs to terminate the EC2 instance first. Once the instance is terminated, the user can delete the subnet.
+If the instance is already terminated, the user can delete the subnet without any issues. Deleting the subnet will not impact any other subnets or VPCs, as each subnet and VPC is independent of each other.
+Option A is incorrect because deleting the subnet will not automatically make the EC2 instance a part of the default subnet. The user will need to launch the instance in a different subnet.
+Option C is incorrect because deleting the subnet will not terminate the instances. As discussed, instances need to be terminated first before deleting the subnet.
+Option D is incorrect because a subnet can be deleted independently of the VPC, as long as there are no instances running within it.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question404:"link"
+
+

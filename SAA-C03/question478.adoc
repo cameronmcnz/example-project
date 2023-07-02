@@ -1,0 +1,111 @@
+---
+layout: default 
+title: "1278 - An IT company hired you recently as Clou"
+---
+
+
+[.question]
+== 1278-64a1fb0bf053625db51de022.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img95399.PNG[]
+
+--
+
+
+****
+
+[.query]
+--
+An IT company hired you recently as Cloud Architect, and your Manager told you that the team is trying to host an Application on an EC2 Server with instance type as t2.micro.
+The team has created a security group named APP_SG and sent it for User Acceptance Testing where the tester complained that they cannot access the website.
+What could be the issue from the scenario?
+
+
+[source,java]
+----
+Custom security groups
+
+If you don't want your instances to use the default security group, you can create your own security groups and specify them when you launch your
+instances. You can create multiple security groups to reflect the different roles that your instances play; for example, a web server or a database
+
+server.
+
+When you create a security group, you must provide it with a name and a description. Security group names and descriptions can be up to 255
+characters in length, and are limited to the following characters:
+
+1$*
+
+a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=
+
+Asecurity group name cannot start with sg-. A security group name must be unique for the VPC.
+The following are the default rules for a security group that you create:
+
+* Allows no inbound traffic
+
+* Allows all outbound traffic
+
+After you've created a security group, you can change its inbound rules to reflect the type of inbound traffic that you want to reach the associated
+instances. You can also change its outbound rules.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Network ACL is blocking the user from accessing the application.
+* [*] B. By default, the new security group allows no inbound traffic.
+* [*] C. You should configure Network ACLs to allow all inbound traffic and allow all outbound traffic.
+* [ ] D. You should configure IAM Roles before using the application.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect because, by default, both inbound and outbound traffic is allowed.
+Option B is CORRECT because the default rules for a custom security group that you create allows no inbound traffic and allows all outbound traffic.
+There are two kinds of Security Groups:
+Default Security Group.
+Custom Security Group.
+The following are the default rules for a Default Security Group:
+- Allows all inbound traffic.
+- Allows all outbound traffic.
+In the question, a team has created a security group means it is a Custom Security Group.
+The below image signifies default rules for the custom security groups.
+Option C is incorrect because Network ACLs are used for both allow and deny rules.
+Option D is incorrect IAM Roles are used for Access management, not for traffic rules.
+Reference:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/default-custom-security-groups.html https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-rules
+Based on the scenario provided, the team is trying to host an application on an EC2 instance with the instance type of t2.micro, and they have created a security group named APP_SG. The user acceptance testing has revealed that the website cannot be accessed. This suggests that there is an issue with the security group configuration.
+The correct answer is likely to be B, which is that by default, the new security group allows no inbound traffic. This means that the security group is not allowing any traffic to reach the EC2 instance, which is preventing users from accessing the website hosted on it.
+To resolve this issue, the security group needs to be configured to allow inbound traffic on the relevant ports. The security group should allow traffic on port 80 for HTTP and port 443 for HTTPS if the application is a web-based one.
+It is also important to note that Network ACLs (Answer A) may be another reason for the issue. However, Network ACLs operate at the subnet level and are stateless, so it is unlikely to be blocking user access to the application.
+Answer C suggests that Network ACLs should be configured to allow all inbound and outbound traffic, but this is not recommended as it would compromise the security of the network. The principle of least privilege should be applied when configuring Network ACLs and Security Groups.
+Answer D, which suggests that IAM Roles should be configured before using the application, is not relevant to the issue at hand. IAM roles are used to manage permissions and access to AWS resources and services, but they do not impact the accessibility of the application hosted on the EC2 instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question564:"link"
+
+

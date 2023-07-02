@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "988 - Your company is running a premium photos"
+---
+
+
+[.question]
+== 988-64a1df3caa736d27b1db93c3.
+
+
+****
+
+[.query]
+--
+Your company is running a premium photo-sharing application.
+Users can upload their creative photos and license them to be used by others.
+The application allows the users to watermark and do other signatures before the images can be visible to everyone in the public stream.
+The watermarking and signature are based on the user-selected plan and allowed to do a certain number of images in a given timeframe.
+Along with this, the company has collaborated with some users and groups.
+They are allowed to process images faster compared to others whenever they submit their images.
+
+
+--
+
+[.list]
+--
+* [*] A. Use SQS queues instead of Lambda Trigger. Use the priority order messages to process the images.
+* [ ] B. Save the processing information to DynamoDB before saving the image to S3. When the AWS Lambda trigger runs, pull the information from DynamoDB and process accordingly.
+* [*] C. Use two SQS queues instead of Lambda Trigger. One with high priority messages and another for the low priority messages. Check for the messages into the high priority queue before processing any messages from the low priority queue.
+* [ ] D. Use the AWS Batch to create jobs with priority job queues and use the combination of EC2 On-Demand and Spot instances to process the messages.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is INCORRECT because while the SQS will definitely help decouple and streamline the message processing.
+It will still not be processed any desired order.
+The consumer application will receive the SQS queue messages and will have to use the additional logic to schedule and prioritize the processing.
+Option B is INCORRECT because just saving the processing information to the DynamoDB will not help in the scheduling or ordering the messages.
+The customer application will still receive the message from the SQS in a different order and will have to run the appropriate logic to schedule the tasks.
+Option C is CORRECT because it always allows the consumer to check the premium queue first.
+If the premium queue is empty, it will pull from the member queue, satisfying both the requirements to re-architect and processing some images before others.
+You can also scale your EC2 instances, processing the images based on need as well.
+Please refer to the following link-
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html
+Option D is INCORRECT because using AWS Batch to create jobs is not necessary here.
+The best solution for this scenario would be option C - Use two SQS queues instead of Lambda Trigger. One with high priority messages and another for the low priority messages. Check for the messages into the high priority queue before processing any messages from the low priority queue.
+Here's why:
+The application allows users to upload their photos and apply watermarks or signatures before they are publicly visible. These watermarks/signatures are based on user-selected plans that allow a certain number of images to be processed in a given time frame. Additionally, some users and groups are allowed to process images faster than others.
+SQS (Simple Queue Service) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It provides a reliable, highly scalable, and secure way to transmit any volume of data between software components.
+In this scenario, using SQS would allow the application to handle processing the images in a more efficient manner. Instead of using a Lambda trigger, two separate SQS queues could be created - one for high priority messages and another for low priority messages.
+When a user uploads a photo, the photo is added to the appropriate SQS queue based on their selected plan. Users with higher priority plans would have their photos added to the high priority queue, while users with lower priority plans would have their photos added to the low priority queue.
+A worker instance would then be responsible for pulling messages from the high priority queue first and processing them accordingly. Only after all high priority messages have been processed would the worker instance then start processing messages from the low priority queue. This ensures that users with higher priority plans get their photos processed more quickly.
+Furthermore, processing information could be saved to DynamoDB before saving the image to S3. When the AWS Lambda trigger runs, it can pull the information from DynamoDB and process accordingly.
+Using two separate SQS queues and prioritizing messages based on user-selected plans would help to ensure that the application is able to handle processing the images in an efficient and fair manner. It would also help to reduce the processing time for users with higher priority plans, which would improve their overall experience with the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question273:"link"
+
+

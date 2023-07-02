@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1017 - You are designing a VPC with different s"
+---
+
+
+[.question]
+== 1017-64a1df46aa736d27b1db93ec.
+
+
+****
+
+[.query]
+--
+You are designing a VPC with different subnets and instances in them.
+You want the instances in the subnets to communicate with each other and also ensure that traffic flows between different subnets seamlessly.
+How can you accomplish these requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure a security group for every zone. Configure a default allow all rule. Configure explicit deny rules for the zones that shouldn’t be able to communicate with one another.
+* [*] B. Use NACLs to explicitly allow communication between subnets and Security Groups to allow communication between different instances.
+* [*] C. Configure multiple subnets in your VPC, one for each zone. Configure routing within your VPC in such a way that each subnet only has routes to other subnets with which it needs to communicate, and doesn’t have routes to subnets with which it shouldn’t be able to communicate.
+* [ ] D. Configure a security group for every availability zone. Configure allow rules only between the availability zones that need to be able to communicate with one another. Use the implicit deny all rule to block any other traffic.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is INCORRECT because the Security Group should be applied on an instance instead of an availability zone, and also "Configure explicit deny rules" is incorrect.
+It is implicit deny and not explicit deny.
+Option B is CORRECT because NACLs should be configured as explicit allow at the subnet level.
+Security Groups should also be configured to allow the communication at the instance level.
+Option C is INCORRECT because for all Route tables, either main or custom: the default route is at target local, and this cannot be either deleted or modified.
+Option D is INCORRECT because Security Group can be applied on an instance and not on the Zone level.
+The Source in a security group rule can be either a range of IP, any security group within a given VPC or single IP.
+Sure, I'd be happy to provide a detailed explanation of each answer option.
+A. Configure a security group for every zone. Configure a default allow all rule. Configure explicit deny rules for the zones that shouldn't be able to communicate with one another.
+This answer option suggests creating a security group for each zone and configuring a default allow all rule. This would allow instances in each zone to communicate with each other without any restrictions. However, to prevent communication between zones that shouldn't be able to communicate with each other, explicit deny rules need to be configured for those zones. This approach may work, but it could become difficult to manage as the number of subnets and security groups increases.
+B. Use NACLs to explicitly allow communication between subnets and Security Groups to allow communication between different instances.
+This answer option recommends using Network Access Control Lists (NACLs) to explicitly allow communication between subnets and Security Groups to allow communication between different instances. NACLs are stateless and operate at the subnet level. They can be used to allow or deny traffic based on the source and destination IP address, port number, and protocol. Security Groups are stateful and operate at the instance level. They control inbound and outbound traffic for instances and can be used to allow traffic from specific IP addresses or Security Groups. This approach provides granular control over the traffic flow in the VPC.
+C. Configure multiple subnets in your VPC, one for each zone. Configure routing within your VPC in such a way that each subnet only has routes to other subnets with which it needs to communicate, and doesn't have routes to subnets with which it shouldn't be able to communicate.
+This answer option recommends creating multiple subnets in the VPC, one for each zone, and configuring routing within the VPC in such a way that each subnet only has routes to other subnets with which it needs to communicate. This approach is based on the principle of least privilege, which means that each subnet only has access to the resources it needs and nothing more. By configuring routing tables in this way, you can ensure that traffic flows only between subnets that need to communicate with each other.
+D. Configure a security group for every availability zone. Configure allow rules only between the availability zones that need to be able to communicate with one another. Use the implicit deny all rule to block any other traffic.
+This answer option suggests creating a security group for every availability zone and configuring allow rules only between the availability zones that need to communicate with each other. This approach is similar to Option A but is more specific to availability zones instead of zones. Using the implicit deny all rule ensures that any traffic that doesn't match the allow rules is blocked. However, this approach could be difficult to manage as the number of availability zones and security groups increases.
+In conclusion, Option B, which suggests using NACLs to explicitly allow communication between subnets and Security Groups to allow communication between different instances, is the best answer option as it provides granular control over the traffic flow in the VPC while still being manageable.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question315:"link"
+
+

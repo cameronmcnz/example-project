@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1032 - A small company started using EBS backed"
+---
+
+
+[.question]
+== 1032-64a1fa8ff053625db51ddef7.
+
+
+****
+
+[.query]
+--
+A small company started using EBS backed EC2 instances for the cost improvements over their own running servers.
+The company's policy is to stop the development servers over the weekend and restart them next week.
+The first time when the servers were brought back, none of the developers were able to SSH into them.
+What did the server most likely overlook?
+
+
+--
+
+[.list]
+--
+* [*] A. The associated Elastic IP address has changed and the SSH configurations were not updated.
+* [ ] B. The security group for a stopped instance needs to be reassigned after the start.
+* [*] C. The public IPv4 address has changed on the server start and the SSH configurations were not updated.
+* [ ] D. EBS backed EC2 instances could not be stopped and were automatically terminated.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option C is correct.
+The instance retains its private IPv4 addresses and any IPv6 addresses when stopped and started.
+AWS releases public IPv4 address and assigns a new one when it is stopped &amp; started.
+Option A is incorrect.
+An EC2 instance retains its associated Elastic IP addresses.
+Option B is incorrect.
+Security groups do not need to be reassigned to instances that are restarted.
+Option D is incorrect.
+EBS backed instances are the only instance type that can be started and stopped.
+Reference:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+When an EC2 instance is launched, it is assigned a public IP address or an Elastic IP address (EIP) if one is allocated to it. If an EIP is associated with an instance, it remains associated with that instance until it is explicitly disassociated. However, public IP addresses are dynamic and can change every time an instance is stopped and started again.
+In this scenario, the company is stopping their development servers over the weekend to save costs. When the servers were started again, the developers were not able to SSH into them, indicating that the servers had lost their connection to the internet or had their IP addresses changed.
+Option A states that the associated Elastic IP address has changed and the SSH configurations were not updated. This could be a possible reason for the issue. If the instance was assigned an Elastic IP address, it would remain associated with that instance even if it was stopped and started again. However, if the Elastic IP address was disassociated or allocated to another instance, the developers would not be able to SSH into the server.
+Option B states that the security group for a stopped instance needs to be reassigned after the start. This is not a valid reason for the issue as security groups are not affected when an instance is stopped and started again. The security group settings are preserved even after the instance is stopped and started.
+Option C states that the public IPv4 address has changed on the server start and the SSH configurations were not updated. This could be a possible reason for the issue. If the instance was assigned a public IP address, it would have a new IP address each time it was stopped and started again. If the developers were trying to SSH into the instance using its previous IP address, they would not be able to connect.
+Option D states that EBS backed EC2 instances could not be stopped and were automatically terminated. This is incorrect as EBS-backed instances can be stopped and started again without being terminated.
+Based on the information provided, Option A or Option C could be the most likely reason for the issue. The company needs to check if an Elastic IP address was associated with the instance and if it was disassociated or allocated to another instance. They also need to check if the instance was assigned a public IP address and if its IP address has changed after it was stopped and started again. Once the issue is identified, they need to update the SSH configurations accordingly to connect to the instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question264:"link"
+
+

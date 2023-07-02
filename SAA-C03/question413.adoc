@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1213 - Your company currently has a set of web "
+---
+
+
+[.question]
+== 1213-64a1faeaf053625db51ddfd4.
+
+
+****
+
+[.query]
+--
+Your company currently has a set of web servers in a public subnet and database servers in the private subnet.
+You need to ensure administrators from your on-premises environment can access the database servers.
+Which of the following is a secure way to access the database servers?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a bastion host in the private subnet as the database servers. Ask the IT administrators to log into the database servers via the bastion host.
+* [*] B. Create a bastion host in the public subnet. Ask the IT administrators to log into the database servers via the bastion host.
+* [ ] C. Create a NAT instance in the private subnet as the database servers. Ask the IT administrators to log into the database servers via the NAT Instance.
+* [ ] D. Create a NAT instance in the public subnet as the database servers. Ask the IT administrators to log into the database servers via the NAT Instance.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+A bastion host is a server whose purpose is to provide access to a private network from an external network, such as the Internet.
+Because of its exposure to potential attacks, a bastion host must minimize the chances of penetration.
+For example, you can use a bastion host to mitigate the risk of allowing SSH connections from an external network to the Linux instances launched in a private subnet of your Amazon Virtual Private Cloud (VPC).
+Option A is incorrect since the bastion host needs to be in the public subnet.
+Options C and D are incorrect since the NAT instance should not be used as a jump server to the database servers.
+For more information on using a bastion host, please refer to the below URL-
+https://aws.amazon.com/blogs/security/how-to-record-ssh-sessions-established-through-a-bastion-host/
+To enable administrators from your on-premises environment to access the database servers located in a private subnet, you need to provide a secure way to establish the connection between the on-premises environment and the database servers.
+Option A: Create a bastion host in the private subnet as the database servers. Ask the IT administrators to log into the database servers via the bastion host.
+This is a secure way to access the database servers. A bastion host is a special-purpose instance that acts as a secure gateway between the on-premises environment and the private subnet where the database servers are located. By connecting to the bastion host first, IT administrators can then securely access the database servers via a secure shell (SSH) connection. The bastion host acts as a jump server, providing a secure way to access the private subnet without exposing the database servers to the public Internet.
+Option B: Create a bastion host in the public subnet. Ask the IT administrators to log into the database servers via the bastion host.
+This option is less secure than option A. By creating a bastion host in the public subnet, you expose the bastion host to the public Internet, which increases the risk of a security breach. Moreover, the bastion host does not provide a secure way to access the database servers located in the private subnet.
+Option C: Create a NAT instance in the private subnet as the database servers. Ask the IT administrators to log into the database servers via the NAT Instance.
+This option is not secure because a NAT instance is used for outbound Internet traffic from the private subnet to the public Internet. It is not designed to provide a secure way to access resources in the private subnet from the on-premises environment.
+Option D: Create a NAT instance in the public subnet as the database servers. Ask the IT administrators to log into the database servers via the NAT Instance.
+This option is also not secure because it involves exposing the database servers to the public Internet. A NAT instance is used for outbound Internet traffic from the private subnet to the public Internet. It is not designed to provide a secure way to access resources in the private subnet from the on-premises environment.
+In summary, option A is the most secure way to access the database servers located in the private subnet from the on-premises environment. By creating a bastion host in the private subnet, you provide a secure gateway that enables IT administrators to access the database servers via a secure shell (SSH) connection, without exposing the servers to the public Internet.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question486:"link"
+
+

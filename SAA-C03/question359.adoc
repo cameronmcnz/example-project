@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1159 - You are designing the application archit"
+---
+
+
+[.question]
+== 1159-64a1fad0f053625db51ddf94.
+
+
+****
+
+[.query]
+--
+You are designing the application architecture for a company.
+The architecture will consist of a web tier that will be hosted on EC2 Instances placed behind an Elastic Load Balancer.
+Which of the following would help you to decide the instance type of the EC2 instances?
+
+
+--
+
+[.list]
+--
+* [*] A. Determine the required I/O performance.
+* [ ] B. Determine the minimum memory requirements.
+* [ ] C. Determine the storage capabilities required for the application.
+* [*] D. All the above options.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The instance type determines the hardware of the host computer used for your instance.
+Each instance type offers different compute, memory, and storage capabilities, and is grouped in an instance family based on these capabilities.
+For more information on EC2 Instance types, please visit the URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+When designing the application architecture for a company, it is important to consider various factors to ensure optimal performance, reliability, and scalability of the system. In this scenario, the architecture will consist of a web tier that will be hosted on EC2 Instances placed behind an Elastic Load Balancer. One important decision that needs to be made is selecting the appropriate EC2 instance type.
+There are various factors that can help in deciding the instance type of the EC2 instances, and the options provided in the question are:
+A. Determine the required I/O performance. B. Determine the minimum memory requirements. C. Determine the storage capabilities required for the application. D. All the above options.
+Let's discuss each option in more detail:
+A. Determine the required I/O performance: Input/output (I/O) performance is an important consideration when selecting an EC2 instance type, especially for applications that require high I/O operations, such as databases, analytics, and machine learning. In such cases, it is recommended to select an instance type that provides high I/O performance, such as instances that use NVMe SSD or local instance storage. Therefore, determining the required I/O performance is a key factor in deciding the EC2 instance type.
+B. Determine the minimum memory requirements: Memory is another important consideration when selecting an EC2 instance type. Applications that require a large amount of memory, such as in-memory databases or caching systems, should use instance types with a high memory capacity. In addition, some applications may require a certain minimum amount of memory to function properly. Therefore, determining the minimum memory requirements is another important factor in deciding the EC2 instance type.
+C. Determine the storage capabilities required for the application: Storage requirements can also impact the selection of the EC2 instance type. Applications that require high storage capacity should use instance types with larger storage volumes or that support network-attached storage (NAS). In addition, some applications may require specific storage types, such as solid-state drives (SSDs) or magnetic disks. Therefore, determining the storage capabilities required for the application is another important factor in deciding the EC2 instance type.
+D. All the above options: As all the options mentioned above are important factors in deciding the EC2 instance type, selecting "All the above options" is also a valid answer.
+In conclusion, when designing the application architecture for a company, it is important to consider various factors when selecting the appropriate EC2 instance type. The factors mentioned in the options provided in the question - I/O performance, memory requirements, and storage capabilities - are all important considerations that can help in making the decision.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question422:"link"
+
+

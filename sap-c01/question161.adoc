@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "961 - Your company has developed an operations"
+---
+
+
+[.question]
+== 961-64a1df30aa736d27b1db9391.
+
+
+****
+
+[.query]
+--
+Your company has developed an operations system for an e-commerce organization having multiple offices across the country.
+The operations team pushes the new changes to the production frequently.
+The product uses AWS RDS Multi-AZ MySQL with read-replicas.
+The web application is running on EC2 with ELB in front.
+The last feature update created an issue with the database, and part of the system is down due to that.
+The development team has rolled out a couple of more patches to fix the issue.
+But some users are still facing the outages.
+The management has finally decided to roll back the update to the last known stable version until all the issues are resolved in the QA environment.
+Which of the following options is the most suitable to perform the rollback cost-efficiently?
+
+
+--
+
+[.list]
+--
+* [*] A. Use the DB snapshot with Point-in-time recovery to rollback the database, and rollback the EC2 servers with a previously working AMI.
+* [ ] B. Create a totally new environment with the last known stable build. Use the Route53 Weighted policy to redirect the traffic to the new environment. Delete the old environment.
+* [*] C. Use the DB snapshot with Point-in-time recovery and restore on top of the original database.
+* [ ] D. Create a CloudFormation template with RollingUpdate policy to create a new frontend and change the Route53 record to redirect traffic to the new frontend with the existing database.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is CORRECT because point-in-time recovery helps to recover the database to a certain point in time.
+The EC2 servers can be recovered with the previous AMI.
+Option B is INCORRECT because this method is not cost-efficient as a new set of resources need to be configured.
+Option C is INCORRECT because it does not mention how to roll back the application.
+Option D is INCORRECT because the database problem is still there, and the traffic still goes to the existing problematic database.
+The best option to perform a rollback cost-efficiently in this scenario is A. Use the DB snapshot with Point-in-time recovery to rollback the database and rollback the EC2 servers with a previously working AMI.
+Explanation:
+Option A suggests using the DB snapshot with Point-in-time recovery to rollback the database and rollback the EC2 servers with a previously working AMI. This approach is cost-efficient because it only involves rolling back the components that have issues and not creating a completely new environment.
+To implement this approach, the following steps can be taken:
+1.
+Rollback the database: AWS RDS Multi-AZ MySQL with read-replicas allows for easy rollbacks using DB snapshots with Point-in-time recovery. This means a snapshot of the database can be taken before the last feature update was applied, and the database can be rolled back to that point in time. This will ensure that the database is in a stable state and working correctly.
+2.
+Rollback the EC2 servers: Once the database is rolled back, the next step is to roll back the EC2 servers to the last known stable version. This can be done by using a previously working AMI. This will ensure that the web application is running on a stable version and any issues caused by the last feature update are resolved.
+Once the rollback of both the database and EC2 servers is complete, the system should be in a stable state, and users should no longer face outages.
+Option B suggests creating a totally new environment with the last known stable build and using the Route53 Weighted policy to redirect traffic to the new environment. While this approach can also work, it is not as cost-efficient as option A because it involves creating a completely new environment. Additionally, this approach can result in downtime during the transition period as traffic is redirected to the new environment.
+Option C suggests using the DB snapshot with Point-in-time recovery and restoring it on top of the original database. This approach is not recommended because restoring the snapshot on top of the original database can cause data loss and other issues. It is better to create a new instance from the snapshot and then use it to replace the original instance.
+Option D suggests creating a CloudFormation template with RollingUpdate policy to create a new frontend and change the Route53 record to redirect traffic to the new frontend with the existing database. This approach is not recommended because it involves creating a new frontend, which is not necessary since the issue is with the database. Additionally, using CloudFormation can be complex and time-consuming, making it not suitable for a quick rollback.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question223:"link"
+
+

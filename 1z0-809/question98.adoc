@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "898 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 898-64a1a85def3e8462333a9c98.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0008600001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+List<Integer> li = Arrays.asList(10, 20, 30)
+Function<Integer, Integer> fn = £1 -> fl + fir
+
+Consumer<Integer> conVal = 5 -> System.out.print("val:" + 5 +" ");
+1i.stream() -map (fn) . forEach (conval) ;
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Val:20 Val:40 Val:60
+* [ ] B. Val:10 Val:20 Val:30
+* [ ] C. A compilation error occurs.
+* [ ] D. Val: Val: Val:
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

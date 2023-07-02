@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "981 - An organization is planning to use AWS f"
+---
+
+
+[.question]
+== 981-64a1df37aa736d27b1db93ae.
+
+
+****
+
+[.query]
+--
+An organization is planning to use AWS for its production rollout.
+The organization wants to implement automation for deployment such that it will automatically create a LAMP stack, download the latest PHP installable from S3, and set up the ELB.
+Which of the below mentioned AWS services meets the requirement for making an easy and orderly deployment of the software?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Elastic Beanstalk
+* [ ] B. AWS Cloudfront
+* [ ] C. AWS Cloudformation
+* [ ] D. AWS DevOps.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services.
+We can simply upload the code.
+Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, Auto Scaling to application health monitoring.
+Meanwhile, we can retain full control over the AWS resources used in the application and can access the underlying resources at any time.
+Hence, A is the CORRECT answer.
+For more information on launching a LAMP stack with Elastic Beanstalk ( click on "Getting started with the Implementation Guide" at the bottom of the page ):
+https://aws.amazon.com/getting-started/projects/launch-lamp-web-app/faq/
+We can do it on AWS CloudFormation as well in a harder way, and it will be less Native.
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html
+The AWS service that can meet the organization's requirement for an easy and orderly deployment of a LAMP stack, downloading the latest PHP installable from S3, and setting up the ELB is AWS CloudFormation.
+AWS CloudFormation is a service that provides a way to create and manage AWS resources using templates. A CloudFormation template is a JSON or YAML formatted text file that describes the AWS resources that you want to create and configure. In this case, the organization can create a CloudFormation template that includes instructions to create an EC2 instance, install Apache, MySQL, PHP, and other required packages to set up the LAMP stack, download the latest PHP installable from S3, and set up the ELB.
+AWS Elastic Beanstalk is a platform-as-a-service (PaaS) offering from AWS that helps developers deploy and scale web applications and services. Elastic Beanstalk provides preconfigured platforms for popular programming languages and frameworks such as PHP, Java, Ruby, and Node.js. However, Elastic Beanstalk is not well-suited for deploying custom software stacks, as it requires using the preconfigured platforms.
+AWS CloudFront is a content delivery network (CDN) that delivers content, including websites, videos, and APIs, to end-users with low latency and high transfer speeds. However, CloudFront is not designed for deploying software stacks or configuring servers.
+AWS DevOps is not a specific AWS service but rather a collection of tools and practices for automating software development and deployment processes. DevOps tools such as AWS CodePipeline and AWS CodeDeploy can be used to automate the deployment of software stacks on AWS. However, DevOps is not a standalone service and requires the use of multiple AWS services to build a complete deployment pipeline.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question252:"link"
+
+

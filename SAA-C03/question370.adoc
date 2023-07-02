@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1170 - Your company plans to set up a VPC with "
+---
+
+
+[.question]
+== 1170-64a1fad6f053625db51ddfa1.
+
+
+****
+
+[.query]
+--
+Your company plans to set up a VPC with private and public subnets and host EC2 Instances in the subnet.
+It has to be ensured that instances in the private subnet can download updates from the internet.
+Which of the following needs to be part of the architecture for this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. WAF
+* [ ] B. Direct Connect
+* [*] C. NAT Gateway
+* [ ] D. VPN.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS Documentation mentions the following.
+You can use a network address translation (NAT) gateway to enable instances in a private subnet to connect to the internet or other AWS services.
+But you prevent the internet from initiating a connection with those instances.
+Option A is invalid since this is a web application firewall.
+Options B and D are invalid since they are used to connect on-premises infrastructure to AWS VPCs.
+For more information on NAT gateway, please visit the below URL-
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
+The correct answer to the question is C. NAT Gateway.
+To understand why, let's break down the options and their relevance to the question.
+A. WAF (Web Application Firewall) is used to protect web applications from common web exploits such as SQL injection, cross-site scripting, and others. However, it's not related to the requirement of allowing instances in the private subnet to download updates from the internet.
+B. Direct Connect is a service that establishes a dedicated network connection from an on-premises environment to AWS. It's not relevant to the question as it doesn't address the requirement of allowing instances in the private subnet to download updates from the internet.
+C. NAT (Network Address Translation) Gateway is a managed AWS service that enables instances in a private subnet to connect to the internet or other AWS services while preventing inbound connections from the internet. It acts as a gateway between the private subnet and the internet by translating the private IP addresses of instances in the private subnet to a public IP address. NAT Gateway is the correct answer to the question because it allows instances in the private subnet to download updates from the internet while also providing a layer of security by preventing direct inbound connections.
+D. VPN (Virtual Private Network) is a secure and encrypted connection that allows remote users to access an organization's internal network over the internet. VPN is not relevant to the question as it doesn't address the requirement of allowing instances in the private subnet to download updates from the internet.
+In conclusion, the correct answer is C. NAT Gateway, as it allows instances in the private subnet to download updates from the internet while providing a layer of security by preventing direct inbound connections.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question435:"link"
+
+

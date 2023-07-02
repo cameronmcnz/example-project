@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "832 - Given class Vehicle int vno String name "
+---
+
+
+[.question]
+== 832-64a1a845ef3e8462333a9c56.
+
+
+****
+
+[.query]
+--
+Given: class Vehicle{ int vno; String name; public Vehicle (int vno, String name){ this.vno = vno,; this.name = name; } public String toString (){ return vno + ":" + name; } } and this code fragment: Set<Vehicle>vehicles = new TreeSet <> (); vehicles.add(new Vehicle (10123, "Ford")); vehicles.add(new Vehicle (10124, "BMW")); System.out.println(vehicles); What is the result?
+
+
+--
+
+[.list]
+--
+* [ ] A. 10123 Ford 10124 BMW
+* [ ] B. 10124 BMW 10123 Ford
+* [ ] C. A compilation error occurs.
+* [*] D. A ClassCastException is thrown at run time.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

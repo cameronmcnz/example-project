@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "1285 - You have created an S3 bucket in the use"
+---
+
+
+[.question]
+== 1285-64a1fb0ef053625db51de02b.
+
+
+****
+
+[.query]
+--
+You have created an S3 bucket in the us-east-1 region with default configuration.
+Versioning is not enabled.
+You are located in Asia and deleted an object in the bucket using AWS CLI.
+What may happen when you try to list the objects in the bucket?
+
+
+--
+
+[.list]
+--
+* [*] A. The object is still there.
+* [*] B. The object is deleted completely.
+* [ ] C. The object may still be there or deleted, depending on whether the deletion is finished in AWS.
+* [ ] D. The object is attached with a deletion mark.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Amazon S3 provides strong read-after-write consistency for PUTs and DELETEs of objects in your Amazon S3 bucket in all AWS Regions.
+This applies to both writes to new objects as well as PUTs that overwrite existing objects and DELETEs.
+Option D is incorrect because the deletion marker is available with the versioning feature, which is disabled in the scenario.
+Reference:
+https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency/.
+When an object is deleted from an S3 bucket, it is not immediately removed from the bucket. Instead, it is marked for deletion and moved to the "Deleted Objects" folder within the bucket. This is true regardless of whether versioning is enabled or not.
+In this scenario, since versioning is not enabled, there is only one version of the object in the bucket. When the object is deleted using the AWS CLI, it will be marked for deletion and moved to the "Deleted Objects" folder within the bucket. However, the timing of when the deletion process completes may vary depending on various factors, such as the size of the object and the network latency between the client and the S3 bucket.
+Therefore, when you try to list the objects in the bucket, it is possible that the deleted object may still be visible, but with a deletion marker. The deletion marker indicates that the object has been marked for deletion but has not yet been permanently removed from the bucket. This is because S3 eventually removes the object in the background after a certain period of time, usually within a few hours, but it may take longer depending on the size of the object and the network conditions.
+Therefore, the correct answer is (D) The object is attached with a deletion mark.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question573:"link"
+
+

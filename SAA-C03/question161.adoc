@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "961 - A large retail firm saves its global sal"
+---
+
+
+[.question]
+== 961-64a1fa74f053625db51ddea7.
+
+
+****
+
+[.query]
+--
+A large retail firm saves its global sales reports in the S3 bucket & uses S3 Lifecycle rules to move this data from Standard_IA storage class to AWS S3 Glacier post 180 days.
+Due to the financial year-end, the Finance team is looking for a sales report for only the Europe region where a mismatch is reported in the sales figure.
+Which of the following is a recommended way to fetch this data with the least effort?
+
+
+--
+
+[.list]
+--
+* [*] A. Retrieve this data from Amazon Glacier to S3 bucket & use Amazon S3 select to query specific continent data using simple SQL.
+* [ ] B. Retrieve this data from Amazon Glacier to S3 bucket & use Amazon Athena to query specific continent data using SQL.
+* [*] C. Use Amazon S3 Glacier Select to query specific continent data which is restored to S3 bucket from AWS S3 Glacier.
+* [*] D. Use Amazon S3 Glacier Select to query specific continent data directly from Amazon S3 Glacier using simple SQL.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Amazon S3 Glacier Select can be used to query specific data from Amazon S3 Glacier instead of querying whole data.
+Amazon S3 Glacier Select can directly query data from Amazon S3 Glacier &amp; restoration of data to the S3 bucket is not required for querying this data.
+Option A is incorrect because for data stored in Amazon S3 Glacier, it's not necessary to restore data to the S3 bucket.
+Option B is incorrect because for data stored in Amazon S3 Glacier, it's not necessary to restore data to the S3 bucket.
+Also, Amazon Athena is an interactive query tool to analyze data with an S3 bucket.
+Option C is incorrect because with Amazon S3 Glacier Select, you do not need to restore data from Glacier to S3.
+For more information on using Amazon S3 Glacier Select, refer to the following URL:
+https://aws.amazon.com/glacier/features/#amazon-glacier-select
+The recommended way to fetch the required data with the least effort is Option B: Retrieve this data from Amazon Glacier to S3 bucket and use Amazon Athena to query specific continent data using SQL.
+Explanation:
+The S3 bucket used by the retail firm has a lifecycle rule that moves the data from the Standard_IA storage class to the Glacier storage class after 180 days. Glacier is an extremely low-cost storage option for long-term data retention, but accessing data from Glacier can take several hours or even days due to its retrieval process. Therefore, it is not recommended to query data directly from Glacier using simple SQL.
+Option A suggests retrieving the required data from Glacier to the S3 bucket and using Amazon S3 select to query specific continent data using simple SQL. However, this approach involves data retrieval from Glacier, which can take several hours or even days. Moreover, using Amazon S3 select to query data can be time-consuming and requires knowledge of SQL.
+Option C suggests using Amazon S3 Glacier Select to query specific continent data that is restored to the S3 bucket from AWS S3 Glacier. However, restoring data from Glacier can take several hours or even days, and using Glacier Select requires knowledge of its specific syntax.
+Option B suggests retrieving the required data from Glacier to the S3 bucket and using Amazon Athena to query specific continent data using SQL. Amazon Athena is an interactive query service that can easily and quickly analyze data directly from S3 using SQL. It can also query data in any format, including CSV, JSON, and Parquet. Since the required data is already stored in the S3 bucket, it can be queried directly using Amazon Athena, without having to wait for data retrieval or restoration from Glacier. Moreover, the use of SQL makes the querying process simpler and more intuitive.
+Therefore, Option B is the recommended way to fetch the required data with the least effort.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question182:"link"
+
+

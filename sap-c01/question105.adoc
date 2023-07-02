@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "905 - A team is developing a feature that need"
+---
+
+
+[.question]
+== 905-64a1df1baa736d27b1db933b.
+
+
+****
+
+[.query]
+--
+A team is developing a feature that needs to recognize Celebrities.
+By using the App, clients can upload photos and search celebrities among the photos by clicking a button.
+Or they can upload a bunch of photos and search the times that a given celebrity has appeared.
+The team wants to run the App in AWS at a lower cost.
+Which option is the most efficient one to implement while still ensuring availability and stability?
+
+
+--
+
+[.list]
+--
+* [*] A. Create the frontend and backend in a T2 medium EC2 instance to use its burstable capability. Call Rekognition API “RecognizeCelebrities” to fetch the information in a JSON format. Process the JSON result in the backend service and return the result to the frontend UI.
+* [ ] B. Develop the App in a serverless lambda to use Rekognition API “SearchFaces” to search a Celebrity. The input image can be base64-encoded bytes or an S3 object. After the API has been returned, present the result to clients.
+* [*] C. Use the AWS Rekognition service. Implement the App in a lambda to call Rekognition API “RecognizeCelebrities” to fetch the information required in a JSON format. Process the information in Lambda and return the result to end-users. Use S3 for clients to upload photos.
+* [ ] D. Implement the App in an M4 large EC2 instance with Autoscaling and Elastic Load Balancer. Build the application via a Cloudformation template. Use the App to call Rekognition API “SearchFaces” to get the information. Process the JSON result in the backend service and return the result to the frontend with a Cloudfront CDN.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+As the question asks for a lower cost while still ensuring availability and stability.
+Lambda should be considered first.
+Lambda can autoscale without manual operations.
+More importantly, it is very efficient to develop a web app without considering a lot about OS, patching, etc.
+Amazon Rekognition can recognize thousands of celebrities in a wide range of categories, such as entertainment and media, sports, business, and politics.
+With Amazon Rekognition, you can recognize celebrities in images and stored videos.
+You can also get additional information for recognized celebrities.
+Option A is incorrect: Because EC2 does not cost-efficient and brings in extra cost if the load is not stable.
+Lambda should be considered instead.
+Option B is incorrect: Because Rekognition API “RecognizeCelebrities” should be used in this case.
+For each celebrity recognized, “RecognizeCelebrities” returns a Celebrity object.
+The Celebrity object contains the celebrity name, ID, URL links to additional information, match confidence, and a ComparedFace object that you can use to locate the celebrity's face on the image.
+“SearchFaces” is incorrect as it is not used to search Celebrities.
+Option C is CORRECT: Because Lambda together with Rekognition can meet the need for low cost, availability, and stability.
+Refer to https://docs.aws.amazon.com/rekognition/latest/dg/celebrities.html for this feature.
+Option D is incorrect: Because firstly, it has used EC2
+Even if Autoscaling and ELB are used, it is not as efficient as Lambda.
+Secondly, API “SearchFaces” should not be used for the function of Celebrities Recognition.
+Sure, I'd be happy to explain the options in detail.
+Option A: This option suggests creating the frontend and backend of the application in a T2 medium EC2 instance. The Rekognition API "RecognizeCelebrities" will be used to fetch information in a JSON format. The JSON result will be processed in the backend service, and the result will be returned to the frontend UI. The T2 instance is a good choice since it has burstable capabilities that can help handle spikes in traffic. However, this option requires that you manage the EC2 instance and the application running on it, which can be time-consuming and complex. It also involves direct calls to the Rekognition API, which could lead to higher costs.
+Option B: This option suggests developing the application in a serverless Lambda function to use the Rekognition API "SearchFaces" to search for celebrities. The input image can be base64-encoded bytes or an S3 object. After the API has returned, the result will be presented to clients. This option is very cost-effective because Lambda is a serverless service and automatically scales based on the incoming requests. You only pay for the compute time used, making it much cheaper than maintaining an EC2 instance. Additionally, using the "SearchFaces" API is an efficient way to search for celebrities.
+Option C: This option suggests using the AWS Rekognition service and implementing the application in a Lambda function. The "RecognizeCelebrities" API will be used to fetch information required in a JSON format. The information will be processed in Lambda, and the result will be returned to end-users. S3 will be used for clients to upload photos. This option is similar to option B, but it uses the "RecognizeCelebrities" API instead of "SearchFaces." This option is also very cost-effective, but it might not be as efficient as option B, especially if there are many photos to analyze.
+Option D: This option suggests implementing the application in an M4 large EC2 instance with Autoscaling and Elastic Load Balancer. The application will be built via a CloudFormation template. The App will call the Rekognition API "SearchFaces" to get the required information. The JSON result will be processed in the backend service and returned to the frontend with a Cloudfront CDN. This option provides a highly available and scalable architecture, but it's the most expensive option since you have to manage the EC2 instance, autoscaling, and load balancing.
+Overall, Options B and C are the most cost-effective and efficient options since they utilize Lambda and the Rekognition API. They are also highly scalable and easy to maintain, making them the best options for this use case.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question135:"link"
+
+

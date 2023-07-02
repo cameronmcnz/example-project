@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1189 - Your team is developing a Lambda functio"
+---
+
+
+[.question]
+== 1189-64a1fadff053625db51ddfb8.
+
+
+****
+
+[.query]
+--
+Your team is developing a Lambda function.
+The function would need to interact with a database.
+The Lambda function and the database will be deployed in different environments respectively.
+Which of the following is the most secure approach for the Lambda function to get the database credentials for multiple environments?
+
+
+--
+
+[.list]
+--
+* [*] A. Hardcode the database credentials in GitHub for different environments of the Lambda function.
+* [ ] B. Create a lambda function for each environment and ensure each has a different programming language.
+* [*] C. Store the database credentials in AWS Secrets Manager.
+* [ ] D. Store the database credentials in a Lambda function tag.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Secrets Manager supports many types of secrets.
+However, Secrets Manager can natively rotate credentials for supported AWS databases without any additional programming.
+However, rotating the secrets for other databases or services requires creating a custom Lambda function to define how Secrets Manager interacts with the database or service.
+Option A is incorrect since this has a security issue since the database credentials are hardcoded in GitHub.
+Option B is incorrect since using different programming languages makes no sense.
+Option C is correct because AWS Secrets Manager can store the database credentials in a secure way for the Lambda function to get the credentials.
+AWS Secrets Manager helps users to protect and manage credentials.
+Option D is incorrect since, you can tag Lambda functions to organize them by owner, project, or department.
+Tag keys and tag values are supported across AWS services for use in filtering resources and adding detail to billing reports.
+It is not used to store such connection strings.
+Please refer to the below references:
+https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/
+The most secure approach for a Lambda function to get database credentials for multiple environments is to store the credentials in AWS Secrets Manager. This approach provides a centralized location for storing and managing secrets, such as database credentials, and allows for secure access to these secrets by other AWS services, such as Lambda functions.
+Option A, to hardcode the database credentials in GitHub for different environments of the Lambda function, is not a secure approach as the credentials would be publicly visible and could be easily compromised.
+Option B, to create a Lambda function for each environment and ensure each has a different programming language, is not an efficient approach as it would result in multiple functions to manage and deploy, which would increase complexity and maintenance overhead.
+Option D, to store the database credentials in a Lambda function tag, is not a recommended approach as function tags are meant to be used for metadata information, such as version number, and are not secure storage locations for sensitive information.
+In summary, the recommended and secure approach is to store the database credentials in AWS Secrets Manager and retrieve them securely from within the Lambda function.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question458:"link"
+
+

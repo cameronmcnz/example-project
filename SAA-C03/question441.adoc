@@ -1,0 +1,130 @@
+---
+layout: default 
+title: "1241 - You have a PHP application deployed in a"
+---
+
+
+[.question]
+== 1241-64a1faf9f053625db51ddff7.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_11.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have a PHP application deployed in an Auto Scaling group.
+In production, you want to use AWS WAF to block requests associated with exploiting vulnerabilities specific to the PHP use, including injection of unsafe PHP functions.
+Which method is appropriate?
+
+
+[source,java]
+----
+AWS WAF > Web ACLs > Create web ACL
+
+Step 1
+Describe web ACL and
+associate it to AWS
+resources
+
+Step 2
+Add rules and rule
+groups
+
+Step 3
+Set rule priority
+
+Step 4
+Configure metrics
+
+Step 5
+Review and create web
+ACL
+
+Add rules and rule groups ino
+
+Arule defines attack patterns to look for in web requests and the action to take when a request matches the patterns. Rule groups
+are reusable collections of rules. You can use managed rule groups offered by AWS and AWS Marketplace sellers. You can also write
+your own rules and use you own rule groups.
+
+Rules
+
+fa request matches a rule, take the corresponding action. The rules are prioritized in order they appear.
+
+0 Name Capacity Action
+
+“| AWS-AWSManagedRulesPHPRuleSet 100 Use rule actions
+
+Web ACL rule capacity units used
+The total capacity units used by the web ACL can't exceed 1500.
+
+10/1500 WCUs
+
+Default web ACL action for requests that don't match any rules
+
+Default action
+© Allow
+Block
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Add the AWS managed PHP application rule to AWS Shield.
+* [*] B. Add the AWS managed PHP application rule in the web ACL of AWS WA.
+* [*] C. Add a PHP protection rule from AWS Marketplace to the WAF web ACL.
+* [ ] D. In WAF, create a new PHP application web ACL.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect because AWS Shield is a service to protect web applications against DDoS attacks.
+AWS WAF should be used in this scenario.
+Option B is CORRECT because AWS provides the PHP protection rule in WAF.
+Users can add the rule in web ACL.
+Option C is incorrect because, in this scenario, you need to add the AWS managed PHP rule in web ACL.
+There is no need to use a rule offered by AWS Marketplace.
+Option D is incorrect because this is not how WAF works.
+In WAF, users create a web ACL and add rules in the ACL to take corresponding actions.
+Reference:
+https://docs.aws.amazon.com/waf/latest/developerguide/waf-managed-rule-groups.html.
+The appropriate method to use AWS WAF to block requests associated with exploiting vulnerabilities specific to the PHP use, including injection of unsafe PHP functions in a PHP application deployed in an Auto Scaling group in production, is to add the AWS managed PHP application rule in the web ACL of AWS WAF.
+AWS WAF (Web Application Firewall) is a managed service that helps protect web applications from common web exploits. It allows you to create rules that block or allow incoming traffic based on specific conditions. To use AWS WAF with your PHP application, you need to create a web ACL (Web Access Control List) and add rules to it.
+The AWS managed PHP application rule is a pre-configured rule that helps protect against common PHP attacks, such as command injection, SQL injection, and cross-site scripting (XSS) attacks. This rule is specifically designed for PHP applications and can be added to the web ACL of AWS WAF.
+Option A, adding the AWS managed PHP application rule to AWS Shield, is incorrect because AWS Shield is a managed DDoS (Distributed Denial of Service) protection service that protects your applications from DDoS attacks. It does not offer protection against common web exploits like those specific to PHP.
+Option C, adding a PHP protection rule from AWS Marketplace to the WAF web ACL, is incorrect because it is not specific to PHP applications and may not offer the same level of protection as the AWS managed PHP application rule.
+Option D, creating a new PHP application web ACL in WAF, is also incorrect because it would require creating a new web ACL from scratch and manually adding all the rules necessary to protect against common PHP attacks. This would be time-consuming and may not provide the same level of protection as the pre-configured AWS managed PHP application rule.
+Therefore, option B, adding the AWS managed PHP application rule in the web ACL of AWS WAF, is the appropriate method to use AWS WAF to block requests associated with exploiting vulnerabilities specific to the PHP use, including injection of unsafe PHP functions in a PHP application deployed in an Auto Scaling group in production.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question521:"link"
+
+

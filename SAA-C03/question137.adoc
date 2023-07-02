@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "937 - A global company has an Amazon Aurora da"
+---
+
+
+[.question]
+== 937-64a1fa6bf053625db51dde8c.
+
+
+****
+
+[.query]
+--
+A global company has an Amazon Aurora database to store a large amount of customer data.
+The database is deployed in an AWS account owned by the development team, and the AWS account is within the AWS Organization A.
+Now the database needs to be shared with AWS accounts in another AWS Organization B.
+Which of the following can be done to achieve the requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. In the Management AWS account of Organization A, share the database to the AWS Organization B in Resource Access Manager.
+* [ ] B. In AWS Aurora Console, select the database and share it to all the AWS accounts of AWS Organization
+* [*] C. In AWS Organization console, select the database resource and share it to the AWS Organization
+* [*] D. In the Management AWS account of Organization A, share the database to the AWS accounts of AWS Organization B in Resource Access Manager.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect because you cannot share the resource with another AWS Organization rather than sharing with all the AWS accounts in RAM.
+Option B is incorrect because you cannot directly share the Aurora database with another AWS Organization in the AWS Aurora console.
+Option C is incorrect because you cannot enable the sharing through the AWS Organization console.
+Option D is CORRECT because you can share the resource with AWS accounts of another Organization in RAM.
+For more information on using AWS Resource Access Manager, refer to the AWS documentation: https://aws.amazon.com/blogs/aws/new-aws-resource-access-manager-cross-account-resource-sharing/
+https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs
+To share the Amazon Aurora database with AWS accounts in another AWS Organization, you need to use AWS Resource Access Manager (RAM). RAM allows resource sharing across accounts and enables resource access without resource duplication.
+In this case, there are two AWS Organizations, A and B. The database is deployed in an AWS account owned by the development team, which is part of AWS Organization A. The goal is to share the database with AWS accounts in AWS Organization B.
+Option A: In the Management AWS account of Organization A, share the database to the AWS Organization B in Resource Access Manager.
+This is the correct option. To share the database, you need to go to the AWS RAM console and create a resource share for the database. In the resource share, you can specify which accounts in AWS Organization B can access the database. Once the resource share is created, the specified AWS accounts in AWS Organization B can access the database without needing to create a copy of the database.
+Option B: In AWS Aurora Console, select the database and share it to all the AWS accounts of AWS Organization.
+This option is incorrect. While you can share resources from the AWS Aurora console, this option does not allow you to share resources with accounts in another AWS Organization. This option also does not allow you to specify which AWS accounts can access the database.
+Option C: In AWS Organization console, select the database resource and share it to the AWS Organization.
+This option is also incorrect. While you can share resources from the AWS Organization console, this option does not allow you to share resources with accounts in another AWS Organization. This option also does not allow you to specify which AWS accounts can access the database.
+Option D: In the Management AWS account of Organization A, share the database to the AWS accounts of AWS Organization B in Resource Access Manager.
+This option is incorrect because it does not specify which AWS accounts in AWS Organization B can access the database. Without specifying the accounts, anyone in AWS Organization B could potentially access the database, which may not be desirable.
+Therefore, the correct option to achieve the requirement is to create a resource share for the Amazon Aurora database in the Management AWS account of Organization A and share it with the specified AWS accounts of AWS Organization B in AWS Resource Access Manager.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question155:"link"
+
+

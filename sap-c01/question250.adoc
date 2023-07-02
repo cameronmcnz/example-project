@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1050 - Your company has configured an AWS organ"
+---
+
+
+[.question]
+== 1050-64a1df51aa736d27b1db9419.
+
+
+****
+
+[.query]
+--
+Your company has configured an AWS organization with a master account and several organization units (OU) for its various R&D departments.
+There is an S3 bucket owned by AWS account A that needs to be accessed by one IAM user that belongs to another AWS account B.
+Account B is outside the organization.
+The S3 bucket policy already granted access to this account B user.
+In account B, the user has the IAM permissions to read the bucket.
+However, AWS account A has a Service Control Policy (SCP) attached to allow the bucket access only from account A users.
+Is the IAM user in account B able to read the files in the bucket successfully?
+
+
+--
+
+[.list]
+--
+* [*] A. No, because the SCP policy takes priority and disallows the bucket access from the user in account
+* [ ] B. No, because S3 cross-accounts access can only be allowed for AWS IAM users within an AWS Organization.
+* [*] C. No, the AWS organization should add a new OU for account B and then configure an SCP in the new OU to allow access to the S3 bucket.
+* [*] D. Yes. Since SCP doesn`t apply to those outside users, the user in account B has the permission to access the files in the bucket.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+When the Service Control Policy (SCP) is configured, only those IAM users that are within the organization are affected.
+In other words, SCP does not affect users or roles if they are outside the organization.
+For various SCP effects on permissions, refer to https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html.
+Option A is incorrect: Because SCP does not affect the user in account B since it does not belong to the Organization.
+Option B is incorrect: Because S3 cross-accounts access is possible as long as enough IAM permissions are granted.
+Option C is incorrect: Because there is no need to allocate a new OU for account.
+B.Option D is CORRECT: Because the user in account B can read the files in the bucket as SCP policy does not influence it.
+About the details on how to copy S3 objects from another AWS account, check the AWS tutorial in.
+https://aws.amazon.com/premiumsupport/knowledge-center/copy-s3-objects-account/.
+The correct answer is A. No, because the SCP policy takes priority and disallows the bucket access from the user in account B.
+Explanation:
+An AWS organization is a collection of AWS accounts that are linked together. It allows for centralized management of multiple AWS accounts. AWS Organizations can help to simplify billing, security, and compliance. AWS Organizations provides a hierarchical structure for the accounts, with a master account at the top and organizational units (OUs) beneath it.
+In this scenario, there is an S3 bucket owned by AWS account A that needs to be accessed by an IAM user that belongs to another AWS account B. The S3 bucket policy already granted access to this account B user. In account B, the user has the IAM permissions to read the bucket. However, AWS account A has a Service Control Policy (SCP) attached to allow the bucket access only from account A users.
+An SCP is a type of policy that you can use to manage permissions in an AWS organization. It is a policy that is attached to an organizational unit (OU) or the root of the organization. SCPs allow you to define which AWS services and actions are available to accounts in an organization. SCPs do not grant permissions, but rather limit permissions.
+In this scenario, the SCP attached to the AWS account A takes priority over the S3 bucket policy. This means that even though the S3 bucket policy granted access to the IAM user in account B, the SCP attached to AWS account A disallows the bucket access from the user in account B.
+Therefore, the correct answer is A. No, because the SCP policy takes priority and disallows the bucket access from the user in account B.
+Option B is incorrect because S3 cross-account access can be allowed for IAM users outside an AWS organization.
+Option C is incorrect because adding a new OU for account B and then configuring an SCP in the new OU is not required in this scenario.
+Option D is incorrect because even though the SCP doesn't apply to users outside the AWS organization, the S3 bucket policy is overruled by the SCP policy in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question360:"link"
+
+

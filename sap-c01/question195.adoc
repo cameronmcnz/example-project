@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "995 - You are an AWS administrator for a large"
+---
+
+
+[.question]
+== 995-64a1df3faa736d27b1db93d0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_3.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are an AWS administrator for a large organization, and you maintain several AWS accounts.
+Your manager recently asked you to generate the Cost & Usage Reports from the billing dashboard regularly so that he can have a review of the usage and cost status.
+Through the AWS Billing & Cost Management console, you have configured the report successfully.
+How should you present the reports to your manager?
+
+
+[source,java]
+----
+Private IP: 10.0.0.6
+
+‘Subnet A
+10.0.0.024
+
+VPC A- service consumer
+10.0.0.016
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the billing report to use SNS to send the report to your manager with an email notification every day.
+* [ ] B. Create an IAM admin user for your manager so that he can log in to the AWS billing console to view the Cost & Usage Reports.
+* [*] C. Configure an S3 bucket where AWS delivers the billing report files. Allocate a read access for your manager to this bucket.
+* [ ] D. Create a new S3 bucket for AWS to send the billing report files to. Make sure the bucket is publicly accessible by modifying the bucket policy so that your manager can see the report properly.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+When the Billing Report is set up, an S3 bucket is essential to store the reports.
+Then AWS delivers the report files to that bucket and updates the report up to three times a day.
+Option A is incorrect because SNS cannot be used for the billing report notification.
+Option B is incorrect because you should give the least privilege to users.
+Creating an admin IAM user is improper.
+Option C is correct because appropriate permissions should be configured for the users who need access to the S3 bucket.
+Option D is incorrect because the bucket should NOT be publicly accessible.
+And the S3 bucket policy should only allow limited users to view the report.
+As an AWS administrator for a large organization, you are responsible for generating Cost & Usage Reports from the billing dashboard regularly for your manager. You have successfully configured the reports using the AWS Billing & Cost Management console, and now you need to present the reports to your manager.
+There are four options given in the question, and we need to choose the best one based on the requirements and security considerations. Let's analyze each option:
+Option A: Configure the billing report to use SNS to send the report to your manager with an email notification every day.
+This option involves using Simple Notification Service (SNS) to send the Cost & Usage Reports to your manager's email every day. While this option is straightforward, it has some drawbacks. Firstly, it can be a security risk since the reports are being sent outside the AWS environment. Secondly, it can be difficult to manage and keep track of the emails sent, especially when the number of accounts or reports increases.
+Option B: Create an IAM admin user for your manager so that he can log in to the AWS billing console to view the Cost & Usage Reports.
+This option involves creating an IAM admin user for your manager, which would allow them to log in to the AWS Billing & Cost Management console and view the reports. While this option is secure, it might not be the best solution since it gives the manager full access to the AWS console, which can be a security risk. Moreover, it can be time-consuming to manage the IAM user's permissions and roles.
+Option C: Configure an S3 bucket where AWS delivers the billing report files. Allocate a read access for your manager to this bucket.
+This option involves configuring an S3 bucket where AWS delivers the Cost & Usage Reports, and then granting read access to your manager. This option is secure since the reports are stored within the AWS environment, and the manager has only read access to the reports. Additionally, it allows you to manage the reports easily since they are stored in a centralized location.
+Option D: Create a new S3 bucket for AWS to send the billing report files to. Make sure the bucket is publicly accessible by modifying the bucket policy so that your manager can see the report properly.
+This option involves creating a new S3 bucket that is publicly accessible by modifying the bucket policy so that your manager can view the reports. This option is not secure since the reports are publicly accessible, and anyone with the URL can view them. It violates the AWS security best practices since it involves making resources publicly accessible.
+Based on the analysis, Option C is the best solution. It is secure, easy to manage, and provides centralized storage for the reports. Therefore, you should configure an S3 bucket where AWS delivers the Cost & Usage Reports, and then grant read access to your manager.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question287:"link"
+
+

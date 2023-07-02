@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "807 - Given class Bird public void fly Systemo"
+---
+
+
+[.question]
+== 807-64a1a83aef3e8462333a9c3d.
+
+
+****
+
+[.query]
+--
+Given: class Bird{ public void fly (){System.out.print("Can fly"); } } class Penguin extends Bird{ public void fly (){System.out.print("Cannot fly"); } } and the code fragment: class Birdie { public static void main (String [ ] args){ fly( ( ) -> new Bird ( )); fly (Penguin : : new); } /* line n1 */ } Which code fragment, when inserted at line n1, enables the Birdie class to compile?
+
+
+--
+
+[.list]
+--
+* [ ] A. static void fly (Consumer bird) { bird :: fly (); }
+* [ ] B. static void fly (Consumer bird) { bird.accept( ) fly (); }
+* [*] C. static void fly (Supplier bird) { bird.get( ) fly (); }
+* [ ] D. static void fly (Supplier bird) { bird::fly(); }
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

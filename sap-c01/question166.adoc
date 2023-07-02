@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "966 - You have a video transcoding application"
+---
+
+
+[.question]
+== 966-64a1df32aa736d27b1db9398.
+
+
+****
+
+[.query]
+--
+You have a video transcoding application running on Amazon EC2
+Each instance polls a queue to find out which video should be transcoded and then runs a transcoding process.
+If this process is interrupted, the videos will be transcoded by another instance based on the queuing system.
+You have a large backlog of videos that need to be transcoded and reduce this backlog by adding more instances.
+You will need these instances only until the backlog is reduced.
+Which type of Amazon EC2 instances should you use to reduce the backlog in the most cost-efficient way?
+
+
+--
+
+[.list]
+--
+* [*] A. Reserved instances
+* [*] B. Spot instances
+* [ ] C. Dedicated instances
+* [ ] D. On-demand instances.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Since this is like a batch processing job, the best type of instance to use is a Spot instance.
+Since these jobs don't last for the entire duration of the year, they can bid upon and be allocated and deallocated as requested.
+Options A and C are incorrect because the application needs the instances only until the backlog is reduced.
+With reserved/dedicated instances, there is a possibility that the instances might get idle after the backlog reduction.
+So, this is a costly solution.
+Option B is CORRECT because (i) they are less expensive than reserved instances, (ii) interruption in the transcoding process is affordable since another instance will transcode the videos based on the queuing system.
+Option D is incorrect because (i) on-demand instances are most expensive, (ii) you can afford an interruption in the transcoding process, and (iii) on-demand instances would have been suited if there was no alternate way of transcoding the videos and interruption was not affordable.
+For more information on Spot Instances, please visit the URL -
+https://aws.amazon.com/ec2/spot/
+The most cost-efficient way to reduce the backlog of video transcoding using Amazon EC2 instances is by using spot instances.
+Spot instances are unused EC2 instances that are available for less than the On-Demand price. AWS allows users to bid for these instances at a price they are willing to pay. The spot price varies based on the supply and demand of available instances in a given Availability Zone. When the spot price goes above the user's bid, the instance is terminated.
+Using spot instances for this workload is advantageous because the workload is interruptible, and there is no loss of data if the instance is terminated. Since the video transcoding process can be picked up by another instance, using spot instances allows for cost savings by bidding on the spot instances at a lower price than On-Demand instances.
+Reserved instances, on the other hand, are best suited for long-term workloads where there is a predictable and consistent usage pattern. Since the workload in this case is expected to be short-term and unpredictable, using Reserved instances may not be cost-efficient.
+Dedicated instances, which provide dedicated hardware for an instance, are best suited for compliance or regulatory requirements. Since the workload in this case is not a compliance or regulatory requirement, using Dedicated instances may not be necessary.
+Finally, On-Demand instances are ideal for workloads that require short-term, unpredictable usage patterns, but they are more expensive than Spot instances. Therefore, using On-Demand instances may not be cost-efficient in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question230:"link"
+
+

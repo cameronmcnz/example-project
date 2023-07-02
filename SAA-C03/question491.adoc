@@ -1,0 +1,108 @@
+---
+layout: default 
+title: "1291 - Your organization needs to meet audit co"
+---
+
+
+[.question]
+== 1291-64a1fb12f053625db51de036.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_6wisy6.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization needs to meet audit compliance and hence need to log all the requests sent to 10 buckets that contain confidential information.
+These will also be periodically used to determine if any requests are being made from outside the organization's IP address range.
+Your AWS application team had enabled S3 server access logging through AWS Console for all the buckets into a common logging bucket named s3-server-logging.
+But after few hours they noticed no logs were being written into the logging bucket.
+What could be the reason?
+
+
+[source,java]
+----
+When you enable logging on a bucket, the console both enables logging on the source bucket and adds a grant in the
+target bucket's access control list (ACL) granting write permission to the Log Delivery group.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Bucket user-defined deny policy is not allowing Log Delivery group to write into S3 logging bucket.
+* [ ] B. Bucket public access is not enabled.
+* [ ] C. Write access is disabled for Log Delivery group.
+* [ ] D. Bucket name for server access logging should be “s3-server-access-logging” in order to write the request logs.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Server access logging provides detailed records for the requests that are made to a bucket.
+Server access logs are useful for many applications.
+For example, access log information can be useful in security and access audits.
+For details on logging for S3, refer to documentation here.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html#server-access-logging-overview
+For option A, S3 buckets would often be restricted using bucket policy with Effect as Deny except for whitelisted IAM resources that would require access.
+For detailed information on how to restrict the bucket, refer to documentation here.
+https://aws.amazon.com/blogs/security/how-to-restrict-amazon-s3-bucket-access-to-a-specific-iam-role/
+To provide access to the log delivery group, you need to add the following statement to your bucket policy explicitly.
+{
+"Version": "2012-10-17",
+"Statement": [
+{ Delivery service",
+"Sid": "Permit access log delivery by AWS ID for Log
+"Effect": "Allow",
+"Principal": {
+"AWS": "arn:aws:iam::858827067514:root"
+},
+"Action": "s3:PutObject",
+"Resource": "arn:aws:s3:::examplebucket/logs/*"
+}
+]
+}
+Also, make sure the arn “arn:aws:iam::858827067514:root” is whitelisted in the Deny statement of your bucket policy.
+For option B, public access is not required to be enabled for writing logs into the S3 bucket.
+The only access required is PutObject for the Log Delivery group.
+For option C, although the log delivery group permission is disabled by default, permission will be granted when the bucket is selected as the target for logging.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/enable-logging-console.html
+Option D is a false statement.
+The reason why no logs were written to the logging bucket despite enabling S3 server access logging could be due to option A, where the Bucket user-defined deny policy is not allowing the Log Delivery group to write into the S3 logging bucket.
+The S3 server access logging feature logs all the requests sent to an S3 bucket in a target bucket. In this case, the target bucket is named "s3-server-logging," and the AWS application team had enabled this feature for all the ten buckets that contain confidential information.
+To use this feature, the target bucket must allow write access to the Log Delivery group, which is a predefined Amazon S3 group that AWS uses to deliver server access logs. The Log Delivery group is the only entity that AWS grants permission to write to the logging bucket.
+If the bucket user-defined deny policy is not allowing the Log Delivery group to write into the S3 logging bucket, the logs will not be written to the bucket. The bucket user-defined deny policy could be set up explicitly to deny access to the Log Delivery group.
+Option B, Bucket public access is not enabled, and option C, Write access is disabled for Log Delivery group, are less likely to be the cause of the issue as these are not the default configurations for S3 server access logging.
+Option D, Bucket name for server access logging should be “s3-server-access-logging” in order to write the request logs, is incorrect because the bucket name is not a limiting factor in writing logs to the logging bucket.
+In summary, if the logs are not being written to the logging bucket despite enabling S3 server access logging, the most probable reason is that the bucket user-defined deny policy is not allowing the Log Delivery group to write into the S3 logging bucket.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question584:"link"
+
+

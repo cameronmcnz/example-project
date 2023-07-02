@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "928 - Given the code fragment
+Which two code f"
+---
+
+
+[.question]
+== 928-64a1a865ef3e8462333a9cb6.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0012000004.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which two code fragments, when inserted at line n1 independently, result in the output PEEK: Unix?
+
+
+[source,java]
+----
+public static void main(string[] args) {
+Stream.of("Java", "Unix", "Linux")
+-filter(s -> s.contains("n"))
+-peek(s -> System.out.println("PEEK: " + s))
+// line nl
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. .anyMatch ();
+* [ ] B. .allMatch ();
+* [*] C. .findAny ();
+* [ ] D. .noneMatch ();
+* [*] E. .findFirst ();
+
+--
+****
+
+[.answer]
+CE
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

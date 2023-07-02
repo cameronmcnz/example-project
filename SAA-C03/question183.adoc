@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "983 - You are working in a financial company
+T"
+---
+
+
+[.question]
+== 983-64a1fa7bf053625db51ddec0.
+
+
+****
+
+[.query]
+--
+You are working in a financial company.
+The company needs to create a serverless application in AWS, including the serverless resources such as Lambda functions and API gateways.
+You prefer using a framework to build the application on AWS as quickly as possible.
+Which of the following frameworks is built for serverless applications?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS CloudFormation
+* [*] B. AWS Serverless Application Model (AWS SAM)
+* [*] C. AWS Elastic Beanstalk
+* [ ] D. Terraform.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The AWS Serverless Application Model (AWS SAM) is an open-source framework that you can use to build serverless applications in AWS.
+It provides you with a simple and clean syntax to describe the functions, APIs, permissions, configurations, and events that make up a serverless application.
+Reference can be found in https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html.
+Option A is incorrect because AWS CloudFormation is a tool to manage all the AWS resources using a template.
+However, it is not a tool dedicated for serverless applications.
+Option C is incorrect because Elastic Beanstalk can help users to quickly launch a web application in AWS.
+It is not a tool for serverless applications.
+Option D is incorrect because Terraform is an open-source infrastructure as code software tool to configure the infrastructure.
+It is not a dedicated tool for serverless applications.
+The correct answer is B. AWS Serverless Application Model (AWS SAM).
+Explanation:
+When building serverless applications on AWS, you can use different frameworks to facilitate the process of creating and deploying serverless resources such as Lambda functions, API gateways, and more.
+Among the options provided, AWS Serverless Application Model (AWS SAM) is the framework specifically designed for building serverless applications on AWS. It is an open-source framework that extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by your serverless application.
+AWS SAM uses AWS CloudFormation templates, which are YAML or JSON files that describe the infrastructure resources required for your application. You can define the AWS Lambda functions, API Gateway APIs, and other resources required by your application using a simple syntax in the AWS SAM template. AWS SAM also includes additional resources and convenience methods that make it easier to work with serverless applications.
+AWS CloudFormation is also an option for building serverless applications on AWS. However, AWS CloudFormation is a general-purpose infrastructure as code (IaC) tool that can be used to define and deploy any AWS resource, not just serverless resources. While it provides more flexibility, it can be more complex to use.
+AWS Elastic Beanstalk is a platform as a service (PaaS) offering from AWS that can deploy and manage applications of different types, including serverless applications. However, Elastic Beanstalk is not specifically designed for serverless applications, and it requires more configuration and management overhead than AWS SAM.
+Terraform is another infrastructure as code (IaC) tool that can be used to define and manage resources on various cloud providers, including AWS. However, like AWS CloudFormation, it is a general-purpose tool and does not provide the same level of abstraction and convenience as AWS SAM when building serverless applications on AWS.
+Therefore, among the options provided, AWS SAM is the most suitable framework for building serverless applications on AWS, as it is specifically designed for this purpose and provides a simplified way of defining and deploying serverless resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question208:"link"
+
+

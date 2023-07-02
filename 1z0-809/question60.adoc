@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "860 - Given the code fragment ListString nL  A"
+---
+
+
+[.question]
+== 860-64a1a850ef3e8462333a9c72.
+
+
+****
+
+[.query]
+--
+Given the code fragment: List<String> nL = Arrays.asList("Jim", "John", "Jeff"); Function<String, String> funVal = s -> "Hello : ".contact(s); nL.Stream() .map(funVal) .peek(System.out::print); What is the result?
+
+
+--
+
+[.list]
+--
+* [ ] A. Hello : Jim Hello : John Hello : Jeff
+* [ ] B. Jim John Jeff
+* [*] C. The program prints nothing.
+* [ ] D. A compilation error occurs.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

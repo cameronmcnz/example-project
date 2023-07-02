@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "1342 - Which of the following is not a feature "
+---
+
+
+[.question]
+== 1342-64a1fb33f053625db51de085.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_w2etnv.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following is not a feature of AWS Security Token Service?
+
+
+[source,java]
+----
+The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management
+(IAM) users or for users that you authenticate (federated users). This guide provides descriptions of the STS API. For more detailed information about using this
+service, go to Temporary Security Credentials.
+
+Note
+
+As an alternative to using the API, you can use one of the AWS SDKs, which consist of libraries and sample code for various programming languages and
+platforms (java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to STS. For example, the SDKs take care
+of cryptographically signing requests, managing errors, and retrying requests automatically. For information about the AWS SDks, including how to
+download and install them, see the Tools for Amazon Web Services page.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. STS enables you to request temporary, limited-privilege credentials.
+* [ ] B. STS enables users to assume role.
+* [*] C. STS generates Git Credentials for IAM users.
+* [ ] D. By default, AWS STS is available as a global service.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Options A, B, D are incorrect.
+Option A is a true statement.
+Option B is a true statement.
+STS “AssumeRole” action will enable users to assume a role.https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html.
+Option C is a false statement, so correct option.
+With Git credentials, you can generate a static user name and password in the Identity and Access Management (IAM) console that you can use to access AWS CodeCommit repositories from the command line, Git CLI, or any Git tool that supports HTTPS authentication.
+https://aws.amazon.com/blogs/devops/introducing-git-credentials-a-simple-way-to-connect-to-aws-codecommit-repositories-using-a-static-user-name-and-password/
+Option D is a true statement because by default, AWS Security Token Service (AWS STS) is available as a global service, and all AWS STS requests go to a single endpoint at
+https://sts.amazonaws.com
+Global requests map to the US East (N.
+Virginia) Region.
+AWS recommends using Regional AWS STS endpoints instead of the global endpoint to reduce latency, build in redundancy, and increase session token validity.
+https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html
+AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users you authenticate (federated users). These credentials enable you to carry out authorized AWS operations for a limited period. This helps in securing your AWS resources by minimizing the scope of access and authorization.
+Option A is correct. STS enables you to request temporary, limited-privilege credentials. This is a key feature of STS that allows you to provide temporary access to users or services that require access to AWS resources. These credentials can be used to access AWS resources for a specified period of time, after which they expire automatically.
+Option B is correct. STS enables users to assume roles. This allows you to delegate access to AWS resources to IAM users, applications, or services that don't normally have access to those resources. When a user assumes a role, they are granted temporary security credentials that provide the permissions associated with the role.
+Option C is incorrect. STS does not generate Git Credentials for IAM users. Git Credentials are used to authenticate with Git repositories, and are not related to AWS IAM or STS.
+Option D is correct. By default, AWS STS is available as a global service. This means that you can use STS to generate temporary credentials for AWS resources in any region where the service is available.
+In summary, Option C is not a feature of AWS Security Token Service.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question664:"link"
+
+

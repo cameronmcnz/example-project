@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "969 - Serverside encryption is about data encr"
+---
+
+
+[.question]
+== 969-64a1df33aa736d27b1db939c.
+
+
+****
+
+[.query]
+--
+Server-side encryption is about data encryption at rest.
+That is, Amazon S3 encrypts your data at the object level as it writes it to disk in its data centers and decrypts it for you when you go to access it.
+A few different options are depending on how you choose to manage the encryption keys.
+One of the options is called 'Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)'
+Which of the following best describes how this encryption method works?
+
+
+--
+
+[.list]
+--
+* [*] A. There are separate permissions for the use of an envelope key (a key that protects your data`s encryption key) that provides added protection against unauthorized access of your objects in S3 and also provides you with an audit trail of when your key was used and by whom.
+* [*] B. Each object is encrypted with a unique key employing strong encryption. As an additional safeguard, it encrypts the key itself with a master key that it regularly rotates.
+* [ ] C. You manage the encryption keys and Amazon S3 manages the encryption, as it writes to disk, and decryption when you access your objects.
+* [ ] D. A randomly generated data encryption key is returned from Amazon S3, which is used by the client to encrypt the object data.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Server-side encryption with Amazon S3-managed encryption keys (SSE-S3) employs strong multi-factor encryption.
+Amazon S3 encrypts each object with a unique key.
+As an additional safeguard, it encrypts the key itself with a master key that it regularly rotates.
+Amazon S3 server-side encryption uses one of the strongest block ciphers available, 256-bit Advanced Encryption Standard (AES-256), to encrypt your data.
+Option A is incorrect because there are no separate permissions to the key that protects the data key.
+Option B is CORRECT because as mentioned above, each object is encrypted with a strong unique key and that key itself is encrypted by a master key.
+Option C is incorrect because the keys are managed by the AWS.
+Option D is incorrect because there is no randomly generated key and the client does not do the encryption.
+For more information on S3 encryption, please visit the links-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html
+The correct answer is C: "You manage the encryption keys and Amazon S3 manages the encryption, as it writes to disk, and decryption when you access your objects."
+Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3) is a server-side encryption method in which Amazon S3 manages the encryption process for objects stored in S3, but the encryption keys are managed by the user. This method uses Advanced Encryption Standard (AES) 256-bit encryption to encrypt data at rest.
+When you upload an object to Amazon S3 with SSE-S3 enabled, Amazon S3 encrypts the object using a unique encryption key, which is also referred to as a data encryption key (DEK). The DEK is generated using the AES-256 encryption algorithm, and it is used to encrypt the object data. The DEK is then encrypted with a master key, which is managed by Amazon S3, and stored alongside the encrypted object. This ensures that the DEK is not accessible by unauthorized parties.
+When you want to access an object that has been encrypted with SSE-S3, Amazon S3 retrieves the encrypted object and the encrypted DEK. It then decrypts the DEK using the master key and uses the DEK to decrypt the object data. The decrypted object is then made available to the user.
+It's worth noting that SSE-S3 does not provide any additional protection against unauthorized access to your objects beyond what is already provided by AWS Identity and Access Management (IAM) permissions. SSE-S3 is primarily intended to protect your data at rest, in case your storage media is lost or stolen.
+In summary, SSE-S3 provides a simple way to enable server-side encryption for objects stored in Amazon S3. With SSE-S3, you manage the encryption keys while Amazon S3 manages the encryption and decryption of your objects. This ensures that your data is encrypted and protected at rest.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question234:"link"
+
+

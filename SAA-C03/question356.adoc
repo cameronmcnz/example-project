@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1156 - You work as an architect for a company
+T"
+---
+
+
+[.question]
+== 1156-64a1facef053625db51ddf90.
+
+
+****
+
+[.query]
+--
+You work as an architect for a company.
+There is a requirement for an application to be deployed on a set of EC2 Instances.
+These would be part of a compute cluster that requires low inter-node latency.
+Which of the following would you use for this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Multiple Availability Zones
+* [ ] B. AWS Direct Connect
+* [ ] C. EC2 Dedicated Instances
+* [*] D. Cluster placement Groups
+* [ ] E. VPC private subnets.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - D.
+The AWS Documentation mentions the following.
+Amazon Web Services' solution to reduce latency between instances involves the use of placement groups.
+As the name implies, a placement group is just that -- a group.
+AWS instances that exist within a common availability zone can be grouped into a placement group.
+Group members can communicate with one another in a way that provides low latency and high throughput.
+Cluster Placement groups are recommended for applications that benefit from low network latency, high network throughput, or both.
+The majority of the network traffic is between the instances in the group.
+To provide the lowest latency and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking.
+Because of what is mentioned in the documentation, all other options are incorrect.
+For more information on AWS placement groups, please visit the URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+To achieve low inter-node latency for an application deployed on a set of EC2 instances, the best option would be to use Cluster Placement Groups.
+Cluster Placement Groups are logical groupings of EC2 instances within a single Availability Zone (AZ) that are designed to provide low network latency and high network throughput. When instances are launched within a cluster placement group, they are placed within a single rack or group of racks that are in close physical proximity to each other.
+This provides a low-latency, high-bandwidth network connection between the instances, making them ideal for high-performance computing and data-intensive workloads. It is important to note that Cluster Placement Groups are limited to a single Availability Zone, and cannot span multiple Availability Zones.
+Multiple Availability Zones (option A) are used to provide high availability and fault tolerance by distributing instances across multiple AZs. While this can improve the overall availability of an application, it does not necessarily address the requirement for low inter-node latency.
+AWS Direct Connect (option B) is a dedicated network connection between an on-premises data center and AWS. While this can provide a reliable and secure connection, it does not necessarily improve inter-node latency within an EC2 cluster.
+EC2 Dedicated Instances (option C) provide dedicated hardware for instances, which can improve security and compliance for certain workloads. However, it does not address the requirement for low inter-node latency within an EC2 cluster.
+VPC private subnets (option E) are used to provide isolation and security for instances within a VPC. While this is an important security feature, it does not necessarily address the requirement for low inter-node latency within an EC2 cluster.
+Therefore, the correct answer is D, Cluster Placement Groups.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question418:"link"
+
+

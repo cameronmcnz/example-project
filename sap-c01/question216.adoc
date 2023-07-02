@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1016 - A document storage company deploys its a"
+---
+
+
+[.question]
+== 1016-64a1df45aa736d27b1db93eb.
+
+
+****
+
+[.query]
+--
+A document storage company deploys its application to AWS and changes its business model to support both Free Tier and Premium Tier users.
+The premium Tier users will be allowed to store up to 300GB of data and Free Tier customers will be allowed to store only 100GB.
+The customer expects that billions of files will be stored.
+All users need to be alerted when approaching 75 percent quota utilization and again at 90 percent quota use.
+
+
+--
+
+[.list]
+--
+* [*] A. Use an S3 Event notification published to Lambda and the lambda task ( lambda functions ) would be used by the Simple Workflow Service. The SWF`s activity worker updates the user`s used data counter in DynamoD.
+* [ ] B. The activity worker would then use Simple Email Service to send an email if the counter increases above the appropriate thresholds.
+* [ ] C. The company should deploy an Amazon Relational Database Service (RDS) relational database with a stored objects table that has a row for each stored object along with the size of each object. The upload server will query the aggregate consumption of the user in question (by first determining the files stored by the user, and then querying the stored objects table for respective file sizes) and send an email via Amazon Simple Email Service if the thresholds are breached.
+* [ ] D. The company should write both the content length and the username of the file`s owner as S3 metadata for the object. They should then create a file watcher to iterate over each object and aggregate the size for each user and send a notification via Amazon Simple Queue Service to an emailing service if the storage threshold is exceeded.
+* [ ] E. The company should create two separate Amazon Simple Storage Service buckets, one for data storage for Free Tier Users, and another for data storage for Premium Tier users. An Amazon Simple Workflow Service activity worker will query all objects for a given user based on the bucket that the data is stored in and aggregate storage. The activity worker will notify the user via Amazon Simple Notification Service when necessary.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - A.
+Option A is CORRECT because DynamoDB which is a highly scalable service is the most suitable in this scenario.
+Option B is incorrect because RDS would not be a suitable solution for storing billions of files since this exceeds the manageability thresholds of RDS.
+Options C and D are both incorrect because it uses object-level storage and iterating over billions of objects for each operation is performance-wise not a good option at all.
+The best option for this scenario is D. The company should write both the content length and the username of the file's owner as S3 metadata for the object. They should then create a file watcher to iterate over each object and aggregate the size for each user and send a notification via Amazon Simple Queue Service to an emailing service if the storage threshold is exceeded.
+Option A is not the best choice because it introduces additional complexity with Simple Workflow Service (SWF) which is not necessary for this scenario. It also involves updating a counter in DynamoDB which may not be the best option as it will result in many write operations to the database which can become expensive at scale.
+Option B is a good approach for sending email notifications, but the activity worker should not be responsible for updating the used data counter in DynamoDB.
+Option C involves deploying a relational database which adds additional complexity and overhead to the solution. It also requires the upload server to query the stored objects table for every user which can become inefficient at scale.
+Option E involves creating separate S3 buckets for each user tier, which is not necessary for this scenario. It also requires the activity worker to query all objects for a given user based on the bucket that the data is stored in which can be inefficient at scale.
+Option D is the best approach because it writes both the content length and the username of the file's owner as S3 metadata for each object. This allows a file watcher to iterate over each object and aggregate the size for each user. When a user's storage threshold is exceeded, a notification is sent via Amazon Simple Queue Service to an email service. This approach avoids the overhead of updating a counter in DynamoDB or deploying a relational database. It also avoids the complexity of creating separate S3 buckets for each user tier.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question314:"link"
+
+

@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1111 - Your company migrated its production env"
+---
+
+
+[.question]
+== 1111-64a1fab5f053625db51ddf50.
+
+
+****
+
+[.query]
+--
+Your company migrated its production environment into AWS VPC 6 months ago.
+As a cloud architect, you must revise the infrastructure and ensure that it is cost-effective in the long term.
+More than 50 EC2 instances are up and running all the time to support the business operation.
+What can you do to lower the cost?
+
+
+--
+
+[.list]
+--
+* [*] A. Reserved instances
+* [ ] B. On-demand instances
+* [*] C. Spot instances
+* [ ] D. Regular instances.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+When you have instances that will be used continuously and throughout the year, the best option is to buy reserved instances.
+By buying reserved instances, you actually allocate an instance for the entire year or the duration you specify with a reduced cost.
+To understand more on reserved instances, please visit the below URL-
+https://aws.amazon.com/ec2/pricing/reserved-instances/
+As a cloud architect, you must ensure that the infrastructure is cost-effective in the long term, and one of the ways to achieve this goal is to optimize the cost of running EC2 instances in AWS.
+There are several pricing models for running EC2 instances in AWS, and each has its advantages and disadvantages.
+On-demand instances (option B) are the most straightforward pricing model, where you pay for the compute capacity by the hour or second. This pricing model is flexible, as there are no long-term commitments or upfront payments, and it is suitable for short-term workloads with unpredictable traffic patterns. However, the cost of running on-demand instances can be high in the long term.
+Reserved instances (option A) provide a significant discount compared to on-demand instances, as you commit to running the instance for a specific term, typically one or three years, in exchange for a lower hourly rate. This pricing model is ideal for workloads that have predictable traffic patterns and can commit to running the instance for a more extended period. However, reserved instances require upfront payment, and the capacity cannot be changed during the term.
+Spot instances (option C) provide the most significant cost savings, as they offer unused EC2 capacity at a heavily discounted price. The price of spot instances fluctuates based on supply and demand, and AWS can reclaim the instance with two minutes' notice if the capacity is needed. This pricing model is ideal for fault-tolerant, non-time-sensitive workloads that can handle interruptions or sudden termination of instances. However, spot instances are not suitable for workloads that cannot tolerate downtime or have strict SLAs.
+Regular instances (option D) do not exist as a distinct pricing model. Regular instances refer to on-demand instances that are not reserved or spot instances. Regular instances have the same pricing as on-demand instances, and they are suitable for workloads that do not require long-term commitments and do not have predictable traffic patterns.
+In conclusion, to optimize the cost of running EC2 instances in AWS, you can use a combination of pricing models based on your workload's characteristics and requirements. For workloads that have predictable traffic patterns, you can use reserved instances, for non-time-sensitive workloads, you can use spot instances, and for short-term or unpredictable workloads, you can use on-demand instances or regular instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question354:"link"
+
+

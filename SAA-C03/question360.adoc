@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1160 - Your company has a requirement to host a"
+---
+
+
+[.question]
+== 1160-64a1fad0f053625db51ddf95.
+
+
+****
+
+[.query]
+--
+Your company has a requirement to host an application in AWS that requires access to a NoSQL database.
+But there are no human resources available who can take care of the database infrastructure.
+In addition to this, the database should have the capability to scale automatically based on demand and also have high availability.
+Which of the following databases would you use for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. DynamoDB
+* [ ] B. ElasticMap Reduce
+* [ ] C. Amazon RDS
+* [ ] D. Amazon Aurora.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The AWS Documentation mentions the following.
+Amazon DynamoDB is a nonrelational database that delivers reliable performance at any scale.
+It's a fully managed, multi-region, multi-master database that provides consistent single-digit millisecond latency, and offers built-in security, backup and restore, and in-memory caching.
+With DynamoDB On-Demand, capacity planning is a thing of the past.
+You don't specify read and write capacity at all-you pay only for the usage of your DynamoDB tables.
+This fits perfectly with the Lambda and Serverless model-I pay more when I have more usage, which means I'm delivering more value to my customers.
+Previously, you had to set read and write throughput capacity on your DynamoDB tables.
+This specified how many and how large of reads and writes you could make on your table in any given second.
+Read and write capacity units were charged by the hour, and your requests would be throttled if you exceeded your provisioned capacity in any given second.
+Option B is invalid since this is used for Big Data.
+Option C is invalid since here you still have to partially manage the infrastructure.
+Option D is invalid since this would allow you to host MySQL compatible databases.
+For more information on DynamoDB, please visit the URL.
+https://aws.amazon.com/dynamodb/
+In this scenario, we need a NoSQL database that is easy to manage and can scale automatically based on demand while maintaining high availability, without requiring human resources to manage the infrastructure.
+Option A: DynamoDB DynamoDB is a NoSQL database service that is fully managed by AWS, which means it requires no human intervention to manage the infrastructure. It is designed for high scalability and availability, and it can automatically scale to accommodate increasing demand. It also provides built-in features like encryption, backup and restore, and global tables for multi-region deployments. Therefore, it is a suitable option for this scenario.
+Option B: ElasticMap Reduce ElasticMap Reduce is a service that allows you to process vast amounts of data using Apache Hadoop and Apache Spark. It is not a database service and does not provide a NoSQL database. Therefore, it is not a suitable option for this scenario.
+Option C: Amazon RDS Amazon RDS is a managed database service that provides relational databases such as MySQL, PostgreSQL, and Oracle. It does not provide a NoSQL database like DynamoDB. Although it is easy to manage and can scale automatically, it may not be the best choice for this scenario because it does not meet the NoSQL requirement.
+Option D: Amazon Aurora Amazon Aurora is a managed database service that provides MySQL and PostgreSQL-compatible databases. It is designed for high performance, scalability, and availability. Although it is not a NoSQL database, it provides some NoSQL-like features such as auto-scaling and high availability. However, it may not be the best choice for this scenario because it does not meet the NoSQL requirement.
+Therefore, option A: DynamoDB is the best choice for this scenario because it is a fully managed NoSQL database service that provides scalability, availability, and ease of management without requiring human resources to manage the infrastructure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question423:"link"
+
+

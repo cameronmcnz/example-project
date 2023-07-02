@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "1255 - You are working as a Solutions Architect"
+---
+
+
+[.question]
+== 1255-64a1fafff053625db51de006.
+
+
+****
+
+[.query]
+--
+You are working as a Solutions Architect in an organization.
+You have peered VPC A and VPC B as a requester and an acceptor where both the VPCs can communicate with each other.
+Now you want the resources in the private subnets of both the VPCs to reach out to the internet.
+But no one on the internet should be able to reach the resources within both the VPCs.
+Which of the below will achieve the desired outcome?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a NAT Gateway in VPC A and route VPC B`s outbound to VPC A`s NAT Gateway.
+* [ ] B. Create an Internet Gateway in VPC A and route VPC B`s outbound to VPC A`s Internet Gateway.
+* [*] C. Create NAT Gateways in both VPCs and configure routes for each VPC to use its own NAT Gateway.
+* [ ] D. Simply create a NAT Instance in VPC
+* [ ] E. Nothing else is required.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer: C
+Option A is INCORRECT because you can't share NAT gateways across VPCs.
+Option B is INCORRECT because attaching an IGW to a VPC allows instances with public IPs to access the internet.
+In contrast, NATs allow instances with no public IPs to access the internet.
+Option C is CORRECT because you can create NAT Gateways on both VPC's and configure routes to the NAT Gateways in the respective route tables.
+Option D is INCORRECT because a stand-alone NAT Instance in VPC A doesn't accomplish anything.
+For more information:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-comparison.html https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html#nat- https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
+To allow resources in private subnets of both VPCs to reach out to the internet but not allow anyone on the internet to reach the resources within both VPCs, we can use a combination of an Internet Gateway and NAT Gateways.
+The correct answer is (C) Create NAT Gateways in both VPCs and configure routes for each VPC to use its own NAT Gateway.
+Here is the detailed explanation of why this is the correct answer:
+1.
+NAT Gateways: A NAT Gateway allows resources in a private subnet to access the internet while keeping them hidden behind the NAT Gateway's public IP address. This means that internet resources cannot directly initiate a connection to the resources in the private subnet.
+2.
+Internet Gateway: An Internet Gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in the VPC and the internet.
+3.
+VPC Peering: VPC Peering allows communication between VPCs using private IP addresses. Once VPCs are peered, they can communicate with each other as if they were on the same network.
+Based on the above explanation, let's now examine each of the given options:
+A. Create a NAT Gateway in VPC A and route VPC Bs outbound to VPC As NAT Gateway. This option will only allow resources in VPC A to access the internet through its NAT Gateway. Resources in VPC B won't be able to access the internet.
+B. Create an Internet Gateway in VPC A and route VPC Bs outbound to VPC As Internet Gateway. This option will allow resources in both VPCs to access the internet through VPC A's Internet Gateway, but it will also allow internet resources to directly initiate connections to resources in both VPCs. This option doesn't meet the requirement that internet resources should not be able to reach the resources within both VPCs.
+C. Create NAT Gateways in both VPCs and configure routes for each VPC to use its own NAT Gateway. This option is the correct answer as it allows resources in both VPCs to access the internet through their respective NAT Gateways while keeping them hidden behind the NAT Gateway's public IP address. This also ensures that internet resources cannot directly initiate a connection to the resources in the private subnets of both VPCs.
+D. Simply create a NAT Instance in VPC. A NAT Instance is not the recommended option for this scenario as it is not as scalable, available, and easy to manage as a NAT Gateway.
+E. Nothing else is required. This is not the correct answer as we need to configure NAT Gateways to allow resources in both VPCs to access the internet while keeping them hidden behind the NAT Gateway's public IP address.
+Therefore, option (C) Create NAT Gateways in both VPCs and configure routes for each VPC to use its own NAT Gateway is the correct answer for this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question536:"link"
+
+

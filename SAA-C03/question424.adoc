@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1224 - An application needs to be set up on AWS"
+---
+
+
+[.question]
+== 1224-64a1faf0f053625db51ddfe2.
+
+
+****
+
+[.query]
+--
+An application needs to be set up on AWS.
+It consists of several components.
+Two primary components are required to run for 3 hours every day.
+During the three hours, the EC2 instances should always be in service for the components to run.
+The other components are required every day for more than 6-8 hours.
+Tasks of these components are less important and can be easily restored even if the EC2 instances are stopped.
+Which of the following would you use to ensure COSTS are minimized for the underlying EC2 Instances?
+
+
+--
+
+[.list]
+--
+* [*] A. Reserved instances for the primary components and On-Demand Instances for the remaining components.
+* [ ] B. Spot instances for the primary components and On-Demand Instances for the remaining components.
+* [*] C. On-Demand instances for the primary components and Spot Instances for the remaining components.
+* [ ] D. On-Demand instances for the primary components and Reserved Instances for the remaining components.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Options A and D are incorrect because reserved instances have one-year or three-year commitments and are not suitable in this scenario.
+The primary components only need to run 3 hours every day.
+It is not cost-efficient if reserved instances are used.
+Option B is incorrect because primary components cannot use spot instances as they may impact the service.
+Option C is CORRECT because on-demand instance ensures the stability of primary components while spot instances help to reduce the cost for the remaining components.
+To minimize costs for the EC2 instances required to run an application with several components, we need to choose a combination of instance types that balances cost with availability.
+Based on the given requirements, we can categorize the components into two types:
+Primary components: These are required to run for exactly 3 hours every day and are critical to the application's functionality.
+Other components: These are required for more than 6-8 hours every day, but their tasks are less important, and they can be easily restored even if the EC2 instances are stopped.
+Considering the above categorization, the best option would be to use reserved instances for the primary components and On-Demand instances for the remaining components. This approach ensures that the primary components are always available during the specific three-hour window while minimizing costs for the other components that can be easily restored.
+Reserved instances are a good choice for primary components because they provide a lower cost per hour than On-Demand instances, and they guarantee capacity availability. With reserved instances, you pay a one-time upfront fee and then a reduced hourly rate for the instance type you reserved. This option provides a significant discount over On-Demand instances, making it cost-effective for components that are required to run for specific times.
+On-Demand instances are a good choice for the other components because they offer the flexibility to start and stop instances as needed, and you only pay for the hours you use them. Since these components are less critical and can be easily restored, it is more cost-effective to use On-Demand instances.
+Spot instances are not a good choice for the primary components because they are not guaranteed to be available for the entire 3-hour window. Spot instances are ideal for workloads that can handle interruptions and can be interrupted at any time if the market price for the instance type rises above your bid price.
+In summary, the best option for minimizing EC2 instance costs for an application with primary and other components is to use reserved instances for the primary components and On-Demand instances for the remaining components.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question500:"link"
+
+

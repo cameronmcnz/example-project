@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1101 - Your teams AWS account is a root account"
+---
+
+
+[.question]
+== 1101-64a1df64aa736d27b1db9468.
+
+
+****
+
+[.query]
+--
+Your team's AWS account is a root account of an AWS Organization, and you are in charge of configuring Organizational Units within the Organization.
+At the moment, each Organizational Unit is supposed to be connected with a team.
+However, sometimes because of project changes or team restructuring, Organizational Units need to be adjusted as well.
+Which operation is valid for Organizational Units?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure an OU to be the child of two other OUs which are parents.
+* [ ] B. As two departments use an AWS account, move the account to be a member of two OUs.
+* [*] C. An OU and its members are no longer needed due to business needs, you can delete the OU directly, and the members will be automatically removed from the AWS Organization.
+* [*] D. None of the above is valid.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+An Organizational Unit can have AWS accounts and other Organizational Units as members.
+This makes the whole structure similar to a tree.
+The accounts are organized in a hierarchical, tree-like structure.
+Check.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html
+on how to manage OUs.
+Option A is incorrect: Because an OU can have only one parent.
+This is explained in.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html.
+Option B is incorrect: Similar to.
+Option A, an AWS account can be a member of only one OU.
+Option C is incorrect: Before deleting an OU, you must first move all accounts out of the OU and any child OUs, and the child OUs need to be deleted as well.
+Option D is CORRECT: This is the right answer as none of the others are valid.
+Sure, I can provide a detailed explanation of each answer option and why it is either valid or invalid for Organizational Units in an AWS Organization.
+A. Configure an OU to be the child of two other OUs which are parents. This answer option is not valid because an Organizational Unit can only have one parent OU. An OU can have multiple child OUs, but it cannot have more than one parent OU. Therefore, an OU cannot be connected to two parent OUs.
+B. As two departments use an AWS account, move the account to be a member of two OUs. This answer option is valid because you can move an AWS account to be a member of two or more Organizational Units. This allows you to grant access and apply policies to the account based on the requirements of both departments. Moving an account to multiple OUs does not affect the account's resources or billing.
+C. An OU and its members are no longer needed due to business needs, you can delete the OU directly, and the members will be automatically removed from the AWS Organization. This answer option is valid because you can delete an Organizational Unit that is no longer needed. When an OU is deleted, all members of the OU are automatically removed from the AWS Organization. However, it is important to note that any policies or permissions applied to the OU will also be removed.
+D. None of the above is valid. This answer option is not correct because option B and option C are both valid operations for Organizational Units in an AWS Organization. Therefore, the correct answer is not "none of the above".
+In summary, option B and option C are valid operations for Organizational Units in an AWS Organization. Option A is not valid because an OU can only have one parent OU, and option D is incorrect because it implies that no valid operations exist.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question439:"link"
+
+

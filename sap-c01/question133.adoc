@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "933 - Your company runs a video analysis softw"
+---
+
+
+[.question]
+== 933-64a1df25aa736d27b1db9363.
+
+
+****
+
+[.query]
+--
+Your company runs a video analysis software that is available in both Free and Paid plans.
+To support the Free and Paid versions effectively, your company uses a spot pricing framework that does the bidding as per the subscription plan to ensure the availability of the spot instances and maintain the cost.
+The instances are running behind a load balancer created for the analysis job with the auto-scaling group attached to that.
+Paid subscription jobs are set to run into multiple availability zones to maintain high availability.
+The application using the spot engine adds the desired instances based on active jobs and terminates instances when the processing is completed.
+By looking at the CloudWatch logs, you noticed that sometimes the Auto Scaling launches new instances before terminating the old ones.
+What could the cause and the corresponding resolution for this issue?
+
+
+--
+
+[.list]
+--
+* [*] A. Update the desired capacity of the Auto Scaling Group based on the number of active jobs.
+* [*] B. Auto Scaling triggers the AZRebalance event if the number of instances in availability zones are not matching after terminating instances. Suspend the AZRebalance process of Auto Scaling to avoid the rebalancing.
+* [*] C. Run all the instances into a single availability zone.
+* [ ] D. Adjust the min and max capacity of the Auto Scaling Group after the jobs are completed.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is INCORRECT because the desired capacity is meant to maintain a minimum number of instances in an Auto Scaling group.
+Option B is CORRECT because suspending the AZRebalance will disable the instance balancing activity if the availability zones have a different number of instances.
+Option C is INCORRECT for the current situation.
+If the Auto Scaling runs into a single availability zone, the AZRebalance event will not trigger.
+But at the same time, it will not be fault-tolerant against availability zone failures.
+Option D is INCORRECT because the min/max count does not affect the availability zone rebalance process.
+The issue observed in the CloudWatch logs where new instances are launched before terminating the old ones could be caused by various reasons, such as scaling policies, instance termination policies, or instance warm-up time. To resolve the issue, the cause needs to be identified and addressed accordingly.
+One potential cause of this issue could be the scaling policies that are defined for the Auto Scaling group. Scaling policies determine when new instances are launched or old ones are terminated based on the metrics and thresholds specified. It is possible that the scaling policies are not configured optimally and are triggering the launch of new instances before terminating the old ones. To address this, the desired capacity of the Auto Scaling group can be updated based on the number of active jobs. By doing so, the Auto Scaling group will launch only the required number of instances to handle the workload and terminate the instances once the processing is completed.
+Another possible cause of the issue could be related to the instance termination policies. Instance termination policies define the order in which instances are terminated when scaling down. It is possible that the termination policies are not configured optimally and are terminating instances randomly. This could result in the launch of new instances before terminating the old ones. To resolve this issue, the instance termination policies can be adjusted to prioritize the termination of instances that are not currently processing any jobs.
+In addition to the above, it is also possible that the instance warm-up time is causing the issue. Instance warm-up time is the time required for an instance to become fully operational after launch. During this time, the instance may not be able to handle the full workload, and launching new instances before terminating the old ones may be necessary to maintain high availability. To address this, the instance warm-up time can be reduced by pre-warming the instances before launching them into the Auto Scaling group.
+Another potential cause of the issue could be related to the AZRebalance process of Auto Scaling. AZRebalance is a feature of Auto Scaling that ensures that the number of instances in each availability zone is balanced. If the number of instances in different availability zones is not matching after terminating instances, Auto Scaling may launch new instances to balance the availability zones. To resolve this issue, the AZRebalance process of Auto Scaling can be suspended to avoid the rebalancing.
+Finally, running all the instances into a single availability zone could also be a potential solution to avoid launching new instances before terminating the old ones. However, this could compromise high availability, as a single availability zone is more prone to failures than multiple availability zones. Therefore, this solution should be adopted only if the workload is not critical and high availability is not a major concern.
+In summary, the cause of the issue needs to be identified first, and then an appropriate solution can be adopted. Adjusting the scaling policies, instance termination policies, instance warm-up time, or AZRebalance process of Auto Scaling can help resolve the issue. Running all the instances into a single availability zone could also be a potential solution, but it should be adopted only if high availability is not a major concern.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question177:"link"
+
+

@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "848 - Which two statements are true about loca"
+---
+
+
+[.question]
+== 848-64a1a84bef3e8462333a9c66.
+
+
+****
+
+[.query]
+--
+Which two statements are true about localizing an application? (Choose two.)
+
+
+--
+
+[.list]
+--
+* [*] A. Support for new regional languages does not require recompilation of the code.
+* [ ] B. Textual elements (messages and GUI labels) are hard-coded in the code.
+* [ ] C. Language and region-specific programs are created using localized data.
+* [ ] D. Resource bundle files include data and currency information.
+* [*] E. Language codes use lowercase letters and region codes use uppercase letters.
+
+--
+****
+
+[.answer]
+AE
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

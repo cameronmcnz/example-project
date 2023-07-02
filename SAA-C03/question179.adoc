@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "979 - You are deploying an application to trac"
+---
+
+
+[.question]
+== 979-64a1fa7af053625db51ddebc.
+
+
+****
+
+[.query]
+--
+You are deploying an application to track the GPS coordinates of delivery trucks in the United States.
+Coordinates are transmitted from each delivery truck once every three seconds.
+You need to design an architecture that will enable real-time processing of these coordinates from multiple consumers.
+Which service should you use to implement data ingestion?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon Kinesis
+* [ ] B. AWS Data Pipeline
+* [*] C. Amazon AppStream
+* [ ] D. Amazon Simple Queue Service.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS documentation mentions the following:
+Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information.
+Amazon Kinesis offers key capabilities to process streaming data cost-effectively at any scale, along with the flexibility to choose the tools that best suit the requirements of your application.
+With Amazon Kinesis, you can ingest real-time data such as video, audio, application logs, website clickstreams, and IoT telemetry data for machine learning, analytics, and other applications.
+Amazon Kinesis enables you to process and analyze data as it arrives and responds instantly instead of waiting until all your data is collected before the processing can begin.
+For more information on Amazon Kinesis, please visit the following URL:
+https://aws.amazon.com/kinesis/
+For real-time processing of streaming data from multiple sources, Amazon Kinesis is the most suitable service.
+Amazon Kinesis is a fully-managed service for real-time processing of streaming data at a large scale. It allows you to ingest and process large amounts of data in real-time from various sources such as websites, social media, sensors, logs, and other applications.
+In this case, the GPS coordinates from the delivery trucks can be transmitted to Amazon Kinesis using the Kinesis Producer Library or Kinesis Agent. Kinesis can then receive and process the data in real-time using Kinesis Streams or Kinesis Firehose.
+Kinesis Streams is a scalable and durable real-time streaming data processing service that enables multiple consumers to read data from the same stream simultaneously. It is designed for low-latency, high-throughput, and continuous processing of data. Multiple consumers can read the same stream simultaneously, enabling real-time processing by multiple applications.
+Kinesis Firehose is a fully-managed service that can receive streaming data and deliver it to other AWS services such as Amazon S3, Amazon Redshift, or Amazon Elasticsearch Service. It can also transform and compress the data before delivering it to the destination.
+AWS Data Pipeline is a batch-processing service for data transformation and movement between different AWS services. It is not suitable for real-time processing of streaming data.
+Amazon AppStream is a fully-managed desktop streaming service that enables you to stream desktop applications to users. It is not related to data ingestion or real-time processing.
+Amazon Simple Queue Service (SQS) is a message queuing service that enables decoupling of components and asynchronous communication between microservices. It is not designed for real-time data processing and would not be suitable for this use case.
+In conclusion, Amazon Kinesis is the most suitable service for data ingestion and real-time processing of streaming data in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question203:"link"
+
+

@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "916 - You are designing a multiplatformmultipo"
+---
+
+
+[.question]
+== 916-64a1df1faa736d27b1db934b.
+
+
+****
+
+[.query]
+--
+You are designing a multi-platform,multi-port web application for AWS.
+The application will run on EC2 instances and will be accessed from PCs, tablets, and smartphones.
+Supported accessing platforms are Windows, MAC OS, IOS, and Android.
+Separate SSL certificate setups are required for different platform types.
+Which of the following describes the most cost-effective and performance efficient architecture setup?
+
+
+--
+
+[.list]
+--
+* [*] A. Setup a hybrid architecture to handle session state, SSL certificates, on-premise resources, and EC2 Instances that run the web applications for different platform types in a VP.
+* [*] B. Set up an Application Load Balancer with Server Name Indicator (SNI) support, for handling the separate SSL certificates for each of the device platforms.
+* [ ] C. Set up two Classic Load Balancers. The first ELB handles SSL certificates for all platforms and the second ELB handles session stickiness for all platforms. For each ELB run separate EC2 instance groups to handle the web application for each the platforms.
+* [ ] D. Assign multiple ALBs to a group of EC2 instances running the common components of the web application. One ALB for each platform type, Session stickiness, and SSL termination.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+In this scenario, the main architectural considerations are (1) web application has EC2 instances running multiple platforms such as Android, iOS, etc., and (2) separate SSL certificate setups are required for different platforms.
+Options A is incorrect because it is not cost-effective to handle such hybrid architecture.
+Option B is correct.
+Originally, Application Load Balancers used to support only one certificate for a standard HTTPS listener (port 443)
+You had to use Wildcard or Multi-Domain (SAN) certificates to host multiple secure applications behind the same load balancer.
+The potential security risks with Wildcard certificates and the operational overhead of managing Multi-Domain certificates presented challenges.
+With SNI support you can associate multiple certificates with a listener and each secure application behind a load balancer can use its own certificate.You can use host conditions to define rules that forward requests to different target groups based on the hostname in the host header (also known as host-based routing)
+This enables you to support multiple domains using a single load balancer.
+Option C is incorrect because Classic Load Balancer cannot handle multiple SSL certificates.
+Option D is incorrect as it is not required since there is support for multiple TLS/SSL certificates on Application Load Balancers.
+It is not cost-efficient as one ALB can achieve the requirement.
+For more information on ELB, please visit the below URL-
+https://aws.amazon.com/elasticloadbalancing/classicloadbalancer/faqs/
+Among the given options, the most cost-effective and performance efficient architecture setup for the multi-platform, multi-port web application would be option B, which is to set up an Application Load Balancer (ALB) with Server Name Indicator (SNI) support to handle separate SSL certificates for each device platform.
+Explanation of each option:
+Option A, which suggests setting up a hybrid architecture to handle session state, SSL certificates, on-premise resources, and EC2 instances that run the web applications for different platform types in a VPC, can be a complex setup that requires additional resources and management overhead. This option does not necessarily provide the most cost-effective and performance-efficient solution.
+Option C, which suggests setting up two Classic Load Balancers (CLBs) for SSL certificates and session stickiness respectively, each running separate EC2 instance groups for each platform type, can be a costly setup. CLBs are considered legacy load balancers and do not offer the advanced features of ALBs, such as SNI support, which is essential for handling separate SSL certificates for each device platform.
+Option D, which suggests assigning multiple ALBs to a group of EC2 instances running the common components of the web application, with one ALB for each platform type, session stickiness, and SSL termination, can also be a complex setup that requires additional resources and management overhead. This option may result in increased costs and reduced performance due to the increased number of load balancers.
+Therefore, option B is the most suitable option for handling the multi-platform, multi-port web application. ALBs with SNI support allow the use of multiple SSL certificates on a single IP address, enabling the handling of separate SSL certificates for each device platform. This setup is cost-effective and performance-efficient, as it does not require additional resources and management overhead, and can handle the application's needs effectively.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question151:"link"
+
+

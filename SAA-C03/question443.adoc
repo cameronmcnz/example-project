@@ -1,0 +1,122 @@
+---
+layout: default 
+title: "1243 - Your company requires that S3 objects sh"
+---
+
+
+[.question]
+== 1243-64a1fafaf053625db51ddff9.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_13.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your company requires that S3 objects should be replicated in different AWS regions.
+You have an S3 bucket in the ap-southeast-1 region, and its objects are encrypted with AWS Key Management Service (AWS KMS)
+How would you configure the Cross-Region Replication (CRR) for the encrypted objects in the S3 bucket?
+
+
+[source,java]
+----
+Replication rule
+@ setsource (2) Set destination ©) Configure rule options @) Review
+@ Prefix or tags
+
+Replication criteria
+
+Replicate objects encrypted with AWS KMS
+
+Choose one or more keys for decrypting source objects
+
+1 key(s) selected
+
+Replication increases the KMS requests related to Amazon S3 in the source and
+destination Regions. This might cause you to exceed the KMS request limit for your
+
+account. Request an increase in your KMS request limit at no additional charge.
+Learn more
+
+Your replication rule will be created using the new schema
+
+Replication now has a new schema that supports replication based on prefixes,
+one or more object tags or a combination of the two. As part of the new
+schema, you can set overlapping rules with priorities. The new schema does
+not support delete marker replication, which would prevent any delete actions
+from replicating. Learn more
+
+co
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Encrypted objects cannot be replicated with Cross-Region replication (CRR).
+* [ ] B. Modify the S3 property to encrypt the objects with AES-256 and then replicate them with a Cross-Region replication rule.
+* [*] C. In the replication rule, provide the KMS key name for decrypting source objects.
+* [ ] D. Copy a KMS key from the target region to the source region. Re-encrypt the objects with the new KMS key in the source S3 bucket for the Cross-Region replication to work.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect because Cross-Region replication can copy encrypted objects across buckets in different AWS regions.
+Option B is incorrect because this is not required as CRR supports AWS-KMS.
+Option C is CORRECT because users can choose one or more KMS keys in the replication rule as follows.
+Objects encrypted by AWS KMS CMKs that are not selected will not be replicated.
+Option D is incorrect because the re-encryption is not required for the Cross-Region replication.
+For details, please check the following references.
+Reference:
+https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-replication.html. https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html#crr-scenario.
+The correct answer is C. In the replication rule, provide the KMS key name for decrypting source objects.
+Cross-Region Replication (CRR) is a feature that replicates objects from a source S3 bucket to a destination S3 bucket in a different region. With CRR, you can have a copy of your objects in a different region, which can help you achieve data durability, reduce latency, and meet compliance requirements.
+When an S3 object is encrypted with AWS Key Management Service (AWS KMS), the encryption key is managed separately from the S3 bucket. Therefore, when replicating an encrypted object with CRR, the KMS key that was used to encrypt the object must be accessible from the destination region.
+To configure CRR for encrypted objects, follow these steps:
+1. Create a destination S3 bucket in the desired region.
+2. Enable versioning for both the source and destination S3 buckets.
+3. Create an AWS KMS key in the destination region if you don't already have one.
+4. Add a replication rule to the source S3 bucket and configure it as follows:
+Specify the destination S3 bucket and the destination region.
+Select the replication rule status (enabled or disabled).
+Specify which objects to replicate using object filters.
+Provide the KMS key name or KMS key ARN for decrypting source objects in the destination region. You can find the KMS key name or ARN in the KMS console or through the AWS CLI.
+Select an IAM role that grants permissions for replication.
+Choose a replication time control.
+Save the replication rule.
+By providing the KMS key name or ARN in the replication rule, you allow the destination region to decrypt the encrypted objects using the same KMS key that was used to encrypt them. This ensures that the replicated objects are also encrypted and can only be decrypted by authorized users in the destination region.
+Option A is incorrect because encrypted objects can be replicated with CRR as long as the KMS key used for encryption is accessible from the destination region.
+Option B is incorrect because modifying the S3 bucket properties to use AES-256 encryption would not help with replicating encrypted objects with CRR. The replication rule still needs the KMS key name or ARN to decrypt the objects in the destination region.
+Option D is incorrect because copying a KMS key from the target region to the source region and re-encrypting objects with the new key in the source S3 bucket is not necessary for CRR. The replication rule only needs the KMS key name or ARN to decrypt the objects in the destination region.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question523:"link"
+
+

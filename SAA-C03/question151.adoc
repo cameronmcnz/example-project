@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "951 - You have implemented AWS Cognito service"
+---
+
+
+[.question]
+== 951-64a1fa70f053625db51dde9c.
+
+
+****
+
+[.query]
+--
+You have implemented AWS Cognito services to require users to sign in and sign up to your app through social identity providers like Facebook, Google, etc.
+Your marketing department wants users to anonymously try out the app because the current log-in requirement is excessive, which may reduce the demand for products and services offered through the app.
+What would you suggest to the marketing department in this regard?
+
+
+--
+
+[.list]
+--
+* [*] A. It’s too much of a security risk to allow unauthenticated users access to the app.
+* [*] B. Cognito Identity supports guest users for the ability to enter the app and have limited access.
+* [*] C. A second version of the app will need to be offered for unauthenticated users.
+* [ ] D. This is possible only if we remove the authentication from everywhere.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option B is correct.
+Amazon Cognito Identity Pools can support unauthenticated identities by providing a unique identifier and AWS credentials for users who do not authenticate with an identity provider.
+Unauthenticated users can be associated with a role with limited access to resources compared to a role for authenticated users.
+Option A is incorrect.
+Cognito will allow unauthenticated users without being a security risk.
+Option C is incorrect.
+Cognito supports both authenticated and unauthenticated users.
+References:
+https://aws.amazon.com/cognito/ http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html https://aws.amazon.com/cognito/getting-started/ https://docs.aws.amazon.com/cognito/latest/developerguide/concepts.html
+The marketing department wants users to anonymously try out the app without requiring them to sign in or sign up. This could potentially increase demand for the products and services offered through the app. However, it's important to keep in mind that user authentication provides security for the app and its users.
+Option A suggests that allowing unauthenticated users access to the app would be a security risk. This is true to some extent because unauthenticated users would not have their identities verified, and could potentially cause security breaches or harm to the app or its users.
+Option B suggests that Cognito Identity supports guest users who have limited access to the app. This option is a good compromise because it allows users to access the app without requiring them to sign in or sign up. However, guest users have limited access, which means that they can only perform certain tasks and activities within the app. This ensures that the app remains secure and that user data is protected.
+Option C suggests that a second version of the app needs to be offered for unauthenticated users. This option is not practical because it requires the development of an entirely new version of the app, which can be costly and time-consuming. Moreover, this option still poses a security risk because unauthenticated users may still be able to access certain parts of the app that could potentially cause harm.
+Option D suggests that the only way to allow unauthenticated users access to the app is by removing authentication altogether. This option is not recommended because it completely removes the security measures in place to protect the app and its users. Removing authentication would make the app vulnerable to security breaches, and could potentially lead to data theft or loss.
+In summary, the best option to suggest to the marketing department is B. Cognito Identity supports guest users who have limited access to the app. This option allows users to access the app without requiring them to sign in or sign up, while still ensuring that the app remains secure and that user data is protected.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question171:"link"
+
+

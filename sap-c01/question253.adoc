@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1053 - A small trading business consults you to"
+---
+
+
+[.question]
+== 1053-64a1df53aa736d27b1db941f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_awsq4-7.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+A small trading business consults you to implement a blockchain across its supply chain network, providing greater transparency, real-time recording, and tracking of goods.
+Each supplier or distributor can be a member of the blockchain network.
+The customers are looking to manage their own blockchain network and need an easy way to set up and get started.
+They prefer to deploy the blockchain framework of Hyperledger Fabric as containers on an Amazon Elastic Container Service (ECS) cluster, or directly on an EC2 instance running Docker.
+What way should you recommend?
+
+
+[source,java]
+----
+@ CloudFormation » Stacks > Create Stack
+
+Create stack
+
+Template
+
+Template URL _https://aws-blockchain-templates-us-east-1.s3.us-east-1.amazonaws.com/hyperledger/fabric/templates/simplenetwork/latest/hyperledger.template.yaml
+Description AWS Blockchain Template for Hyperledger Fabric. This template creates a Hyperledger Fabric network on an Amazon EC2 instance. It also includes the
+Hyperledger Explorer service. License: Apache 2.0 (Please do not remove) Apr 19, 2018 (bt-k5nffx4jb)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon Quantum Ledger Database (QLDB) to deploy the AWS BlockChain network in ECS and EC2 depending on specific requirements.
+* [ ] B. Use Amazon Managed Blockchain to deploy the network. Replicate an immutable copy of the blockchain network activity into Amazon Quantum Ledger Database (QLDB), where customers can fully manage the blockchain network.
+* [*] C. Use Amazon Managed Blockchain to deploy the framework. By using Amazon Managed Blockchain, customers can access ECS or EC2 instances and deploy decentralized applications.
+* [*] D. Use AWS Blockchain Templates to deploy the blockchain Hyperledger Fabric framework on an Amazon Elastic Container Service (ECS) cluster or directly on an EC2 instance.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+There are several Amazon Blockchain services as in https://aws.amazon.com/blockchain/:
+Amazon QLDB - a fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority.
+Amazon Managed Blockchain - a fully managed service that makes it easy to create and manage scalable blockchain networks using popular open-source frameworks Hyperledger Fabric and Ethereum.
+AWS Blockchain Templates - a fast and easy way to create and deploy secure blockchain networks using popular open-source frameworks.
+AWS Blockchain Templates deploys the blockchain framework you choose as containers on an Amazon Elastic Container Service (ECS) cluster or directly on an EC2 instance running Docker.
+It is essentially a CloudFormation template where users can still fully manage the instances:
+Option A is incorrect: Because Amazon Quantum Ledger Database is a ledger database that is not used to deploy the Blockchain network.
+Option B is incorrect: Because Amazon Managed Blockchain does not allow you to manage your ECS or EC2 instances.
+Also, QLDB is not used to manage the Blockchain network fully.
+Option C is incorrect: Same reason as Option.
+B.Option D is CORRECT: Because AWS Blockchain Templates allows you to create and deploy a Hyperledger Fabric network fast and easily in ECS cluster or EC2 instances.
+The best option for this scenario is option D: Use AWS Blockchain Templates to deploy the blockchain Hyperledger Fabric framework on an Amazon Elastic Container Service (ECS) cluster or directly on an EC2 instance.
+Here's why:
+First, let's understand the requirements. The business wants to implement a blockchain across its supply chain network, providing greater transparency, real-time recording, and tracking of goods. Each supplier or distributor can be a member of the blockchain network. The customers want to manage their own blockchain network and need an easy way to set up and get started. They prefer to deploy the blockchain framework of Hyperledger Fabric as containers on an Amazon Elastic Container Service (ECS) cluster or directly on an EC2 instance running Docker.
+Option A suggests using Amazon Quantum Ledger Database (QLDB) to deploy the AWS BlockChain network in ECS and EC2 depending on specific requirements. However, QLDB is not a blockchain platform but a fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority.
+Option B suggests using Amazon Managed Blockchain to deploy the network and replicate an immutable copy of the blockchain network activity into Amazon Quantum Ledger Database (QLDB), where customers can fully manage the blockchain network. While this is a good option, it requires additional setup and maintenance of QLDB, and it may not meet the customer's preference for managing their own network.
+Option C suggests using Amazon Managed Blockchain to deploy the framework and access ECS or EC2 instances to deploy decentralized applications. However, this option does not align with the customer's preference to manage their own network, as they would still need to rely on Amazon Managed Blockchain for the deployment.
+Option D suggests using AWS Blockchain Templates to deploy the blockchain Hyperledger Fabric framework on an Amazon Elastic Container Service (ECS) cluster or directly on an EC2 instance. AWS Blockchain Templates provide a fast and easy way to deploy blockchain networks, as they automate the process of setting up and configuring the necessary infrastructure components for the blockchain network. Hyperledger Fabric is a popular blockchain framework for enterprise use cases, and it supports containerization and deployment on ECS or EC2 instances.
+In summary, option D aligns with the customer's preference for managing their own network and provides a fast and easy way to deploy the blockchain Hyperledger Fabric framework on an Amazon Elastic Container Service (ECS) cluster or directly on an EC2 instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question366:"link"
+
+

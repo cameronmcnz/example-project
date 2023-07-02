@@ -1,0 +1,100 @@
+---
+layout: default 
+title: "1057 - Using an Amazon Linux AMI you have creat"
+---
+
+
+[.question]
+== 1057-64a1df55aa736d27b1db942c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_awsq4-8.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Using an Amazon Linux AMI, you have created an m5.large EC2 instance for one of your research programs.
+Due to a limited budget, you prefer to put the instance into a stopped state when it is not used.
+Another requirement is that when you start the instance, the instance does not need to reboot, and you can continue from where it left off.
+You want to hibernate the EC2 instance to make this happen.
+Which description is correct to implement this hibernation option?
+
+
+[source,java]
+----
+pO, gen a AN ph i
+[~ Shutdown behavior (i> Stars ~ ical vf
+
+Stop - Hibernate behavior (j) ¥] Enable hibernation as an additional stop behavior
+
+Space is allocated on the root volume to for hibernation. This can be up to the size
+of the instance memory (RAM). Ensure the root volume is large enough to persist
+
+RAM contents in addition to your usage (e.g. OS, applications). To use
+hibernation, the root volume must be an encrypted EBS volume. Learn more
+
+Enable termination protection
+
+Protect against accidental termination
+----
+
+
+--
+
+[.list]
+--
+* [*] A. You cannot enable hibernation on an existing instance. You have to relaunch a new instance from an instance store volume to support the hibernation option.
+* [ ] B. You can use the AWS console to select the existing instance and choose Actions -> Instance State -> Stop - Hibernate.
+* [*] C. You cannot enable hibernation on an existing instance. You have to launch a new instance with an HVM AMI. Enable the hibernation feature on the Configure Instance Details page.
+* [ ] D. You can only use AWS CLI to enable the hibernation option via “aws ec2 hibernate-instances --instance-ids i-1234567890abcdef0”. AWS Console is not supported for the hibernation option.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+For the hibernation feature, one limitation is that you cannot enable hibernation on an existing instance (running or stopped)
+For details, please refer to https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html.
+Option A is incorrect: Because instance store-backed instances cannot be hibernated.
+Option B is incorrect: Because a new instance has to be launched to enable hibernation function as below.
+Option C is CORRECT: This is the suggested way in https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html.
+Option D is incorrect: Same reason as Option.
+B.
+One more thing is that the CLI command is something like “aws ec2 stop-instances --instance-ids i-1234567890abcdef0 --hibernate”
+Also, AWS Console is supported for the hibernation option.
+The correct answer is option C: You cannot enable hibernation on an existing instance. You have to launch a new instance with an HVM AMI. Enable the hibernation feature on the Configure Instance Details page.
+Hibernation is a feature that allows you to pause and resume an Amazon EC2 instance's state, preserving its RAM contents. This feature is only available for certain instance types and AMIs.
+In this scenario, the instance type used is m5.large, which supports hibernation. However, hibernation cannot be enabled on an existing instance, and the instance needs to be launched from an HVM AMI that supports hibernation.
+To enable hibernation on the instance, you need to launch a new instance from an HVM AMI that supports hibernation. During the launch process, you need to select the instance type that supports hibernation and enable the hibernation feature on the Configure Instance Details page. Once the instance is launched with hibernation enabled, you can stop and start the instance, and it will hibernate and resume from where it left off without rebooting.
+Option A is incorrect because you do not need to relaunch a new instance from an instance store volume to support the hibernation option. Instead, you need to launch a new instance from an HVM AMI that supports hibernation.
+Option B is incorrect because although you can use the AWS console to stop the instance and select the Hibernate option, hibernation cannot be enabled on an existing instance. You need to launch a new instance from an HVM AMI that supports hibernation.
+Option D is incorrect because although you can use the AWS CLI to enable the hibernation option via “aws ec2 hibernate-instances --instance-ids i-1234567890abcdef0,” hibernation cannot be enabled on an existing instance. You need to launch a new instance from an HVM AMI that supports hibernation.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question379:"link"
+
+

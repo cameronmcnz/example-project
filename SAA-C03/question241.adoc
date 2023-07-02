@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1041 - You work in the media industry and have "
+---
+
+
+[.question]
+== 1041-64a1fa94f053625db51ddf01.
+
+
+****
+
+[.query]
+--
+You work in the media industry and have deployed a web application on a large EC2 instance where users can upload photos to your website.
+This web application must be able to call the S3 API to function properly.
+Where would you store your API credentials while maintaining the maximum level of security?
+
+
+--
+
+[.list]
+--
+* [*] A. Save the API credentials to your PHP files.
+* [*] B. Don’t save your API credentials. Instead, create an IAM role and assign that role to an EC2 instance.
+* [*] C. Save your API credentials in a public Github repository.
+* [ ] D. Pass API credentials to the instance using instance user data.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+We designed IAM roles so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use.
+Instead of creating and distributing your AWS credentials, you can delegate permission to make API requests using IAM roles as follows:
+Create an IAM role.
+Define which accounts or AWS services can assume the role.
+Define which API actions and resources the application can use after assuming the role.
+Specify the role when you launch your instance or attach the role to an existing instance.
+Have the application retrieve a set of temporary credentials and use them.
+For more information on IAM Roles, please visit the below URL-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
+The correct answer is B. Don't save your API credentials. Instead, create an IAM role and assign that role to an EC2 instance.
+Explanation: Storing API credentials directly in code or configuration files is a security risk because anyone with access to these files could potentially access the credentials and use them for malicious purposes. Therefore, it's recommended to store API credentials securely.
+In this scenario, the best solution is to use an IAM role to grant access to the S3 API. An IAM role is an AWS identity with specific permissions that determine what the identity can and cannot do in AWS. By creating an IAM role and assigning it to an EC2 instance, you can grant the instance access to specific AWS resources without having to share or store any credentials.
+Here's how you can set this up:
+1.
+Create an IAM role: Go to the AWS IAM console and create a new role. Select "AWS service" as the trusted entity and choose EC2 as the service that will use this role. Then, attach the required S3 permissions to the role.
+2.
+Assign the role to an EC2 instance: Launch a new EC2 instance or select an existing one, and then specify the IAM role you created in step 1. This will automatically provide the EC2 instance with the necessary credentials to access the S3 API.
+By using an IAM role, you can avoid storing API credentials on your EC2 instance and still provide your web application with the necessary permissions to call the S3 API securely.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question275:"link"
+
+

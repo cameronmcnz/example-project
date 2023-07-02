@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1272 - You have set up two VPCsVPC A has the ad"
+---
+
+
+[.question]
+== 1272-64a1fb08f053625db51de01b.
+
+
+****
+
+[.query]
+--
+You have set up two VPCs:VPC A has the address of "10.10.0.0/16"
+It also has a subnet with address space "10.10.1.0/24".VPC B has the address of "10.11.0.0/16"
+It also has a subnet with address space "10.11.1.0/28"
+You also have set up VPC peering connection between the two VPCs.
+What should be the respective route table entries in VPC A and VPC B?
+
+
+--
+
+[.list]
+--
+* [*] A. VPC B route table contains route with Destination as 10.10.0.0/16
+* [ ] B. VPC A route table contains route with Destination as 10.11.0.0/16.
+* [*] C. VPC B route table contains route with Destination as 10.10.1.0/24 and VPC A route table contains route with Destination as 10.11.1.0/28.
+* [ ] D. VPC A route table contains route with Destination as 10.10.1.0/24 and VPC B route table contains route with Destination as 10.11.1.0/28.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+To send private IPv4 traffic from your instance to an instance in a peer VPC, you must add a route to the route table that's associated with your subnet in which your instance resides.
+The route points to the CIDR block (or a portion of the CIDR block) of the peer VPC in the VPC peering connection.
+The owner of the other VPC in the peering connection must also add a route to their subnet's route table to direct traffic back to your VPC.
+For more information about supported route table configurations for VPC peering connections.
+You can also peer a VPC with a specific subnet of another VPC instead of peering the entire VPC.https://docs.aws.amazon.com/vpc/latest/peering/peering-configurations-partial-access.html.
+For options A and B, they do not have a second route added to return the connection to requester VPC.
+So they are incorrect.
+For option C, as discussed above, we can configure subnets for a peering connection.
+So VPC A route table configured VPC B's subnet 10.11.1.0/28, and VPC B route table configured VPC A's subnet 10.10.1.0/24
+This configuration is correct from the given options.
+For Option D, VPC A ad VPC B configured their own subnets in the respective route tables.
+So, this configuration is incorrect.
+In order to establish connectivity between two VPCs, you can create a VPC peering connection. VPC peering connection allows you to route traffic between two VPCs using private IP addresses.
+In this scenario, we have two VPCs, VPC A and VPC B. VPC A has a subnet with an address space of "10.10.1.0/24", and VPC B has a subnet with an address space of "10.11.1.0/28". To enable communication between these two subnets, we need to create a VPC peering connection between VPC A and VPC B.
+When you create a VPC peering connection, you need to add a route to the route tables of each VPC.
+The route table in VPC A should have a route to the IP address range of VPC B (10.11.0.0/16) via the VPC peering connection. Similarly, the route table in VPC B should have a route to the IP address range of VPC A (10.10.0.0/16) via the VPC peering connection.
+In addition to these entries, you also need to add routes for the specific subnets that you want to communicate with. In this case, VPC A needs a route to the subnet in VPC B (10.11.1.0/28), and VPC B needs a route to the subnet in VPC A (10.10.1.0/24).
+Therefore, the correct answer is D. VPC A route table contains route with Destination as 10.10.1.0/24 and VPC B route table contains route with Destination as 10.11.1.0/28.
+Note that option A and B are incorrect because they do not include the routes for the specific subnets. Option C is incorrect because the route to the IP address range of the other VPC should be added, not the subnet address space.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question557:"link"
+
+

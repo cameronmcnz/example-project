@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1020 - You use an Amazon S3 bucket as the origi"
+---
+
+
+[.question]
+== 1020-64a1fa8af053625db51ddee9.
+
+
+****
+
+[.query]
+--
+You use an Amazon S3 bucket as the origin for a CloudFront distribution.
+To restrict access to S3 content, you create an Origin Access Identity (XXXX1234567890) in CloudFront and associate it with the distribution.
+You need to modify the S3 bucket policy so that users cannot bypass CloudFront to access the S3 files.
+Which of the following options contains the correct S3 bucket policy statement?
+
+
+--
+
+[.list]
+--
+* [*] A. { "Effect": "Deny", "Principal": { "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity XXXX1234567890" }, "Action": "s3:GetObject", "Resource": "arn:aws:s3:::aws-example-bucket/*" }
+* [ ] B. { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::cloudfront:user/XXXX1234567890" }, "Action": "s3:GetObject", "Resource": "arn:aws:s3:::aws-example-bucket" }
+* [*] C. { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity XXXX1234567890" }, "Action": "s3:GetObject", "Resource": "arn:aws:s3:::aws-example-bucket/*" }
+* [ ] D. { "Effect": "Deny", "NotPrincipal": { "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity XXXX1234567890" }, "Action": "s3:GetObject", "Resource": "arn:aws:s3:::aws-example-bucket" }
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+The S3 bucket policy should allow the "s3:GetObject" action if the Principal comes from the CloudFront Origin Access Identity.
+Details can be found in https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html.
+Option A is incorrect: Because the "Effect" should be "Allow" instead of "Deny."
+Option B is incorrect: Both "Principal" and "Resource" are incorrect according to the above reference.
+Option C is CORRECT: Because with this bucket policy, "s3:GetObject" action is only allowed for the CloudFront OAI.
+Option D is incorrect: The bucket policy denies the action if the Principal is NOT the Origin Access Identity.
+However, it still does not allow the action if the Principal comes from the CloudFront OAI.
+An explicit Allow is required.
+Besides, the "Resource" field is incorrect.
+Sure, I'd be happy to explain this in detail!
+The scenario here is that you have an S3 bucket that is serving as the origin for a CloudFront distribution. You have also created an Origin Access Identity (OAI) in CloudFront and associated it with the distribution to restrict access to S3 content. Now you need to modify the S3 bucket policy to ensure that users cannot bypass CloudFront to access the S3 files.
+Let's go through each of the answer options to determine which one contains the correct S3 bucket policy statement:
+Option A:
+jsonCopy code{     "Effect": "Deny",     "Principal": {         "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity XXXX1234567890"     },     "Action": "s3:GetObject",     "Resource": "arn:aws:s3:::aws-example-bucket/*" } 
+This policy statement denies access to any user with the specified Principal (in this case, the CloudFront OAI) to the S3 bucket resources specified by the Resource field. The Action field specifies the type of action that is being denied (in this case, s3:GetObject). This policy statement appears to be correctly configured to prevent users from bypassing CloudFront to access the S3 files.
+Option B:
+jsonCopy code{     "Effect": "Allow",     "Principal": {         "AWS": "arn:aws:iam::cloudfront:user/XXXX1234567890"     },     "Action": "s3:GetObject",     "Resource": "arn:aws:s3:::aws-example-bucket" } 
+This policy statement allows access to the S3 bucket resources specified by the Resource field to any user with the specified Principal (in this case, a CloudFront user with an unknown identity). This policy statement is not correctly configured to prevent users from bypassing CloudFront to access the S3 files.
+Option C:
+jsonCopy code{     "Effect": "Allow",     "Principal": {         "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity XXXX1234567890"     },     "Action": "s3:GetObject",     "Resource": "arn:aws:s3:::aws-example-bucket/*" } 
+This policy statement allows access to the S3 bucket resources specified by the Resource field to any user with the specified Principal (in this case, the CloudFront OAI). The Action field specifies the type of action that is being allowed (in this case, s3:GetObject). This policy statement appears to be correctly configured to prevent users from bypassing CloudFront to access the S3 files.
+Option D:
+jsonCopy code{     "Effect": "Deny",     "NotPrincipal": {         "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity XXXX1234567890"     },     "Action": "s3:GetObject",     "Resource": "arn:aws:s3:::aws-example-bucket" } 
+This policy statement denies access to the S3 bucket resources specified by the Resource field to any user that is not the specified NotPrincipal (in this case, the CloudFront OAI). The Action field specifies the type of action that is being denied (in this case, s3:GetObject). This policy statement is not correctly configured to prevent users from bypassing CloudFront to access the S3 files.
+Therefore, the correct answer is option A, as it is the only option that appears to be correctly configured to prevent users from bypassing CloudFront to access the S3 files.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question250:"link"
+
+

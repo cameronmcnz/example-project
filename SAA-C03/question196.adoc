@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "996 - A customer wants to import the existing "
+---
+
+
+[.question]
+== 996-64a1fa80f053625db51ddecf.
+
+
+****
+
+[.query]
+--
+A customer wants to import the existing virtual machines to the cloud.
+Which service should they use for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. VM Import/Export
+* [ ] B. AWS Import/Export
+* [*] C. AWS Storage Gateway
+* [ ] D. DB Migration Service.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+VM Import/Export enables customers to import Virtual Machine (VM) images to create Amazon EC2 instances.
+Customers can also export previously imported EC2 instances to create VMs.
+Customers can use VM Import/Export to leverage their previous investments in building VMs by migrating their VMs to Amazon EC2.
+For more information on AWS VM Import, please visit the URL below:
+https://aws.amazon.com/ec2/vm-import/
+Few strategies used for migration are:
+1
+Forklift migration strategy.
+2
+Hybrid migration strategy.
+3
+Creating AMIs.
+AWS Import/Export -It is a data transport service used to move large amounts of data in and out of the Amazon Web Services public cloud using portable storage devices for transport.
+https://aws.amazon.com/about-aws/whats-new/2009/05/20/AWS-Import-Export/
+AWS Storage Gateway -It connects an on-premises software appliance with cloud-based storage to provide seamless integration with data security features between your on-premises IT environment and the AWS storage infrastructure.
+The gateway provides access to objects in S3 as files or file share mount points.
+https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html.
+DB Migration Service - It can migrate your data to and from the most widely used commercial and open-source databases.
+It supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to Amazon Aurora.
+For more information, please check the URL below:
+https://aws.amazon.com/dms/
+The correct answer for this question is A. VM Import/Export.
+VM Import/Export is a service offered by Amazon Web Services (AWS) that allows customers to import existing virtual machine images into AWS, and export them back to their on-premises environments. This service supports a wide range of virtualization platforms, including VMware vSphere, Microsoft Hyper-V, and Citrix Xen.
+VM Import/Export enables customers to import virtual machines as Amazon Machine Images (AMIs), which can be used to launch new instances in Amazon Elastic Compute Cloud (Amazon EC2). Customers can also export their existing Amazon EC2 instances as AMIs, which can be used to launch instances in their on-premises environments.
+AWS Import/Export, on the other hand, is a discontinued service that allowed customers to physically transfer large amounts of data between their on-premises environments and AWS using portable storage devices, such as hard drives and USB drives.
+AWS Storage Gateway is a hybrid cloud storage service that enables customers to securely store data in AWS for scalable and cost-effective storage solutions. This service supports a wide range of storage protocols, including NFS, SMB, and iSCSI.
+DB Migration Service is a service that enables customers to migrate their on-premises databases to AWS with minimal downtime. This service supports a wide range of database platforms, including Oracle, SQL Server, MySQL, PostgreSQL, and Amazon Aurora.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question223:"link"
+
+

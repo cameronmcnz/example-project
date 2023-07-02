@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1033 - You created your own VPC and subnet in A"
+---
+
+
+[.question]
+== 1033-64a1fa90f053625db51ddef8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/question/imgquestions_sfrr9m.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You created your own VPC and subnet in AWS and launched an instance in that subnet.
+On attaching an Internet Gateway to the VPC, you see that the instance has a public IP.
+The route table is shown below. Still, the instance cannot reach the Internet.
+What changes are required to be made to the route table to ensure that the issue is resolved?
+
+
+[source,java]
+----
+summary Routes ‘Subnet Associations Route Propagation Tags
+
+Destination Target Status  Propagated
+
+View: | All rules v
+
+10.0.0.016 local Active No
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Add the following entry to the route table – Destination as 0.0.0.0/0 and Target as Internet Gateway.
+* [ ] B. Modify the above route table – Destination as 10.0.0.0/16 and Target as Internet Gateway.
+* [*] C. Add the following entry to the route table –Destination as 10.0.0.0/16 and Target as Internet Gateway.
+* [ ] D. Add the following entry to the route table - Destination as 0.0.0.0/16 and Target as Internet Gateway.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+The route table needs to be modified as shown below to ensure that routes from the Instance reach the Internet.
+Hence by default, all other options become invalid.
+For more information on Route Tables, please visit the URL below.
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question265:"link"
+
+

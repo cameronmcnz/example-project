@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "903 - You are looking to migrate your Developm"
+---
+
+
+[.question]
+== 903-64a1df1baa736d27b1db9339.
+
+
+****
+
+[.query]
+--
+You are looking to migrate your Development and Test environments to AWS.
+You have decided to use separate AWS accounts to host each environment.
+You plan to link each account bill to a Management AWS account using Consolidated Billing.
+To make sure that you keep within the budget, you would like to implement a way for administrators in the Management account to have access to stop, delete and/or terminate resources in both the Dev and Test accounts.
+Identify which of the options will allow you to achieve this goal.
+
+
+--
+
+[.list]
+--
+* [*] A. Create IAM users in the Management account with full Admin permissions. Create cross-account roles in the Dev and Test accounts that grant Management account access to the resources in the account by inheriting permissions from the Management account.
+* [ ] B. Create IAM users and a cross-account role in the Management account that grants full Admin permissions to the Dev and Test accounts.
+* [*] C. Create IAM users in the Management account with the "AssumeRole" permissions. Create cross-account roles in the Dev and Test accounts that have full Admin permissions and grant Management account access.
+* [ ] D. Link the accounts using Consolidated Billing. This will give IAM users in the Management account access to the resources in Dev and Test accounts.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The scenario here is asking you to give permissions to administrators in the Management account such that they can have access to stop, delete, and terminate the resources in two accounts: Dev and Test.
+Tip: Remember that you always create roles in the account whose resources are to be accessed.
+In this example, that would be Dev and Test.
+Then you create the users in the account who will be accessing the resources and give them that particular role.
+In this example, the Management account should create the users.
+Option A is incorrect because the Management account IAM user needs to assume roles from the Dev and Test accounts.
+The roles should have suitable permissions so that the Management account IAM user can access resources.
+Option B is incorrect because the cross-account role should be created in Dev and Test accounts, not in the Management account.
+Option C is CORRECT because (a) the cross-account role is created in Dev and Test accounts, and the users are created in the Management account given that role.
+Option D is incorrect because consolidated billing does not give access to resources in this fashion.
+For more information on cross-account access, please visit the below URL-
+http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
+Option A is the correct answer.
+In this option, we create IAM users in the Management account with full Admin permissions. We also create cross-account roles in the Dev and Test accounts that grant the Management account access to the resources in those accounts by inheriting permissions from the Management account.
+This approach is secure and flexible, as it allows the Management account to access the resources in the Dev and Test accounts without requiring IAM users to be created in each of those accounts. This also means that access to the resources in the Dev and Test accounts can be easily managed and revoked by updating the cross-account roles in those accounts.
+Option B is not the recommended approach because granting full Admin permissions to the Dev and Test accounts from the Management account could create security risks. It is generally not advisable to grant full Admin permissions to accounts that do not require them.
+Option C is also not the recommended approach because it grants full Admin permissions to the cross-account roles in the Dev and Test accounts. This could create a security risk as the Management account may not need full Admin permissions to manage the resources in the Dev and Test accounts.
+Option D is not a valid approach because linking accounts using Consolidated Billing does not automatically grant access to resources in other accounts. Consolidated Billing only consolidates billing information and does not provide any additional access to resources.
+In summary, Option A is the best approach as it provides a secure and flexible way to grant Management account access to resources in the Dev and Test accounts without creating security risks or requiring additional permissions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question133:"link"
+
+

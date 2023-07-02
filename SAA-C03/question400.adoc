@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1200 - A company has a requirement to monitor A"
+---
+
+
+[.question]
+== 1200-64a1fae4f053625db51ddfc4.
+
+
+****
+
+[.query]
+--
+A company has a requirement to monitor API activity for audit purposes for their AWS account.
+This audit would be conducted in the future as well and should apply to all regions.
+How would you design your solution to meet the present and future needs?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure CloudTrail logs is enabled for each region and then enable for each future region.
+* [*] B. Ensure one CloudTrail log is enabled for all regions
+* [ ] C. Enable AWS Config to record the events in all regions.
+* [ ] D. Enable AWS Inspector to record the events in all regions.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+When you create a trail that applies to all regions, CloudTrail records events in each region and delivers the CloudTrail event log files to an S3 bucket that you specify.
+If a region is added after you create a trail that applies to all regions, the new region is automatically included, and events in that region are logged.
+AWS CloudTrail increases visibility into your user and resource activity by recording AWS Management Console actions and API calls.
+You can identify which users and accounts are called AWS, the source IP address from which the calls were made, and when the calls occurred.
+Option A is incorrect since this is an overhead to enable it each time for every new region.
+Options C is incorrect since AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources.
+Config continuously monitors and records your AWS resource configurations.
+Option D is incorrect since Amazon Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS.
+Amazon Inspector automatically assesses applications for exposure, vulnerabilities, and deviations from best practices.
+For more information on AWS CloudTrail, please refer to the below URL-
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html
+The best approach to meet the requirement of monitoring API activity for audit purposes for all regions in the AWS account is to enable CloudTrail logs for each region and also for future regions. Therefore, option A is the correct answer.
+CloudTrail is a web service that records AWS API calls made in an AWS account and delivers the log files to an Amazon S3 bucket. By enabling CloudTrail logs, one can track every event that occurs in the account, including user activities, resource access, and API calls. In addition, CloudTrail logs provide an audit trail that can be used to ensure compliance with internal policies and regulatory requirements.
+To enable CloudTrail logs for each region, one should follow the steps below:
+1. Navigate to the AWS Management Console and choose the CloudTrail service.
+2. Click on the Trails link and select the Create Trail button.
+3. Provide a name for the trail, choose the S3 bucket where the log files will be stored, and enable log file validation.
+4. Under the Management events section, select the Read/Write events option to capture all API activity.
+5. Choose the regions that need to be monitored.
+6. Click on Create to create the trail.
+By following the above steps, CloudTrail logs will be enabled for each region selected during the trail creation process. When a new region is added in the future, the process should be repeated to enable CloudTrail logs for the new region.
+Option B is not recommended since having one CloudTrail log for all regions can cause performance issues and create a single point of failure.
+Option C is not the best solution since AWS Config is primarily used to assess, audit, and evaluate the configurations of AWS resources. It can be used to monitor changes made to AWS resources and configurations but does not track API activity.
+Option D is not the best solution since AWS Inspector is a security assessment service that helps improve the security and compliance of applications deployed on AWS. It is not intended for tracking API activity.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question470:"link"
+
+

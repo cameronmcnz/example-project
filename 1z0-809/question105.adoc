@@ -1,0 +1,63 @@
+---
+layout: default 
+title: "905 - Given
+Which interface from the javautilf"
+---
+
+
+[.question]
+== 905-64a1a85fef3e8462333a9c9f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0009100001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which interface from the java.util.function package should you use to refactor the class Txt?
+
+
+[source,java]
+----
+public interface Lengthvalidator {
+public boolean checkLength(String str);
+
+}
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Consumer
+* [ ] B. Predicate
+* [*] C. Supplier
+* [ ] D. Function.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

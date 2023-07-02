@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1082 - A startup company wants to launch an onl"
+---
+
+
+[.question]
+== 1082-64a1faa7f053625db51ddf30.
+
+
+****
+
+[.query]
+--
+A startup company wants to launch an online learning portal on AWS using CloudFront and S3
+They have different subscription models.
+One model where all the members will have access to basic content but another model where the company provides premium content that includes access to multiple private contents without changing their current links. How should a Solution Architect design this solution to meet the requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Design the learning portal using CloudFront web distribution to deliver the premium private content using Signed Cookies.
+* [ ] B. Design the learning portal using CloudFront web distribution to deliver the premium private content using Signed URLs.
+* [ ] C. Design the learning portal using CloudFront web distribution to deliver the premium private content using S3 pre-signed URLs.
+* [ ] D. Design the learning portal using CloudFront web distribution to deliver the premium private content using CloudFront signed URLs.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Option A is CORRECT.
+Use signed cookies in the following cases to provide access to multiple restricted files.
+For example, all the files for a video in HLS format or all of the files in the subscribers' area of the website.
+You don't want to change your current URLs.
+Option B is incorrect.CloudFront signed URLs and signed cookies provide the same basic functionality, and they allow users to control who can access the content.
+Use signed URLs in the following cases.
+· You want to restrict access to individual files, for example, an installation download for your application-
+· Your users are using a client (for example, a custom HTTP client) that doesn't support cookies.
+Option C is incorrect because S3 pre-signed URLs won't provide access without changing current links.
+Option D is incorrect because CloudFront UTLS won't provide access without changing current links.
+References:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html
+The best answer for this scenario is B. Design the learning portal using CloudFront web distribution to deliver the premium private content using Signed URLs.
+Explanation: In this scenario, the startup company wants to launch an online learning portal on AWS using CloudFront and S3. The company has two different subscription models, where all the members will have access to basic content, but the premium content includes access to multiple private contents without changing their current links.
+CloudFront is a content delivery network (CDN) that securely delivers data, videos, applications, and APIs to customers globally. Amazon S3 is a highly scalable and reliable object storage service that can store and retrieve any amount of data from anywhere on the web.
+To meet the startup company's requirements, the solution architect needs to design a solution that allows the delivery of premium private content to the subscribers who have paid for it.
+Option A: Design the learning portal using CloudFront web distribution to deliver the premium private content using Signed Cookies.
+Signed cookies are used to control access to the content for authorized users. However, this option does not meet the requirement of providing premium private content to subscribers who have paid for it. Instead, signed cookies would grant access to specific content to all authorized users.
+Option B: Design the learning portal using CloudFront web distribution to deliver the premium private content using Signed URLs.
+This option meets the requirement of providing premium private content to subscribers who have paid for it. Signed URLs are a secure way of granting access to specific content to authorized users who have paid for it. When a user accesses a signed URL, they are granted temporary access to the content that is specified in the URL.
+Option C: Design the learning portal using CloudFront web distribution to deliver the premium private content using S3 pre-signed URLs.
+Pre-signed URLs grant time-limited permission to access a specific object in Amazon S3. However, this option does not meet the requirement of providing premium private content to subscribers who have paid for it. Instead, pre-signed URLs would grant access to specific content to all authorized users.
+Option D: Design the learning portal using CloudFront web distribution to deliver the premium private content using CloudFront signed URLs.
+This option is similar to Option B but does not meet the requirement of providing premium private content to subscribers who have paid for it. Instead, CloudFront signed URLs would grant access to specific content to all authorized users.
+Therefore, the best answer for this scenario is B. Design the learning portal using CloudFront web distribution to deliver the premium private content using Signed URLs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question322:"link"
+
+

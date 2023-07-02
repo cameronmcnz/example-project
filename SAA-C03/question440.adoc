@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1240 - You have an Amazon Route 53 alias record"
+---
+
+
+[.question]
+== 1240-64a1faf9f053625db51ddff6.
+
+
+****
+
+[.query]
+--
+You have an Amazon Route 53 alias record that routes the traffic to an Application Load Balancer.
+Later on, the availability zones enabled for the load balancer are changed by a team member.
+When you check the load balancer using the dig command, you find that the IPs of the ELB have changed.
+What kind of change do you need to do for the alias record in Route 53?
+
+
+--
+
+[.list]
+--
+* [*] A. Change the record type from A to CNAM.
+* [ ] B. Modify the destination to the DNS name of the Application Load Balancer.
+* [*] C. Add the new IP addresses in the destination of the alias record.
+* [*] D. Nothing as Route 53 automatically recognizes changes in the resource for the alias record.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect because there is no need to change the type to CNAME as the alias record continues to work, although the IP addresses are changed for the ELB.Option B is incorrect because Route 53 can find out the new IPs of the ELB.
+This change is not required.
+Option C is incorrect because you cannot add any extra IPs to this record after creating the alias record.
+Route 53 is responsible for routing the traffic to the correct IP addresses.
+Option D is CORRECT because Route 53 automatically routes the traffic to the new ELB IP addresses.
+With alias records, users do not need to change the record sets even if they have some configuration changes.
+Reference:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html.
+When an Amazon Route 53 alias record is created for an Application Load Balancer, it points to the DNS name of the load balancer. This DNS name is resolved to one or more IP addresses, which are associated with the instances that are registered with the load balancer.
+If the availability zones enabled for the load balancer are changed by a team member, Route 53 automatically updates the DNS name associated with the alias record to reflect the new configuration. As a result, the IP addresses associated with the DNS name also change.
+In this scenario, you can use the dig command to verify the new IP addresses associated with the Application Load Balancer. Once you have confirmed that the IP addresses have changed, you do not need to make any changes to the Route 53 alias record. Route 53 automatically recognizes changes in the resource for the alias record and updates the DNS name accordingly.
+Therefore, the correct answer is D. Nothing as Route 53 automatically recognizes changes in the resource for the alias record.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question520:"link"
+
+

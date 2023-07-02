@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1037 - You need to ensure that new objects bein"
+---
+
+
+[.question]
+== 1037-64a1fa92f053625db51ddefd.
+
+
+****
+
+[.query]
+--
+You need to ensure that new objects being uploaded to an S3 bucket are available in another region due to the criticality of the data hosted in the S3 bucket.
+How could you achieve this in the easiest way possible?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable Cross-Region Replication for the bucket.
+* [ ] B. Write a script to copy the objects to another bucket in the destination region.
+* [*] C. Create an S3 snapshot in the destination region.
+* [ ] D. Enable versioning that will copy the objects to the destination region.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following.
+Cross-Region Replication is a bucket-level configuration that enables automatic, asynchronous copying of objects across buckets in different AWS Regions.
+For more information on Cross-Region Replication in the Simple Storage Service, please visit the URL below.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html
+The easiest and recommended way to ensure that new objects being uploaded to an S3 bucket are available in another region is to enable Cross-Region Replication (CRR) for the bucket.
+Cross-Region Replication is a feature provided by Amazon S3 that allows automatic and asynchronous replication of objects across different regions. Once enabled, every new object uploaded to the source bucket is automatically replicated to the destination bucket in another region. This ensures that the data in the source bucket is available in the destination bucket for redundancy, data durability, and data recovery purposes.
+To enable Cross-Region Replication, you need to follow these steps:
+1. Create a new S3 bucket in the destination region.
+2. Enable versioning on both the source and destination buckets.
+3. Create a replication rule that specifies the source bucket, the destination bucket, and the replication configuration.
+4. Enable the replication rule.
+Once the replication rule is enabled, any new objects uploaded to the source bucket are automatically replicated to the destination bucket, where they are available for use. Note that Cross-Region Replication is an asynchronous process, so there may be some delay between when an object is uploaded to the source bucket and when it becomes available in the destination bucket.
+Option B (writing a script to copy objects to another bucket in the destination region) is not the recommended way to achieve this since it requires writing custom code, and it may not be reliable or scalable. Option C (creating an S3 snapshot in the destination region) is not a valid solution because S3 does not offer snapshot capability. Option D (enabling versioning that will copy objects to the destination region) is incorrect since enabling versioning does not automatically replicate objects to another region.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question270:"link"
+
+

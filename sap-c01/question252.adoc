@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1052 - You are a software engineer and creating"
+---
+
+
+[.question]
+== 1052-64a1df52aa736d27b1db941d.
+
+
+****
+
+[.query]
+--
+You are a software engineer and creating a serverless application in AWS to process photos.
+When each image is uploaded to an S3 bucket, a Lambda function is invoked.
+This Lambda function then calls Amazon Rekognition to detect text in the image.
+The returned results are saved in a DynamoDB table.
+You have used a template provided by AWS Serverless Application Model (AWS SAM) to build and deploy the whole application.
+For the above mentioned AWS services, which one do you still need to pay even if the service is not used?
+
+
+--
+
+[.list]
+--
+* [*] A. Lambda function
+* [ ] B. SAM Template
+* [*] C. API Gateway
+* [ ] D. Rekognition Image Analysis
+* [*] E. None of the above.
+
+--
+****
+
+[.answer]
+Correct Answer  E
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer - E.
+AWS has provided a variety of services that customers only pay for the amount that they use (Pay-as-you-go model), which means that customers are not charged if services are unused.
+The document https://aws.amazon.com/pricing/?nc2=h_ql_pr is an introduction of AWS pricing features.
+Option A is incorrect: Because the Lambda function created by SAM has used a Pay-as-you-go model, and there is no charge if it is not used.
+Option B is incorrect: Because SAM Template is an extension to the CloudFormation template.
+No charge for the SAM service.
+Option C is incorrect: Because users pay only for the API calls received and the amount of data transferred out for API Gateway.
+Option D is incorrect: Because AWS Rekognition Image Analysis is charged based on the number of images analyzed.
+Option E is CORRECT: Because all the above options do not have an upfront or monthly fee, and customers are not charged if the services are not used.
+The AWS services used in the serverless application are:
+Amazon S3: Object storage service used for storing images.
+AWS Lambda: Serverless compute service that executes the code in response to events, like an image upload to S3 in this case.
+Amazon Rekognition: A service that can identify objects, people, text, scenes, and activities in images and videos.
+Amazon DynamoDB: A NoSQL database that provides low-latency and consistent performance at scale.
+Now, to answer the question, which service needs to be paid even if it is not used?
+AWS SAM Template: It is a framework for building serverless applications using AWS CloudFormation. It is not a service that runs in the cloud, and hence there is no cost associated with it. So option B is not correct.
+API Gateway: The application does not use API Gateway, so there is no cost associated with it. Option C is not correct.
+Lambda Function: Lambda function is invoked only when an image is uploaded to S3. Hence, if no image is uploaded, there will be no Lambda function execution, and hence there will be no cost associated with Lambda function when it is not used. So, option A is not correct.
+Rekognition Image Analysis: As the Lambda function calls Amazon Rekognition to detect text in the image, it incurs cost per image processed. So, option D is the correct answer.
+Therefore, the answer to the question is D. Rekognition Image Analysis is the service that needs to be paid even if it is not used.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question364:"link"
+
+

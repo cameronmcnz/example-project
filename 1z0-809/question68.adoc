@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "868 - Which statement is true about javatimeDu"
+---
+
+
+[.question]
+== 868-64a1a853ef3e8462333a9c7a.
+
+
+****
+
+[.query]
+--
+Which statement is true about java.time.Duration?
+
+
+--
+
+[.list]
+--
+* [ ] A. It tracks time zones.
+* [ ] B. It preserves daylight saving time.
+* [*] C. It defines time-based values.
+* [ ] D. It defines date-based values.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

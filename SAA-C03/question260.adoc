@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1060 - Your company plans to host its developme"
+---
+
+
+[.question]
+== 1060-64a1fa9cf053625db51ddf16.
+
+
+****
+
+[.query]
+--
+Your company plans to host its development, test, and production applications on EC2 Instances in AWS.
+The team is worried about how access control would be given to relevant IT Admins for each of the above environments.
+As an architect, what would you suggest to manage the relevant accesses?
+
+
+--
+
+[.list]
+--
+* [*] A. Add tags to the instances marking each environment and then segregate access using IAM Policies.
+* [ ] B. Add Userdata to the underlying instances to mark each environment.
+* [*] C. Add Metadata to the underlying instances to mark each environment.
+* [ ] D. Add each environment to a separate Auto Scaling Group.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following to support this requirement.
+Tags enable you to categorize your AWS resources differently, for example, by purpose, owner, or environment.
+This is useful when you have many resources of the same type - you can quickly identify a specific resource based on the tags you've assigned to it.
+Each tag consists of a key and an optional value, both of which you define.
+For example, you could define a set of tags for your account's Amazon EC2 instances that help you track each instance's owner and stack level.
+We recommend you to devise a set of tag keys that will meet your needs for each resource type.
+Using a consistent set of tag keys makes it easier for you to manage your resources.
+You can search and filter the resources based on the tags you add.
+For more information on using tags, please visit the link below.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
+As an AWS Solutions Architect, I would recommend option A, i.e., Add tags to the instances marking each environment and then segregate access using IAM Policies.
+Here's why:
+1.
+Tags are an essential part of AWS resource management. They enable you to categorize resources in logical groupings and apply various policies to these groups based on business or organizational requirements.
+2.
+In this scenario, by adding tags to the instances, you can segregate the instances into development, test, and production environments. This categorization will enable you to apply different access policies to each of these environments.
+3.
+With IAM policies, you can easily control who has access to which resources in your AWS account. IAM policies define permissions for users, groups, and roles, allowing you to grant or deny access to specific AWS resources.
+4.
+By creating separate IAM policies for each environment, you can grant or deny access to the relevant IT admins. For example, you can create a policy that grants full access to instances tagged as "development" to your development team and deny access to your production team.
+5.
+Additionally, you can use AWS Resource Access Manager (RAM) to share resources across multiple AWS accounts, making it easier to manage permissions across multiple accounts and environments.
+Option B, adding userdata, is not a recommended approach as userdata is generally used to configure an instance when it is launched, and it is not a reliable way to mark the environment of an instance.
+Option C, adding metadata, is not recommended either as metadata is a set of data that provides information about an instance and is not designed to categorize resources based on their environment.
+Option D, adding each environment to a separate Auto Scaling Group, is not a recommended approach either. While Auto Scaling Groups can help you scale your application based on demand, they are not designed to manage access control. Moreover, creating separate Auto Scaling Groups for each environment can lead to additional management overhead and increased costs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question296:"link"
+
+

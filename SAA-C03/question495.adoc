@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "1295 - You are a solutions architect working fo"
+---
+
+
+[.question]
+== 1295-64a1fb15f053625db51de03a.
+
+
+****
+
+[.query]
+--
+You are a solutions architect working for a media company that produces and stores image and video content that is sold as stock content to other companies that wish to use your stock content in their web and mobile apps.
+You are storing your stock content in S3 and you need to optimize for cost.
+Some of your images are small, less than 128 KB in size.
+However, most of your stock content is much larger.
+The amount of content you manage is very large, with over 1 million objects in S3
+These objects have varying access patterns.
+Some are accessed frequently, while others are accessed very infrequently.
+Also, the access patterns for the stock objects change over time. Which S3 storage class should you choose for your stock content to optimize your costs while also providing the best overall performance?
+
+
+--
+
+[.list]
+--
+* [*] A. S3 Standard
+* [ ] B. S3 Standard-IA
+* [*] C. S3 Intelligent-Tiering
+* [ ] D. S3 One Zone-IA.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect.
+S3 Standard tiering is not a cost-optimized solution.
+You have a lot of objects and many of them are accessed very infrequently.
+With S3 Standard, all objects are charged at the same rate, regardless of how often they are accessed.
+Option B is incorrect.
+S3 Standard-IA, or Infrequent Access, would be a cost-optimized solution for less frequently accessed objects.
+However, retrieval latency will not be optimal for frequently accessed objects.
+Option C is correct.
+S3 Intelligent-Tiering gives you the ability to have S3 monitor the access patterns of your objects and move objects across the various storage tiers based on the relevant access patterns.
+This will give you both cost and performance optimization.
+Also, smaller files (less than 128 KB) can be stored in S3 Intelligent-Tiering but they will always remain in the S3 Standard storage class.
+Option D is incorrect.
+S3 One Zone-IA is used for files that are easily recreated if the one AZ becomes unavailable.
+Also, an infrequent access tier such as S3 One Zone-IA would be a cost-optimized solution for less frequently accessed objects.
+However, retrieval latency will not be optimal for frequently accessed objects.
+Reference:
+Please see the Amazon Simple Storage Service user guide titled Using Amazon S3 storage classes (https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html)
+As a solutions architect, you need to optimize the cost of storing and accessing your stock content in S3 while maintaining good performance. The storage class you choose will depend on the access patterns, size, and frequency of your objects.
+A. S3 Standard: This storage class provides high durability and availability and is suitable for frequently accessed objects. It has the highest storage cost per GB compared to other S3 storage classes, making it less cost-effective for objects that are accessed less frequently. This is not the best option for optimizing cost for your scenario.
+B. S3 Standard-IA: This storage class provides high durability and availability with lower storage cost per GB compared to S3 Standard. It is suitable for infrequently accessed objects that still require fast access times when accessed. This option is cost-effective for objects that are accessed less frequently than the frequently accessed objects, but more than the objects that are hardly ever accessed.
+C. S3 Intelligent-Tiering: This storage class automatically moves objects between two access tiers based on changing access patterns. This storage class is suitable for objects with unknown or changing access patterns, and it is cost-effective for data with unknown access patterns. This option automatically moves objects to a lower-cost storage tier when access patterns change, reducing costs while maintaining performance.
+D. S3 One Zone-IA: This storage class provides lower storage costs than S3 Standard-IA by storing data in a single Availability Zone (AZ). However, it has a lower durability level because it is stored in only one AZ, and it is only suitable for data that can be recreated easily, as it cannot be recovered in case of an AZ outage. This option is not suitable for stock content, which is critical for the media company's business.
+Therefore, based on the given requirements, the best storage class to optimize costs while maintaining performance for the media company's stock content is C. S3 Intelligent-Tiering. It provides the best overall performance, automatically moving objects between access tiers based on changing access patterns, while optimizing costs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question589:"link"
+
+

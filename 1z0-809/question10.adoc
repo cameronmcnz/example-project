@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "810 - Given the content of Operatorjava Engine"
+---
+
+
+[.question]
+== 810-64a1a83bef3e8462333a9c40.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0001000001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the content of Operator.java, EngineOperator.java, and Engine.java files:
+What is the result?
+
+
+[source,java]
+----
+Operator. java:
+public abstract class Operator {
+protected void turnoN(
+protected void turnoFF()
+
+}
+
+EngineOperator. java:
+public class EngineOperator extends Operator{
+public final void turnoN() { System.out.print ("ON"); }
+public final void turnOFF() { System.out.print1n ("OFF"); }
+y
+
+Engine. java!
+public class Engine{
+Operator m = new EngineOperator();
+public void operate() {
+m.turnON () 7
+m.turnOFF ()
+----
+
+
+--
+
+[.list]
+--
+* [*] A. The Engine.java file fails to compile.
+* [ ] B. The EngineOperator.java file fails to compile.
+* [ ] C. The Operator.java file fails to compile.
+* [ ] D. ON OFF.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

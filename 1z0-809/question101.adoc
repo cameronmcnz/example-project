@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "901 - Given the code fragment
+Assume that The "
+---
+
+
+[.question]
+== 901-64a1a85eef3e8462333a9c9b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0008800002.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Assume that: The required database driver is configured in the classpath.
+The appropriate database is accessible with the dbURL, userName, and passWord exists The Employee table has a column ID of type integer and the SQL query matches one record.
+What is the result?
+
+
+[source,java]
+----
+10. try {
+
+1a Connection conn = DriverManager.getConnection(dbURL, userName, passWord);
+12. String query = "SELECT * FROM Employee WHERE ID = 110";
+
+is. Statement stmt = conn.createStatement ();
+
+14. ResultSet rs = stmt.executeQuery (query) +
+
+1s. System.out.printIn("Employee ID: " + rs.getInt("ID"));
+
+16. } catch (Exception se) {
+
+7. System. out .printIn ("Error"
+
+ie. }
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Compilation fails at line 14.
+* [ ] B. Compilation fails at line 15.
+* [ ] C. The code prints the employee I.
+* [ ] D. The code prints Error.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

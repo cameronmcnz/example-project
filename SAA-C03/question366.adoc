@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1166 - Your company currently has a set of EC2 "
+---
+
+
+[.question]
+== 1166-64a1fad4f053625db51ddf9c.
+
+
+****
+
+[.query]
+--
+Your company currently has a set of EC2 Instances hosted on the AWS Cloud.
+There is a requirement to ensure the restart of instances if a CloudWatch metric goes beyond a certain threshold.
+As a solutions architect, how would you ask the IT admin staff to implement this?
+
+
+--
+
+[.list]
+--
+* [*] A. Look at the Cloudtrail logs for events and then restart the Instance based on the events.
+* [*] B. Create a CloudWatch metric which looks into the instance threshold, and assign this metric against an alarm to reboot the instance.
+* [ ] C. Create a CLI script that restarts the server at certain intervals.
+* [ ] D. Use the AWS Config utility on the EC2 Instance to check for metrics and restart the server.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+Using Amazon CloudWatch alarm actions, you can create alarms that automatically stop, terminate, reboot, or recover your EC2 instances.
+You can use the stop or terminate actions to help you save money when you no longer need an instance to be running.
+You can use the reboot and recover actions to automatically reboot those instances or recover them onto new hardware if a system impairment occurs.
+Option A is incorrect because CloudTrail logs will provide event details and not metrics.
+Option C is incorrect because we want to restart Instance as we reach a certain threshold.
+But this way, it will keep on restarting the Instance even without any threshold reach.
+Option D is incorrect because AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources.
+For more information on using alarm actions, please visit the URL-
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingAlarmActions.html
+As a solutions architect, you would ask the IT admin staff to implement the following steps to ensure the restart of instances if a CloudWatch metric goes beyond a certain threshold:
+B. Create a CloudWatch metric which looks into the instance threshold, and assign this metric against an alarm to reboot the instance.
+Explanation: CloudWatch is a monitoring service provided by AWS that monitors various AWS resources, such as EC2 instances, databases, and more. CloudWatch provides metrics for resources, which are data points that represent the performance of resources over time. These metrics can be used to set up alarms that trigger actions based on specific conditions.
+To implement the requirement of restarting instances if a CloudWatch metric goes beyond a certain threshold, you need to create a CloudWatch metric that monitors the performance of the EC2 instances. For example, you can create a metric that monitors the CPU utilization of the EC2 instance.
+Once you have created the CloudWatch metric, you can then set up an alarm based on that metric. The alarm can be configured to trigger an action, such as restarting the instance, when the metric goes beyond a certain threshold. For example, you can set up an alarm that triggers a restart action when the CPU utilization of the instance goes beyond 80%.
+To create an alarm based on a CloudWatch metric, you need to follow these steps:
+1. Open the CloudWatch console.
+2. Select the metric you want to monitor.
+3. Choose the Create Alarm button.
+4. Configure the alarm threshold and actions.
+By following these steps, you can ensure that your EC2 instances are automatically restarted if a CloudWatch metric goes beyond a certain threshold. This helps to ensure the availability and performance of your applications running on the EC2 instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question430:"link"
+
+

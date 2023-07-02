@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "937 - Your company is a media company
+You need"
+---
+
+
+[.question]
+== 937-64a1df28aa736d27b1db9370.
+
+
+****
+
+[.query]
+--
+Your company is a media company.
+You need a fully managed AWS service that can stream live video from smartphones to AWS and help you build applications for real-time video processing.
+Which of the following services is the most appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon Kinesis Data Streams
+* [ ] B. Amazon Kinesis Delivery Streams
+* [*] C. Amazon Interactive Video Service
+* [*] D. Amazon Kinesis Video Streams.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Options A, B and C are incorrect because all these services are not dedicated AWS services for streaming live videos to AWS.
+Option D is CORRECT because Amazon Kinesis Video Streams can capture massive amounts of live video from millions of sources, including smartphones to AWS.
+It is the most appropriate service to achieve the requirement of the question.
+For the introduction of Kinesis Video Streams, please check https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html.
+The most appropriate AWS service for the given scenario would be D. Amazon Kinesis Video Streams.
+Amazon Kinesis Video Streams is a fully managed AWS service that makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), and other processing. It offers SDKs for mobile platforms, including iOS and Android, to enable live video streaming from smartphones to AWS. Kinesis Video Streams can also be used to build real-time video applications for a variety of use cases, including media and entertainment, security and surveillance, and industrial automation.
+Option A, Amazon Kinesis Data Streams, is a managed service that can be used for real-time streaming of large data sets. However, it is not designed specifically for video streaming and does not offer the same level of functionality as Kinesis Video Streams.
+Option B, Amazon Kinesis Delivery Streams, is a managed service that can be used to reliably load streaming data into AWS data stores, such as Amazon S3, Amazon Redshift, and Amazon Elasticsearch. However, it does not provide real-time video processing capabilities.
+Option C, Amazon Interactive Video Service, is a managed service that can be used to create interactive video experiences with low latency and high reliability. However, it is not designed for real-time video streaming and does not offer the same level of functionality as Kinesis Video Streams.
+Therefore, the most appropriate service for the given scenario is Amazon Kinesis Video Streams, as it offers a comprehensive solution for real-time video streaming from smartphones to AWS and enables the development of real-time video processing applications.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question190:"link"
+
+

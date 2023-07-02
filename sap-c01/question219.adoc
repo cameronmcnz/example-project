@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1019 - Your company is migrating infrastructure"
+---
+
+
+[.question]
+== 1019-64a1df46aa736d27b1db93ee.
+
+
+****
+
+[.query]
+--
+Your company is migrating infrastructure to AWS.
+A large number of developers and administrators will need to control this infrastructure using the AWS Management Console.
+The Identity Management team is objecting to creating an entirely new directory of IAM users for all employees, and the employees are reluctant to commit yet another password to memory.
+
+
+--
+
+[.list]
+--
+* [*] A. Users sign in using an OpenID Connect (OIDC) compatible IdP, receive an authentication token, then use that token to log in to the AWS Management Console.
+* [ ] B. Users log in directly to the AWS Management Console using the credentials from your on-premises Kerberos compliant Identity provider.
+* [ ] C. Users log in to the AWS Management Console using the AWS Command Line Interface.
+* [*] D. Users request a SAML assertion from your on-premises SAML 2.0-compliant identity provider (IdP) and use that assertion to obtain federated access to the AWS Management Console via the AWS single sign-on (SSO) endpoint.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because, although it is a workable solution, the users need not use the OpenID IdP (such as Facebook, Google, SalesForce, etc.)in this scenario as they can use the on-premises 2.0 SAML compliant IdP and get the federated access to the AWS.
+Access via OpenID IdP is most suitable for mobile apps.
+Option B is incorrect because you cannot log in to AWS using the IdP provided credentials.
+You need temporary credentials provided by Security Token Service (STS) for that.
+Option C is INCORRECT as the user cannot log in to the AWS console using AWS CLI.
+Option D is CORRECT because it uses the on-premises 2.0 SAML compliant IdP and gets the federated access to the AWS, thus avoiding creating an IAM User for the employees in the organization.
+For more information on SAML Authentication in AWS, please visit the below URL:
+http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html
+The question is about finding a solution for providing secure and easy access to the AWS Management Console for a large number of developers and administrators, without creating a new directory of IAM users.
+Option A suggests using an OpenID Connect (OIDC) compatible identity provider (IdP) to authenticate users. OpenID Connect is a protocol built on top of OAuth 2.0 that allows clients to verify the identity of end-users based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. In this option, users would sign in to the identity provider, which would issue an authentication token that the user could then use to log in to the AWS Management Console. This approach would allow users to use their existing login credentials, as long as their identity provider is OIDC-compatible.
+Option B proposes that users log in directly to the AWS Management Console using the credentials from their on-premises Kerberos compliant Identity provider. Kerberos is a network authentication protocol that provides strong authentication for client/server applications by using secret-key cryptography. In this option, users would use their existing credentials from their on-premises Kerberos identity provider to log in to the AWS Management Console. This approach would allow users to use their existing login credentials, but their identity provider would need to be Kerberos-compliant.
+Option C suggests that users log in to the AWS Management Console using the AWS Command Line Interface (CLI). The AWS CLI is a command-line tool that allows users to interact with AWS services and resources from the command line. While this approach would not require creating a new directory of IAM users, it would not provide an easy-to-use graphical user interface, and users would need to be familiar with the AWS CLI commands to use it effectively.
+Option D proposes that users request a Security Assertion Markup Language (SAML) assertion from their on-premises SAML 2.0-compliant identity provider (IdP) and use that assertion to obtain federated access to the AWS Management Console via the AWS single sign-on (SSO) endpoint. SAML is an XML-based standard for exchanging authentication and authorization data between parties, in particular, between an identity provider and a service provider. In this option, users would sign in to their on-premises SAML 2.0-compliant identity provider, which would issue a SAML assertion that the user could then use to log in to the AWS Management Console via the AWS SSO endpoint. This approach would allow users to use their existing login credentials, as long as their identity provider is SAML 2.0-compliant, and would provide an easy-to-use graphical user interface.
+In conclusion, the best option for providing secure and easy access to the AWS Management Console for a large number of developers and administrators without creating a new directory of IAM users would be Option D, where users request a SAML assertion from their on-premises SAML 2.0-compliant identity provider and use that assertion to obtain federated access to the AWS Management Console via the AWS SSO endpoint.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question317:"link"
+
+

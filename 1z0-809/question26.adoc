@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "826 - Given public class Emp String fName Stri"
+---
+
+
+[.question]
+== 826-64a1a843ef3e8462333a9c50.
+
+
+****
+
+[.query]
+--
+Given: public class Emp{ String fName; String lName; public Emp (String fn, String ln){ fName = fn; lName = ln; } public String getfName() { return fName; } public String getlName() { return lName; } } and the code fragment: List<Emp> emp = Arrays.asList ( new Emp ("John", "Smith"), new Emp ("Peter", "Sam"), new Emp ("Thomas", "Wale")); emp.stream() //line n1 .collect(Collectors.toList()); Which code fragment, when inserted at line n1, sorts the employees list in descending order of fName and then ascending order of lName?
+
+
+--
+
+[.list]
+--
+* [ ] A. .sorted (Comparator.comparing(Emp::getfName).reserved().thenComparing(Emp::getlName))
+* [*] B. .sorted (Comparator.comparing(Emp::getfName).thenComparing(Emp::getlName))
+* [ ] C. .map(Emp::getfName).sorted(Comparator.reverseOrder())
+* [ ] D. .map(Emp::getfName).sorted(Comparator.reverseOrder().map(Emp::getlName).reserved.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

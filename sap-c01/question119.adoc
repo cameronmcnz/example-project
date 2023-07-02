@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "919 - A company has a legacybased software tha"
+---
+
+
+[.question]
+== 919-64a1df20aa736d27b1db934f.
+
+
+****
+
+[.query]
+--
+A company has a legacy-based software that needs to be transferred to the AWS cloud.
+The legacy-based software has a dependency on the license which is based on the MAC Address.
+What would be a possible solution to ensure that the legacy-based software will always work properly and not lose the MAC address at any point in time? Choose an answer from the below options.
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure any EC2 Instance that you deploy has a static IP address mapped to the MAC address.
+* [ ] B. Use a VPC with a private subnet for the license and a public subnet for the EC2.
+* [ ] C. Use a VPC with a private subnet and configure the MAC address to be tied to that subnet.
+* [*] D. Use a VPC with instances having an elastic network interface attached that has a fixed MAC Address.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because you cannot map a static IP address to a MAC address.
+Option B is incorrect because putting a license server in a private subnet would not resolve the dependency on the license based on a MAC address.
+Option C is incorrect because MAC addresses cannot be tied to subnets.
+Option D is CORRECT because you should use the Elastic Network Interface associated with a fixed MAC address.
+This will ensure that the legacy license-based software would always work and not lose the MAC address at any point in the future.
+For more information on Elastic Network Interfaces, please refer to the URL below.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html
+The correct answer is D: Use a VPC with instances having an elastic network interface attached that has a fixed MAC Address.
+Explanation: When transferring a legacy-based software to the AWS cloud, it is important to consider the licensing requirements. If the license is based on the MAC address, it is essential to ensure that the software continues to function properly without losing the MAC address at any point in time.
+In this scenario, using a VPC (Virtual Private Cloud) with instances having an elastic network interface (ENI) attached that has a fixed MAC address would be the most appropriate solution.
+An elastic network interface is a virtual network interface that can be attached to an EC2 instance in a VPC. It provides additional network interfaces for an instance, including one or more IPv4 or IPv6 addresses, and a MAC address.
+By attaching an ENI with a fixed MAC address to the EC2 instance running the legacy-based software, the software can maintain its licensing requirement as the MAC address will remain constant even if the EC2 instance is stopped and restarted.
+Option A (Ensure any EC2 Instance that you deploy has a static IP address mapped to the MAC address) is incorrect because a static IP address does not guarantee that the MAC address will remain the same when the instance is stopped and restarted.
+Option B (Use a VPC with a private subnet for the license and a public subnet for the EC2) is also incorrect because it does not address the issue of the licensing requirement based on the MAC address.
+Option C (Use a VPC with a private subnet and configure the MAC address to be tied to that subnet) is incorrect because it is not possible to tie a MAC address to a subnet directly.
+Therefore, option D is the most appropriate solution to ensure that the legacy-based software will always work properly and not lose the MAC address at any point in time.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question156:"link"
+
+

@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "892 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 892-64a1a85cef3e8462333a9c92.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0007600001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+public class Job {
+String name;
+Integer cost;
+Job(String name, Integer cost) {
+this.name = name;
+this.cost = cost;
+}
+String getName() { return name; }
+int getCost() { return cost; }
+public static void main(String[] args) {
+Job j1 = new Job("IT", null);
+Doublesupplier jS1 = j1::getCost;
+System.out .print1n(j1.getName() + ":" + jS1.getAsDouble());
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. IT:null
+* [ ] B. A NullPointerException is thrown at run time.
+* [ ] C. A compilation error occurs.
+* [*] D. IT:0.0
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "982 - A company has recently started using AWS"
+---
+
+
+[.question]
+== 982-64a1fa7bf053625db51ddebf.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img2-ryVbLzN6kdtowJquRRDZ--ip7LMWN3vLJFJ06lYR7vcKYjYm_oBe9MP4_cZahHo5932C_WYpkOaauV7SFskQBsr7opuAbCuk3XLv-LEnkaOTHLgi9YYfVmQayz6E5aCCrrJbPbl-zHkK1gHw[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has recently started using AWS Cloud services and needs to transfer a large set of data online from on-prem Windows servers to AWS Storage Services S3, EFS, and FSx.
+This transfer should be a bi-directional, reliable, and incremental based on schedules. How would a Solution Architect design this solution?
+
+
+[source,java]
+----
+Amazon $3
+
+FileSystems ©} Aws DataSync Agent lot Network trasnfers lot AWS Data Synch Amazon EFS
+
+Amazon FSX for windows
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use Snowball devices to transfer data to S3, EFS and FSx.
+* [*] B. Use AWS DataSync service to transfer data to AWS Services.
+* [ ] C. AWS Database Migration Service to transfer data to AWS services.
+* [ ] D. Use AWS S3 Transfer acceleration to transfer a large set of data.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect because snowball devices are used to transfer a large set of data electronically but do not meet the bi-directional and incremental transfer requirements.
+Option B is CORRECT because it is a more reliable service to transfer data bi-directionally, supporting S3, EFS and FSx.
+DataSync helps to move data over the network between on-premise File Systems storage and AWS Storage services.
+DataSync automates both the management of data transfer processes and the infrastructure required for high-performance, secure data transfer.
+Option C is incorrect because the Data migration service is used to transfer databases to AWS RDS.
+Option D is incorrect because S3 Transfer acceleration is used to accelerate data transfer to S3 and doesn't support bi-directional and the fie systems.
+References:
+https://aws.amazon.com/datasync/?whats-new-cards.sort-by=item.additionalFields.postDateTime&amp;whats-new-cards.sort-order=desc
+<h2>Option A: Use Snowball devices to transfer data to S3, EFS, and FSx</h2><p>Snowball is a physical data transfer service that enables businesses to transfer large amounts of data into and out of AWS cloud environments. A Snowball device can be shipped to the customer's on-premises location, where data is loaded onto it and then shipped back to AWS to be transferred to S3, EFS, and FSx.</p><p>This option can be considered if the data set is quite large, and transferring data over the network would be time-consuming or expensive. Snowball devices are suitable for data sets ranging from a few terabytes to dozens of petabytes. However, this option is not incremental and may require manual scheduling for data transfer.</p><h2>Option B: Use AWS DataSync service to transfer data to AWS Services</h2><p>AWS DataSync is a data transfer service that makes it easy for businesses to automate and accelerate copying large amounts of data to and from AWS services over the network. DataSync provides a reliable and secure transfer of data with features such as incremental transfer, checksum verification, and scheduling capabilities.</p><p>This option is a good choice for transferring data over the network and provides a bi-directional and incremental transfer. DataSync also allows you to transfer data from on-premises storage systems to S3, EFS, and FSx. DataSync is also suitable for real-time replication of data to cloud services.</p><h2>Option C: Use AWS Database Migration Service to transfer data to AWS services</h2><p>The AWS Database Migration Service (DMS) is a managed service that makes it easy to migrate data from one database to another. DMS supports a variety of database sources, including on-premises databases, and can transfer data to a variety of database targets, including Amazon S3, EFS, and FSx.</p><p>This option is a good choice if the data set is stored in a database, and the customer wants to migrate the database to AWS. AWS DMS provides incremental migration and scheduling capabilities. However, if the data set is not stored in a database, this option is not suitable.</p><h2>Option D: Use AWS S3 Transfer acceleration to transfer a large set of data</h2><p>AWS S3 Transfer Acceleration is a data transfer acceleration service that enables faster transfer of data over the internet to and from Amazon S3. S3 Transfer Acceleration uses Amazon CloudFront's globally distributed edge locations to accelerate transfers over the public internet.</p><p>This option is a good choice if the customer wants to transfer a large amount of data to S3 and wants to accelerate the transfer over the internet. However, this option is not bi-directional, and it does not support transfer to EFS or FSx.</p><h2>Conclusion</h2><p>Based on the requirements of bi-directional, reliable, and incremental transfer based on schedules, the best option for this scenario is B. Use AWS DataSync service to transfer data to AWS services. This option can provide reliable and secure transfer of data with features such as incremental transfer, checksum verification, and scheduling capabilities. DataSync also allows transferring data from on-premises storage systems to S3, EFS, and FSx.</p>
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question206:"link"
+
+

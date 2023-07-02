@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "1341 - Which of the following statements is not"
+---
+
+
+[.question]
+== 1341-64a1fb32f053625db51de084.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_clfni0.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following statements is not correct with respect to AWS SQS?
+
+
+[source,java]
+----
+Configure Incoming Messages to Trigger a Lambda Function
+
+Select a Lambda function from the list or specify a Lambda function ARN. To trigger a Lambda function when a message arrives in this
+queue, choose Save.
+
+Region US East (N. Virginia)
+
+Select a Lambda Function Create New
+
+Lambda Function ARN
+
+cance EEB
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon SQS can trigger a lambda function.
+* [ ] B. To select the message to delete, use the ReceiptHandle of the message, not the MessageId which you receive when you send the message.
+* [ ] C. Use dead letter queues to isolate messages that can`t be processed for later analysis.
+* [*] D. All messages in the Amazon SQS queue are encrypted by default.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Note: In the question, it is mentioned to select the wrong Option as the answer.
+Here.
+Option A, B and C are correct statements but not the correct options.
+Option A is a correct statement.
+Option B is the correct statement.
+Option C is the correct statement.
+Option D is not a correct statement.
+Amazon SQS does not encrypt messages by default.
+The option needs to be selected by the customer to enable encryption on the Queue messages.
+https://aws.amazon.com/blogs/aws/new-server-side-encryption-for-amazon-simple-queue-service-sqs/
+The correct answer is D. All messages in the Amazon SQS queue are encrypted by default.
+Explanation: Amazon SQS (Simple Queue Service) is a fully managed message queuing service provided by Amazon Web Services (AWS). It enables decoupling and scaling of distributed systems and applications by allowing them to communicate asynchronously through messages.
+A. Amazon SQS can trigger a Lambda function: Amazon SQS can be used to trigger AWS Lambda functions. AWS Lambda is a serverless compute service that allows you to run code without provisioning or managing servers. By configuring an SQS queue as an event source for Lambda, you can invoke a Lambda function to process messages in the queue automatically.
+B. Use ReceiptHandle to delete messages: When you send a message to an SQS queue, the service returns a MessageId that you can use to identify the message in the queue. However, when you want to delete a message from the queue, you need to use the ReceiptHandle that SQS returns with the message. The ReceiptHandle is a unique identifier that is associated with the act of receiving the message, and it is necessary to delete the message from the queue.
+C. Use Dead Letter Queues: A Dead Letter Queue (DLQ) is a queue where messages are sent when they can't be processed successfully by the primary queue. This can occur due to errors in the application code, lack of resources, or other issues. By using DLQ, you can isolate problematic messages for later analysis and take corrective action. Amazon SQS supports the use of DLQs to help you identify and diagnose the root cause of message processing failures.
+D. Messages in Amazon SQS are not encrypted by default: SQS messages are not encrypted by default. However, you can choose to encrypt your messages by enabling the Server-Side Encryption (SSE) feature on your SQS queue. This feature uses AWS Key Management Service (KMS) to encrypt your messages before storing them in the SQS queue.
+In conclusion, the incorrect statement with respect to AWS SQS is D, as messages in the Amazon SQS queue are not encrypted by default.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question663:"link"
+
+

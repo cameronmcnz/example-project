@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "854 - Given the code fragment ListInteger code"
+---
+
+
+[.question]
+== 854-64a1a84def3e8462333a9c6c.
+
+
+****
+
+[.query]
+--
+Given the code fragment: List<Integer> codes = Arrays.asList (10, 20); UnaryOperator<Double> uo = s -> s +10.0; codes.replaceAll(uo); codes.forEach(c -> System.out.println(c)); What is the result?
+
+
+--
+
+[.list]
+--
+* [ ] A. 20.0 30.0
+* [ ] B. 10.0 20.0
+* [*] C. A compilation error occurs.
+* [ ] D. A NumberFormatException is thrown at run time.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

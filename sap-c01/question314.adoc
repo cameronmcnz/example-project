@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1114 - You implement a REST API using a Lambda "
+---
+
+
+[.question]
+== 1114-64a1df69aa736d27b1db9479.
+
+
+****
+
+[.query]
+--
+You implement a REST API using a Lambda Function.
+The API is exposed through the AWS API gateway.
+The Lambda Function calls a third-party service to retrieve the data.
+But this third-party service may not respond in time.
+You already increased the timeout of the Lambda Function to be 15 minutes.
+However, sometimes users still get an HTTP 504 error after about 30 seconds.
+Which of the following options is the most possible reason?
+
+
+--
+
+[.list]
+--
+* [*] A. The error code indicates that there is an Internal Server Error. Check the CloudWatch Logs of the Lambda Function.
+* [ ] B. The third-party service has returned an HTTP 504 error after 30 seconds to the Lambda Function. Then the Lambda Function forwards the error to the API Gateway.
+* [*] C. The maximum of integration timeout for AWS API Gateway is 29 seconds. Although the timer for Lambda Function does not expire yet, the API Gateway already hits its limitation.
+* [ ] D. When Lambda Function integrates with API Gateway, the effective Lambda Function execution time limit is 30 seconds although the limit is set to 15 minutes.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Please check https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html for the Amazon API Gateway limits.
+The integration timeout is 50 milliseconds - 29 seconds for all integration types.
+And the limit cannot be increased.
+Option A is incorrect: Because HTTP 504 is Gateway Timeout instead of Internal Server Error.
+Option B is incorrect: When the third-party service does not respond in time, the API Gateway reaches its limit after 29 seconds.
+It is not the third-party service that returns the HTTP 504 error code in this scenario.
+Option C is CORRECT: Because the API call through API Gateway cannot exceed 29 seconds due to the limits.
+This is the most possible reason to cause the issue.
+Option D is incorrect: Because the limit of Lambda Function can be 15 minutes according to https://aws.amazon.com/about-aws/whats-new/2018/10/aws-lambda-supports-functions-that-can-run-up-to-15-minutes/
+The limit of API Gateway has caused the issue.
+The most possible reason for users still getting an HTTP 504 error after about 30 seconds, despite having increased the timeout of the Lambda Function to 15 minutes, is that the maximum integration timeout for AWS API Gateway is 29 seconds.
+Option A is incorrect because an HTTP 504 error indicates a Gateway Timeout error, not an Internal Server Error. Checking the CloudWatch Logs of the Lambda Function would not provide any additional information in this case.
+Option B is partially correct, as the third-party service may indeed be returning an HTTP 504 error after 30 seconds, but the Lambda Function is not simply forwarding the error to the API Gateway. The Lambda Function is timing out after 15 minutes, but the API Gateway is hitting its maximum integration timeout of 29 seconds, resulting in the HTTP 504 error being returned to the user.
+Option C is the most likely reason for the HTTP 504 error, as the maximum integration timeout for AWS API Gateway is 29 seconds. This means that even though the timer for the Lambda Function has not yet expired, the API Gateway has already hit its limitation and returned the HTTP 504 error to the user.
+Option D is incorrect because when a Lambda Function integrates with API Gateway, the effective Lambda Function execution time limit is equal to the timeout set for the API Gateway integration. In this case, the maximum integration timeout for the API Gateway is the limiting factor, not the Lambda Function execution time limit.
+To resolve the issue, the integration timeout for the AWS API Gateway needs to be increased to a value higher than the expected response time of the third-party service. Alternatively, caching or other performance optimization techniques may be used to reduce the response time of the third-party service.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question456:"link"
+
+

@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1142 - A company wants to implement a data stor"
+---
+
+
+[.question]
+== 1142-64a1fac7f053625db51ddf80.
+
+
+****
+
+[.query]
+--
+A company wants to implement a data store in AWS.
+The data store needs to have the following requirements 1) Completely managed by AWS 2) Ability to store JSON objects efficiently 3) Scale based on demand Which of the following would you use as the data store?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Redshift
+* [*] B. AWS DynamoDB
+* [ ] C. AWS Aurora
+* [ ] D. AWS Glacier.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
+DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don't have to worry about hardware provisioning, setup, and configuration, replication, software patching, or cluster scaling.
+It is ideal for storing JSON based objects.
+With DynamoDB On-Demand, capacity planning is a thing of the past.
+You don't specify read and write capacity at all-you pay only for the usage of your DynamoDB tables.
+I pay more when I have more usage, which means I'm delivering more value to my customers.
+Previously, you had to set read and write throughput capacity on your DynamoDB tables.
+This specified how many and how large of reads and writes you could make on your table in any given second.
+Read and write capacity units were charged by the hour, and your requests would be throttled if you exceeded your provisioned capacity in any given second.
+Option A is incorrect since this is normally used to host a data warehousing solution.
+Option C is incorrect since this doesn't provide scaling on-demand.
+Option D is incorrect since this is used for archive storage.
+For more information on DynamoDB, please refer to the below link.
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html https://aws.amazon.com/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing/
+The correct answer is B. AWS DynamoDB.
+Here's a breakdown of each option and why they do or don't meet the requirements:
+A. AWS Redshift: AWS Redshift is a data warehousing service that is designed for analytical workloads, not transactional workloads. It is not a completely managed service, as the customer is responsible for managing backups, snapshots, and security. Redshift is also not well suited for storing JSON objects efficiently.
+B. AWS DynamoDB: DynamoDB is a NoSQL database that is designed for transactional workloads. It is a completely managed service and can store JSON objects efficiently. DynamoDB can scale based on demand and can handle very large datasets.
+C. AWS Aurora: Aurora is a relational database that is designed for transactional workloads. It is a completely managed service and can scale based on demand. However, it may not be the best choice for storing JSON objects efficiently.
+D. AWS Glacier: Glacier is a storage service that is designed for data archiving and long-term backup. It is not a completely managed service, as the customer is responsible for managing backups, snapshots, and security. It is also not well suited for storing JSON objects efficiently.
+In conclusion, based on the requirements mentioned, AWS DynamoDB would be the most suitable option for the data store as it meets all the requirements mentioned.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question402:"link"
+
+

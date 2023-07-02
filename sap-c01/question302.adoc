@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1102 - You have maintained an AWS Organization "
+---
+
+
+[.question]
+== 1102-64a1df65aa736d27b1db946a.
+
+
+****
+
+[.query]
+--
+You have maintained an AWS Organization and the Organization has below OUs (Organizational Units) configured:
+
+
+--
+
+[.list]
+--
+* [*] A. In the tree view of AWS Organization console, drag and drop QA_Department and its members to be a child of Dev_Department.
+* [ ] B. Move accounts 3 and 4 out of the AWS Organization, move QA_Department to be a child of Dev_Department. Add accounts 3 and 4 back to QA_Department.
+* [*] C. Create a new OU under Dev_Department named QualityAssurance_Department. Move accounts 3 & 4 to the new OU. Delete the original empty OU QA_Department.
+* [ ] D. Move accounts 3 and 4 under the Root of the AWS Organization. Use CLI move-organizational-unit to move QA_Department to be a child of Dev_Department. Then add accounts 3 and 4 to QA_Department.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+For OUs, there are limited operations that users can do.
+Please check.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html.
+One thing to note is that the user cannot move an OU to another place from the console or CLI command.
+So the user has to create a new OU and move accounts to it.
+Option A is incorrect: because the user cannot drag and drop an OU to another place.
+Option B is incorrect because it is unnecessary to move accounts out of the Organization.
+Otherwise, you have to re-invite these accounts.
+Option C is CORRECT because users can move accounts from an OU to another.
+After that, empty OU can be deleted.
+Option D is incorrect because there is no such CLI command to move an Organizational Unit.
+AWS Organizations is a service that allows you to consolidate multiple AWS accounts into an organization that you can centrally manage and control. An organizational unit (OU) is a container for accounts and other OUs, and can be used to group accounts based on business unit, application, or environment.
+The question asks you to move accounts and OUs within an AWS Organization. The current state of the organization is not provided in the question, but there are several options for reconfiguring the organization based on the OUs and accounts mentioned.
+Option A: In the tree view of AWS Organization console, drag and drop QA_Department and its members to be a child of Dev_Department.
+This option involves simply moving the QA_Department OU and its accounts under the Dev_Department OU. This can be done in the AWS Organizations console by clicking and dragging the QA_Department OU and dropping it onto the Dev_Department OU. This option is a straightforward way to reorganize the structure of the organization without moving accounts out of the organization.
+Option B: Move accounts 3 and 4 out of the AWS Organization, move QA_Department to be a child of Dev_Department. Add accounts 3 and 4 back to QA_Department.
+This option involves temporarily removing accounts 3 and 4 from the organization before reconfiguring the OUs. Once the QA_Department OU has been moved under the Dev_Department OU, accounts 3 and 4 can be added back to the QA_Department OU. This option requires more steps than option A, but it is still relatively straightforward.
+Option C: Create a new OU under Dev_Department named QualityAssurance_Department. Move accounts 3 & 4 to the new OU. Delete the original empty OU QA_Department.
+This option involves creating a new OU called QualityAssurance_Department under the Dev_Department OU and moving accounts 3 and 4 to the new OU. Once the accounts have been moved, the original QA_Department OU can be deleted. This option requires a few more steps than option A, but it may be preferred if you want to have a more granular OU structure.
+Option D: Move accounts 3 and 4 under the Root of the AWS Organization. Use CLI move-organizational-unit to move QA_Department to be a child of Dev_Department. Then add accounts 3 and 4 to QA_Department.
+This option involves moving accounts 3 and 4 to the root of the organization before moving the QA_Department OU under the Dev_Department OU using the AWS CLI move-organizational-unit command. Once the QA_Department OU has been moved, accounts 3 and 4 can be added back to the QA_Department OU. This option requires the use of the AWS CLI and may be more complex than the other options.
+In summary, the best option for reconfiguring the organization depends on the specific needs of the organization. Option A is the simplest and most straightforward option, while option C may be preferred if a more granular OU structure is desired. Option B and D are more complex and involve temporarily removing accounts from the organization, but they may be necessary in certain situations.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question441:"link"
+
+

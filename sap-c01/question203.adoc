@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "1003 - You are deploying your first EC2 instanc"
+---
+
+
+[.question]
+== 1003-64a1df41aa736d27b1db93da.
+
+
+****
+
+[.query]
+--
+You are deploying your first EC2 instance in AWS and are using the AWS console to do this.
+You have chosen your AMI and your instance type and have now come to the screen where you configure your instance details.
+One of the things that you need to decide is whether you want to auto-assign a public IP address or not.
+You assume that if you do not choose this option, you will be able to assign an Elastic IP address later, which happens to be a correct assumption.
+Which of the below options best describes why an Elastic IP address would be preferable to a public IP address?
+
+
+--
+
+[.list]
+--
+* [*] A. An Elastic IP address is free, whilst you must pay for a public IP address.
+* [*] B. With an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account.
+* [ ] C. You can have an unlimited amount of Elastic IP addresses. However, public IP addresses are limited in number.
+* [ ] D. An Elastic IP address cannot be accessed from the internet like a public IP address and hence is safer from a security standpoint.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is incorrect because public IP addresses are free.
+Option B is CORRECT because you can reassign the EIP to a new instance in case of an instance failure.
+Thus you do not need to change any reference to the IP address in your application.
+Option C is incorrect because the number of EIPs per account per region is limited (5).
+Option D is incorrect because EIPs are accessible from the internet.
+More information on EIPs.
+An Elastic IP address is a static IPv4 address designed for dynamic cloud computing.
+An Elastic IP address is associated with your AWS account.
+With an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account.
+An Elastic IP address is a public IPv4 address, which is reachable from the internet.
+If your instance does not have a public IPv4 address, you can associate an Elastic IP address with your instance to enable communication with the internet; for example, to connect to your instance from your local computer.
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+When you launch an Amazon Elastic Compute Cloud (Amazon EC2) instance, you have the option to assign it a public IP address automatically, or to use an Elastic IP address.
+A public IP address is assigned to your instance from Amazon's pool of public IP addresses. This IP address is associated with the instance until the instance is stopped, terminated, or replaced. You may also have to pay for a public IP address when it is not in use.
+An Elastic IP address is a static, public IPv4 address that you can allocate to your AWS account. You can associate an Elastic IP address with your instance, and it remains associated with the instance until you choose to release it. You can also remap the Elastic IP address to another instance if the original instance fails.
+Here are some reasons why an Elastic IP address might be preferable to a public IP address:
+1.
+Availability: Elastic IP addresses are yours until you release them, whereas public IP addresses are assigned to you temporarily. If you stop or terminate an instance with a public IP address, you lose the IP address.
+2.
+Remapping: You can remap Elastic IP addresses to other instances in your account, allowing you to quickly recover from instance or software failures.
+3.
+Routing: You can also use Elastic IP addresses with your own domain name servers (DNS) so that your instances can be accessed using a friendly DNS name.
+4.
+Security: Elastic IP addresses can be used to avoid exposing your instances' public IP addresses to the internet. This can be helpful for applications that require more secure network architectures.
+Therefore, option B is the best description of why an Elastic IP address is preferable to a public IP address. Elastic IP addresses provide the ability to remap the address to another instance in your account in the event of an instance or software failure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question297:"link"
+
+

@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1253 - Your application is deployed in EC2 inst"
+---
+
+
+[.question]
+== 1253-64a1fafff053625db51de004.
+
+
+****
+
+[.query]
+--
+Your application is deployed in EC2 instances and uses CloudFront to deliver the content.
+In order to reduce the cost of requests to the origin, you plan to increase the cache duration in CloudFront for certain dynamic contents.
+Which of the following options is the most appropriate to achieve the requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Modify the application to add a Cache-Control header to control how long the objects stay in the CloudFront cache.
+* [ ] B. In the CloudFront distribution, enlarge the default TTL in the object caching setting
+* [*] C. Specify the minimum TTL to be 0 in the CloudFront object caching setting.
+* [ ] D. Add a Cache-Control header by configuring the metadata of the S3 objects.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is CORRECT: Because the Cache-Control header added by the origin server can be used to control the caching behavior in CloudFront.
+The application is responsible for adding the header for individual objects.
+Option B is incorrect: Because the default TTL impacts all objects if the origin does not add the cache header.
+However, in the question, only certain dynamic contents need to be modified.
+Option C is incorrect: Because the cache duration is not increased by setting the value of Minimum TTL to be 0
+Please check the below reference on how to determine the amount of time that CloudFront keeps an object in the cache.
+Option D is incorrect: The question mentions that the cache duration of dynamic contents needs to be increased.
+However, S3 objects belong to static contents.
+Reference:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html.
+The correct answer to this question is B. In the CloudFront distribution, enlarge the default TTL in the object caching setting.
+CloudFront is a Content Delivery Network (CDN) that accelerates the delivery of your content to users. It caches your content at edge locations around the world, so your users can access it with low latency. The cache duration for an object in CloudFront is called the Time To Live (TTL), and it specifies how long the object stays in the cache before CloudFront retrieves a new version from the origin.
+To reduce the cost of requests to the origin for certain dynamic content, you can increase the cache duration in CloudFront. By doing this, CloudFront will serve the content from its cache for a longer time, reducing the number of requests to the origin.
+There are several ways to control the cache duration in CloudFront. One of them is to modify the application to add a Cache-Control header to control how long the objects stay in the CloudFront cache. However, this requires modifying the application code, which may not be feasible or desirable.
+Another way is to add a Cache-Control header by configuring the metadata of the S3 objects. This approach works if your content is stored in S3 and served by CloudFront. However, it requires setting the headers for each object individually, which can be time-consuming and error-prone.
+The most appropriate option to achieve the requirement is to enlarge the default TTL in the object caching setting of the CloudFront distribution. This option is easy to implement and doesn't require any modification to the application or the objects. You can simply go to the CloudFront distribution settings, select the behavior that serves the dynamic content, and increase the default TTL in the object caching setting. This will increase the cache duration for all objects served by that behavior.
+Specifying the minimum TTL to be 0 in the CloudFront object caching setting (option C) is not appropriate for dynamic content because it would disable caching altogether, defeating the purpose of using a CDN.
+Therefore, the correct answer is B. In the CloudFront distribution, enlarge the default TTL in the object caching setting.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question534:"link"
+
+

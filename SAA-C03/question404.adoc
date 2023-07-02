@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1204 - A Company is currently hosting an applic"
+---
+
+
+[.question]
+== 1204-64a1fae6f053625db51ddfc9.
+
+
+****
+
+[.query]
+--
+A Company is currently hosting an application that connects to a MySQL AWS RDS Instance.
+The application behaves fine when there are 20 lookups against the database.
+When the lookups start to increase, the performance of the application starts to degrade.
+Which of the following can be added to the architecture to alleviate the performance issue?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a Read Replica for the database.
+* [ ] B. Enable Multi-AZ for the database.
+* [ ] C. Place the database behind a Cloudfront distribution.
+* [ ] D. Create a snapshot of the database.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option B is incorrect since this is used for high availability of the database.
+Option C is incorrect since Cloudfront is used for web distributions.
+Option D is incorrect since this is used for backups of databases.
+The AWS Documentation mentions the following.
+Amazon RDS Read Replicas provide enhanced performance and durability for database (DB) instances.
+This feature makes it easy to elastically scale out beyond a single DB instance for read-heavy database workloads beyond the capacity constraints of a single DB instance.
+You can create one or more replicas of a given source DB Instance and serve high-volume application read traffic from multiple copies of your data, thereby increasing aggregate read throughput.
+For more information on AWS Read Replica's, please refer to the below URL-
+https://aws.amazon.com/rds/details/read-replicas/
+The performance of the application can be improved by scaling the underlying database to handle the increased workload. Here are the options and their respective explanations:
+A. Create a Read Replica for the database: This option involves creating one or more read replicas of the MySQL RDS instance. Read replicas can be used to offload read queries from the primary instance and improve application performance. By default, read replicas are asynchronous, which means that data changes made to the primary instance may take some time to propagate to the read replicas. However, the increased read capacity can help alleviate performance issues caused by read-heavy workloads.
+B. Enable Multi-AZ for the database: Multi-AZ stands for Multi-Availability Zone. This option involves creating a standby replica of the MySQL RDS instance in a different availability zone. If the primary instance fails, the standby instance can be promoted to become the primary instance. Enabling Multi-AZ can improve database availability and fault tolerance, but it may not necessarily improve performance.
+C. Place the database behind a Cloudfront distribution: CloudFront is a content delivery network (CDN) that can be used to cache content and reduce the load on the underlying servers. This option involves placing the MySQL RDS instance behind a CloudFront distribution, which can help reduce the number of requests hitting the database. However, this approach may not be suitable for all applications, and it may not necessarily improve performance.
+D. Create a snapshot of the database: This option involves creating a backup of the MySQL RDS instance, which can be used to restore the database in case of data loss or corruption. However, creating a snapshot does not directly improve performance.
+In conclusion, the best option for alleviating the performance issue is A, creating a Read Replica for the database. Option B can improve availability but not necessarily performance, Option C may not be suitable for all applications, and Option D does not directly improve performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question475:"link"
+
+

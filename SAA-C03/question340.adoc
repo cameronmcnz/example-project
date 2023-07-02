@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "1140 - Your supervisor asks you to create a dec"
+---
+
+
+[.question]
+== 1140-64a1fac6f053625db51ddf7c.
+
+
+****
+
+[.query]
+--
+Your supervisor asks you to create a decoupled application whose process includes dependencies on EC2 instances.
+In the application you would be using Polling Strategy to trigger messages once the defined criteria are fulfilled.
+Which of the following would you include in the architecture?
+
+
+--
+
+[.list]
+--
+* [*] A. An SQS queue as the messaging component between the Instances and servers
+* [ ] B. An SNS topic as the messaging component between the Instances and servers
+* [ ] C. An Elastic Load balancer to distribute requests to your EC2 Instance
+* [ ] D. Route 53 resource records to route requests based on failure.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The AWS Documentation mentions the following.
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.
+SQS eliminates the complexity and overhead associated with managing and operating message-oriented middleware and empowers developers to focus on differentiating work.
+Using SQS, you can send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available.
+SQS is a distributed queuing system.
+Messages are NOT pushed to receivers.
+Receivers have to poll or pull messages from SQS.
+SNS is a distributed publish-subscribe system.
+Messages are pushed to subscribers as and when publishers send them to SNS.
+Option B is incorrect since this is a push-based notification service.
+Option C is incorrect since there is no mention in the question of adding any fault tolerance.
+Option D is incorrect since there is no mention in the question of adding any failure detection.
+For more information on AWS SQS, please refer to the below link-
+https://aws.amazon.com/sqs/
+For creating a decoupled application with dependencies on EC2 instances, and using Polling Strategy to trigger messages, the best option to include in the architecture would be an SQS queue as the messaging component between the Instances and servers.
+Here's a detailed explanation of why this is the correct option:
+1.
+SQS queue: Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables decoupling and scaling of microservices, distributed systems, and serverless applications. It allows you to decouple and scale the components of a cloud application by reliably and asynchronously transferring data between them.
+2.
+Polling Strategy: Polling is a method of repeatedly checking for changes or updates in a system. Polling Strategy is used to trigger messages once the defined criteria are fulfilled. For example, you might poll an SQS queue to check if there are any messages waiting to be processed.
+3.
+Dependencies on EC2 instances: Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. EC2 instances can be used to run applications or services that are part of a larger distributed system. These instances can be configured to send messages to an SQS queue, which can then be polled by other components in the system.
+4.
+Messaging component: In a distributed system, components communicate with each other by sending messages. An SQS queue can be used as the messaging component between EC2 instances and servers. EC2 instances can send messages to the queue, which can then be processed by other components in the system.
+5.
+SNS topic: Amazon Simple Notification Service (SNS) is a fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. However, SNS is not the best option for a decoupled application with dependencies on EC2 instances because it is primarily designed for push-based, event-driven architectures.
+6.
+Elastic Load balancer: An Elastic Load Balancer (ELB) is a service that distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. ELB is not the best option for a decoupled application with dependencies on EC2 instances because it does not provide message queuing or polling capabilities.
+7.
+Route 53 resource records: Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. It can be used to route traffic to various resources, such as EC2 instances, based on DNS records. However, Route 53 is not the best option for a decoupled application with dependencies on EC2 instances because it does not provide message queuing or polling capabilities.
+In summary, an SQS queue is the best option for a decoupled application with dependencies on EC2 instances and using Polling Strategy to trigger messages. It provides reliable and asynchronous transfer of messages between components in the system, which helps to decouple and scale the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question398:"link"
+
+

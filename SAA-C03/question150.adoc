@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "950 - A company is migrating an onpremises 5TB"
+---
+
+
+[.question]
+== 950-64a1fa70f053625db51dde9b.
+
+
+****
+
+[.query]
+--
+A company is migrating an on-premises 5TB MySQL database to AWS and expects its database size to increase steadily.
+Which Amazon RDS engine would meet these requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. MySQL
+* [ ] B. Microsoft SQL Server
+* [*] C. Oracle
+* [*] D. Amazon Aurora.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Documentation supports the above requirements concerning AWS Aurora.
+Amazon Aurora (Aurora) is a fully managed, MySQL and PostgreSQL compatible, relational database engine.
+It combines the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases.
+It delivers up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL without requiring changes to most of your existing applications.
+All Aurora Replicas return the same data for query results with minimal replica lag-usually, much lesser than 100 milliseconds after the primary instance has written an update.
+For more information on AWS Aurora, please visit the following URL:
+http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Overview.html
+NOTE:
+On a MySQL DB instance, avoid tables in your database growing too large.
+Provisioned storage limits restrict the maximum size of a MySQL table file to 16 TB.
+However, based on database usage, your Amazon Aurora storage will automatically grow, from the minimum of 10 GB up to 64 TB, in 10 GB increments, with no impact on database performance.
+Hence, the best answer would be option.
+D.
+The best option for the company to meet their requirements of migrating a 5TB MySQL database to AWS and expecting the database size to increase steadily would be Amazon Aurora (option D).
+Amazon Aurora is a MySQL and PostgreSQL compatible relational database that is designed for the cloud. It is a fully managed database engine, meaning that Amazon takes care of the management and maintenance of the database. Aurora is also highly scalable and can automatically grow or shrink the storage capacity based on the needs of the application.
+Aurora is designed for high availability and durability, with data replicated across multiple availability zones in a region. This provides better protection against data loss in case of a failure or disaster.
+In terms of performance, Aurora is known for its fast and consistent performance due to its unique architecture, which separates the storage layer from the compute layer. This allows Aurora to scale out read operations, which can help with performance as the database grows.
+Microsoft SQL Server (option B) and Oracle (option C) are not suitable options for a MySQL database migration. Both of these database engines are proprietary and have different syntax and features compared to MySQL. While they can be used on AWS, they would require significant modifications to the existing application code to work with the new database engine.
+Finally, option A (MySQL) is a possible option, but Amazon Aurora provides better scalability, availability, and performance capabilities. Aurora is also compatible with MySQL, meaning that the migration process would be simpler and require fewer modifications to the existing code.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question170:"link"
+
+

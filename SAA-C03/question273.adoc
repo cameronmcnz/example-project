@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1073 - You are working for an electrical applia"
+---
+
+
+[.question]
+== 1073-64a1faa3f053625db51ddf26.
+
+
+****
+
+[.query]
+--
+You are working for an electrical appliance company that has a web-application hosted in AWS.
+This is a two-tier web application with web-servers hosted in VPC's & on-premise data-center.You are using a Network Load balancer in the front end to distribute traffic between these servers.
+You are using instance Id for configuring targets for Network Load Balancer.
+Some clients are complaining about the delay in accessing this website. To troubleshoot this issue, you are looking for a list of Client IP address having longer TLS handshake time.
+You have enabled access logging on Network Load balancing with logs saved in Amazon S3 buckets.
+Which tool could be used to quickly analyze many log files without any visualization in a cost-effective way?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon Athena to query logs saved in Amazon S3 buckets.
+* [ ] B. Use Amazon S3 console to process logs.
+* [*] C. Export Network Load Balancer access logs to third-party application.
+* [ ] D. Use Amazon Athena along with Amazon QuickSight to query logs saved in Amazon S3 buckets.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Amazon Athena is a suitable tool for querying Network Load Balancers logs.
+In the above case, since a large amount of logs are saved in S3 buckets from the Network load balancer, Amazon Athena can be used to query logs and generate required details of client IP address and TLS handshake time.
+Option B is incorrect as processing many logs directly from the S3 console will be a time-consuming process.
+Option C is incorrect as using a third-party tool will not be a cost-effective solution.
+Option D is incorrect as in the above case, we require only details of Client IP details along with TLS handshake time for troubleshooting purposes.
+Amazon QuickSight will be useful in case you need data visualization.
+For more information on using Amazon Athena to query Network Load Balancer logs, refer to the following URL-
+https://docs.aws.amazon.com/athena/latest/ug/networkloadbalancer-classic-logs.html.
+The best tool to analyze the Network Load Balancer access logs saved in the Amazon S3 bucket in a cost-effective way is Amazon Athena.
+Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. It is serverless, meaning there is no infrastructure to manage, and it automatically scales to handle any query load. Amazon Athena allows querying of large amounts of unstructured data stored in S3 buckets quickly and cost-effectively.
+By using Amazon Athena, it is possible to query the Network Load Balancer access logs saved in the Amazon S3 bucket quickly and easily. It can also help identify the client IP address having longer TLS handshake time.
+Amazon S3 console can be used to process logs, but it is not an efficient way to analyze large amounts of data. Moreover, it does not support querying the data in S3.
+Exporting Network Load Balancer access logs to third-party applications can be an option, but it may incur additional costs and require additional setup.
+Using Amazon Athena along with Amazon QuickSight can provide an interactive dashboard with visualizations to analyze the logs in a more user-friendly manner. However, this may incur additional costs for using Amazon QuickSight.
+Therefore, the correct answer is A. Use Amazon Athena to query logs saved in Amazon S3 buckets.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question312:"link"
+
+

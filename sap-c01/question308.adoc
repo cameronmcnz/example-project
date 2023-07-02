@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1108 - A company has a new S3 bucket that store"
+---
+
+
+[.question]
+== 1108-64a1df67aa736d27b1db9471.
+
+
+****
+
+[.query]
+--
+A company has a new S3 bucket that stores very sensitive files.
+These objects are supposed to be used only by IAM admin user.
+Other IAM users or roles should not have access.
+Users in other AWS accounts cannot assume any role in reading the S3 objects either.
+You plan to use the S3 bucket policy to apply the security rules.
+Which option is the most secure one?
+
+
+--
+
+[.list]
+--
+* [*] A. { "Version": "2012-10-17", "Statement": [{ "Effect": "Allow", "Principal": {"AWS": [ "arn:aws:iam::444455556666:user/Admin", "arn:aws:iam::444455556666:root" ]}, "Action": "s3:*", "Resource": [ "arn:aws:s3:::BUCKETNAME", "arn:aws:s3:::BUCKETNAME/*" ] }] }
+* [*] B. { "Version": "2012-10-17", "Statement": [{ "Effect": "Deny", "NotPrincipal": {"AWS": [ "arn:aws:iam::444455556666:user/Admin", "arn:aws:iam::444455556666:root" ]}, "Action": "s3:*", "Resource": [ "arn:aws:s3:::BUCKETNAME", "arn:aws:s3:::BUCKETNAME/*" ] }] }
+* [*] C. { "Version": "2012-10-17", "Statement": [{ "Effect": "Allow", "NotPrincipal": {"AWS": [ "arn:aws:iam::444455556666:user/User1", "arn:aws:iam::444455556666:user/User2", … "arn:aws:iam::444455556666:user/UserX" ]}, "Action": "s3:*", "Resource": [ "arn:aws:s3:::BUCKETNAME", "arn:aws:s3:::BUCKETNAME/*" ] }] }
+* [ ] D. { "Version": "2012-10-17", "Statement": [{ "Effect": "Deny", "Principal": {"AWS": [ "arn:aws:iam::444455556666:user/User1", "arn:aws:iam::444455556666:user/User2", … "arn:aws:iam::444455556666:user/UserX" ]}, "Action": "s3:*", "Resource": [ "arn:aws:s3:::BUCKETNAME", "arn:aws:s3:::BUCKETNAME/*" ] }] }
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Explicit deny should be considered as it takes the highest priority even if the action is explicitly allowed somewhere else.
+Options A and C are eliminated.
+For option D, it is not realistic to list all users and roles to deny the action.
+The only option left is option.
+B.
+About how to use NotPrincipal, refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html.
+Option A is incorrect because other users can access the bucket as well if they have an Allow in their IAM policies.
+Explicit deny should be used.
+Option B is CORRECT With the policy, only the user Admin and root can access the bucket objects.
+Other IAM entities are denied.
+Option C is incorrect because it is unsuitable to use Allow with NotPrincipal.
+Any IAM users or roles which are not in the NotPrincipal list can access the objects.
+Option D is incorrect because you have to list all IAM users and roles in the Principal list, which is not appropriate.
+The most secure option for the S3 bucket policy in this scenario is option A.
+Explanation: Option A specifies an "Allow" statement that grants access to only the IAM admin user and the root account, which are specified in the "Principal" element. The "Action" element is set to "s3:*" which allows access to all actions on the S3 bucket. The "Resource" element specifies the ARN of the S3 bucket and all objects within it.
+Option B, on the other hand, uses a "Deny" statement that denies access to all IAM users and roles except for the IAM admin user and the root account. While this seems secure, it is generally recommended to use "Allow" statements instead of "Deny" statements as they can be difficult to manage and troubleshoot in larger environments.
+Option C specifies an "Allow" statement that grants access to all IAM users and roles except for User1, User2, and so on, specified in the "NotPrincipal" element. While this would prevent users outside of the specified list from accessing the S3 bucket, it is still less secure than option A, which explicitly specifies the allowed IAM users and roles.
+Option D uses a "Deny" statement that denies access to User1, User2, and so on, specified in the "Principal" element. This would prevent the specified IAM users from accessing the S3 bucket, but it does not explicitly allow the IAM admin user and the root account, so it is less secure than option A. Additionally, as with option B, it is generally recommended to use "Allow" statements instead of "Deny" statements.
+In conclusion, option A is the most secure option as it explicitly grants access only to the IAM admin user and the root account using an "Allow" statement.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question448:"link"
+
+

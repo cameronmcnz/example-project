@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "806 - Given public class Counter public static"
+---
+
+
+[.question]
+== 806-64a1a83aef3e8462333a9c3c.
+
+
+****
+
+[.query]
+--
+Given: public class Counter{ public static void main (String[ ] args) { int a = 10; int b = -1; assert (b >=1) : "Invalid Denominator"; int Ñ = a / b; System.out.println (c); } } What is the result of running the code with the ""ea option?
+
+
+--
+
+[.list]
+--
+* [ ] A. -10
+* [ ] B. 0
+* [*] C. An AssertionError is thrown.
+* [ ] D. A compilation error occurs.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,99 @@
+---
+layout: default 
+title: "1176 - A company has many Amazon S3 buckets acr"
+---
+
+
+[.question]
+== 1176-64a1fad9f053625db51ddfa8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgCIjbadyYEg7v7KxNu0vu3ffgHRdDxTxY4FdjHxyIXbD1toqDf0Fp67vfrE12f3L7fxueK72_9OmDkB269OxvFKi3K8MaBIQWb-BbFE6SjONy5um5kV_2e7bbpysIwmhG7zsjfST9d-1t2wjpQA[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has many Amazon S3 buckets across many different AWS accounts.
+A company has a new compliance and audit requirement where all the S3 buckets server access log should be collected and centralized into an Audit AWS account. How would you design this solution?
+
+
+[source,java]
+----
+‘Account A
+
+oe 8
+
+ctw jets taka ts
+
+‘Audit Account —
+
+‘9 Serer Azzon og
+‘ache AS ean A
+
+‘Account 8 ~ AWS Region 8
+
+oe 8
+
+cee jets Naan tte
+
+ra
+
+2aTTaaee
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Collect all S3 buckets server access logs in separate S3 buckets per account. Enable replication in the S3 server access log buckets to copy the logs to a centralized destination S3 bucket in the Audit account.
+* [ ] B. Directly enable the server access logs for the S3 buckets in all the AWS accounts to a centralized destination S3 bucket in the Audit account.
+* [*] C. Collect all S3 buckets server access logs in one S3 bucket per account. Enable replication in the S3 server access log buckets to copy the logs to a centralized destination S3 bucket in the Audit account.
+* [ ] D. Collect all S3 buckets server access logs in one S3 bucket per account. In the Audit AWS account, create a Lambda function to get the new logs from these S3 buckets and save the files in a centralized S3 bucket.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer : C.
+Option A is incorrect because in each AWS account, you only need an S3 bucket to save the server access logs.
+Option B is incorrect because for the server access logs, you can only configure the target S3 bucket in the same AWS account.
+Option C is CORRECT because it meets all the requirements for the solution.
+All the S3 server access logs from each AWS account have been replicated to the audit account.
+Option D is incorrect because the Lambda function is not required.
+You can directly enable replication to copy the logs to the S3 bucket in the Audit account.
+The best solution for this requirement is option C, which involves collecting all S3 buckets server access logs in one S3 bucket per account and enabling replication in the S3 server access log buckets to copy the logs to a centralized destination S3 bucket in the Audit account.
+Option A is not optimal because it involves collecting all S3 buckets server access logs in separate S3 buckets per account, which can be difficult to manage and maintain. It also requires enabling replication in each of these separate S3 buckets, which can add complexity to the solution.
+Option B is not ideal because it involves enabling the server access logs for the S3 buckets in all the AWS accounts directly to a centralized destination S3 bucket in the Audit account, which can be difficult to manage and may cause issues with access and security.
+Option D is also not optimal because it involves creating a Lambda function to get the new logs from the S3 buckets and save the files in a centralized S3 bucket, which can add unnecessary complexity to the solution.
+Option C is the best solution because it involves collecting all S3 buckets server access logs in one S3 bucket per account, which is easier to manage and maintain. This also allows for replication to be enabled in each of the S3 server access log buckets to copy the logs to a centralized destination S3 bucket in the Audit account, which simplifies the solution and ensures that all logs are being collected in one location.
+Overall, the solution in option C is the most efficient and effective way to meet the compliance and audit requirement of collecting and centralizing all S3 buckets server access logs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question442:"link"
+
+

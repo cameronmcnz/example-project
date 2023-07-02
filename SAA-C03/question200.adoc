@@ -1,0 +1,113 @@
+---
+layout: default 
+title: "1000 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 1000-64a1fa81f053625db51dded3.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_private_link.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for an IT Company.
+Your Company is using EC2 instances in multiple VPCs spanning Availability Zones in (US-EAST-1) Region.
+The Development Team has deployed a new Intranet application that needs to be accessed via VPC.
+You need to make sure that the connectivity to this particular application uses the internal AWS network between different VPCs, and the solution is highly scalable and secure.
+Which of the following solution would you recommend?
+
+
+[source,java]
+----
+How it works
+
+CES hws PrvateLink
+
+Gip as
+Ry | OD vag |
+a ‘Aw Direct. Balancer vice on
+C3) ws Direc PC Endpoint cumte SY arketPlace
+
+eo or ‘Amazon C2 crest an terface encpa tothe
+Roan instance ‘re end Tetwor Lond =
+vacant ig LE me sek, co service on
+‘services on AWS ‘service of your Amazon VPC
+
+‘ooke
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Attach an Internet Gateway to all the VPCs at the "US-EAST-1" region and allow all users to access this application over the internet.
+* [*] B. Deploy Network Load Balancers along with VPC endpoint service (AWS PrivateLink) to establish connectivity between the VPC`s in the "US-EAST-1" region.
+* [*] C. Use the VPC Gateway Endpoint service between all the VPCs at the "US-EAST-1" region to provide connectivity between users & servers.
+* [ ] D. Create a VPN between instances at the various VPCs in "US-EAST-1" region to establish connectivity.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS PrivateLink provides secure private connectivity for services between separate VPC's.
+For this, Network Load Balancers can be used in service provider while Elastic Network Interface is created in service, consuming VPC.
+Using DNS, service provider service is resolved to the local IP address assigned to Elastic Network Interface which will forward all traffic to the Network Load Balancer in the provider network.
+Network Load Balancer will perform a source NAT for all traffic &amp; forward it to the provider instance.
+Option A is incorrect.
+Using the Internet to establish connectivity between users &amp; servers will not be a highly secure solution.
+Option C is incorrect.
+VPC Gateway Endpoint service is for S3 and DynamoDB, which is unsuitable for this scenario.
+Option D is incorrect as VPN connectivity between the instance of various VPCs will not be a scalable solution.
+For more information on AWS PrivateLink, refer to the following URL:
+https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html
+Accessing Services Through AWS Private Links:
+AWS PrivateLink is a highly available, scalable technology that enables you to connect your VPC to supported AWS services privately, services hosted by other AWS accounts (VPC endpoint services), and supported AWS Marketplace partner services.
+You do not require an internet gateway, NAT device, public IP address, AWS Direct Connect connection, or AWS Site-to-Site VPN connection to communicate with the service.
+The traffic between your VPC and the service does not leave the Amazon network.
+To use AWS PrivateLink, create an interface VPC endpoint for a service in your VPC.
+This creates an elastic network interface in your subnet with a private IP address that serves as an entry point for the traffic, destined to the service.
+For more information, see VPC Endpoints.
+You can create your own AWS PrivateLink-powered service (endpoint service) and enable other AWS customers to access your service.
+For more information, see VPC Endpoint Services (AWS PrivateLink).
+For more information, refer to the following URLs:
+https://aws.amazon.com/privatelink/ https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html#what-is-privatelink
+The recommended solution for connecting the new Intranet application across multiple VPCs in the US-EAST-1 region while ensuring scalability and security is to deploy Network Load Balancers with VPC endpoint service (AWS PrivateLink).
+Option A, which suggests attaching an Internet Gateway to all the VPCs and allowing users to access the application over the internet, is not recommended. This solution introduces security risks as it exposes the application to the public internet, making it vulnerable to attacks.
+Option C, which suggests using the VPC Gateway Endpoint service to provide connectivity between users and servers, is not suitable for this scenario. VPC Gateway Endpoint is used to connect a VPC to AWS services like S3 and DynamoDB. It doesn't provide connectivity between different VPCs.
+Option D, which suggests creating a VPN between instances in different VPCs, is also not the best solution in this case. While VPNs can provide secure connectivity between VPCs, they can be complex to manage and scale, and the performance may not be optimal.
+Option B, which suggests deploying Network Load Balancers along with VPC endpoint service (AWS PrivateLink), is the recommended solution. The Network Load Balancers can distribute traffic across the instances running the Intranet application, and AWS PrivateLink provides private connectivity between the VPCs over the AWS network. With this solution, traffic between the VPCs never leaves the AWS network, ensuring better security and performance.
+In summary, deploying Network Load Balancers along with VPC endpoint service (AWS PrivateLink) is the recommended solution for connecting the new Intranet application across multiple VPCs in the US-EAST-1 region while ensuring scalability and security.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question228:"link"
+
+

@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1000 - You decide to create a bucket on AWS S3 "
+---
+
+
+[.question]
+== 1000-64a1df40aa736d27b1db93d6.
+
+
+****
+
+[.query]
+--
+You decide to create a bucket on AWS S3 called 'mybucket' and then perform the following actions in the order that they are listed here.
+
+
+--
+
+[.list]
+--
+* [*] A. There will be 1 version ID for file1, 2 version IDs for file2, and 1 version ID for file3.
+* [*] B. The version ID for file1 will be null. There will be 2 version IDs for file2, and 1 version ID for file3.
+* [ ] C. There will be 1 version ID for file1, the version ID for file2 will be null, and there will be 1 version ID for file3.
+* [ ] D. All file version ID`s will be null because versioning must be enabled before uploading objects to `mybucket`.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Objects stored in your bucket before you set the versioning state have a version ID of null.
+When you enable versioning, existing objects in your bucket do not change.
+What changes is how Amazon S3 handles the objects in future requests.
+Option A is incorrect because the version ID for file1 would be null.
+Option B is CORRECT because the file1 was put in the bucket before the versioning was enabled.
+Hence, it will have a null version ID.
+The file2 will have two version IDs, and file3 will have a single version ID.Option C is incorrect because file2 cannot have a null version ID as the versioning was enabled before putting it in the bucket.
+Option D is incorrect because once the versioning is enabled, all the files put after that will not have a null version ID.
+But file1 was put before versioning was enabled.
+So it will have null as its version ID.For more information on S3 versioning, please visit the below link.
+http://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html
+Based on the information provided, it is not clear whether versioning has been enabled for the mybucket S3 bucket. Without versioning enabled, every object uploaded to the bucket will have a null version ID.
+Therefore, option D is a possibility, as all file version IDs will be null if versioning was not enabled before uploading objects to mybucket.
+If versioning was enabled for mybucket before performing the actions listed, then each object uploaded to the bucket will have a unique version ID assigned to it.
+Looking at the actions listed, we can see that three files were uploaded to the mybucket bucket: file1, file2, and file3. Each file upload will create a new version of the object if versioning is enabled.
+Assuming that versioning is enabled, the following options are possible:
+Option A: There will be 1 version ID for file1, 2 version IDs for file2, and 1 version ID for file3. This is because file1 was uploaded only once, while file2 was uploaded twice, and file3 was uploaded once. Each upload creates a new version of the object, resulting in a total of 4 versions across the three files.
+Option B: The version ID for file1 will be null. There will be 2 version IDs for file2, and 1 version ID for file3. This is because file1 was uploaded once, but if versioning was not enabled, it will have a null version ID. File2 was uploaded twice, creating 2 versions, and file3 was uploaded once, creating 1 version. This results in a total of 3 versions across the three files.
+Option C: There will be 1 version ID for file1, the version ID for file2 will be null, and there will be 1 version ID for file3. This is unlikely as it assumes that only one version of file2 was uploaded and that versioning was enabled. If versioning was not enabled, file1 and file3 would have a null version ID, and file2 would have no version ID. If versioning was enabled, file2 would have two version IDs since it was uploaded twice.
+In summary, without knowing whether versioning was enabled before the actions listed, option D is a possibility. Assuming versioning was enabled, option A or B are the most likely scenarios. Option C is unlikely as it assumes specific conditions that are not clear from the information provided.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question293:"link"
+
+

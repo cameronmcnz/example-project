@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "914 - Given
+Which option fails Java Certificat"
+---
+
+
+[.question]
+== 914-64a1a862ef3e8462333a9ca8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0010400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which option fails?
+
+
+[source,java]
+----
+public class Foo<K, V> {
+private K key;
+private V values
+public Foo(K key, V value) { this.key = keys this.value = value; }
+
+public static <T> Foo<?, T> twice(T value) { return new Foo<T, T>(value, value); }
+
+public K getKey() { return key; }
+public V getValue() { return values }
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Foo mark = new Foo ("Steve", 100);
+* [ ] B. Foo pair = Foo.twice ("Hello World!");
+* [ ] C. Foo percentage = new Foo("Steve", 100);
+* [ ] D. Foo grade = new Foo <> ("John", "A");
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

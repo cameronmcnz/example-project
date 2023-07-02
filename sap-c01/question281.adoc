@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "1081 - Why will the following CloudFormation te"
+---
+
+
+[.question]
+== 1081-64a1df5daa736d27b1db944b.
+
+
+****
+
+[.query]
+--
+Why will the following CloudFormation template fail to deploy a stack?
+
+
+--
+
+[.list]
+--
+* [*] A. CloudFormation templates do not use a “Parameters” section.
+* [ ] B. A “Conditions” section is mandatory but is not included.
+* [*] C. A “Resources” section is mandatory but is not included.
+* [ ] D. A template description is mandatory but is not included.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option C is CORRECT because the Resources section is mandatory for the CloudFormation template to work, and it is missing in this template.
+For more information on CloudFormation templates, please refer to the below URL-
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+The question states that a CloudFormation template will fail to deploy a stack and asks for the reason why. Let's look at each of the options provided as answers:
+A. CloudFormation templates do not use a "Parameters" section.
+This answer is incorrect. The "Parameters" section is a standard part of a CloudFormation template and is used to pass input values into the template. It is not the reason why the template would fail to deploy a stack.
+B. A "Conditions" section is mandatory but is not included.
+This answer is also incorrect. The "Conditions" section is optional and is used to specify conditional statements that determine whether certain resources are created or not. It is not a mandatory section and is not the reason why the template would fail to deploy a stack.
+C. A "Resources" section is mandatory but is not included.
+This answer is correct. The "Resources" section is a mandatory part of a CloudFormation template and is used to define the AWS resources that should be created or modified when the stack is deployed. Without this section, there are no resources for CloudFormation to create or modify, and the template will fail to deploy.
+D. A template description is mandatory but is not included.
+This answer is incorrect. While it is a best practice to include a template description, it is not a mandatory part of a CloudFormation template and is not the reason why the template would fail to deploy a stack.
+Therefore, the correct answer is C. A "Resources" section is mandatory but is not included.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question410:"link"
+
+

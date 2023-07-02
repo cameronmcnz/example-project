@@ -1,0 +1,170 @@
+---
+layout: default 
+title: "1178 - A company has an application that needs "
+---
+
+
+[.question]
+== 1178-64a1fad9f053625db51ddfaa.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_ebs_throughput.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has an application that needs to be hosted on an EC2 Instance.
+The general amount of throughput data per volume will be in the range of 400-500 MiB/s from the application.
+Which of the following should be used as the storage type for the underlying EC2 Instance in a Cost-effective manner?
+
+
+[source,java]
+----
+Volume Type
+
+Short Description
+
+Use Cases
+
+API Name
+
+Volume Size
+
+Max |OPS**/Volume
+
+Max Throughput***/Volume
+
+EBS Provisioned IOPS SSD_
+(io1)
+
+Highest performance SSD
+volume designed for
+latency-sensitive
+transactional workloads
+
+1/0-intensive NoSQL and
+relational databases
+
+4GB-167B
+
+64,000
+
+1,000 MB/s
+
+EBS General Purpose SSD
+(gp2)"
+
+General Purpose SSD
+volume that balances
+
+price performance for a
+wide variety of
+transactional workloads
+
+Boot volumes, tow-
+latency interactive apps,
+dev & test
+
+gp2
+
+1GB- 1678
+
+16,000
+
+250 MB/s
+
+Throughput Optimized
+HDD (st1)
+
+Low cost HDD volume
+designed for frequently
+accessed, throughput
+tensive workloads
+
+Big data, data
+warehouses, log
+processing
+
+st
+
+500 GB - 16 TB
+
+500 MB/s
+
+Cold HDD (sc1)
+
+Lowest cost HDD
+volume designed
+
+for less frequently
+accessed workloac
+
+Colder data
+requiring fewer
+scans per day
+
+scl
+
+500 GB - 16 TB
+
+250
+
+250 MB/s
+----
+
+
+--
+
+[.list]
+--
+* [*] A. EBS - General Purpose SSD
+* [ ] B. EBS - Provisioned IOPS SSD
+* [*] C. EBS - Throughput Optimized HDD
+* [ ] D. EBS - Cold HDD.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+When you want high throughput, you should choose using the Throughput Optimized EBS volume.
+The below snapshot from the AWS Documentation shows the features of the different types of volumes.
+As per the above document,
+Option A, B and D stands invalid.
+For more information on the EBS volume types, please refer to the below URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+For an application that requires high throughput, it's important to choose a storage option that can handle the amount of data required by the application.
+Out of the given options, the most cost-effective storage type for this particular use case would be the "EBS - Throughput Optimized HDD" (option C).
+The Throughput Optimized HDD volume type is designed to provide low-cost, high-performance storage for frequently accessed, throughput-intensive workloads such as big data, data warehousing, and log processing. It provides up to 500 MiB/s of throughput per volume, which falls within the range required by the application.
+Option A (EBS - General Purpose SSD) and option B (EBS - Provisioned IOPS SSD) are solid-state drive (SSD) storage types, which are generally more expensive than HDD storage types. While they offer faster I/O performance, they might not be as cost-effective for workloads with high throughput requirements.
+Option D (EBS - Cold HDD) is a lower-cost HDD storage type that is intended for infrequently accessed data. It does not offer the required level of throughput required by the application.
+In summary, for a cost-effective option for an EC2 instance hosting an application with high throughput requirements, EBS - Throughput Optimized HDD (option C) is the best option among the given choices.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question444:"link"
+
+

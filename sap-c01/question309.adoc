@@ -1,0 +1,97 @@
+---
+layout: default 
+title: "1109 - As an AWS Solutions Architect you need t"
+---
+
+
+[.question]
+== 1109-64a1df67aa736d27b1db9472.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_123.png[]
+
+--
+
+
+****
+
+[.query]
+--
+As an AWS Solutions Architect, you need to configure an identity service in AWS based on SAML.
+Since you already have a SAML identity provider outside of AWS, you plan to use the same IdP to manage user identities.
+To create the SAML identity provider in IAM, the below steps may be required.
+
+
+[source,java]
+----
+Create Provider Configure Provider
+
+Step 1 : Configure Provider Choose a provider type.
+
+Step 2 : Verify Provider Type* SAML a
+
+Provider Name* TestldentityProvider
+
+Maximum 128 characters. Use alphanumeric and '._-' characters.
+
+Metadata Document* No file chosen Choose File
+----
+
+
+--
+
+[.list]
+--
+* [*] A. 4 -> 1 -> 5 -> 2
+* [ ] B. 3 -> 1 -> 4 -> 2
+* [*] C. 1 -> 4 -> 3 -> 5
+* [*] D. 3 -> 4 -> 1 -> 5
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Please check https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html on how to create IAM SAML identity providers.
+Option A is incorrect: Because assume-role-with-web-identity is not used for SAML identity provider.
+Step 2 should not be included.
+Option B is incorrect: Same reason as.
+Option A.Option C is incorrect: Before creating the identity provider, you need to get the metadata document from IdP:
+Option D is CORRECT: After creating the identity provider in step 4, you need to configure the IdP side as steps 1 and 5 which add relying party trust between the IdP and AWS.
+To configure an identity service in AWS based on SAML and use an existing SAML identity provider outside of AWS, you need to create a SAML identity provider in IAM. The steps required to create the SAML identity provider in IAM are:
+1.
+Configure the SAML identity provider: In this step, you need to configure the SAML identity provider in IAM. To do this, you need to provide the metadata document of the SAML identity provider, which contains information about the identity provider, such as the entity ID, the endpoints for various SAML profiles, and the certificates used to sign the SAML messages.
+2.
+Create a SAML provider entity in IAM: Once you have configured the SAML identity provider, you need to create a SAML provider entity in IAM. This entity represents the SAML identity provider in IAM and allows you to map SAML attributes to IAM roles and policies.
+3.
+Create an IAM role for SAML authentication: In this step, you need to create an IAM role that allows users to assume the role after they have authenticated through the SAML identity provider. You can specify the SAML provider entity that you created in the previous step as the trusted entity for the role.
+4.
+Map SAML attributes to IAM roles and policies: In this step, you need to map the SAML attributes that are sent by the SAML identity provider to IAM roles and policies. This allows you to control access to AWS resources based on the attributes of the authenticated user.
+5.
+Test the SAML-based authentication: Once you have completed the above steps, you should test the SAML-based authentication to ensure that it is working as expected. You can do this by logging in to the AWS Management Console using the SAML identity provider.
+Based on the above steps, the correct sequence of steps required to create a SAML identity provider in IAM is option C: 1 -> 4 -> 3 -> 5. Option A is incorrect because it incorrectly places step 1 after step 4. Option B is incorrect because it incorrectly places step 3 before step 1. Option D is incorrect because it incorrectly places step 3 before step 4.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question449:"link"
+
+

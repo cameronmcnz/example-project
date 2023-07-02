@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1071 - A famous mobile brand is launching its m"
+---
+
+
+[.question]
+== 1071-64a1faa2f053625db51ddf23.
+
+
+****
+
+[.query]
+--
+A famous mobile brand is launching its much-awaited mobile phone on Christmas weekend.
+The company's web applications are deployed in multiple regions and expecting a huge increase in traffic.
+They want to prioritize their Platinum customers in us-east-1 over new global customers to select various models of new mobile.
+The IT Team wants the infrastructure to handle huge amounts of traffic without any impact on latency to global users.
+Which of the following cost-effective design solutions will meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a Lambda@Edge function in all regions to segregate Platinum users along with Amazon CloudFront to cache content nearer to users in all regions.
+* [*] B. Create a Lambda@Edge function in the US-East-1 region to segregate Platinum users & execute at all regions along with Amazon CloudFront to cache content nearer to users in all regions.
+* [*] C. Use Auto-scaling for origin servers to scale dynamically along with creating separate distribution for Platinum users with Amazon CloudFront to cache content nearer to users in all regions.
+* [ ] D. Use Auto-scaling for origin servers to scale on a predefined schedule along with creating separate distribution for Platinum Users with Amazon CloudFront to cache content nearer to users in all regions.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Lambda@Edge can be a scalable solution to segregate different types of users accessing web applications.
+Amazon CloudFront can be used to cache web content from the origin server to provide users with low latency access.
+Option A is incorrect as Lambda@Edge needs not be created in all regions.
+It needs to be created in the US-East-1 region &amp; replicated to all regions.
+Option C is incorrect as using On-Demand Auto-scaling with separate distributions will incur additional cost &amp; is not a scalable option.
+Option D is incorrect as using Schedule Auto-scaling with separate distributions will incur additional cost &amp; is not a scalable option.
+For more information using Lambda@Edge with Amazon CloudFront, refer to the following URL-
+https://aws.amazon.com/blogs/networking-and-content-delivery/visitor-prioritization-on-e-commerce-websites-with-cloudfront-and-lambdaedge/
+The requirement of the scenario is to prioritize the Platinum customers in the US-East-1 region over new global customers while ensuring low latency for all users. Additionally, the solution should be cost-effective.
+Option A suggests creating a Lambda@Edge function in all regions to segregate Platinum users along with Amazon CloudFront to cache content nearer to users in all regions. This solution may not be cost-effective as it requires setting up Lambda@Edge function in all regions, which may result in additional costs. Also, it may not effectively segregate Platinum users as there is no guarantee that they are only located in the US-East-1 region.
+Option B suggests creating a Lambda@Edge function in the US-East-1 region to segregate Platinum users and execute it in all regions along with Amazon CloudFront to cache content nearer to users in all regions. This solution is more cost-effective than Option A as it requires setting up a Lambda@Edge function in only one region. It also segregates Platinum users effectively as the Lambda@Edge function executes in all regions, and Platinum users are guaranteed to be located in the US-East-1 region.
+Option C suggests using Auto-scaling for origin servers to scale dynamically along with creating a separate distribution for Platinum users with Amazon CloudFront to cache content nearer to users in all regions. This solution may not effectively segregate Platinum users as there is no guarantee that they are only located in the US-East-1 region. Additionally, dynamically scaling origin servers can result in additional costs.
+Option D suggests using Auto-scaling for origin servers to scale on a predefined schedule along with creating a separate distribution for Platinum Users with Amazon CloudFront to cache content nearer to users in all regions. This solution may not effectively segregate Platinum users as there is no guarantee that they are only located in the US-East-1 region. Also, scaling on a predefined schedule may not be appropriate as traffic may fluctuate unpredictably.
+Therefore, the best solution would be Option B, which involves creating a Lambda@Edge function in the US-East-1 region to segregate Platinum users and executing it in all regions along with Amazon CloudFront to cache content nearer to users in all regions. This solution effectively prioritizes Platinum users and ensures low latency for all users while being cost-effective.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question309:"link"
+
+

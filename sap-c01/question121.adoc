@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "921 - Your company has servers located in doze"
+---
+
+
+[.question]
+== 921-64a1df21aa736d27b1db9352.
+
+
+****
+
+[.query]
+--
+Your company has servers located in dozens of VPCs in different availability zones.
+These VPCs need to connect to each other.
+You need a service to establish the connections, simplify management and reduce operational costs.
+Which of the below options is best suited to achieve this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Set up AWS Transit Gateway to provide a hub for connecting VPCs.
+* [ ] B. Set up VPC Peering connections between each VP.
+* [ ] C. Set up Transit VPC as a hub among the VPCs.
+* [ ] D. Establish AWS PrivateLink among different VPCs.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because Transit Gateway acts as a hub to connect different VPCs.
+It is a fully managed service and can achieve all the requirements.
+Option B is incorrect because you need to create lots of VPC Peering connections since there are dozens of VPCs.
+Unlike Transit Gateway, you have to manage all the connections.
+Option C is incorrect because, with Transit VPC, you need to manage and scale EC2 based software appliances.
+Please check https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-gateway-vs-transit-vpc.html for the comparations between Transit Gateway and Transit VPC.Option D is incorrect because AWS PrivateLink is a service to establish private connections with AWS services.
+It is not a service to manage the connections among VPCs.
+The best option to establish connections among VPCs in different availability zones in a scalable, manageable, and cost-effective way is to use AWS Transit Gateway.
+AWS Transit Gateway acts as a hub for multiple VPCs and on-premises networks to connect and share resources. It simplifies network management by allowing centralized control of network routing and security policies for all connected VPCs. AWS Transit Gateway provides high availability and the ability to scale to support the increasing number of VPCs.
+Option B, VPC Peering connections, can be used to connect two VPCs within the same region, but it is not recommended to use VPC Peering connections to connect VPCs across regions or accounts. It requires manual configuration for each peering connection and can become difficult to manage as the number of VPCs grows.
+Option C, Transit VPC, is a similar solution to AWS Transit Gateway, but it requires more setup and configuration. It also lacks the scalability and high availability of AWS Transit Gateway.
+Option D, AWS PrivateLink, is a service that enables secure and private communication between VPCs, but it is not designed for connecting multiple VPCs. It is mainly used to connect VPCs to AWS services over private connections.
+Therefore, the best option to connect VPCs in different availability zones is to set up AWS Transit Gateway as a hub for all VPCs to connect and share resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question159:"link"
+
+

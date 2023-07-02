@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "959 - You have created an AWS Lambda function "
+---
+
+
+[.question]
+== 959-64a1fa73f053625db51ddea5.
+
+
+****
+
+[.query]
+--
+You have created an AWS Lambda function that will write data to a DynamoDB table.
+Which of the following must be in place to ensure that the Lambda function can interact with the DynamoDB table?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure an IAM Role is attached to the Lambda function which has the required DynamoDB privileges.
+* [ ] B. Ensure an IAM User is attached to the Lambda function which has the required DynamoDB privileges.
+* [*] C. Ensure the Access keys are embedded in the AWS Lambda function.
+* [ ] D. Ensure the IAM user password is embedded in the AWS Lambda function.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following to support this requirement:
+Each Lambda function has an IAM role (execution role) associated with it.
+You specify the IAM role when you create your Lambda function.
+Permissions you grant to this role determine what AWS Lambda can do when it assumes the role.
+There are two types of permissions that you grant to the IAM role:
+If your Lambda function code accesses other AWS resources, such as reading an object from an S3 bucket or writing logs to CloudWatch Logs, you need to grant permissions for relevant Amazon S3 and CloudWatch actions to the role.
+If the event source is stream-based (Amazon Kinesis Data Streams and DynamoDB streams), AWS Lambda polls these streams on your behalf.
+AWS Lambda needs permissions to poll the stream and read new records on the stream.
+So you need to grant the relevant permissions to this role.
+For more information on the Permission Role model for AWS Lambda, please refer to the URL below:
+https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html
+The correct answer is A: Ensure an IAM Role is attached to the Lambda function which has the required DynamoDB privileges.
+Explanation:
+AWS Lambda functions can interact with various AWS services, including DynamoDB, to perform tasks such as reading and writing data. However, to enable this interaction, the Lambda function needs to have appropriate permissions.
+To give permissions to an AWS Lambda function to interact with DynamoDB, an IAM role should be created with the necessary permissions and then attached to the Lambda function. An IAM role is an AWS Identity and Access Management (IAM) entity that defines a set of permissions for making AWS service requests. When a Lambda function is executed, it assumes the IAM role and can perform actions allowed by the role.
+Using an IAM role has several benefits:
+It provides a more secure approach to granting permissions to Lambda functions, as credentials such as access keys or passwords are not embedded in the function code.
+It allows for easier management of permissions and access control, as permissions can be updated for the role without needing to modify the Lambda function code.
+It simplifies the process of granting the same set of permissions to multiple Lambda functions, as the same role can be attached to multiple functions.
+Option B is incorrect because IAM users are used to grant permissions to people or services outside of AWS Lambda functions, and IAM users cannot be attached to a Lambda function.
+Option C is incorrect because embedding access keys in the Lambda function code is not recommended, as it can expose the keys to potential security risks.
+Option D is also incorrect because embedding passwords in the Lambda function code is not recommended, as it can expose the password to potential security risks.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question180:"link"
+
+

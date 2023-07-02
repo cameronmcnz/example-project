@@ -1,0 +1,116 @@
+---
+layout: default 
+title: "1262 - You have the following Network ACL and S"
+---
+
+
+[.question]
+== 1262-64a1fb03f053625db51de010.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/question/imgquestions_b6dnme.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have the following Network ACL and Security Group rules.
+What would happen to an SSH request sent from 10.10.1.148 IP address to an EC2 instance with below security group and exists inside a subnet with below NACL rules? Network ACL Inbound Network ACL Outbound Security Group Inbound Security Group Outbound.
+
+
+[source,java]
+----
+Type
+SSH (22)
+SSH (22)
+ALL Traffic
+
+ALL Traffic
+
+Protocol
+
+TCP (6)
+TCP (6)
+ALL
+ALL
+
+Port Range
+22
+22
+ALL
+ALL
+
+Source Allow / Deny
+10.10.1.0/24 ALLOW
+10.10.1.148/32 DENY
+10.10.1.148/32 ALLOW
+0.0.0.0/0 DENY
+----
+
+
+--
+
+[.list]
+--
+* [*] A. SSH request succeeds due to rule # 100 in Network ACL inbound and outbound, Security Group inbound rule.
+* [ ] B. SSH request succeeds due to rule # 300 in Network ACL inbound and rule # 100 in Network ACL outbound, Security Group inbound rule.
+* [ ] C. SSH request fails due rule # 200 in Network ACL inbound rule.
+* [ ] D. SSH request fails due to Security Group outbound rule does not allow 10.10.1.148 IP address.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Security groups are stateful - if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules.
+Responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules.
+Network ACLs are stateless; responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa)
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Security.html#VPC_Security_
+A network ACL contains a numbered list of rules that we evaluate in order, starting with the lowest numbered rule, to determine whether traffic is allowed in or out of any subnet associated with the network ACL.
+Rules are evaluated starting with the lowest numbered rule.
+As soon as a rule matches traffic, it's applied regardless of any higher-numbered rule that may contradict it.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html#ACLRules
+For.
+Option A, rule # 100 allows all traffic.
+So this will allow SSH requests irrespective of other higher numbered rules.
+Security group rule allows SSH traffic for IP Range 10.10.1.0/24
+IP address 10.10.1.148 falls under this IP range, so it allows SSH requests.
+Network ACL outbound rule # 100 allows ALL traffic.
+So the request would succeed.
+This option is correct.
+For Option B, when an SSH request is made, rule # 300 is never evaluated because the request succeeds during rule # 100 evaluation.
+However, Rule # 300 gets evaluated when a non-SSH request is made.
+But, for this question, it is an incorrect answer.
+For Option C, rule # 200 is never evaluated because the request succeeds during rule # 100 evaluation.
+So this option is incorrect.
+For option D, Security Groups are stateful.
+So, for an SSH request inbound to EC2 instance, the security group outbound does not impact.
+So this option is incorrect.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question546:"link"
+
+

@@ -1,0 +1,115 @@
+---
+layout: default 
+title: "1035 - An online gaming server which you have r"
+---
+
+
+[.question]
+== 1035-64a1df4caa736d27b1db9404.
+
+
+****
+
+[.query]
+--
+An online gaming server, which you have recently increased its IOPS performance by creating a RAID 0 configuration, has now started to have bottleneck problems due to your instance bandwidth.
+Which of the following would be the best solution for this to increase throughput?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Single Root I/O Virtualization (SR-IOV) on all the instances.
+* [ ] B. Move all your EC2 instances to the same availability zone.
+* [ ] C. Use a RAID 1 configuration instead of RAID 0.
+* [ ] D. Use instance store backed instances and stripe the attached ephemeral storage devices and use DRBD Asynchronous Replication.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because SR-IOV helps achieve higher network throughput, lower CPU utilization, and lower network latency which can translate into supporting more VMs per host, delivering increased network bandwidth utilization on the host, and providing greater performance predictability to the instances.
+Option B is incorrect because having all the instances in the same AZ does not necessarily increase the throughput.
+Option C is incorrect because the RAID 1 configuration which has data mirroring, provides redundancy of data for high availability.
+It does not increase the throughput.
+Option D is incorrect because this option will help in achieving high availability, not increased throughput.
+More information on SR-IOV:
+Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities on supported instance types.
+SR-IOV is a method of device virtualization that provides higher I/O performance and lower CPU utilization when compared to traditional virtualized network interfaces.
+Enhanced networking provides higher bandwidth, higher packet per second (PPS) performance, and consistently lower inter-instance latency.
+Reference Link:
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
+Note:
+This is a very challenging question.
+The answers are very similar.
+But there is still a very clear answer.
+Let me dive deeply into each option.
+------------------------
+A.
+Single Root I/O Virtualization (SR-IOV) on all the instances.
+Here, we are accessing NIC directly and exempting the virtualization layer.
+It increases the speed by emulating the vNIC and "Visualizing the network adapter on the physical host".
+B.
+Move all your EC2 instances to the same availability Zone.
+This is not the correct option as it will lose high availability.
+It also does not solve the bottleneck problems.
+C.
+Use a RAID 1 configuration instead of RAID 0
+This is not the correct option because there is no I/O performance enhancement.
+D.
+Use instance store backed instances and strip the attached ephemeral storage and use DRBD Asynchronous Replication.
+DRBD produces two mirror copies of data.
+When the primary failed, the standby has whatever data the primary has just before the crash.
+When the standby starts up, the RDBMS goes through the normal recovery and boot up.
+It's the same as the primary crashed and being started up again.
+It asks for "DRBD Asynchronous Replication"
+Here, you should know the following points.
+Asynchronous: in case of forced failover: Data loss.
+in our case, even we compromise all other factors like doubling the billing, we can not ensure data.
+Semi-synchronous: No write is lost in case of forced failover.
+Synchronous: No loss of data in all cases.
+Here you should know 2 factors.
+You need to create a backup of each instance.
+You need to double the number of instances and the size of volumes.
+Double billing: It will have primary and secondary EC2s.
+If the primary fails, the traffic will automatically be diverted to the secondary.
+Each EC2 primary and secondary will have its own EBS.
+------------------------
+Keep in mind our challenge:
+"Started to have bottleneck problem due to instance bandwidth."
+The question is not asking you to change the RAID 0 configuration.
+In brief, to answer this question:
+If we go for option D: Even we are ready to pay double-billing, our data is not safe.
+Also, it is asking to change the RAID 0, which created a problem for us, and the question starts after RAID 0
+Option D is fully wrong.
+if we go for option A: This helps us increase I/O by taking leverage of "Visualizing the network adapter on the physical host."
+Hence answer A is correct.
+The best solution for increasing throughput on an online gaming server that is experiencing bottleneck problems due to instance bandwidth will depend on various factors such as the type of workload, the size of data transfer, and the specific resources available on the AWS infrastructure.
+Option A: Using Single Root I/O Virtualization (SR-IOV) on all instances can help in improving network performance by reducing the hypervisor overhead of the virtualization layer. However, it may not be the best solution in this case as it focuses on network performance and not necessarily on increasing throughput.
+Option B: Moving all EC2 instances to the same availability zone can help in reducing network latency and improving network performance, but it may not address the bottleneck issue as it is related to instance bandwidth.
+Option C: Using a RAID 1 configuration instead of RAID 0 may not be the best solution in this case as it reduces the overall disk space by mirroring the data and may not provide significant improvement in throughput.
+Option D: Using instance store backed instances and stripe the attached ephemeral storage devices and use DRBD Asynchronous Replication can help in improving throughput by leveraging the ephemeral storage devices available on the instance. DRBD Asynchronous Replication is a software-based data replication technology that can help in replicating the data between two instances asynchronously, thereby improving the fault tolerance and scalability of the system.
+Therefore, option D would be the best solution to increase throughput in this scenario. However, it's worth noting that this solution may have additional considerations such as backup and recovery strategies, data consistency, and performance monitoring.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question339:"link"
+
+

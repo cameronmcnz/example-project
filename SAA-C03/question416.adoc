@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1216 - You have currently contacted an AWS Part"
+---
+
+
+[.question]
+== 1216-64a1faedf053625db51ddfd9.
+
+
+****
+
+[.query]
+--
+You have currently contacted an AWS Partner Network (APN) Partner to carry out an audit for your AWS account.
+You need to ensure that the partner can carry out an audit on your resources.
+Which one of the following steps would you ideally carry out?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an IAM user for the partner account for login purposes.
+* [*] B. Create a cross account IAM Role.
+* [ ] C. Create an IAM group for the partner account for login purposes.
+* [ ] D. Create an IAM profile for the partner account for login purposes.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+Cross-account IAM roles allow customers to securely grant access to AWS resources in their account to a third party, like an APN Partner, while retaining the ability to control and audit who is accessing their AWS account.
+Cross-account roles reduce the amount of sensitive information APN Partners need to store for their customers so that they can focus on their product instead of managing keys.
+Using an IAM user to control 3rd party access involves handing over an Access Key/Secret Key - this is the simple "access badge."
+Using AssumeRole to control 3rd party access uses the same information plus a security token.
+To assume a role, your AWS account must be trusted by the role.
+The trust relationship is defined in the role's trust policy when the role is created.
+This is the "access badge with fingerprint validation."
+Anyone can use the IAM keys - they're just a key pair.
+Anyone can take them and use them later on, and you would not be able to be identified from the trusted party they were given to.
+To use the AssumeRole, you must be first authenticated as the trusted entity, and in the case of temporary credentials, use them while they haven't expired.
+These extra security features are what make it more secure.
+Typically, you use
+AssumeRole.
+for cross-account access.
+Options A and C are incorrect since it is not secured as IAM users and IAM group (a set of users) will be given permissions just like giving keys to them without extra security token.
+Option D is incorrect since IAM Profile doesn't exist in AWS.
+For more information on cross-account roles, please refer to the below URLs-
+https://aws.amazon.com/blogs/apn/securely-accessing-customer-aws-accounts-with-cross-account-iam-roles/ https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
+When an AWS Partner Network (APN) partner is conducting an audit on your AWS account, you need to ensure that the partner can access your resources for the purposes of the audit. There are different ways to grant access to your AWS resources.
+Option A, creating an IAM user for the partner account for login purposes, is not recommended as it would require you to provide the partner with access keys, which could be a security risk. IAM users should be created only for individuals who need ongoing access to your AWS resources, such as employees or contractors.
+Option C, creating an IAM group for the partner account for login purposes, is also not recommended as it suffers from the same security risk as option A. IAM groups should be used to manage permissions for collections of IAM users.
+Option D, creating an IAM profile for the partner account for login purposes, is not a valid option. IAM profiles are not used for login purposes, but are used to grant permissions to an EC2 instance to access other AWS resources.
+The recommended approach is option B, creating a cross-account IAM role. A cross-account IAM role allows you to grant temporary access to your AWS resources to a trusted external account, such as an APN partner, without sharing access keys. The partner will assume the role and be granted permissions based on the policies attached to the role. This approach provides a more secure and controlled way to grant temporary access to your AWS resources.
+To create a cross-account IAM role, you need to define a trust policy that specifies the trusted external account and a permissions policy that specifies the resources and actions that the role can access. Once the role is created, you can share the ARN (Amazon Resource Name) of the role with the APN partner, who can then assume the role and access the resources needed for the audit.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question491:"link"
+
+

@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1313 - Which of the following statement defines"
+---
+
+
+[.question]
+== 1313-64a1fb20f053625db51de056.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_jlviwt.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following statement defines task definition?
+
+
+[source,java]
+----
+Task Definitions
+
+To prepare your application to run on Amazon ECS, you create a task definition. The task definition is a text file, in
+JSON format, that describes one or more containers, up to a maximum of ten, that form your application. It can be
+thought of as a blueprint for your application. Task definitions specify various parameters for your application.
+Examples of task definition parameters are which containers to use, which launch type to use, which ports should be
+opened for your application, and what data volumes should be used with the containers in the task. The specific
+parameters available for the task definition depend on which launch type you are using. For more information about
+creating task definitions, see Amazon ECS Task Definitions.
+
+The following is an example of a simple task definition containing a single container that runs an NGINX web server
+using the Fargate launch type. For a more extended example demonstrating the use of multiple containers in a task
+definition, see Example Task Definitions.
+
+"family": “webserver”,
+“containerDefinitions": [
+
+*“pequiresCompatibilities": [
+“FARGATE"
+
+“networkMode": “awsvpc",
+"memory": "512"
+
+cpu":
+----
+
+
+--
+
+[.list]
+--
+* [*] A. JSON template that describes containers which forms your application.
+* [ ] B. Template for a program that runs inside AWS ECS Cluster.
+* [ ] C. AWS managed service that launches ECS clusters.
+* [ ] D. Template that defines actions for each IAM user on the ECS cluster and its containers.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+For more information on how to create task definitions, refer documentation here.
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
+The correct answer is A: "JSON template that describes containers which forms your application."
+Explanation: In Amazon Web Services (AWS) Elastic Container Service (ECS), a task definition is a JSON template that describes one or more containers that together form an application. It includes information such as the Docker image to use, CPU and memory requirements, networking information, and any data volumes to be used by the container. A task definition also specifies the port to use for communication with the container, the protocols to use, and any environment variables needed.
+AWS ECS uses task definitions to launch containers within an ECS cluster. You can create multiple versions of a task definition to support different requirements or to update the application. When a task is launched, ECS creates a container instance of each container defined in the task definition.
+Option B is incorrect because a task definition is not a template for a program that runs inside AWS ECS Cluster. It is a template for the containers that form your application.
+Option C is incorrect because ECS is the AWS managed service that launches ECS clusters, not a task definition.
+Option D is incorrect because an IAM (Identity and Access Management) user is not associated with an ECS cluster or its containers. Task definitions define the configuration for containers in an ECS cluster.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question617:"link"
+
+

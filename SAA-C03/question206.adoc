@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1006 - A company has a PostgreSQL DB instance i"
+---
+
+
+[.question]
+== 1006-64a1fa84f053625db51ddeda.
+
+
+****
+
+[.query]
+--
+A company has a PostgreSQL DB instance in Amazon RDS which is not encrypted.
+As per security policy, data in the RDS instances should be encrypted at rest with AWS KMS. Which option is correct for RDS DB encryption?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon RDS for PostgreSQL DB instance can only be encrypted at creation time and not after its creation. There is no way to achieve this requirement.
+* [*] B. Take a snapshot of the unencrypted DB instance. Copy the snapshot and encrypt the new snapshot with AWS KMS. Restore the DB instance with the new encrypted snapshot.
+* [ ] C. Take a snapshot of the unencrypted DB instance. Encryption can be enabled by restoring a DB instance from the unencrypted snapshot.
+* [ ] D. Stop the existing RDS instance and encrypt the DB with a KMS CMK.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect because there is a way to achieve encryption afterward which is given in option.
+B.Option B is CORRECT.
+You can enable encryption for an RDS DB instance when you create it, but not after it's created.
+However, you can add encryption to an unencrypted DB instance by creating a snapshot of your DB instance and then creating an encrypted copy of that snapshot.
+You can then restore a DB instance from the encrypted snapshot to get an encrypted copy of your original DB instance.
+Option C is incorrect because we have to copy and encrypt the snapshot first.
+Option D is incorrect because the currently running un-encrypted DB instance cannot be encrypted.
+References:
+https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/encrypt-an-existing-amazon-rds-for-postgresql-db-instance.html https://blog.theodo.com/2019/11/encrypt-existing-aws-rds-database/ https://aws.amazon.com/blogs/security/architecting-for-database-encryption-on-aws/
+The correct answer is B. Take a snapshot of the unencrypted DB instance. Copy the snapshot and encrypt the new snapshot with AWS KMS. Restore the DB instance with the new encrypted snapshot.
+Explanation: AWS RDS (Relational Database Service) provides easy management of relational databases, including PostgreSQL. RDS instances can be encrypted at rest using AWS KMS (Key Management Service) to secure data in the database.
+In this scenario, the company's PostgreSQL RDS instance is not encrypted, and the security policy requires the encryption of data at rest with AWS KMS. Since the instance is already created, there is no option to enable encryption directly on it. Instead, the following steps can be taken to encrypt the database at rest:
+1.
+Take a snapshot of the unencrypted RDS instance. A snapshot is a backup of the database instance and can be used to create a new instance later.
+2.
+Copy the snapshot and encrypt the new snapshot with AWS KMS. During the snapshot copy process, you can choose to encrypt the copy using a KMS key.
+3.
+Restore the DB instance with the new encrypted snapshot. You can create a new RDS instance from the encrypted snapshot.
+This option ensures that the data is encrypted at rest while maintaining the existing database instance.
+Option A is incorrect because it is possible to encrypt an existing RDS instance by creating an encrypted snapshot and restoring it.
+Option C is incorrect because restoring from an unencrypted snapshot will result in an unencrypted database instance.
+Option D is incorrect because stopping an existing RDS instance does not provide an option to encrypt it with KMS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question235:"link"
+
+

@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "931 - There is a requirement for a company to "
+---
+
+
+[.question]
+== 931-64a1df24aa736d27b1db9360.
+
+
+****
+
+[.query]
+--
+There is a requirement for a company to transfer large amounts of data between AWS and an on-premise location.
+There is an additional requirement for low latency and high consistency traffic to AWS.
+Out of these given requirements, how would you design a hybrid architecture? Choose the correct answer from the below options.
+
+
+--
+
+[.list]
+--
+* [*] A. Provision a Direct Connect connection to an AWS region using a Direct Connect partner.
+* [ ] B. Create a VPN tunnel for private connectivity which increases network consistency and reduces latency.
+* [ ] C. Create an IPSec tunnel for private connectivity which increases network consistency and reduces latency.
+* [ ] D. This is not possible.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Tip: Whenever the scenario in the question requires the use of low latency transfer of data between AWS/VPC and on-premise servers/database, always think about provisioning AWS Direct Connect.
+Option A is CORRECT because Direct Connect creates a dedicated connection between AWS and on-premises server for low latency secured data transfer.
+Option B is incorrect because setting up VPN connectivity has higher maintenance overhead compared to Direct Connect.
+Also, Direct Connect provides a dedicated network connection bypassing the internet.
+Hence it is more secure.
+Option C is incorrect because setting up the IPSec tunnel has setup and maintenance overhead.
+Also, the IPSec tunnel does not guarantee the end-to-end security of the data as it uses the internet.
+Option D is incorrect as Direct Connect is the most suited option for this scenario.
+More information on AWS Direct Connect:
+AWS Direct Connect makes it easy to establish a dedicated network connection from your premises to AWS.
+Using AWS Direct Connect, you can establish private connectivity between AWS and your datacenter, office, or colocation environment, which in many cases can reduce your network costs, increase bandwidth throughput, and provide a more consistent network experience than Internet-based connections.
+For more information on AWS direct connect, just browse to the below URL-
+https://aws.amazon.com/directconnect/
+Option A: Provision a Direct Connect connection to an AWS region using a Direct Connect partner. Direct Connect is a dedicated network connection that enables secure and reliable connectivity between on-premise infrastructure and AWS. Direct Connect provides consistent network performance, low latency, and high bandwidth compared to internet-based connections. Direct Connect can be provisioned through a Direct Connect partner, which allows the customer to connect to AWS in the desired region. This option is a suitable solution for transferring large amounts of data with low latency and high consistency requirements.
+Option B: Create a VPN tunnel for private connectivity which increases network consistency and reduces latency. VPN (Virtual Private Network) is a secure and encrypted connection between two endpoints over the internet. VPN can be used to connect an on-premise data center to AWS for private connectivity. However, VPN may have latency issues and inconsistency in network performance as it relies on the public internet, which can impact the overall performance of the hybrid architecture.
+Option C: Create an IPSec tunnel for private connectivity which increases network consistency and reduces latency. IPSec (Internet Protocol Security) is a protocol that provides secure communication over IP networks. It can be used to establish a private connection between on-premise infrastructure and AWS. However, IPSec may have latency issues and inconsistency in network performance as it relies on the public internet, which can impact the overall performance of the hybrid architecture.
+Option D: This is not possible. This option is incorrect as there are multiple solutions available to design a hybrid architecture for transferring large amounts of data with low latency and high consistency requirements between AWS and on-premise infrastructure.
+Based on the above options, the best solution for designing a hybrid architecture for transferring large amounts of data with low latency and high consistency requirements between AWS and on-premise infrastructure would be to provision a Direct Connect connection to an AWS region using a Direct Connect partner.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question174:"link"
+
+

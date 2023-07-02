@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1242 - You work in a startup company as an AWS "
+---
+
+
+[.question]
+== 1242-64a1fafaf053625db51ddff8.
+
+
+****
+
+[.query]
+--
+You work in a start-up company as an AWS solutions architect.
+You create a new AWS Organization that includes a large amount of AWS accounts.
+You want to use a tool to trigger a notification whenever the administrator performs an action in the Organization.
+Which of the following AWS services would you use?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS CloudWatch Events.
+* [ ] B. AWS Config Resources.
+* [*] C. AWS CloudTrail.
+* [ ] D. AWS CloudWatch Logs.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is CORRECT because CloudWatch Events can raise events for actions in the AWS Organization.
+You can register an SNS topic to trigger a notification in a CloudWatch Event rule.
+Option B is incorrect because AWS Config Resources do not log events for AWS Organizations.
+Option C is incorrect because AWS CloudTrail is used to create to trail to monitor the AWS API calls.
+Option D is incorrect because CloudWatch Logs cannot provide a real-time notification like CloudWatch Events when an administrator-specified action in the Organization occurs.
+Reference:
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html. https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tutorials_cwe.html. https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html.
+The correct answer is C. AWS CloudTrail.
+AWS CloudTrail is a service that provides a record of actions taken by a user, role, or an AWS service in an account. It logs all API calls made to AWS services, including AWS Management Console, AWS CLI, and SDKs. CloudTrail enables governance, compliance, operational auditing, and risk auditing of AWS account activities.
+When you create a new AWS Organization, you can enable CloudTrail in the master account to monitor and log all activities in the Organization. This includes any activity performed by the administrator on any of the linked accounts within the Organization. You can then create a CloudWatch alarm to send a notification whenever a specific event occurs, such as the creation of a new user, modification of a policy, or deletion of a resource.
+AWS CloudWatch Events (option A) is a service that enables you to respond to state changes in your AWS resources. You can use it to trigger actions in response to specific events, such as the creation or deletion of an EC2 instance. It's not designed for tracking administrative actions in an AWS Organization.
+AWS Config Resources (option B) is a service that enables you to track changes to resources over time and maintain a history of resource configuration. It's useful for compliance auditing, change management, and troubleshooting. However, it doesn't provide real-time notifications for administrative actions.
+AWS CloudWatch Logs (option D) is a service that enables you to monitor, store, and access log files from AWS resources and applications. You can use it to troubleshoot issues, monitor performance, and detect security threats. However, it doesn't provide a comprehensive audit trail of administrative actions in an AWS Organization.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question522:"link"
+
+

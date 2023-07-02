@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "907 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 907-64a1a860ef3e8462333a9ca1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0009900001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+List<string> valList = Arrays.asList("", "George", "", “John”, “Jim");
+
+Long newVal = valList.stream() // line ni
+-filter(x -> !x.isEmpty())
+-count () // Line n2
+
+System. out.print (newval)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. A compilation error occurs at line n2.
+* [ ] B. 3
+* [ ] C. 2
+* [ ] D. A compilation error occurs at line n1.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

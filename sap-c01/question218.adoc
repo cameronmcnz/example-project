@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "1018 - Youve been tasked with moving an ecommer"
+---
+
+
+[.question]
+== 1018-64a1df46aa736d27b1db93ed.
+
+
+****
+
+[.query]
+--
+You've been tasked with moving an e-commerce web application from a customer's data center into a VPC.
+The application must be fault-tolerant and well as highly scalable.
+Moreover, the customer is adamant that service interruptions do not affect the user experience.
+As you near launch, you discover that the application currently uses multicast to share session state between web servers.
+In order to handle session state within the VPC, you choose the following option.
+
+
+--
+
+[.list]
+--
+* [*] A. Enable session stickiness via Elastic Load Balancing.
+* [*] B. Store session state in Amazon ElastiCache for Redis.
+* [ ] C. Create a mesh VPN between instances and allow multicast on it.
+* [ ] D. Store session state in Amazon Relational Database Service.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is incorrect because ELB sticky sessions only cache user data locally for better performance.
+If the EC2 instance fails, the session data will still be lost.
+Option B is CORRECT because Redis is a fast, open-source, in-memory data store and caching service.
+It is highly available, reliable, and with high performance suitable for the most demanding applications such as this one.
+Option C is incorrect because Mesh VPN is not fault-tolerant or highly scalable - the client's real priorities.
+Its failure would impact users.
+The supernode that handles the registration is a single point of failure.
+In case of failure, new VPN nodes would not be able to register.
+Also, the nodes wouldn't register across multiple AZs.
+Even if it is possible, it is very cumbersome.
+Option D is incorrect because storing the session state in RDS is not a good option.
+For more information on Elastic Cache, please visit the below URL:
+https://aws.amazon.com/elasticache/
+Note:
+Our main requirement is to provide fault tolerance and high scalability.
+Redis data resides in-memory, in contrast to databases that store data on disk or SSDs.
+By eliminating the need to access disks, in-memory data stores such as Redis avoid seeking time delays and access microseconds data.
+Redis is a popular choice for caching, session management, real-time analytics, geospatial, chat/messaging, media streaming, and gaming leaderboards.
+ElastiCache Redis can provide high scalability and is fault-tolerant.
+When moving an e-commerce web application from a customer's data center to a VPC, it is important to ensure that the application is fault-tolerant, scalable, and that service interruptions do not affect the user experience. One of the key challenges in this scenario is handling session state between web servers. The current application uses multicast to share session state between web servers, which is not supported within the VPC.
+To handle session state within the VPC, there are several options available, but the best one will depend on the specific requirements of the application. The four options listed in the question are:
+A. Enable session stickiness via Elastic Load Balancing: This option involves using Elastic Load Balancing (ELB) to distribute incoming traffic to the web servers in the VPC. With session stickiness, ELB can ensure that each user's requests are always routed to the same web server. This can help maintain session state and prevent data loss. However, this option may not be suitable for applications with very high traffic volumes or complex session state requirements.
+B. Store session state in Amazon ElastiCache for Redis: This option involves using Amazon ElastiCache for Redis to store session state data. Redis is a popular in-memory data store that can support complex data structures and can be highly scalable. By using ElastiCache, the application can store session data in a highly available and fault-tolerant manner, ensuring that service interruptions do not affect the user experience.
+C. Create a mesh VPN between instances and allow multicast on it: This option involves creating a mesh VPN between instances in the VPC and allowing multicast traffic over the VPN. This can enable the application to continue using multicast for session state sharing. However, this option may not be suitable for all applications and may be complex to set up and manage.
+D. Store session state in Amazon Relational Database Service: This option involves using Amazon Relational Database Service (RDS) to store session state data. RDS is a managed database service that can support complex data structures and can be highly scalable. By using RDS, the application can store session data in a highly available and fault-tolerant manner, ensuring that service interruptions do not affect the user experience.
+In conclusion, option B (Store session state in Amazon ElastiCache for Redis) is likely the best option for handling session state within the VPC. This option provides a highly scalable and fault-tolerant solution that can support complex session state requirements. Option A (Enable session stickiness via Elastic Load Balancing) may be a good option for simpler applications with lower traffic volumes, while options C (Create a mesh VPN between instances and allow multicast on it) and D (Store session state in Amazon Relational Database Service) may be more suitable for specific use cases.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question316:"link"
+
+

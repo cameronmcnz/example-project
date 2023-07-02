@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "843 - Given interface RideableCar getCar Strin"
+---
+
+
+[.question]
+== 843-64a1a849ef3e8462333a9c61.
+
+
+****
+
+[.query]
+--
+Given: interface Rideable{Car getCar (String name);} class Car { private String name; public Car (String name) { this.name = name; } } Which code fragment creates an instance of Car?
+
+
+--
+
+[.list]
+--
+* [ ] A. Car auto = Car ("MyCar"): : new;
+* [ ] B. Car auto = Car : : new; Car vehicle = auto : : getCar("MyCar");
+* [*] C. Rideable rider = Car : : new; Car vehicle = rider.getCar("MyCar");
+* [ ] D. Car vehicle = Rideable : : new : : getCar("MyCar");
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

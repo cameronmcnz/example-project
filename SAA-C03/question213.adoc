@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1013 - A company is hosting a MySQL database in"
+---
+
+
+[.question]
+== 1013-64a1fa87f053625db51ddee2.
+
+
+****
+
+[.query]
+--
+A company is hosting a MySQL database in AWS using the AWS RDS service.
+A Read Replica has been created, and reports are run off the Read Replica database to offload the reads.
+But at certain times, the reports show stale data.
+What could be the possible reason behind this?
+
+
+--
+
+[.list]
+--
+* [*] A. The Read Replica has not been created properly.
+* [ ] B. The backup of the original database has not been set properly.
+* [*] C. This is due to the replication lag.
+* [ ] D. The Multi-AZ feature is not enabled.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+An AWS Whitepaper on the caveat for reading Replicas is given below which must be considered by architects.
+Read Replicas are separate database instances that are replicated asynchronously.
+As a result, they are subject to replication lag and might be missing some of the latest transactions.
+Application architects need to consider which queries have the tolerance to slightly stale data.
+Those queries can be executed on a Read Replica, while the rest should run on the primary node.
+Read Replicas may also not accept any write queries.
+For more information on AWS Cloud best practices, please visit the following URL-
+https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf
+When a MySQL database is hosted on AWS using the RDS service, a Read Replica can be created to offload the read traffic from the primary database. This can help improve performance and reduce the load on the primary database. However, at times, the reports run on the Read Replica may show stale data, which could be due to several reasons.
+Option A - The Read Replica has not been created properly: This option is unlikely to be the cause of the problem as creating a Read Replica is a simple process and can be easily verified.
+Option B - The backup of the original database has not been set properly: This option is also unlikely to be the cause of the problem as the backup process does not directly affect the Read Replica. However, if the backup is not set up properly, it could lead to data loss, which could cause the data on the Read Replica to be stale.
+Option C - This is due to replication lag: This is the most likely reason for the problem. Replication lag is the time it takes for changes made on the primary database to be replicated to the Read Replica. During this time, the data on the Read Replica may be stale. Replication lag can be caused by several factors, such as network latency, database workload, or insufficient resources on the Read Replica. It's important to monitor the replication lag and ensure that it stays within an acceptable range.
+Option D - The Multi-AZ feature is not enabled: This option is also unlikely to be the cause of the problem as the Multi-AZ feature is not directly related to the Read Replica. The Multi-AZ feature is used to provide high availability by automatically replicating the primary database to a standby database in a different Availability Zone.
+To summarize, the most likely reason for the stale data on the Read Replica is replication lag. It's important to monitor the replication lag and ensure that it stays within an acceptable range. Additionally, other factors such as network latency, database workload, or insufficient resources on the Read Replica should be considered and addressed if necessary.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question243:"link"
+
+

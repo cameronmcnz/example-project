@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1025 - You work as a Solution Architect for a f"
+---
+
+
+[.question]
+== 1025-64a1df48aa736d27b1db93f7.
+
+
+****
+
+[.query]
+--
+You work as a Solution Architect for a firm, and your client has a multi-AZ infrastructure running on a VPC on AWS cloud.
+They are planning to implement a centralized custom dashboard on the client's data center.
+The dashboard will need to interact with the multi-AZ infrastructure.
+Data from the multi-AZ will be pulled from the data center.
+The solution should ensure low latency and good performance.
+Which of the following provides the best solution?
+
+
+--
+
+[.list]
+--
+* [*] A. Use direct connect connection to the VPC as this will provide access to all AZs.
+* [ ] B. Use VPN connections to 2 VGW routers in the region, as this should give you access to the infrastructure in all AZs.
+* [ ] C. You cannot connect to multiple AZ’s from a single location.
+* [ ] D. Use one direct connect connection from the data center to each AZ in the region.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Explanation.
+Direct connect connection will satisfy both the requirements of the scenario since it provides good bandwidth and low latency.
+Option B is incorrect - Since VPN uses the internet, it does not ensure high bandwidth.
+Option C is incorrect - It is not true.
+Option D is incorrect - You don't need a Direct.
+Connect connection to each AZ.
+https://aws.amazon.com/directconnect/faqs/
+The scenario described in the question involves a multi-AZ infrastructure running on a VPC on AWS cloud. The client wants to implement a custom dashboard on their data center that will interact with the infrastructure, and data will be pulled from the infrastructure to the data center. The solution should ensure low latency and good performance.
+Option A suggests using a direct connect connection to the VPC. Direct Connect is a service that allows customers to establish dedicated network connections between their data centers and AWS. This option may provide access to all AZs, but it does not provide a way to direct traffic to a specific AZ. It also may not be the most cost-effective solution as it requires a dedicated network connection.
+Option B suggests using VPN connections to two VGW routers in the region. This option is also feasible but may not be the best solution as it requires VPN configuration and management for each VGW, and may not be scalable for more than two VGWs. It also does not guarantee low latency as it depends on the quality of the VPN connection.
+Option C suggests that it is not possible to connect to multiple AZs from a single location, which is not true. It is possible to connect to multiple AZs using various connectivity options, including VPN and Direct Connect.
+Option D suggests using one direct connect connection from the data center to each AZ in the region. This option may provide the best solution as it allows for a dedicated network connection to each AZ, ensuring low latency and good performance. However, it may not be the most cost-effective solution, as it requires a dedicated network connection to each AZ.
+In summary, option D may provide the best solution for the scenario described in the question, but the most appropriate solution would depend on factors such as budget, scalability requirements, and other business considerations.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question326:"link"
+
+

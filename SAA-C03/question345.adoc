@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "1145 - A company is planning on setting up a we"
+---
+
+
+[.question]
+== 1145-64a1fac9f053625db51ddf85.
+
+
+****
+
+[.query]
+--
+A company is planning on setting up a web-based application.
+They need to ensure that users across the world have the ability to view the pages from the web site with the least amount of latency.
+How can you accomplish this?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Route 53 with latency-based routing
+* [*] B. Place a cloudfront distribution in front of the web application
+* [ ] C. Place an Elastic Load balancer in front of the web application
+* [ ] D. Place an Elastic Cache in front of the web application.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+Amazon CloudFront is a global content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to your viewers with low latency and high transfer speeds.
+CloudFront is integrated with AWS - including physical locations that are directly connected to the AWS global infrastructure, as well as software that works seamlessly with services including AWS Shield for DDoS mitigation, Amazon S3, Elastic Load Balancing or Amazon EC2 as origins for your applications, and Lambda@Edge to run custom code close to your viewers.
+CloudFront vs Route 53
+CloudFront will distribute your content over 100+ edge location which will decrease your response time with low latency and save your cost as well.
+It will deliver the content from the nearest location.
+CloudFront: It is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users.
+The content is cached at the edge location (data center)
+In CloudFront, you specify the distribution from where the content needs to be served.
+Route53 is a DNS service and is an origin of data.
+The term Origin is a term for where the original data resides before it is cached in the CDN (CloudFront)
+It redirects the original content rather than caching.
+Option A can be correct but the least amount of latency will not be there.
+Option C is incorrect since this is used for fault tolerance for the web application.
+Option D is incorrect since this is used for caching requests in front of a database layer.
+For more information on AWS CloudFront, please visit.
+https://aws.amazon.com/cloudfront/
+To ensure that users across the world have the ability to view the pages from the web site with the least amount of latency, we can follow these steps:
+1.
+Use Route 53 with latency-based routing: Route 53 is a DNS service provided by AWS. With latency-based routing, Route 53 automatically routes traffic to the region that provides the lowest latency for the user. This helps in reducing the latency for the users and improves their experience. Latency-based routing uses Amazon's latency data to determine the best endpoint for the user. Therefore, this option is a good choice to minimize the latency for users across the world.
+2.
+Place a CloudFront distribution in front of the web application: CloudFront is a content delivery network (CDN) provided by AWS. It caches content in edge locations located across the world. When a user requests a page, CloudFront serves it from the nearest edge location, reducing the latency. This option is useful when the web application has a large number of static resources like images, videos, etc., which can be cached by CloudFront.
+3.
+Place an Elastic Load Balancer in front of the web application: Elastic Load Balancer (ELB) is a load balancer service provided by AWS. It distributes incoming traffic across multiple EC2 instances. By distributing the load, ELB reduces the latency and ensures high availability of the application. This option is useful when the web application has multiple EC2 instances serving the requests.
+4.
+Place an Elastic Cache in front of the web application: Elastic Cache is an in-memory caching service provided by AWS. It caches frequently accessed data in memory, reducing the number of requests to the database. By reducing the database load, Elastic Cache reduces the latency for users. This option is useful when the web application is database-intensive and has a high read rate.
+In summary, the best option to minimize the latency for users across the world is to use Route 53 with latency-based routing. CloudFront can be used to cache static resources, ELB can be used to distribute the load across multiple EC2 instances, and Elastic Cache can be used to cache frequently accessed data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question407:"link"
+
+

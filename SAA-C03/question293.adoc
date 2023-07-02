@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1093 - An organization is planning to use AWS f"
+---
+
+
+[.question]
+== 1093-64a1faadf053625db51ddf3d.
+
+
+****
+
+[.query]
+--
+An organization is planning to use AWS for its production roll-out.
+The organization wants to implement automation for deployment such that it will automatically create a LAMP stack, download the latest PHP installable from S3, set up the ELB and Auto Scaling.
+Which AWS service would meet these requirements for making an orderly deployment of the software?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Elastic Beanstalk
+* [ ] B. AWS CloudFront
+* [*] C. AWS CodePipeline
+* [ ] D. AWS DevOps.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+The Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services.
+For a typical web application, configuring for HA requires running multiple web servers behind a load balancer, configuring Auto Scaling to replace lost instances and launch more instances in response to surges in traffic, and having a standby database instance configured for automatic failover.
+For AWS Elastic Beanstalk, production HA configuration also includes running your database instances outside of your web server environment which allows you to perform blue/green deployments and advanced database management operations.
+And Elastic Beanstalk uses EC2 Autoscaling Group to handle elasticity but Lightsail doesn't support autoscaling.
+Hence, option A is the correct answer.
+For more information on launching a LAMP stack with Elastic Beanstalk, please refer to the link below.
+https://aws.amazon.com/getting-started/projects/launch-lamp-web-app/faq/ https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/php-ha-tutorial.html?icmpid=docs_tutorial_projects
+The service that would meet the requirements for automating the deployment of a LAMP stack, downloading the latest PHP installable from S3, and setting up the ELB and Auto Scaling is AWS Elastic Beanstalk (option A).
+AWS Elastic Beanstalk is a fully managed service that makes it easy to deploy and run applications in various programming languages, including PHP, on AWS. It allows you to quickly deploy and manage applications without worrying about infrastructure provisioning, load balancing, or scaling.
+When using Elastic Beanstalk, you can simply upload your application code and Elastic Beanstalk will automatically handle the deployment, scaling, and monitoring of your application. Elastic Beanstalk also integrates with various AWS services, including S3, ELB, and Auto Scaling, making it easy to configure and deploy your application in a scalable and reliable manner.
+To deploy a LAMP stack with Elastic Beanstalk, you would first create an Elastic Beanstalk environment for your application. You can then upload your application code and specify the PHP version you want to use. Elastic Beanstalk will automatically provision the necessary infrastructure, including EC2 instances and an ELB, and configure them based on your specifications.
+You can also configure Elastic Beanstalk to download the latest PHP installable from S3 during the deployment process. This ensures that your application is always using the latest version of PHP.
+Finally, you can configure Elastic Beanstalk to automatically scale your application using Auto Scaling. This ensures that your application can handle varying levels of traffic without manual intervention.
+In summary, AWS Elastic Beanstalk is the most appropriate service to meet the requirements for automating the deployment of a LAMP stack, downloading the latest PHP installable from S3, and setting up the ELB and Auto Scaling.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question335:"link"
+
+

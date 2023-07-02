@@ -1,0 +1,99 @@
+---
+layout: default 
+title: "1298 - You have an application that writes appl"
+---
+
+
+[.question]
+== 1298-64a1fb16f053625db51de03d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_zlurq5.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have an application that writes application logs to version enabled S3 bucket.
+Each object has multiple versions attached to it.
+After 60 days, the application deletes the objects in S3 through DELETE API on the object.
+However, in next month's bill, you see charges for S3 usage on the bucket.
+What could have caused this?
+
+
+[source,java]
+----
+Key = phoio git
+I= 121212
+Key= photo.git
+ID= 111114
+
+Versioning Enabled Versioning Enabled
+----
+
+
+--
+
+[.list]
+--
+* [*] A. DELETE API call on the object only deletes latest version.
+* [*] B. DELETE API call on the object does not delete the actual object, but places delete marker on the object.
+* [ ] C. DELETE API call moves the object and its versions to S3 recycle bin from where the object can be restored till 30 days.
+* [ ] D. DELETE API for all versions of the object in version enabled bucket cannot be done through API. It can be only done by bucket owners through the console.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+When versioning is enabled, a simple DELETE cannot permanently delete an object.
+Instead, Amazon S3 inserts a delete marker in the bucket, and that marker becomes the current version of the object with a new ID.
+When you try to GET an object whose current version is a.
+delete marker, Amazon S3 behaves as though the object has been deleted (even though it has not been erased) and returns a 404 error.
+The following figure shows that a simple DELETE does not actually remove the specified object.
+Instead, Amazon S3 inserts a delete marker.
+To permanently delete versioned objects, you must use DELETE Object versioned.
+The following figure shows that deleting a specified object version permanently removes that object.
+For information on how to delete versioned objects through API, refer to documentation here.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/DeletingObjectVersions.html#delete-obj-version-enabled-bucket-rest
+Option A is not true.
+DELETE call on an object does not delete the latest version unless the DELETE call is made with the latest version id.
+Option C is not true.
+AWS S3 does not have to recycle bin.
+Option D is not true.
+DELETE call on a versioned object can be made through API by providing the version id of the object's version to be deleted.
+In this scenario, the application writes logs to an S3 bucket, which has versioning enabled. The application deletes objects after 60 days using the DELETE API call on the object. However, there are charges for S3 usage on the bucket in the next month's bill.
+The possible reasons for this are:
+A. DELETE API call on the object only deletes the latest version: This answer is incorrect because when versioning is enabled, every new version of the object is stored as a separate object, and the DELETE API call deletes all versions of the object.
+B. DELETE API call on the object does not delete the actual object, but places a delete marker on the object: This answer is partially correct. When versioning is enabled, the DELETE API call places a delete marker on the object to indicate that the object is deleted. However, the object and its versions still exist in S3 and can be accessed.
+C. DELETE API call moves the object and its versions to S3 recycle bin from where the object can be restored till 30 days: This answer is incorrect because when versioning is enabled, the DELETE API call places the object and its versions in the S3 versioning recycle bin, where they can be restored for an indefinite period.
+D. DELETE API for all versions of the object in version-enabled bucket cannot be done through the API. It can be only done by bucket owners through the console: This answer is incorrect. The DELETE API call can be used to delete all versions of an object in an S3 bucket with versioning enabled.
+Therefore, the correct answer is B - DELETE API call on the object does not delete the actual object, but places a delete marker on the object. When versioning is enabled, the DELETE API call only adds a delete marker on the object instead of actually deleting it. This means that the object and its versions still exist in S3 and can be accessed. As a result, there will still be charges for S3 usage on the bucket in the next month's bill. To completely delete the object and its versions, the application must use the DELETE API call to delete the object and all of its versions, including any delete markers.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question592:"link"
+
+

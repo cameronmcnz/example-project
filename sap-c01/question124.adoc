@@ -1,0 +1,136 @@
+---
+layout: default 
+title: "924 - There is a requirement to split a VPC wi"
+---
+
+
+[.question]
+== 924-64a1df22aa736d27b1db9356.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_69_2.png[]
+
+--
+
+
+****
+
+[.query]
+--
+There is a requirement to split a VPC with a CIDR block of 10.0.0.0/24 into two subnets, each of which should give 128 IP addresses (including the 5 fixed IPs reserved by AWS)
+Can this be done and if so, how will the allocation of the IP addresses be configured? Choose the correct answer from the below options.
+
+
+[source,java]
+----
+cidr / vism upernet calculator
+
+Subnets CIDR Wildcard Feedback
+[© ads by Google [A 792.168 1.1 > ¢ ‘AIlIP Network ) (“Bandwidth Control)
+
+Juniper Segment Routing - Simplify Network
+
+Management
+
+© CIDR Calculator CIDR Calculator
+sees) The CIDR Calculator enables CIDR network
+10.0.0.0 calculations using IP address, subnet mask, mask bits,
+aS Wildcard Mask maximum required IP addresses and maximum
+Mas required subnets.
+
+0.0.0.127
+
+Results of the CIDR calculation provide the wildcard
+mask, for use with ACL (Access Control Lists), CIDR
+network address (CIDR route), network address in
+CIDR notation and the CIDR address range for the
+resulting CIDR network.
+
+CIDR Address Range For classful subnets, use the IP Subnet Calculator. For
+10.0.0.0- 10.0.0.127 a smart-phone optimized CIDR / VLSM Calculator, visit
+
+IP Calc. For ACL (Access Control List) wildcard mask
+
+calculations, use the ACL Wildcard Mask Calculator.
+
+Instant Grammar Checker
+
+@ grammarly
+
+CIDR - Classless Inter Domain Routing
+
+CIDR - Classless Inter Domain Routing - was adopted to help
+ease the load imposed on internet and large network backbone
+routers by the increasing size of routing tables.
+
+‘OX
+
+Juniper Segment Routing
+
+Large routing tables have several adverse effects:
+
++ Routers require more memory in order to store and
+
+| > FSS fon are
+
+apm |
+
+9/28/2019
+
+SeOeeERHSa*RZutew
+----
+
+
+--
+
+[.list]
+--
+* [*] A. One subnet will use CIDR block 10.0.0.0/127 (for addresses 10.0.0.0 - 10.0.0.127) and the other will use CIDR block 10.0.0.128/255 (for addresses 10.0.0.128 - 10.0.0.255).
+* [ ] B. One subnet will use CIDR block 10.0.0.0/25 (for addresses 10.0.0.0 - 10.0.0.127) and the other will use CIDR block 10.0.1.0/25 (for addresses 10.0.1.0 - 10.0.1.127).
+* [*] C. One subnet will use CIDR block 10.0.0.0/25 (for addresses 10.0.0.0 - 10.0.0.127) and the other will use CIDR block 10.0.0.128/25 (for addresses 10.0.0.128 - 10.0.0.255).
+* [ ] D. This is not possible.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+This is clearly given in the AWS documentation.
+" For example, if you create a VPC with CIDR block 10.0.0.0/24, it supports 256 IP addresses.
+You can break this CIDR block into two subnets, each supporting 128 IP addresses.
+One subnet uses CIDR block 10.0.0.0/25 (for addresses 10.0.0.0 - 10.0.0.127) and the other uses CIDR block 10.0.0.128/25 (for addresses 10.0.0.128 - 10.0.0.255)".
+For more information on VPC and subnets, please see the below link-
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
+To get the IP addresses and subnets, please see the below link-
+http://www.subnet-calculator.com/cidr.php
+To split a VPC with a CIDR block of 10.0.0.0/24 into two subnets, each of which should give 128 IP addresses (including the 5 fixed IPs reserved by AWS), we need to divide the /24 network into two smaller subnets of /25.
+The /25 network provides 128 IP addresses, out of which 5 IP addresses are reserved by AWS for various purposes such as network address, broadcast address, etc. This means that each of the two subnets would have 123 usable IP addresses.
+Option A suggests that we use CIDR block 10.0.0.0/127 (for addresses 10.0.0.0 - 10.0.0.127) and the other will use CIDR block 10.0.0.128/255 (for addresses 10.0.0.128 - 10.0.0.255). This option is incorrect because the subnet mask /127 only allows for two IP addresses, which is not sufficient to provide 123 usable IP addresses required by each subnet.
+Option B suggests that we use CIDR block 10.0.0.0/25 (for addresses 10.0.0.0 - 10.0.0.127) and the other will use CIDR block 10.0.1.0/25 (for addresses 10.0.1.0 - 10.0.1.127). This option is incorrect because the two subnets are not contiguous, and it is not possible to have a contiguous CIDR block that spans two non-contiguous /25 subnets.
+Option C suggests that we use CIDR block 10.0.0.0/25 (for addresses 10.0.0.0 - 10.0.0.127) and the other will use CIDR block 10.0.0.128/25 (for addresses 10.0.0.128 - 10.0.0.255). This option is correct because it provides two contiguous subnets of /25 each, with 123 usable IP addresses in each subnet.
+Therefore, the correct answer is option C.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question164:"link"
+
+

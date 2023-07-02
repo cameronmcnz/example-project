@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "970 - Instances hosted in the private subnet o"
+---
+
+
+[.question]
+== 970-64a1fa76f053625db51ddeb0.
+
+
+****
+
+[.query]
+--
+Instances hosted in the private subnet of your VPC need to access some important documents from the S3 bucket which is outside the VPC.
+Due to the confidential nature of these documents, you have to ensure that the traffic does not traverse through the internet.
+As an architect, how would you implement this solution?
+
+
+--
+
+[.list]
+--
+* [*] A. Consider using a VPC Endpoint.
+* [ ] B. Consider using an EC2 Endpoint.
+* [*] C. Move the instances to a public subnet.
+* [ ] D. Create a VPN connection and access the S3 resources from the EC2 Instance.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS documentation mentions the following:
+A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection or AWS Direct Connect connection.
+Instances in your VPC do not require public IP addresses to communicate with resources in the service.
+Traffic between your VPC and the other services does not leave the Amazon network.
+For more information on VPC Endpoints, please visit the following URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html
+To provide secure access to S3 resources from instances hosted in a private subnet of a VPC, without the traffic traversing the internet, the recommended solution is to use a VPC endpoint. Therefore, the correct answer is A.
+A VPC endpoint is a secure and reliable way to access S3 resources from within a VPC without going through the internet. A VPC endpoint provides a direct connection between the VPC and S3, so the traffic never leaves the Amazon network. This ensures that the communication between the private subnet and the S3 bucket remains private and secure.
+Using an EC2 endpoint (B) is not a valid solution for accessing S3 resources since EC2 endpoints are used to access services hosted within the same VPC as the EC2 instance, and not external services like S3.
+Moving the instances to a public subnet (C) is not a valid solution because a public subnet is connected to the internet, and traffic from instances in a public subnet to S3 would go through the internet, which does not meet the requirement of keeping the traffic private and secure.
+Creating a VPN connection (D) to access S3 resources is possible, but it requires additional resources and setup, and it is not as efficient and secure as using a VPC endpoint. A VPN connection involves creating a virtual private gateway in the VPC and a customer gateway outside the VPC, which can be time-consuming and complex to configure. Additionally, the traffic will still have to traverse the public internet, which is not as secure as using a VPC endpoint.
+Therefore, the best solution for providing secure access to S3 resources from instances hosted in a private subnet of a VPC without going through the internet is to use a VPC endpoint.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question191:"link"
+
+

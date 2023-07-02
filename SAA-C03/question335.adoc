@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1135 - A company has a set of VPCs defined in A"
+---
+
+
+[.question]
+== 1135-64a1fac2f053625db51ddf75.
+
+
+****
+
+[.query]
+--
+A company has a set of VPCs defined in AWS.
+They need to connect this to their on-premises network.
+They need to ensure that all data is encrypted in transit.
+Which of the following would you use to connect the VPCs to the on-premises networks?
+
+
+--
+
+[.list]
+--
+* [*] A. VPC Peering
+* [*] B. VPN connections
+* [ ] C. AWS Direct Connect
+* [ ] D. Placement Groups.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+By default, instances that you launch into an Amazon VPC can't communicate with your own (remote) network.
+You can enable access to your remote network from your VPC by attaching a virtual private gateway to the VPC, creating a custom route table, updating your security group rules, and creating an AWS managed VPN connection.
+VPN connection encrypts the traffic, whereas Direct Connect does not encrypt your traffic that is in transit.
+To encrypt the data in transit that traverses AWS Direct Connect, you must use the transit encryption options for that service.
+Option A is incorrect because this is used to connect multiple VPCs together.
+Option C is incorrect because this does not encrypt traffic in connections between AWS VPCs and the On-premises network.
+Option D is incorrect because this is used for low latency access between EC2 Instances.
+For more information on AWS VPN connections and Direct Connect, please visit the below URLs-
+https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html#concepts https://docs.aws.amazon.com/directconnect/latest/UserGuide/encryption-in-transit.html
+To connect a company's VPCs in AWS to their on-premises network, there are different methods available such as VPC peering, VPN connections, AWS Direct Connect, and Placement Groups. Among these options, VPN connections and AWS Direct Connect are the two most suitable solutions to ensure all data is encrypted in transit.
+VPN Connections: VPN (Virtual Private Network) connections use encrypted tunnels over the public internet to connect the company's VPCs to their on-premises network. The VPN connection is established through the internet gateway and encrypted with IPSec. VPN connections are secure and reliable for connecting remote sites and have lower setup costs compared to AWS Direct Connect. AWS VPNs can be configured to provide redundancy and high availability.
+AWS Direct Connect: AWS Direct Connect is a dedicated network connection between the company's on-premises network and AWS. The connection is established through a private network connection provided by AWS Direct Connect partners. AWS Direct Connect provides a dedicated, private connection, which makes it a more secure and reliable option than VPN connections. Data is encrypted in transit using AES 256 encryption. AWS Direct Connect provides consistent network performance, and it is suitable for high bandwidth and mission-critical applications.
+VPC Peering: VPC Peering allows connecting two VPCs within the same region or different regions. However, it is not recommended for connecting on-premises networks. VPC peering also doesn't provide encryption of data in transit.
+Placement Groups: Placement Groups are used to control the placement of instances within an availability zone to achieve low latency and high throughput. They are not related to connecting VPCs to on-premises networks and do not provide any encryption.
+Therefore, in this scenario, the most suitable options to connect VPCs to the on-premises network while ensuring data encryption in transit would be either VPN connections or AWS Direct Connect.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question391:"link"
+
+

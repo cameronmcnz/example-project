@@ -1,0 +1,121 @@
+---
+layout: default 
+title: "1331 - Which of the following options is not AW"
+---
+
+
+[.question]
+== 1331-64a1fb2cf053625db51de075.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_ts4fy2.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following options is not AWS CloudWatch metric for AWS Lambda function?
+
+
+[source,java]
+----
+Metric
+
+Invocations
+
+Errors
+
+Dead Letter Error
+
+Description
+
+Measures the number of times a function is invoked in response to an event or invocation API call.
+This replaces the deprecated RequestCount metric. This includes successful and failed invocations, but
+does not include throttled attempts. This equals the billed requests for the function. Note that AWS
+Lambda only sends these metrics to CloudWatch if they have a nonzero value.
+
+Units: Count
+
+Measures the number of invocations that failed due to errors in the function (response code 4XX). This
+replaces the deprecated ErrorCount metric. Failed invocations may trigger a retry attempt that
+succeeds. This includes:
+
+* Handled exceptions (for example, context.fail(error))
+* Unhandled exceptions causing the code to exit
+
+* Out of memory exceptions
+
+* Timeouts
+
+¢ Permissions errors
+
+This does not include invocations that fail due to invocation rates exceeding default concurrent limits
+(error code 429) or failures due to internal service errors (error code 500).
+
+Units: Count
+
+Incremented when Lambda is unable to write the failed event payload to your configured Dead Letter
+Queues. This could be due to the following:
+
+¢ Permissions errors
+
+* Throttles from downstream services
+* Misconfigured resources
+
+* Timeouts
+
+Units: Count
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Memory
+* [ ] B. Dead Letter Error
+* [ ] C. Duration
+* [ ] D. Invocations.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+The AWS/Lambda namespace includes the following metrics.
+https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-metrics.html
+All the listed options are AWS CloudWatch metrics for AWS Lambda function except for the Dead Letter Error option, which is not a valid CloudWatch metric for AWS Lambda.
+Here's a detailed explanation of each option:
+A. Memory: This metric shows the amount of memory that the Lambda function uses during its execution. It is measured in megabytes (MB) and is helpful in optimizing the function's memory allocation.
+B. Dead Letter Error: This option is not a valid CloudWatch metric for AWS Lambda. However, a Dead Letter Queue (DLQ) is a feature that allows you to capture and store failed events that a Lambda function can't process. When a Lambda function fails to process an event, it can send the event to a DLQ. You can then analyze the failed events to identify and fix the root cause of the issue.
+C. Duration: This metric measures the amount of time that a Lambda function takes to execute. It is measured in milliseconds (ms) and is helpful in optimizing the function's performance.
+D. Invocations: This metric shows the number of times that a Lambda function is invoked. It is helpful in understanding the function's usage patterns and can help you optimize the function's scaling and resource allocation.
+In summary, the correct answer is B, Dead Letter Error, as it is not a valid AWS CloudWatch metric for AWS Lambda function.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question648:"link"
+
+

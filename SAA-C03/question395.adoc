@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "1195 - A company is planning to store sensitive"
+---
+
+
+[.question]
+== 1195-64a1fae2f053625db51ddfbf.
+
+
+****
+
+[.query]
+--
+A company is planning to store sensitive documents in an S3 bucket.
+They want to ensure that documents are encrypted at rest.
+They want to ensure they manage the underlying keys used for encryption but not the encryption/decryption process.
+Which of the following can be used for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. Use S3 server-side encryption with Customer keys.
+* [ ] B. Use S3 client-side encryption.
+* [ ] C. Use S3 server-side encryption with AWS managed keys.
+* [ ] D. Use S3 server-side encryption with AWS KMS keys with Key policy document of size 40kb.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+AWS Documentation mentions the following.
+Server-side encryption is about protecting data at rest.
+Using server-side encryption with customer-provided encryption keys (SSE-C) allows you to set your own encryption keys.
+With the encryption key you provide as part of your request, Amazon S3 manages both the encryption, as it writes to disks, and decryption, when you access your objects.
+Therefore, you don't need to maintain any code to perform data encryption and decryption.
+The only thing you do is manage the encryption keys you provide.
+In short,
+SSE-S3 requires that Amazon S3 manage the data and master encryption keys.
+SSE-C requires that you manage the encryption key.
+SSE-KMS requires that AWS manage the data key, but you manage the master key in AWS KMS.
+For more information, please refer to the following URL.
+https://docs.aws.amazon.com/kms/latest/developerguide/services-s3.html
+Option B is incorrect because when you do client-side encryption, data goes to s3 in an encrypted format.
+Again when you download, it is the client who has to decrypt the data.
+But question specifies customer should not manage the encryption/decryption process.
+Option C is incorrect since you will still not manage the complete lifecycle of the keys.
+Option D is incorrect because the maximum key policy document size is 32kb.
+Reference:
+https://docs.aws.amazon.com/kms/latest/developerguide/limits.html https://aws.amazon.com/blogs/aws/new-bring-your-own-keys-with-aws-key-management-service/ https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html
+The correct answer for this scenario is A. Use S3 server-side encryption with customer keys.
+Explanation:
+S3 server-side encryption with customer keys: In this method, the encryption keys are managed by the customer, not by AWS. Customers can create and manage their own encryption keys using AWS Key Management Service (KMS) or using their own encryption keys. With this option, customers have full control over their encryption keys, and AWS does not have access to them. The encryption and decryption process is handled by AWS, but the encryption keys are managed by the customer. This is the recommended method when the customer wants full control over the encryption keys.
+S3 client-side encryption: In this method, the encryption and decryption process is handled by the client. The data is encrypted before uploading it to S3, and decrypted after downloading it from S3. The encryption keys are managed by the customer, and AWS does not have access to them. This method is suitable when the customer wants to fully manage the encryption and decryption process.
+S3 server-side encryption with AWS managed keys: In this method, the encryption keys are managed by AWS. AWS provides and manages the encryption keys. The customer does not have access to the encryption keys. This method is suitable when the customer does not want to manage the encryption keys themselves.
+S3 server-side encryption with AWS KMS keys with Key policy document of size 40kb: This is not a valid option. AWS KMS keys are used for managing the encryption keys, and the Key policy document does not affect the encryption process.
+In summary, S3 server-side encryption with customer keys is the best option for this scenario, as it provides full control over the encryption keys while allowing AWS to manage the encryption and decryption process.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question465:"link"
+
+

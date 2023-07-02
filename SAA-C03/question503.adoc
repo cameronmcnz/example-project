@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1303 - You have created AWS EFS with default se"
+---
+
+
+[.question]
+== 1303-64a1fb1af053625db51de045.
+
+
+****
+
+[.query]
+--
+You have created AWS EFS with default settings and mounted it on an EC2 instance.
+Due to regulatory policies, your organization had asked you to encrypt data stored on EFS.
+What would you do to enable encryption?
+
+
+--
+
+[.list]
+--
+* [*] A. Edit EFS volume and enable the “encryption at rest” setting. All existing data automatically gets encrypted as a background process. You will be notified once the process is completed.
+* [*] B. Encryption at rest is enabled by default when creating a new file system using the Amazon EFS console.
+* [ ] C. You can enable encryption at rest during the mounting of EFS on EC2. To encrypt an existing EFS mount, unmount the EFS and remount with the encryption option.
+* [ ] D. EFS does not support encryption. Use S3 for encrypting data at rest.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Amazon EFS supports two forms of encryption for file systems, encryption of data in transit and encryption at rest.
+You can enable encryption of data at rest when creating an Amazon EFS file system.
+You can enable encryption of data in transit when you mount the file system.
+Note: Encryption at rest is not enabled by default when creating a new file system using the AWS CLI, API, and SDKs.
+Amazon EFS uses an industry-standard AES-256 encryption algorithm to encrypt EFS data and metadata at rest.
+Option A is incorrect.
+You cannot enable encryption once EFS is created.
+Option C is incorrect.
+You cannot enable encryption at rest through mounting options.
+Option D is incorrect.
+It is a distractor.
+EFS does support encryption.
+Reference:
+https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html
+The correct answer is A. Edit EFS volume and enable the "encryption at rest" setting. All existing data automatically gets encrypted as a background process. You will be notified once the process is completed.
+Explanation:
+Amazon Elastic File System (Amazon EFS) provides a simple, scalable, fully managed elastic NFS file system for use with AWS Cloud services and on-premises resources. Amazon EFS file systems can be encrypted using AWS Key Management Service (KMS) keys. When data is at rest, it is encrypted using AWS KMS customer master keys (CMKs).
+To enable encryption for an existing EFS volume, you can edit the volume and enable the "encryption at rest" setting. When you enable encryption, all data on the volume gets automatically encrypted as a background process. Once the process is completed, you will be notified.
+Encryption at rest is not enabled by default when creating a new file system using the Amazon EFS console (Option B). However, you can enable it during the creation process.
+Option C is incorrect because you cannot enable encryption at rest during the mounting of EFS on EC2. However, you can encrypt an existing EFS mount by unmounting the EFS and remounting with the encryption option.
+Option D is incorrect because EFS does support encryption at rest.
+Therefore, the correct answer is A.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question600:"link"
+
+

@@ -1,0 +1,105 @@
+---
+layout: default 
+title: "1186 - You are an architect for a company that "
+---
+
+
+[.question]
+== 1186-64a1fadef053625db51ddfb4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_yqqg3s.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are an architect for a company that is going to host an application in AWS.
+They want to load balance the traffic based on which route the user chooses.
+The 2 possible routes for the application are /customer and /orders.
+Which of the following would you include in the design?
+
+
+[source,java]
+----
+Using an Application Load Balancer instead of a Classic Load Balancer has the following benefits:
+
+Support for path-based routing. You can configure rules for your listener that forward requests based on the URL in the request. This
+enables you to structure your application as smaller services, and route requests to the correct service based on the content of the
+URL.
+
+Support for host-based routing. You can configure rules for your listener that forward requests based on the host field in the HTTP
+header. This enables you to route requests to multiple domains using a single load balancer.
+
+Support for routing requests to multiple applications on a single EC2 instance. You can register each instance or IP address with the
+same target group using multiple ports.
+
+Support for registering targets by IP address, including targets outside the VPC for the load balancer.
+
+Support for containerized applications. Amazon Elastic Container Service (Amazon ECS) can select an unused port when scheduling a
+task and register the task with a target group using this port. This enables you to make efficient use of your clusters.
+
+Support for monitoring the health of each service independently, as health checks are defined at the target group level and many
+CloudWatch metrics are reported at the target group level. Attaching a target group to an Auto Scaling group enables you to scale each
+service dynamically based on demand.
+
+Access logs contain additional information and are stored in compressed format.
+
+Improved load balancer performance.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Application Load Balancer
+* [ ] B. EC2 Container service
+* [ ] C. Classic Load Balancer
+* [ ] D. Docker containers on EC2 Instances.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The below snapshot from the AWS Documentation shows the benefits of using the Application Load balancer.
+Options B and D are incorrect since we don't have enough information on the question to decide on whether to use Docker containers or not.
+Option C is invalid since Classic Load balancers will not fit the requirement for route-based load balancing.
+For more information on the Application Load Balancer, please refer to the below URL-
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+For load balancing the traffic based on the route the user chooses, you would need to use an Application Load Balancer (ALB). Therefore, the correct answer is A.
+Here's a detailed explanation of why:
+A. Application Load Balancer (ALB): ALB is a Layer 7 load balancer that can route traffic based on the content of the request. ALB can route traffic to different target groups based on the path (such as /customer and /orders), host, HTTP header, and HTTP method. ALB is the best choice for routing traffic to containers, microservices, and serverless applications.
+B. EC2 Container Service: EC2 Container Service is a container management service that allows you to run Docker containers on a cluster of EC2 instances. While this service can help with managing containers, it is not directly related to load balancing traffic based on the path of the request.
+C. Classic Load Balancer (CLB): CLB is a Layer 4 load balancer that can route traffic based on the IP address and port of the request. It does not have the ability to route traffic based on the path of the request.
+D. Docker containers on EC2 instances: While it is possible to run Docker containers on EC2 instances, this option does not provide load balancing capabilities based on the path of the request. You would need to use an additional tool, such as NGINX, to implement this kind of routing.
+In summary, an Application Load Balancer (ALB) is the best choice for load balancing traffic based on the route the user chooses.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question454:"link"
+
+

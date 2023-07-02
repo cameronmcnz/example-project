@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1248 - Your team creates an Application Load Ba"
+---
+
+
+[.question]
+== 1248-64a1fafcf053625db51ddfff.
+
+
+****
+
+[.query]
+--
+Your team creates an Application Load Balancer for a new application and registers a Lambda function as its target.
+Three availability zones are enabled for the ALB.
+You want to take some actions to reduce the cost.
+Which of the below options is the most appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Replace the Lambda function with an EC2 Auto Scaling Group as the ELB target.
+* [ ] B. Enable only one availability zone in the Application Load Balancer.
+* [*] C. Modify the ELB listener to be TCP with a customized port.
+* [*] D. Optimize the Lambda function so that the function executes the code faster.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect: Because the Lambda function is serverless and costs less than an Auto Scaling Group in most cases.
+Option B is incorrect: Because ALB does not charge users based on the number of enabled availability zones.
+This method does not help.
+Option C is incorrect: Because Application Load Balancer listeners can only be HTTP or HTTPS.
+TCP cannot be configured.
+Option D is CORRECT: Because the Lambda function's cost will be reduced if the execution duration decreases.
+Reference:
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/lambda-functions.html. https://aws.amazon.com/elasticloadbalancing/pricing/. https://aws.amazon.com/lambda/pricing/
+The most appropriate option to reduce the cost in this scenario would be to enable only one availability zone in the Application Load Balancer. This will reduce the cost because the ALB pricing is based on the number of Availability Zones (AZs) enabled for the load balancer. By reducing the number of AZs, the cost of the ALB will be reduced.
+Option A, which suggests replacing the Lambda function with an EC2 Auto Scaling Group, is not an appropriate option because it does not address the cost issue. In fact, using EC2 instances may result in higher costs due to the need for managing and maintaining these instances.
+Option C, which suggests modifying the ELB listener to be TCP with a customized port, is not an appropriate option because it does not address the cost issue. Modifying the listener type or port does not affect the cost of the ALB.
+Option D, which suggests optimizing the Lambda function so that the function executes the code faster, is not an appropriate option because it does not address the cost issue. While optimizing the function may reduce the execution time and therefore the cost, it does not address the cost associated with the ALB.
+Therefore, the most appropriate option to reduce the cost would be to enable only one availability zone in the Application Load Balancer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question529:"link"
+
+

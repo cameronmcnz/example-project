@@ -1,0 +1,135 @@
+---
+layout: default 
+title: "951 - As an AWS specialist you are in charge o"
+---
+
+
+[.question]
+== 951-64a1df2daa736d27b1db9386.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_zmam_23_11.png[]
+
+--
+
+
+****
+
+[.query]
+--
+As an AWS specialist, you are in charge of configuring consolidated billing in a multinational IT company.
+In the linked accounts, users have set up AWS resources using a tag called Department, which is used to differentiate resources.
+There are some other user-created tags such as Phase, CICD, Trial, etc.
+
+
+[source,java]
+----
+Home
+
+Cost Management
+Cost Explorer
+Budgets
+
+Budgets Reports
+Savings Plans
+
+Cost & Usage Reports
+Cost Categories
+
+Cost allocation tags
+
+Billing
+Bills
+Orders and invoices
+
+Credits
+
+AWS Billing
+
+Cost allocation tags
+
+Cost allocation tags ino
+
+User-defined cost allocation tags
+
+AWS-generated cost allocation tags
+
+User-defined cost allocation tags (6) info
+
+Q
+
+Tag key
+
+Name
+
+"Name"
+
+a
+
+Allstatuses W
+
+Status
+
+® Inactive
+
+@ Inactive
+----
+
+
+--
+
+[.list]
+--
+* [*] A. In the Billing and Management console of the management account, select Cost allocation tags and then select the Department tag in the User-Defined Cost Allocation Tags area and activate it. The tag starts appearing on the cost allocation report after it is applied but does not appear on earlier reports.
+* [ ] B. In the Cost Explorer console of the management account, deactivate all the other tags except the Department tag in the User-Defined Cost Allocation Tags area. By default, all user-defined tags are activated.
+* [*] C. In the Cost Explorer console of the management account, select the Department tag in the User-Defined Cost Allocation Tags area and activate it. Make sure that other tags are inactive at the same time.
+* [ ] D. In the Billing and Management console of the management account and member accounts, select Cost allocation tags and then select the Department tag in the User-Defined Cost Allocation Tags area and activate it. The tag starts appearing on the cost allocation report after it is applied and also appears on earlier reports after 1 hour.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+User-Defined Cost Allocation Tags can be selected and activated in the Cost Allocation Tags.
+Option A is CORRECT because using this method only, the user-defined tag Department will appear in the cost allocation report.
+Option B is incorrect because it should be the Cost Allocation Tags rather than the Cost Explorer console.
+Moreover, by default, all user-defined tags are deactivated.
+Option C is incorrect because it should be the Cost Allocation Tags rather than the Cost Explorer console.
+Option D is incorrect because only a management account can activate or deactivate the user-defined tags.
+Besides, the tag does not appear on earlier reports before it is activated.
+Consolidated billing in AWS allows the management of multiple AWS accounts as a single entity, consolidating the payment of multiple accounts into a single payment. Cost allocation tags in AWS enable you to categorize your AWS resources and services' costs, so you can easily identify and track your expenses.
+In this scenario, the users have set up AWS resources using a tag called Department, which differentiates resources based on the department they belong to. There are also other user-created tags such as Phase, CICD, Trial, etc.
+To configure consolidated billing and cost allocation tags, there are a few steps to follow. Here are the explanations of each answer option:
+A. In the Billing and Management console of the management account, select Cost allocation tags and then select the Department tag in the User-Defined Cost Allocation Tags area and activate it. The tag starts appearing on the cost allocation report after it is applied but does not appear on earlier reports.
+This answer is partially correct. In the management account, you should select the Cost allocation tags option, and then select the Department tag in the User-Defined Cost Allocation Tags area and activate it. By doing this, the Department tag is applied to all the linked accounts. However, the tag does not immediately appear on the cost allocation report, and it only applies to resources used after it is applied. The tag does not appear on earlier reports, which means that the cost allocation report only reflects costs incurred after the tag is applied.
+B. In the Cost Explorer console of the management account, deactivate all the other tags except the Department tag in the User-Defined Cost Allocation Tags area. By default, all user-defined tags are activated.
+This answer is incorrect. The Cost Explorer console is a reporting tool used to analyze your costs and usage data in AWS. It does not have any impact on cost allocation tags. Therefore, deactivating other tags does not affect the Department tag's activation status.
+C. In the Cost Explorer console of the management account, select the Department tag in the User-Defined Cost Allocation Tags area and activate it. Make sure that other tags are inactive at the same time.
+This answer is partially correct. In the Cost Explorer console, you can select the Department tag in the User-Defined Cost Allocation Tags area and activate it. However, it is not necessary to make sure other tags are inactive at the same time. This option does not activate the Department tag in the linked accounts.
+D. In the Billing and Management console of the management account and member accounts, select Cost allocation tags and then select the Department tag in the User-Defined Cost Allocation Tags area and activate it. The tag starts appearing on the cost allocation report after it is applied and also appears on earlier reports after 1 hour.
+This answer is correct. In the Billing and Management console, you should select the Cost allocation tags option, and then select the Department tag in the User-Defined Cost Allocation Tags area and activate it in both the management account and linked member accounts. After activating the tag, it appears on the cost allocation report, and it also appears on earlier reports after an hour.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question212:"link"
+
+

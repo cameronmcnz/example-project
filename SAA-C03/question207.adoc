@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1007 - A company is planning to use the AWS ECS"
+---
+
+
+[.question]
+== 1007-64a1fa84f053625db51ddedb.
+
+
+****
+
+[.query]
+--
+A company is planning to use the AWS ECS service to work with containers in the "us-east-1" region.
+There is a need for the least amount of administrative overhead while provisioning and managing containers.
+How could this be achieved?
+
+
+--
+
+[.list]
+--
+* [*] A. Use the Fargate launch type in AWS ECS.
+* [ ] B. Use the EC2 launch type in AWS ECS.
+* [*] C. Use the Auto Scaling launch type in AWS ECS.
+* [ ] D. Use the ELB launch type in AWS ECS.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following:
+The Fargate launch type allows you to run your containerized applications without the need to provision and manage the backend infrastructure.
+Just register your task definition and Fargate launches the container for you.
+For more information on the different launch types, please visit the links below:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html
+Sure, I can explain in detail!
+AWS ECS (Elastic Container Service) is a fully managed container orchestration service that simplifies the deployment, management, and scaling of containerized applications on AWS. It allows users to run Docker containers on a managed cluster of EC2 instances or Fargate instances.
+When it comes to minimizing administrative overhead while working with containers, the Fargate launch type is the best choice among the given options. The Fargate launch type allows you to run containers without the need to manage any underlying EC2 instances. You only need to specify the CPU and memory requirements, define networking and security settings, and launch your containers.
+With Fargate, you don't have to worry about patching or updating the operating system, configuring the underlying infrastructure, or scaling the underlying instances. AWS automatically takes care of these tasks for you, allowing you to focus on developing and deploying your containerized applications.
+On the other hand, the EC2 launch type allows you to launch containers on a cluster of EC2 instances that you manage. This requires more administrative overhead, as you have to manage the underlying EC2 instances, configure them for optimal performance, and scale them up or down as needed.
+The Auto Scaling launch type is a way to automatically scale the number of tasks (containers) based on demand, but it doesn't eliminate the need to manage the underlying EC2 instances.
+The ELB launch type is not a valid launch type for ECS. ELB (Elastic Load Balancing) is a service that automatically distributes incoming traffic across multiple targets, such as EC2 instances, containers, or IP addresses.
+In summary, if you want to minimize administrative overhead while provisioning and managing containers in AWS ECS, the best option is to use the Fargate launch type. It allows you to run containers without managing any underlying infrastructure, and AWS takes care of the operational tasks for you.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question236:"link"
+
+

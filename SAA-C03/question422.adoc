@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1222 - You have an architecture that consists o"
+---
+
+
+[.question]
+== 1222-64a1faeff053625db51ddfdf.
+
+
+****
+
+[.query]
+--
+You have an architecture that consists of a set of web servers in the public subnets.
+And database servers in the private subnet along with a NAT instance.
+The NAT instance is now becoming a bottleneck, and you are looking to replace it with a NAT gateway.
+Which of the following would ensure a high availability setup for the NAT device?
+
+
+--
+
+[.list]
+--
+* [*] A. Disable source/destination check on the NAT Instances
+* [*] B. Deploy a NAT gateway in 2 availability zones
+* [ ] C. Deploy a NAT gateway along with the NAT instance
+* [ ] D. Deploy the NAT Gateway in 2 regions.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+First, here we have a difference between NAT Instance and NAT Gateway.
+A NAT instance is an Amazon EC2 instance configured to forward traffic to the Internet.
+It can be launched from an existing AMI.
+Instances in a private subnet that want to access the Internet can have their Internet-bound traffic forwarded to the NAT Instance via a Route Table configuration.
+The NAT Instance will then request the Internet (since it is in a Public Subnet), and the response will be forwarded back to the private instance.
+AWS introduced a NAT Gateway Service that can take the place of a NAT Instance.
+The benefits of using a NAT Gateway service are:
+It is a fully managed service -- create it, and it works automatically, including fail-over.
+However, Security Groups cannot be associated with a NAT Gateway.
+You'll need one in each AZ since they only operate in a single AZ.
+Ensure that your NAT gateways are deployed in at least two Availability Zones (AZs) to enable EC2 instances available within private subnets to connect to the Internet or other AWS services but prevent the Internet from initiating a connection with those instances.
+Option A is incorrect since this is a requirement for the NAT instance to function and will not satisfy the requirement for the question.
+Option C is incorrect since you should use one type of device.
+Option D is incorrect since you should achieve redundancy via Availability Zones.
+For more information on the NAT gateway, please refer to the below URL-
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
+The correct answer is B: Deploy a NAT gateway in 2 availability zones.
+Explanation: A NAT (Network Address Translation) instance is an EC2 instance that is used to provide internet connectivity to instances in a private subnet. However, as the traffic volume increases, the NAT instance may become a bottleneck, leading to decreased network performance. A NAT gateway is a highly available, managed NAT service provided by AWS that can help overcome this limitation.
+To ensure high availability for the NAT device, it is recommended to deploy a NAT gateway in at least two availability zones. This provides redundancy and failover in case one availability zone becomes unavailable or experiences network issues. Each availability zone is a separate physical location with independent power, cooling, and networking infrastructure, and deploying a NAT gateway in multiple availability zones ensures that your network traffic can continue to flow even if there is an outage in one availability zone.
+Option A (Disable source/destination check on the NAT instances) is not relevant to this scenario. The source/destination check is a security feature that is enabled by default for instances launched in a VPC. Disabling this feature on the NAT instance would not help in providing high availability for the NAT device.
+Option C (Deploy a NAT gateway along with the NAT instance) is not recommended as it defeats the purpose of using a managed NAT service like NAT gateway. Deploying both a NAT gateway and a NAT instance would not provide any additional benefits, but would add unnecessary complexity to the architecture.
+Option D (Deploy the NAT Gateway in 2 regions) is not a feasible option as it would require duplicating the entire architecture in multiple regions, which can be expensive and complex to manage. Deploying a NAT gateway in multiple availability zones within the same region is a better approach to ensure high availability.
+In summary, deploying a NAT gateway in at least two availability zones is the recommended approach to ensure high availability for the NAT device.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question497:"link"
+
+

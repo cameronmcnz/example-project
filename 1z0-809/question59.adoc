@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "859 - Given the code fragment ListString codes"
+---
+
+
+[.question]
+== 859-64a1a84fef3e8462333a9c71.
+
+
+****
+
+[.query]
+--
+Given the code fragment: List<String> codes = Arrays.asList ("DOC", "MPEG", "JPEG"); codes.forEach (c -> System.out.print(c + " ")); String fmt = codes.stream() .filter (s-> s.contains ("PEG")) .reduce((s, t) -> s + t).get(); System.out.println("\n" + fmt); What is the result?
+
+
+--
+
+[.list]
+--
+* [*] A. DOC MPEG JPEG MPEGJPEG
+* [ ] B. DOC MPEG MPEGJPEG MPEGMPEGJPEG
+* [ ] C. MPEGJPEG MPEGJPEG
+* [ ] D. java.util.NoSuchElementException is thrown.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

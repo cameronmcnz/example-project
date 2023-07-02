@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1067 - You need a new S3 bucket to store object"
+---
+
+
+[.question]
+== 1067-64a1fa9ff053625db51ddf1e.
+
+
+****
+
+[.query]
+--
+You need a new S3 bucket to store objects using the write-once-read-many (WORM) model.
+After objects are saved in the bucket, they cannot be deleted or overwritten for a fixed amount of time.
+Which option would you select to achieve this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable the Amazon S3 object lock when creating the S3 bucket.
+* [ ] B. Enable versioning for the S3 bucket.
+* [*] C. Modify the S3 bucket policy to only allow the read operation.
+* [ ] D. Enable the WORM model in the S3 Access Control List (ACL) configuration.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Amazon S3 object lock should be enabled to store objects using the write once and read many (WORM) models.
+The reference can be found in https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html.
+Option A is CORRECT: After the S3 object lock is enabled, you can prevent the S3 objects from being deleted or overwritten for a fixed amount of time or indefinitely.
+Option B is incorrect: Because versioning does not prevent objects from being deleted or modified.
+Option C is incorrect: Because the S3 bucket should still allow the write operation.
+Otherwise, new objects cannot be saved in the bucket.
+Option D is incorrect: Because there is no such configuration in Access Control List (ACL).
+To store objects using the write-once-read-many (WORM) model in an Amazon S3 bucket, you need to ensure that the objects cannot be deleted or overwritten for a fixed amount of time after they are saved. To achieve this requirement, you should enable the Amazon S3 object lock when creating the S3 bucket. Therefore, the correct answer is A.
+Here are detailed explanations of each answer choice:
+A. Enable the Amazon S3 object lock when creating the S3 bucket. The Amazon S3 object lock provides a way to enforce write-once-read-many (WORM) retention periods for objects in Amazon S3. Once you enable the object lock for a bucket or an object, it cannot be removed or altered. When you enable the object lock, you can choose either the Governance mode or the Compliance mode. In Governance mode, users with sufficient permissions can overwrite or delete objects during the retention period, but they cannot do so after the retention period expires. In Compliance mode, users cannot overwrite or delete objects during the retention period, even if they have sufficient permissions. Therefore, enabling the Amazon S3 object lock is the best option to achieve the requirement.
+B. Enable versioning for the S3 bucket. Enabling versioning allows you to keep multiple versions of an object in the same bucket. When you overwrite an object, Amazon S3 automatically saves the previous version, so you can retrieve it later if needed. However, versioning does not prevent users from deleting or overwriting an object, so it does not meet the requirement of the write-once-read-many (WORM) model.
+C. Modify the S3 bucket policy to only allow the read operation. Modifying the bucket policy to only allow the read operation does not meet the requirement of the write-once-read-many (WORM) model. While it would prevent users from deleting or overwriting objects, it would also prevent them from writing new objects to the bucket.
+D. Enable the WORM model in the S3 Access Control List (ACL) configuration. There is no such thing as a WORM model in the S3 Access Control List (ACL) configuration. The S3 ACL controls access to individual objects, not to the bucket as a whole. While you could configure the ACL to prevent users from deleting or overwriting individual objects, it would not prevent them from doing so to other objects in the bucket. Therefore, this option does not meet the requirement of the write-once-read-many (WORM) model.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question304:"link"
+
+

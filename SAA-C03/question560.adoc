@@ -1,0 +1,116 @@
+---
+layout: default 
+title: "1360 - You have launched an RDS instance in you"
+---
+
+
+[.question]
+== 1360-64a1fb3cf053625db51de09c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_rwgpfz.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have launched an RDS instance in your VPC.
+The endpoint that is assigned to your DB instance is a long, partially random, alphanumeric string, for example, myexampledb.a1b2c3d4wxyz.us-west-2.rds.amazonaws.com.
+Your organization wants to use a name that's easier to remember.
+So you registered a domain name using the Route53 service.
+Which type of record set do you need to create?
+
+
+[source,java]
+----
+Configuring Amazon Route 53 So You Can Use Your Domain Name to Open Connections
+
+To configure Amazon Route 53 so you can use your domain name to open connections to an Amazon RDS database instance, perform the following procedures. First you get the domain
+name that is associated with your DB instance, and then you create a CNAME record that maps your domain name to the domain name of your DB instance.
+
+To get the domain name for your Amazon RDS DB instance
+1. Sign in to the AWS Management Console and open the Amazon RDS console at https://console.aws.amazon.com/rds/.
+2. In the regions list in the upper-right corner of the console, change to the region where you created the DB instance that you want to open connections to.
+3. In the navigation pane, choose Instances.
+4. In the table, expand the DB instance that you want to open connections to.
+5, Get the value of Endpoint.
+To create a CNAME record
+1. Open the Route 53 console at https://console.aws.amazon.com/route53/.
+2. In the navigation pane, choose Hosted Zones.
+
+3. Choose the name of the hosted zone that has the domain name that you want to use to open connet
+
+4, Choose Create Record Set.
+
+5. Specify the following values:
+
+Name
+Enter the domain name that you want to use to open connections to your DB instance. The default value is the name of the hosted zone.
+For example, if the name of the hosted zone is example.com and you want to use acme.example.com to open connections to your DB instance, enter acme.
+
+Important
+
+You can't create a CNAME record that has the same name as the hosted zone.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. A - IPv4 Address with Alias=NO
+* [ ] B. A - IPv4 Address with Alias=YES
+* [*] C. CNAME - Canonical Name with ALIAS=NO
+* [ ] D. CNAME - Canonical Name with ALIAS=YES.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-rds-db.html
+Note:
+A Record (Address Record) is typically used when an IP address to name conversion is required.
+This is most commonly used.
+A record points a name to specific IP.
+If you want tests.com to point to the server 10.120.13.14, you will configure an A record.
+tests.com A 10.120.13.14
+A CNAME record (Canonical record) points a name to another name.
+Typically a complex name with alphanumeric characters can be shortened to a user understandable format.
+blog.tests.com CNAMEblog235_github_repoABCD.io.net.
+In the question, the AWS generated resource name is complex i.e myexambledb.a1b2c3d4.......
+This can be converted to a user-friendly name by using a CNAME record.
+The correct answer for this question is D. CNAME - Canonical Name with ALIAS=YES.
+When you register a domain name using Amazon Route 53, you can create a DNS record set that maps your domain name to the endpoint of your RDS instance. The endpoint of an RDS instance is a long, partially random, alphanumeric string that is difficult to remember.
+To map your domain name to the RDS endpoint, you need to create a CNAME record set in your Route 53 hosted zone. A CNAME (Canonical Name) record is a type of DNS record that maps an alias name to a true or canonical domain name.
+The CNAME record set should have an alias target that points to the RDS endpoint. In Route 53, you can create an ALIAS record set that functions similarly to a CNAME record set, but with some additional benefits, such as automatic health checks and the ability to map to other AWS resources like Elastic Load Balancers.
+However, ALIAS record sets are only available for certain types of AWS resources, and RDS instances are not one of them. Therefore, the correct answer is D. CNAME - Canonical Name with ALIAS=YES.
+Note that you cannot create a record set of type A - IPv4 Address because RDS endpoints are domain names, not IP addresses. Additionally, the Alias option must be set to YES to create an alias record that maps to the RDS endpoint.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question687:"link"
+
+

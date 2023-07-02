@@ -1,0 +1,112 @@
+---
+layout: default 
+title: "1012 - A company consists of 50 plus AWS accoun"
+---
+
+
+[.question]
+== 1012-64a1fa86f053625db51ddee1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgbQYFtOb5upfZ282fsT2WUMDPWykouEL7DtoeNIf4X-HO7iKM45ynL0jwy6YCJpUb5s3SZVG-gGdfu5si759HQeEEJNQ5D02A1EEUvlCQ4QEgpteF1673l28PVe_SZETgvOKNE6VVHpTKajx9zg[]
+
+--
+
+
+****
+
+[.query]
+--
+A company consists of 50 plus AWS accounts.
+Each account has multiple VPCs with egress internet connectivity using NAT gateway per Availability Zone (AZ)
+A solution architect has been asked to redesign the network architecture that will reduce costs, and manage egress traffic, and the growing needs of new accounts. Which solution meets the requirements?
+
+
+[source,java]
+----
+ewe om 7
+
+Sa a? LE —+ 00006 ta
+PB aces
+
+H Availability Zone 1
+
+[> eee
+
+sss PUblICAZL
+
+10.0.0.0/16
+
+‘Transit Gateway Route Tables,
+
+‘App-Route Table
+
+‘Availability Zone 2
+
+“Egress Public AZ2 Egress Private-AZ2
+
+BB occas eo
+Gre 0.0.0.0/0 ‘TGW-internet
+
+192.168.0.0/16
+
+10.1.0.0/16,
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create an egress VPC for outbound internet traffic. Use VPC peering between AWS accounts` VPCs and connect to a set of redundant NAT gateway in the egress VP.
+* [*] B. Create a Transit Gateway in one central AWS account that will work as a hub and spoke model to other accounts VPCs using VPC attachments. Setup an egress VPC for egress traffic with redundant Nat Gateways.
+* [ ] C. Create a central VPC for outbound internet traffic. Use AWS Private links between AWS accounts` VPCs to a redundant NAT gateway in the central VP.
+* [ ] D. Create a Transit Gateway in one central AWS account that will work as a hub and spoke model to other accounts VPCs using VPN attachments. Set up a Central VPC for egress traffic with redundant Nat Gateways.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+This architecture shows AWS Transit Gateway to centralize outbound internet traffic from multiple VPCs using hub-and-spoke design.
+Option A is incorrect because VPC peering doesn't support transitive routing between Account A VPC to Account B VPC to egress the internet.
+Option B is CORRECT because this design supports transitive routing and centralizing egress, which helps to reduce cost.
+Option C is incorrect because AWS Private Link doesn't provide NAT.
+Option D is incorrect because the VPN attachment is more on VPN connectivity.
+References:
+https://aws.amazon.com/blogs/networking-and-content-delivery/creating-a-single-internet-exit-point-from-multiple-vpcs-using-aws-transit-gateway/
+Sure, I'll be happy to provide you with a detailed explanation of the four possible solutions for redesigning the network architecture for a company with 50+ AWS accounts.
+Option A: Create an egress VPC for outbound internet traffic. Use VPC peering between AWS accounts' VPCs and connect to a set of redundant NAT gateways in the egress VPC.
+This solution proposes creating an egress VPC that will serve as the hub for all egress traffic for all the accounts. The VPCs in each account will use VPC peering to connect to the egress VPC, and redundant NAT gateways will be set up in the egress VPC to handle the traffic. This solution would be effective in reducing costs and managing egress traffic as it centralizes the traffic into a single VPC, making it easier to manage, and reducing the number of NAT gateways needed overall. However, it may be more complex to set up and manage the VPC peering connections between all the accounts, and there could be potential issues with latency and throughput for traffic that has to travel through multiple VPCs.
+Option B: Create a Transit Gateway in one central AWS account that will work as a hub and spoke model to other accounts' VPCs using VPC attachments. Setup an egress VPC for egress traffic with redundant NAT gateways.
+This solution proposes creating a Transit Gateway in a central AWS account that will act as the hub for all VPCs in the other accounts. The VPCs in each account will use VPC attachments to connect to the Transit Gateway, and an egress VPC will be set up in the central account with redundant NAT gateways to handle egress traffic. This solution offers the benefits of centralizing traffic into a single VPC while reducing the complexity of managing VPC peering connections between accounts. Additionally, this solution allows for future expansion and management of new accounts with less effort. The only concern would be the cost incurred for setting up a Transit Gateway.
+Option C: Create a central VPC for outbound internet traffic. Use AWS Private links between AWS accounts' VPCs to a redundant NAT gateway in the central VPC.
+This solution proposes creating a central VPC that will act as the hub for all egress traffic for all accounts. AWS Private Links will be used to connect VPCs in each account to a redundant NAT gateway in the central VPC. This solution is similar to option A but differs in the use of AWS Private Links instead of VPC peering. Using Private Links would avoid the issue of latency and throughput but could also increase the cost of data transfer. Managing Private Links can also be complex as it would require creating multiple connections between accounts, which could be a challenge to set up and maintain.
+Option D: Create a Transit Gateway in one central AWS account that will work as a hub and spoke model to other accounts' VPCs using VPN attachments. Set up a Central VPC for egress traffic with redundant NAT gateways.
+This solution proposes using a Transit Gateway to centralize traffic as in option B, but instead of using VPC attachments, VPN attachments will be used to connect VPCs in each account to the Transit Gateway. A central VPC will be set up in the central account to handle egress traffic with redundant NAT gateways. This solution offers the benefits of centralizing traffic into a single VPC while reducing the complexity of managing VPC peering connections between accounts. VPN attachments may be a more affordable option than VPC attachments, but they could also impact performance and increase complexity.
+In summary, Option B appears to be the most effective solution that meets the requirements of reducing costs and managing egress traffic while providing flexibility for future growth of new accounts. However
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question242:"link"
+
+

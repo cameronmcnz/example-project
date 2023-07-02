@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "972 - A company has a workflow that sends vide"
+---
+
+
+[.question]
+== 972-64a1fa77f053625db51ddeb2.
+
+
+****
+
+[.query]
+--
+A company has a workflow that sends video files from their on-premise system to AWS for transcoding.
+They use EC2 worker instances to pull transcoding jobs from SQS.
+Why is SQS an appropriate service for this scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. SQS guarantees the order of the messages.
+* [ ] B. SQS synchronously provides transcoding output.
+* [*] C. SQS checks the health of the worker instances.
+* [*] D. SQS helps to facilitate horizontal scaling of EC2 worker instances when the queue grows.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Even though SQS guarantees the order of messages for FIFO queues, the main reason for using it is that it helps in horizontal scaling of AWS resources and is used for decoupling systems.
+SQS can neither be used for transcoding output nor for checking the health of worker instances.
+The health of worker instances can be checked via ELB or CloudWatch.
+For more information on SQS, please visit the following URL-
+https://aws.amazon.com/sqs/faqs/
+SQS (Simple Queue Service) is a fully managed message queuing service provided by AWS that enables decoupling of components of cloud-based applications, by allowing them to communicate asynchronously with each other.
+In the scenario given, the company sends video files from their on-premise system to AWS for transcoding, and uses EC2 worker instances to pull transcoding jobs from SQS. This suggests that the workflow needs to be scalable and flexible enough to handle varying workloads, without overwhelming the on-premise system or the EC2 instances.
+SQS is an appropriate service for this scenario for the following reasons:
+D. SQS helps to facilitate horizontal scaling of EC2 worker instances when the queue grows. By using SQS, the company can ensure that the workloads are distributed evenly among multiple EC2 instances, which can be easily scaled horizontally as the workload increases. When the number of messages in the queue grows, SQS can trigger the scaling of EC2 instances, and balance the workload to ensure efficient processing of messages. This helps to improve the scalability and fault tolerance of the workflow, as the workload can be easily distributed and processed by multiple EC2 instances.
+A. SQS guarantees the order of the messages. SQS ensures that messages are processed in the order in which they were added to the queue, which is important for video transcoding workflows, as it ensures that the output of the transcoding jobs is consistent and reliable. This ensures that the workflow remains consistent and avoids any issues with job dependencies.
+C. SQS checks the health of the worker instances. SQS provides a health check feature, which can be used to monitor the health of the worker instances, and to ensure that any unhealthy instances are taken out of the rotation. This helps to ensure that the workflow remains reliable and consistent, and that any issues are quickly detected and resolved.
+B. SQS synchronously provides transcoding output. This option is incorrect, as SQS is an asynchronous messaging service and does not provide synchronous output.
+In summary, SQS is an appropriate service for the given scenario as it helps to ensure the scalability, reliability, and consistency of the video transcoding workflow by distributing the workload evenly among multiple EC2 instances, ensuring the order of messages, monitoring the health of worker instances, and detecting any issues quickly.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question193:"link"
+
+

@@ -1,0 +1,101 @@
+---
+layout: default 
+title: "1267 - You created a new VPC with CIDR range 10"
+---
+
+
+[.question]
+== 1267-64a1fb06f053625db51de016.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_od1qiy.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You created a new VPC with CIDR range 10.10.0.0/16 and a new subnet with CIDR range 10.10.1.0/24
+CIDR with /24 comes with 256 IP addresses.
+When you go to VPC console subnets and look at the newly created subnet, you can only see 251 IP addresses.
+You have not launched any resources in the newly created VPC.
+What would have caused this?
+
+
+[source,java]
+----
+The first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use, and
+cannot be assigned to an instance. For example, in a subnet with CIDR block 10.@.@.0/24, the following five IP
+addresses are reserved:
+
+© 1¢.0.0.0: Network address.
+
+© 10.0.0.1: Reserved by AWS for the VPC router.
+
+° 10.0.0.2: Reserved by AWS. The IP address of the DNS server is always the base of the VPC network range plus
+two; however, we also reserve the base of each subnet range plus two. For VPCs with multiple CIDR blocks, the IP
+address of the DNS server is located in the primary CIDR. For more information, see Amazon DNS Server.
+
+° 10.0.0.3: Reserved by AWS for future use.
+
+° 10.@.@.255: Network broadcast address. We do not support broadcast in a VPC, therefore we reserve this
+address.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. The first four IP addresses and the last IP address in each subnet CIDR block are reserved by AWS.
+* [ ] B. AWS reserves 5 IP addresses for every VPC and are reserved from first subnet you create.
+* [ ] C. AWS launches monitoring resources on behalf of you in new VPC when first subnet is created which will reserve 5 IP addresses from first subnet.
+* [ ] D. None of the above.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing
+From the above statement, only.
+Option A is correct.
+For Option C, AWS never launches any billable resources without notifying the account owner or administrator on behalf of you.
+The correct answer is A, "The first four IP addresses and the last IP address in each subnet CIDR block are reserved by AWS."
+When you create a subnet in a VPC, AWS reserves some IP addresses for its own use. These addresses are reserved for various purposes, such as routing, network addressing, and DNS. Specifically, AWS reserves the first four IP addresses and the last IP address in each subnet CIDR block for its own use. This means that out of the 256 IP addresses available in a /24 subnet, only 251 are available for you to use.
+The first four IP addresses in a CIDR block are reserved as follows:
+Network address: This is the first IP address in the subnet and is used to identify the subnet itself. It cannot be assigned to any instance or resource within the subnet.
+VPC router address: This is the second IP address in the subnet and is used by AWS to route traffic between the VPC and other networks. It cannot be assigned to any instance or resource within the subnet.
+DNS server address: This is the third IP address in the subnet and is used by AWS to provide DNS resolution for instances within the VPC. It cannot be assigned to any instance or resource within the subnet.
+Reserved IP address: This is the fourth IP address in the subnet and is reserved for future use by AWS. It cannot be assigned to any instance or resource within the subnet.
+The last IP address in a CIDR block is also reserved and cannot be assigned to any instance or resource within the subnet. This is because it is the broadcast address, which is used to send traffic to all devices on the subnet.
+Therefore, in a /24 subnet, 256 IP addresses are available, but only 251 can be used by your resources. The remaining five IP addresses are reserved by AWS for network infrastructure and cannot be assigned to any instances or resources within the subnet.
+Option B is incorrect because AWS only reserves five IP addresses for the VPC itself, not for each subnet. These IP addresses are used for the VPC router, DNS server, and network address, and are reserved from the first subnet you create.
+Option C is incorrect because AWS does not launch any monitoring resources on behalf of you when you create a new VPC or subnet. However, AWS does provide various monitoring tools and services that you can use to monitor your resources within a VPC.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question552:"link"
+
+

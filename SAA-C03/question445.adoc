@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1245 - You are developing an application that u"
+---
+
+
+[.question]
+== 1245-64a1fafbf053625db51ddffb.
+
+
+****
+
+[.query]
+--
+You are developing an application that uses the Amazon Kinesis Producer Library (KPL) to put data records to an encrypted Kinesis data stream.
+However, when your application runs, there is an unauthorized KMS master key permission error.
+How would you resolve the problem?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the application’s IAM role as the key administrator of the KMS key.
+* [*] B. In the KMS key policy, assign the permission to the application to access the key.
+* [*] C. Re-encrypt the Kinesis data stream with AWS/kinesis.
+* [ ] D. Configure the KPL not to encrypt the data records for the Kinesis data stream.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect because the IAM role should be configured as a key user instead of an administrator.
+Option B is CORRECT because the application would need to have permission to use the KMS key when putting records in the stream.
+Option C is incorrect because the encryption of the Kinesis data stream should not be changed.
+This is a key permission issue, and the key policy should be modified to address the problem.
+Option D is incorrect because KPL does not have such a configuration.
+Reference:
+https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-producers.html. https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html.
+The correct answer is B. In the KMS key policy, assign the permission to the application to access the key.
+Explanation:
+Amazon Kinesis Producer Library (KPL) is a library that helps users to send data to Amazon Kinesis data streams efficiently. Kinesis data streams are automatically encrypted using a default AWS-managed key or a customer-managed KMS key.
+If you receive an "unauthorized KMS master key permission" error, it means that the application doesn't have permission to access the KMS key that's used to encrypt the Kinesis data stream.
+To resolve this issue, you can modify the key policy of the KMS key to include the IAM role of your application. The key policy should allow the IAM role to use the key to encrypt and decrypt data. Here are the steps:
+1. Open the AWS KMS console at https://console.aws.amazon.com/kms/.
+2. In the navigation pane, choose "Customer managed keys."
+3. Choose the KMS key that's used to encrypt the Kinesis data stream.
+4. Choose the "Key policy" tab.
+5. Choose "Edit."
+6. Modify the policy document to include the IAM role of your application. Here's an example policy:
+jsonCopy code{   "Id": "key-consolepolicy-2",   "Version": "2012-10-17",   "Statement": [     {       "Sid": "Enable IAM User Permissions",       "Effect": "Allow",       "Principal": {         "AWS": "arn:aws:iam::123456789012:role/application-iam-role"       },       "Action": [         "kms:Encrypt",         "kms:Decrypt",         "kms:ReEncrypt*",         "kms:GenerateDataKey*",         "kms:DescribeKey"       ],       "Resource": "*"     }   ] } 
+1. Choose "Save changes."
+After you modify the key policy, your application should be able to access the KMS key and put data records to the encrypted Kinesis data stream.
+The other answer choices are incorrect:
+A. Configuring the application's IAM role as the key administrator of the KMS key is not recommended because it gives the application too much permission. It's better to use the principle of least privilege and assign only the necessary permission to the IAM role.
+C. Re-encrypting the Kinesis data stream with AWS/kinesis is not necessary because the stream is already encrypted. The issue is that the application doesn't have permission to access the KMS key.
+D. Configuring the KPL not to encrypt the data records for the Kinesis data stream is not recommended because it would compromise the security of the data. It's better to fix the permission issue and continue encrypting the data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question525:"link"
+
+

@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "1111 - You create an EBS snapshot for an applic"
+---
+
+
+[.question]
+== 1111-64a1df68aa736d27b1db9474.
+
+
+****
+
+[.query]
+--
+You create an EBS snapshot for an application in non-production AWS account A.
+The snapshot is encrypted by a customer-managed key (CMK-A)
+To deploy the same application in the production AWS account B, you need to create an AMI using the snapshot and launch an EC2 instance.
+The IAM admin user in account B is allowed to use CMK-A.
+However, the production EC2 instance has to use its own customer-managed key (CMK-B) to encrypt the EBS volume.
+Which solution is the best?
+
+
+--
+
+[.list]
+--
+* [*] A. Copy the snapshot to another one and do not encrypt it. Share the new snapshot to account.
+* [*] B. Created an encrypted version of the snapshot (w/ CMK-A) and then create an AMI using the encrypted snapshot. Launch an EC2 instance using the AMI and encrypt the EBS volume with CMK-
+* [*] C. Share the snapshot with account B and encrypt it with CMK-
+* [ ] D. Create an AMI using the new snapshot and launch an EC2 instance.
+* [ ] E. Create an image in account B and change the encryption key to CMK-
+* [ ] F. Launch an EC2 instance using the image.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+F.
+Correct Answer - B.
+When sharing an Amazon EBS snapshot between accounts, there are cases that a new CMK has to be used.
+References can be found in https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html and https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html.
+Option A is incorrect: Because encrypted snapshots cannot be copied to non-encrypted ones.
+Option B is CORRECT: Because when creating snapshots, the new snapshot can be encrypted with a new CMK.
+AWS CLI command copy-snapshot uses the option of --KMS-key-id to specify the CMK.
+The steps to create a proper encrypted EC2/AMI in account B are:
+1
+Share the EBS snapshot with account B.
+2
+The IAM admin user in account B, copy the EBS snapshot from A to B (since it is shared and we have access to CMK A that works just fine) using CMK.
+B.3
+The IAM admin user in account B create EC2 AMI out from the copied EBS Snapshot.
+Option C is incorrect: Because you need to create a copy of the snapshot, and you cannot just share the snapshot between Account "A" and Account "B".
+Option D is incorrect: Because you need to share the snapshot between Account "A" and Account "B"
+Without sharing, you cannot create the image in Account "B".
+The best solution for this scenario would be option B - Create an encrypted version of the snapshot (w/ CMK-A) and then create an AMI using the encrypted snapshot. Launch an EC2 instance using the AMI and encrypt the EBS volume with CMK-B.
+Here's a detailed explanation for each option:
+A. Copy the snapshot to another one and do not encrypt it. Share the new snapshot to account. This option is not recommended because the snapshot may contain sensitive data that needs to be encrypted. Moreover, it is not a secure practice to share unencrypted snapshots with other accounts.
+B. Create an encrypted version of the snapshot (w/ CMK-A) and then create an AMI using the encrypted snapshot. Launch an EC2 instance using the AMI and encrypt the EBS volume with CMK-B. This option is the best solution because it allows the user to create an AMI using the encrypted snapshot while still being able to encrypt the EBS volume with CMK-B. This ensures that the data is secure while being transferred from non-production account A to production account B. The IAM admin user in account B is allowed to use CMK-A, which means that the user can encrypt the snapshot with CMK-A before creating the AMI.
+C. Share the snapshot with account B and encrypt it with CMK-B This option is not recommended because it does not allow the user to create an AMI using the snapshot. Moreover, the snapshot may contain sensitive data that needs to be encrypted, and sharing unencrypted snapshots is not a secure practice.
+D. Create an AMI using the new snapshot and launch an EC2 instance. This option is not recommended because it does not allow the user to encrypt the EBS volume with CMK-B. The data in the EBS volume may contain sensitive information that needs to be protected, and using an unencrypted EBS volume is not a secure practice.
+E. Create an image in account B and change the encryption key to CMK-B. This option is not recommended because it does not allow the user to use the snapshot created in non-production account A. Creating a new image would require additional time and resources, and it may not contain the same data as the original snapshot.
+F. Launch an EC2 instance using the image. This option is not recommended because it does not allow the user to encrypt the EBS volume with CMK-B. The data in the EBS volume may contain sensitive information that needs to be protected, and using an unencrypted EBS volume is not a secure practice.
+In conclusion, the best solution for this scenario is to create an encrypted version of the snapshot with CMK-A and then create an AMI using the encrypted snapshot. Launch an EC2 instance using the AMI and encrypt the EBS volume with CMK-B to ensure that the data is secure during transfer from non-production account A to production account B.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question451:"link"
+
+

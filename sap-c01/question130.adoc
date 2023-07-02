@@ -1,0 +1,138 @@
+---
+layout: default 
+title: "930 - Your company produces customer commissio"
+---
+
+
+[.question]
+== 930-64a1df24aa736d27b1db935f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_csap-pt1-78.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your company produces customer commissioned one-of-a-kind high-graphical skiing helmets, combining high-fashion with custom technical enhancements.
+The current manufacturing process is data-rich and complex.
+It includes assessments to ensure that the custom electronics and materials used to assemble the helmets are of the highest standards.
+
+
+[source,java]
+----
+ps2 | os | rt
+
+(65 instances are optimized for graphicsntensive applications.
+
+Features:
+
+1© High frequency Inte Xeon E5-2686 v4 (Broadwell) processors
+'© NVIDIA Tesla 60 GPUs, each with 2048 parallel processing cores and 8 GIB of video memory
+
+© Enables NVIDIA GRID Virtual Workstation features, Including support for 4 monitrs with resolutions up to 409642160. Each
+(GPU included in your instances icensed for one “Concurrent Connected User"
+
+'© Enables NVIDIA GRID Virtual Application capabilites fr application vitualization software tke Citrix XenApp Essentials and
+VMware Herzen, supporting up to 25 concurrent users per GPU
+
+'© ach GPU features an on-board hardware video encoder designed to support upto 10 H.265 (HEVC) 1080p30 streams and up
+10 18.264 1080p40 streams, enabling low-latency frame capture and encoding, and high-qualty interactive streaming
+experiences
+
+‘© Enhanced Networking using the Elastic Network Adapter (ENA) with 25 Gbps of aggregate network bandwidth within a
+Placement Group
+
+cru
+
+Model GPUs CPU. Mem (GiB) Memory Network Performance
+(as)
+
+gSsalage 1 4 305 8 Upto 10 Gigabit.
+
+g3darge 1 16 cred 8 Upto 10 Gigabit.
+
+g38darge 2 2 zag 6 10 Gigabit.
+
+g3.16lawe 4 6a ass 2 25 Gigabit,
+
+Altinstances have the following specs:
+
+2.3 Ghz (base) and 2.7 GH (turbo) Intel Xeon E5-2686 v8 Processor
+Intel AVX, Intel AVX, Intel Turbo
+
+8S Optimized
+
+Enhanced Networkingt
+
+Use Cases
+
+130 visualzations,graphcs-ntensve remote workstation, 3D rendering, aplication streaming, video encoding, and other server-
+side graphics workloads.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Data Pipeline to manage the movement of data, metadata, and assessments. Use an auto-scaling group of G3 instances in a placement group.
+* [*] B. Use Amazon Simple Workflow (SWF) to manage assessments, movement of data, and metadata. Use an auto-scaling group of G3 instances in a placement group.
+* [ ] C. Use Amazon Simple Workflow (SWF) to manage assessments, movement of data, and metadata. Use an auto-scaling group of C3 instances with SR-IOV (Single Root I/O Virtualization).
+* [ ] D. Use AWS Data Pipeline to manage movement of data, metadata, and assessments. Use an auto-scaling group of C3 with SR-IOV (Single Root I/O virtualization).
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Tip: Whenever the scenario in the question mentions high graphical processing servers with low latency networking, always think about using G3 instances.
+And, when there are tasks involving human intervention, always think about using SWF.Option A is incorrect because AWS Data Pipeline cannot work in a hybrid approach where some of the tasks involve human actions.
+Option B is CORRECT because (a) it uses G3 instances which are specialized for high graphical processing of data with low latency networking, and (b) SWF supports workflows involving human interactions along with AWS services.
+Option C is incorrect because it uses C3 instances used for situations where compute optimization is required.
+In this scenario, you should be using G3 instances.
+Option D is incorrect because (a) AWS Data Pipeline cannot work in a hybrid approach where some of the tasks involve human actions, and (b) it uses C3 instances used for situations where compute optimization is required.
+In this scenario, you should be using G3 instances.
+More information on G3 instances:
+Using G3 instances is preferred.
+Hence options C and D are wrong.
+For more information on Instances types, please visit the below URL-
+https://aws.amazon.com/ec2/instance-types/
+Since there is an element of human intervention, SWF can be used for this purpose.
+For more information on SWF, please visit the below URL-
+https://aws.amazon.com/swf/
+The manufacturing process for the customer commissioned high-graphical skiing helmets that combine high-fashion with custom technical enhancements is data-rich and complex. To manage the movement of data, metadata, and assessments, as well as ensure that the custom electronics and materials used to assemble the helmets are of the highest standards, the options provided in the answer choices are:
+A. Use AWS Data Pipeline to manage the movement of data, metadata, and assessments. Use an auto-scaling group of G3 instances in a placement group. B. Use Amazon Simple Workflow (SWF) to manage assessments, movement of data, and metadata. Use an auto-scaling group of G3 instances in a placement group. C. Use Amazon Simple Workflow (SWF) to manage assessments, movement of data, and metadata. Use an auto-scaling group of C3 instances with SR-IOV (Single Root I/O Virtualization). D. Use AWS Data Pipeline to manage movement of data, metadata, and assessments. Use an auto-scaling group of C3 with SR-IOV (Single Root I/O virtualization).
+Option A suggests using AWS Data Pipeline to manage the movement of data, metadata, and assessments, and an auto-scaling group of G3 instances in a placement group. AWS Data Pipeline is a service that helps to move data between different AWS services and on-premises data sources. G3 instances are instances optimized for graphics-intensive workloads and machine learning applications. However, it is not clear how AWS Data Pipeline would help manage the assessments, and it is not clear why G3 instances in a placement group are the best option for this use case.
+Option B suggests using Amazon Simple Workflow (SWF) to manage assessments, movement of data, and metadata, and an auto-scaling group of G3 instances in a placement group. Amazon SWF is a service that helps developers build applications with coordinated workflows. It is used to coordinate tasks across multiple distributed components, including on-premises and cloud-based services. However, it is not clear why G3 instances in a placement group are the best option for this use case.
+Option C suggests using Amazon Simple Workflow (SWF) to manage assessments, movement of data, and metadata, and an auto-scaling group of C3 instances with SR-IOV (Single Root I/O Virtualization). C3 instances are instances optimized for compute-intensive workloads. SR-IOV is a technology that enables direct access to physical hardware from a virtual machine, which can improve network performance. However, it is not clear how Amazon SWF would help manage the assessments.
+Option D suggests using AWS Data Pipeline to manage the movement of data, metadata, and assessments, and an auto-scaling group of C3 instances with SR-IOV. This option combines the benefits of using AWS Data Pipeline for data management and an auto-scaling group of C3 instances with SR-IOV for compute-intensive workloads and improved network performance. However, it is not clear how AWS Data Pipeline would help manage the assessments.
+Overall, Option D appears to be the best option for managing the data-rich and complex manufacturing process of the customer commissioned high-graphical skiing helmets that combine high-fashion with custom technical enhancements. However, additional information is needed to determine the best solution to manage the assessments.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question173:"link"
+
+

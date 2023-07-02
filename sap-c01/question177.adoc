@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "977 - A media company produces new video files"
+---
+
+
+[.question]
+== 977-64a1df36aa736d27b1db93aa.
+
+
+****
+
+[.query]
+--
+A media company produces new video files on-premises every day with a total size of around 100GB after compression.
+All files have a size of 1-2 GB and need to be uploaded to Amazon S3 every night in a fixed time window between 3 AM and 5 AM.
+The current upload takes almost 3 hours, although less than half of the available bandwidth is used.
+What step(s) would ensure that the file uploads can complete in the allotted time window?
+
+
+--
+
+[.list]
+--
+* [*] A. Increase your network bandwidth to provide faster throughput to S3.
+* [*] B. Use Multipart upload to upload the data to s3.
+* [ ] C. Pack all files into a single archive, upload it to S3, and then extract the files in AWS.
+* [ ] D. Use AWS Import/Export to transfer the video files.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+When uploading large videos, it's always better to use AWS multipart file upload, especially when the bandwidth is not fully utilized.
+Option A is incorrect because the existing bandwidth itself is not fully utilized.
+Increasing the bandwidth is not going to help; in fact, it will add to the cost.
+Option B is CORRECT because Multipart Upload will fully utilize the available bandwidth and increase the throughput.
+It also has additional benefits, as mentioned below in the "More Information" section.
+Option C is incorrect because there is a restriction on the size of upload in a single PUT operation.
+You cannot upload a file of size more than 5GB in a single upload.
+So this option is not going to help at all.
+You need to use multipart upload.
+Option D is incorrect because this option requires you to put all the files daily on a storage drive and send it to AWS.
+Since the data has to be uploaded in a certain time frame and there is sufficient bandwidth already available, multipart upload is the best option compared to AWS Import/Export.
+Advantages of Multipart Upload.
+Improved throughput-you can upload parts in parallel to improve throughput.
+Quick recovery from any network issues-smaller part size minimizes the impact of restarting a failed upload due to a network error.
+Pause and resume object uploads-you can upload object parts over time.
+Once you initiate a multipart upload, there is no expiry; you must explicitly complete or abort the multipart upload.
+Begin an upload before you know the final object size-you can upload an object as you are creating it.
+For more information on Multi-part file upload for S3, please visit the URL -
+http://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html
+The correct answer for this question is B. Use Multipart upload to upload the data to s3.
+Explanation:
+Option A - Increasing network bandwidth can certainly help in increasing the throughput to Amazon S3. However, it may not guarantee that the file uploads can complete in the allotted time window. Besides, the question states that less than half of the available bandwidth is being used currently, which implies that there is no network bottleneck currently.
+Option B - Multipart upload is designed to upload large objects to Amazon S3 in parts, which makes it more efficient and faster than uploading the object in a single operation. Multipart upload is recommended for objects greater than 100 MB in size and can be used to upload objects up to 5 TB in size. Since the video files are around 1-2 GB in size, using Multipart upload can speed up the upload process significantly and ensure that the file uploads can complete within the allotted time window.
+Option C - Packing all files into a single archive and uploading it to Amazon S3 and then extracting the files in AWS may not help in reducing the upload time since the compressed file size will still be around 100GB.
+Option D - AWS Import/Export is a service designed to transfer large amounts of data into and out of Amazon S3 using portable storage devices. While AWS Import/Export can be used to transfer large amounts of data, it may not be the best solution in this case since the video files are being produced on-premises every day.
+Therefore, option B is the correct answer as using Multipart upload to upload the data to S3 can ensure that the file uploads can complete in the allotted time window.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question248:"link"
+
+

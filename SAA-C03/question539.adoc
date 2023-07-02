@@ -1,0 +1,114 @@
+---
+layout: default 
+title: "1339 - Which of the following is not an AWS Clo"
+---
+
+
+[.question]
+== 1339-64a1fb31f053625db51de080.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_ja47wq.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following is not an AWS CloudWatch metric for EBS Volumes?
+
+
+[source,java]
+----
+Metric
+
+VolumeReadsytes
+
+VolumewiriteBytes
+
+VolumeReadops
+
+Volumeliriteops
+
+Description
+
+Provides information on the I/O operations in a specified period of time. The Sum
+statistic reports the total number of bytes transferred during the period. The
+Average statistic reports the average size of each I/O operation during the period,
+except on volumes attached to a Nitra instance, where the average represents
+the average over the specified period. The SanpleCount statistic reports the total
+number of I/O operations during the period, except on volumes attached to a
+Nitro instance, where the sample count represents the number of data points
+used in the statistical calculation. Data is reported to CloudWatch only when the
+volume is active.
+
+The Minimum and Maximum statistics on this metric are supported only by volumes
+attached to the following instances: C5, CSd, i3.metal, MS, MSd, RS, R5d, T3, and
+21d.
+
+Units: Bytes
+
+The total number of I/O operations in a specified period of time.
+
+To calculate the average I/O operations per second (IOPS) for the period, divide
+the total operations in the period by the number of seconds in that period,
+
+‘The Minimum and Maximum statistics on this metric are supported only by volumes
+attached to the following instances: C5, C5d, 13.metal, M5, MSd, RS, RSd, T3, and
+zd.
+
+Units: Count
+----
+
+
+--
+
+[.list]
+--
+* [*] A. VolumeReadBytes
+* [ ] B. VolumeWriteOps
+* [ ] C. VolumeThroughputPercentage
+* [*] D. VolumeRemainingSize.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html#using_cloudwatch_ebs
+The correct answer is D. VolumeRemainingSize is not an AWS CloudWatch metric for EBS Volumes.
+Explanation:
+Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for use with EC2 instances. AWS CloudWatch is a monitoring service that provides metrics and logs for resources in AWS.
+When monitoring Amazon EBS volumes, AWS CloudWatch provides the following metrics:
+A. VolumeReadBytes: The total number of bytes that have been read from the volume.
+B. VolumeWriteOps: The total number of write operations that have been performed on the volume.
+C. VolumeThroughputPercentage: The percentage of I/O operations per second (IOPS) delivered from the total IOPS provisioned for an EBS volume.
+D. VolumeRemainingSize: This is not an AWS CloudWatch metric for EBS Volumes. It is not possible to monitor the remaining size of an EBS volume using CloudWatch.
+In summary, CloudWatch provides metrics for monitoring the I/O operations and throughput of EBS volumes but does not provide a metric for monitoring the remaining size of an EBS volume.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question659:"link"
+
+

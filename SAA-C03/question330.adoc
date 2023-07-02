@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1130 - You work as an architect for a consultin"
+---
+
+
+[.question]
+== 1130-64a1fac0f053625db51ddf70.
+
+
+****
+
+[.query]
+--
+You work as an architect for a consulting company.
+The consulting company normally creates the same set of resources for their clients.
+They want some way of building templates, which can then be used to deploy the resources to the AWS accounts for the various clients.
+Also, your team needs to be ensured that they have control over the infrastructure.
+Which of the following service can help fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Elastic Beanstalk
+* [ ] B. Custom AMI
+* [*] C. AWS Cloudformation
+* [ ] D. EBS Snapshots.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS Documentation mentions the following.
+AWS CloudFormation is a service that helps you model and set up your Amazon Web Services resources so that you can spend less time managing those resources and more time focusing on your applications that run in AWS.
+You create a template that describes all the AWS resources you want (like Amazon EC2 instances or Amazon RDS DB instances)
+AWS CloudFormation takes care of provisioning and configuring those resources for you.
+Elastic Beanstalk is intended to make developers' lives easier.
+CloudFormation is intended to make systems engineers' lives easier.
+Elastic Beanstalk is a PaaS layer on top of AWS's IaaS services which abstracts away the underlying EC2 instances, Elastic Load Balancers, Auto Scaling groups, etc.
+This makes it a lot easier for developers, who don't want to deal with all the systems stuff, to get their application quickly deployed on AWS.
+With Elastic Beanstalk, you don't need to understand how any of the underlying magic works.
+CloudFormation, on the other hand, doesn't automatically do anything.
+It's simply a way to define all the resources needed for deployment in a huge JSON file.
+Option A could be a valid choice.
+But it has been clearly asked in question that the team needs to have control over the infrastructure.
+Option B is invalid because Custom AMI will help create an Image for EC2 Instances, not for all the resources.
+Option D is invalid because EBS Snapshot is a copy of your Volume used for EC2 Instance.
+For more information on CloudFormation, please visit the below URL-
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html
+The service that can help fulfill the requirement of creating templates to deploy resources to AWS accounts for various clients, while ensuring control over infrastructure is AWS CloudFormation.
+AWS CloudFormation is a service that allows you to model and provision AWS resources as a code, using a declarative template format. This enables you to manage and automate the deployment of your infrastructure in a repeatable and predictable way. CloudFormation templates are written in JSON or YAML format, and describe the resources that need to be created, their configuration, and any dependencies between them.
+In this scenario, the consulting company can create a CloudFormation template that contains all the resources that they normally create for their clients. This template can then be used to deploy the same set of resources to different AWS accounts for different clients, without the need for manual intervention. This approach can save time and reduce the chance of human errors.
+In addition, CloudFormation allows for version control and can be integrated with source code management tools such as Git. This provides the consulting company with greater control over the infrastructure and the ability to track changes made to the templates over time.
+Therefore, the correct answer to the question is C. AWS CloudFormation.
+To summarize, AWS CloudFormation is a powerful tool that can help manage and automate the deployment of AWS resources using a declarative template format. It enables organizations to create templates that can be used to deploy the same set of resources to different AWS accounts in a repeatable and predictable way.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question386:"link"
+
+

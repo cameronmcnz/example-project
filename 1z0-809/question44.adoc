@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "844 - Which statement is true about the single"
+---
+
+
+[.question]
+== 844-64a1a84aef3e8462333a9c62.
+
+
+****
+
+[.query]
+--
+Which statement is true about the single abstract method of the java.util.function.Function interface?
+
+
+--
+
+[.list]
+--
+* [ ] A. It accepts one argument and returns void.
+* [ ] B. It accepts one argument and returns boolean.
+* [ ] C. It accepts one argument and always produces a result of the same type as the argument.
+* [*] D. It accepts an argument and produces a result of any data type.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

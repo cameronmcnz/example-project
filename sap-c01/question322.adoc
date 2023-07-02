@@ -1,0 +1,114 @@
+---
+layout: default 
+title: "1122 - You are developing an application using "
+---
+
+
+[.question]
+== 1122-64a1df6baa736d27b1db9482.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_68457.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are developing an application using a microservices architecture.
+Some serverless AWS services such as Lambda, SQS and DynamoDB are used.
+One Lambda Function is deployed to reset users' passwords, but it does not run frequently.
+When the function is inactive and called, it may take a longer time to handle the requests.
+You want to minimize the processing time for the function.
+Which of the following Lambda "features" you can use to get greater control over the performance of your serverless applications at any scale?
+
+
+[source,java]
+----
+AWS Lambda announces Provisioned Concurrency
+
+Posted On: Dec 3, 2019
+
+We are announcing Provisioned Concurrency, a feature that provides customers greater control over performance of their serverless
+api
+building interactive mobile or web backends, latency sensitive microservices, and synchronously invoked APIs.
+
+ications at any scale. Functions using Provisioned Concurrency execute with consistent start-up latency making them ideal for
+
+Hundreds of thousands of customers have adopted AWS Lambda for benefits such as its simple programming model, built-in event
+triggers, automatic scaling, and fault tolerance. Provisioned Concurrency makes it easier than ever to develop highly scalable serverless
+applications with predictable latency on AWS Lambda. Developers can simply set their expected concurrency on any version or alias of
+a function. Thereafter, AWS Lambda ensures that the function begins executing developers’ code within double digit milliseconds of
+being invoked.
+
+With Provisioned Concurrency, functions can instantaneously serve a burst of traffic with consistent start-up latency for every invoke
+up to the specified scale. Using the AWS Management Console, API, or command line, developers can configure any new or existing
+function to use Provisioned Concurrency. Customers only pay for the amount of concurrency that they configure and for the period of
+time that it is configured. Read more about Provisioned Concurrency in the AWS Lambda documentation.
+
+You can use Application Auto Scaling to automatically configure the required concurrency for your functions. AWS Lambda supports
+Target Tracking and Scheduled Scaling policies. You can also use the AWS Serverless Application Model (SAM) and SAM CLI to test,
+deploy and manage serverless applications that use Provisioned Concurrency. Provisioned Concurrency is also integrated with AWS.
+CodeDeploy for fully managed and automated software deployments.
+
+Provisioned Concurrency is available today in the following Regions: US East (Ohio), US East (N. Virginia), US West (N. California), US
+West (Oregon), Asia Pacific (Hong Kong), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia
+Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), and Europe (Stockholm), Middle
+East (Bahrain), and South America (Sao Paulo).
+----
+
+
+--
+
+[.list]
+--
+* [*] A. For the Lambda Function, avoid using languages such as Java that need a long compilation time. Use Node.js or Python instead.
+* [ ] B. Configure a CloudWatch Event rule and select the Lambda Function as its target. The event is executed every minute to warm up the function so that the function stays active.
+* [*] C. Configure the Lambda Function to use "Provisioned Concurrency" always to stay active so that the Lambda container does not get reused by AWS.
+* [ ] D. Create a CloudWatch alarm to monitor the invocations of the function. If there are no invocations for 1 hour, trigger the alarm to call the Lambda Function so that the function stays warm.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+If the Lambda Function is not used for a long time, AWS may recycle the container.
+And if there are new requests to the function, AWS needs to deploy the container again for the function.
+In order to pre-warm the Lambda function, the best way is to use the "Provisioned Concurrency" which is a "feature" of the Lambda function.
+https://aws.amazon.com/about-aws/whats-new/2019/12/aws-lambda-announces-provisioned-concurrency/
+Options A, B and D are incorrect: Because these are NOT a "feature" of the Lambda function.
+The correct answer is option C: Configure the Lambda Function to use "Provisioned Concurrency" always to stay active so that the Lambda container does not get reused by AWS.
+Explanation:
+In a microservices architecture, it's essential to ensure that each service is optimized for maximum performance. In this case, we want to minimize the processing time for the Lambda Function that resets users' passwords, especially when the function is inactive.
+Provisioned Concurrency is a feature that allows you to pre-warm a set number of Lambda containers to handle incoming requests. It's different from On-Demand Concurrency, where AWS manages the number of containers needed to handle requests. With Provisioned Concurrency, you have control over the number of containers that are running, and they remain warm and ready to handle requests at all times.
+Using Provisioned Concurrency, we can keep the Lambda Function warm and active even when it's not in use. This ensures that the function is always ready to handle incoming requests, minimizing the processing time. Additionally, because the containers remain warm, there is no additional cold start time when the function is invoked, which further improves performance.
+Option A is incorrect because the language used by the function does not affect its performance. However, some languages may have longer cold start times than others, which could affect the function's performance when it's not in use.
+Option B is incorrect because while warming up a function with CloudWatch events can help reduce the cold start time, it does not keep the function active when it's not in use.
+Option D is incorrect because triggering a CloudWatch alarm to call the Lambda Function defeats the purpose of using serverless architecture, where resources are only provisioned when needed. Additionally, it could result in unnecessary charges for unused resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question465:"link"
+
+

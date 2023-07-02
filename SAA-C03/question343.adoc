@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1143 - Your company has a set of EBS volumes an"
+---
+
+
+[.question]
+== 1143-64a1fac8f053625db51ddf82.
+
+
+****
+
+[.query]
+--
+Your company has a set of EBS volumes and a set of adjoining EBS snapshots.
+They want to minimize the costs for the underlying EBS snapshots.
+Which of the following approaches provides the lowest cost for Amazon Elastic Block Store snapshots while giving you the ability to restore data fully?
+
+
+--
+
+[.list]
+--
+* [*] A. Maintain two snapshots: the original snapshot and the latest incremental snapshot.
+* [ ] B. Maintain a volume snapshot; subsequent snapshots will overwrite one another
+* [*] C. Maintain a single snapshot: the latest snapshot is both Incremental and complete.
+* [ ] D. Maintain the most current snapshot, archive the original and incremental to Amazon Glacier.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS Documentation mentions the following.
+You can back up the data on your Amazon EBS volumes to Amazon S3 by taking point-in-time snapshots.
+Snapshots are incremental backups, which means that only the blocks on the device have changed after your most recent snapshot is saved.
+This minimizes the time required to create the snapshot and saves on storage costs by not duplicating data.
+When you delete a snapshot, only the data unique to that snapshot is removed.
+Each snapshot contains all of the information needed to restore your data (from the moment when the snapshot was taken) to a new EBS volume.
+For more information on EBS Snapshots, please refer to the below link-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
+When it comes to managing EBS snapshots, the goal is to strike a balance between cost and data integrity. AWS provides several approaches to accomplish this, each with its own tradeoffs. Here's a breakdown of the options provided in the question:
+A. Maintain two snapshots: the original snapshot and the latest incremental snapshot. This approach involves creating an initial snapshot of the volume and then only taking incremental snapshots of the changes since the last snapshot. However, this approach requires the original snapshot to be retained, which can increase costs. In addition, multiple snapshots may need to be restored to fully recover the volume, which can be time-consuming.
+B. Maintain a volume snapshot; subsequent snapshots will overwrite one another This approach involves taking snapshots of the volume at regular intervals, with each snapshot overwriting the previous one. While this is a straightforward and inexpensive approach, it lacks the ability to restore data from a specific point in time. It also leaves the volume vulnerable to data corruption or loss if an issue arises between snapshot intervals.
+C. Maintain a single snapshot: the latest snapshot is both Incremental and complete. This approach involves taking a snapshot of the volume at regular intervals, but each snapshot is a complete snapshot of the volume rather than an incremental one. This ensures that data can be restored from any point in time, but can be more costly and time-consuming to manage than incremental snapshots.
+D. Maintain the most current snapshot, archive the original and incremental to Amazon Glacier. This approach involves taking regular snapshots of the volume and retaining only the most current snapshot on EBS, while archiving the original and incremental snapshots to Amazon Glacier for long-term storage. While this approach can significantly reduce EBS costs, it can be complex to manage, and restoring data can take longer due to the need to retrieve data from Glacier.
+Overall, each approach has its own advantages and tradeoffs, so it's important to consider the specific requirements and constraints of your use case when selecting an EBS snapshot management strategy.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question404:"link"
+
+

@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1030 - Your application has two tiers in AWS th"
+---
+
+
+[.question]
+== 1030-64a1fa8ff053625db51ddef5.
+
+
+****
+
+[.query]
+--
+Your application has two tiers in AWS: the frontend layer and the backend layer.
+The frontend includes an Auto Scaling group deployed in a public subnet.
+The backend Auto Scaling group is located in another private subnet.
+The backend instances should only allow the incoming traffic from the frontend ASG through a custom port.
+For the backend security group, how would you configure the source in its inbound rule?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the frontend security group ID as the source.
+* [ ] B. Configure the public subnet IP range as the source.
+* [*] C. Configure the frontend Auto Scaling group ARN as the source.
+* [ ] D. Configure the frontend Auto Scaling launch configuration as the source.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Refer to https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#security-group-rules for how to configure security group rules.
+Option A is CORRECT: By configuring the frontend security group as the source, any frontend instances that have the specified security group are allowed to access the backend.
+Option B is incorrect: Other instances in this subnet can also access the backend.
+This option is not as good as option A.Option C is incorrect: Because Auto Scaling group ARN cannot be configured in the source of a security group inbound rule.
+Option D is incorrect: Because the launch configuration cannot be configured in the source.
+The correct answer is A. Configure the frontend security group ID as the source.
+Explanation: To allow incoming traffic from the frontend Auto Scaling Group (ASG) to the backend ASG, we need to configure the inbound rules for the security group associated with the backend ASG. The security group is a virtual firewall that controls the incoming and outgoing traffic for the instances associated with it.
+Since the frontend ASG is in a public subnet, it is associated with a security group that allows incoming traffic from the Internet. To enable traffic from the frontend ASG to the backend ASG, we need to add an inbound rule to the security group associated with the backend ASG. This rule should allow incoming traffic from the security group associated with the frontend ASG, not from the public subnet IP range or any other source.
+Therefore, the correct answer is to configure the frontend security group ID as the source in the inbound rule for the backend ASG security group. This will ensure that only instances in the frontend ASG are allowed to communicate with instances in the backend ASG over the custom port.
+Option B is incorrect because it would allow any traffic coming from the public subnet IP range, not just traffic originating from the frontend ASG.
+Option C and D are incorrect because they refer to specific AWS resources (ARN and launch configuration), which are not relevant for configuring inbound rules for security groups. Instead, we need to specify the source security group ID in the inbound rule to allow traffic only from the instances associated with that security group.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question262:"link"
+
+

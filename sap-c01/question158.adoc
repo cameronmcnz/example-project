@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "958 - Your company has a logging microservice "
+---
+
+
+[.question]
+== 958-64a1df2faa736d27b1db938e.
+
+
+****
+
+[.query]
+--
+Your company has a logging microservice used to generate logs when users have entered certain commands in another application.
+This logging service is implemented via an SQS standard queue that an EC2 instance is listening to.
+However, you have found that on some occasions, the order of the logs is not maintained.
+As a result, it becomes harder to use this service to trace users' activities.
+How should you simply fix this issue?
+
+
+--
+
+[.list]
+--
+* [*] A. Convert the existing standard queue into a FIFO queue. Add a deduplication ID for the messages that are sent to the queue.
+* [*] B. Delete the existing standard queue and recreate it as a FIFO queue. As a result, the order for the messages to be received is ensured.
+* [*] C. Migrate the whole microservice application to SWF so that the operation sequence is guaranteed.
+* [ ] D. The wrong order of timestamps is a limitation of SQS, which does not have a fix.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The FIFO queue improves upon and complements the standard queue.
+The most important features of this queue type are FIFO (First-In-First-Out) delivery and exactly-once processing.
+The FIFO queue is mainly used to process the messages in the queue that needs to be guaranteed without any items being out of order or duplicated.
+Option A is incorrect: Because you can't convert an existing standard queue into a FIFO queue.
+This is clarified in.
+https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html.
+Option B is CORRECT: Because the FIFO queue can guarantee the sequence for users' operations so that the issue of the logging system is fixed.
+Option C is incorrect: Because this is not a straightforward method by changing the whole microservice to SWF.
+Option B is much simpler than this option.
+Option D is incorrect: Refer to the explanations in Option.
+B.
+The correct answer is A. Convert the existing standard queue into a FIFO queue. Add a deduplication ID for the messages that are sent to the queue.
+Explanation: Amazon Simple Queue Service (SQS) is a managed message queue service that enables decoupling between services. There are two types of SQS queues: standard and FIFO (First-In-First-Out). Standard queues provide a highly scalable and flexible queuing service, while FIFO queues are designed to ensure that messages are processed in the exact order in which they are sent.
+Since the logging microservice is using a standard SQS queue, it does not guarantee the order of the logs. To fix this issue, we can convert the standard queue into a FIFO queue. FIFO queues ensure that messages are processed in the exact order in which they are sent, and they provide the additional benefits of deduplication and exactly-once processing.
+In addition, adding a deduplication ID to the messages that are sent to the queue will help to prevent duplicate messages from being processed. This ensures that logs are not repeated and prevents them from being out of order.
+Option B is incorrect because deleting and recreating the queue as a FIFO queue is not necessary. It can result in loss of data, and it is not the recommended solution.
+Option C is incorrect because migrating the microservice to SWF (Amazon Simple Workflow Service) is not necessary. SWF is a fully-managed workflow service that makes it easy to build applications that coordinate work across distributed components. However, it is not the solution for ensuring the order of messages in an SQS queue.
+Option D is incorrect because it is not accurate. While SQS does not guarantee the order of messages in a standard queue, it is possible to ensure the order of messages in a FIFO queue.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question220:"link"
+
+

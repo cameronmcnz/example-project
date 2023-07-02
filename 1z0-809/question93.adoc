@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "893 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 893-64a1a85cef3e8462333a9c93.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0007700001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+List<string> li = Arrays.asList("Java", "J2EE", "J2ME", “JSTL", "JSP", “Oracle DB");
+Predicate<String> val = p -> p.contains("J")
+List<String> neLi = li.stream().filter(x -> x.length()> 3)
+
+-filter (val) .collect (Collectors.tobist ())
+System. out .print1n(neLi) ;
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. A compilation error occurs.
+* [ ] B. [Java, J2EE, J2ME, JSTL, JSP]
+* [ ] C. null
+* [*] D. [Java, J2EE, J2ME, JSTL]
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

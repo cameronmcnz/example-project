@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "975 - There are currently multiple application"
+---
+
+
+[.question]
+== 975-64a1df35aa736d27b1db93a6.
+
+
+****
+
+[.query]
+--
+There are currently multiple applications hosted in a VPC.
+During monitoring, it has been noticed that multiple port scans are coming in from a specific IP Address block.
+The internal security team has requested that all offending IP Addresses be denied for the next 24 hours.
+Which of the following is the best method to quickly and temporarily deny access from the specified IP Addresses?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an AD policy to modify the Windows Firewall settings on all hosts in the VPC to deny access from the IP Address block.
+* [*] B. Modify the Network ACLs associated with all public subnets in the VPC to deny access from the IP Address block.
+* [ ] C. Add a rule to all of the VPC Security Groups to deny access from the IP Address block.
+* [ ] D. Modify the Windows Firewall settings on all AMI`s that your organization uses in that VPC to deny access from the IP address block.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+A network access control list (ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets.
+Options A and D are incorrect because (a) it will only work for Windows-based instances, and (b) a better approach is to block the traffic at the subnet layer via NACL rather than instance layer (windows firewall).
+Option B is CORRECT because the best way to allow or deny IP address-based access to the resources in the VPC is to configure rules in the Network access control list (NACL), which are applied at the subnet level.
+Option C is incorrect because (a) you cannot explicitly deny access to particular IP addresses via security group, and (b) a better approach is to block the traffic at the subnet layer via NACL rather than instance layer (security group).
+For more information on network ACL's, please refer to the below link-
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
+The best method to quickly and temporarily deny access from the specified IP Addresses in a VPC is to modify the Network ACLs associated with all public subnets in the VPC to deny access from the IP Address block. This is because Network ACLs operate at the subnet level and provide stateless filtering of traffic, which makes them a suitable choice for blocking incoming traffic from specific IP addresses.
+Option A, creating an AD policy to modify the Windows Firewall settings on all hosts in the VPC to deny access from the IP Address block, is not a suitable option because it is specific to Windows hosts and would not block traffic to non-Windows systems in the VPC.
+Option C, adding a rule to all of the VPC Security Groups to deny access from the IP Address block, is not the best option because security groups operate at the instance level, and adding a rule to all of them could be time-consuming and error-prone.
+Option D, modifying the Windows Firewall settings on all AMIs that your organization uses in that VPC to deny access from the IP address block, is not a good option because it only applies to instances that are launched from those specific AMIs and would not block traffic to instances launched from other AMIs or non-Windows instances.
+Therefore, modifying the Network ACLs associated with all public subnets in the VPC to deny access from the IP Address block is the best option to quickly and temporarily deny access from the specified IP Addresses.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question244:"link"
+
+

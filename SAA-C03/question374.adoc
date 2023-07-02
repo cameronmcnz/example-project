@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1174 - A company is planning to host an applica"
+---
+
+
+[.question]
+== 1174-64a1fad7f053625db51ddfa5.
+
+
+****
+
+[.query]
+--
+A company is planning to host an application with the below architecture. · A lambda function that reads the metadata of objects from an S3 bucket. · The Lambda function then stores the metadata in DynamoDB and AWS RDS - MySQL. Which of the following needs to be in place to ensure the above architecture is high available?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable Cross Region Replication for the S3 bucket.
+* [ ] B. Enable Lambda functions in Multiple Availability Zones.
+* [*] C. Enable Multi-AZ for the MySQL database.
+* [ ] D. Enable Auto-Scaling for the DynamoDB table.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option C is correct because, in a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone.
+The primary DB instance is synchronously replicated across Availability Zones to a standby replica to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups.
+Running a DB instance with high availability can enhance availability during planned system maintenance and help protect your databases against DB instance failure and Availability Zone disruption.
+Option A is invalid because the S3 service is already a highly available service within a particular region.
+Also, Amazon S3 gives any developer access to the same highly scalable, highly available, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites.
+The S3 Standard storage class is designed for 99.99% availability, the S3 Standard-IA storage class is designed for 99.9% availability, the S3 One Zone-IA storage class is designed for 99.5% availability, and the S3 Glacier and S3 Glacier Deep Archive class are designed for 99.99% availability and SLA of 99.9%
+All of these storage classes are backed by the Amazon S3 Service Level Agreement.
+Options B is invalid because AWS Lambda is already a highly available service in AWS.
+Refer below document.
+https://aws.amazon.com/lambda/features/
+Option D is invalid because High Availability is about availability; AS is about performance (usually throughput), also DynamoDB is high available by default.
+High Availability focuses on maintaining the liveness of the system in the presence of server or network failures.
+At the same time, Auto Scaling means adding more resources when demand increases.
+Refer to the below document for DynamoDB reliability.
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html
+For more information on RDS Multi-AZ, please refer to the below URL-
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html
+To ensure high availability for the given architecture, we need to consider potential points of failure and design the system in a way that can tolerate them. Here are the explanations for each option:
+A. Enable Cross-Region Replication for the S3 bucket: Cross-Region Replication can help ensure high availability and durability by replicating the S3 bucket's objects to another region automatically. This way, if the primary region becomes unavailable, the objects are still accessible from the replicated region. However, this option doesn't directly address the high availability of the Lambda function and the databases.
+B. Enable Lambda functions in Multiple Availability Zones: AWS Lambda automatically deploys functions across multiple Availability Zones (AZs) within a region for high availability. This option can help ensure that the Lambda function continues to run even if one of the AZs becomes unavailable.
+C. Enable Multi-AZ for the MySQL database: Multi-AZ deployment in Amazon RDS provides high availability and durability by automatically replicating the database to a standby instance in a different AZ. In the event of a planned or unplanned outage, Amazon RDS automatically switches to the standby instance to minimize downtime. This option can help ensure that the MySQL database remains available even if the primary instance fails.
+D. Enable Auto-Scaling for the DynamoDB table: DynamoDB Auto Scaling automatically adjusts the read and write capacity of a DynamoDB table based on traffic patterns. This option can help ensure that the table can handle sudden spikes in traffic and remains available during periods of high demand.
+Based on the above explanations, options B, C, and D can all contribute to ensuring high availability for the architecture. However, enabling Cross-Region Replication for the S3 bucket may not be sufficient to ensure the high availability of the entire architecture. Therefore, the best answer would be a combination of options B, C, and D.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question439:"link"
+
+

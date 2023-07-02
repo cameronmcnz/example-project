@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "1099 - An organization has a distributed applic"
+---
+
+
+[.question]
+== 1099-64a1faaff053625db51ddf43.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgvYIooPwzykIuU6hfWTd6LRcOvFjfuBNPStgRw_e_K30t1R0TuBlpe_IjrKbi6BkCA_VptbwAozYT-xL0zxCljR36unj5cAbUeBTWvD61sDoiqrImpILL9AaA_gSYU7kJtSXd-37K2W436KhXXA[]
+
+--
+
+
+****
+
+[.query]
+--
+An organization has a distributed application running.
+This application is implemented with microservices architecture using AWS services including Lambda, API Gateway, SNS and SQS. What is the cost-effective best way to analyze, debug and notify if any issues arise in production?
+
+
+[source,java]
+----
+Collect traces — Records Traces — View Service Map — Analyse Service issues
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use Cloud watch dashboard to monitor the application, create a cloud watch alarm to notify for any errors.
+* [ ] B. Use Cloud watch events to trigger a lambda and notify.
+* [*] C. Use X-Ray to analyse and debug the application and use CloudWatch alarm to notify.
+* [ ] D. Use 3rd party tools to debug and notify.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer : C.
+Option A is incorrect.
+Amazon cloud watch dashboards can help to monitor all the resources.
+You can have a single view and multiple view across all the AWS regions to see how things are going across the services.
+But it cannot give detailed debugging and monitoring of each service.
+Option B is incorrect because a cloud watch event is created if any event happens in a service and can not be used for detailed analysis and debugging.
+Option C is CORRECT as AWS X-ray collects data, analysis and debug of microservice application.
+Amazon X-Ray helps to analyze and debug modern applications.
+It will also collect the traces about the request from each of the applications.
+It also records the traces.
+After recording, it can create a view service map that can be seen to trace data latency and analyze the issues.
+This can help to find any unusual behavior to identify any root cause.
+Option D is incorrect.
+Any custom monitoring tool will not help for detailed debugging of any microservices applications running on AWS.
+The best cost-effective way to analyze, debug, and notify if any issues arise in production for an organization with a distributed application implemented with microservices architecture using AWS services including Lambda, API Gateway, SNS, and SQS is to use X-Ray to analyze and debug the application and use CloudWatch alarms to notify.
+AWS X-Ray is a debugging and tracing service that can be used to analyze and debug the application's behavior, including requests, calls, and services involved. X-Ray can help to identify the root cause of issues that might arise in production. Additionally, it can help in optimizing the application's performance, finding latency issues, and identifying the bottlenecks in the application. X-Ray can also provide a visual representation of the distributed application's architecture, which can help in identifying issues.
+CloudWatch is a monitoring service that can be used to collect and track metrics, collect and monitor log files, and set alarms. CloudWatch can be used to monitor AWS resources such as Lambda, API Gateway, SNS, and SQS. CloudWatch alarms can be used to trigger an alert when a metric crosses a specified threshold. CloudWatch alarms can be set to notify via email, SMS, or other methods.
+Therefore, option C is the correct answer as it provides a cost-effective way to analyze and debug the application using X-Ray and notify using CloudWatch alarms. Option A is not the best solution as it only provides monitoring and notification for errors but does not provide debugging and analysis. Option B is not the best solution as it only provides notification through a Lambda function triggered by CloudWatch events. Option D is not the best solution as it may not be cost-effective and may require additional effort to set up and integrate with existing AWS services.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question341:"link"
+
+

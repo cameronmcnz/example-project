@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1091 - Your team uses Elastic Beanstalk to mana"
+---
+
+
+[.question]
+== 1091-64a1df60aa736d27b1db9457.
+
+
+****
+
+[.query]
+--
+Your team uses Elastic Beanstalk to manage a legacy JAVA application for a financial system.
+The Elastic Beanstalk environment is based on Amazon Linux.
+Now you need to update the operating system to Amazon Linux 2 in order to take advantage of the latest Elastic Beanstalk functionality.
+During the update, there should be minimal service impact to the application.
+Which of the following options describes the correct order to perform the operating system update?
+
+
+--
+
+[.list]
+--
+* [*] A. 5 > 2 > 1 > 4
+* [ ] B. 2 > 3 > 1 > 5
+* [*] C. 3 > 4 > 1 > 5
+* [ ] D. 4 > 2 > 3 > 1
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect because terminating the old environment is not the correct procedure to update the operating system.
+So, step 5 should not be in the first position.
+Option B is incorrect because step 2 is the unwanted step that does not describe any updates.
+Option C is CORRECT because this sequence describes the blue/green update strategy by creating a new environment, testing it and then swapping the DNS for the production environment.
+Option D is incorrect because issues cannot be followed before creating and deploying the code.
+The sequence does not describe any of the update strategies.
+References:
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-platform-update-managed.html https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.platform.upgrade.html
+The correct order to update the operating system to Amazon Linux 2 in an Elastic Beanstalk environment with minimal service impact to the application is as follows:
+1.
+Perform a snapshot of the existing environment: Before making any changes to the environment, it is recommended to take a snapshot of the existing environment to ensure that you have a backup in case anything goes wrong during the update process. This will also allow you to roll back to the previous environment if needed.
+2.
+Create a new environment: Create a new Elastic Beanstalk environment with Amazon Linux 2 as the operating system. This new environment will have the latest Elastic Beanstalk functionality and will allow you to test the application on the new operating system before switching to it.
+3.
+Deploy the application to the new environment: Deploy the application to the new environment and ensure that it is working correctly. This will allow you to test the application on Amazon Linux 2 without impacting the production environment.
+4.
+Switch the DNS to the new environment: Once you have tested the application on the new environment, you can switch the DNS to point to the new environment. This will direct traffic to the new environment, and the old environment will no longer receive traffic.
+5.
+Terminate the old environment: After you have switched the DNS to the new environment and ensured that everything is working correctly, you can terminate the old environment. This will free up resources and prevent any unnecessary charges.
+Therefore, the correct order to perform the operating system update is B. 2 > 3 > 1 > 5, which involves creating a new environment with Amazon Linux 2, deploying the application to the new environment, switching the DNS to the new environment, and terminating the old environment.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question422:"link"
+
+

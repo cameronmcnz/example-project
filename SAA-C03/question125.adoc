@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "925 - Your company has designed an app and req"
+---
+
+
+[.question]
+== 925-64a1fa67f053625db51dde80.
+
+
+****
+
+[.query]
+--
+Your company has designed an app and requires it to store data in DynamoDB.
+The company has registered the app with identity providers for users to sign-in using third-parties like Google and Facebook.
+What must be in place such that the app can obtain temporary credentials to access DynamoDB?
+
+
+--
+
+[.list]
+--
+* [*] A. Multi-factor authentication must be used to access DynamoD.
+* [ ] B. AWS CloudTrail needs to be enabled to audit usage.
+* [*] C. An IAM role allowing the app to have access to DynamoD.
+* [ ] D. The user must additionally log into the AWS console to gain database access.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option C is correct.
+The user will have to assume a role that has the permissions to interact with DynamoDB.
+Option A is incorrect.
+Multi-factor authentication is available but not required.
+Option B is incorrect.
+CloudTrail is recommended for auditing but is not required.
+Option D is incorrect.
+A second log-in event to the management console is not required.
+References:
+https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html
+ttps://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html.
+https://aws.amazon.com/articles/web-identity-federation-with-mobile-applications/
+The correct answer to this question is C - An IAM role allowing the app to have access to DynamoDB.
+Explanation:
+DynamoDB is a fully managed NoSQL database service provided by AWS that supports document and key-value data models. It is designed to provide fast and predictable performance with seamless scalability. When building applications that require access to DynamoDB, it is important to ensure that access is secured and properly authenticated.
+In this scenario, the company has registered the app with identity providers for users to sign-in using third-party services like Google and Facebook. This means that the app is using an identity federation solution to authenticate users, which allows users to sign in to the app using their existing social media or email accounts.
+To enable the app to access DynamoDB, an IAM role must be created that allows the app to obtain temporary security credentials. The role should be configured to trust the identity providers that are used to authenticate users. This will allow the app to obtain temporary security credentials that can be used to access DynamoDB without requiring users to sign in to the AWS Management Console.
+Option A, Multi-factor authentication (MFA), is a method of authentication that requires users to provide two or more forms of identification. While MFA can enhance security, it is not a requirement for accessing DynamoDB.
+Option B, AWS CloudTrail, is a service that provides visibility into user activity by recording AWS API calls. While CloudTrail can be used to monitor usage of DynamoDB, it is not a requirement for accessing DynamoDB.
+Option D, requiring users to log in to the AWS Management Console to access DynamoDB, is not ideal as it adds complexity for end users and could lead to potential security vulnerabilities.
+Therefore, the correct answer is C - An IAM role allowing the app to have access to DynamoDB.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question143:"link"
+
+

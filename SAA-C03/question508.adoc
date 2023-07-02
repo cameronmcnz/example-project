@@ -1,0 +1,129 @@
+---
+layout: default 
+title: "1308 - A Company ABC has 100 REST APIs exposed "
+---
+
+
+[.question]
+== 1308-64a1fb1cf053625db51de04c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_kvur1c.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A Company ABC has 100 REST APIs exposed to the Internet from their on-premise network.
+They have already integrated with AWS through DirectConnect.
+They have approached you asking for a cost-effective way of making these REST APIs available through AWS API Gateway because of the resiliency and cost reductions provided by it.
+What solution would you provide?
+
+
+[source,java]
+----
+At re:Invent 2017, we announced endpoint integrations inside a private VPC. With this capability, you can now have your backend running on EC2 be private inside your VPC without the
+need for a publicly accessible IP address or load balancer. Beyond that, you can also now use API Gateway to front APIs hosted by backends that exist privately in your own data centers,
+
+using AWS Connect links to your VPC. Private integrations were made possible via VPC Link and Network Load Balancers, which support backends such as EC2 instances, Auto
+Scaling groups, and Amazon ECS using the Fargate launch type.
+
+AWS A
+
+' 1
+
+i 1
+
+'
+
+‘AWS Lambda | i
+
+functions | 1
+
+1 AWS Lambda 1
+
+Sd | functions |
+
+te) ' 1
+
+o-.|\e—,
+
+\
+
+Services in ‘Amazon API \ i
+
+same region Gateway | Endpoints on |
+Endpoints on
+
+AmazonEc2 | AT@z0nEC2 |
+
+All publicly
+aws accessible
+ot BI endpoints
+
+Any other
+
+AWS service wo
+----
+
+
+--
+
+[.list]
+--
+* [*] A. API Gateway cannot integrate with on-premises backend APIs which are not over the public internet. Rebuild all the backend APIs using Lambda and integrate it with API Gateway.
+* [*] B. Use VPC Link to integrate on-premises backend solutions through DirectConnect and private VP.
+* [ ] C. Build API Gateway using the existing on-premises public facing REST APIs as HTTPS endpoints integration type.
+* [ ] D. Build API Gateway with integration type as AWS Service and select Direct Connect service.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B
+For more information on VPC Link, refer to the documentation here.
+https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/
+Option A is INCORRECT because you can use API Gateway to integrate with on-premises backend APIs.
+Therefore this option is invalid.
+Option C is INCORRECT because you can choose the integration type as "HTTPS" if your API is integrated with an existing HTTPS endpoint.
+Since the question does not state any integration with any HTTPS endpoint, this option is invalid.
+Option D is INCORRECT because you can choose the integration type as "AWS Service" only if your API will be integrated with an AWS service.
+Since the question does not state any integration with any AWS service, this option is invalid.
+Please refer to page 605 on the below link:
+https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-dg.pdf
+Option B - Use VPC Link to integrate on-premises backend solutions through DirectConnect and private VPC - is the best solution for this scenario.
+API Gateway can integrate with backend APIs hosted in a variety of locations, including on-premises servers. However, it is not recommended to expose on-premises APIs to the public internet directly due to security concerns.
+In this scenario, the company has already integrated with AWS through DirectConnect, which establishes a dedicated network connection between their on-premises network and their AWS VPC (Virtual Private Cloud). This means that their on-premises network is already connected to AWS and they can use the VPC Link feature of API Gateway to securely access their on-premises REST APIs.
+VPC Link is a feature of API Gateway that allows you to privately integrate your API Gateway with resources in your VPC. With VPC Link, you can create a private connection between your API Gateway and a VPC in your account, or a VPC in a different account or region. You can then use this VPC Link to access resources in the VPC from your API Gateway.
+In this scenario, the company can create a VPC Link between their API Gateway and their on-premises network through their existing DirectConnect connection. They can then use the VPC Link to access their on-premises REST APIs securely from API Gateway without exposing them to the public internet. This solution is both cost-effective and provides the resiliency benefits of API Gateway.
+Option A - Rebuilding all the backend APIs using Lambda and integrating them with API Gateway - would be a costly and time-consuming solution. It would require significant development effort to rewrite all the existing REST APIs as Lambda functions and would likely require changes to the existing application architecture.
+Option C - Building API Gateway using the existing on-premises public-facing REST APIs as HTTPS endpoints integration type - would expose the on-premises APIs to the public internet, which is not recommended for security reasons.
+Option D - Building API Gateway with integration type as AWS Service and selecting Direct Connect service - is not a valid option as AWS Service integration type is used to integrate API Gateway with other AWS services such as Lambda or DynamoDB, but not with on-premises resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question607:"link"
+
+

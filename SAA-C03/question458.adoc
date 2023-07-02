@@ -1,0 +1,87 @@
+---
+layout: default 
+title: "1258 - A company has its major applications dep"
+---
+
+
+[.question]
+== 1258-64a1fb01f053625db51de00b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has its major applications deployed in AWS.
+The company is building a new office and requires a high-performance network connection between the local office network and the AWS network.
+The connection needs to have high bandwidth throughput and allow users in the office to connect with multiple AWS VPCs of multiple AWS Regions.
+How would you establish the connection in the most appropriate way?
+
+
+[source,java]
+----
+By ws cious
+----
+
+
+--
+
+[.list]
+--
+* [*] A. For each AWS Region, create an AWS Direct Connect by configuring a public VIF between the VPC Virtual Private Gateway and the Customer Router.
+* [*] B. Create a Direct Connect Gateway to connect the local network with multiple Amazon VPCs across different regions.
+* [*] C. Configure two Direct Connects with two private VIFs to provide highly-available and dedicated private connections.
+* [ ] D. Create an AWS Direct Connect dedicated network connection on top of Amazon VPN to establish an end-to-end secure IPSec connection.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is incorrect because in this option users need to configure an AWS Direct Connect for each AWS Region, which is not the most appropriate method.
+Besides, private VIF should be set up in Direct Connection instead of public VIF.
+Private virtual interface is used to access Amazon VPC using private IP addresses and public virtual interface is used to access AWS public services.
+In this scenario, the connections need to be secured, so private VIF should be used.
+Option B is CORRECT because Direct Connect Gateway, as a globally available resource, can be used to establish high-performance network connections to different AWS Regions and reduce management loads.
+Please check the following figure:
+Option C is incorrect because this option is suitable for scenarios in which highly available and redundant connections are needed.
+There is no such requirement in the question.
+Option D is incorrect because the question does not require a secure IPSec connection therefore VPN is not needed.
+This option also does not address the requirements to connect with different AWS Regions.
+References:
+https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect.html https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html
+The most appropriate way to establish a high-performance network connection between the local office network and the AWS network with high bandwidth throughput and allow users in the office to connect with multiple AWS VPCs of multiple AWS Regions is to use Direct Connect Gateway. Therefore, answer B is the correct answer.
+Direct Connect Gateway is a highly-available, regional service that allows you to connect multiple VPCs in different regions to a Direct Connect connection at your on-premises location or colocation environment. With Direct Connect Gateway, you can establish connectivity to all your VPCs in the region, rather than setting up multiple Direct Connect connections. This provides a more efficient and cost-effective way to access your resources on AWS.
+Answer A is incorrect because creating an AWS Direct Connect for each region can be costly and inefficient, as it requires multiple connections to be established for each region.
+Answer C is incorrect because configuring two Direct Connects with two private VIFs will only provide highly available and dedicated private connections for two VPCs.
+Answer D is incorrect because creating an AWS Direct Connect dedicated network connection on top of Amazon VPN is not necessary since Direct Connect already provides a secure and private connection between your data center and AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question541:"link"
+
+

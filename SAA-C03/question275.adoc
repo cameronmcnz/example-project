@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1075 - A financial firm which has a web server "
+---
+
+
+[.question]
+== 1075-64a1faa4f053625db51ddf28.
+
+
+****
+
+[.query]
+--
+A financial firm, which has a web server in an EC2 Instance, is developing a new web application with static informational content and dynamic functional content with server-side scripting.
+They expect heavy traffic on the launch of the application.
+The dynamic content should be stored as files in a file system.
+The storage of static content should be highly available and cost-effective.
+Which of the following solutions is the most suitable?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon EFS for dynamic content & Amazon S3 for static content.
+* [ ] B. Use Amazon EBS for dynamic content & Amazon EFS for static content.
+* [*] C. Use Amazon S3 for dynamic content & Amazon EBS for static content.
+* [ ] D. Use Amazon Instance Store for dynamic content & Amazon S3 for static content.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+For websites with dynamic user interactions, using Amazon EFS is an ideal option to use along with using Amazon S3 for static non-changing data.
+EFS provides a scalable, distributed file system solution where dynamic content can be stored and scaled elastically allowing parallel access from EC2 instances while S3 is best suited for storing &amp; serving static content using a CloudFront distribution.
+Option B is incorrect as EBS is for block storage, not suitable for storing dynamic content.
+EFS can be used to store static content but it is not cost-efficient as S3.
+Option C is incorrect as Amazon S3 cannot be used for dynamic content.
+Amazon EC2 or EFS can be used.
+Option D is incorrect as Amazon Instance Store is temporary storage and is not suited for dynamic web content.
+For more information on AWS Storage Options, refer to the following URLs-
+https://d0.awsstatic.com/whitepapers/AWS%20Storage%20Services%20Whitepaper-v9.pdf
+Option A is the most suitable solution for this scenario: using Amazon EFS for dynamic content and Amazon S3 for static content.
+Amazon EFS is a fully-managed, highly scalable, and elastic file system for Linux-based workloads. It is ideal for applications that require shared access to a file system from multiple instances. In this scenario, the dynamic content should be stored as files in a file system, which makes Amazon EFS a suitable choice.
+Amazon S3 is a highly available and cost-effective object storage service that can be used to store and retrieve any amount of data. It provides durability, scalability, and security for data storage needs. The static content of the web application can be stored in Amazon S3, which makes it a suitable choice for this use case.
+Option B is not suitable because Amazon EBS is not suitable for shared access. It is a block-level storage service that can be attached to a single EC2 instance. Therefore, it is not suitable for storing dynamic content that needs to be accessed by multiple instances.
+Option C is not suitable because Amazon S3 is not suitable for storing dynamic content. Amazon S3 is an object storage service and is not suitable for file storage needs, which makes it unsuitable for storing dynamic content.
+Option D is not suitable because Amazon Instance Store is ephemeral storage that is attached to an EC2 instance. The data stored in the instance store is lost when the instance is terminated, which makes it unsuitable for storing dynamic content that needs to be persistent.
+In summary, using Amazon EFS for dynamic content and Amazon S3 for static content is the most suitable solution for this scenario, as it provides the required features and functionality for the web application's storage needs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question314:"link"
+
+

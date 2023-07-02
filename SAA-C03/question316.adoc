@@ -1,0 +1,63 @@
+---
+layout: default 
+title: "1116 - Your supervisor has instructed you to de"
+---
+
+
+[.question]
+== 1116-64a1fab7f053625db51ddf56.
+
+
+****
+
+[.query]
+--
+Your supervisor has instructed you to devise a disaster recovery model for the resources in the AWS account.
+The key requirement while devising the solution is to ensure that the cost is at the minimum.
+Which disaster recovery mechanism would you employ in such a scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. Backup and Restore
+* [ ] B. Pilot Light
+* [*] C. Warm standby
+* [ ] D. Multi-Site.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Since the cost needs to be at the minimum, the best option is to back up all the resources and then perform a restore in the event of a disaster.
+For more information on disaster recovery, please refer to the below link-
+https://aws.amazon.com/blogs/aws/new-whitepaper-use-aws-for-disaster-recovery/ https://aws.amazon.com/disaster-recovery/
+When designing a disaster recovery (DR) solution for AWS resources, there are various mechanisms available to choose from, depending on the business requirements, RTOs, RPOs, and cost constraints.
+A backup and restore mechanism involves making regular backups of the data and storing it in a safe location. In the event of a disaster, the backed-up data can be restored to the production environment. This solution is cost-effective but might take a longer time to recover, depending on the size of the data and the recovery point objective (RPO).
+A pilot light DR solution involves maintaining a minimal version of the production environment that can be quickly scaled up in the event of a disaster. This solution requires fewer resources than the production environment, thus reducing costs, but the recovery time objective (RTO) may still be longer than desired.
+A warm standby solution involves maintaining a partially scaled production environment, which can be scaled up as necessary. This solution is more expensive than the pilot light model but offers faster recovery times.
+A multi-site DR solution involves replicating the production environment in another AWS region or even in an on-premises data center. This solution offers the fastest recovery times, but it's also the most expensive, as it requires resources in multiple locations.
+Considering the key requirement to minimize costs, the best option would be the pilot light model, which allows for a quick recovery while minimizing resource usage and costs. However, it's essential to evaluate the RTO and RPO requirements of the business and ensure that the pilot light model aligns with those requirements.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question360:"link"
+
+

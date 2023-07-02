@@ -1,0 +1,91 @@
+---
+layout: default 
+title: "1029 - Your companys office was just reallocate"
+---
+
+
+[.question]
+== 1029-64a1df4aaa736d27b1db93fb.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_10.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your company's office was just reallocated to another site.
+A Site-to-Site VPN was set up to connect the local server in the new site and the company's AWS VPC in the AWS region ap-south-1
+The VPN is working properly.
+However, the operation team lead is worried about the robustness of the connection and has consulted you if it is possible to provide more redundancy to the VPN.
+Which suggestion should you give to him?
+
+
+[source,java]
+----
+8, 8.2.8, 8
+
+ree 2tp.19a 7221-20025
+----
+
+
+--
+
+[.list]
+--
+* [*] A. No redundancy is required as the VPN connection is robust enough to provide auto failover ability. No single point failure exists for the existing solution.
+* [ ] B. Add 1 more tunnel between the customer gateway and virtual private gateway. So if the existing tunnel fails, the traffic can failover to the new one.
+* [*] C. Add another virtual private gateway as it is a single point without redundancy.
+* [*] D. Set up a second Site-to-Site VPN connection to the virtual private gateway by using a second customer gateway.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Check out https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNConnections.html on how to provide redundant Site-to-Site VPN connections to provide failover.
+Option A is incorrect because the customer gateway is a single point of failure in this case.
+If it fails, the whole VPN connection is influenced.
+Option B is incorrect because there are already two lines between the customer gateway and the virtual private gateway.
+There is no need to add another tunnel.
+Option C is incorrect because the customer gateway is a single point of failure instead of a virtual private gateway.
+Option D is correct because adding another Site-to-Site VPN connection is a good redundancy plan.
+Even if one customer gateway does not work, there is still another path that works.
+The operation team lead is concerned about the robustness of the VPN connection between the local server and the AWS VPC, and is looking for a way to add more redundancy to the connection. Here are the options to consider:
+A. No redundancy is required as the VPN connection is robust enough to provide auto failover ability. No single point failure exists for the existing solution.
+This option suggests that the existing VPN connection is already robust enough and no redundancy is needed. It states that the VPN connection can provide auto failover ability, which means that if the primary VPN connection fails, the secondary connection will take over automatically. However, this option does not provide any further details on how the VPN connection is set up to provide this failover ability. It is essential to confirm if the current VPN connection is indeed designed to provide automatic failover.
+B. Add 1 more tunnel between the customer gateway and virtual private gateway. So if the existing tunnel fails, the traffic can failover to the new one.
+This option suggests adding one more tunnel between the customer gateway and virtual private gateway to provide redundancy. If the existing tunnel fails, traffic can failover to the new tunnel, ensuring that the connection remains operational. This option is a reasonable solution as it provides redundancy and is a relatively simple and cost-effective solution to implement.
+C. Add another virtual private gateway as it is a single point without redundancy.
+This option suggests adding another virtual private gateway to the AWS VPC to provide redundancy. This solution would eliminate the single point of failure of the existing virtual private gateway. However, this option is a more complex and expensive solution than adding another tunnel, as it requires additional configuration and resources.
+D. Set up a second Site-to-Site VPN connection to the virtual private gateway by using a second customer gateway.
+This option suggests setting up a second Site-to-Site VPN connection to the virtual private gateway, using a second customer gateway. This option would provide redundancy by having two separate VPN connections, but it is also a more complex and expensive solution than adding another tunnel. This option requires additional configuration and resources, and the customer would have to maintain two separate VPN connections.
+In summary, option B is a reasonable solution, providing redundancy by adding one more tunnel between the customer gateway and virtual private gateway. This option is a simple and cost-effective solution to implement, and it addresses the concern of the operation team lead about the robustness of the VPN connection.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question330:"link"
+
+

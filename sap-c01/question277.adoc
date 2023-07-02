@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1077 - A user is planning to set up the MultiAZ"
+---
+
+
+[.question]
+== 1077-64a1df5caa736d27b1db9447.
+
+
+****
+
+[.query]
+--
+A user is planning to set up the Multi-AZ feature of RDS.
+Which of the below mentioned conditions won't take advantage of the Multi-AZ feature?
+
+
+--
+
+[.list]
+--
+* [*] A. Availability zone outage
+* [ ] B. A manual failover of the DB instance using Reboot with failover option
+* [*] C. Region outage
+* [ ] D. When the user changes the DB instance’s server type.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Amazon RDS handles failovers automatically so you can resume database operations as quickly as possible without administrative intervention.
+The primary DB instance switches over automatically to the standby replica if any of the following conditions occur.
+An Availability Zone outage.
+The primary DB instance fails.
+The DB instance's server type is changed.
+The operating system of the DB instance is undergoing software patching.
+A manual failover of the DB instance was initiated using Reboot with failover.
+Hence, options A, B, and D are incorrect.
+Option C is CORRECT because if there is a region-wide failure, the Multi-AZ feature may not work.
+For more information on multiAZ RDS, please visit the link:
+https://aws.amazon.com/rds/details/multi-az/
+The Multi-AZ feature of Amazon RDS (Relational Database Service) is designed to provide high availability and reliability for database instances. It uses synchronous replication to maintain a standby copy of the primary database instance in a different Availability Zone (AZ) within the same region. This standby instance is updated in real-time with the changes made to the primary instance. In case of an outage or failure of the primary instance, the standby instance can be automatically promoted to become the new primary instance.
+Now, coming to the given options:
+A. Availability zone outage - This scenario is exactly what the Multi-AZ feature is designed for. In case of an AZ outage, the standby instance in a different AZ can take over and become the new primary instance, thus providing high availability and minimal downtime.
+B. A manual failover of the DB instance using Reboot with failover option - This option initiates a manual failover, which means that the user is explicitly asking for the standby instance to be promoted as the new primary instance. This also takes advantage of the Multi-AZ feature and is a recommended method to perform maintenance activities with minimal downtime.
+C. Region outage - The Multi-AZ feature cannot protect against a region-level outage as it only replicates data within the same region. In case of a region outage, the user must have a disaster recovery plan in place, such as using Amazon RDS Read Replicas in a different region or using database backup and restore.
+D. When the user changes the DB instance's server type - Changing the server type of the DB instance does not impact the Multi-AZ feature. The standby instance will continue to be updated in real-time with the changes made to the primary instance, and can take over in case of a primary instance failure.
+Therefore, the correct answer is option C - Region outage, which cannot be protected by the Multi-AZ feature of RDS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question406:"link"
+
+

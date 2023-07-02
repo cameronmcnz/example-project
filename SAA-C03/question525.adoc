@@ -1,0 +1,102 @@
+---
+layout: default 
+title: "1325 - You have an existing AWS setup with Dire"
+---
+
+
+[.question]
+== 1325-64a1fb27f053625db51de069.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_qv4pt8.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have an existing AWS setup with DirectConnect.
+You have migrated certain on premise backend applications to AWS EC2 instances which are having certain processes run based on triggers from other applications.
+These processes are developed on JAVA programming language.
+Your organization is looking to migrate these processes to Lambda and reduce the cost incurred on EC2 instances.
+What would be your recommendation?
+
+
+[source,java]
+----
+Invoke
+
+Invokes a specific Lambda function. For an example, see Create the Lambda Function and Test It Manually.
+
+If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is
+pointing to the function version using the Qualifier parameter in the request. If you don't provide the Qualifier parameter, the $LATEST
+version of the Lambda function is invoked.
+
+If you use the RequestResponse (synchronous) invocation option, the function will be invoked only once. If you use the Event (asynchronous)
+invocation option, the function will be invoked at least once in response to an event and the function must be idempotent to handle this.
+
+For information about the versioning feature, see AWS Lambda Function Versioning and Aliases.
+This operation requires permission for the lambda: InvokeFunction action.
+
+Note
+
+The TooManyRequestsException noted below will return the following: ConcurrentInvocationLimitExceeded will be returned if
+you have no functions with reserved concurrency and have exceeded your account concurrent limit or if a function without
+reserved concurrency exceeds the account's unreserved concurrency limit.
+ReservedFunctionConcurrentInvocationLimitexceeded will be returned when a function with reserved concurrency exceeds its
+configured concurrency limit.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Lambda cannot be invoked from a custom application. They can only be triggered by AWS supported event sources.
+* [*] B. Replicate the JAVA code easily onto AWS Lambda function with few modifications and use Lambda Invoke API with input passed as custom event.
+* [ ] C. Trigger Lambda from AWS CloudWatch scheduled event and invoke CloudWatch API from your applications.
+* [ ] D. AWS Lambda is not designed to run backend applications. Better to use EC2 for that purpose.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+You can invoke a Lambda function using a custom event through AWS Lambda's invoke API.
+Only the function's owner or another AWS account that the owner has granted permission can invoke the function.
+https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html https://docs.aws.amazon.com/lambda/latest/dg/with-userapp.html
+The best recommendation would be option B: Replicate the Java code easily onto AWS Lambda function with few modifications and use Lambda Invoke API with input passed as custom event.
+AWS Lambda is a serverless computing service that allows developers to run code without having to worry about managing servers. It supports a variety of programming languages, including Java, and can be triggered by AWS supported event sources, including AWS services like S3, DynamoDB, and others.
+To migrate the processes developed on Java programming language to Lambda, the first step would be to replicate the code into a Lambda function. This can be done with few modifications to ensure the code works well with the serverless environment.
+Once the code is in the Lambda function, it can be invoked using the Lambda Invoke API. This API allows custom events to be passed as input to the function. In this case, the triggers from other applications can be used as custom events to invoke the Lambda function and run the processes.
+This approach can help reduce costs incurred on EC2 instances as Lambda is a pay-per-use service, which means that you only pay for the amount of compute time your code consumes, and there are no upfront costs or minimum fees.
+Option A is incorrect because Lambda can be invoked from a custom application using the Lambda Invoke API.
+Option C is incorrect because triggering Lambda from AWS CloudWatch scheduled events and invoking CloudWatch API from the applications would not be the best approach as it requires additional steps and complexity.
+Option D is incorrect because Lambda is designed to run backend applications and can be a more cost-effective and scalable solution compared to using EC2 instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question636:"link"
+
+

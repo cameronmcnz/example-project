@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1001 - One of your requirements is to set up an"
+---
+
+
+[.question]
+== 1001-64a1df40aa736d27b1db93d7.
+
+
+****
+
+[.query]
+--
+One of your requirements is to set up an S3 bucket to store your files like documents and images.
+However, those objects should not be directly accessible via the S3 URL.
+They should only be accessible from pages on your website so that only your paying customers can see them.
+How could you implement this?
+
+
+--
+
+[.list]
+--
+* [*] A. Use HTTPS endpoints to encrypt the data in the S3 bucket.
+* [*] B. You can use a bucket policy with the aws:referer key in a condition where the key must match your domain. Browsers should include the HTTP referer header in the request.
+* [ ] C. You can`t. The S3 URL must be public in order to use it on your website.
+* [ ] D. You can use server-side and client-side encryption. Only your application can decrypt the objects.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Suppose you have a website with the domain name (www.example.com or example.com) with links to photos and videos stored in your S3 bucket, examplebucket.
+By default, all the S3 resources are private, so only the AWS account that created the resources can access them.
+To allow read access to these objects from your website, you can add a bucket policy that allows s3:GetObject permission with a condition, using theaws:referer key.
+The get request must originate from specific web pages.
+Option A is incorrect because the HTTPS endpoint will not ensure that only authenticated users can get access to the content.
+Option B is CORRECT because it defines the appropriate bucket policy to give access to the S3 content to the authenticated users.
+Refer to page 390 under section "Restricting Access to a Specific HTTP Referer" in the below link.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-dg.pdf
+Option C is incorrect because you can control the access to the S3 content via bucket policy.
+Option D is incorrect because the question is not about encrypting/decrypting the data.
+The proper bucket policy needs to be defined to give access to the S3 content to certain users.
+For more information on S3 bucket policy examples, please visit the link-
+http://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
+To implement this requirement, we need to ensure that the S3 bucket can only be accessed via authorized requests from our website and not by direct requests to the S3 URL. We can achieve this by implementing a combination of encryption, access control, and web server settings.
+Option A, using HTTPS endpoints to encrypt data in the S3 bucket, is a good security practice to ensure that data in transit is secure. However, this alone does not prevent direct access to the S3 URL.
+Option B is the correct answer. We can use a bucket policy to restrict access to the S3 bucket based on the HTTP referer header in the request. The referer header is a field in the HTTP request that indicates the website that the user is coming from. By setting up a bucket policy with the aws:referer key, we can restrict access to the S3 bucket to only requests that originate from our website domain. This means that if a user tries to access the S3 URL directly, without coming from our website, they will be denied access.
+Here is an example of a bucket policy that restricts access to the S3 bucket based on the HTTP referer header:
+jsonCopy code{     "Version": "2012-10-17",     "Id": "PolicyForReferer",     "Statement": [         {             "Sid": "Allow get requests referred by mywebsite.com",             "Effect": "Allow",             "Principal": "*",             "Action": "s3:GetObject",             "Resource": "arn:aws:s3:::mybucket/*",             "Condition": {                 "StringLike": {                     "aws:Referer": "https://www.mywebsite.com/*"                 }             }         }     ] } 
+This policy allows s3:GetObject requests for objects in the mybucket S3 bucket, but only if the aws:Referer field in the request header matches the pattern https://www.mywebsite.com/*.
+Option C is incorrect, as we can use a bucket policy to restrict access to the S3 bucket and prevent direct access to the S3 URL.
+Option D, using server-side and client-side encryption, is a good security practice to ensure that data at rest is secure. However, this does not address the requirement of restricting access to the S3 bucket only from authorized requests originating from our website.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question294:"link"
+
+

@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1056 - You have a set of Docker images that you"
+---
+
+
+[.question]
+== 1056-64a1fa9bf053625db51ddf12.
+
+
+****
+
+[.query]
+--
+You have a set of Docker images that you use for building containers.
+You want to start using the Elastic Container Service and utilize the Docker images.
+You need a place to store these Docker images.
+What would you use for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS DynamoDB to store the Docker images.
+* [ ] B. Use AWS RDS to store the Docker images.
+* [*] C. Use EC2 Instances with EBS Volumes to store the Docker images.
+* [*] D. Use the ECR Service to store the Docker images.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Documentation mentions the following.
+Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.
+Amazon ECR is integrated with Amazon Elastic Container Service (ECS), simplifying your development to production workflow.
+For more information on the Elastic Container Service, please visit the following URL-
+https://aws.amazon.com/ecr/?nc2=h_m1
+The correct answer is D. Use the ECR Service to store the Docker images.
+Explanation:
+Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it easy to store, manage, and deploy Docker container images. It is a secure, scalable, and reliable container image management solution that eliminates the need for managing your own container repositories.
+ECR integrates with Amazon Elastic Container Service (ECS), Amazon Elastic Kubernetes Service (EKS), and the Docker CLI. This allows you to easily store, manage, and deploy Docker container images, with no need to manage infrastructure, scale, or availability.
+Using ECR, you can create and manage Docker container images, scan images for vulnerabilities, and deploy images to your ECS clusters or Kubernetes clusters in a simple and streamlined manner. ECR is highly available, secure, and compliant with industry standards.
+Option A is incorrect because DynamoDB is a NoSQL database service and not suitable for storing Docker images.
+Option B is incorrect because RDS is a relational database service and not suitable for storing Docker images.
+Option C is incorrect because EC2 instances with EBS volumes are not optimized for storing Docker images and are more suitable for running containers.
+Therefore, the best option for storing Docker images is to use the ECR service, which is a fully-managed Docker container registry that integrates with ECS, EKS, and the Docker CLI.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question292:"link"
+
+

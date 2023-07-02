@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "920 - Given the code fragments 
+What is the re"
+---
+
+
+[.question]
+== 920-64a1a863ef3e8462333a9cae.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0010800001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragments :
+What is the result?
+
+
+[source,java]
+----
+public class Product {
+String name;
+Integer price;
+Product (String name, Integer price) {
+this.name = name;
+this.price = price;
+
+d
+public void printval(){ System.out.print (name + " Price:" + price +" "); }
+
+public void setprice(int price) { this.price = price; }
+public Integer getPrice() { return price; }
+----
+
+
+--
+
+[.list]
+--
+* [*] A. TV Price :110 Refrigerator Price :2100
+* [ ] B. A compilation error occurs.
+* [ ] C. TV Price :1000 Refrigerator Price :2000
+* [ ] D. The program prints nothing.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

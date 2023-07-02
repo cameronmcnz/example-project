@@ -1,0 +1,59 @@
+---
+layout: default 
+title: "903 - What is the result Java Certification Ex"
+---
+
+
+[.question]
+== 903-64a1a85fef3e8462333a9c9d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0009000001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+What is the result?
+
+
+[source,java]
+----
+Locale |Currency Symbol |Currency Code
+us § USD
+----
+
+
+--
+
+[.list]
+--
+* [*] A. $15.00
+* [ ] B. 15 $
+* [ ] C. USD 15.00
+* [ ] D. USD $15
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

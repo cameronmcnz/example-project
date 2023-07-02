@@ -1,0 +1,110 @@
+---
+layout: default 
+title: "1086 - You help a team to create various AMIs a"
+---
+
+
+[.question]
+== 1086-64a1df5faa736d27b1db9452.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgcs2.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You help a team to create various AMIs and Docker images through EC2 Image Builder pipelines.
+Other teams want to use the same EC2 Image Builder resources, including components, recipes and images in their image pipelines.
+You need to find a proper approach to share resources with other organizational units inside the AWS Organization or other specific AWS accounts.
+Which of the following methods is suitable?
+
+
+[source,java]
+----
+Resources - optional
+
+Choose the resources to add to the resource share.
+
+Select resource type
+
+Image Builder Components a
+
+Image Builder Components
+
+Image Builder Container Recipes
+Image Builder Image Recipes
+
+Image Builder Images
+
+Selected resources
+
+zZ2
+°
+=
+cy
+Bw
+fe}
+Cc
+il
+2
+w
+----
+
+
+--
+
+[.list]
+--
+* [*] A. In AWS Resource Access Manager (RAM), create shared pipelines by selecting the shared components, images, or recipes in EC2 Image Builder and select the target organizational units or AWS accounts.
+* [ ] B. In the EC2 Image Builder, select the shared resources such as components, recipes or images and distribute the resources to other organizational units or AWS accounts.
+* [*] C. In the EC2 Image Builder image pipelines, share the resources to other organizational units or AWS accounts after the pipelines are finished successfully.
+* [*] D. In AWS Resource Access Manager (RAM), add the shared components, images, or recipes in resource shares and configure the principals which are allowed to access the shared resources.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Option A is incorrect because you need to configure resource shares instead of shared pipelines in AWS RAM.
+Option B is incorrect because you cannot directly share components, recipes or images through EC2 Image Builder.
+Instead, RAM should be used.
+Option C is incorrect because image pipelines cannot be used to share EC2 Image Builder resources such as components or recipes.
+Option D is CORRECT because RAM is appropriate for users to share EC2 Image Builder resources.
+Take the following snapshot as an example:
+Reference:
+https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-shared-resources.html#manage-shared-resources-share
+The suitable approach to share EC2 Image Builder resources with other organizational units or AWS accounts is to use AWS Resource Access Manager (RAM) and create resource shares.
+Answer D is the correct option. In AWS Resource Access Manager (RAM), you can create a resource share and add the shared components, images, or recipes that are used in the EC2 Image Builder pipelines. Then, you can configure the principals who are allowed to access the shared resources by adding the target organizational units or AWS accounts as principals. This approach allows the other teams to use the same shared resources in their own image pipelines.
+Option A is incorrect because it mentions creating shared pipelines, which is not a feature available in EC2 Image Builder. Instead, you create EC2 Image Builder pipelines that use shared resources.
+Option B is also incorrect because it suggests distributing resources to other organizational units or AWS accounts directly from the EC2 Image Builder. This approach does not provide the necessary control over the shared resources.
+Option C is also incorrect because sharing resources after the pipelines are finished successfully does not allow other teams to use the shared resources in their own pipelines. It also does not provide the necessary control over the shared resources.
+In summary, the suitable approach to share EC2 Image Builder resources with other organizational units or AWS accounts is to use AWS Resource Access Manager (RAM) and create resource shares, and then add the shared components, images, or recipes in the resource shares and configure the principals which are allowed to access the shared resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question417:"link"
+
+

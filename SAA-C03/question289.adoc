@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1089 - An IT firm is using AWS cloud infrastruc"
+---
+
+
+[.question]
+== 1089-64a1faabf053625db51ddf38.
+
+
+****
+
+[.query]
+--
+An IT firm is using AWS cloud infrastructure for its three-tier web application.
+They are using memory-optimized EC2 instances for application hosting & SQL based database servers deployed in Multi-AZ with auto-failover.
+Recently, there are observing heavy loads on database servers.
+This is impacting user data lookup from application servers resulting in slow access.
+As AWS Consultants, they are looking for guidance to resolve this issue.
+Which of the following will provide a faster scalable option to deliver data to users without impacting backend servers?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon ElastiCache to cache data.
+* [ ] B. Configure the Multi-AZ replicas to serve the read traffic.
+* [*] C. Use Amazon CloudFront to save recently accessed data in cache.
+* [ ] D. Use on-host caching on memory optimised EC2 instance.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Amazon ElastiCache provides a scalable faster approach to cache data which can be used with both SQL/NoSQL databases.
+These can be used to save application data, significantly improving latency &amp; throughout the application and offloading load on back-end database servers.
+Option B is incorrect as a Multi-AZ replica is used for data redundancy.
+It is not used to share the read traffic.
+Option C is incorrect as Amazon CloudFront is more suitable for website caching &amp; not for application caching.
+Option D is incorrect as this would provide a faster lookup of data, but it's not scalable.
+For more information on using Amazon ElastiCache, refer to the following URLs-
+https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf
+In this scenario, the IT firm is facing slow access to user data due to heavy loads on the database servers. The goal is to provide a faster and scalable option to deliver data to users without impacting backend servers.
+Option A: Use Amazon ElastiCache to cache data
+Amazon ElastiCache is a managed, in-memory caching service that allows you to improve the performance of your applications by retrieving data from fast, managed, in-memory caches instead of relying entirely on slower disk-based databases. This option can provide a faster response time to the end-users by storing frequently accessed data in the cache. It also reduces the load on the backend servers, as requests are served from the cache instead of hitting the database directly. This option is recommended when your application is read-heavy, and the data is not changing frequently.
+Option B: Configure the Multi-AZ replicas to serve the read traffic
+Amazon RDS Multi-AZ deployment automatically provisions and maintains a synchronous standby replica in a different availability zone (AZ). In the event of a primary database instance failure, Amazon RDS automatically fails over to the standby replica to minimize the impact of a potential outage. By configuring Multi-AZ replicas to serve the read traffic, you can offload the read workload from the primary database instance and distribute it across multiple replicas, providing faster read performance. However, this option will not scale well for write-intensive workloads, and the cost of running multiple replicas can add up.
+Option C: Use Amazon CloudFront to save recently accessed data in cache
+Amazon CloudFront is a global content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers worldwide. By caching content closer to the end-users, it reduces latency and improves the overall performance of the application. With Amazon CloudFront, you can configure the TTL (time-to-live) of cached objects to determine how long they should be stored in the cache. This option can be useful for serving static content such as images, CSS files, and JavaScript files, but it may not be the best option for dynamic content that changes frequently.
+Option D: Use on-host caching on memory optimized EC2 instance
+On-host caching is a technique that involves storing frequently accessed data in memory on the application server to reduce the number of database queries. By caching data on the application server, you can improve application performance and reduce the load on the database server. However, this option is not scalable, as it is limited by the memory capacity of the host, and it may not be effective for read-heavy workloads.
+In conclusion, based on the scenario provided, the most appropriate option to provide a faster and scalable option to deliver data to users without impacting backend servers is A: Use Amazon ElastiCache to cache data. It provides a high-performance caching layer, reducing the load on the backend servers and providing faster response times to end-users. However, each option has its advantages and limitations, and the best solution will depend on the specific requirements of the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question330:"link"
+
+

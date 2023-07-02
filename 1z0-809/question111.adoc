@@ -1,0 +1,63 @@
+---
+layout: default 
+title: "911 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 911-64a1a861ef3e8462333a9ca5.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0010200001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class MyClass implements AutoCloseable {
+int test;
+public void close() { }
+public MyClass copyObject() { return this; }
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. An exception is thrown at line n2.
+* [*] B. 100
+* [ ] C. A compilation error occurs because the try block is declared without a catch or finally block.
+* [ ] D. A compilation error occurs at line n1.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

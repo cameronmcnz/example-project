@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1168 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 1168-64a1fad5f053625db51ddf9e.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a software company.
+You are working on a new project which involves an application deployed on twenty C5 EC2 On-demand Instances with Elastic IP attached to each instance.
+During peak hours, when you are initiating new instances, a considerable delay is observed.
+You perform a pilot test for the option of initiating these Instances and hibernating so that during peak hours, these instances could be quickly launched. It works fine during the pilot phase.
+You are recommending this option to be implemented in production.
+The management team is concerned about the pricing of many EC2 instances in the Hibernate state.
+What is considered to calculate the pricing for an EC2 instance in the Hibernate state?
+
+
+--
+
+[.list]
+--
+* [*] A. Elastic IP address and EBS volumes attached to EC2 Instance
+* [ ] B. Total Compute capacity per hour, Elastic IP address and EBS volumes attached to EC2 Instance
+* [*] C. Total Compute capacity per hour and EBS volumes attached to EC2 Instance
+* [ ] D. Total Compute capacity per hour & Elastic IP address attached to EC2 Instance.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer -A.
+When an EC2 instance is in the Hibernate state, you pay only for the EBS volumes and Elastic IP Addresses attached to it.
+Options B, C, and D are incorrect because when an EC2 instance is in a hibernate state, compute capacity charges are not applicable.
+The charges are only applicable for the EBS volumes and Elastic IP Addresses attached to it.
+For more information on pricing for an EC2 instance in Hibernate state, refer to the following URL-
+https://aws.amazon.com/blogs/aws/new-hibernate-your-ec2-instances/
+When an EC2 instance is hibernated, it is in a stopped state, and the contents of its memory are saved to the attached EBS storage. The hibernation feature is useful in scenarios where you want to quickly start an instance with its previously saved state. The hibernation feature is supported for specific instance types, including the C5 instance type.
+When an instance is in a hibernated state, you are not charged for the instance's running time or instance-hour usage. Instead, you are charged for the EBS storage that is attached to the instance and the Elastic IP address that is associated with the instance.
+Therefore, the correct answer to the question is option A: Elastic IP address and EBS volumes attached to the EC2 instance. These are the only components that are charged when an EC2 instance is in a hibernated state.
+Option B is incorrect because it includes "Total Compute capacity per hour," which is not charged when an EC2 instance is in a hibernated state. Option C is incorrect because it only includes "Total Compute capacity per hour" and "EBS volumes attached to the EC2 instance," but it does not include the Elastic IP address, which is also charged when an EC2 instance is in a hibernated state. Option D is incorrect because it only includes "Total Compute capacity per hour" and "Elastic IP address," but it does not include the EBS volumes attached to the EC2 instance, which are also charged when an EC2 instance is in a hibernated state.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question432:"link"
+
+

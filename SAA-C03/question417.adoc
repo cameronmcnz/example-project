@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1217 - You are working for a startup company us"
+---
+
+
+[.question]
+== 1217-64a1faedf053625db51ddfda.
+
+
+****
+
+[.query]
+--
+You are working for a start-up company using Amazon DynamoDB for mobile applications.
+During performing POC for a new application using AWS SDK, most of the cases are successfully executed, but for certain cases, Amazon DynamoDB is returning the ThrottlingException error message.
+Development Team is asking for your help to suggest a solution to reduce the number of these errors.
+Which of the following method is the most suitable?
+
+
+--
+
+[.list]
+--
+* [*] A. Retry the DynamoDB operations when the error happens.
+* [ ] B. Modify the application by adding a five seconds timer before sending a DynamoDB request.
+* [*] C. Scale up the DynamoDB table by allocating more read/write capacities.
+* [ ] D. Use AWS DynamoDB SDK in the application that optimizes the DynamoDB operations.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect because this method cannot reduce the number of errors.
+This method can be used to mitigate the impacts when the error happens.
+Option B is incorrect because five seconds timer may not be suitable for the application and it needs the code change as well.
+This is not the most suitable solution.
+Option C is CORRECT because with more read/write capacities in the table, the DynamoDB table can process more read/write requests, which can reduce the number of ThrottlingException errors.
+Option D is incorrect because the application may already use the AWS DynamoDB SDK so this option will not help.
+For more information on the DynamoDB ThrottlingException error, refer to the following URL-
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.MessagesAndCodes
+Amazon DynamoDB is a fully managed NoSQL database service provided by AWS, that can be used to store and retrieve any amount of data, and to serve any level of request traffic. However, DynamoDB has certain limits on the number of read and write requests that can be made per second per table, and exceeding these limits can lead to ThrottlingException errors. These errors occur to protect the database from being overwhelmed by excessive request traffic.
+To reduce the number of ThrottlingException errors in the mobile application using AWS SDK for DynamoDB, we have the following options:
+A. Retry the DynamoDB operations when the error happens: Retrying the DynamoDB operations when the error occurs can help in reducing the number of errors, but it is not a recommended solution as it can lead to additional load on the database, and may not always be successful in reducing the number of errors.
+B. Modify the application by adding a five seconds timer before sending a DynamoDB request: Adding a five seconds timer before sending a DynamoDB request can help in reducing the number of ThrottlingException errors as it provides a buffer time for the database to process the previous requests and make resources available for new requests. However, this solution is not optimal as it can delay the application's response time, and may not be effective if the request rate is too high.
+C. Scale up the DynamoDB table by allocating more read/write capacities: Scaling up the DynamoDB table by allocating more read/write capacities is the recommended solution to reduce the number of ThrottlingException errors. By increasing the provisioned capacity for the table, more requests can be processed in parallel, and the database can handle higher levels of request traffic. DynamoDB allows scaling up and down the capacity as needed, and offers auto-scaling options to adjust the capacity automatically based on the workload.
+D. Use AWS DynamoDB SDK in the application that optimizes the DynamoDB operations: Using the AWS DynamoDB SDK in the application that optimizes the DynamoDB operations can help in reducing the number of ThrottlingException errors by optimizing the request patterns and reducing the number of round trips to the database. The SDK offers features like batch operations, caching, and retry logic, that can help in reducing the request traffic and improving the performance.
+In conclusion, the most suitable method to reduce the number of ThrottlingException errors in the mobile application using AWS SDK for DynamoDB is to scale up the DynamoDB table by allocating more read/write capacities.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question492:"link"
+
+

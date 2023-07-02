@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1042 - Your company has a new web application t"
+---
+
+
+[.question]
+== 1042-64a1fa94f053625db51ddf02.
+
+
+****
+
+[.query]
+--
+Your company has a new web application that needs to be deployed in AWS as soon as possible.
+The application is backed in an AMI, and you plan to use an Application Load Balancer to distribute the traffic to an Auto Scaling group.
+Which of the following methods helps you to achieve a highly available system?
+
+
+--
+
+[.list]
+--
+* [*] A. Assign an Elastic IP to each instance under the Auto Scaling group.
+* [*] B. Use the Application Load Balancer to send traffic across instances in multiple availability zones.
+* [*] C. Configure the Application Load Balancer to distribute traffic to instances in multiple AWS regions.
+* [ ] D. Assign a dedicated IP address to the Application Load Balancer.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Refer to https://d1.awsstatic.com/whitepapers/aws-building-fault-tolerant-applications.pdf for how to build highly available and fault-tolerant software systems in AWS.
+Option A is incorrect: It is not necessary to assign Elastic IPs to ASG instances.
+The instances may be terminated when the ASG scales in and new instances will be created.
+Option B is CORRECT: Because this ensures that when one availability zone has an outage, instances in other availability zones can still serve traffic from the Application Load Balancer.
+Option C is incorrect: Because Application Load Balancer is a regional service and cannot distribute traffic to instances in multiple regions.
+Option D is incorrect: Because users cannot assign IP addresses to an Application Load Balancer.
+The correct answer is B. Use the Application Load Balancer to send traffic across instances in multiple availability zones.
+Explanation:
+When deploying a web application in AWS, it is important to ensure that the application is highly available, meaning it can continue to operate even if some parts of the infrastructure fail. To achieve high availability, the application should be deployed across multiple availability zones (AZs) and regions.
+An Amazon Machine Image (AMI) is a pre-configured virtual machine image used to create EC2 instances. To deploy an application in AWS, you need to create an EC2 instance from the AMI. However, deploying a single EC2 instance is not enough for high availability as the instance may fail or become unavailable. Therefore, to ensure high availability, you should use Auto Scaling groups. Auto Scaling groups enable you to automatically adjust the number of instances in response to changes in demand, and they can span multiple AZs.
+An Application Load Balancer (ALB) is a load balancer that distributes incoming traffic to multiple targets, such as EC2 instances, in a target group. ALB supports distributing traffic across multiple AZs to ensure high availability. When you create an ALB, you can choose to create it in one or more AZs. If you create it in multiple AZs, the ALB will distribute traffic across instances in those AZs. This helps to ensure that if one AZ fails, traffic will be routed to instances in other AZs.
+Option A, Assign an Elastic IP to each instance under the Auto Scaling group, is incorrect because Elastic IPs are not a high availability solution. Elastic IPs are static IP addresses that can be assigned to an instance. While Elastic IPs can help to provide a static IP address to an instance, they do not provide high availability as an Elastic IP can only be assigned to one instance at a time. If that instance fails, the Elastic IP must be re-assigned to another instance manually.
+Option C, Configure the Application Load Balancer to distribute traffic to instances in multiple AWS regions, is incorrect because ALB cannot distribute traffic across instances in multiple AWS regions. ALB can only distribute traffic across instances in one or more AZs within a region.
+Option D, Assign a dedicated IP address to the Application Load Balancer, is incorrect because ALB already has a static IP address that is used to route traffic to instances. Assigning a dedicated IP address to the ALB does not provide any additional high availability.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question276:"link"
+
+

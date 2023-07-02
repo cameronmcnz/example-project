@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1017 - Your company has enabled CORS on your S3"
+---
+
+
+[.question]
+== 1017-64a1fa88f053625db51ddee6.
+
+
+****
+
+[.query]
+--
+Your company has enabled CORS on your S3 bucket to allow cross-origin resource sharing.
+In the CORS configuration, you need to specify the values for the "AllowedMethod" element.
+In terms of configuring the "AllowedMethod" element, which statement is correct?
+
+
+--
+
+[.list]
+--
+* [*] A. You can only enable CORS through AWS S3 CLI.
+* [ ] B. You can only configure the CORS configuration with a YAML configuration file.
+* [*] C. These methods are supported: GET, PUT, POST, DELETE, and HEA.
+* [ ] D. Only OPTIONS and CONNECT are supported for CORS.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Only these methods are supported: GET, PUT, POST, DELETE, and HEAD.Refer to page 163 on the below link under the topic "AllowedMethod Element."
+https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-dg.pdf
+Reference for CORS:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html https://aws.amazon.com/blogs/aws/amazon-S3-cross-origin-resource-sharing/
+The correct statement regarding configuring the "AllowedMethod" element in the CORS configuration for an S3 bucket is:
+C. These methods are supported: GET, PUT, POST, DELETE, and HEAD.
+Explanation:
+Cross-origin resource sharing (CORS) is a mechanism that allows web browsers to make cross-domain requests to a server, which is outside of the domain from which the web page originated. To enable CORS on an S3 bucket, you need to configure a CORS policy for the bucket.
+You can configure the CORS policy either through the AWS Management Console, AWS CLI, or programmatically using an SDK. When configuring the CORS policy, you specify the values for the "AllowedMethod" element. The "AllowedMethod" element specifies the HTTP methods that are allowed to access the S3 bucket from another domain.
+The "AllowedMethod" element can accept one or more HTTP methods that you want to allow for cross-origin requests. The supported HTTP methods are GET, PUT, POST, DELETE, and HEAD. These methods allow you to perform a range of actions on the resources in the S3 bucket.
+To configure the "AllowedMethod" element in the CORS configuration for an S3 bucket, you need to specify the methods that you want to allow from other domains. For example, if you want to allow GET and PUT requests, you can configure the "AllowedMethod" element as follows:
+phpCopy code<AllowedMethod>GET</AllowedMethod> <AllowedMethod>PUT</AllowedMethod> 
+This configuration allows GET and PUT requests to be made from another domain. The other domains are specified in the "AllowedOrigin" element of the CORS configuration.
+In summary, the correct statement regarding configuring the "AllowedMethod" element in the CORS configuration for an S3 bucket is that these methods are supported: GET, PUT, POST, DELETE, and HEAD.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question247:"link"
+
+

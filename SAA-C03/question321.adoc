@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1121 - You have a requirement to get a snapshot"
+---
+
+
+[.question]
+== 1121-64a1fabaf053625db51ddf5f.
+
+
+****
+
+[.query]
+--
+You have a requirement to get a snapshot of the current configuration of resources in your AWS Account.
+Which service can be used for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS CodeDeploy
+* [ ] B. AWS Trusted Advisor
+* [*] C. AWS Config
+* [ ] D. AWS IAM.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+AWS Documentation mentions the following.
+With AWS Config, you can do the following.
+Evaluate your AWS resource configurations for desired settings.
+Get a snapshot of the current configurations of the supported resources that are associated with your AWS account.
+Retrieve configurations of one or more resources that exist in your account.
+Retrieve historical configurations of one or more resources.
+Receive a notification whenever a resource is created, modified or deleted.
+View relationships between resources.
+For example, you might want to find all resources that use a particular security group.
+For more information on AWS Config, please visit the below URL-
+http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html
+The correct answer is C. AWS Config.
+AWS Config is a fully managed service that provides you with an inventory of your AWS resources, as well as detailed information about the configuration of those resources. It continuously monitors and records changes to the configuration of your resources, and provides you with a history of those changes.
+With AWS Config, you can assess, audit, and evaluate the overall compliance of your AWS resources with your organization's policies and standards. You can also use it to troubleshoot and track the relationships between resources, and to identify any potential issues that might arise due to changes in the configuration of your resources.
+AWS Trusted Advisor is a service that provides recommendations to optimize your AWS infrastructure in terms of cost optimization, performance, security, and fault tolerance. It does not provide a snapshot of your current resource configuration.
+AWS CodeDeploy is a service that automates software deployments to a variety of compute services, such as Amazon EC2 instances, Lambda functions, and on-premises servers. It is not used for monitoring or reporting on resource configuration.
+AWS IAM is a service that enables you to manage access to AWS resources. It is not used for monitoring or reporting on resource configuration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question369:"link"
+
+

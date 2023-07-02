@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "952 - An organization has created multiple com"
+---
+
+
+[.question]
+== 952-64a1df2daa736d27b1db9387.
+
+
+****
+
+[.query]
+--
+An organization has created multiple components of a single application.
+Currently, all the components are hosted on a single EC2 instance.
+Due to security reasons, the organization wants to implement 2 separate SSL certificates for the separate modules.
+
+
+--
+
+[.list]
+--
+* [*] A. Create an EC2 instance that has multiple network interfaces with multiple elastic IP addresses.
+* [ ] B. Create an EC2 instance that has both an ACL and the security group attached to it and have separate rules for each IP address.
+* [ ] C. Create an EC2 instance that has multiple subnets attached to it and each will have a separate IP address.
+* [ ] D. Create an EC2 instance with a NAT address.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+It can be useful to assign multiple IP addresses to an instance in your VPC to do the following.
+(1) Host multiple websites on a single server by using multiple SSL certificates on a single server and associating each certificate with a specific IP address.
+(2) Operate network appliances, such as firewalls or load balancers, have multiple IP addresses for each network interface.
+(3) Redirect internal traffic to a standby instance if your instance fails by reassigning the secondary IP address to the standby instance.
+Option A is CORRECT because, as mentioned above, if you have multiple elastic network interfaces (ENIs) attached to the EC2 instance, each network IP can have a component running with a separate SSL certificate.
+Option B is incorrect because having separate rules in the security group as well as NACL does not mean that the instance supports multiple SSLs.
+Option C is incorrect because an EC2 instance cannot have multiple subnets.
+Option D is incorrect because the NAT address is not related to supporting multiple SSLs.
+For more information on Multiple IP Addresses, please refer to the link below.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/MultipleIP.html
+The most appropriate solution in this scenario would be to create separate EC2 instances for each component and install the SSL certificate on each instance separately. However, out of the given options, the best solution would be to:
+A. Create an EC2 instance that has multiple network interfaces with multiple elastic IP addresses.
+Explanation: This solution involves creating an EC2 instance with multiple network interfaces, each with a separate elastic IP address. The application components can be hosted on separate network interfaces, and the SSL certificates can be installed on each interface separately. This approach provides better security by isolating the components and allows for better management of the certificates.
+B. Creating an EC2 instance that has both an ACL and the security group attached to it and have separate rules for each IP address is not the best solution because it involves managing multiple rules for each IP address, which can be complex and difficult to manage.
+C. Creating an EC2 instance that has multiple subnets attached to it and each will have a separate IP address is not the best solution because it involves managing multiple subnets, which can be complex and difficult to manage.
+D. Creating an EC2 instance with a NAT address is not the best solution because NAT instances are typically used for outbound traffic from a private subnet to the internet, and not for hosting application components.
+In summary, the best solution to implement separate SSL certificates for separate components of a single application hosted on a single EC2 instance is to create an EC2 instance with multiple network interfaces and multiple elastic IP addresses.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question213:"link"
+
+

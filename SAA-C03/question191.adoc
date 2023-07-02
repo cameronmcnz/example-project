@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "991 - Your Development team wants to use EC2 I"
+---
+
+
+[.question]
+== 991-64a1fa7ef053625db51ddec8.
+
+
+****
+
+[.query]
+--
+Your Development team wants to use EC2 Instances to host their Application and Web servers.
+In the automation space, they want the Instances always to download the latest version of the Web and Application servers when launched.
+As an architect, what would you recommend for this scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. Ask the Development team to create scripts which can be added to the User Data section when the instance is launched.
+* [ ] B. Ask the Development team to create scripts which can be added to the Meta Data section when the instance is launched.
+* [*] C. Use Auto Scaling Groups to install the Web and Application servers when the instances are launched.
+* [ ] D. Use EC2 Config to install the Web and Application servers when the instances are launched.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following:
+When you launch an instance in Amazon EC2, you have the option of passing user data to the instance that can be used to perform common automated configuration tasks and even run scripts after the instance starts.
+You can pass two types of user data to Amazon EC2: shell scripts and cloud-init directives.
+You can also pass this data into the launch wizard as plain text, as a file (this is useful for launching instances using the command line tools) or as base64-encoded text (for API calls).
+For more information on User Data, please visit the following URL:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
+To ensure that EC2 instances always download the latest version of web and application servers when launched, there are different options available. Let's review the options provided in the exam question:
+A. Ask the Development team to create scripts which can be added to the User Data section when the instance is launched:
+This option allows the Development team to provide scripts that can be executed when the instance is launched. The user data can be passed as a string when launching the instance, and EC2 will automatically execute it. The scripts can be used to download and install the latest version of the web and application servers.
+B. Ask the Development team to create scripts which can be added to the Meta Data section when the instance is launched:
+The metadata section provides information about the instance, such as the instance ID, instance type, and network interfaces. It is not used to execute scripts, so this option is not suitable for downloading and installing web and application servers.
+C. Use Auto Scaling Groups to install the Web and Application servers when the instances are launched:
+Auto Scaling Groups (ASG) can be used to automatically launch instances and scale the number of instances based on demand. An ASG can be configured to use a launch configuration or launch template, which includes user data. The user data can be used to execute scripts that download and install the latest version of the web and application servers when the instance is launched.
+D. Use EC2 Config to install the Web and Application servers when the instances are launched:
+EC2 Config is an agent that can be installed on an EC2 instance to automatically configure the instance after launch. It can be used to execute scripts and run commands on the instance, but it is not designed to download and install software.
+Based on the options provided, the recommended solution is A: Ask the Development team to create scripts which can be added to the User Data section when the instance is launched. This option provides the Development team with the flexibility to create and manage the scripts that are executed when the instance is launched. It also allows the team to easily update the scripts to download and install the latest version of the web and application servers.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question216:"link"
+
+

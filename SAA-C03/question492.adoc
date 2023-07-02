@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1292 - You are building a web application that "
+---
+
+
+[.question]
+== 1292-64a1fb13f053625db51de037.
+
+
+****
+
+[.query]
+--
+You are building a web application that will allow authenticated users to upload videos to the AWS S3 bucket across multiple domains.
+However, while testing the application, you found that the upload requests to S3 are being blocked.
+What should you do to make the upload work?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable public access to allow uploads from web applications.
+* [*] B. Add configuration in S3 bucket CORS to allow PUT requests from web application URL.
+* [ ] C. Add Content-Length and Content-MD5 headers while sending upload requests to S3
+* [ ] D. Web application URL must be added to bucket policy to allow PutObject requests.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Cross-origin resource sharing (CORS) defines a way for client web applications loaded in one domain to interact with resources in a different domain.
+With CORS support, you can build rich client-side web applications with Amazon S3 and selectively allow cross-origin access to your Amazon S3 resources.
+For more information on CORS, refer to documentation here.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html#example-scenarios-cors
+For option A, enabling public access will not enable the web application to send requests to the S3 bucket.
+Furthermore, AWS does not recommend enabling public access on an S3 bucket unless you are hosting static assets that all can access.
+For more information on securing S3 buckets, refer to documentation here:https://aws.amazon.com/premiumsupport/knowledge-center/secure-s3-resources/
+For option C, Content-Length and Content-MD5 are system metadata for objects.
+They are set while creating/uploading an object.
+However, these parameters do not enable web applications to send requests to the S3 bucket.
+For option D, the AWS S3 bucket policy does not grant permissions based on the web application.
+URLs.
+However, you can set up a condition in the policy to restrict access only if the request is being sent from a certain URL using the “aws:Referer” context-key.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-
+The correct answer for this question is B. Add configuration in S3 bucket CORS to allow PUT requests from web application URL.
+Explanation:
+The issue with the upload requests being blocked could be due to the Cross-Origin Resource Sharing (CORS) configuration of the S3 bucket. CORS is a security feature that restricts web applications from accessing resources from different domains. In this scenario, the web application is trying to access the S3 bucket from a different domain, which is causing the upload requests to be blocked.
+To solve this issue, we need to configure the S3 bucket to allow cross-origin requests from the web application's domain. This can be done by adding the necessary configuration in the S3 bucket CORS. Specifically, we need to add a rule that allows PUT requests from the web application's domain.
+Option A, enabling public access to allow uploads from web applications, is not the recommended solution because it would open up the S3 bucket to the public, which could lead to security issues.
+Option C, adding Content-Length and Content-MD5 headers while sending upload requests to S3, is not relevant to the issue of the upload requests being blocked due to CORS.
+Option D, adding the web application URL to the bucket policy to allow PutObject requests, is also not the correct solution because it does not address the issue of CORS. Bucket policies are used to define permissions for different types of access to the bucket. However, in this scenario, the issue is related to cross-origin requests, which is a different type of security restriction.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question585:"link"
+
+

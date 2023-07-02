@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "955 - A startup firm has created a cloud stora"
+---
+
+
+[.question]
+== 955-64a1fa72f053625db51ddea1.
+
+
+****
+
+[.query]
+--
+A start-up firm has created a cloud storage application that gives users the ability to store any amount of personal data & share them with their contacts.
+For this, they are using Amazon S3 buckets to store user data.
+During the last quarter, the costing team has observed a surge in storage costs for the S3 bucket.
+Further checking observed that many 100 GB files are uploaded by users & are in a partially completed state.
+As an AWS consultant, the IT Team requests you to prevent this from happening again by stopping incomplete multipart uploads and deleting all parts associated with the multipart upload if they do not complete within a specified number of days after initiation.
+Which of the following actions can be taken to meet this requirement cost-effectively with the least effort?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an S3 lifecycle Configuration to abort incomplete multipart uploads.
+* [ ] B. Manually delete incomplete multipart uploads from the S3 bucket.
+* [*] C. Use Cron tool to identify incomplete uploads & delete those files.
+* [ ] D. All Incomplete uploads are automatically deleted every three months by Amazon S3.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Amazon S3 Lifecycle rules can be configured to abort all multipart uploads which are failing to complete in a specific time period.
+For all files from size 5 MB to 5GB, the multipart upload can be used.
+Option B is incorrect as this will need additional manual efforts.
+Option C is incorrect as this incurs additional cost &amp; admin work to use Cron tools.
+Option D is incorrect as incomplete uploads are not automatically deleted.
+For more information on using S3 Lifecycle policies, refer to the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html
+The most cost-effective and efficient way to prevent incomplete multipart uploads from increasing storage costs on an Amazon S3 bucket is to create an S3 lifecycle configuration to abort incomplete multipart uploads.
+Option A is the correct answer.
+An S3 lifecycle configuration enables the automation of the transition and deletion of objects in an S3 bucket. An S3 lifecycle policy can be used to automatically delete incomplete multipart uploads after a specified number of days since initiation if they do not complete. This will help to reduce the storage costs for the S3 bucket and prevent the accumulation of partially uploaded files.
+Option B is not an efficient method for handling incomplete multipart uploads as it involves manually deleting the files, which is time-consuming and prone to human error.
+Option C is not recommended because using a Cron tool would require scripting to identify and delete the incomplete uploads, which can be complex, and there is a risk of deleting necessary files accidentally.
+Option D is incorrect. Amazon S3 does not automatically delete incomplete uploads every three months. Incomplete multipart uploads remain in the S3 bucket until they are completed or explicitly deleted.
+Therefore, the most effective and cost-efficient solution to prevent incomplete multipart uploads from increasing storage costs on an Amazon S3 bucket is to create an S3 lifecycle configuration to abort incomplete multipart uploads.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question176:"link"
+
+

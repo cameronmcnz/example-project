@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1277 - You are working as Cloud Solutions Engin"
+---
+
+
+[.question]
+== 1277-64a1fb0af053625db51de020.
+
+
+****
+
+[.query]
+--
+You are working as Cloud Solutions Engineer in an IT firm, and the firm has set up multiple VPN connections.
+They want to provide secure communication between multiple sites using the AWS VPN Cloud Hub.
+Which statement is the most accurate in describing what you must do to set this up correctly? How do you connect multiple sites to a VPC?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a virtual public gateway with multiple customer gateways, each with a unique Private subnet.
+* [*] B. Create a virtual private gateway with multiple customer gateways, each with unique Border Gateway Protocol (BGP) Autonomous System Numbers (ASNs).
+* [*] C. Create a virtual private gateway with multiple customer gateways, each with unique subnet Id.
+* [ ] D. Create a virtual private gateway with multiple customer gateways, each with a unique set of keys.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option B is CORRECTbecause to use AWS VPN Cloud Hub, one must create a virtual private gateway with multiple customer gateways, each with a unique Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+Option A, C, D are incorrect because the condition to use AWS VPN Cloud Hub is not fulfilled.
+Refer: https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-vpn-cloudhub-network-to-amazon.html.
+To connect multiple sites to a VPC using the AWS VPN Cloud Hub, you need to create a virtual private gateway (VGW) and multiple customer gateways (CGWs). The CGWs are virtual appliances that you set up at your on-premises location, and they act as the VPN endpoints to your VPC.
+The correct answer is B. You should create a virtual private gateway with multiple customer gateways, each with unique Border Gateway Protocol (BGP) Autonomous System Numbers (ASNs).
+BGP is a routing protocol that is used to exchange routing information between different autonomous systems (AS) on the internet. In this case, the VGW and CGWs are different ASs, and BGP is used to exchange routing information between them.
+To set up the AWS VPN Cloud Hub, you need to follow these steps:
+1. Create a virtual private gateway (VGW) for the VPC where you want to connect multiple sites.
+2. Create customer gateways (CGWs) for each on-premises location where you want to connect to the VPC. Each CGW should have a unique Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+3. Create a VPN connection between the VGW and each CGW.
+4. Configure BGP on each CGW to advertise the on-premises network to the VGW.
+5. Configure the VGW to propagate the BGP routes to the other VPN connections.
+6. Configure the security group rules and routing tables in the VPC to allow traffic to and from the on-premises network.
+By following these steps, you can create a secure communication between multiple sites using the AWS VPN Cloud Hub.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question562:"link"
+
+

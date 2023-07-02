@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1118 - Your company would like to leverage the "
+---
+
+
+[.question]
+== 1118-64a1fab8f053625db51ddf59.
+
+
+****
+
+[.query]
+--
+Your company would like to leverage the AWS storage option and integrate it with the current on-premises infrastructure.
+There is a requirement of low latency access to the entire dataset and backup.
+Which of the following options would be best suited for this scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the Simple Storage Service.
+* [ ] B. Configure Storage Gateway Cached Volume.
+* [*] C. Configure Storage Gateway Stored Volume.
+* [ ] D. Configure Amazon Glacier.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect because S3 is not used to provide low latency data access by integrating with the on-premises data center.
+Option B is incorrect because cached volumes do not provide low latency to all the data.
+Option C is correct because it provides low latency to all the data and maintains backup in AWS.
+Option D is incorrect because Amazon Glacier is used to achieve data for a longer period of time, not related to the required scenario.
+Cached volumes - Cached volumes offer substantial cost savings on primary storage and minimize the need to scale your storage on-premises.
+You also retain low-latency access to your frequently accessed data.
+Stored volumes - Stored volumes provide your on-premises applications with low-latency access to their entire datasets.
+At the same time, they provide durable, offsite backups.
+With stored volumes, you maintain your volume storage on-premises in your data center.
+This solution is ideal if you want to keep data locally on-premises, because you need to have low-latency access to all your data, and also to maintain backups in AWS.
+Reference:
+https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html
+For this scenario, option B, "Configure Storage Gateway Cached Volume," would be the best suited option.
+Storage Gateway is a hybrid cloud storage service that enables your on-premises applications to use AWS cloud storage. The service provides seamless and secure integration between an organization's on-premises IT environment and AWS storage infrastructure.
+Option A, "Configure the Simple Storage Service (S3)," is a highly scalable object storage service that is suitable for storing and retrieving large amounts of data. While S3 is an excellent option for backup and archival purposes, it may not be ideal for low latency access to the entire dataset.
+Option C, "Configure Storage Gateway Stored Volume," would be suitable if the primary use case is for on-premises applications to directly access the entire dataset stored on AWS storage. However, it may not be the best option for low latency access as data is stored in the cloud.
+Option D, "Configure Amazon Glacier," is a low-cost storage service designed for long-term data archival. While it can provide low-cost backup storage, it may not be suitable for low latency access to the entire dataset.
+Storage Gateway Cached Volume provides a low-latency on-premises cache of frequently accessed data that is stored in AWS. The cached data is stored on-premises and synchronized with the data stored in AWS. This option allows for low latency access to the frequently accessed data while still providing backup and archival storage in AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question363:"link"
+
+

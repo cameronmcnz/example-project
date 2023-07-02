@@ -1,0 +1,150 @@
+---
+layout: default 
+title: "956 - An organization is planning to set up a "
+---
+
+
+[.question]
+== 956-64a1df2faa736d27b1db938c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_ymzouq.png[]
+
+--
+
+
+****
+
+[.query]
+--
+An organization is planning to set up a management network on the AWS VPC.
+The organization is trying to secure the web server on a single EC2 instance such that it allows the internet traffic and back-end management traffic.
+The organization wants to ensure that the back-end management network interface can only receive SSH traffic from a selected IP range.
+At the same time, the Internet-facing web server will have an IP address that can receive traffic from all the internet IPs.
+
+
+[source,java]
+----
+{subnet ARoute Table)
+| 192.168.0.0/16 —P Local |
+pon > Iow-t22b3¢ |
+
+{
+
+Intemet
+
+Intemet Gateway
+
+Subnet 6 Route Table
+
+| 192.168.0.0/16 —P Local |
+
+0.0.0/0 —P VEW-4cSd6e;
+
+IGW-1a2b3c
+“
+Subnet A (AZia) 7 Subnet B (AZia)
+Pubic 7
+traffic 7
+7 Private IP
+— ¥ 192.168.254.201
+Elastic IP
+12022 ©
+Private IP etht
+192.168.0.10
+
+vec
+192.168.0.0/16
+
+Virtual Private Gateway
+VGW-4c5d6e
+wil
+an Customer Gateway
+Security Group ‘Security Group C Webserver Route Table
+foretht for ethd | i
+
+Allow TCP 80 Allow TCP 22
+from
+
+172.16.0.0/16
+
+from
+0.0.0.0/0
+
+Corporate Data Center
+172.16.0.0/16
+
+jis2 168.0.0/16—P>-192.168.254.201
+| 172.16.0.0/16—p> 192.168.254.201
+
+0.0.0.0/0  —P 192.168.0.10
+Default Gateway —P> 192.168.0.10
+
+)
+I
+!
+!
+I
+_)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. It is not possible to have 2 IP addresses for a single instance.
+* [*] B. The organization should create 2 network interfaces, one for the internet traffic and the other for the backend traffic.
+* [ ] C. The organization should create 2 EC2 instances as this is not possible with one EC2 instance.
+* [ ] D. This is not possible.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+An Elastic Network Interface (ENI) is a virtual network interface that you can attach to an instance in a VPC.
+Network interfaces are available only for instances running in a VPC.A network interface can include the following attributes.
+A primary private IPv4 address.
+One or more secondary private IPv4 addresses.
+One Elastic IP address (IPv4) per private IPv4 address.
+One public IPv4 address.
+One or more IPv6 addresses.
+One or more security groups.
+A MAC address.
+A source/destination check flag.
+A description.
+See an example below how the route table can be configured to allow the IP based access via multiple ENIs.
+For more information on ENI, please refer to the below link.
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html
+The organization wants to set up a management network on AWS VPC, and secure a web server on a single EC2 instance to allow internet traffic and back-end management traffic. The organization also wants to ensure that the back-end management network interface can only receive SSH traffic from a selected IP range while the Internet-facing web server can receive traffic from all internet IPs.
+Option A: "It is not possible to have 2 IP addresses for a single instance." This statement is incorrect. It is possible to have multiple IP addresses for a single instance, using multiple network interfaces. Each network interface can have its own private IP address and public IP address.
+Option B: "The organization should create 2 network interfaces, one for the internet traffic and the other for the backend traffic." This is the correct answer. To achieve the desired outcome, the organization should create two network interfaces for the EC2 instance, one for internet traffic and one for backend management traffic. The internet-facing network interface should have a public IP address and be associated with a security group that allows inbound traffic from all internet IPs. The backend management network interface should have a private IP address and be associated with a security group that allows inbound SSH traffic only from the selected IP range for back-end management.
+Option C: "The organization should create 2 EC2 instances as this is not possible with one EC2 instance." This statement is incorrect. It is possible to create multiple network interfaces on a single EC2 instance, as mentioned in Option B. There is no need to create two separate EC2 instances.
+Option D: "This is not possible." This statement is also incorrect. The desired outcome can be achieved by creating multiple network interfaces on a single EC2 instance, as mentioned in Option B.
+In conclusion, the correct answer is Option B: The organization should create 2 network interfaces, one for the internet traffic and the other for the backend traffic.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question218:"link"
+
+

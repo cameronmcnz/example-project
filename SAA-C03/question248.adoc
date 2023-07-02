@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1048 - You are working as an AWS Administrator "
+---
+
+
+[.question]
+== 1048-64a1fa97f053625db51ddf0a.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Administrator for a software firm with a popular Web application hosted on EC2 instance in various regions.
+You are using AWS CloudHSM for offloading SSL/TLS processing from Web servers.
+Since this is a critical application for the firm, you need to ensure that proper backups are performed for data in AWS CloudHSM daily.
+What does the AWS CloudHSM use to perform a secure & durable backup?
+
+
+--
+
+[.list]
+--
+* [*] A. Ephemeral backup key (EBK) is used to encrypt data & Persistent backup key (PBK) is used to encrypt EBK before saving data to the Amazon S3 bucket in the same region as that of AWS CloudHSM cluster.
+* [ ] B. Data Key is used to encrypt data & Customer Managed Key (CMK) is used to encrypt Data Key before saving data to the Amazon S3 bucket in the same region as that of AWS CloudHSM cluster.
+* [*] C. Ephemeral Backup Key (EBK) is used to encrypt data & Persistent backup Key (PBK) is used to encrypt EBK before saving data to the Amazon S3 bucket in a different region than the AWS CloudHSM cluster.
+* [ ] D. Data Key is used to encrypt data & Customer Managed Key (CMK) is used to encrypt Data Key before saving data to Amazon S3 bucket in a different region than the AWS CloudHSM cluster.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+To back up the AWS CloudHSM data to Amazon S3 buckets in the same region, AWS CloudHSM generates a unique Ephemeral Backup Key (EBK) to encrypt all data using AES 256-bit encryption key.
+This Ephemeral Backup Key (EBK) is further encrypted using Persistent Backup Key (PBK), which is also an AES 256-bit encryption key.
+Option B is incorrect as AWS CloudHSM does not use data Key &amp; Customer Managed Key to encrypt data, instead of that EBK &amp; PBK are used.
+Option C is incorrect.
+While taking the backup of data from different AWS CloudHSM clusters to the Amazon S3 bucket, the Amazon S3 bucket should be in the same region as that of the AWS CloudHSM cluster.
+Option D is incorrect as AWS CloudHSM does not use data Key &amp; Customer Managed Key to encrypt data.
+Instead of that, EBK &amp; PBK are used to encrypt and save data to the Amazon S3 bucket in the same region.
+For more information on backing data from AWS CloudHSM, refer to the following URL-
+https://docs.aws.amazon.com/cloudhsm/latest/userguide/backups.html
+AWS CloudHSM is a Hardware Security Module (HSM) that provides secure key storage and cryptographic operations for use with AWS services and applications. It enables customers to generate and use their encryption keys to protect sensitive data such as credit card numbers, personally identifiable information, and intellectual property.
+In this scenario, the AWS CloudHSM is being used for offloading SSL/TLS processing from web servers for a critical web application hosted on EC2 instances across multiple regions. As the data in AWS CloudHSM is critical, it is essential to ensure proper backups are performed daily to ensure the security and durability of the data.
+To perform a secure and durable backup in AWS CloudHSM, two types of keys are used - Ephemeral Backup Key (EBK) and Persistent Backup Key (PBK).
+EBK is a temporary key that is used to encrypt the data for backup purposes. PBK is a long-term key that is used to encrypt the EBK before saving the data to an Amazon S3 bucket for backup.
+Now, let's examine each answer choice to see which one is the correct answer.
+Option A - Ephemeral Backup Key (EBK) is used to encrypt data & Persistent backup key (PBK) is used to encrypt EBK before saving data to the Amazon S3 bucket in the same region as that of AWS CloudHSM cluster.
+This option is incorrect as it suggests that the backup is being performed in the same region as the AWS CloudHSM cluster, which may not be the best practice for disaster recovery. It is always recommended to perform backups in a different region to ensure that data can be restored in case of a region-wide outage.
+Option B - Data Key is used to encrypt data & Customer Managed Key (CMK) is used to encrypt Data Key before saving data to the Amazon S3 bucket in the same region as that of AWS CloudHSM cluster.
+This option is incorrect as it suggests that Data Key and Customer Managed Key (CMK) are used for backup purposes. However, in AWS CloudHSM, Data Key and CMK are used for different purposes such as encrypting and decrypting data, and managing keys.
+Option C - Ephemeral Backup Key (EBK) is used to encrypt data & Persistent backup Key (PBK) is used to encrypt EBK before saving data to the Amazon S3 bucket in a different region than the AWS CloudHSM cluster.
+This option is correct as it suggests that the backup is being performed in a different region than the AWS CloudHSM cluster. This ensures that the backup data is safe and can be restored in case of a region-wide outage. The EBK is used to encrypt the data for backup, and the PBK is used to encrypt the EBK before saving the data to the Amazon S3 bucket.
+Option D - Data Key is used to encrypt data & Customer Managed Key (CMK) is used to encrypt Data Key before saving data to Amazon S3 bucket in a different region than the AWS CloudHSM cluster.
+This option is incorrect as it suggests that Data Key and CMK are used for backup purposes. As mentioned earlier, in AWS CloudHSM, Data Key and CMK are used for different purposes.
+Therefore, the correct answer is Option C. Ephemeral Backup Key (EBK) is used to encrypt data & Persistent backup Key (PBK) is used to encrypt EBK before saving data to the Amazon S3 bucket in a different region than the AWS CloudHSM cluster.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question284:"link"
+
+

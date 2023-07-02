@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "950 - There are two departments in a company
+B"
+---
+
+
+[.question]
+== 950-64a1df2daa736d27b1db9385.
+
+
+****
+
+[.query]
+--
+There are two departments in a company.
+Both departments own several EC2 instances.
+
+
+--
+
+[.list]
+--
+* [*] A. Each Department adds tags on its EBS volume(s). Set up lifecycle policies based on the tags. For EBS volumes owned by two departments, snapshots will be taken every 12 hours and every 24 hours.
+* [ ] B. Each Department adds tags on its EBS volume(s). Set up lifecycle policies based on the tags. For EBS volumes owned by two departments, snapshots will not be taken as there is a schedule conflict between the two policies. Other EBS volumes are not affected.
+* [*] C. Each Department adds tags on its EBS volume(s). Set up a lifecycle policy based on the tag. For EBS volumes owned by two departments, snapshots will be taken every 12 hours since the 12-hour schedule takes priority.
+* [ ] D. Add a tag on the EBS volume(s) that Department B owns outright (not including the tag on any shared volumes). Set up a lifecycle policy based on the tag. For the EBS volumes owned by two departments, snapshots are taken every 12 hours due to the policy of Department
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Multiple policies can be created to take snapshots for an EBS volume, as long as each policy targets a unique tag on the volume.
+In this case, the EBS volumes owned by two departments should have two tags: tag A is the target for policy A to create a snapshot every 12 hours for Department A, and tag B is the target for policy B to create a snapshot every 24 hours for Department.
+B.
+Amazon DLM creates snapshots according to the schedules for both policies.
+Details refer to https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html.
+Option A is CORRECT because when an EBS volume has two tags, multiple policies can run simultaneously.
+Option B is incorrect because there is no schedule conflict for this scenario.
+Option C is incorrect because 12 hours schedule does not take priority over 24 hours, and both schedules can run in parallel.
+Option D is incorrect because the EBS volumes owned by two departments can add another tag and be included in the policy for Department.
+B.
+The correct answer is A.
+Here is an explanation of why:
+The requirement is to take snapshots of EBS volumes owned by two departments on a schedule that is every 12 hours and every 24 hours. The best approach to achieving this requirement is by using AWS EBS Lifecycle policies with tags.
+Each department should add tags to their EBS volumes. The tags will be used to set up the lifecycle policies for the EBS volumes. For the volumes owned by both departments, the lifecycle policy should be set up to take snapshots every 12 hours and every 24 hours.
+Option B is incorrect because it does not address the requirement of taking snapshots for EBS volumes owned by two departments.
+Option C is incorrect because it suggests that snapshots should be taken every 12 hours only. This does not meet the requirement of taking snapshots every 12 hours and every 24 hours.
+Option D is incorrect because it only addresses the EBS volumes owned by Department B outright and does not address the EBS volumes owned by both departments.
+To summarize, the best approach is to use AWS EBS Lifecycle policies with tags. Each department adds tags to their EBS volumes, and the lifecycle policies are set up based on the tags. For the EBS volumes owned by two departments, the lifecycle policy should be set up to take snapshots every 12 hours and every 24 hours.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question211:"link"
+
+

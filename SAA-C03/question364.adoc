@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1164 - As a solutions architect it is your job "
+---
+
+
+[.question]
+== 1164-64a1fad3f053625db51ddf9a.
+
+
+****
+
+[.query]
+--
+As a solutions architect, it is your job to design for high availability and fault tolerance.
+Company-A is utilizing Amazon S3 to store large amounts of file data.
+You need to ensure that the files are still available in the case of an entire region facing an outage due to a natural disaster.
+How can you achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Copy the S3 bucket to an EBS optimized backed EC2 instance
+* [ ] B. Amazon S3 is highly available and fault tolerant by design and requires no additional configuration
+* [*] C. Enable Cross-Region Replication for the bucket
+* [ ] D. Enable versioning for the bucket.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS Documentation mentions the following.
+Cross-region replication is a bucket-level configuration that enables automatic, asynchronous copying of objects across buckets in different AWS Regions.
+We refer to these buckets as source bucket and destination bucket.
+Different AWS accounts can own these buckets.
+AWS services are designed with DR considerations in mind.
+S3, for example, achieves 99.999999999% durability and 99.99% availability by redundantly storing data across multiple AZs within a region.
+It may be rare for the whole AWS region to go down, but it could cause massive permanent damage if we don't plan for it; this is when S3 Cross-Region Replication (CRR) solution comes into play.
+Option A is invalid because this is not the right way to take backups of an S3 bucket.
+Option B is invalid because S3 will ensure that objects are available in multiple availability zones but not across regions in case of a disaster.
+Option D is invalid because versioning can only help from accidental deletion of objects but not from disaster recovery.
+For more information on Cross-Region Replication, please visit the URL-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html
+NOTE:
+Most organizations try to implement High Availability (HA) instead of DR to guard them against any downtime of services.
+In the case of HA, we ensure there exists a fallback mechanism for our services.
+The service that runs in HA is handled by hosts running in different availability zones but the same geographical region.
+However, this approach does not guarantee that our business will be up and running in case the entire region goes down.
+DR takes things to a completely new level, wherein you need to recover from a different region that's separated by over 250 miles.
+Our DR implementation is an Active/Passive model, meaning that we always have minimum critical services running in different regions.
+Still, a major part of the infrastructure is launched and restored when required.
+Option B is incorrect. While it is true that Amazon S3 is designed for high availability and fault tolerance, it is not immune to an entire region outage.
+Option A is also incorrect as it suggests copying the data to an EC2 instance. While this may work in some cases, it introduces additional complexity and potential failure points.
+Option C is the correct answer. Enabling Cross-Region Replication for the S3 bucket ensures that the data is replicated to a secondary region, allowing for seamless access to the data in case of an entire region outage. This can be achieved by creating a new S3 bucket in a secondary region and configuring the replication settings on the primary bucket to replicate all data to the secondary bucket.
+Option D, enabling versioning, is not relevant to the scenario as it does not address the issue of data availability in case of an entire region outage. Versioning allows for multiple versions of an object to be stored in an S3 bucket, which can be useful for data backup and recovery purposes, but it does not provide redundancy across regions.
+In summary, the best solution for ensuring high availability and fault tolerance for large amounts of file data stored in Amazon S3 is to enable Cross-Region Replication for the S3 bucket.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question428:"link"
+
+

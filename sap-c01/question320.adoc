@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1120 - You are developing a new Lambda Function"
+---
+
+
+[.question]
+== 1120-64a1df6baa736d27b1db9480.
+
+
+****
+
+[.query]
+--
+You are developing a new Lambda Function.
+Sometimes the function invocation may fail, such as when retries are exhausted or the event age has been exceeded.
+For these failed events, you want to route the asynchronous function failed results to a destination resource automatically without writing additional code.
+Which of the following destination is supported?
+
+
+--
+
+[.list]
+--
+* [*] A. EventBridge event bus
+* [ ] B. AWS Step Functions
+* [*] C. Amazon MQ
+* [ ] D. AWS SWF.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Lambda asynchronous invocations can put an event or message on Amazon Simple Notification Service (SNS), Amazon Simple Queue Service (SQS), or Amazon EventBridge for further processing.
+Check the explanations in.
+https://aws.amazon.com/blogs/compute/introducing-aws-lambda-destinations/
+Option A is CORRECT because the EventBridge event bus can be configured as a destination of asynchronous function results.
+Options B, C and D are incorrect because Lambda functions cannot route execution results to these services.
+When developing a new Lambda Function, there may be scenarios where the function invocation fails due to various reasons, such as when retries are exhausted or the event age has been exceeded. In such cases, it is essential to automatically route these failed events to a destination resource without writing additional code.
+To achieve this, AWS provides several destination resources to route asynchronous function failed results. Among the given options, the destination resource that is supported for this purpose is the EventBridge event bus (Option A).
+EventBridge is a serverless event bus service offered by AWS that makes it easy to connect different AWS services with application data. It allows you to route events between various AWS services and SaaS applications in real-time. EventBridge enables you to build event-driven architectures that are scalable and flexible.
+By using EventBridge with Lambda, you can create event rules that trigger when a Lambda function throws an exception or returns an error. You can configure the event rules to send the failed events to various target resources, such as Amazon SNS, AWS Step Functions, AWS Lambda functions, and other supported services.
+With EventBridge, you can create a rule that triggers whenever a Lambda function invocation fails. When the rule is triggered, the failed event is forwarded to the destination resource, such as an SNS topic or a Lambda function, where you can process and analyze the event data further.
+In summary, EventBridge event bus is the supported destination resource to automatically route asynchronous function failed results from Lambda Functions without writing additional code.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question463:"link"
+
+

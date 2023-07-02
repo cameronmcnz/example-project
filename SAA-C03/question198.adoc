@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "998 - A company is running web server reserved"
+---
+
+
+[.question]
+== 998-64a1fa81f053625db51dded1.
+
+
+****
+
+[.query]
+--
+A company is running web server reserved EC2 Instances with EBS-backed root volumes.
+These instances have a consistent CPU load of 80%
+Traffic is being distributed to these instances by an Elastic Load Balancer.
+They also have Multi-AZ RDS MySQL databases in both development and production environments.
+What recommendation would you make to reduce cost without affecting the availability of mission-critical systems? Choose the correct answer from the options given below.
+
+
+--
+
+[.list]
+--
+* [*] A. Consider using On-demand instances instead of Reserved EC2 instances.
+* [*] B. Consider not using the Multi-AZ RDS deployment for the database in the development environment.
+* [*] C. Consider using Spot instances instead of Reserved EC2 instances.
+* [ ] D. Consider removing the Elastic Load Balancer.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Multi-AZ databases are more suitable for production environments than for development environments.
+So you can reduce costs by not using these for development environments.
+Amazon RDS Multi-AZ deployments provide enhanced availability and durability for Database (DB) Instances, making them a natural fit for production database workloads.
+When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ)
+Each AZ runs on its own physically distinct, independent infrastructure and is engineered to be highly reliable.
+In case of an infrastructure failure, Amazon RDS performs an automatic failover to the standby (or to a read replica in the case of Amazon Aurora)
+Thus you can resume database operations as soon as the failover is complete.
+Since the endpoint for your DB Instance remains the same after a failover, your application can resume database operation without the need for manual administrative intervention.
+For more information on Multi-AZ RDS, please refer to the link below:
+https://aws.amazon.com/rds/details/multi-az/
+Note:
+Mission Critical system refers to production Instances and Databases.
+However, if you notice, they have Multi-AZ RDS in the Development environment, which is unnecessary.
+Because management is always concerned about production, the environment should be perfect.
+To reduce the cost, we can disable the Multi-AZ RDS for the Development environment and keep it only for the Production environment.
+Given the scenario, where the company is running web server reserved EC2 instances with EBS-backed root volumes, consistently using 80% of the CPU with traffic being distributed by Elastic Load Balancer, and also has Multi-AZ RDS MySQL databases in both development and production environments, the question asks for the recommendation that can reduce costs without affecting the availability of mission-critical systems.
+Option A: Consider using On-demand instances instead of Reserved EC2 instances.
+This option suggests using on-demand instances instead of reserved instances. On-demand instances are instances with no upfront payment or long-term commitment, which means the user pays for what they use with no upfront fees. Although this option is cost-effective in the short term, it is not suitable for long-term use as it is more expensive than reserved instances in the long run.
+Option B: Consider not using the Multi-AZ RDS deployment for the database in the development environment.
+This option suggests not using Multi-AZ deployment for the database in the development environment. Multi-AZ deployment provides high availability for the database by replicating data to a standby instance in another Availability Zone (AZ). However, since the environment in question is a development environment, it might be okay not to use Multi-AZ deployment as the environment is not mission-critical.
+Option C: Consider using Spot instances instead of Reserved EC2 instances.
+This option suggests using spot instances instead of reserved instances. Spot instances are spare EC2 capacity that Amazon can offer at a lower price than on-demand instances. They can be terminated at any time as the demand for EC2 capacity increases. However, they are suitable for workloads that can tolerate interruptions, and they might not be suitable for mission-critical systems.
+Option D: Consider removing the Elastic Load Balancer.
+This option suggests removing the Elastic Load Balancer. However, this would not reduce costs and would instead increase downtime and decrease availability for the web servers. The Elastic Load Balancer helps distribute traffic to the web servers, and without it, the web servers would not be able to handle the traffic effectively.
+Considering the above options, the recommended solution that would reduce costs without affecting the availability of mission-critical systems is Option B: Consider not using the Multi-AZ RDS deployment for the database in the development environment. This option would not affect the production environment's Multi-AZ deployment, which is essential for high availability, while still saving costs in the development environment.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question225:"link"
+
+

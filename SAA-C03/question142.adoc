@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "942 - A popular blogging site plans to use AWS"
+---
+
+
+[.question]
+== 942-64a1fa6df053625db51dde92.
+
+
+****
+
+[.query]
+--
+A popular blogging site plans to use AWS DataSync to migrate all the data from the on-premises network file system (NFS) server to AWS EFS.
+The blogging application constantly updates its on-premises dataset.
+You need to ensure that all the files saved at EFS are validated for data integrity.
+How would you set up the data verification in AWS DataSync?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable verification all the time.
+* [ ] B. Enable verification during initial file transfers and disable it during the final cut-over.
+* [*] C. Disable verification during initial file transfers and enable it during the final cut-over.
+* [ ] D. Disable verification all the time.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+While transferring a constantly changing dataset between on-premise servers &amp; EFS using AWS DataSync, you could initially uncheck Enable verification, because files at the source are slightly different from files at the destination.
+You can enable the verification during the final cut-over from on-premises to AWS.
+Option A is incorrect as enabling data verification for a constantly changing dataset will lead to a slow data transfer.
+Option B is incorrect as data verification needs to be performed during the final cut-over to ensure that all data is properly copied to EFS.
+Option D is incorrect as disabling verification will not perform the data integrity check on the transferred data between on-premise servers and EFS.
+For more information on using AWS DataSync, refer to the following URL:
+https://aws.amazon.com/blogs/storage/migrating-storage-with-aws-datasync/
+To ensure data integrity during migration of data from an on-premises network file system (NFS) server to AWS EFS using AWS DataSync, verification must be enabled.
+DataSync provides data validation mechanisms to verify that the data transferred is the same as the source. This helps to ensure that the data is not corrupted during transfer and that the destination data is an exact copy of the source data.
+In this case, since the blogging application constantly updates its on-premises dataset, it is important to ensure that all the data transferred is valid and accurate.
+Option A - Enable verification all the time: This option would enable data verification during the entire transfer process, providing constant validation of data, which is ideal for ensuring data integrity. Therefore, this option is a valid choice.
+Option B - Enable verification during initial file transfers and disable it during the final cut-over: This option would enable verification only during the initial transfer, which is not enough to ensure data integrity as the data is updated constantly. Therefore, this option is not suitable.
+Option C - Disable verification during initial file transfers and enable it during the final cut-over: This option would not provide enough data validation during the initial transfer, which is when most of the data is transferred. Therefore, this option is not ideal.
+Option D - Disable verification all the time: This option would not validate the data transferred at any point, which would result in potential data loss or corruption. Therefore, this option is not suitable.
+In summary, Option A is the best choice as it provides constant data validation, which ensures that all data transferred is valid and accurate.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question161:"link"
+
+

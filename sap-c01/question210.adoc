@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1010 - An organization is planning to use AWS f"
+---
+
+
+[.question]
+== 1010-64a1df43aa736d27b1db93e3.
+
+
+****
+
+[.query]
+--
+An organization is planning to use AWS for its production rollout.
+The organization needs a managed AWS service to create a LAMP stack automatically, download the latest PHP installable from S3, and set up the ELB.
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Elastic Beanstalk
+* [ ] B. AWS CloudFront
+* [ ] C. AWS CloudFormation
+* [ ] D. AWS DevOps.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The Elastic Beanstalk is an easy-to-use AWS service for deploying and scaling web applications and services.
+Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring.
+Meanwhile, if needed, we can still retain full control over the AWS resources used in the application and access the underlying resources at any time.
+Hence, A is the CORRECT answer.
+For more information on launching a LAMP stack with Elastic Beanstalk, please check the following references:
+https://aws.amazon.com/getting-started/projects/launch-lamp-web-app/ https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/php-ha-tutorial.html?icmpid=docs_tutorial_projects
+We can deploy the resources on AWS CloudFormation as well, but it is more complicated than Elastic Beanstalk:
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html
+The managed AWS service that would fit the requirements of the organization to create a LAMP stack automatically, download the latest PHP installable from S3, and set up the ELB is AWS Elastic Beanstalk (Option A).
+Here is a detailed explanation of why Elastic Beanstalk is the most suitable service:
+A) AWS Elastic Beanstalk: Elastic Beanstalk is a fully managed service that makes it easy to deploy and run applications in multiple languages such as PHP, Python, Ruby, Java, Node.js, and more. Elastic Beanstalk simplifies the deployment, management, and scaling of applications by handling the underlying infrastructure and resource provisioning. With Elastic Beanstalk, developers can quickly deploy their code and focus on writing the application's business logic.
+In the case of the LAMP stack, Elastic Beanstalk provides a pre-configured environment that includes Linux, Apache, MySQL, and PHP. Elastic Beanstalk also allows developers to customize the environment by modifying the server, platform, and application settings. Elastic Beanstalk can be configured to automatically download the latest PHP installable from S3 and set up the ELB to distribute the incoming traffic across multiple instances.
+B) AWS CloudFront: CloudFront is a content delivery network (CDN) that delivers content, including images, videos, applications, and APIs, with low latency and high transfer speeds. CloudFront can be used to distribute the content to users from the edge locations closest to them. However, CloudFront is not suitable for creating a LAMP stack, downloading PHP installables, or setting up ELB.
+C) AWS CloudFormation: CloudFormation is a service that allows developers to create and manage AWS infrastructure as code. CloudFormation templates define the resources needed for an application or service, and CloudFormation provisions and configures the resources automatically. While CloudFormation is powerful and flexible, it does not provide the managed environment required for creating a LAMP stack, downloading PHP installables, or setting up ELB.
+D) AWS DevOps: DevOps is a set of practices that combines software development (Dev) and IT operations (Ops) to reduce the time between committing a change to a system and putting it into production. AWS DevOps is a suite of services that support DevOps practices such as continuous integration (CI), continuous delivery (CD), and infrastructure as code (IAC). While AWS DevOps provides automation and integration tools, it does not provide the managed environment required for creating a LAMP stack, downloading PHP installables, or setting up ELB.
+Therefore, the most suitable managed AWS service for the organization to create a LAMP stack automatically, download the latest PHP installable from S3, and set up the ELB is AWS Elastic Beanstalk.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question306:"link"
+
+

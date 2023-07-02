@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "932 - Youve implemented AWS Key Management Ser"
+---
+
+
+[.question]
+== 932-64a1fa6af053625db51dde87.
+
+
+****
+
+[.query]
+--
+You've implemented AWS Key Management Service to protect your data in your applications and other AWS services.
+Your global headquarters is in Northern Virginia (US East (N.
+Virginia) where you created your keys and have provided the appropriate permissions to designated users and specific roles within your organization.
+While the N.
+American users are not having issues, German and Japanese users cannot get KMS to function.
+What is the most likely cause of it?
+
+
+--
+
+[.list]
+--
+* [*] A. KMS is only offered in North America.
+* [ ] B. AWS CloudTrail has not been enabled to log events.
+* [*] C. KMS master keys are region-specific and the applications are hitting the wrong API endpoints.
+* [ ] D. The master keys have been disabled.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option C is correct.
+This is the most likely cause as the application should be sure to hit the correct region endpoint.
+Option A is incorrect.
+KMS is offered in several regions, but keys are not transferrable out of the region they were created in.
+Option B is incorrect.
+CloudTrail is recommended for auditing but is not required.
+Option D is incorrect.
+The keys are working as expected where they were created; keys are region-specific.
+References:
+https://aws.amazon.com/kms/faqs/
+ttps://docs.aws.amazon.com/general/latest/gr/rande.html#kms_region.
+https://www.slideshare.net/AmazonWebServices/encryption-and-key-management-in-aws
+The most likely cause of German and Japanese users being unable to use KMS is option C: KMS master keys are region-specific and the applications are hitting the wrong API endpoints.
+AWS Key Management Service (KMS) is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data, and uses Hardware Security Modules (HSMs) to protect the security of your keys. KMS is a global service, meaning that it can be used in any AWS region.
+However, KMS master keys are region-specific. When you create a master key in a specific region, you can only use that key to encrypt and decrypt data in that region. If an application in a different region tries to use that key, it will hit the wrong API endpoint and will not function correctly.
+In this case, since the global headquarters is in Northern Virginia, it is likely that the KMS master keys were created in that region. When German and Japanese users try to use KMS, their applications are hitting the wrong API endpoints because they are not in the same region as the KMS master keys.
+Option A, KMS is only offered in North America, is incorrect because KMS is a global service that can be used in any AWS region.
+Option B, AWS CloudTrail has not been enabled to log events, is not directly related to the issue of KMS not functioning for German and Japanese users. However, enabling AWS CloudTrail can provide additional visibility into KMS usage and can help with auditing and compliance.
+Option D, the master keys have been disabled, is unlikely to be the cause because if the master keys were disabled, then no users, including those in Northern Virginia, would be able to use KMS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question150:"link"
+
+

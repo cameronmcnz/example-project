@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "801 - Given the definition of the Vehicle clas"
+---
+
+
+[.question]
+== 801-64a1a838ef3e8462333a9c37.
+
+
+****
+
+[.query]
+--
+Given the definition of the Vehicle class: Class Vehicle { int distance; Vehicle (int x) { this distance = x; } public void increSpeed(int time){ int timeTravel = time;//line n1 //line n3 class Car { int value = 0; public void speed () { value = distance /timeTravel; //line n2 System.out.println ("Velocity with new speed"+value+"kmph"); } } speed();//line n3 } } and this code fragment: Vehicle v = new Vehicle (100); v.increSpeed(60); What is the result?
+
+
+--
+
+[.list]
+--
+* [*] A. Velocity with new speed 1 kmph
+* [ ] B. A compilation error occurs at line n1.
+* [ ] C. A compilation error occurs at line n2.
+* [ ] D. A compilation error occurs at line n3.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "997 - An ecommerce platform has sent online or"
+---
+
+
+[.question]
+== 997-64a1df3faa736d27b1db93d3.
+
+
+****
+
+[.query]
+--
+An e-commerce platform has sent online order requests to a standard SQS queue.
+The visibility timeout for the messages in the queue is set as 30 seconds by default.
+The message retention period is 7 days.
+From the backend log system, it has been found that the backend processing of some messages has failed.
+As a result, these messages were not deleted successfully from the queue.
+What should you do to isolate the failed messages to troubleshoot the reason why the processing doesn't succeed?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a new FIFO queue as the dead letter queue. So the failed messages are isolated and stored in this dead letter queue.
+* [ ] B. Enlarge the visibility timer a little bit and monitor the log system to see if there are still messages that fail to be processed.
+* [*] C. Modify the visibility timer to 0 to mitigate the impacts when messages are deleted unsuccessfully.
+* [*] D. Create another SQS standard queue as the dead letter queue. So the problematic messages are isolated.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+When messages in an SQS queue can't be consumed successfully, the messages can be put into a dead-letter queue, ideal for isolating the problematic message.
+Option A is incorrect because the queue type for the original queue and dead letter queue should match.
+Therefore, in this case, the dead letter queue should also be a standard queue.
+Option B is incorrect because the visibility timer adjustment does not help to isolate messages that have issues.
+Option C is incorrect: Same reason as Option.
+B.
+When the visibility timer is modified to 0, visibility timeout is also terminated.
+Option D is correct: For example, if the source queue has set maxReceiveCount to 2, and the consumer of the source queue receives a message 2 times without ever deleting it, the message will be put to the dead-letter queue.
+Then those problematic messages are ready to be analyzed.
+In this scenario, messages sent by an e-commerce platform to a standard SQS queue are not getting processed successfully. As a result, these messages are not being deleted from the queue. To troubleshoot the issue, it is important to isolate the failed messages and understand the reason behind the processing failure.
+One solution to this problem is to create a dead-letter queue (DLQ). A dead-letter queue is a queue that receives messages that cannot be processed successfully from the main queue. It helps to isolate the problematic messages and troubleshoot the root cause of the processing failure. AWS SQS provides a dead-letter queue feature that can be configured for standard SQS queues.
+Option A suggests creating a new FIFO queue as the dead-letter queue to store failed messages. It is a valid solution as it isolates failed messages and enables troubleshooting the processing failure. However, the choice between creating a standard or a FIFO dead-letter queue depends on the use case requirements. If the order of messages is critical, FIFO queues should be used; otherwise, standard queues can be used.
+Option B suggests increasing the visibility timeout and monitoring the log system to see if there are still messages that fail to process. It is not a recommended solution as it may delay message processing and increase the chances of duplicating messages in the queue. Increasing visibility timeouts only postpones the inevitable and does not solve the underlying issue.
+Option C suggests setting the visibility timeout to 0, which mitigates the impacts when messages are deleted unsuccessfully. However, it is not a valid solution as setting the visibility timeout to 0 will result in immediate deletion of messages that are not processed successfully, making it challenging to troubleshoot the root cause of the processing failure.
+Option D suggests creating another standard SQS queue as the dead-letter queue. Although this option will isolate failed messages, it is not recommended as it creates additional complexity and management overhead. Using AWS SQS DLQ feature is more straightforward and requires fewer resources.
+In summary, the best solution to isolate failed messages and troubleshoot the reason behind processing failure is to create a dead-letter queue using the AWS SQS DLQ feature. The option of creating a new FIFO queue as the dead-letter queue or setting the visibility timeout to 0 is not recommended.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question290:"link"
+
+

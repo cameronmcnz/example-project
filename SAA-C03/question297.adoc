@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1097 - You have an S3 bucket hosted in AWS that"
+---
+
+
+[.question]
+== 1097-64a1faaff053625db51ddf41.
+
+
+****
+
+[.query]
+--
+You have an S3 bucket hosted in AWS that is used to store the promotional videos you upload.
+You need to provide users access to the S3 bucket's object for a limited duration of time.
+How could this be achieved?
+
+
+--
+
+[.list]
+--
+* [*] A. Use versioning and enable a timestamp for each version.
+* [*] B. Use Pre-signed URLs with session duration.
+* [*] C. Use IAM Roles with a timestamp to limit the access.
+* [ ] D. Use IAM policies with a timestamp to limit the access.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+All objects by default are private.
+Only the object owner has permission to access these objects.
+However, the object owner can optionally share objects with others by creating a pre-signed URL, using their own security credentials, to grant time-limited permission to download the objects.
+For more information on pre-signed URLs, please visit the URL below.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html
+The correct answer to this question is B. Use Pre-signed URLs with session duration.
+Pre-signed URLs are URLs that grant temporary access to an S3 object. These URLs are generated using your AWS credentials and include a time limit for access, making them ideal for providing temporary access to S3 objects.
+To generate a pre-signed URL, you need to have an AWS SDK or AWS CLI installed on your system. You can use the SDK or CLI to generate the URL and specify the time limit for access. Once the URL is generated, you can provide it to the users who require access to the S3 object.
+The session duration parameter in the pre-signed URL allows you to set the amount of time the URL will be valid. When the time limit is reached, the URL will no longer be valid, and access to the S3 object will be denied.
+Versioning, IAM Roles, and IAM policies are all useful AWS services, but they are not the most suitable solution for providing temporary access to S3 objects.
+Enabling versioning for the S3 bucket will allow you to store multiple versions of the same object. However, it does not provide a way to limit access to a specific version for a limited time.
+Using IAM Roles and policies is useful for managing access to AWS resources, but it is not the best solution for providing temporary access to S3 objects. IAM Roles are more suitable for granting long-term access to AWS resources, while IAM policies are more suited to defining permissions for AWS users and groups.
+In summary, the most suitable solution for providing temporary access to S3 objects is to use pre-signed URLs with session duration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question339:"link"
+
+

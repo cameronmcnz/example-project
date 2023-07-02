@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1065 - You are designing a system that needs at"
+---
+
+
+[.question]
+== 1065-64a1fa9ef053625db51ddf1c.
+
+
+****
+
+[.query]
+--
+You are designing a system that needs at minimum, 8 m4.large instances operating to service traffic.
+While designing a system for high availability in the us-east-1 region having 6 Availability Zones, your company needs to handle the death of a full availability zone.
+How should you distribute the EC2 servers in a cost-effective way?
+
+
+--
+
+[.list]
+--
+* [*] A. 3 servers in each of AZs a through d, inclusive.
+* [ ] B. 16 servers in AZa.
+* [*] C. 2 servers in each of AZs a through e, inclusive.
+* [ ] D. 4 servers in each of AZs a through c, inclusive.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+The best way is to distribute the instances across multiple AZs to get the best performance and avoid a disaster scenario.
+With this solution, you will always have a minimum of more than 8 servers, even if one AZ went down.
+Even though options A and D are also valid, they need more EC2 instances than Option.
+C.For more information on High Availability and Fault tolerance, please refer to the link below.
+https://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_ftha_04.pdf
+Note:
+In option A, we need to distribute 3 servers in each AZ.
+So,A=3, B=3, C=3, D=3
+Total servers used=12.
+In option B, we will not get high availability.
+There will be no servers available if AZa is down.
+In option C, we need to distribute 2 servers in each AZ.
+so, A=2, B=2, C=2, D=2, E=2
+Total servers used=10.
+In option D, we need to distribute 4 servers in each AZ.
+So, A=4, B=4, C=4
+Total servers used=12.
+In the question, a cost-effective method is required.
+In option C, we are using fewer servers, i.e., 10 servers distributed in more AZ's.
+When designing a highly available system, it's important to consider the potential loss of an Availability Zone (AZ) and ensure that the system can continue to operate with minimal disruption.
+In this scenario, we need a minimum of 8 m4.large instances to handle traffic. We also have 6 AZs in the us-east-1 region, so we can distribute the instances across multiple AZs to ensure high availability.
+Option A suggests distributing 3 servers in each of AZs a through d. This would result in a total of 12 instances, which exceeds our minimum requirement of 8 instances. However, if AZ e were to fail, we would not have enough instances to maintain the required level of service. This option is not cost-effective as it results in unnecessary additional instances.
+Option B suggests placing all 16 servers in AZa. This option is not recommended because if AZa were to fail, all 16 instances would be lost, and we would not have enough instances to maintain the required level of service. This option is not cost-effective as it results in a single point of failure.
+Option C suggests distributing 2 servers in each of AZs a through e. This results in a total of 10 instances, which meets our minimum requirement of 8 instances. If any one AZ were to fail, we would still have enough instances to maintain the required level of service. This option is cost-effective and provides high availability.
+Option D suggests distributing 4 servers in each of AZs a through c. This results in a total of 12 instances, which exceeds our minimum requirement of 8 instances. However, if AZ d, e or f were to fail, we would not have enough instances to maintain the required level of service. This option is not cost-effective as it results in unnecessary additional instances.
+In conclusion, the best option to distribute the EC2 servers in a cost-effective way, while ensuring high availability and meeting the minimum requirement of 8 instances, is option C, which suggests distributing 2 servers in each of AZs a through e, inclusive.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question302:"link"
+
+

@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "896 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 896-64a1a85def3e8462333a9c96.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0008400002.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+final string strl = "Java";
+StringBuffer strBuf = new StringBuffer ("Course") ;
+UnaryOperator<string> u = (str2) -> strl.concat(str2); // line ni
+UnaryOperator<string> c = (str3) -> str3.toLowerCase ();
+System.out.print1n(u. apply (c. apply (strBuf) )) + // line n2
+----
+
+
+--
+
+[.list]
+--
+* [*] A. A compilation error occurs at line n1.
+* [ ] B. courseJava
+* [ ] C. Javacourse
+* [ ] D. A compilation error occurs at line n2.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "956 - You are developing a new mobile applicat"
+---
+
+
+[.question]
+== 956-64a1fa72f053625db51ddea2.
+
+
+****
+
+[.query]
+--
+You are developing a new mobile application which is expected to be used by thousands of customers.
+You are considering to store user preferences in AWS and need a non-relational data store to save the same.
+Each data item is expected to be 20KB in size.
+The solution needs to be cost-effective, highly available, scalable, and secure.
+Which of the following designs is the most suitable?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a new Amazon RDS instance and store the user data there.
+* [*] B. Create a Amazon DynamoDB table with the required Read and Write capacity and use it as the data layer.
+* [*] C. Use Amazon Glacier to store the user data.
+* [ ] D. Use an Amazon Redshift Cluster for managing the user preferences.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+In this case, since each data item is 20KB and given the fact that DynamoDB is an ideal data layer for storing user preferences, this would be the ideal choice.
+Also, DynamoDB is a highly scalable and available service.
+For more information on AWS DynamoDB, please refer to the URL given below:
+https://aws.amazon.com/dynamodb/
+Out of the given options, option B is the most suitable choice for storing user preferences in a non-relational data store for a mobile application.
+Amazon DynamoDB is a fully managed NoSQL database service that provides low-latency access to data and can handle millions of requests per second. DynamoDB automatically scales up and down to accommodate traffic fluctuations and supports data encryption at rest and in transit, making it a highly available and secure solution. DynamoDB can also be cost-effective since it only charges for the provisioned capacity and the actual usage.
+In this case, the expected size of each data item is 20KB, which is well within the limit of DynamoDB's maximum item size of 400KB. Since the application is expected to be used by thousands of customers, using DynamoDB as the data layer can ensure that it can handle the expected traffic and scaling needs.
+Option A, creating a new Amazon RDS instance, is not suitable since RDS is a relational database service and may not provide the necessary scalability and cost-effectiveness required for this use case.
+Option C, using Amazon Glacier to store the user data, is not suitable since Glacier is designed for long-term data archiving and retrieval, and may not provide the necessary low-latency access required for a mobile application.
+Option D, using Amazon Redshift cluster, is not suitable for storing user preferences since Redshift is a data warehousing solution designed for analytics and reporting and may not provide the necessary low-latency access and cost-effectiveness required for this use case.
+Therefore, option B, creating an Amazon DynamoDB table with the required Read and Write capacity and using it as the data layer, is the most suitable solution for storing user preferences in a cost-effective, highly available, scalable, and secure manner.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question177:"link"
+
+

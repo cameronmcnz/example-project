@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "930 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 930-64a1a866ef3e8462333a9cb8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0012200001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class Person {
+
+private String firstName;
+
+private int salary;
+
+public Person(String £N, int sal) {
+this.firstName = £N;
+this.salary = sal;
+
+}
+
+public int getSalary() { return salary; }
+
+public String getFirstName() { return firstName;
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 0.0
+* [*] B. 1500.0
+* [ ] C. A compilation error occurs.
+* [ ] D. 2000.0
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

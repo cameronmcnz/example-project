@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1096 - Your company is planning to use the EMR "
+---
+
+
+[.question]
+== 1096-64a1faaef053625db51ddf40.
+
+
+****
+
+[.query]
+--
+Your company is planning to use the EMR service available in AWS to run its big data framework and minimize the cost of running the EMR service.
+How would you achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Running the EMR cluster in a dedicated VPC
+* [*] B. Choosing Spot Instances for the underlying nodes
+* [*] C. Choosing On-Demand Instances for the underlying nodes
+* [ ] D. Disable automated backups.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+Spot Instances in Amazon EMR provide an option to purchase Amazon EC2 instance capacity at a reduced cost compared to On-Demand purchasing.
+For more information on Instance types for EMR, please visit the following URLs-
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-purchasing-options.html https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances-guidelines.html
+EMR (Elastic MapReduce) is a managed big data platform offered by AWS that simplifies the processing and analysis of large datasets using popular distributed processing frameworks like Hadoop, Spark, and Presto. To minimize the cost of running the EMR service, you can take the following steps:
+1.
+Choose Spot Instances for the underlying nodes: Spot Instances are unused EC2 instances that are available for a fraction of the On-Demand price. When you choose Spot Instances for your EMR cluster, you can significantly reduce the cost of running the cluster. However, Spot Instances are not guaranteed to be available all the time, and AWS can terminate them at any time if the demand for EC2 instances increases. Therefore, you need to make sure that your EMR cluster can handle Spot Instance interruptions and gracefully recover from them.
+2.
+Use Auto Scaling to scale your cluster based on demand: Auto Scaling allows you to automatically adjust the size of your EMR cluster based on the current demand for resources. By using Auto Scaling, you can ensure that you have enough capacity to handle the workload while minimizing the cost of running the cluster.
+3.
+Use Reserved Instances for the underlying nodes: Reserved Instances are EC2 instances that you reserve for a one- or three-year term, which can significantly reduce the cost of running your EMR cluster. You can choose to pay for the entire term upfront, which provides the most significant discount, or you can pay a lower upfront fee and a reduced hourly rate.
+4.
+Choose the appropriate instance types: AWS offers a wide range of instance types with different sizes, CPU, memory, and storage configurations. Choosing the appropriate instance types for your workload can significantly reduce the cost of running your EMR cluster. For example, if your workload is CPU-bound, you can choose instances with a high CPU to memory ratio, while if your workload is memory-bound, you can choose instances with a high memory to CPU ratio.
+5.
+Optimize your data storage: AWS offers various storage options like Amazon S3, EBS, and EFS, which have different pricing models. By choosing the appropriate storage option and optimizing the data storage, you can reduce the cost of running your EMR cluster.
+In conclusion, to minimize the cost of running your EMR cluster, you can choose Spot Instances, use Auto Scaling, use Reserved Instances, choose the appropriate instance types, and optimize your data storage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question338:"link"
+
+

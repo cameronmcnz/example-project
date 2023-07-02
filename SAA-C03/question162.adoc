@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "962 - A large educational institute is using A"
+---
+
+
+[.question]
+== 962-64a1fa74f053625db51ddea8.
+
+
+****
+
+[.query]
+--
+A large educational institute is using Amazon S3 buckets to save data for all graduation streams.
+During annual external audits from local government bodies, institutes need to fetch data of specific streams to get it audited from auditors.
+A large amount of data is saved in these S3 buckets, making it cumbersome to download whole data & retrieve only a small amount of information from it.
+The IT Team is looking for your consultation for this issue without incurring additional costs or compromising security.
+Which of the following actions is recommended for resolution?
+
+
+--
+
+[.list]
+--
+* [*] A. Store objects in CSV format compressing it with Snappy using server-side encryption. Use Amazon S3 Select to retrieve a subset of data.
+* [*] B. Store objects in JSON format compressing it with GZIP using server-side encryption. Use Amazon S3 Select to retrieve a subset of data.
+* [*] C. Store objects in Apache Parquet format compressing the whole object with GZIP using server-side encryption. Use Amazon S3 Select to retrieve a subset of data.
+* [ ] D. Store objects in CSV format compressing it with BZIP2 without any encryption. Use Amazon S3 Select to retrieve a subset of data.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Amazon S3 Select can be used to query a subset of data from the objects stored in the S3 bucket using simple SQL.
+For using this, objects need to be stored in an S3 bucket with CSV, JSON, or Apache Parquet format.
+GZIP &amp; BZIP2 compression is supported with CSV or JSON format with server-side encryption.
+Option A is incorrect as with Amazon S3 Select, only GZIP &amp; BZIP2 compression is supported with CSV format.
+Option C is incorrect as Whole Object compression is not supported for Parquet using GZIP.
+(Column compression is supported).
+Option D is incorrect as although this will work, saving objects in S3 without encryption will risk the security of objects.
+For more information on using S3 Select, refer to the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html
+The best option for the educational institute in this scenario is to store objects in Apache Parquet format compressing the whole object with GZIP using server-side encryption and using Amazon S3 Select to retrieve a subset of data. Therefore, the correct option is C.
+Storing objects in CSV format (option A and D) can lead to performance issues when retrieving data because it requires scanning the entire object to retrieve a subset of data. Additionally, compressing CSV with Snappy or BZIP2 might not yield optimal results for data retrieval.
+Storing objects in JSON format (option B) can also lead to performance issues as it requires parsing the entire object to retrieve a subset of data. Compressing JSON with GZIP might not yield optimal results for data retrieval, as GZIP can only compress one file at a time, which can increase the overhead in downloading and decompressing files.
+Apache Parquet format (option C) is a columnar storage format that can help optimize data retrieval as it stores data in columns rather than rows. This makes it more efficient to retrieve a subset of data as it only needs to read the relevant columns. Additionally, compressing the whole object with GZIP can help reduce storage costs and download times. Server-side encryption ensures that the data is secure while being stored in S3 buckets.
+Amazon S3 Select is a service that allows you to retrieve a subset of data from an object stored in S3, without having to download the entire object. This can help optimize performance and reduce costs as it reduces the amount of data that needs to be retrieved.
+Therefore, option C is the recommended solution for the educational institute, as it provides optimal performance, reduces costs, and maintains data security.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question183:"link"
+
+

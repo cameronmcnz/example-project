@@ -1,0 +1,104 @@
+---
+layout: default 
+title: "1316 - You are launching the AWS ECS instance
+Y"
+---
+
+
+[.question]
+== 1316-64a1fb22f053625db51de05d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_zjl7ti.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are launching the AWS ECS instance.
+You would like to set the ECS container agent configuration during the ECS instance launch.
+What should you do?
+
+
+[source,java]
+----
+Amazon ECS Container Agent
+
+The Amazon ECS-optimized AMI looks for agent configuration data in the /etc/ecs/ecs.config file when the container agent starts. You can
+specify this configuration data at launch with Amazon EC2 user data. For more information about available Amazon ECS container agent
+configuration variables, see Amazon ECS Container Agent Configuration.
+
+To set only a single agent configuration variable, such as the cluster name, use echo to copy the variable to the configuration file:
+
+ag
+
+#1/bin/bash
+echo "ECS_CLUSTER=MyCluster" >> /etc/ecs/ecs.config
+
+If you have multiple variables to write to /etc/ecs/ecs.config, use the following heredoc format. This format writes everything between the
+lines beginning with cat and EOF to the configuration file.
+
+#1/bin/bash
+cat <<"EOF' >> /etc/ecs/ecs.config
+ECS_CLUSTER=MyCluster
+
+"https://index.docker. io/v1/":{"username":"my_name", "password": "my password", "email": "email@example.com"}}
+
+ECS_LOGLEVEL=debug
+EOF
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Set configuration in the ECS metadata parameter during cluster creation.
+* [*] B. Set configuration in the user data parameter of EC2 instance.
+* [ ] C. Define configuration in the task definition.
+* [ ] D. Define configuration in the service definition.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+When you launch an Amazon ECS container instance, you have the option of passing user data to the instance.
+The data can be used to perform common automated configuration tasks and even run scripts when the instance boots.
+For Amazon ECS, the most common use cases for user data are to pass configuration information to the Docker daemon and the Amazon ECS container agent.
+Reference:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
+When launching an AWS ECS instance, there are different ways to set the ECS container agent configuration. Here are the possible ways:
+A. Set configuration in the ECS metadata parameter during cluster creation. This option is incorrect because the ECS metadata parameter is used to provide metadata to the container instance, such as resource limits, IAM roles, and user data. It is not used to set the ECS container agent configuration.
+B. Set configuration in the user data parameter of EC2 instance. This option is correct. The user data parameter is used to pass data to the EC2 instance when it is launched. It can be used to install software, run scripts, and set configuration. To set the ECS container agent configuration, you can include the configuration in the user data script. When the instance starts, the user data script will be executed and the ECS container agent configuration will be set.
+C. Define configuration in the task definition. This option is incorrect because the task definition is used to define the containers that run in the task, including their image, ports, environment variables, and resource requirements. It is not used to set the ECS container agent configuration.
+D. Define configuration in the service definition. This option is also incorrect because the service definition is used to define how tasks are deployed and managed, including the number of tasks to run, the load balancer to use, and the deployment strategy. It is not used to set the ECS container agent configuration.
+In summary, the correct way to set the ECS container agent configuration during the ECS instance launch is to include the configuration in the user data parameter of the EC2 instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question624:"link"
+
+

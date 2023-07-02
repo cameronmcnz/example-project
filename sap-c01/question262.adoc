@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1062 - A customer is hosting the company websit"
+---
+
+
+[.question]
+== 1062-64a1df57aa736d27b1db9434.
+
+
+****
+
+[.query]
+--
+A customer is hosting the company website on a cluster of web servers behind a public-facing Elastic Load Balancer.
+The customer also uses Amazon Route 53 to manage their public DNS.
+How should the customer configure the DNS zone apex record to point to the ELB?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an A record pointing to the IP address of the Load Balancer.
+* [ ] B. Create a CNAME record pointing to the Load Balancer DNS name.
+* [ ] C. Create a CNAME record aliased to the Load Balancer DNS name.
+* [*] D. Create an alias record that points to your Load Balancer.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because it suggests creating a record pointing to the IP address of the ELB; but, ELBs don't have predefined IP addresses.
+Options B and C are incorrect because you should preferably create an ALIAS record rather than a CNAME record.
+See the "More information..." section for more details.
+Option D is CORRECT - To route domain traffic to an Elastic Load Balancer, use Amazon Route 53 to create an alias record that points to your load balancer.
+An alias record is a Route 53 extension to DNS.
+It's similar to a CNAME record, but you can create an alias record for the root domain and subdomains.
+Please refer to page 386 in the below link:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route53-dg.pdf
+More information on ALIAS Record:
+Alias resource record sets are virtual records that work like CNAME records.
+But they differ from CNAME records in that they are not visible to resolvers.
+Resolvers only see the A record and the resulting IP address of the target record.
+Unlike CNAME records, alias resource record sets are available to configure a zone apex (also known as a root domain or naked domain) in a dynamic environment.
+For more information on the zone apex, please refer to the link below.
+http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/setting-up-route53-zoneapex-elb.html
+For more information on choosing between ALIAS and Non-ALIAS records, please refer to the link below.
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html?console_help=true
+The correct answer to this question is D. Create an alias record that points to your Load Balancer.
+Explanation: When a customer wants to point their domain name to an AWS resource like an Elastic Load Balancer (ELB), they can use Amazon Route 53, a DNS web service provided by AWS. In this case, the customer has already configured their website to be hosted on a cluster of web servers behind a public-facing ELB, and they want to use Route 53 to manage their public DNS.
+The DNS zone apex record (also known as the root domain) is the record that maps the customer's domain name (e.g., example.com) to an IP address or another DNS name. In this case, the customer wants to point the DNS zone apex record to the ELB so that all incoming requests for their website are routed through the ELB.
+To accomplish this, the customer should create an alias record that points to the ELB. An alias record is a special type of DNS record that allows the customer to map their domain name to an AWS resource like an ELB, an Amazon S3 bucket, or an Amazon CloudFront distribution.
+Creating an A record (option A) pointing to the IP address of the Load Balancer is not recommended because the IP address of the ELB can change over time, which means that the customer would need to update their DNS record manually each time the IP address changes.
+Creating a CNAME record (option B) pointing to the Load Balancer DNS name is also not recommended because the DNS specification does not allow a CNAME record to coexist with any other record type at the same DNS name. This means that the customer would not be able to create any other record types (such as MX or TXT records) at the DNS zone apex record.
+Creating a CNAME record aliased to the Load Balancer DNS name (option C) is also not recommended for the same reason as option B.
+Therefore, the correct answer is option D - Create an alias record that points to your Load Balancer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question387:"link"
+
+

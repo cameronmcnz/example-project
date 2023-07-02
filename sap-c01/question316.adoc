@@ -1,0 +1,134 @@
+---
+layout: default 
+title: "1116 - You are developing a REST API in Amazon "
+---
+
+
+[.question]
+== 1116-64a1df6aaa736d27b1db947b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgHO41W76tHPjeclDgf4vWdmRdFs7jlgdrVOfNeqYKtWFl_t_UwJVFrhw2xh9ja51ntoeL71GAZ1rn-bd4MvRVpF2mkOdLCqk3tCE1n9e8XOvir2JB3EMwgTjo9Df4uDEVA410JbX-[]
+
+--
+
+
+****
+
+[.query]
+--
+You are developing a REST API in Amazon API Gateway.
+The API integrates with a Lambda Function.
+You found that when clients hit the API using an unsupported method, the API Gateway has returned a Missing Authentication Token (403) response.
+As the response does not provide much information, you want to customize the response.
+For example, you want to change the error code to 404 and add some custom HTTP headers.
+How would you implement this?
+
+
+[source,java]
+----
+Gateway Responses Configuration - Missing Authentication Token | Reset to Default |{ Edit |
+
+Access Denied The gateway response for a missing authentication token error, including the cases when the client attempts to invoke an unsupported API
+
+method or resource. If the response type is unspecified, this response defaults to the DEFAULT_4XX type.
+API Configuration Error
+
+Authorizer Configuration Error
+Response status code
+Status code to be returned to the client.
+
+Bad Request Body 403
+
+Authorizer Failure:
+
+Bad Request Parameters
+
+Default 4xX
+
+Response headers
+Default 5XX Response headers to be returned to the client. The header values can take any incoming request parameter or a custom static value wrapped with single quotes
+(e.g. ‘my-static-value').
+Expired Token eg ‘my
+Integration Failure Q 1
+
+Integration Timeout
+
+Invalid API Key Response header v Value v
+Invalid Signature Access-Control-Allow-Origin ‘ab.c!
+© Missing Authentication Token
+x-request-id method.request.header.x-amzn-Requestld
+
+Quota Exceeded
+
+Request Too Large
+
+Resource Not Found Response templates
+----
+
+
+--
+
+[.list]
+--
+* [*] A. In the AWS API Gateway console, choose Gateway Responses under the API and select the 403 response. Add custom headers and modify the response status code to 404.
+* [ ] B. In the API method`s integration response, add the custom headers and modify the status code to 404.
+* [*] C. In the AWS API Gateway console, select the Missing Authentication Token 403 response. Forward it to an HTTP 404 Not Found response. Select the 404 response and add custom headers accordingly.
+* [ ] D. Select the API method and click the integration response. Forward the 403 response to a 404 Not Found response. In the meantime, add the custom headers in the forwarded response.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Users can customize the gateway response using the API Gateway console according to
+https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-gateway-response-using-the-console.html.
+Option A is CORRECT: Users can select the particular Missing Authentication Token 403 gateway response under the API and customize it as below screenshot:
+Option B is incorrect: In this scenario, it needs to modify the default gateway response.
+The integration response of the API method should not be changed.
+Option C is incorrect: Because in the AWS API Gateway console, users cannot forward a gateway response to another.
+Instead, the status code, headers and bodies should be customized.
+Option D is incorrect: Similar to option.
+B.
+The method configuration should not be modified.
+It does not change the API Gateway behavior when clients hit an unsupported method.
+The correct answer is A. In the AWS API Gateway console, choose Gateway Responses under the API and select the 403 response. Add custom headers and modify the response status code to 404.
+When a client hits an API using an unsupported method, the API Gateway returns a Missing Authentication Token (403) response. This response does not provide much information, so you may want to customize it. Specifically, you want to change the error code to 404 and add some custom HTTP headers.
+To implement this, you need to customize the Gateway Response. Gateway Responses are a set of HTTP responses that can be returned by API Gateway when there is an error or when a request does not match any of the defined API methods.
+Here are the steps to customize the Gateway Response:
+1. Go to the AWS API Gateway console.
+2. Select your API and choose Gateway Responses from the left-hand menu.
+3. Select the 403 response from the list of responses.
+4. Click on the pencil icon to edit the response.
+5. Modify the response status code to 404.
+6. Add the custom HTTP headers that you want to include.
+7. Click Save to save your changes.
+After you have customized the Gateway Response, API Gateway will return the modified response whenever a client hits the API using an unsupported method.
+Option B is incorrect because modifying the integration response would only modify the response returned from the Lambda function. It would not modify the Gateway Response returned by API Gateway.
+Option C is incorrect because forwarding the Missing Authentication Token 403 response to an HTTP 404 Not Found response would not be a valid solution. The client is not requesting a resource that is not found, but rather using an unsupported HTTP method.
+Option D is also incorrect because forwarding the 403 response to a 404 response is not a valid solution. It does not accurately represent the error that occurred, and it could cause confusion for clients consuming the API. Additionally, the custom headers should be added to the Gateway Response, not the forwarded response.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question458:"link"
+
+

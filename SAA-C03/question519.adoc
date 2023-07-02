@@ -1,0 +1,111 @@
+---
+layout: default 
+title: "1319 - Your organization must perform big data "
+---
+
+
+[.question]
+== 1319-64a1fb24f053625db51de061.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_jvodle.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization must perform big data analysis to transform data and store the result in the AWS S3 bucket.
+They have implemented the solution using AWS Lambda due to its zero-administrative maintenance and cost-effective nature.
+However, in very few cases, the execution is getting abruptly terminated after 15 minutes.
+They would like to get a notification in such scenarios.
+What would you do?
+
+
+[source,java]
+----
+Help x
+Debugging and error handling
+
+AWS Lambda will automatically
+retry failed executions for
+asynchronous invocations. You can
+additionally optionally configure
+SNS yi Lambda to forward payloads that
+were not processed to a dead-
+
+DLQ Resource Info
+Choose the AWS service to si
+
+id event payload to after exceeding maximu
+
+None
+letter queue (DLQ), such as an SQS
+
+oNs ‘queue or an SNS topic. Learn more
+
+5S about Lambda's retry policy and
+
+' : DLQs. Please ensure your role has
+appropriate permissions to
+Enable active tracing info access the DLQ resource.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Setup timer in the code and send a notification when the timer reaches 900 seconds.
+* [ ] B. Configure SES for failures under the Configuration option in the lambda function.
+* [ ] C. Setup the ERROR_NOTIFY environment variable with an email address. Lambda function has an inbuilt feature to send an email during max memory and time out terminations using this environment variable.
+* [*] D. Configure Dead-letter Queue and send a notification to SNS topic.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Option A is not correct.
+Although you can set the timers in the code, it may not be an accurate measure to determine if the lambda function is terminated after 900 seconds or just finished executing on the 900th second.
+Option B is not correct.
+There is no option to configure AWS SES within the Lambda setup.
+Option C is not a valid statement.
+Option D is correct.
+You can forward non-processed payloads to Dead Letter Queue (DLQ) using AWS SQS, AWS SNS.
+Refer:
+https://aws.amazon.com/about-aws/whats-new/2018/10/aws-lambda-supports-functions-that-can-run-up-to-15-minutes/ https://aws.amazon.com/blogs/compute/robust-serverless-application-design-with-aws-lambda-dlq/
+The correct answer for this scenario is option C, which involves setting up an environment variable to notify via email when the AWS Lambda function terminates due to a maximum timeout.
+AWS Lambda is a serverless computing service that runs code in response to events and automatically manages the compute resources required for the function's execution. One of the key benefits of using Lambda is its cost-effectiveness and zero-administrative maintenance, which allows developers to focus on writing code and not worry about server management.
+However, AWS Lambda has a maximum timeout limit of 15 minutes for each function execution. If the function runs for more than 15 minutes, it will abruptly terminate, and any running processes will be lost. In such cases, it is important to get notified of the abrupt termination to diagnose and troubleshoot the issue.
+Option A suggests setting up a timer in the code to send a notification when the timer reaches 900 seconds (15 minutes). While this may work in some scenarios, it is not a reliable solution, as the Lambda function may terminate before the timer goes off, and the notification may not be sent.
+Option B suggests configuring SES (Simple Email Service) for failures under the Configuration option in the lambda function. While SES can be used to send emails, it is not a reliable solution, as it is not specifically designed to notify Lambda function terminations.
+Option D suggests configuring a Dead-letter Queue (DLQ) and sending a notification to SNS (Simple Notification Service) topic. While this is a good practice for handling errors and failed executions, it does not directly address the issue of abrupt termination due to the maximum timeout limit.
+Option C, on the other hand, suggests setting up the ERROR_NOTIFY environment variable with an email address. The Lambda function has an inbuilt feature to send an email during maximum memory and timeout terminations using this environment variable. This solution is specifically designed to handle the issue of abrupt termination due to maximum timeout limit and is the most appropriate and reliable solution for this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question628:"link"
+
+

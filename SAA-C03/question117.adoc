@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "917 - A company has a set of web servers
+It is"
+---
+
+
+[.question]
+== 917-64a1fa65f053625db51dde77.
+
+
+****
+
+[.query]
+--
+A company has a set of web servers.
+It is required to ensure that all the logs from these web servers can be analyzed in real-time for any sort of threat detection.
+What could be the right choice in this regard?
+
+
+--
+
+[.list]
+--
+* [*] A. Upload all the logs to the SQS Service and then use EC2 Instances to scan the logs.
+* [*] B. Upload the logs to Amazon Kinesis and then analyze the logs accordingly.
+* [*] C. Upload the logs to CloudTrail and then analyze the logs accordingly.
+* [ ] D. Upload the logs to Glacier and then analyze the logs accordingly.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation provides the following information to support this requirement:
+Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information.
+Amazon Kinesis offers key capabilities to process streaming data cost-effectively at any scale, along with the flexibility to choose the tools that best suit the requirements of your application.
+With Amazon Kinesis, you can ingest real-time data such as video, audio, application logs, website clickstreams, and IoT telemetry data for machine learning, analytics, and other applications.
+For more information on Amazon Kinesis, please refer to the below URL:
+https://aws.amazon.com/kinesis/
+The best choice for real-time log analysis of web servers is to use Amazon Kinesis, so the correct answer is B.
+Here's a more detailed explanation:
+Option A: Uploading logs to SQS and using EC2 instances to scan the logs is not a viable solution for real-time analysis. SQS is a message queuing service and does not provide real-time processing capabilities, while EC2 instances would require significant setup and maintenance to perform the analysis.
+Option B: Amazon Kinesis is a managed streaming data service that allows real-time processing of data streams. By uploading the logs to Kinesis, they can be analyzed in real-time for threat detection using Kinesis data analytics, or processed by other AWS services like Lambda or Elasticsearch. Kinesis can scale horizontally to handle large volumes of data and offers high throughput and low latency.
+Option C: CloudTrail is an AWS service that logs API calls made within AWS, providing an audit trail of AWS activity. However, it is not designed for real-time log analysis of web servers.
+Option D: Glacier is an archival storage service for long-term data retention, and is not designed for real-time log analysis.
+In conclusion, the correct option for real-time log analysis of web servers is to upload the logs to Amazon Kinesis and analyze them accordingly.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question134:"link"
+
+

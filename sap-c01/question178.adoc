@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "978 - Your team is excited about using AWS bec"
+---
+
+
+[.question]
+== 978-64a1df36aa736d27b1db93ab.
+
+
+****
+
+[.query]
+--
+Your team is excited about using AWS because now they have access to "programmable Infrastructure”
+You have been asked to manage your AWS infrastructure in a manner similar to the way you might manage application code.
+You want to be able to deploy exact copies of different versions of your infrastructure, stage changes into different environments, revert to previous versions, and identify what versions are running at any particular time (development, test, QA, and production)
+Which approach addresses this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use cost allocation reports and AWS Opsworks to deploy and manage your infrastructure.
+* [ ] B. Use AWS CloudWatch metrics and alerts along with resource tagging to deploy and manage your infrastructure.
+* [ ] C. Use AWS Beanstalk and a version control system like GIT to deploy and manage your infrastructure.
+* [*] D. Use AWS CloudFormation and a version control system like GIT to deploy and manage your infrastructure.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+You can use AWS Cloud Formation's sample templates or create your own templates to describe the AWS resources, and any associated dependencies or runtime parameters required to run your application.
+You don't need to figure out the order for provisioning AWS services or the subtleties of making those dependencies work.
+CloudFormation takes care of this for you.
+After the AWS resources are deployed, you can modify and update them in a controlled and predictable way, in effect applying version control to your AWS infrastructure the same way you do with your software.
+You can also visualize your templates as diagrams and edit them using a drag-and-drop interface with the AWS CloudFormation Designer.
+Option A is incorrect because Cost Allocation Reports are not helpful for the purpose of the question.
+Option B is incorrect because CloudWatch is used for monitoring the metrics about different AWS resources.
+Option C is incorrect because it does not have the concept of programmable Infrastructure.
+Option D is CORRECT because AWS CloudFormation gives developers and systems administrators an easy way to create and manage a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion.
+For more information on CloudFormation, please visit the link-
+https://aws.amazon.com/cloudformation/
+The approach that addresses the given requirements is to use AWS CloudFormation and a version control system like GIT to deploy and manage the infrastructure.
+AWS CloudFormation is a service that allows users to define and provision AWS infrastructure as code (IaC) using templates, enabling them to automate the process of creating and managing resources. CloudFormation templates are written in JSON or YAML and can be version-controlled using tools like GIT.
+Using CloudFormation templates in conjunction with version control systems allows for the management of infrastructure to be treated in a similar manner to application code. By defining infrastructure as code, infrastructure changes can be tested and validated before they are deployed to a production environment, just as application code changes are validated. This approach enables the deployment of exact copies of different versions of infrastructure and the ability to revert to previous versions.
+Moreover, CloudFormation supports stack creation rollback and update rollback to simplify the process of undoing changes. By staging infrastructure changes in different environments, such as development, test, QA, and production, teams can ensure that infrastructure changes are thoroughly tested and validated before they are promoted to a production environment.
+In addition, using version control systems enables teams to track changes to infrastructure code and identify what versions are running at any particular time. This allows for easier management of multiple environments, such as testing and production, as well as the ability to audit and track changes made to the infrastructure over time.
+Therefore, option D (Use AWS CloudFormation and a version control system like GIT to deploy and manage your infrastructure) is the correct approach to address the given requirements.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question249:"link"
+
+

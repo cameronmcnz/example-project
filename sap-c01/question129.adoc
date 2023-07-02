@@ -1,0 +1,112 @@
+---
+layout: default 
+title: "929 - An Artificial Intelligence startup compa"
+---
+
+
+[.question]
+== 929-64a1df24aa736d27b1db935e.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_awsq3-3.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+An Artificial Intelligence startup company has used lots of EC2 instances.
+Some instances use the SQL Server database, while others use Oracle.
+As the data needs to be kept secure, regular snapshots are required.
+They want SQL Server EBS volume to take a snapshot every 12 hours.
+However, for Oracle, it only needs a snapshot every day.
+Which option below is the best one that the company should choose?
+
+
+[source,java]
+----
+Policies > Create Snapshot Lifecycle Policy
+
+Create Snapshot Lifecycle Policy
+
+Data Lifecycle Manager for EBS Snapshots will help you automate the creation and deletion of EBS snapshots based on a schedule. Volumes are targeted by tags
+
+Description* e
+
+Target volumes with tags This policy will be applied to volumes with any of the following tags. (i)
+
+You cannot use tags that are in use by another enabled or disabled lifecycle policy.
+
+* w GC
+
+A A value is required
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use a free third-party tool such as Clive to Manage EC2 instance lifecycle. It can design various backup policies for EC2 EBS volumes. Add a 12 hours backup policy to SQL Server EBS volumes and a 24 hours backup policy to Oracle EBS volumes.
+* [ ] B. Add a prefix to the name of both SQL Server and Oracle EBS volumes. In the AWS Data Lifecycle Management console, create two management policies based on the name prefix. For example, add a 12 hours backup schedule to EBS volumes with a name starting with “SQL” and add a 24 hours backup schedule to EBS volumes with a name starting with “oracle”.
+* [*] C. Create a dedicated Lambda function to differentiate EC2 EBS volumes and take snapshots. Set up Cloudwatch Events Rules to call the lambda so that the function runs every 12 hours for SQL Server and 24 hours for Oracle.
+* [*] D. Add different tags for SQL Server and Oracle EBS volumes. In the AWS Data Lifecycle Management console, create two management policies based on the tags. Add a 12 hours schedule to SQL Server lifecycle policy and a 24 hours schedule to Oracle lifecycle policy.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Amazon Data Lifecycle Manager (Amazon DLM) should be considered if automating snapshot management is required (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html).One thing to note is that the DLM policy has used Tags to choose EBS volumes.
+Option A is incorrect.
+Because although this may work, it is not a straightforward solution as DLM.
+Option B is incorrect.
+Because prefix in the name is incorrect.
+Tags (name and value) are used to choose EBS volumes.
+Option C is incorrect.
+Because it brings extra cost and is not as easy as DLM.
+The question asks for the solution without extra cost.
+Option D is CORRECT.
+Because two management policies in DLM can meet the needs.
+For example:
+For SQL Server EBS volume:
+For Oracle EBS volume:
+The best option for the company is D. Add different tags for SQL Server and Oracle EBS volumes. In the AWS Data Lifecycle Management console, create two management policies based on the tags. Add a 12 hours schedule to SQL Server lifecycle policy and a 24 hours schedule to Oracle lifecycle policy.
+Option A is incorrect because Clive is not a real tool, and AWS already provides a native solution for managing backups.
+Option B is incorrect because it involves manually adding a prefix to the name of EBS volumes, which is not scalable and prone to human error.
+Option C is incorrect because it requires creating a dedicated Lambda function and setting up Cloudwatch Events Rules, which is more complex and less efficient than using AWS Data Lifecycle Management.
+AWS Data Lifecycle Management (DLM) is a service that helps you automate the creation, retention, and deletion of EBS snapshots. By using DLM, you can create policies that define when and how often to take snapshots of your EBS volumes.
+To implement the solution, you need to:
+1. Tag your SQL Server and Oracle EBS volumes with distinct tags (e.g., SQL_Server and Oracle).
+2. Create two DLM policies, one for SQL Server and one for Oracle, based on the tags you added in step 1.
+3. Set the frequency of the SQL Server policy to every 12 hours and the Oracle policy to every 24 hours.
+4. Set the retention period for both policies based on your backup requirements.
+By using tags, you can easily identify and manage your EBS volumes based on their function or usage. The DLM policies ensure that your backups are taken at the required frequency and retained for the desired period.
+In summary, Option D is the best option for the company as it uses AWS Data Lifecycle Management to automate the creation of EBS snapshots based on distinct tags.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question172:"link"
+
+

@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1031 - You are an architect for a new sharing m"
+---
+
+
+[.question]
+== 1031-64a1df4aaa736d27b1db93fe.
+
+
+****
+
+[.query]
+--
+You are an architect for a new sharing mobile application.
+Anywhere in the world, your users can see local news on topics they choose.
+They can post pictures and videos from inside the application.
+Since the application is being used on a mobile phone, connection stability is required for uploading content, and delivery should be quick.
+
+
+--
+
+[.list]
+--
+* [*] A. Upload and store the files in S3 in several regions, and use Route53 to choose the region that has the minimal latency.
+* [ ] B. Upload and store in S3 in the region closest to the user and then use multiple distributions of CloudFront.
+* [ ] C. Upload to EC2 in regions closer to the user, send content to S3, use CloudFront.
+* [*] D. Use S3 Transfer Acceleration that uses the Cloudfront global edge locations for uploading the content to the S3 bucket and for content delivery.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is CORRECT because Route53 is not required in this case.
+Options B and C are both incorrect because you do not need to upload the content to the source that is closer to the user.
+CloudFront will take care of that.
+Option D is CORRECT because it uses S3 Transfer Acceleration to take advantage of the globally distributed edge locations in Amazon CloudFront.
+It enables fast, easy, and secure transfers of files over long distances.
+For more information on Cloudfront, please refer to the below URLs.
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.html https://stackoverflow.com/questions/24014596/upload-files-via-cloudfront-distribution https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AddingObjects.html
+The best solution for this scenario is D - Use S3 Transfer Acceleration that uses CloudFront global edge locations for uploading the content to the S3 bucket and for content delivery.
+Explanation:
+S3 Transfer Acceleration is a service provided by AWS that uses the CloudFront global network of edge locations to accelerate the transfer of files over the internet to S3 buckets. This means that data can be uploaded and delivered to users quickly and reliably, regardless of their location.
+Option A suggests uploading and storing files in S3 in several regions, and using Route53 to choose the region with the minimal latency. While this can work, it requires a lot of manual setup and management, and does not guarantee the fastest possible transfer speeds.
+Option B suggests uploading and storing files in S3 in the region closest to the user, and then using multiple distributions of CloudFront. While this can work well for content delivery, it does not address the issue of unstable connections when uploading content.
+Option C suggests uploading to EC2 instances in regions closer to the user, sending content to S3, and using CloudFront for content delivery. This option adds unnecessary complexity and management overhead, and may not provide the fastest transfer speeds.
+Option D is the best solution because it uses S3 Transfer Acceleration to take advantage of the CloudFront global network of edge locations for both uploading and delivering content. This ensures fast and reliable transfers regardless of user location and connection stability. S3 Transfer Acceleration uses optimized network paths and Amazon's backbone network to provide accelerated transfer speeds and is highly scalable and reliable.
+In summary, Option D provides the best solution for a mobile application where fast and reliable content upload and delivery is required.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question333:"link"
+
+

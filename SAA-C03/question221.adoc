@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1021 - You are working in a financial company a"
+---
+
+
+[.question]
+== 1021-64a1fa8af053625db51ddeea.
+
+
+****
+
+[.query]
+--
+You are working in a financial company, and you need to establish the network connections between on-premises data centers and AWS VPCs.
+The connectivity needs to be secure with IPsec connections.
+A predictable and high-performance network is also required over private lines.
+Which of the following methods would you select?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Direct Connect + VPN
+* [ ] B. AWS Managed VPN
+* [*] C. AWS Direct Connect
+* [ ] D. Software VPN.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS has provided several connectivity options, according to https://d1.awsstatic.com/whitepapers/aws-amazon-vpc-connectivity-options.pdf.
+VPN is needed as it creates an IPsec connection.
+AWS Direct Connect is also required because it establishes a private connection with high bandwidth throughput.
+Option A is CORRECT: Because with AWS Direct Connect + VPN, you can create IPsec-encrypted private connections.
+Option B is incorrect: Because only with VPN, the network performance cannot be guaranteed.
+Option C is incorrect: Because AWS Direct Connect does not use IPsec protocol.
+Option D is incorrect: Because Software VPN is still based on the internet instead of a dedicated network.
+For secure and predictable network connectivity between on-premises data centers and AWS VPCs with high-performance and private lines, the best option is to use AWS Direct Connect in combination with a VPN connection.
+AWS Direct Connect is a dedicated network connection service that establishes a private, high-bandwidth and low-latency connection between an on-premises data center and AWS VPCs. This connection provides a more reliable and consistent network performance than using the public internet.
+To enhance the security of the connection, you can establish an IPsec VPN connection over the AWS Direct Connect link. This will encrypt the data being transmitted over the network, providing a secure and private connection between your on-premises infrastructure and your AWS resources.
+The correct answer is A. AWS Direct Connect + VPN. AWS Managed VPN is also an option, but it's less ideal because it uses public internet connections which can be less reliable and less secure than a dedicated private line. Software VPN is also an option but it's not as performant as the Direct Connect + VPN solution because it depends on the public internet to transfer data, which can cause fluctuations in network performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question251:"link"
+
+

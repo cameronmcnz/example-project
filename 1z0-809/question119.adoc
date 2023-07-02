@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "919 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 919-64a1a863ef3e8462333a9cad.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0010700002.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+List<String> nums = Arrays.asList("EE", “SE");
+String ans = nums
+-parallelstream()
+
+-reduce("Java ", (a, b) -> a.concat(b));
+System. out print (ans);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Java EEJava EESE
+* [ ] B. Java EESE
+* [ ] C. The program prints either: Java EEJava SE or Java SEJava EE
+* [*] D. Java EEJava SE.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

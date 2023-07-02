@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "960 - A Media firm is saving all its old video"
+---
+
+
+[.question]
+== 960-64a1fa73f053625db51ddea6.
+
+
+****
+
+[.query]
+--
+A Media firm is saving all its old videos in S3 Glacier Deep Archive.
+Due to the shortage of new video footage, the channel has decided to reuse all these old videos.
+Since these are old videos, the channel is not sure of its popularity & response from users.
+Channel Head wants to make sure that these huge size files do not shoot up their budget.
+For this, as an AWS consultant, you advise them to use the S3 intelligent storage class.
+The Operations Team is concerned about moving these files to the S3 Intelligent-Tiering storage class.
+Which of the following actions can be taken to move objects in Amazon S3 Glacier Deep Archive to S3 Intelligent-Tiering storage class?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon S3 Console to copy these objects from S3 Glacier Deep Archive to required S3 Intelligent-Tiering storage class.
+* [ ] B. Use Amazon S3 Glacier Console to restore objects from S3 Glacier Deep Archive & then copy these objects to required S3 Intelligent-Tiering storage class.
+* [*] C. Use Amazon S3 console to restore objects from S3 Glacier Deep Archive & then copy these objects to required S3 Intelligent-Tiering storage class.
+* [ ] D. Use Amazon S3 Glacier console to copy these objects to the required S3 Intelligent-Tiering storage class.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+To move objects from Glacier Deep Archive to different storage classes, first need to restore to original locations using Amazon S3 console &amp; then use lifecycle policy to move objects to required S3 Intelligent-Tiering storage class.
+Option A &amp; D are incorrect as Objects in Glacier Deep Archive cannot be directly moved to another storage class.
+These need to be restored first &amp; then copied to the desired storage class.
+Option B is incorrect as the Amazon S3 Glacier console can be used to access the vaults and objects in them.
+But it cannot be used to restore the objects.
+For more information on moving objects between S3 storage classes, refer to the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html
+In order to move objects from Amazon S3 Glacier Deep Archive to S3 Intelligent-Tiering storage class, we need to first understand the differences between the two storage classes and their properties.
+Amazon S3 Glacier Deep Archive is a very low-cost, long-term archival storage class that provides secure, durable object storage. The cost of storing data in S3 Glacier Deep Archive is much lower than S3 Intelligent-Tiering, but the retrieval time can take several hours. This storage class is suitable for data that is rarely accessed and has a retrieval time of 12 hours or more.
+On the other hand, Amazon S3 Intelligent-Tiering storage class is designed to optimize costs by automatically moving objects between two access tiers: frequent access and infrequent access. This storage class is suitable for data with unknown or changing access patterns, where it automatically moves data between access tiers based on changing access patterns.
+Given the above differences, it is clear that S3 Intelligent-Tiering storage class is better suited for data with unknown access patterns, as is the case with the media firm's old videos. Therefore, as an AWS consultant, we can advise the firm to use the S3 Intelligent-Tiering storage class.
+To move objects from S3 Glacier Deep Archive to S3 Intelligent-Tiering storage class, we have four options:
+Option A: Use Amazon S3 Console to copy these objects from S3 Glacier Deep Archive to required S3 Intelligent-Tiering storage class. This option involves using the S3 console to copy the objects from S3 Glacier Deep Archive to the required S3 Intelligent-Tiering storage class. This option is valid, as we can use the S3 console to copy objects between different storage classes.
+Option B: Use Amazon S3 Glacier Console to restore objects from S3 Glacier Deep Archive and then copy these objects to the required S3 Intelligent-Tiering storage class. This option involves using the S3 Glacier console to restore the objects from S3 Glacier Deep Archive and then using the S3 console to copy the objects to the required S3 Intelligent-Tiering storage class. This option is also valid, as we can restore the objects from S3 Glacier Deep Archive using the S3 Glacier console.
+Option C: Use Amazon S3 console to restore objects from S3 Glacier Deep Archive and then copy these objects to the required S3 Intelligent-Tiering storage class. This option is the same as option B, except that we are using the S3 console to restore the objects from S3 Glacier Deep Archive. This option is also valid, as we can restore the objects from S3 Glacier Deep Archive using the S3 console.
+Option D: Use Amazon S3 Glacier console to copy these objects to the required S3 Intelligent-Tiering storage class. This option is not valid, as the S3 Glacier console does not have the capability to copy objects to S3 Intelligent-Tiering storage class.
+Therefore, options A, B, and C are all valid ways to move objects from S3 Glacier Deep Archive to S3 Intelligent-Tiering storage class.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question181:"link"
+
+

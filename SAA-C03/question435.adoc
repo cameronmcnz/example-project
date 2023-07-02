@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1235 - You plan to manage API keys in AWS Secre"
+---
+
+
+[.question]
+== 1235-64a1faf7f053625db51ddff1.
+
+
+****
+
+[.query]
+--
+You plan to manage API keys in AWS Secrets Manager.
+The keys need to be automatically rotated to be compliant with the company policy.
+From Secrets Manager, applications can get the latest version of the API credentials.
+How would you implement the rotation of keys?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Parameter Store to store and rotate the keys as Secrets Manager does not support it.
+* [ ] B. Directly add multiple keys in Secrets Manager for rotation and the keys will be rotated every year automatically.
+* [*] C. Customize the Lambda function that performs the rotation of secrets in Secrets Manager.
+* [ ] D. Create two secrets in Secrets Manager to store two versions of the API credentials. Modify the application to get one of them.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect because Secrets Manager supports the key rotation for database credentials, third-party services, etc.
+Option B is incorrect because Secrets Manager natively knows how to rotate secrets for supported databases such as RDS.
+For other secret types, such as API keys, users need to customize the Lambda rotation function.
+Option C is CORRECT because, for API keys, users must provide the code for the Lambda function that rotates the secrets.
+Option D is incorrect because only one secret in Secrets Manager is required, and the application should always get the latest version of the secret.
+Reference:
+https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html. https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-lambda-function-customizing.html.
+To implement the rotation of API keys stored in AWS Secrets Manager, you need to use the Secrets Manager built-in functionality called "Rotation." Rotation automates the process of creating new versions of secrets and updating applications to use the latest version.
+Option A is incorrect because AWS Parameter Store is not designed for secret management, and it does not support automatic rotation of secrets.
+Option B is incorrect because automatic rotation of secrets is not performed on a fixed schedule. Instead, it is triggered by an event, such as the expiration of a secret or a user-defined rotation schedule.
+Option C is partially correct because customizing the Lambda function that performs the rotation of secrets is required to implement the key rotation in Secrets Manager. You need to create a Lambda function that can access the old and new versions of the secret, update the application to use the new version, and then delete the old version. Secrets Manager provides pre-built Lambda functions that can be customized to meet specific requirements.
+Option D is the correct answer because it describes the recommended way to implement key rotation in Secrets Manager. You create two secrets in Secrets Manager to store two versions of the API credentials, and then modify the application to get the latest version of the secret. You also configure Secrets Manager to rotate the secrets automatically. When a secret is rotated, a new version is created, and the old version is marked as inactive. The application will automatically start using the new version of the secret, and the old version will be deleted after a configurable number of days.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question515:"link"
+
+

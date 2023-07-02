@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "1063 - By default when an EBS volume is attache"
+---
+
+
+[.question]
+== 1063-64a1df57aa736d27b1db9435.
+
+
+****
+
+[.query]
+--
+By default, when an EBS volume is attached to a Windows instance, it may show up as any drive letter on the instance.
+Which of the following services can be used to change the settings of the drive letters of the EBS volumes as per your specifications?
+
+
+--
+
+[.list]
+--
+* [*] A. EBSConfig Service
+* [ ] B. AMIConfig Service
+* [*] C. EC2Config
+* [ ] D. EC2-AMIConfig Service.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option C is correct because the EC2Config service (EC2Config.exe) is an application that enables users to make changes to windows VMs, such as changing the drive letters for any attached Amazon EBS volumes.
+EC2Config starts when the instance boots and performs tasks during startup and each time you stop or start the instance.
+Please refer to the below link.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+Option A is incorrect because there is no such service as EBSConfig service.
+Option B is incorrect because there is no such service as AMIConfig service.
+Option D is incorrect because there is no such service as EC2-AMIConfig service.
+The correct answer is C. EC2Config.
+EC2Config is a Windows service provided by Amazon Web Services (AWS) that is used to manage instances running on Amazon Elastic Compute Cloud (EC2). The EC2Config service can be used to customize the configuration of instances running on EC2.
+When an EBS volume is attached to a Windows instance, the drive letter assigned to the volume by default may not match the desired configuration of the user. The EC2Config service can be used to change the settings of the drive letters of the EBS volumes as per the user's specifications.
+Option A, EBSConfig Service, and Option B, AMIConfig Service, are not valid AWS services. Option D, EC2-AMIConfig Service, is also not a valid AWS service.
+In summary, EC2Config is the correct AWS service that can be used to change the drive letter settings of EBS volumes attached to Windows instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question388:"link"
+
+

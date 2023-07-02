@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "986 - Your company requires a Stackbased model"
+---
+
+
+[.question]
+== 986-64a1fa7cf053625db51ddec3.
+
+
+****
+
+[.query]
+--
+Your company requires a Stack-based model for its resources in AWS.
+There is a need to have different stacks for the Development and Production environments.
+Which of the following can be used for this?
+
+
+--
+
+[.list]
+--
+* [*] A. Use EC2 tags to define different stack layers for your resources.
+* [ ] B. Define the metadata for the different layers in DynamoD.
+* [*] C. Use AWS OpsWorks to define the different layers for your application.
+* [ ] D. Use AWS Config to define the different layers for your application.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+The requirement can be fulfilled via the OpsWorks service.
+The AWS Documentation given below supports this requirement:
+AWS OpsWorks Stacks lets you manage applications and servers on AWS and on-premises.
+With OpsWorks Stacks, you can model your application as a stack containing different layers, such as load balancing, database, and application server.
+You can deploy and configure Amazon EC2 instances in each layer or connect other resources such as Amazon RDS databases.
+For more information on OpsWorks stacks, please visit the following URL:
+https://aws.amazon.com/opsworks/stacks/
+A stack is basically a collection of instances that are managed together for serving a common task.
+Consider a sample stack whose purpose is to serve web applications.
+It will be comprised of the following instances.
+A set of application server instances, each of which handles a portion of the incoming traffic.
+A load balancer instance, which takes incoming traffic and distributes it across the application servers.
+A database instance, which serves as a back-end data store for the application servers.
+A common practice is to have multiple stacks that represent different environments.
+A typical set of stacks consists of:
+A development stack to be used by developers to add features, fix bugs, and perform other development and maintenance tasks.
+A staging stack to verify updates or fixes before exposing them publicly.
+A production stack, which is the public-facing version that handles incoming requests from users.
+For more information, please see the link given below:
+https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks.html
+The answer is C. Use AWS OpsWorks to define the different layers for your application.
+AWS OpsWorks is a configuration management service that uses Chef, an automation platform, to manage and automate infrastructure deployment. OpsWorks provides a way to define a stack, which is a collection of AWS resources that are managed together as a single unit. By using OpsWorks, you can define different stacks for different environments, such as development and production, and configure them independently.
+EC2 tags (Option A) can be used to categorize EC2 instances but are not specific to creating stack-based models for resources.
+DynamoDB (Option B) is a NoSQL database service, and it is not related to creating stack-based models for resources.
+AWS Config (Option D) is a service that provides a detailed view of the configuration of AWS resources in an account. While it can help with tracking and managing changes to resources, it is not specifically designed to create a stack-based model for resources.
+In summary, AWS OpsWorks is the best option for creating a stack-based model for resources in AWS, where different stacks can be defined for different environments.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question211:"link"
+
+

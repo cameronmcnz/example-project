@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "983 - Youve been brought in as a solutions arc"
+---
+
+
+[.question]
+== 983-64a1df38aa736d27b1db93b3.
+
+
+****
+
+[.query]
+--
+You've been brought in as a solutions architect to assist an enterprise customer with their migration of an e-commerce platform to Amazon Virtual Private Cloud (VPC)
+The previous architect has already deployed a 3- tier VPC.
+The configuration is as follows.
+
+
+--
+
+[.list]
+--
+* [*] A. Create a bastion and NAT Instance in subnet-258bc44d and add a route to rtb-238bc44b pointing to subnet-258bc44d.
+* [ ] B. Add a route to rtb-238bc44b pointing to igw-2d8bc445 and add a bastion and NAT instance within Subnet-248bc44c.
+* [ ] C. Create a Bastion and NAT Instance in subnet-258bc44d. Add a route to rtb-238bc44b pointing to igw-2d8bc445, and a new NACL that allows access between subnet-258bc44d and subnet-248bc44c.
+* [*] D. Create a Bastion and NAT instance in subnet-258bc44d and add a route to rtb-238bc44b pointing to the NAT instance.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because the route should be pointing to NAT.
+Option B is incorrect because adding IGW to route rtb-238bc44b would expose the application and database server to the internet.
+Bastion and NAT should be in the public subnet.
+Option C is incorrect because the route should point to NAT and not Internet Gateway else it would be internet accessible.
+Option D is CORRECT because Bastion and NAT should be in the public subnet.
+As Web Server has direct access to the Internet, the subnet subnet-258bc44d should be public and Route rtb-218bc449 pointing to IGW.
+Route rtb-238bc44b for private subnets should point to NAT for outgoing internet access.
+Sure, I'd be happy to explain the options available for configuring a 3-tier VPC to enable the migration of an e-commerce platform to Amazon Virtual Private Cloud (VPC).
+First, let's review the components of a typical 3-tier VPC architecture:
+Public subnet: contains resources that are exposed to the internet, such as web servers.
+Private subnet: contains resources that should not be exposed to the internet, such as application servers and databases.
+Data subnet: contains resources that store data, such as databases.
+Option A proposes to create a bastion and NAT instance in subnet-258bc44d and add a route to rtb-238bc44b pointing to subnet-258bc44d.
+This option involves creating a bastion host in the public subnet (subnet-258bc44d) to allow secure access to instances in the private subnet. A NAT instance is also created in the public subnet to allow private instances to access the internet. The route table (rtb-238bc44b) is updated to direct traffic to the NAT instance in the public subnet.
+Option B proposes to add a route to rtb-238bc44b pointing to igw-2d8bc445 and add a bastion and NAT instance within Subnet-248bc44c.
+This option involves creating a NAT gateway in the public subnet (subnet-248bc44c) to allow private instances to access the internet. A bastion host is also created in the public subnet for secure access to instances in the private subnet. The route table (rtb-238bc44b) is updated to direct traffic to the NAT gateway in the public subnet.
+Option C proposes to create a Bastion and NAT Instance in subnet-258bc44d. Add a route to rtb-238bc44b pointing to igw-2d8bc445, and a new NACL that allows access between subnet-258bc44d and subnet-248bc44c.
+This option is similar to Option A, but instead of adding a route to the NAT instance, a new network access control list (NACL) is created to allow traffic between the public and private subnets.
+Option D proposes to create a Bastion and NAT instance in subnet-258bc44d and add a route to rtb-238bc44b pointing to the NAT instance.
+This option is similar to Option A, but instead of creating a bastion host, only a NAT instance is created in the public subnet (subnet-258bc44d) to allow private instances to access the internet. The route table (rtb-238bc44b) is updated to direct traffic to the NAT instance in the public subnet.
+In general, all of these options involve creating a bastion host and NAT instance in the public subnet to allow secure access and internet connectivity for instances in the private subnet. The choice between these options will depend on the specific requirements of the enterprise customer and the existing VPC configuration.
+I hope this explanation helps!
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question257:"link"
+
+

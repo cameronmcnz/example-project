@@ -1,0 +1,92 @@
+---
+layout: default 
+title: "1338 - Which of the following statements is tru"
+---
+
+
+[.question]
+== 1338-64a1fb30f053625db51de07e.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_hgx0i0.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following statements is true with respect to encryption?
+
+
+[source,java]
+----
+Changing the Encryption State of Your Data
+
+There is no direct way to encrypt an existing unencrypted volume, or to remove encryption from an encrypted
+volume. However, you can migrate data between encrypted and unencrypted volumes. You can also apply a new
+encryption status while copying a snapsh
+
+* While copying an unencrypted snapshot of an unencrypted volume, you can encrypt the copy. Volumes
+restored from this encrypted copy are also encrypted.
+
+* While copying an encrypted snapshot of an encrypted volume, you can associate the copy with a different
+CMK. Volumes restored from the encrypted copy are only accessible using the newly applied CMK.
+
+You cannot remove encryption from an encrypted snapshot.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. You can enable encryption when creating a snapshot from an unencrypted volume.
+* [*] B. You can enable encryption while copying a snapshot from an unencrypted snapshot.
+* [ ] C. You can disable encryption while creating a snapshot from encrypted volume.
+* [ ] D. You can disable encryption while copying a snapshot from an encrypted snapshot.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_c
+Option Cand option A is not correct.
+Option A is wrong because You cannot enable Encryption when creating a snapshot from an unencrypted volume.
+You can only view whether the volume is encrypted or not.
+Option D is not correct.
+We cannot disable encryption while performing a copy of a snapshot.
+Out of the given options, the correct statement with respect to encryption is A. You can enable encryption when creating a snapshot from an unencrypted volume.
+Here is a detailed explanation for each option:
+A. You can enable encryption when creating a snapshot from an unencrypted volume: This statement is true. Amazon Web Services (AWS) allows you to create an encrypted snapshot from an unencrypted volume. You can choose to encrypt the snapshot at the time of creation. AWS uses AWS KMS (Key Management Service) to encrypt the snapshot. When you create an encrypted snapshot, AWS KMS generates a unique data key for that snapshot, which is then used to encrypt the data in the snapshot. You can also choose to use your own KMS key to encrypt the snapshot.
+B. You can enable encryption while copying a snapshot from an unencrypted snapshot: This statement is false. Once a snapshot is created, you cannot enable encryption for it. If you want to create an encrypted snapshot, you need to create a new snapshot from the unencrypted volume and choose to encrypt it at the time of creation.
+C. You can disable encryption while creating a snapshot from an encrypted volume: This statement is false. Once a volume is encrypted, all snapshots created from that volume are also encrypted. You cannot disable encryption for an encrypted volume or its snapshots.
+D. You can disable encryption while copying a snapshot from an encrypted snapshot: This statement is false. Once a snapshot is encrypted, all subsequent snapshots created from it are also encrypted. You cannot disable encryption for an encrypted snapshot or its subsequent snapshots.
+In summary, the only true statement is that you can enable encryption when creating a snapshot from an unencrypted volume.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question657:"link"
+
+

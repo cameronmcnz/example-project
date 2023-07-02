@@ -1,0 +1,112 @@
+---
+layout: default 
+title: "1061 - You want to set up a public website on A"
+---
+
+
+[.question]
+== 1061-64a1fa9df053625db51ddf17.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_5amei6.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You want to set up a public website on AWS.
+Your requirements are as follows. You want the database and the application server running on AWS VPC.
+You want the database to be able to connect to the Internet, specifically for patch upgrades. You do not want to receive any incoming requests from the Internet to the database. Which of the following solutions would best satisfy all these requirements?
+
+
+[source,java]
+----
+198.51.
+198.51]
+198.51.
+
+sparsely GS
+
+100.3 IP) 100.07 NAT gateway
+‘Web servers 198 51.100.4 (Elastic IP)
+
+Public subnet
+
+\t
+
+Custom route table
+
+Destination Target
+10.0.0.0/16 local
+0.0.0.0/0 igw-id
+
+a
+
+Main route table
+
+Destination Target
+10.0.0.0/16 local
+0.0.0.0/0 nat-gateway-id
+
+10.0.0.0/16
+
+Region
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Set up the database in a private subnet with a security group that only allows outbound traffic.
+* [ ] B. Set up the database in a public subnet with a security group that only allows inbound traffic.
+* [*] C. Set up the database in a local data center and use a private gateway to connect the application to the database.
+* [*] D. Set up the public website on a public subnet and setup the database in a private subnet that connects to the Internet via a NAT Gateway.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+The below diagram from AWS Documentation showcases this architecture.
+For more information on the VPC Scenario for public and private subnets, please visit the link below.
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
+The best solution that satisfies all the given requirements is to set up the public website on a public subnet and set up the database in a private subnet that connects to the Internet via a NAT Gateway. Therefore, the correct answer is option D.
+Here's a detailed explanation of why this solution is the best fit:
+1.
+Set up the database in a private subnet with a security group that only allows outbound traffic: This option fulfills the requirement of keeping the database server within the VPC. However, it does not allow the database server to connect to the Internet for patch upgrades.
+2.
+Set up the database in a public subnet with a security group that only allows inbound traffic: This option violates the requirement of not allowing incoming requests from the Internet to the database. Hence, this is not a suitable solution.
+3.
+Set up the database in a local data center and use a private gateway to connect the application to the database: This option does not fulfill the requirement of running the database on AWS VPC.
+4.
+Set up the public website on a public subnet and set up the database in a private subnet that connects to the Internet via a NAT Gateway: This solution meets all the given requirements. The public website can be hosted on a public subnet, and the database can be hosted on a private subnet. The database can connect to the Internet via a NAT Gateway to receive patch upgrades while not allowing incoming requests from the Internet to the database. Therefore, this is the best solution among the given options.
+In conclusion, setting up the public website on a public subnet and the database in a private subnet that connects to the Internet via a NAT Gateway is the best solution that satisfies all the requirements stated in the question.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question297:"link"
+
+

@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1008 - A complicated data analysis software in "
+---
+
+
+[.question]
+== 1008-64a1df43aa736d27b1db93df.
+
+
+****
+
+[.query]
+--
+A complicated data analysis software in JAVA has used a standard SQS queue to decouple users' requests and the backend processing.
+The visibility timeout for the queue is set as 60 seconds.
+In most cases, the process of messages can finish within 1 minute successfully.
+However, it may take about 100 seconds for the backend to get the job done for certain new requests.
+These requests are tagged with a specific JSON header by the frontend already.
+You want to ensure that these new requests are processed properly in the backend.
+How should you improve the queue configurations in the best way?
+
+
+--
+
+[.list]
+--
+* [*] A. In the AWS SQS console, simply change the default visibility timeout from 1 minute to 2 minutes.
+* [*] B. Use AWS SDK to adjust the visibility timeout to 2 minutes for messages that contain the specific JSON header.
+* [*] C. Change the queue type from standard to FIFO with the default visibility timeout configured as 2 minutes.
+* [ ] D. Create a new SQS queue as the dead letter queue. Route these specific requests to the dead letter queue so that the normal backend process is not influenced.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+For the new requests, the default visibility timeout of 60 seconds for the queue would be insufficient.
+The messages' visibility should be extended by specifying a new timeout value using the ChangeMessageVisibility action through the AWS SDK.
+Option A is incorrect: Because this change in the AWS console is a global change for all messages in the queue.
+However, in this case, only specific messages need to extend the timer.
+Option B is correct: Refer to https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-visibility-timeout-queue.html on how to configure Visibility Timeout for an Amazon SQS queue.
+Using the method, those messages with particular JSON headers can get a revised timer.
+Option C is incorrect: Because the FIFO queue type does not help with the visibility timeout issue for the new messages.
+Option D is incorrect: Although the dead letter queue can help isolate the new messages, it cannot fix the problem on the visibility timeout issue.
+Besides, the timer needs to be enlarged only for these new messages.
+In this scenario, a complicated data analysis software in Java is using a standard SQS queue to decouple user requests and backend processing. The visibility timeout for the queue is set to 60 seconds. However, for certain new requests that are tagged with a specific JSON header by the frontend, it may take about 100 seconds for the backend to complete the job.
+To ensure that these new requests are processed properly in the backend, the queue configurations need to be improved. Let's examine each of the answer choices to determine the best course of action:
+A. In the AWS SQS console, simply change the default visibility timeout from 1 minute to 2 minutes.
+This option may work in some cases where the backend processing time is slightly longer than the current visibility timeout. However, in this scenario, the processing time is significantly longer, and changing the default visibility timeout for the entire queue may negatively impact the overall performance of the system.
+B. Use AWS SDK to adjust the visibility timeout to 2 minutes for messages that contain the specific JSON header.
+This option is a more targeted approach than changing the default visibility timeout for the entire queue. By using the AWS SDK to adjust the visibility timeout to 2 minutes only for messages that contain the specific JSON header, we can ensure that only the necessary messages are affected by the longer timeout. This will help improve the processing of the specific requests without negatively impacting the overall system performance.
+C. Change the queue type from standard to FIFO with the default visibility timeout configured as 2 minutes.
+Changing the queue type from standard to FIFO can provide ordering guarantees for messages, which may be useful in some scenarios. However, in this case, it does not address the specific issue of processing requests with a longer backend processing time. Additionally, changing the queue type may require significant modifications to the code that interacts with the queue.
+D. Create a new SQS queue as the dead letter queue. Route these specific requests to the dead letter queue so that the normal backend process is not influenced.
+Creating a new SQS queue as the dead letter queue can be useful for handling messages that cannot be processed by the normal backend process. However, in this case, the issue is not with the message itself but with the backend processing time. Routing these specific requests to the dead letter queue would not address the issue of longer processing times.
+Based on the above analysis, the best option is B: Use AWS SDK to adjust the visibility timeout to 2 minutes for messages that contain the specific JSON header. This option provides a targeted approach to improving the queue configurations without negatively impacting the overall system performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question302:"link"
+
+

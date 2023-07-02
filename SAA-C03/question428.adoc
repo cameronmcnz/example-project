@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1228 - You are analyzing dynamic scaling activi"
+---
+
+
+[.question]
+== 1228-64a1faf3f053625db51ddfe9.
+
+
+****
+
+[.query]
+--
+You are analyzing dynamic scaling activity defined to process messages from an Amazon SQS queue.
+You are using a target tracking policy.
+CloudWatch alarms are meant to invoke the scaling policy.
+However, you have noticed that the EC2 Auto Scaling group does not seem to be responding to a CloudWatch alarm.
+Which option may cause it?
+
+
+--
+
+[.list]
+--
+* [*] A. Wrong CloudWatch metric is configured in the CloudWatch alarm.
+* [*] B. The Auto Scaling group is under the cooldown period.
+* [ ] C. The minimum number of instances in the ASG is 0.
+* [ ] D. The desired number of instances in the ASG is 0.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+The cooldown period is the amount of time to wait for a previous scaling activity to take effect is called the cooldown period.
+Option A is incorrect because the CloudWatch alarm is already triggered so wrong CloudWatch metric does not cause the problem.
+Option B is CORRECT because under the cooldown period, scaling activities will not be triggered.
+Option C is incorrect because this option will not stop the ASG from adding/deleting instances.
+Option D is incorrect because with the option, the ASG can still add/delete instances by adjusting the desired number of instances.
+References:
+https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html
+Sure, I can provide you with a detailed explanation of the answer options for this question.
+The scenario given in the question involves an Auto Scaling group (ASG) that is not responding to a CloudWatch alarm when using a target tracking policy to process messages from an Amazon SQS queue. In this scenario, there are several possible reasons why the ASG may not be responding to the CloudWatch alarm.
+Option A: Wrong CloudWatch metric is configured in the CloudWatch alarm This option suggests that the CloudWatch alarm may be using an incorrect metric, which may cause the ASG not to respond to the alarm. If the metric is not correctly configured, then the alarm will not trigger the scaling policy to add or remove instances from the ASG. Therefore, this option could be a possible reason why the ASG is not responding to the CloudWatch alarm.
+Option B: The Auto Scaling group is under the cooldown period The cooldown period is a configurable setting that can be applied to an ASG. During this period, the ASG is temporarily prevented from scaling in or out in response to a scaling event. The cooldown period is used to prevent the ASG from overreacting to a temporary burst in traffic, and it ensures that the ASG has enough time to stabilize after scaling activities. If the ASG is currently under a cooldown period, it may not respond to the CloudWatch alarm. Therefore, this option could also be a possible reason why the ASG is not responding to the CloudWatch alarm.
+Option C: The minimum number of instances in the ASG is 0 The minimum number of instances in an ASG is a configurable setting that defines the minimum number of instances that the ASG should always maintain. If the minimum number of instances is set to 0, the ASG will not maintain any instances, even if there is an increase in traffic. Therefore, if the minimum number of instances in the ASG is set to 0, this could be a possible reason why the ASG is not responding to the CloudWatch alarm.
+Option D: The desired number of instances in the ASG is 0 The desired number of instances in an ASG is a configurable setting that defines the desired number of instances that the ASG should maintain. If the desired number of instances is set to 0, the ASG will not maintain any instances, even if there is an increase in traffic. Therefore, if the desired number of instances in the ASG is set to 0, this could be a possible reason why the ASG is not responding to the CloudWatch alarm.
+In summary, all of the given answer options could potentially be the reason why the ASG is not responding to the CloudWatch alarm. However, without further information about the specific configuration of the ASG and CloudWatch alarm, it is difficult to determine which option is the correct answer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question507:"link"
+
+

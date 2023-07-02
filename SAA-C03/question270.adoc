@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1070 - You have a lifecycle rule for an S3 buck"
+---
+
+
+[.question]
+== 1070-64a1faa1f053625db51ddf21.
+
+
+****
+
+[.query]
+--
+You have a lifecycle rule for an S3 bucket that archives objects to the S3 Glacier storage class 60 days after creation.
+The archived objects are no longer needed one year after being created.
+How would you configure the S3 bucket to save more cost?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure a rule in S3 Glacier to place delete markers for objects that are one year old.
+* [*] B. Configure the S3 lifecycle rule to expire the objects after 365 days from object creation.
+* [*] C. Modify the S3 lifecycle rule to clean up expired object delete markers for one year old objects.
+* [ ] D. Modify the S3 lifecycle rule to use S3 Glacier Deep Archive which automatically deletes objects one year after creation.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Users can configure the expiration actions in S3 lifecycle management.
+Details can be found in https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html.
+Option A is incorrect: Because users cannot configure a rule to place delete markers in S3 Glacier.
+Option B is CORRECT: Because users can configure the object expiration in the S3 life cycle, Amazon S3 will remove the expired objects.
+Option C is incorrect: Because cleaning up expired object delete markers does not expire the objects.
+This action does not save costs.
+Option D is incorrect: Because S3 Glacier Deep Archive does not automatically delete objects.
+The most cost-effective option for managing the lifecycle of objects in an S3 bucket is to use S3 lifecycle policies. These policies can be used to automatically move objects to a different storage class or delete them after a specified period of time.
+In this scenario, the lifecycle rule for the S3 bucket is currently configured to archive objects to the S3 Glacier storage class 60 days after creation. However, it is stated that these archived objects are no longer needed one year after being created. Therefore, we need to modify the S3 lifecycle rule to save more cost.
+Option A, to configure a rule in S3 Glacier to place delete markers for objects that are one year old, is incorrect because it does not address the need to reduce costs. The delete markers do not actually delete the objects themselves, they just mark them for deletion in the future. Therefore, this option would not reduce the storage costs associated with the S3 Glacier storage class.
+Option B, to configure the S3 lifecycle rule to expire the objects after 365 days from object creation, is a possible solution to reduce storage costs. By expiring the objects after one year, they will be automatically deleted and will no longer incur storage costs. This option should be considered if it is confirmed that the archived objects are no longer needed after one year.
+Option C, to modify the S3 lifecycle rule to clean up expired object delete markers for one year old objects, is incorrect because it only addresses the delete markers and not the objects themselves. This option would not reduce the storage costs associated with the S3 Glacier storage class.
+Option D, to modify the S3 lifecycle rule to use S3 Glacier Deep Archive which automatically deletes objects one year after creation, is also a possible solution to reduce storage costs. The S3 Glacier Deep Archive storage class is the lowest-cost storage option offered by S3, and it is designed for long-term data archiving. It is configured to automatically delete objects after 180 days of no access or after 1 year from creation, whichever comes first. Therefore, this option would be an effective way to reduce storage costs.
+In summary, the correct answer would be either B or D, depending on the specific needs and use case. Option B would be the best option if it is confirmed that the archived objects are no longer needed after one year. Option D would be the best option if there is no specific requirement to retain the archived objects beyond one year, as it offers the lowest-cost storage option.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question307:"link"
+
+

@@ -1,0 +1,92 @@
+---
+layout: default 
+title: "1350 - In your organization an application team"
+---
+
+
+[.question]
+== 1350-64a1fb37f053625db51de08f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_msvi90.png[]
+
+--
+
+
+****
+
+[.query]
+--
+In your organization, an application team sets up an autoscaling group configuration (with a simple scaling policy) to launch a new instance when CPU utilization reaches 85%
+However, at times, when the EC2 instance comes into in-service, it reports Unhealthy status immediately.
+As the replacement of the unhealthy instance by another instance (launched by the Autoscaling group) takes more than 15 minutes, the unhealthy instance has to be removed manually.
+What do you think is the reason behind this?
+
+
+[source,java]
+----
+Instance Health Status
+Amazon EC2 Auto Scaling determines the health status of an instance using one or more of the following:
+
+* Status checks provided by Amazon EC2 (systems status checks and instance status checks. For more information, see Status Checks for Your Instances in the Amazon EC2
+User Guide for Linux Instances.
+
++ Health checks provided by Elastic Load Balancing. For more information, see Health Checks for Your Target Groups in the User Guide for Application Load Balancers or
+Configure Health Checks for Your Classic Load Balancer in the User Guide for Classic Load Balancers.
+
+* Custom health checks.
+
+By default, Amazon EC2 Auto Scaling health checks use the results of the EC2 status checks to determine the health status of an instance. Amazon EC2 Auto Scaling marks an
+instance as unhealthy if its instance fails one or more of the status checks.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Auto scaling policy alarm incorrectly configured.
+* [*] B. Health Check Grace Period set to 20 minutes.
+* [ ] C. Termination policy set to Do Not Terminate instances.
+* [ ] D. Launch Configuration is not configured to report Unhealthy status.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect because the Instance health status is not determined by the CloudWatch alarms.
+Option B is correct.
+Option C is incorrect because the termination policy does not have a “Do Not Terminate” option.
+Option D is not a correct statement.
+The most probable reason behind an EC2 instance reporting an unhealthy status immediately after being launched by an autoscaling group is that the Health Check Grace Period is set to a value that is less than the time taken by the application to start up and become ready to receive traffic.
+When a new EC2 instance is launched, it takes some time for the application to start up, configure itself, and become ready to receive traffic. During this time, the application is not yet fully functional, and traffic sent to it might result in errors or unexpected behavior.
+To prevent this, the Elastic Load Balancer (ELB) or Target Group associated with the autoscaling group performs health checks on the instances. By default, the Health Check Grace Period is set to 300 seconds (5 minutes), during which time the instance is considered to be in a "warm-up" state and is not checked for health.
+However, if the application takes longer than 5 minutes to start up, it might report an unhealthy status immediately after the grace period ends. This would cause the autoscaling group to terminate the instance and launch a new one, which would go through the same cycle again.
+To solve this problem, the Health Check Grace Period needs to be increased to a value that allows the application to start up and become ready to receive traffic. This can be done by modifying the autoscaling group configuration and setting the HealthCheckGracePeriod parameter to a higher value, such as 10 or 15 minutes.
+Therefore, the answer to the question is B. Health Check Grace Period set to 20 minutes.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question674:"link"
+
+

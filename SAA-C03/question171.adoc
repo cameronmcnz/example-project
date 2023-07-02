@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "971 - The development team is working on a new"
+---
+
+
+[.question]
+== 971-64a1fa77f053625db51ddeb1.
+
+
+****
+
+[.query]
+--
+The development team is working on a new application for which they will be launching an EC2 Instance.
+To decrease time in launching the EC2 instance, they want you to pre-warm the instance & keep it ready for launching with all required patches & software.
+Which of the following can be done to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Launch the Amazon EC2 instance within an Auto-Scaling group and enable Hibernate on the instance in the Auto-Scaling group.
+* [ ] B. Launch the Amazon EC2 instance with an instance root volume and enable Hibernate.
+* [*] C. Launch the Amazon EC2 instance with an Amazon EBS root volume and enable Hibernate.
+* [ ] D. Launch the Amazon EC2 instance within an Auto-Scaling group and enable Hibernate only on the EC2 instance that needs to be hibernated.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+To pre-warm EC2 instance, EC2 Hibernate can be used.
+The instance needs to be launched with an Amazon EBS root volume.
+Besides, you cannot hibernate an instance in an Auto Scaling group or used by Amazon ECS.
+Options A &amp; D are incorrect as EC2 hibernate is not supported if the EC2 instance is in an Auto-Scaling group.
+Option B is incorrect as EC2 hibernate is not supported on Instance store volume.
+An EBS root volume is required.
+For more information on hibernating EC2 instances, refer to the following URL:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html
+Sure, I'd be happy to explain in detail.
+To meet the requirement of pre-warming an EC2 instance and keeping it ready with all required patches and software, the best option would be to launch the instance within an Auto-Scaling group and enable hibernate on the instance.
+Option A - Launch the Amazon EC2 instance within an Auto-Scaling group and enable Hibernate on the instance in the Auto-Scaling group - This option is correct because launching the instance within an Auto-Scaling group allows you to pre-warm the instance by launching it and keeping it running with the required software and patches. Enabling Hibernate on the instance in the Auto-Scaling group allows you to pause the instance while still retaining its state and then quickly resume it when needed. This reduces the launch time of the instance, as the instance is already pre-warmed and ready for use.
+Option B - Launch the Amazon EC2 instance with an instance root volume and enable Hibernate - This option is not recommended because hibernation is only supported for instances with an EBS root volume, and not for instances with an instance store root volume.
+Option C - Launch the Amazon EC2 instance with an Amazon EBS root volume and enable Hibernate - This option is correct because hibernation is only supported for instances with an EBS root volume. However, launching the instance within an Auto-Scaling group is a better option as it allows you to pre-warm the instance and keep it ready for use.
+Option D - Launch the Amazon EC2 instance within an Auto-Scaling group and enable Hibernate only on the EC2 instance that needs to be hibernated - This option is not recommended because if you enable hibernate only on a specific instance, you will not be able to take advantage of the pre-warming benefits provided by launching the instance within an Auto-Scaling group. Additionally, this approach could lead to inconsistencies in the state of the instance if it needs to be terminated and relaunched in the future.
+In summary, option A - Launch the Amazon EC2 instance within an Auto-Scaling group and enable Hibernate on the instance in the Auto-Scaling group - is the best option to pre-warm an EC2 instance and keep it ready for launching with all required patches and software.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question192:"link"
+
+

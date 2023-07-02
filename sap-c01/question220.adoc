@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1020 - An Enterprise customer is starting its m"
+---
+
+
+[.question]
+== 1020-64a1df47aa736d27b1db93f1.
+
+
+****
+
+[.query]
+--
+An Enterprise customer is starting its migration to the cloud for agility.
+They want to make their internal Microsoft Active Directory available to any applications running on AWS as a central point of user control for leavers and joiners.
+Internal users only have to remember one set of credentials.
+How could they make their Active Directory secure, highly available, and with minimal on-premises infrastructure changes in the most cost and time-efficient way?
+
+
+--
+
+[.list]
+--
+* [*] A. Using Amazon Elastic Compute Cloud (EC2), they could create a DMZ using a security group. Within the security group, they could provision two smaller Amazon EC2 instances that are running Openswan for resilient IPSec tunnels, and two larger instances that are domain controllers. They would use multiple Availability Zones.
+* [*] B. Using VPN, they could create an extension to their data center and use resilient hardware IPSec tunnels; they could then have two domain controller instances that are joined to their existing domain and reside within different subnets in different Availability Zones.
+* [ ] C. Within the customer’s existing infrastructure, they could provision new hardware to run Active Directory Federation Services. This would present Active Directory as a SAML2 endpoint on the internet. Any new application on AWS could be written to authenticate using SAML2.
+* [ ] D. The customer could create a stand-alone VPC with its own Active Directory Domain Controllers. Two domain controller instances could be configured, one in each Availability Zone, and new applications would authenticate with those domain controllers.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A incorrect because it is just a complicated environment to set up and does not meet the purpose of the requirement.
+Option B is CORRECT because using an IPSec tunnel can help decrypt all the traffic from the on-premise to AWS.
+The domain controllers in separate AZ's can address high availability.
+Option C is incorrect because the question mentions that they want minimal changes to the on-premise environment.
+Option D is incorrect because it does not address the secure communication part from on-premise to AWS.
+For more information on creating VPN tunnels using Hardware VPN and Virtual private gateways, please refer to the below link-
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html
+Sure, I'd be happy to provide a detailed explanation of each answer option.
+Option A suggests using Amazon EC2 to create a DMZ (Demilitarized Zone) using a security group. Within the security group, the customer could provision two smaller Amazon EC2 instances running Openswan for resilient IPSec tunnels, and two larger instances that are domain controllers. They would use multiple Availability Zones for high availability. This approach involves creating a VPN between the customer's on-premises network and AWS using the IPSec protocol. The two domain controllers in the DMZ would replicate with the customer's on-premises domain controllers. This option minimizes on-premises infrastructure changes and provides high availability, but it involves managing the VPN connection and maintaining the domain controller instances.
+Option B suggests using VPN to create an extension to the customer's data center and using resilient hardware IPSec tunnels. The customer could then have two domain controller instances that are joined to their existing domain and reside within different subnets in different Availability Zones. This option involves creating a VPN connection between the customer's on-premises network and AWS, but instead of using domain controllers in a DMZ, the domain controllers would reside within AWS subnets. This option provides high availability and minimal on-premises infrastructure changes, but it also involves managing the VPN connection and maintaining the domain controller instances.
+Option C suggests provisioning new hardware within the customer's existing infrastructure to run Active Directory Federation Services (ADFS). ADFS would present Active Directory as a SAML2 endpoint on the internet. Any new application on AWS could be written to authenticate using SAML2. This option involves creating a SAML2-based federation between the customer's on-premises Active Directory and AWS. This approach provides a central point of user control and minimizes on-premises infrastructure changes, but it requires managing and maintaining the ADFS infrastructure.
+Option D suggests creating a stand-alone VPC with its own Active Directory Domain Controllers. Two domain controller instances could be configured, one in each Availability Zone, and new applications would authenticate with those domain controllers. This option involves creating a new VPC and deploying Active Directory Domain Controllers within it. The VPC would be isolated from the customer's on-premises network, and applications would need to be specifically designed to use the AWS-hosted Active Directory. This approach provides high availability and minimal on-premises infrastructure changes, but it requires creating a new VPC and deploying and maintaining the domain controller instances.
+In summary, each option provides a way to make the customer's internal Microsoft Active Directory available to any applications running on AWS as a central point of user control. Each option has its own trade-offs in terms of high availability, security, and infrastructure changes. The best option will depend on the customer's specific requirements and constraints.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question320:"link"
+
+

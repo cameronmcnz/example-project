@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1097 - Your AWS Organization has below hierarch"
+---
+
+
+[.question]
+== 1097-64a1df63aa736d27b1db9462.
+
+
+****
+
+[.query]
+--
+Your AWS Organization has below hierarchy.
+
+
+--
+
+[.list]
+--
+* [*] A. The action will be denied as the SCP in Admin_OU denies the operation.
+* [ ] B. The action will be allowed as the SCP in the root has full AWS access, and Bob is attached with full S3 permissions.
+* [*] C. The action will be denied as SCP in DEV1_OU has an S3 Deny policy, which takes priority.
+* [ ] D. The action will be allowed as DEV2_OU is attached with an S3 Allow SCP policy, which takes priority.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+About how SCPs work, please refer to the documentation in.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html.
+One rule is that any action that has an explicit Deny always takes priority.
+Option A is CORRECT because DEV2_OU inherits the SCP in Admin_OU which contains a Deny policy.
+The policy overrides any Allow that other SCPs might grant.
+Option B is incorrect: because other SCPs that the OU has inherited should also be considered.
+Option C is incorrect because the SCP in DEV1_OU does not need to be considered as it is not a parent node for user Bob.
+Option D is incorrect: because the Allow policy does not override a Deny policy if it exists.
+To answer this question, we need to understand the AWS Organizations hierarchy and how Service Control Policies (SCP) work.
+AWS Organizations is a service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. The organization consists of one or more accounts, and you can organize those accounts into groups called Organizational Units (OU).
+SCP is a type of policy that you can use to manage permissions across accounts in your organization. SCPs allow you to specify which AWS services and actions are allowed or denied for accounts and OUs in your organization. When you attach an SCP to an OU or an account, the policy affects all the entities in that container.
+Now, let's look at the AWS Organizations hierarchy given in the question:
+markdownCopy code- Root     - Admin_OU     - DEV1_OU         - DEV1_Account     - DEV2_OU         - DEV2_Account 
+Bob is trying to perform an S3 operation in the DEV2_Account. Let's look at each answer option one by one:
+A. The action will be denied as the SCP in Admin_OU denies the operation.
+This answer is incorrect because the SCP attached to the Admin_OU has not been mentioned in the question. Therefore, we cannot assume that it denies the S3 operation.
+B. The action will be allowed as the SCP in the root has full AWS access, and Bob is attached with full S3 permissions.
+This answer is incorrect because SCPs are evaluated from the closest container to the farthest container. In this case, the SCP in DEV2_OU, where Bob's account is, will take priority over the SCP in the Root.
+C. The action will be denied as SCP in DEV1_OU has an S3 Deny policy, which takes priority.
+This answer is incorrect because the SCP in DEV1_OU is not relevant to the question since Bob is trying to perform the operation in the DEV2_Account, which is not part of the DEV1_OU.
+D. The action will be allowed as DEV2_OU is attached with an S3 Allow SCP policy, which takes priority.
+This answer is correct because the SCP in DEV2_OU will take priority over any SCP in higher-level OUs. Since the SCP in DEV2_OU allows S3 operations, Bob will be able to perform the S3 operation in the DEV2_Account.
+In conclusion, the correct answer is D.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question433:"link"
+
+

@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1236 - Your organization starts to store RDS cr"
+---
+
+
+[.question]
+== 1236-64a1faf7f053625db51ddff2.
+
+
+****
+
+[.query]
+--
+Your organization starts to store RDS credentials in AWS Secrets Manager.
+To be compliant with security regulations, all secrets stored in the Secrets Manager should automatically rotate.
+If rotation is not enabled for a secret, your team should get an email notification.
+Which method is the most appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure AWS Secrets Manager to enable the rotation for all existing and new secrets.
+* [ ] B. Create a CloudWatch Event rule that matches all events in Secrets Manager. Register an SNS topic as its target to provide notifications.
+* [*] C. Enable Amazon GuardDuty that monitors services including Secrets Manager.
+* [*] D. Add the rule “secretsmanager-rotation-enabled-check” in AWS Config to check whether AWS Secrets Manager has enabled the secret rotation.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect because there is no such configuration to enable rotation for all secrets.
+The rotation is managed in each secret.
+Option B is incorrect because the CloudWatch Event rule needs a Lambda function as its target to check if rotation is enabled.
+The description of the option is incomplete.
+Option C is incorrect because Amazon GuardDuty, as a continuous security monitoring service, does not check the secret rotation for Secrets Manager.
+Option D is CORRECT because the AWS Config rule “secretsmanager-rotation-enabled-check” checks whether AWS Secrets Manager secret has rotation enabled.
+Users need to add the rule in AWS Config and set up a notification.
+Reference:
+https://docs.aws.amazon.com/secretsmanager/latest/userguide/aws-config-rules.html. https://docs.aws.amazon.com/config/latest/developerguide/secretsmanager-rotation-enabled-check.html.
+The most appropriate method to ensure that all secrets stored in AWS Secrets Manager are compliant with security regulations is to enable automatic secret rotation or notify the team via email if rotation is not enabled. Here's an explanation of each option provided in the answers:
+A. Configure AWS Secrets Manager to enable the rotation for all existing and new secrets.
+This option is the most straightforward and directly addresses the problem. By enabling rotation for all existing and new secrets, the compliance requirement is met, and there is no need for email notifications or monitoring tools. AWS Secrets Manager has built-in functionality for automatic secret rotation, which can be enabled for supported database engines, such as MySQL, PostgreSQL, and Oracle. This option is suitable if the compliance requirement mandates automatic rotation of all secrets.
+B. Create a CloudWatch Event rule that matches all events in Secrets Manager. Register an SNS topic as its target to provide notifications.
+This option involves creating a CloudWatch Event rule that matches all events in Secrets Manager and registering an SNS topic as its target to provide email notifications. The rule would need to be configured to trigger a notification when a secret is created or modified but not rotated. While this option provides email notifications, it does not address the compliance requirement directly, and manual intervention is still required to rotate the secrets. This option is suitable if email notifications are sufficient to comply with the regulation, but there is no need to automatically rotate the secrets.
+C. Enable Amazon GuardDuty that monitors services including Secrets Manager.
+Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized behavior. It is not designed to address the compliance requirement of automatic secret rotation or email notifications. Enabling GuardDuty for monitoring secrets manager would not address the compliance requirement.
+D. Add the rule “secretsmanager-rotation-enabled-check” in AWS Config to check whether AWS Secrets Manager has enabled the secret rotation.
+AWS Config is a service that provides a detailed inventory of AWS resources and configurations, and it can be used to check compliance against desired configurations or best practices. The “secretsmanager-rotation-enabled-check” rule can be added to check whether Secrets Manager has enabled secret rotation. This option provides an automated check of the rotation status but does not address the compliance requirement directly. Manual intervention is still required to rotate the secrets. This option is suitable if compliance requirements include automated checks to ensure that rotation is enabled.
+In summary, option A, Configure AWS Secrets Manager to enable the rotation for all existing and new secrets, is the most appropriate method to ensure compliance with the security regulations. Option B, Create a CloudWatch Event rule that matches all events in Secrets Manager and register an SNS topic as its target, provides email notifications but does not automate the rotation process. Option C, Enable Amazon GuardDuty, is not designed to address the compliance requirement. Option D, Add the rule “secretsmanager-rotation-enabled-check” in AWS Config, provides an automated check but does not automate the rotation process.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question516:"link"
+
+

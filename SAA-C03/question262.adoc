@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1062 - Your company has a legacy application th"
+---
+
+
+[.question]
+== 1062-64a1fa9df053625db51ddf18.
+
+
+****
+
+[.query]
+--
+Your company has a legacy application that uses monolithic architecture.
+You need to design a new microservices architecture for the application and host it in AWS.
+The application should be dockerized so that it can be easily deployed. Which of the following AWS services would best suit this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon Elastic Kubernetes Engine
+* [ ] B. AWS CodeCommit
+* [*] C. Amazon Elastic Container Registry
+* [*] D. Amazon Elastic Container Service.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect: Because the service name should be Elastic Kubernetes Service (EKS).
+Option B is incorrect: Because AWS CodeCommit cannot be used to run the dockerized applications.
+Option C is incorrect: Because Elastic Container Registry is the service to store Docker images and cannot run Docker containers.
+Option D is CORRECT: Because Elastic Container Service (ECS) allows users to run Docker container applications easily.
+ECS is a suitable AWS compute service for microservices.
+Reference for how to build highly available microservices in AWS:
+https://aws.amazon.com/microservices/
+The best AWS service to host a microservices architecture application that is dockerized is Amazon Elastic Kubernetes Service (EKS) because it provides a managed Kubernetes environment that can be used to deploy, scale, and manage containerized applications. EKS is a fully-managed service that simplifies the deployment, management, and operation of Kubernetes clusters. By using EKS, you can focus on your applications instead of managing the underlying infrastructure.
+Option A: Amazon Elastic Kubernetes Engine (EKE) is not a valid AWS service.
+Option B: AWS CodeCommit is a source code management service that allows you to securely store and manage your application's source code in a private Git repository. It is not directly related to hosting and deploying containerized applications.
+Option C: Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it easy to store, manage, and deploy Docker container images. It is used to store and manage container images that can be used with other container management services such as Amazon Elastic Container Service (ECS) or EKS.
+Option D: Amazon Elastic Container Service (ECS) is a fully-managed container orchestration service that allows you to easily run and scale containerized applications on AWS. It supports Docker containers and can be used to deploy and manage containerized applications. However, EKS is a better choice for a microservices architecture application that is dockerized because it provides a managed Kubernetes environment, which is more flexible and extensible than ECS.
+In summary, Amazon Elastic Kubernetes Service (EKS) is the best choice for hosting a microservices architecture application that is dockerized because it provides a fully-managed Kubernetes environment that simplifies the deployment, management, and operation of containerized applications.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question298:"link"
+
+

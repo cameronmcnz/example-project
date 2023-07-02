@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "948 - Your company uses KMS to fully manage th"
+---
+
+
+[.question]
+== 948-64a1fa6ff053625db51dde99.
+
+
+****
+
+[.query]
+--
+Your company uses KMS to fully manage the master keys and perform encryption and decryption operations on your data and applications.As an additional level of security, you now recommend AWS rotate your keys.
+What would happen after enabling this additional feature?
+
+
+--
+
+[.list]
+--
+* [*] A. Nothing needs to be done. KMS will manage all encrypt/decrypt actions using the appropriate keys.
+* [ ] B. Your company must instruct KMS to re-encrypt all data in all services each time a new key is created.
+* [*] C. You have 30 days to delete old keys after a new one is rotated in.
+* [ ] D. Your company must create its own keys and import them to KMS to enable key rotation.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is correct.
+KMS will rotate keys annually and use the appropriate keys to perform cryptographic operations.
+Option B is incorrect.
+This is not necessary.
+KMS, as a managed service, will keep old keys and perform operations based on the appropriate key.
+Option C is incorrect.
+This is not a requirement of KMS.
+Option D is incorrect.
+This is not a requirement of KMS.
+References:
+https://aws.amazon.com/kms/faqs/
+ttps://docs.aws.amazon.com/general/latest/gr/rande.html#kms_region.
+https://www.slideshare.net/AmazonWebServices/encryption-and-key-management-in-aws
+AWS Key Management Service (KMS) is a managed service that allows you to create and control the encryption keys used to encrypt your data. Key rotation is a feature provided by KMS that allows you to periodically create new cryptographic keys and replace older ones. By rotating keys, you add an additional layer of security to your data by reducing the amount of time a key is in use.
+Enabling key rotation means that KMS will automatically create new cryptographic keys periodically and then use the new key for encrypting data, while the old key will remain in use for decrypting data that was encrypted using the previous version of the key. This process ensures that even if a key is compromised, the amount of data that can be decrypted is limited to the data that was encrypted using the compromised key.
+Now, let's go through each answer option:
+A. Nothing needs to be done. KMS will manage all encrypt/decrypt actions using the appropriate keys.
+This is partially correct. Enabling key rotation means that KMS will automatically create new cryptographic keys periodically, and manage all encrypt/decrypt actions using the appropriate keys. However, some additional actions may be required by your company.
+B. Your company must instruct KMS to re-encrypt all data in all services each time a new key is created.
+This answer is incorrect. When you enable key rotation, KMS will automatically create new cryptographic keys and use the new key for encrypting data. There is no need to re-encrypt all data in all services each time a new key is created.
+C. You have 30 days to delete old keys after a new one is rotated in.
+This answer is partially correct. After you enable key rotation, KMS will automatically create new cryptographic keys and use the new key for encrypting data. You can configure the key rotation period and the number of keys to retain, but there is no fixed 30-day limit for deleting old keys.
+D. Your company must create its own keys and import them to KMS to enable key rotation.
+This answer is incorrect. When you enable key rotation, KMS will automatically create new cryptographic keys and use them for encrypting data. There is no need to create your own keys or import them to KMS to enable key rotation.
+In summary, enabling key rotation in KMS is a recommended security measure that can improve the protection of your data. Once enabled, KMS will automatically create new cryptographic keys periodically and use the new key for encrypting data, while the old key will remain in use for decrypting data that was encrypted using the previous version of the key.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question168:"link"
+
+

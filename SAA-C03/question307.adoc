@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1107 - You are planning to host a web and MySQL"
+---
+
+
+[.question]
+== 1107-64a1fab3f053625db51ddf4c.
+
+
+****
+
+[.query]
+--
+You are planning to host a web and MySQL database application in an AWS VPC.
+The database should only be accessible by the web server.
+What would you change to fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Environment variables
+* [ ] B. AWS RDS Parameter Groups
+* [*] C. Route Tables
+* [*] D. Security groups.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+The security group associated with the DB instance should allow port 3306 traffic from the EC2 instance.
+The AWS Documentation additionally mentions the following.
+A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
+When you launch an instance in a VPC, you can assign a maximum of five security groups to the instance.
+Security groups act at the instance level, not the subnet level.
+Therefore, each instance in a subnet in your VPC could be assigned to a different set of security groups.
+If you don't specify a particular group at launch time, the instance is automatically assigned to the default security group for the VPC.For more information on VPC Security Groups, please visit the link below.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html
+To fulfill the requirement of making the MySQL database only accessible by the web server in an AWS VPC, you would need to configure the security groups.
+A security group acts as a virtual firewall for your instances to control inbound and outbound traffic. You can configure a security group to allow traffic from specific sources to specific ports. In this scenario, you would create two security groups, one for the web server and another for the database server.
+For the security group of the database server, you would create a rule to allow inbound traffic only from the security group of the web server. This means that only instances that belong to the web server security group can access the database server through the specified port.
+The security group of the web server would also need to have outbound rules to allow traffic to the database server on the specified port.
+Using environment variables is not the appropriate solution for this requirement as environment variables are used to store configuration values that can be accessed by the application code, but they do not provide security measures to limit access.
+AWS RDS Parameter Groups are also not relevant in this case, as RDS parameter groups are used to configure and manage database engine settings and are not related to security.
+Route tables are used to define where network traffic is directed within a VPC or between a VPC and an external network. While they can be used to control traffic, they are not the best option for restricting access to a specific resource within a VPC.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question350:"link"
+
+

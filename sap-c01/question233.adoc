@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1033 - As a solution architect professional you"
+---
+
+
+[.question]
+== 1033-64a1df4baa736d27b1db9401.
+
+
+****
+
+[.query]
+--
+As a solution architect professional, you have been requested to launch 20 Large EC2 instances which will all be used to process huge amounts of data.
+There is also a requirement that these instances need to transfer data back and forth among each other and need a low-latency network performance.
+Which of the following would be the most efficient setup to achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure that all the instances are placed in the same region.
+* [ ] B. Ensure that all instances are placed in the same Availability Zone.
+* [*] C. Use a cluster Placement Group and ensure that all instances are launched in it.
+* [ ] D. Use the largest EC2 instances currently available on AWS and make sure they are spread across multiple Availability Zones.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because being in the same region would not mean that the data transfer between the instances would be faster.
+In fact, the instances would experience network latency.
+Option B is incorrect because just being in the same AZ is not sufficient.
+They should be added to a Placement Group to benefit from the low network latency.
+Option C is CORRECT because Placement Group enables applications to get the low-latency network performance necessary for tightly-coupled node-to-node communication typical of many high-performance computing applications.
+Option D is incorrect because despite being of the largest size, the EC2 instances would still experience network latency if they are not part of a Placement Group.
+More information on Placement Groups:
+A placement group is a logical grouping of instances within a single Availability Zone.
+Placement groups are recommended for applications that benefit from low network latency, high network throughput, or both.
+To provide the lowest latency, and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking.
+For more information on Placement Groups, please visit the URL.
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+The most efficient setup to achieve low-latency network performance while transferring data among the 20 large EC2 instances would be to use a cluster Placement Group and ensure that all instances are launched in it.
+A cluster placement group is a logical grouping of instances within a single Availability Zone that provides low-latency network performance by enabling network traffic to flow directly between the instances instead of traversing the underlying network infrastructure. When instances are launched in a cluster placement group, they are placed in a way that provides a high-bandwidth, low-latency network connection between them.
+Option A, to place all the instances in the same region, does not provide any specific benefits for low-latency network performance. Regions are geographical areas where AWS has multiple Availability Zones.
+Option B, to place all the instances in the same Availability Zone, does not guarantee low-latency network performance as it depends on how the instances are placed within the Availability Zone. Additionally, placing all the instances in a single Availability Zone may not provide sufficient redundancy and fault tolerance.
+Option D, to use the largest EC2 instances and spread them across multiple Availability Zones, does not guarantee low-latency network performance. Also, spreading instances across multiple Availability Zones may increase network latency as instances may need to communicate over a public network.
+Therefore, option C, to use a cluster Placement Group and ensure that all instances are launched in it, is the most efficient setup to achieve low-latency network performance while transferring data among the 20 large EC2 instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question336:"link"
+
+

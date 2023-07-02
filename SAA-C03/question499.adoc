@@ -1,0 +1,102 @@
+---
+layout: default 
+title: "1299 - Where does crossregion replication requi"
+---
+
+
+[.question]
+== 1299-64a1fb17f053625db51de040.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_4vkjqa.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Where does cross-region replication require versioning to be enabled?
+
+
+[source,java]
+----
+Requirements
+
+Requirements for cross-region replication:
+
+¢ The source and destination buckets must have versioning enabled. For more information about versioning, see
+
+Using Versioning.
+
+¢ The source and destination buckets must be in different AWS Regions. For a list of AWS Regions where you can
+create a bucket, see Regions and Endpoints in the AWS General Reference.
+
+* Amazon S3 must have permissions to replicate objects from that source bucket to the destination bucket on your
+behalf.
+
+You can grant these permissions by creating an IAM role. For more information about IAM roles, see Create an
+IAM Role.
+
+Important
+
+To pass the IAM role that you create that grants Amazon S3 replication permissions, you must have
+the iam: PassRole permission. For more information, see Granting a User Permissions to Pass a Role
+to an AWS Service in the JAM User Guide.
+
+¢ If the source bucket owner also owns the object, the bucket owner has full permissions to replicate the object. If
+not, the object owner must grant the bucket owner the READ and READ_ACP permissions via the object ACL. For
+more information about Amazon S3 actions, see Specifying Permissions in a Policy. For more information about
+resources and ownership, see Amazon S3 Resources.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Only on Destination bucket.
+* [ ] B. Versioning is useful to avoid accidental deletes and not a requirement for replicating across regions.
+* [ ] C. Only on Source bucket.
+* [*] D. Both on Source and Destination buckets.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Cross-region replication is a bucket-level configuration that enables automatic, asynchronous copying of objects across buckets in different AWS Regions.
+We refer to these buckets as source bucket and destination bucket.
+These buckets can be owned by different AWS accounts.
+For more information on AWS S3 cross-region replication, refer to the documentation here.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html
+Cross-region replication is a feature provided by Amazon S3 that enables automatic replication of objects across different regions. When an object is uploaded to a source bucket, the object is automatically replicated to the destination bucket located in another region.
+When using cross-region replication, it is important to ensure that the destination bucket has versioning enabled. This is because versioning provides an extra layer of protection against accidental deletion or modification of objects. With versioning enabled, each version of an object is stored and can be retrieved at any time. This helps to protect against accidental deletion, overwriting, or data corruption.
+On the other hand, enabling versioning on the source bucket is not required for cross-region replication. However, it can provide additional protection in case an object is modified or deleted in the source bucket before it can be replicated to the destination bucket.
+Therefore, the correct answer to the question is D. Both the source and destination buckets must have versioning enabled to ensure that the replicated objects are protected against accidental deletion or modification.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question595:"link"
+
+

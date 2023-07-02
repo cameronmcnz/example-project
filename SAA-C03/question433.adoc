@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1233 - You plan to migrate a Classic Load Balan"
+---
+
+
+[.question]
+== 1233-64a1faf6f053625db51ddfef.
+
+
+****
+
+[.query]
+--
+You plan to migrate a Classic Load Balancer to an Application Load Balancer or a Network Load Balancer.
+For the new load balancer listener, you need to define two rules that route requests based on the host name in the host header.
+Then the traffic will be routed to two different target groups accordingly.
+How would you configure the new load balancer?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a Network Load Balancer and select the HTTP protocol in the listener. Configure the host-based routing in the listener.
+* [ ] B. Launch a new Network Load Balancer and choose the TCP protocol in its listener. Route the traffic based on the path.
+* [*] C. Set up an Application Load Balancer and configure several rules in the listener to perform path-based routing.
+* [*] D. Use an Application Load Balancer and configure host-based routing in the listener rule.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect because, in this scenario, Application Load Balancer should be chosen as Network Load Balancer that runs at the network layer and does not support host-based routing.
+Option B is incorrect because, with Network Load Balancer, you cannot route the traffic based on the host header.
+Option C is incorrect because path-based routing routes requests based on the URL in the requests.
+However, the requests need to be routed based on the host header.
+Option D is CORRECT because you can define rules in the Application Load Balancer listener by adding host conditions.
+Then the requests are forwarded based on the host field of the HTTP header.
+Reference:
+https://aws.amazon.com/elasticloadbalancing/features/. https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html.
+To route requests based on the hostname in the host header to two different target groups, you would need to use an Application Load Balancer or a Network Load Balancer, as the Classic Load Balancer does not support this functionality.
+Option A is not a correct solution as Network Load Balancer does not support host-based routing. It only supports IP-based routing.
+Option B is also incorrect, as it routes traffic based on the path and not on the hostname in the host header.
+Option C is partially correct as an Application Load Balancer can perform path-based routing, but for the given requirement, you need to use host-based routing.
+Therefore, the correct answer is option D, which suggests using an Application Load Balancer and configuring host-based routing in the listener rule. Here are the steps to configure this:
+1. Create a new Application Load Balancer.
+2. Configure the listener to use the HTTP or HTTPS protocol.
+3. Create two target groups, one for each set of targets that you want to route traffic to.
+4. Configure the listener rule to route traffic based on the hostname in the host header. To do this, you need to:
+Choose the "Host header" option in the routing configuration.
+Add the hostnames that you want to route traffic to.
+Specify the target group that each hostname should route traffic to.
+By following these steps, the Application Load Balancer will be able to route requests based on the hostname in the host header to the appropriate target group.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question513:"link"
+
+

@@ -1,0 +1,87 @@
+---
+layout: default 
+title: "1314 - Your organization is planning to use AWS"
+---
+
+
+[.question]
+== 1314-64a1fb20f053625db51de057.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_vye1rj.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization is planning to use AWS ECS for docker applications.
+However, they would like to apply 3rd party monitoring tools on the ECS container instances to monitor the instances.
+They approached you asking for a recommendation.
+What do you suggest?
+
+
+[source,java]
+----
+Q: Can | apply additional security configuration and isolation frameworks to my container instances?
+
+Yes, As an Amazon EC2 customer, you have root access to the operating system of your container instances, enabling
+you to take ownership of the operating system’s security settings as well as load and configure additional software
+
+components for security capabilities such as monitoring, patch management, log management and host intrusion
+
+detection.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. AWS ECS is a managed service. Customers cannot install 3rd party software. Use CloudWatch for monitoring metrics.
+* [*] B. Customers will have control over AWS ECS container instances and can set up monitoring like a normal EC2 instance.
+* [ ] C. Consult AWS Support team to install 3rd party software on ECS. The support team will review the case and install if 3rd party software is in their trusted software entries.
+* [ ] D. AWS ECS is a managed service. Customers cannot install 3rd party software. Use application-level monitoring.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Options A and D are incorrect because AWS ECS uses EC2 instances with ECS-optimized AMI.
+You will have root access to the instances and you can manage them.
+Option C is incorrect as it is just a distractor, there is no need for a support team.
+For more information on ECS instances, refer to the documentation here:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html https://aws.amazon.com/ecs/faqs/
+Option A is partially correct, but it is not entirely accurate. AWS ECS is a managed service, but customers can still install 3rd party monitoring tools on the container instances running on ECS. While CloudWatch can provide basic monitoring metrics for ECS services, it may not meet all of the organization's specific monitoring requirements. Therefore, using 3rd party monitoring tools is a better approach.
+Option B is the correct answer. Customers have control over the underlying EC2 instances on which ECS runs. Therefore, customers can use the same monitoring tools on the ECS container instances as they would on any other EC2 instance. They can install agents and monitoring software to gather metrics and logs and set up alarms to notify the team when an issue occurs.
+Option C is not a good option because it involves a lengthy process that may not result in the installation of the requested software. It is also not necessary because customers have control over the container instances and can install the software themselves.
+Option D is not the best answer because it only provides application-level monitoring, which may not cover all of the monitoring requirements of the organization. Additionally, it is always best to have multiple layers of monitoring, including infrastructure-level monitoring, to detect and diagnose problems quickly.
+In summary, Option B is the best recommendation for the organization. Customers can install 3rd party monitoring tools on the underlying EC2 instances, allowing them to monitor the ECS container instances effectively.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question618:"link"
+
+

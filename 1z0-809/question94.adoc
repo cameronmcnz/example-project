@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "894 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 894-64a1a85cef3e8462333a9c94.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0007700002.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class Product {
+String pname;
+public Product (String pname)
+this.pname = pname;
+}
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. true true
+* [ ] B. false true
+* [ ] C. false false
+* [*] D. true false.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "1038 - You want to use AWS to route a static we"
+---
+
+
+[.question]
+== 1038-64a1fa92f053625db51ddefe.
+
+
+****
+
+[.query]
+--
+You want to use AWS to route a static website with a unique domain name that uses the format 'www.exaxyz.com'
+How would you achieve this efficiently?
+
+
+--
+
+[.list]
+--
+* [*] A. Register a domain with Route53 and use it to route requests to your website.
+* [ ] B. Create an auto-scaling group of EC2 instances and manage the web hosting on these instances.
+* [*] C. Create one large EC2 instance to host the website and replicate it in every region.
+* [ ] D. Create a Content Delivery Network (CDN) to deliver your images and files.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is correct.
+Route53 is used to register a domain and route requests to a website.
+Option B is incorrect.
+Hosting on EC2 is unnecessary here as server-side scripting is not needed, and S3 will scale automatically.
+Option C is incorrect.
+Hosting on EC2 is unnecessary, and this particular implementation can lead to different configurations on each server.
+Option D is incorrect.
+A CDN will improve the delivery time of your files and pages to the customer but is not a hosting solution itself.
+Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.
+You can use Route 53 to perform three main functions in any combination: domain registration, DNS routing, and health checking.
+If you choose to use Route 53 for all three functions, be sure to follow the order below:
+1
+Register domain names.
+Your website needs a name, such as exaxyz.com.
+Route 53 lets you register a name for your website or web application, known as a domain name.
+2
+Route internet traffic to the resources for your domain.
+When a user opens a web browser and enters your domain name (exaxyz.com) or subdomain name (acme.exaxyz.com) in the address bar, Route 53 helps connect the browser with your website or web application.
+3
+Check the health of your resources.
+Route 53 sends automated requests over the internet to a resource, such as a web server, to verify that it's reachable, available, and functional.
+You also can choose to receive notifications when a resource becomes unavailable and choose to route internet traffic away from unhealthy resources.
+References:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-cloudfront-walkthrough.html
+The most efficient way to route a static website with a unique domain name that uses the format www.exaxyz.com on AWS is by registering a domain with Route53 and using it to route requests to your website.
+Option A is the correct answer. Here is a detailed explanation of each option and why Option A is the most efficient one:
+A. Register a domain with Route53 and use it to route requests to your website: Route53 is a highly available and scalable DNS service offered by AWS. It allows you to register domain names, such as www.exaxyz.com, and route traffic to various AWS services, including Amazon S3, which can host static websites. By using Route53, you can ensure high availability, low latency, and automatic failover for your website.
+B. Create an auto-scaling group of EC2 instances and manage the web hosting on these instances: An auto-scaling group of EC2 instances can be used to host a website, but it is not the most efficient way to host a static website. EC2 instances are virtual servers that require manual scaling, maintenance, and monitoring. This option is also more expensive than using Amazon S3 for hosting a static website.
+C. Create one large EC2 instance to host the website and replicate it in every region: This option is also not the most efficient way to host a static website. Replicating a large EC2 instance in every region is time-consuming, expensive, and requires additional maintenance and monitoring.
+D. Create a Content Delivery Network (CDN) to deliver your images and files: A CDN is a network of servers distributed around the world that can cache and deliver your website's content, including images and files. While a CDN can improve website performance and availability, it is not the most efficient way to host a static website. A CDN can be used in conjunction with Amazon S3 for improved website performance and scalability.
+In summary, registering a domain with Route53 and using it to route requests to your website hosted on Amazon S3 is the most efficient way to host a static website on AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question271:"link"
+
+

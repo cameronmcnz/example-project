@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "917 - You are responsible for a legacy web app"
+---
+
+
+[.question]
+== 917-64a1df20aa736d27b1db934d.
+
+
+****
+
+[.query]
+--
+You are responsible for a legacy web application whose server environment is approaching the end of life.
+You would like to migrate this application to AWS as quickly as possible since the application environment currently has the following limitations.
+
+
+--
+
+[.list]
+--
+* [*] A. Use the EC2 VM Import Connector for vCenter to import the VM into EC2.
+* [*] B. Use VM Import/Export to import the VM as an Amazon Machine Image (AMI). Launch EC2 instances from the AMI.
+* [ ] C. Use S3 to create a backup of the VM and restore the data into EC2.
+* [ ] D. Use the EC2’s bundle-instance API to import an image of the VM into EC2.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is Incorrect because EC2 VM Import Connector is a facility that builds on top of VM Import.
+We need the VM import in place for the connector to work.
+https://aws.amazon.com/blogs/aws/ec2-vm-import-connector/
+Option B is correct because VM Import/Export offers several ways to import your virtual machine into Amazon EC2
+VM Import/Export enables you to easily import virtual machine images from your existing environment to Amazon EC2 instances and export them back to your on-premises environment.
+Option C is incorrect because the backup that is taken and stored on S3 may not be directly restored as an EC2 instance, and (b) it may not meet the RPO of 1 hour as this process will be slow for a large number of servers.
+Option D is incorrect because (a) it is applicable to only instance store-backed Windows instance and the data on the volumes other than the root device volume does not get preserved, and (b) this API is not applicable to the Windows instances that are backed by EBS volumes.
+For more information on EC2 VM Import/Export, please see the URL below.
+https://aws.amazon.com/ec2/vm-import/
+Sure, I can provide you with a detailed explanation of the options provided in the question.
+A. Use the EC2 VM Import Connector for vCenter to import the VM into EC2: The EC2 VM Import Connector for vCenter is a tool that enables you to import virtual machines (VMs) from your VMware vCenter environment to Amazon EC2 as Amazon Machine Images (AMIs). This option allows you to migrate your legacy web application to AWS by importing the VM directly into EC2. This approach can be a quick and efficient way to migrate your application to AWS, as it eliminates the need to manually configure your new environment in EC2. However, you will need to ensure that the VM meets the prerequisites for the import process, such as the correct VM format, required permissions, and appropriate network settings.
+B. Use VM Import/Export to import the VM as an Amazon Machine Image (AMI). Launch EC2 instances from the AMI: VM Import/Export is a service that enables you to import virtual machine images from your existing environment to Amazon EC2, and export them back to your on-premises environment. This option allows you to migrate your legacy web application to AWS by importing the VM as an AMI and launching EC2 instances from the AMI. This approach can be a good option if you need to modify the VM before importing it into AWS, such as updating the operating system or software, as it allows you to create a customized AMI. However, the import process can take longer than using the VM Import Connector for vCenter, as it requires additional steps.
+C. Use S3 to create a backup of the VM and restore the data into EC2: Using Amazon S3 to create a backup of the VM and restoring the data into EC2 can be a viable option if you want to migrate your legacy web application to AWS incrementally. This approach involves creating a backup of the VM using a third-party tool or utility and storing it in Amazon S3, then restoring the data into EC2. This option can be useful if you need to migrate large amounts of data gradually or have complex data sets that require extensive testing. However, this approach can be time-consuming and require additional steps to complete the migration process.
+D. Use the EC2's bundle-instance API to import an image of the VM into EC2: The EC2 bundle-instance API enables you to create an Amazon Machine Image (AMI) from a running or stopped instance in Amazon EC2. This option allows you to migrate your legacy web application to AWS by creating an image of the VM and importing it into EC2. This approach can be useful if you want to customize the image before importing it, such as updating the operating system or software. However, it may require additional steps to configure the new environment in EC2, and the import process can take longer than using the VM Import Connector for vCenter.
+In summary, the most appropriate option for migrating your legacy web application to AWS will depend on your specific requirements and constraints. If you need a quick and efficient migration, using the EC2 VM Import Connector for vCenter or VM Import/Export may be the best option. If you need to migrate incrementally or have complex data sets, using S3 to create a backup and restore the data may be a better fit. And if you need to customize the VM image before importing it, using the EC2 bundle-instance API may be the way to go.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question154:"link"
+
+

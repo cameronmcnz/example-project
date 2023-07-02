@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "1117 - You implement an API in AWS API Gateway
+"
+---
+
+
+[.question]
+== 1117-64a1df6aaa736d27b1db947c.
+
+
+****
+
+[.query]
+--
+You implement an API in AWS API Gateway.
+The API integrates with a Lambda Function which returns the query results from an RDS database.
+For security purposes, you want the API to allow traffic only from a VPC endpoint since it should be used internally.
+The VPC endpoint ID is vpc-11bb22cc.
+What is the best method to implement this?
+
+
+--
+
+[.list]
+--
+* [*] A. Implement the below policy in the API Gateway Resource Policy: { "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": "vpce-11bb22cc", "Action": "execute-api:Invoke", "Resource": [ "arn:aws:execute-api:region:account-id:api-id/*" ] } ] }
+* [*] B. Implement the below policy in the API Gateway Resource Policy: { "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": "*", "Action": "execute-api:Invoke", "Resource": [ "arn:aws:execute-api:region:account-id:api-id/*" ] }, { "Effect": "Deny", "Principal": "*", "Action": "execute-api:Invoke", "Resource": [ "arn:aws:execute-api:region:account-id:api-id/*" ], "Condition" : { "StringNotEquals": { "aws:SourceVpce": "vpce-11bb22cc" } } } ] }
+* [*] C. Implement the below policy in the API Gateway Resource Policy: { "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": "*", "Action": "execute-api:Invoke", "Resource": [ "arn:aws:execute-api:region:account-id:api-id/*" ], "Condition" : { "StringEquals": { "aws:SourceVpce": "vpce-11bb22cc" } } } ] }
+* [ ] D. Implement the below policy in the API Gateway Resource Policy: { "Version": "2012-10-17", "Statement": [ { "Effect": "Deny", "Principal": "*", "Action": "execute-api:Invoke", "Resource": [ "arn:aws:execute-api:region:account-id:api-id/*" ] }, { "Effect": "Allow", "Principal": "*", "Action": "execute-api:Invoke", "Resource": [ "arn:aws:execute-api:region:account-id:api-id/*" ], "Condition" : { "StringEquals": { "aws:SourceVpce": "vpce-11bb22cc" } } } ] }
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Amazon API Gateway resource policies are used to control whether a specified principal can invoke the API.
+Option A is incorrect: Because vpce-11bb22cc can not be used as a Principal.
+The field of Principal should be “*”.
+Option B is CORRECT: Because it allows all Principals to use the API and then denies the actions if the SourceVpce is not vpce-11bb22cc.
+This policy guarantees that only the traffic from vpce-11bb22cc can access the API.
+Option C is incorrect: Because explicit deny is better than explicit allow as it has a clear boundary.
+Other entities may still be able to access this API if there are explicit allows in their IAM policies.
+Option D is incorrect: Because the explicit deny takes priorities.
+So the first part of the policy denies all the traffic, including the requests from the endpoint of vpce-11bb22cc.
+References:
+https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-examples.html.
+The correct answer is option C.
+Explanation:
+The scenario describes an API implemented in AWS API Gateway that integrates with a Lambda function that returns query results from an RDS database. The API should only allow traffic from a specific VPC endpoint for internal use.
+API Gateway provides resource policies that can be used to allow or deny access to API resources based on specific conditions. In this case, the condition is that the traffic should only come from the VPC endpoint with ID vpc-11bb22cc.
+Option A specifies that the principal is the VPC endpoint ID. However, this is incorrect because the principal should be the source of the traffic. The VPC endpoint ID should be used in the condition instead.
+Option B includes a Deny statement that blocks access to the API from all sources except the VPC endpoint. However, this can cause unintended consequences in the future if additional sources need access to the API. This option also includes unnecessary permissions by allowing access from all principals. Therefore, this option is incorrect.
+Option D includes a Deny statement before the Allow statement, which can also cause unintended consequences in the future. This option is not the best practice for implementing a resource policy.
+Option C is the correct answer because it allows access only from the specific VPC endpoint with ID vpc-11bb22cc. The policy statement in option C specifies the following:
+The Effect is set to Allow, which allows access to the resource.
+The Principal is set to *, which means any principal is allowed access to the resource.
+The Action is set to execute-api:Invoke, which allows invocation of the API Gateway method.
+The Resource is set to the ARN of the API Gateway resource.
+The Condition is set to aws:SourceVpce, which specifies that access is allowed only if the request is from the specified VPC endpoint with ID vpc-11bb22cc.
+Therefore, option C is the best method to implement the required security measures for the API Gateway resource to allow traffic only from the specified VPC endpoint for internal use.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question459:"link"
+
+

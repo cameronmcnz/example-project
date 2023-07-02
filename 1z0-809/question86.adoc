@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "886 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 886-64a1a85aef3e8462333a9c8c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0006800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+Path pathl = Paths.get("/software/././sys/readme.txt
+Path path2 = path1.normalize();
+
+Path path3 = path2.relativize(path1) 7
+
+System. out.print (path1.getNameCount ()) 7
+System.out.print(" : " + path2.getNameCount())7
+System.out.print(" : " + path3.getNameCount ())7
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 5 : 3 : 6
+* [ ] B. 6 : 5 : 6
+* [ ] C. 3 : 3 : 4
+* [*] D. 4 : 4 : 4
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

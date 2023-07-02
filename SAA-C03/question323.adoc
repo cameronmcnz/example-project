@@ -1,0 +1,125 @@
+---
+layout: default 
+title: "1123 - You work for a company that has a set of"
+---
+
+
+[.question]
+== 1123-64a1fabbf053625db51ddf62.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_enwouw.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You work for a company that has a set of EC2 Instances.
+There is an internal requirement to create another instance in another availability zone.
+One of the EBS volumes from the current instance needs to be moved from one of the older instances to the new instance.
+How can you achieve this?
+
+
+[source,java]
+----
+Create Volume
+
+Snapshot ID (J) —_snap-Oda3eeba923b18240 (Demo)
+
+Volume Type (i)
+
+Size (GiB) () (Min: 8 GiB, Max: 16384 GiB)
+loPs @ 1100/3000 (Baseline of 3 IOPS per GiB with a
+minimum of 100 IOPS, burstable to
+3000 IOPS)
+Throughput (MB/s) ( Not Applicable
+Availability Zone (7) —_[ap-southeast-ta ¥
+
+Encryption (j) Not Encrypted
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Detach the volume and attach to an EC2 instance in another AZ.
+* [ ] B. Create a new volume in the other AZ and specify the current volume as the source.
+* [*] C. Create a snapshot of the volume and then create a volume from the snapshot in the other AZ
+* [ ] D. Create a new volume in the AZ and do a disk copy of contents from one volume to another.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+For a volume to be available in another availability zone, you need to create a snapshot from the volume.
+Then in the snapshot from creating a volume, you can then specify the new availability zone accordingly.
+The EBS Volumes attached to the EC2 Instance will always have to remain in the same availability zone as the EC2 Instance.
+A possible reason for this could be because EBS Volumes are present outside of the host machine, and instances have to be connected over the network.
+If the EBS Volumes are present outside the Availability Zone, there can be potential latency issues and subsequent performance degradation.
+What one can do in such a scenario is to get the Snapshot of the EBS Volume.
+Snapshot sequentially captures the state of your EBS Volume.
+You can create an EBS Volume from this snapshot in your desired Availability Zone and attach it to your new Instance.
+Later you can detach the volume from the older instance and delete then.
+Option A is invalid because the Instance and Volume have to be in the same AZ to be attached to the instance.
+After all, we have to specify AZ while creating Volume.
+Option B is invalid because there is no way to specify a volume as a source.
+Option D is invalid because the Diskcopy would be a tedious process.
+For more information on snapshots, please visit the below URLs-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-detaching-volume.html
+To move an EBS volume from one EC2 instance to another in a different availability zone, you have several options.
+Option A: Detach and Attach You can detach the EBS volume from the existing EC2 instance, and then attach it to a new EC2 instance in another availability zone. To do this, follow these steps:
+1. Stop the existing EC2 instance.
+2. Go to the EC2 console, select the volume that needs to be moved, and choose "Detach Volume."
+3. Create a new EC2 instance in the other availability zone.
+4. Go to the EC2 console, select the new instance, and choose "Attach Volume."
+5. Select the volume that you detached from the old instance and attach it to the new instance.
+Option B: Create a New Volume You can create a new EBS volume in the other availability zone and copy the contents of the existing volume to the new one. To do this, follow these steps:
+1. Create a new EBS volume in the other availability zone.
+2. Go to the EC2 console, select the new volume, and choose "Create Snapshot."
+3. Go to the EC2 console, select the snapshot, and choose "Create Volume."
+4. Select the new volume and choose "Attach Volume" to attach it to the new EC2 instance.
+Option C: Create a Snapshot You can create a snapshot of the existing EBS volume and then create a new volume from the snapshot in the other availability zone. To do this, follow these steps:
+1. Go to the EC2 console, select the volume that needs to be moved, and choose "Create Snapshot."
+2. Go to the EC2 console, select the snapshot, and choose "Create Volume."
+3. Create a new EC2 instance in the other availability zone.
+4. Go to the EC2 console, select the new instance, and choose "Attach Volume."
+5. Select the new volume and attach it to the new instance.
+Option D: Disk Copy You can create a new EBS volume in the other availability zone and do a disk copy of the contents from the existing volume to the new one. To do this, follow these steps:
+1. Create a new EBS volume in the other availability zone.
+2. Create a temporary EC2 instance in the same availability zone as the existing volume.
+3. Attach both volumes to the temporary instance.
+4. Use a disk copy utility to copy the contents of the existing volume to the new one.
+5. Detach both volumes from the temporary instance.
+6. Create a new EC2 instance in the other availability zone.
+7. Attach the new volume to the new instance.
+Overall, the best approach depends on your specific requirements and constraints. However, Option A and Option C are typically the most straightforward and least complex.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question372:"link"
+
+

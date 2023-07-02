@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1141 - Your company wants to enable encryption "
+---
+
+
+[.question]
+== 1141-64a1fac7f053625db51ddf7f.
+
+
+****
+
+[.query]
+--
+Your company wants to enable encryption of services such as S3 and EBS volumes so that the data it maintains is encrypted at rest.
+They want to have complete control over the keys and the entire lifecycle around the keys.
+Morever, the company needs to create and manage the hardware security modules that store the encryption keys.
+How can you accomplish this?
+
+
+--
+
+[.list]
+--
+* [*] A. Use the AWS CloudHSM
+* [ ] B. Use the KMS service
+* [ ] C. Enable S3 server-side encryption
+* [ ] D. Enable EBS Encryption with the default KMS keys.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+This is mentioned in the AWS Documentation.
+AWS CloudHSM is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys on the AWS Cloud.
+With CloudHSM, you can manage your own encryption keys using FIPS 140-2 Level 3 validated HSMs.
+KMS is a shared hardware tenancy - your keys are in their own partition of an encryption module shared with other AWS customers, each with their own isolated partition.
+Cloud HSM gives you your own hardware module, so the most likely reason to choose Cloud HSM is if you had to ensure your keys were isolated on their own encryption module.
+Options B, C, and D are incorrect since they have shared hardware tenancy.
+For more information on cloud HSM and Encryption Tools, please refer to the below URL.
+https://aws.amazon.com/cloudhsm/ https://docs.aws.amazon.com/crypto/latest/userguide/awscryp-choose-toplevel.html
+To accomplish this requirement, option A (Use the AWS CloudHSM) is the best solution. AWS CloudHSM is a cloud-based hardware security module that allows you to create and use your own encryption keys. It gives you complete control over your keys and the entire lifecycle around them.
+CloudHSM provides secure key storage and management using dedicated hardware security modules (HSMs) within the AWS infrastructure. It is designed to meet strict security and compliance requirements, including FIPS 140-2 Level 3 and Common Criteria EAL4+. CloudHSM also integrates with other AWS services, including S3 and EBS, to provide encryption at rest.
+Option B (Use the KMS service) is not the best solution because although KMS allows you to create and manage your own keys, it does not provide the same level of control over the key lifecycle as CloudHSM. Additionally, KMS keys are stored within the AWS infrastructure, which may not meet the company's requirements.
+Option C (Enable S3 server-side encryption) and option D (Enable EBS Encryption with the default KMS keys) do not meet the requirement of having complete control over the keys and the entire lifecycle around them. With both of these options, AWS manages the encryption keys, which may not meet the company's requirements.
+In summary, to meet the company's requirements of having complete control over the keys and the entire lifecycle around them, while providing encryption at rest for services like S3 and EBS volumes, the best solution is to use the AWS CloudHSM.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question401:"link"
+
+

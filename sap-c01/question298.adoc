@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "1098 - You are in charge of configuring an AWS "
+---
+
+
+[.question]
+== 1098-64a1df63aa736d27b1db9463.
+
+
+****
+
+[.query]
+--
+You are in charge of configuring an AWS Organization as below hierarchy.
+
+
+--
+
+[.list]
+--
+* [*] A. Create an SCP that denies required actions and attach it to Root. Attach another SCP that contains an Allow list in Project_OU.
+* [*] B. In Project_OU, attach an SCP that contains a Deny list to deny the deletion of IAM roles.
+* [*] C. Make sure that Root, Project_OU, and Security_OU are attached with a full access SCP. Attach another SCP that contains the Deny list to DEV1_OU, DEV2_OU, and QA1_OU.
+* [ ] D. Create an SCP that denies the required actions. Attach it to Project_OU, DEV_OU, and QA_OU.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+OUs in AWS Organization inherit the SCPs from the parent OU.
+Reference can be found in.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html.
+Option A is incorrect because it is improper to attach the Deny SCP to Root as it affects all other nodes including Security_OU.
+Option B is CORRECT: because the Deny SCP only affects all OUs under Project_OU.
+Other OUs such as Security_OU are not affected.
+Option C is incorrect because Project_OU and Security_OU do not need to attach full access SCP since they can inherit from the Root.
+Option D is incorrect: because DEV_OU and QA_OU are not required to attach the Deny SCP separately since Project_OU as a parent can effectively do that.
+AWS Organizations is a service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. AWS Organizations helps you to manage your accounts and apply policies across them. As an AWS Solutions Architect, you may be responsible for configuring AWS Organizations hierarchy and applying the appropriate policies to manage the accounts.
+Answer A: This approach involves creating two Service Control Policies (SCPs) and attaching them to different Organizational Units (OUs) in the hierarchy. An SCP is a policy that you can use to specify the maximum permissions for AWS accounts in an organization or an OU. SCPs are attached to OUs to restrict access to specific AWS services and actions. In this approach, the following steps are followed:
+1.
+Create an SCP that denies required actions and attach it to the Root OU. This will apply the policy to all accounts in the organization, including the accounts in the Project_OU, DEV1_OU, DEV2_OU, and QA1_OU. This policy can be used to restrict access to specific AWS services and actions.
+2.
+Attach another SCP that contains an Allow list in the Project_OU. This will override the SCP attached to the Root OU and allow the necessary actions for the accounts in the Project_OU.
+Answer B: This approach involves attaching an SCP to the Project_OU to deny the deletion of IAM roles. This can be useful if you want to prevent users from accidentally or intentionally deleting IAM roles, which could cause serious security issues. The steps for this approach are:
+1. In the Project_OU, attach an SCP that contains a Deny list to deny the deletion of IAM roles. This will apply the policy to all accounts in the Project_OU.
+Answer C: This approach involves attaching two SCPs to different OUs in the hierarchy. One SCP will be used to allow full access to specific AWS services and actions, while the other SCP will be used to deny access to certain services and actions. The following steps are followed:
+1.
+Make sure that Root, Project_OU, and Security_OU are attached with a full access SCP. This will allow the necessary actions for all accounts in these OUs.
+2.
+Attach another SCP that contains the Deny list to DEV1_OU, DEV2_OU, and QA1_OU. This will restrict access to specific AWS services and actions in these OUs.
+Answer D: This approach involves creating an SCP that denies the required actions and attaching it to multiple OUs in the hierarchy. The following steps are followed:
+1.
+Create an SCP that denies the required actions.
+2.
+Attach it to Project_OU, DEV_OU, and QA_OU. This will restrict access to specific AWS services and actions in these OUs.
+Overall, the approach taken depends on the specific requirements and constraints of the organization. The best approach will be the one that balances security and usability while meeting the organization's needs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question434:"link"
+
+

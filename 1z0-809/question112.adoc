@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "912 - Which two methods from the javautilstrea"
+---
+
+
+[.question]
+== 912-64a1a861ef3e8462333a9ca6.
+
+
+****
+
+[.query]
+--
+Which two methods from the java.util.stream.Stream interface perform a reduction operation? (Choose two.)
+
+
+--
+
+[.list]
+--
+* [*] A. count ()
+* [*] B. collect ()
+* [ ] C. distinct ()
+* [ ] D. peek ()
+* [ ] E. filter ()
+
+--
+****
+
+[.answer]
+AB
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "932 - Youre running an application onpremises "
+---
+
+
+[.question]
+== 932-64a1df25aa736d27b1db9361.
+
+
+****
+
+[.query]
+--
+You're running an application on-premises due to its dependency on non-x86 hardware and want to use AWS for data backup.
+Your backup application is only able to write to POSIX-compatible block-based storage.
+You have 624TB of data and would like to mount it as a single folder on your file server.
+Users must be able to access portions of this data while the backups are taking place.
+What backup solution would be most appropriate for this use case?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Storage Gateway and configure it to use Gateway Cached volumes.
+* [ ] B. Configure your backup software to use S3 as the target for your data backups.
+* [ ] C. Configure your backup software to use Glacier as the target for your data backups.
+* [ ] D. Use Storage Gateway and configure it to use Gateway Stored volumes.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Gateway-Cached volumes can support volumes of 1,024TB in size, whereas Gateway-stored volume supports volumes of 512 TB size.
+Option A is CORRECT because (a) it supports volumes of up to 1,024TB in size, and (b) the frequently accessed data is store on the on-premise server while the entire data is backed up over AWS.
+Option B is incorrect because S3 is not ideal for POSIX compliant data.
+Option C is incorrect because the data stored in Amazon Glacier is not available immediately.
+Retrieval jobs typically require 3-5 hours to complete; so, if you need immediate access to your data as mentioned in the question, this may not be the ideal choice.
+Option D is incorrect because gateway stored volumes can only store only 512TB worth of data.
+For more information on all of the options for storage, please refer to the below link-
+http://docs.aws.amazon.com/storagegateway/latest/userguide/resource-gateway-limits.html#resource-volume-limits
+The most appropriate backup solution for this use case would be to use Storage Gateway and configure it to use Gateway Stored volumes.
+Storage Gateway is a hybrid cloud storage service that enables on-premises applications to seamlessly use AWS storage services, such as Amazon S3, Amazon EBS, and Amazon Glacier, while still providing low-latency performance and data consistency. It accomplishes this by providing a virtual machine image that can be deployed on-premises and functions as a gateway between the on-premises environment and AWS storage services.
+In this case, the application is running on-premises due to its dependency on non-x86 hardware, and the backup application is only able to write to POSIX-compatible block-based storage. Therefore, using Storage Gateway and configuring it to use Gateway Stored volumes would be the best backup solution for this use case.
+Gateway Stored volumes provide low-latency access to the full data set while still providing durable off-site backups. The data is stored as EBS snapshots in S3, providing a durable and scalable backup solution. Additionally, Gateway Stored volumes can be mounted as iSCSI devices and can be accessed by on-premises applications just like a physical disk.
+Using Gateway Stored volumes also allows for the ability to use incremental snapshots, which can greatly reduce the amount of data transferred over the network during backups. This is important given the large amount of data in this use case, as it can help to reduce backup windows and network traffic.
+Finally, the requirement to mount the 624TB of data as a single folder on the file server can be achieved through the use of Gateway Stored volumes. By mounting the Gateway Stored volume as an iSCSI device, the volume can be formatted with a file system, such as ext4 or NTFS, and mounted as a single folder on the file server.
+In summary, the most appropriate backup solution for this use case is to use Storage Gateway and configure it to use Gateway Stored volumes because it provides low-latency access to the full data set while still providing durable off-site backups, allows for incremental snapshots, and can be mounted as a single folder on the file server.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question175:"link"
+
+

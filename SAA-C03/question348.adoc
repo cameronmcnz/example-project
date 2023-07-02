@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1148 - A company is hosting its website on a cl"
+---
+
+
+[.question]
+== 1148-64a1facaf053625db51ddf88.
+
+
+****
+
+[.query]
+--
+A company is hosting its website on a cluster of web servers behind a public-facing load balancer.
+The web application has interfaces with an AWS RDS database.
+The management has specified that the database needs to be available in case of a hardware failure on the primary database.
+The secondary needs to be made available in the least amount of time.
+Which of the following would you opt for?
+
+
+--
+
+[.list]
+--
+* [*] A. Made a snapshot of the database
+* [*] B. Enabled Multi-AZ failover
+* [ ] C. Increased the database instance size
+* [ ] D. Created a read replica.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+Amazon RDS Multi-AZ deployments provide enhanced availability and durability for Database (DB) Instances, making them a natural fit for production database workloads.
+When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ)
+Each AZ runs on its own physically distinct, independent infrastructure, and is engineered to be highly reliable.
+In case of an infrastructure failure, Amazon RDS performs an automatic failover to the standby (or to a read replica in the case of Amazon Aurora)
+Thus you can resume database operations as soon as the failover is complete.
+Options A and D are incorrect since even though they can be used to recover a database, it would just take more time than just enabling Multi-AZ.
+Option C is incorrect since this will not help the cause.
+For more information on Multi-AZ, please visit the URL-
+https://aws.amazon.com/rds/details/multi-az/
+For high availability and fault tolerance, Amazon RDS offers multiple options. In this scenario, the requirement is to have a secondary database available in the least amount of time in case of hardware failure on the primary database.
+Option A: Taking a snapshot of the database is a backup method that can be used to restore data, but it will not help in achieving high availability or reducing the time required to recover from a failure. So this option is not suitable for this scenario.
+Option B: Multi-AZ (Availability Zone) deployment can be used to create a standby replica of the primary database in another availability zone. In case of a hardware failure or any other disruption in the primary database, the failover process is automatically handled by Amazon RDS, and the secondary database is promoted to become the new primary database. This option provides high availability and reduces the recovery time to seconds, making it a suitable choice for this scenario.
+Option C: Increasing the database instance size can improve the performance of the database, but it will not help in achieving high availability or reducing the recovery time in case of a hardware failure. Therefore, this option is not the best choice for this scenario.
+Option D: A read replica is a copy of the primary database that can be used to offload read traffic from the primary database. It does not provide automatic failover, so it is not suitable for this scenario.
+Therefore, the best option for achieving high availability and reducing the recovery time in case of a hardware failure on the primary database is to enable Multi-AZ deployment (Option B).
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question410:"link"
+
+

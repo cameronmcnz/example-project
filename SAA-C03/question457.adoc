@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1257 - You are an AWS architect in your organiz"
+---
+
+
+[.question]
+== 1257-64a1fb01f053625db51de009.
+
+
+****
+
+[.query]
+--
+You are an AWS architect in your organization.
+Your organization would want to upload files to the AWS S3 bucket.
+In a VPC, you create a private subnet and VPC endpoint for S3
+You also create one route table that routes the traffic from the private subnet to a NAT gateway for the internet access.
+In AWS S3 server logs, you notice that the requests to the S3 bucket from an EC2 instance in the VPC do not go through the NAT Gateway.
+What could cause this situation?
+
+
+--
+
+[.list]
+--
+* [*] A. When NAT Gateway and VPC endpoint exist on same route table, NAT Gateway always takes precedence.
+* [ ] B. EC2 instance has an elastic IP address associated with it.
+* [*] C. The requests are routed through the VPC endpoint.
+* [ ] D. AWS S3 is a managed service so all requests will always go through the internal AWS network.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Option A is incorrect.
+VPC Endpoint always takes precedence over NAT Gateway or Internet Gateway.
+In the absence of a VPC endpoint, requests to S3 are routed to NAT Gateway or Internet Gateway based on their existence in the route table.
+Option B is incorrect.
+The elastic IP address is an IPv4 public address assigned to the instance.
+It does not explain the situation.
+Option C is CORRECT.
+The traffic goes through the S3 VPC endpoint so the NAT Gateway is not used in this scenario.
+Option D is incorrect.
+If the S3 VPC endpoint is not configured, the requests will go through the internet.
+The correct answer to the given question is option A: When NAT Gateway and VPC endpoint exist on the same route table, NAT Gateway always takes precedence.
+Explanation: AWS S3 bucket is a service provided by Amazon Web Services for storing and retrieving data. Amazon VPC (Virtual Private Cloud) is a service that enables the users to launch AWS resources into a virtual network that they have defined. Amazon VPC endpoints for Amazon S3 provide secure and private connectivity between the VPC and S3. AWS NAT Gateway is a highly available AWS-managed service that makes it easy to connect instances in a private subnet to the Internet.
+When a user wants to access S3 from an EC2 instance in a VPC, there are two possible ways:
+1. Through a NAT Gateway: In this case, the EC2 instance sends a request to the NAT Gateway, which forwards it to the S3 bucket through the internet gateway. The response then goes back to the NAT Gateway and finally to the EC2 instance.
+2. Through a VPC endpoint: In this case, the EC2 instance sends a request to the VPC endpoint for S3, which is directly connected to the S3 bucket over the Amazon network. The response then goes back to the EC2 instance through the same endpoint.
+In the given scenario, the VPC has a private subnet and a VPC endpoint for S3. A route table is also created that routes the traffic from the private subnet to a NAT gateway for internet access. However, the logs show that the requests to the S3 bucket from an EC2 instance in the VPC do not go through the NAT Gateway.
+This situation occurs because when a NAT Gateway and VPC endpoint exist on the same route table, the NAT Gateway always takes precedence. This means that all traffic destined for S3 will always be routed through the NAT Gateway, even if there is a VPC endpoint available. Therefore, in this scenario, the requests from the EC2 instance will always go through the NAT Gateway and not through the VPC endpoint.
+Option B is incorrect because an elastic IP address associated with the EC2 instance does not affect the routing of traffic to S3.
+Option C is incorrect because if the requests were routed through the VPC endpoint, it would be reflected in the AWS S3 server logs.
+Option D is incorrect because although AWS S3 is a managed service, it is still accessible through the internet and can be accessed through a VPC endpoint or NAT Gateway.
+In conclusion, when both NAT Gateway and VPC endpoint exist on the same route table, the NAT Gateway takes precedence, and all traffic destined for S3 will be routed through the NAT Gateway.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question539:"link"
+
+

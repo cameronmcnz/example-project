@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "967 - You deployed your company website using "
+---
+
+
+[.question]
+== 967-64a1df32aa736d27b1db939a.
+
+
+****
+
+[.query]
+--
+You deployed your company website using Elastic Beanstalk, and you enabled log file rotation to S3
+An Elastic MapReduce job is periodically analyzing the logs on S3 to build a usage dashboard that you share with your CIO.
+You recently improved the website's overall performance using CloudFront for dynamic content delivery and your website as the origin.
+After this architectural change, the usage dashboard shows that the traffic on your website dropped by order of magnitude.
+How do you fix your usage dashboard?
+
+
+--
+
+[.list]
+--
+* [*] A. Allow CloudFront logs to be delivered to S3 and use them as input of the Elastic MapReduce job.
+* [ ] B. Turn on CloudTrail and use trail log tiles on S3 as input of the Elastic MapReduce job.
+* [ ] C. Change your log collection process to use CloudWatch ELB metrics as input of the Elastic MapReduce job.
+* [ ] D. Use Elastic Beanstalk "Rebuild Environment" option to update log delivery to the Elastic MapReduce job.
+* [ ] E. Use Elastic Beanstalk `Restart App Server(s)" option to update log delivery to the Elastic MapReduce job.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - A.
+Option A is CORRECT because the website is now only accessible via CloudFront.
+So, for the dashboard to have the up-to-date information via EMR, the logs from the CloudFront must be stored on S3 (to be analyzed by the EMR)
+Once these logs are delivered to S3, the dashboard should show the correct traffic information.
+Option B is incorrect because the CloudTrail log will not show the required information.
+It will only show the insights of the AWS services and APIs accessed by the application.
+Option C is incorrect because the dashboard must be showing the information about the traffic pertaining to the website.
+CloudWatch will show the information based on the metrics related to AWS resources (not the website).
+Option D is incorrect because the configuration of the Elastic Beanstalk environment is independent of the CloudFront setting.
+In order to have the information related to the dynamic content, the logs created by CloudFront must be delivered to S3
+“Rebuild Environment” of Elastic Beanstalk will not be of any use.
+Option E is incorrect because “Restart App Server(s)” causes the environment to restart the application container server running on each Amazon EC2 instance.
+It is totally unrelated to the information that is shown by the dashboard.
+The correct answer is A. Allow CloudFront logs to be delivered to S3 and use them as input of the Elastic MapReduce job.
+Explanation: The reason the usage dashboard shows a drop in traffic is that CloudFront serves cached content directly to end-users instead of forwarding requests to the origin server. This behavior reduces the amount of traffic the Elastic Beanstalk environment receives, resulting in a decrease in log volume. To fix the usage dashboard, we need to use CloudFront access logs as input for the Elastic MapReduce job, as these logs contain detailed information about user requests.
+Option B, Turn on CloudTrail and use trail log tiles on S3 as input of the Elastic MapReduce job, is incorrect because CloudTrail logs are not suitable for analyzing website usage. CloudTrail logs capture AWS API calls made by users, applications, and AWS services, but they do not contain information about website requests.
+Option C, Change your log collection process to use CloudWatch ELB metrics as input of the Elastic MapReduce job, is incorrect because CloudWatch ELB metrics provide aggregated statistics about network traffic, HTTP errors, and response time, but they do not contain detailed information about user requests.
+Option D, Use Elastic Beanstalk "Rebuild Environment" option to update log delivery to the Elastic MapReduce job, is incorrect because rebuilding the Elastic Beanstalk environment does not change the log delivery process. The log rotation settings are configured at the Elastic Beanstalk environment level and apply to all instances in the environment.
+Option E, Use Elastic Beanstalk 'Restart App Server(s)" option to update log delivery to the Elastic MapReduce job, is incorrect because restarting the app server(s) does not change the log delivery process. The log rotation settings are configured at the Elastic Beanstalk environment level and apply to all instances in the environment.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question232:"link"
+
+

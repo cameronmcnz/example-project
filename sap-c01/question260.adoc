@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1060 - Your company has built a Therapist Finde"
+---
+
+
+[.question]
+== 1060-64a1df56aa736d27b1db9431.
+
+
+****
+
+[.query]
+--
+Your company has built a Therapist Finder service.
+Since the launch last year, over 150K therapists have registered from around the country, and the service is growing rapidly.
+The management has decided to add a new, much-needed feature to showcase Verified Therapists based on a complex search context and other parameters on their website.
+Thus, when users search for related therapists, the service can show verified therapists.
+Their current database is in DynamoDB.
+The management is ready to do some reengineering if the solution can be cost-effective as well.
+
+
+--
+
+[.list]
+--
+* [*] A. Stream the DynamoDB data to Amazon OpenSearch using AWS Lambda and use it for the search.
+* [ ] B. Migrate the DynamoDB data to the AWS RDS database and use it for the search.
+* [*] C. Use the AWS ElastiCache in front of the DynamoDB for the search queries
+* [ ] D. Use the DynamoDB Accelerator for faster response times and save the read capacity.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is CORRECT because moving the data to Amazon OpenSearch will give better search options without breaking the Read Capacity of the DynamoDB.
+Use the OpenSearch queries to boost the search result efficiently.
+Option B is INCORRECT because moving the data to RDS will not solve the issue and will need significant engineering effort as well.
+Option C is INCORRECT because ElastiCache is to cache the data and not run the complex search queries.
+Option D is INCORRECT because DAX is not a service to help to search content and does not help to implement the feature.
+DAX and ElastiCache are used for different purposes than Amazon OpenSearch services.
+DAX is better than ElastiCache but cannot be compared to Amazon OpenSearch Service.
+Reference:
+https://aws.amazon.com/blogs/compute/indexing-amazon-dynamodb-content-with-amazon-elasticsearch-service-using-aws-lambda/
+To add a new feature to showcase verified therapists based on a complex search context and other parameters on their website, there are multiple solutions available. Four possible solutions are discussed below.
+A. Stream the DynamoDB data to Amazon OpenSearch using AWS Lambda and use it for the search: This solution involves using AWS Lambda to stream the data from DynamoDB to Amazon OpenSearch. Once the data is indexed in Amazon OpenSearch, it can be used to search for verified therapists. This solution provides a scalable and cost-effective way to perform complex searches on large datasets. AWS Lambda can be used to trigger the indexing process whenever new data is added to DynamoDB. The downside of this solution is that it requires additional setup and maintenance to stream the data to Amazon OpenSearch.
+B. Migrate the DynamoDB data to the AWS RDS database and use it for the search: This solution involves migrating the data from DynamoDB to the AWS RDS database. Once the data is in the RDS database, it can be used for the search queries. AWS RDS provides a managed database service that is scalable and reliable. However, it may not be as cost-effective as DynamoDB for large datasets. The downside of this solution is that it requires a migration process, and the RDS database may need to be optimized for search queries.
+C. Use the AWS ElastiCache in front of the DynamoDB for the search queries: This solution involves using AWS ElastiCache in front of DynamoDB to cache the search queries. ElastiCache is a fully managed in-memory data store that can be used to cache frequently accessed data. By caching the search queries in ElastiCache, the response times for the search queries can be improved. However, this solution may not be as effective for complex search queries that require multiple DynamoDB queries.
+D. Use the DynamoDB Accelerator for faster response times and save the read capacity: This solution involves using DynamoDB Accelerator (DAX) to improve the response times for the search queries. DAX is a fully managed, in-memory cache for DynamoDB that provides up to 10 times faster read performance. By using DAX, the read capacity required for the search queries can be reduced, resulting in cost savings. However, DAX may not be as effective for complex search queries that require multiple DynamoDB queries.
+In conclusion, each solution has its pros and cons. A cost-effective solution that can be implemented with minimal reengineering and maintenance is using ElastiCache. However, if the search queries are complex and require multiple DynamoDB queries, then using DAX or migrating the data to RDS may be more suitable solutions. Finally, if scalability and performance are critical, then streaming the data to Amazon OpenSearch using AWS Lambda is the most appropriate solution.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question384:"link"
+
+

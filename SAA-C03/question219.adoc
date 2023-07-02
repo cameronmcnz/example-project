@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "1019 - Your company stores a large amount of ar"
+---
+
+
+[.question]
+== 1019-64a1fa8af053625db51ddee8.
+
+
+****
+
+[.query]
+--
+Your company stores a large amount of archive data in expensive on-premises storage systems.
+You need to move the data to low-cost storage such as Amazon S3 Glacier.
+Which of the following tools is the most suitable to simplify and automate the data transfer from on-premises to S3 Glacier?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS DataSync
+* [ ] B. Server Migration Service
+* [*] C. Database Migration Service
+* [ ] D. Direct Connect.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS DataSync should be selected to simplify moving data between on-premises storage and AWS services such as S3 Glacier.
+Check https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html.
+Option A is CORRECT: With AWS DataSync, users can create a task to specify the data source and destination and then configure the data transfer.
+Option B is incorrect: Because Server Migration Service is used to migrate on-premise servers such as VMware.
+Option C is incorrect: Database Migration Service is used to migrate a database instead of local storage.
+Option D is incorrect: Direct Connect sets up a dedicated network connection to AWS.
+However, it does not automate the data transfer to AWS.
+The most suitable tool to simplify and automate the data transfer from on-premises to Amazon S3 Glacier is AWS DataSync.
+AWS DataSync is a fully-managed data transfer service that simplifies and accelerates moving large amounts of data online between on-premises storage and AWS storage services like Amazon S3, Amazon EFS, and Amazon FSx for Windows File Server.
+AWS DataSync is designed to simplify the data transfer process and provides automated scheduling, bandwidth optimization, and network resilience. With AWS DataSync, you can easily move large amounts of data from on-premises storage to Amazon S3 Glacier without having to worry about managing the underlying infrastructure, network connectivity, or security.
+Server Migration Service is a tool designed to migrate on-premises servers to Amazon EC2 instances and does not support the transfer of data to Amazon S3 Glacier. Database Migration Service is designed to migrate databases to AWS and does not support the transfer of unstructured data like files to Amazon S3 Glacier. Direct Connect is a networking service that provides dedicated network connections between on-premises infrastructure and AWS, but it is not a data transfer service.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question249:"link"
+
+

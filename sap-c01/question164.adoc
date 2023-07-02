@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "964 - A company needs to monitor the read and "
+---
+
+
+[.question]
+== 964-64a1df31aa736d27b1db9395.
+
+
+****
+
+[.query]
+--
+A company needs to monitor the read and write IOPs metrics for their AWS MySQL RDS instance and send real-time alerts to their operations team.
+Which AWS services can accomplish this?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon Simple Email Service
+* [*] B. Amazon CloudWatch
+* [ ] C. Amazon Simple Queue Service
+* [ ] D. Amazon Route 53
+* [ ] E. Amazon Simple Notification Service.
+
+--
+****
+
+[.answer]
+Answer  B and
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - B and.
+E.Option A is incorrect as SNS would be a better choice for sending real-time notifications compared to SES.
+Option B is CORRECT because CloudWatch is used for monitoring the metrics pertaining to the AWS resources.
+Option C is incorrect because SQS can neither monitor any metrics nor send out any real-time notifications.
+Option D is incorrect because Route 53 cannot monitor any metrics.
+Option E is CORRECT because SNS is used for sending the real-time notifications based on the thresholds set in CloudWatch.
+For more information on CloudWatch metrics, please refer to the link-
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html
+The correct answer for this question is option B: Amazon CloudWatch, and option E: Amazon Simple Notification Service.
+Amazon CloudWatch is a monitoring service provided by AWS that allows users to monitor resources and applications on AWS cloud. CloudWatch can monitor metrics such as CPU utilization, network traffic, disk I/O, and more for various AWS services, including RDS. In this case, the company can use CloudWatch to monitor the read and write IOPs metrics for their AWS MySQL RDS instance.
+Once the metrics are monitored, the company needs to send real-time alerts to their operations team. This can be done using Amazon Simple Notification Service (SNS). SNS is a messaging service provided by AWS that allows users to send messages or notifications to multiple recipients or subscribers. In this case, the company can configure CloudWatch alarms to send notifications to SNS topics whenever the read and write IOPs metrics exceed a certain threshold. The operations team can then subscribe to these SNS topics to receive real-time alerts about the issues.
+Therefore, the correct options to accomplish this task are B and E - Amazon CloudWatch and Amazon Simple Notification Service. Options A, C, and D are not relevant to this task.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question227:"link"
+
+

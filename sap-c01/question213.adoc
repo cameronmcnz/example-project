@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "1013 - A user uses CloudFormation to launch an "
+---
+
+
+[.question]
+== 1013-64a1df44aa736d27b1db93e7.
+
+
+****
+
+[.query]
+--
+A user uses CloudFormation to launch an EC2 instance and plans to configure an application after the instance is launched.
+The user wants to coordinate stack resource creation with configuration actions that are external to the stack creation.
+How can the user configure this?
+
+
+--
+
+[.list]
+--
+* [*] A. It is not possible that the stack creation will wait until one service is created and launched.
+* [ ] B. The user can use the HoldCondition resource to wait for the creation of the other dependent resources.
+* [ ] C. The user can use the DependentCondition resource to hold the creation of the other dependent resources.
+* [*] D. Associate a CreationPolicy attribute with the wait condition.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+You can use a wait condition for situations like the following.
+To coordinate stack resource creation with configuration actions that are external to the stack creation.
+To track the status of a configuration process.
+For more information on Cloudformation Wait condition, please visit the link.
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
+When launching an EC2 instance using CloudFormation, the user may need to coordinate the stack resource creation with configuration actions that are external to the stack creation. For example, the user may want to run a script or install software on the instance after it is launched.
+In this scenario, the user can use a CreationPolicy attribute to ensure that the instance is fully configured before the stack creation is considered complete. The CreationPolicy attribute is used to specify a wait condition that CloudFormation monitors during stack creation. CloudFormation will not consider the stack creation complete until the wait condition is satisfied.
+To use a CreationPolicy attribute, the user can define a WaitCondition resource in the CloudFormation template. The WaitCondition resource specifies a URL that the user's configuration actions can send a signal to when they are complete. The signal can include a status value that indicates whether the configuration actions succeeded or failed.
+The user can then associate the WaitCondition resource with the EC2 instance using a CreationPolicy attribute. This tells CloudFormation to monitor the wait condition specified by the WaitCondition resource and wait until it receives a signal indicating that the configuration actions are complete.
+Option A is incorrect because it is possible to wait for the creation and launch of other dependent resources. Option B is incorrect because there is no HoldCondition resource in CloudFormation. Option C is incorrect because there is no DependentCondition resource in CloudFormation. Option D is incorrect because there is no WaitCondition attribute in CloudFormation, but there is a CreationPolicy attribute that can be used to achieve the desired result.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question310:"link"
+
+

@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1270 - Your organization has a VPC set up with "
+---
+
+
+[.question]
+== 1270-64a1fb07f053625db51de019.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_e44ut6.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization has a VPC set up with a custom route table having 40 routes for different use cases such as "VPC peering", "VPN connections", "NAT gateways" etc with different IP ranges.
+The Main route table had a local route to the internet gateway to act for the public subnet.
+The CIDR IP range for the VPC is 10.10.0.0/16, which will lead to multiple subnets.
+These subnets require a custom route table to be associated with them for the respective application(s)
+Many times, the teams forget to associate the custom route table to the subnets explicitly which leads to a lot of troubleshooting hours while connecting to the new subnets from the VPN.
+As an architect, how would you resolve this issue?
+
+
+[source,java]
+----
+Replacing the Main Route Table
+You can change which route table is the main route table in your VPC.
+To replace the main route table
+1. Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+2. In the navigation pane, choose Route Tables.
+3. Select the route table that should be the new main route table, and then choose Set as Main Table.
+4. In the confirmation dialog box, choose Yes, Set.
+
+The following procedure describes how to remove an explicit association between a subnet and the main route table.
+The result is an implicit association between the subnet and the main route table. The process is the same as
+disassociating any subnet from any route table.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create a script to create a new subnet and associate it with the custom route table. Share this with all the teams.
+* [*] B. Make the custom route table as the main route table. Any new subnets created will get associated with it implicitly.
+* [ ] C. Delete the Internet Gateway route from the main route table.
+* [ ] D. Replace all routes from the custom table with the main route table and vice versa.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+A custom route table can be made as to the main route table so that all implicit associations of subnets will now point to the newly set main route table.
+All the future implicit associations of newly created subnets will point to the newly set main route table.
+Option A is incorrect, although subnet creation and association can be done programmatically, it may not be feasible to share access keys with all the teams (assuming the creation process is done on a remote network where roles cannot be used)
+It is also difficult for the organization to set up the process to run this script for new teams as they might not be aware of it.
+As described above, option B is setting a custom table as the main route table is a simple configuration.
+All the associations would point to the new main route table implicitly.
+Option C is incorrect because deleting the internet gateway does not solve the problem.
+It might create a new problem for EC2 instances using the NAT gateway to cause failures in connecting to the internet.
+Option D is incorrect because it is tedious and error-prone.
+With all the given options, option B is the best suitable solution.
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#CustomRouteTables
+As an architect, the best solution to the given problem would be to make use of Option B, i.e., make the custom route table the main route table, so that any new subnets created will get associated with it implicitly.
+This approach ensures that all the subnets created within the VPC will automatically use the custom route table as their default route table without requiring any explicit association. This way, even if the teams forget to associate the custom route table with the subnets, the traffic will still be routed correctly without any issues.
+However, before implementing this solution, it is important to ensure that the custom route table has all the necessary routes that are required for the VPC to function properly. It should have routes for VPC peering, VPN connections, NAT gateways, etc., just like the previous main route table. Also, it should have a route for the internet gateway to allow traffic from the public subnet.
+Once the custom route table is updated with all the required routes, the next step would be to make it the main route table. This can be done by navigating to the VPC dashboard and selecting "Route Tables" from the left-hand menu. Select the custom route table and then click on the "Set as Main Route Table" button.
+After making the custom route table as the main route table, any new subnet created in the VPC will be automatically associated with the custom route table. This will save a lot of troubleshooting hours and ensure that the traffic is routed correctly between the subnets and to the internet.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question555:"link"
+
+

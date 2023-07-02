@@ -1,0 +1,110 @@
+---
+layout: default 
+title: "1078 - A user has created a VPC with public and"
+---
+
+
+[.question]
+== 1078-64a1df5caa736d27b1db9448.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_qtrrll.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A user has created a VPC with public and private subnets using the VPC wizard.
+In this scenario, which component is NOT created by the VPC wizard?
+
+
+[source,java]
+----
+‘Custom route table
+
+Destination Target
+
+_
+- 10004
+
+19851 Joo. ( ca Ay @ i A joooone lal
+
+toe. foo.2 (Eide IP 10008, o000%
+
+low
+198.51,}003 (Fiasie IP) 10.007 NAT gateway
+Web servers 199 51.100.4 (Elastic
+
+Public subnet
+
+gateway
+‘Main route table
+Destination Target
+— 10.09.06 local
+; 000.000 ‘nat-gateway-id
+----
+
+
+--
+
+[.list]
+--
+* [*] A. VPC will create two main route tables associated with the public subnet and private subnet.
+* [ ] B. VPC will create a private subnet with a size x.x.x.x/24 IPv4 CIDR block.
+* [ ] C. VPC will create an Internet gateway.
+* [ ] D. VPC will create a NAT Gateway in the public subnet.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is correct because only one main route table will be created.
+It is associated with the private subnet.
+A custom route table is associated with the public subnet.
+Below is the general diagram of what is created when you have a private and public subnet used when using the VPC wizard.
+2 subnets - one private and one public.
+One NAT Gateway to route traffic from the public to private subnet.
+One internet gateway is attached to the VPC.Options B, C and D are incorrect because the VPC Wizard creates them by default.
+For more information on VPC and subnets, please visit the URL:
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
+Sure, I'd be happy to help explain the answer to this question!
+When a user creates a VPC using the VPC wizard, several components are automatically created by default. These include the VPC itself, one or more subnets (depending on the options chosen), a default security group, and a default network ACL. However, not all components are created by the VPC wizard.
+Let's go through each answer choice and see which component is not created by the VPC wizard:
+A. VPC will create two main route tables associated with the public subnet and private subnet.
+This is true. When a user creates a VPC with public and private subnets using the VPC wizard, two main route tables are created by default - one associated with the public subnet and one associated with the private subnet.
+B. VPC will create a private subnet with a size x.x.x.x/24 IPv4 CIDR block.
+This is true. When a user creates a VPC with public and private subnets using the VPC wizard, a private subnet is created by default with a size of x.x.x.x/24 IPv4 CIDR block.
+C. VPC will create an Internet gateway.
+This is true. When a user creates a VPC with public and private subnets using the VPC wizard, an Internet Gateway (IGW) is created by default. The IGW allows resources within the VPC to communicate with the internet.
+D. VPC will create a NAT Gateway in the public subnet.
+This is false. When a user creates a VPC with public and private subnets using the VPC wizard, a NAT Gateway is not created by default. A NAT Gateway is used to enable instances in a private subnet to connect to the internet or other AWS services, but this must be explicitly configured by the user.
+Therefore, the correct answer to the question is D. A NAT Gateway is not created by the VPC wizard when a user creates a VPC with public and private subnets.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question407:"link"
+
+

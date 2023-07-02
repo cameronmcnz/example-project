@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1152 - Youre an architect for your company
+Your"
+---
+
+
+[.question]
+== 1152-64a1faccf053625db51ddf8c.
+
+
+****
+
+[.query]
+--
+You're an architect for your company.
+Your IT admin staff needs access to newly created EC2 Instances for administrative purposes.
+Which of the following needs to be done to ensure that the IT admin staff can successfully connect via port 22 on to the EC2 Instances?
+
+
+--
+
+[.list]
+--
+* [*] A. Adjust Security Group to permit egress traffic over TCP port 443 from your IP.
+* [ ] B. Configure the IAM role to permit changes to security group settings.
+* [ ] C. Modify the instance security group to allow ingress of ICMP packets from your IP.
+* [*] D. Adjust the instance’s Security Group to permit ingress traffic over port 22.
+* [ ] E. Apply the most recently released Operating System security patches.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - D.
+A security group acts as a virtual firewall that controls the traffic for one or more instances.
+When you launch an instance, you associate one or more security groups with the instance.
+You add rules to each security group that allows traffic to or from its associated instances.
+For connecting via SSH on EC2, you need to ensure that port 22 is open on the security group for the EC2 instance.
+Option A is wrong because port 443 is for HTTPS and not for SSH.
+Option B is wrong because the IAM role is not pertinent to security groups.
+Option C is wrong because this is relevant to ICMP and not SSH.
+Option E is wrong because it does not matter what patches are there on the system.
+For more information on EC2 Security groups, please visit the URL-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html
+The correct answer for this question is D. Adjust the instance's Security Group to permit ingress traffic over port 22.
+Explanation: When EC2 instances are created, they are launched within a security group that acts as a virtual firewall controlling traffic to and from the instance. To allow IT admin staff to connect to the newly created EC2 instances via port 22, we need to adjust the security group associated with those instances to permit ingress traffic on port 22.
+Option A, adjusting the Security Group to permit egress traffic over TCP port 443 from your IP, would only allow outbound traffic from your IP address to the instances over port 443, which is not relevant to the requirement of allowing IT admin staff to connect via port 22.
+Option B, configuring the IAM role to permit changes to security group settings, allows users to modify the security group settings, but it does not specifically address the requirement of allowing inbound traffic on port 22.
+Option C, modifying the instance security group to allow ingress of ICMP packets from your IP, would only allow ICMP packets from your IP address to the instances, and not allow IT admin staff to connect to the instances via port 22.
+Option E, applying the most recently released Operating System security patches, is not relevant to the requirement of allowing IT admin staff to connect to the instances via port 22.
+Therefore, the correct answer is D, adjusting the instance's Security Group to permit ingress traffic over port 22.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question414:"link"
+
+

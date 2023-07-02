@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1078 - A popular educational website is facing "
+---
+
+
+[.question]
+== 1078-64a1faa6f053625db51ddf2c.
+
+
+****
+
+[.query]
+--
+A popular educational website is facing a surge in demand for online video training.
+They have their large number of video content distributed between on-premise data centers & on Amazon S3 bucket in the us-west region.
+Students worldwide face glitches in videos & complaining about the time required to get these videos running even though each video size is less than 1 Gb.
+The Marketing Team expects a further increase in demand & you need to provide a scalable solution for this concern that can be deployed in the shortest time frame.
+Which of the following is a recommended cost-optimized scalable solution?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon S3 Cross-Region Replication to replicate content from the us-west region to other regions.
+* [ ] B. Use Throughput optimized EBS volumes to save video content.
+* [*] C. Use Amazon CloudFront for videos saved in on-premise & Amazon S3 origin.
+* [ ] D. Move all content from on-premise data centers to Amazon S3 & enable Transfer Acceleration on this bucket.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Amazon CloudFront Can be used to offload origin server loads.
+In the above case, for videos saved in on-premise servers &amp; Amazon S3 bucket, Amazon CloudFront can be used to deliver this content to users with less latency &amp; offload load on servers.
+Option A is incorrect as Using storing video content in the Amazon S3 bucket in different regions would incur additional charges.
+Option B is incorrect as EBS would be preferred for rapidly changing web content.
+In the above case, video content would not be rapidly changing.
+So storing content in Amazon S3 bucket with Amazon CloudFront distribution is a better option.
+Option D is incorrect as using Amazon S3 transfer Acceleration would be costly compared to Amazon CloudFront.
+Also, for files less than 1 Gb, using Amazon CloudFront would provide better performance than Amazon S3 Transfer Acceleration.
+For more information on using Amazon CloudFront for scalable web content, refer to the following URLs-
+https://aws.amazon.com/blogs/architecture/scale-your-web-application-one-step-at-a-time/ https://aws.amazon.com/s3/faqs/
+The recommended cost-optimized scalable solution for the educational website facing a surge in demand for online video training is to use Amazon CloudFront for videos saved in on-premise and Amazon S3 origin.
+Amazon CloudFront is a content delivery network (CDN) that delivers content from edge locations closest to the viewer's location, reducing latency and improving performance. By using Amazon CloudFront, the website can distribute the video content to edge locations worldwide, reducing the load on the origin server and improving the user experience.
+The on-premise video content can be uploaded to Amazon S3 and then distributed through Amazon CloudFront. Amazon CloudFront can also be configured to automatically replicate the content to multiple edge locations, ensuring the content is available worldwide with high availability and low latency.
+Using Amazon CloudFront is a cost-effective solution as it charges only for the data transfer and the number of requests made to the CDN. Additionally, Amazon CloudFront can be easily integrated with other AWS services such as Amazon S3 and Amazon EC2, making it a scalable solution that can be deployed quickly.
+Option A, which suggests using Amazon S3 Cross-Region Replication, can be a viable solution for disaster recovery purposes. Still, it may not be the most efficient solution for delivering content to end-users due to the increased latency and data transfer costs associated with replicating data across regions.
+Option B, which suggests using Throughput-optimized EBS volumes, is not an optimal solution for video content delivery as EBS volumes are designed for block-level storage, not for content delivery.
+Option D, which suggests moving all content from on-premise data centers to Amazon S3 and enabling Transfer Acceleration on this bucket, may not be the most cost-effective solution as it incurs additional costs for data transfer acceleration. Additionally, it may take time to transfer all the content from the on-premise data center to Amazon S3, which may not be feasible given the time constraints mentioned in the question.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question318:"link"
+
+

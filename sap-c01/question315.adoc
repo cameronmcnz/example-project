@@ -1,0 +1,117 @@
+---
+layout: default 
+title: "1115 - You have deployed a REST API in Amazon A"
+---
+
+
+[.question]
+== 1115-64a1df69aa736d27b1db947a.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imglAGZLsiWUE5KAUP5A07IlCdVeaMyTAeyeV_UrMKCrmXG0uL_fbJAC1NF0aPBsUUirxNLcvIL_TrUyAKos-fAX_9wW-s0or12HhhknHl1yo9Hj3188Gh7d0StSwr7CydHSjSnjI4t[]
+
+--
+
+
+****
+
+[.query]
+--
+You have deployed a REST API in Amazon API Gateway.
+And the API integrates with a DynamoDB table.
+The table has a large amount of data.
+For certain queries, it may take over 10 seconds to finish.
+You want to set a custom timeout of 5 seconds for the API so that users do not have to wait a long time for the response.
+How should you implement this?
+
+
+[source,java]
+----
+Actions~ @ €Method Execution /resourse - GET - Integration Request
+
+Resources
+v/ Provide information about the target backend that this method will call and whether the incoming request data should be modified.
+~ /resourse
+GET
+OPTIONS Integration type © Lambda Function @
+HTTP @
+Mock @
+
+® AWS Service @
+VPC Link @
+
+AWS Region ap-southeast-2 #
+AWS Service DynamoDB #
+
+AWS Subdomain #
+
+HTTP method ANY #
+
+Action #
+
+Execution role arn:aws:iam::myAccount:role/myRole
+Credentials cache Do not add caller credentials to cache key #
+Content Handling Passthrough # @
+
+Use Default Timeout  @
+
+Custom Timeout 50
+----
+
+
+--
+
+[.list]
+--
+* [*] A. You can configure the DynamoDB Accelerator (DAX) in the DynamoDB table so that the table can process the queries from the API Gateway faster.
+* [ ] B. The timeout of API gateway is 30 seconds and cannot be customized. Define a custom timeout of 5 seconds at the application or function level.
+* [*] C. Enlarge the DynamoDB read capacity to a higher value to shorten the waiting time for the users of the REST API.
+* [*] D. In the integration request of the API gateway, uncheck the “Use Default Timeout” box and configure the custom timeout to be 5 seconds.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Users can set up the API Integration Request using the API Gateway console.
+Details can be found in .https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings-console.html.
+The below screenshot is an example of configuring the integration timeout:
+Option A is incorrect: Because this cannot guarantee that the query time is less than 5 seconds.
+The custom timeout needs to be modified through API Gateway.
+Option B is incorrect: Because the integration timeout of API gateway can be configured between 50 milliseconds and 29 seconds.
+Option C is incorrect: Because this option does not configure the integration timeout for the REST API.
+Option D is CORRECT: This option creates an integration timeout for the DynamoDB table.
+If the processing time in DynamoDB is longer than 5 seconds, the incoming request is disconnected by the API Gateway.
+The correct answer for this question is D. In the integration request of the API gateway, uncheck the “Use Default Timeout” box and configure the custom timeout to be 5 seconds.
+Explanation:
+Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. It can integrate with various AWS services, including DynamoDB.
+In this scenario, the REST API is integrated with a DynamoDB table that contains a large amount of data. Some queries may take over 10 seconds to finish, which can cause a long wait time for users. To address this, the API should have a custom timeout of 5 seconds.
+Option A is incorrect because configuring DynamoDB Accelerator (DAX) in the DynamoDB table can improve the performance of the DynamoDB queries. However, it does not affect the timeout of the API Gateway.
+Option B is incorrect because the timeout of API Gateway can be customized. By default, the timeout is 30 seconds, but it can be adjusted up to 29 seconds. However, the recommended approach is to set a lower timeout for a specific API resource if necessary.
+Option C is incorrect because increasing the DynamoDB read capacity can improve the performance of DynamoDB queries, but it does not affect the timeout of the API Gateway.
+Option D is the correct answer because it allows you to configure a custom timeout for the API Gateway. To set a custom timeout, you need to uncheck the “Use Default Timeout” box in the integration request and enter the desired timeout value (in seconds). In this case, the value should be set to 5 seconds to meet the requirement.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question457:"link"
+
+

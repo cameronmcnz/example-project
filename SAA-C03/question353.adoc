@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1153 - Your company is running a photosharing w"
+---
+
+
+[.question]
+== 1153-64a1facdf053625db51ddf8d.
+
+
+****
+
+[.query]
+--
+Your company is running a photo-sharing website.
+Currently, all the photos are stored in S3
+At some point, the company finds out that other sites have been linking to your site's photos, which causes loss to your business.
+You need to implement a solution for the company to mitigate this issue.
+Which of the following would you look at implementing?
+
+
+--
+
+[.list]
+--
+* [*] A. Remove public read access and use signed URLs with expiry dates.
+* [ ] B. Use CloudFront distributions for static content.
+* [ ] C. Block the IPs of the offending websites in Security Groups.
+* [ ] D. Store photos on an EBS volume of the web server.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The AWS Documentation mentions the following.
+A pre-signed URL gives you access to the object identified in the URL, provided that the creator of the pre-signed URL has permission to access that object.
+That is, if you receive a pre-signed URL to upload an object, you can upload the object only if the creator of the pre-signed URL has the necessary permissions to upload that object.
+Option B is incorrect since CloudFront is only used to distribute content across edge or region locations.
+It is not used for restricting access to content.
+Option C is incorrect since Blocking IP's is challenging because they are dynamic in nature, and you will not know which sites are accessing your main site.
+Option D is incorrect since Storing photos on EBS volume is not a good practice or architecture approach for an AWS Solution Architect.
+For more information on serving private content, please visit the URL-
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html
+The correct answer in this scenario would be A. Remove public read access and use signed URLs with expiry dates.
+Explanation:
+The problem that the company is facing is that other websites are directly linking to their photos, resulting in loss of business. This means that the photos on the company's S3 bucket are publicly accessible, which should not be the case. There are two things that the company can do to mitigate this issue:
+1.
+Remove Public Read Access: The company should remove public read access to their S3 bucket so that photos can only be accessed by authorized users. This can be done by updating the S3 bucket policy or access control list (ACL) to deny public access.
+2.
+Use Signed URLs with Expiry Dates: Even after removing public read access, the company may still need to provide access to some users, such as website visitors who are authorized to view the photos. In this case, the company should use signed URLs with expiry dates to provide temporary access to these users. This can be done by generating signed URLs that have a limited time validity, and then providing these URLs to authorized users.
+Option B, using CloudFront distributions for static content, is not directly related to the problem of unauthorized access to the company's photos. However, using CloudFront can improve the website's performance by caching content closer to users.
+Option C, blocking IPs of the offending websites in Security Groups, is not an effective solution as it is easy for offending websites to change their IP addresses, and it may also block legitimate users who happen to use the same IP addresses.
+Option D, storing photos on an EBS volume of the web server, is not a recommended solution for storing photos as it can be costly and difficult to scale. S3 is a more cost-effective and scalable solution for storing and managing large amounts of data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question415:"link"
+
+

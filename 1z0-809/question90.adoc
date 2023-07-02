@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "890 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 890-64a1a85bef3e8462333a9c90.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0007400001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+public class Foo {
+public void methodB (String s)
+B
+
+public class Bar extends Foo {
+public void methods (String s)
+?
+
+public class Baz extends Bar {
+public void methodB (String s)
+)
+
+public class Daze extends Baz{
+private Bar bb = new Bar();
+public void methodB(String s)
+bb.methodB (s)
+super .methodB (s) ;
+
+}
+
+public class TestClass {
+
+{ System.out.printin("Foo "+s )7
+
+{ System.out.println("Bar "+ s);
+
+{ System.out.print1n("Baz "+ s);
+
+public static void main(string[] args) {
+
+Baz d = new Daze();
+d.methodB ("Hello") ;
+
+}
+
+}
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Bar Hello Foo Hello
+* [*] B. Bar Hello Baz Hello
+* [ ] C. Baz Hello
+* [ ] D. A compilation error occurs in the Daze class.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

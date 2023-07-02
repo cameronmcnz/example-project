@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1027 - Company B has created an ecommerce site "
+---
+
+
+[.question]
+== 1027-64a1df49aa736d27b1db93f9.
+
+
+****
+
+[.query]
+--
+Company B has created an e-commerce site using DynamoDB and is designing a table named Products that includes items purchased by users.
+There are thousands of users and dozens of products.
+The table only has the partition key and does not have the sort key.
+When creating the table, which of the following is the most suitable to be selected as the partition key?
+
+
+--
+
+[.list]
+--
+* [*] A. user_id
+* [ ] B. product_id
+* [ ] C. category_id
+* [ ] D. None of the above.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+When defining primary keys, you should always use the "many to few" principle.
+There are thousands of users but only a few products and categories.
+Hence, option A is the best answer.
+For a table item, you can fill in all the products purchased for a user.
+For more information on DynamoDB, please visit the link.
+https://aws.amazon.com/dynamodb/faqs/
+When designing a DynamoDB table, choosing the right partition key is crucial for optimal performance and scalability.
+In this scenario, the table is intended to store items purchased by users, and there are thousands of users and dozens of products. Since the table doesn't have a sort key, it means that the items will be unordered.
+Option A: user_id The user_id may seem like a good choice, but it would likely result in a hotspotting issue. This means that a small set of partitions will receive a disproportionate amount of read/write traffic, which can lead to performance issues and increased costs. In this case, a small number of popular users could end up overwhelming the capacity of a single partition.
+Option B: product_id Similarly, using product_id as the partition key can lead to hotspotting if certain products are much more popular than others. Additionally, if there are multiple sellers for a given product, their sales data would be spread across multiple partitions, making it harder to aggregate and analyze.
+Option C: category_id Using category_id as the partition key is a better option than user_id or product_id, as it can help distribute the data more evenly across partitions. However, it may still lead to hotspotting if certain categories are more popular than others.
+Option D: None of the above Based on the information given, it's difficult to determine the optimal partition key. One option would be to use a combination of user_id and product_id as a composite partition key, which would help distribute the data more evenly. Another option would be to use a time-based partition key, such as a purchase date, which would allow for efficient querying of recent purchases.
+In summary, the most suitable option for a partition key would depend on the specific requirements and access patterns of the application. However, based on the information given, using category_id as the partition key would be a better choice than user_id or product_id, as it can help distribute the data more evenly across partitions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question328:"link"
+
+

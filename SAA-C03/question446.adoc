@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1246 - You use a Lambda function to connect to "
+---
+
+
+[.question]
+== 1246-64a1fafbf053625db51ddffd.
+
+
+****
+
+[.query]
+--
+You use a Lambda function to connect to an Oracle RDS instance and run some long SQL queries.
+The timeout of the Lambda function is set to 15 minutes, and the function sometimes reaches a timeout.
+You propose to increase the allocated memory of the Lambda function.
+However, your manager is worried about the cost.
+How would you answer this question?
+
+
+--
+
+[.list]
+--
+* [*] A. The cost will not change as the allocated memory does not impact the price.
+* [ ] B. The cost will decrease for sure as the total duration of code execution will be less.
+* [*] C. The cost may not increase as the execution time for the Lambda may be less although you will be charged more for the memory.
+* [ ] D. The cost will not change because the number of requests for the function does not change.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect: Because the amount of allocated memory impacts the cost.
+Option B is incorrect: Because the price also depends on the amount of memory that you allocate to the function.
+Option C is CORRECT: Because the price of duration is calculated based on both the amount of memory and execution time.
+When the function has more memory, the execution time may drop.
+Option D is incorrect: Because the memory also impacts the cost of the function.
+Reference:
+https://aws.amazon.com/lambda/pricing/
+Lambda functions in AWS are billed based on the duration of execution and the amount of memory allocated to the function. The more memory allocated, the higher the price. However, the cost-effectiveness of increasing the allocated memory depends on the specific use case.
+In this scenario, increasing the allocated memory of the Lambda function could potentially reduce the overall execution time of the function, which may lead to a lower cost overall. This is because the Lambda function is charged based on the actual execution time, which includes the time spent waiting for the RDS query to complete. If the allocated memory is increased, the Lambda function will have more CPU and network resources available to it, which can help speed up the query execution time and reduce the overall duration of the function.
+However, it's important to note that increasing the allocated memory does not guarantee a decrease in cost. This is because the price of the function is dependent on both the duration of execution and the amount of memory allocated, so while the execution time may decrease, the cost may increase if the amount of memory allocated is also increased. The optimal balance between memory allocation and execution time for cost-effectiveness would need to be determined through testing and optimization.
+Regarding the answer options provided, option A is correct in stating that allocated memory does not impact the price of the Lambda function. However, it's important to note that the duration of execution does impact the price, and increasing the allocated memory can potentially reduce the duration of execution.
+Option B is not necessarily true, as the total cost may still increase depending on the amount of memory allocated.
+Option C is a more accurate response as it acknowledges the potential for the cost to increase due to increased memory allocation, but also acknowledges the potential for decreased execution time.
+Option D is not relevant to the question, as the number of requests for the function is not being considered in the scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question527:"link"
+
+

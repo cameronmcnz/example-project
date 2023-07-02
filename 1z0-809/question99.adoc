@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "899 - Given the code fragments
+What is the res"
+---
+
+
+[.question]
+== 899-64a1a85eef3e8462333a9c99.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0008700001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragments:
+What is the result?
+
+
+[source,java]
+----
+public static Optional<string> getCountry(String loc) {
+Optional<string> couName = Optional.empty()7
+if ("Paris".equals(loc))
+couName = Optional.of ("France");
+else if ("Mumbai".equals(loc))
+couName = Optional.of ("India");
+return couName;
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. France Optional[NotFound]
+* [ ] B. Optional [France] Optional [NotFound]
+* [ ] C. Optional[France] Not Found
+* [*] D. France Not Found.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

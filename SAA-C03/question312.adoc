@@ -1,0 +1,111 @@
+---
+layout: default 
+title: "1112 - Your organization is building a collabor"
+---
+
+
+[.question]
+== 1112-64a1fab5f053625db51ddf51.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_38xlnl.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization is building a collaboration platform for which they chose AWS EC2 for web and application servers and MySQL RDS instance as the database.
+Due to the nature of the traffic to the application, they would like to increase the number of connections to the RDS instance.
+How could this be achieved?
+
+
+[source,java]
+----
+Parameter Groups > mysqlcustom
+
+rameters | Recent Events | Tags
+
+me ear X) consisoina | revewchanges | aetna SEES
+
+woken i wwe crane et
+nara set conection we roe taut
+eta connecton [apnea ——¥) we engve set
+connec ret 2a6a00 we crane eat
+covet Cc, we enge deat
+race teat eK) owe engve set
+sax comes ens [ ‘-10e4graa7a709647500 wwe crane taut
+‘mak conection [DiainesCieens] 1-100 wwe sem
+
+rae ser ommetons Sd wwe engne seat
+eed eout [ 13596000 we rae taut
+ee recut eo) wwe eng cetaut
+perooance schema ses, corect as see] 1006 wwe ene dest
+en (enspoaPon) fase stem
+
+secure aun (gna a ¥| wwe ergo deat
+stove pel meout eK) owe crane et
+seat Ini sock fase system
+
+PEPPRUTATTTTAT
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Login to RDS instance and modify database config file under /etc/mysql/my.cnf
+* [*] B. Create a new parameter group, attach it to DB instance and change the setting.
+* [*] C. Create a new option group, attach it to DB instance and change the setting.
+* [ ] D. Modify setting in default options group attached to DB instance.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+You manage your DB engine configuration through the use of parameters in a DB parameter group.
+DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.
+A default DB parameter group is created if you create a DB instance without specifying a customer-created DB parameter group.
+Each default DB parameter group contains database engine defaults and Amazon RDS system defaults based on the engine, compute class, and allocated storage of the instance.
+You cannot modify the parameter settings of a default DB parameter group.
+You must create your own DB parameter group to change parameter settings from their default value.
+Note that not all DB engine parameters can be changed in a customer-created DB parameter group.
+If you want to use your own DB parameter group, you simply create a new DB parameter group, modify the desired parameters, and modify your DB instance to use the new DB parameter group.
+All DB instances that are associated with a particular DB parameter group get all parameter updates to that DB parameter group.
+For more information, please visit the URL below-
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html
+The correct answer is B. Create a new parameter group, attach it to the DB instance, and change the setting.
+Explanation: Amazon RDS is a managed database service provided by AWS that makes it easy to set up, operate, and scale a relational database in the cloud. By default, the maximum number of allowed connections for an RDS instance depends on the instance class and ranges from a few hundred to several thousand. If the default limit is not enough, you can increase the maximum number of connections by modifying the value of the "max_connections" parameter in a custom parameter group and attaching it to the DB instance.
+Option A is incorrect because modifying the database config file directly is not recommended and may cause the database to become unstable or stop working altogether.
+Option C is incorrect because option groups are used to enable specific features or functionalities for a DB instance, not to change the maximum number of allowed connections.
+Option D is also incorrect because modifying the settings in the default options group is not recommended since it can affect other DB instances using the same group.
+To summarize, the best practice to increase the maximum number of connections to an RDS instance is to create a new parameter group, modify the "max_connections" parameter, attach it to the DB instance, and then restart the instance to apply the changes.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question355:"link"
+
+

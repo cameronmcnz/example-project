@@ -1,0 +1,105 @@
+---
+layout: default 
+title: "1305 - You are building a contentserving web ap"
+---
+
+
+[.question]
+== 1305-64a1fb1af053625db51de047.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_choose_performance_mode.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are building a content-serving web application with 20 EC2 instances.
+The EC2 servers are all load-balanced, and content storage for the instances will remain the same. You have chosen AWS EFS to act as a common storage repository.
+Your application needs to have as low of latency as possible when serving content to the web users.
+Which of the following options is the best choice for this situation?
+
+
+[source,java]
+----
+Choose performance mode
+
+We recommend General Purpose performance mode for most file systems. Max I/O performance mode is optimized for applications where tens, hundreds, or
+thousands of EC2 instances are accessing the file system — it scales to higher levels of aggregate throughput and operations per second with a tradeoff of
+
+slightly higher latencies for file operations.
+
+© General Purpose
+
+Max 0
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Max I/O Performance Mode
+* [*] B. General Purpose Performance Mode
+* [ ] C. Bursting Throughput Mode
+* [ ] D. Provisioned Throughput Mode.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Although Max I/O is recommended to be used when tens, hundreds, or thousands of EC2 instances sharing the same EFS, it can slightly increase the latency.
+In this case, the question states the latency needs to be as low as possible.
+Performance Modes.
+To support a wide variety of cloud storage workloads, Amazon EFS offers two performance modes.
+You select a file system's performance mode when you create it.
+The two performance modes have no additional costs, so your Amazon EFS file system is billed and metered the same, regardless of your performance mode.
+For information about file system limits, see Limits for Amazon EFS File Systems.
+Note: An Amazon EFS file system's performance mode can't be changed after the file system has been created.
+General Purpose Performance Mode.
+We recommend the General Purpose performance mode for the majority of your Amazon EFS file systems.
+General Purpose is ideal for latency-sensitive use cases, like web serving environments, content management systems, home directories, and general file serving.
+If you don't choose a performance mode when you create your file system, Amazon EFS selects the General Purpose mode for you by default.
+Max I/O Performance Mode.
+File systems in the Max I/O mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for file operations.
+Highly parallelized applications and workloads, such as big data analysis, media processing, and genomics analysis, can benefit from this mode.
+https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes
+Via the explanations above, Option B is the only correct statement.
+For Bursting and Provisioned Throughput modes, please refer to page 85 to 89 on the below link:
+https://docs.aws.amazon.com/efs/latest/ug/efs-ug.pdf
+For this scenario, the best performance mode for EFS is Provisioned Throughput Mode (D).
+Provisioned Throughput Mode provides consistent throughput performance for file operations, and it's suitable for applications that require high and consistent throughput to access file systems.
+In this case, since you have 20 EC2 instances, you need a storage solution that can handle high traffic, provide low latency, and maintain consistency. Provisioned Throughput Mode will allow you to set the desired throughput for your file system, which can help you manage the traffic and performance of your web application.
+Max I/O Performance Mode (A) is optimized for applications that need maximum I/O throughput and operations per second (OPS) with the lowest possible latency. This mode is ideal for workloads that require heavy I/O, but it doesn't provide consistent performance as Provisioned Throughput Mode.
+General Purpose Performance Mode (B) is ideal for workloads that have a mix of operations, and it's optimized for latency-sensitive workloads. However, in this scenario, where consistency is essential, Provisioned Throughput Mode is a better choice.
+Bursting Throughput Mode (C) is optimized for workloads that have bursts of activity, and it provides a baseline throughput with the ability to burst for short periods. However, for consistent performance, Provisioned Throughput Mode is the best option.
+In conclusion, Provisioned Throughput Mode is the best choice for this scenario since it provides consistent throughput performance for file operations, which is essential for a content-serving web application with multiple EC2 instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question602:"link"
+
+

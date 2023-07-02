@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "1286 - Your organization is planning to upload "
+---
+
+
+[.question]
+== 1286-64a1fb0ff053625db51de02c.
+
+
+****
+
+[.query]
+--
+Your organization is planning to upload a large number of files to the AWS cloud.
+These files need to be immediately available for download across different geographical regions right after the upload is complete.
+They consulted you to check if S3 is a suitable solution for the use case.
+What do you suggest?
+
+
+--
+
+[.list]
+--
+* [*] A. S3 is not suitable for immediate downloads because new AWS provides eventual consistency for new objects.
+* [ ] B. EFS is not suitable for immediate downloads because AWS provides eventual consistency for new objects.
+* [ ] C. EFS is suitable for immediate downloads because AWS provides eventual consistency for new objects.
+* [*] D. S3 is suitable for immediate downloads because AWS provides strong read-after-write consistency for new objects.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Amazon S3 provides strong read-after-write consistency for PUTS of new objects in your S3 bucket in all regions.
+There is a new update mentioned in https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency/.
+Option C is not true.
+EFS provides strong read-after-write consistency.
+The correct answer for this question is D. S3 is suitable for immediate downloads because AWS provides strong read-after-write consistency for new objects.
+Amazon S3 (Simple Storage Service) is a highly scalable and durable object storage service offered by AWS. S3 can be used to store and retrieve any type of data, such as documents, images, videos, and software.
+One of the key features of S3 is that it provides strong read-after-write consistency for new objects in all AWS regions. This means that as soon as an object is uploaded to S3, it can be immediately downloaded and accessed from any region without the risk of returning stale or inconsistent data. This makes S3 an ideal solution for storing and serving frequently accessed files or data that requires immediate availability.
+On the other hand, Amazon Elastic File System (EFS) is a scalable, fully-managed network file system for use with AWS Cloud services and on-premises resources. EFS is designed to provide scalable storage for Linux-based applications that require shared access to data. However, EFS provides eventual consistency for new objects, which means that it can take some time for all clients to see the latest version of a file after it has been updated or created. Therefore, EFS may not be suitable for applications that require immediate and consistent access to data.
+In summary, S3 is a suitable solution for the use case described in the question because it provides immediate and strong read-after-write consistency for new objects, which enables the files to be immediately available for download across different geographical regions right after the upload is complete.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question574:"link"
+
+

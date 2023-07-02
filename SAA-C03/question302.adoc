@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1102 - You have an AWS RDS PostgreSQL database "
+---
+
+
+[.question]
+== 1102-64a1fab0f053625db51ddf46.
+
+
+****
+
+[.query]
+--
+You have an AWS RDS PostgreSQL database hosted in the Singapore region.
+You need to ensure that the database is asynchronously copied to another one that can also share the read workload.
+What would be helpful to fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable Multi-AZ for the database
+* [*] B. Enable Read Replicas for the database
+* [*] C. Enable Asynchronous replication for the database
+* [ ] D. Enable manual backups for the database.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+Amazon RDS Read Replicas enable you to create one or more read-only copies of your database instance within the same AWS Region or in a different AWS Region.
+Updates made to the source database are then asynchronously copied to your Read Replicas.
+In addition to providing scalability for read-heavy workloads, Read Replicas can be promoted to become a standalone database instance when needed.
+For more information on Read Replicas, please visit the following URL-
+https://aws.amazon.com/rds/details/read-replicas/
+Note:
+When you enable Multi-AZ for the database, you enable synchronous replication rather than asynchronous replication mentioned in the question.
+When you create a Read Replica, you first specify an existing DB instance as the source.
+Then Amazon RDS takes a snapshot of the source instance and creates a read-only instance from the snapshot.
+Amazon RDS then uses the asynchronous replication method for the DB engine to update the Read Replica whenever there is a change to the source DB instance.
+You can use the Read Replica promotion as a data recovery scheme if the source DB instance fails.
+For more information, please click the link given below.
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
+To ensure that the AWS RDS PostgreSQL database is asynchronously copied to another database that can also share the read workload, the best option is to enable Read Replicas for the database. This allows for a secondary copy of the database to be created in a different availability zone or even region.
+Read replicas are copies of the primary database instance that are updated asynchronously with the primary database. The primary database writes updates to its transaction logs, which are then shipped to the read replicas. The read replicas then apply these logs to their own databases. This allows for near-real-time data replication between the primary and read replica databases.
+Read replicas can be used to offload read traffic from the primary database instance, as well as provide high availability for read traffic. Read replicas can be promoted to become the new primary database instance in the event of a failure of the primary instance.
+Multi-AZ is another option for ensuring high availability of the primary database instance, but it is not necessary for fulfilling the requirement of asynchronously copying the database to another one that can share the read workload. Multi-AZ provides synchronous data replication between the primary and secondary database instances, but it is not intended to offload read traffic from the primary instance.
+Asynchronous replication is a feature that allows you to replicate a PostgreSQL database asynchronously to a standby instance, but it requires additional setup and configuration beyond what is provided by RDS. It is also not necessary for fulfilling the requirement of copying the database to another one that can share the read workload.
+Manual backups are also not helpful for fulfilling this requirement, as they do not provide real-time or near-real-time data replication between databases.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question344:"link"
+
+

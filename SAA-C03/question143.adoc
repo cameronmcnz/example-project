@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "943 - A company is planning to build an applic"
+---
+
+
+[.question]
+== 943-64a1fa6df053625db51dde93.
+
+
+****
+
+[.query]
+--
+A company is planning to build an application using the services available on AWS.
+This application will be stateless in nature, and the service must have the ability to scale according to the demand.
+Which compute service should be used in this scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS DynamoDB
+* [*] B. AWS Lambda
+* [*] C. AWS S3
+* [ ] D. AWS SQS.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The following content from an AWS Whitepaper supports the usage of AWS Lambda for this requirement:
+A stateless application is an application that needs no knowledge of previous interactions and stores no session information.
+Such an example could be an application that, given the same input, provides the same response to any end-user.
+A stateless application can scale horizontally since any request can be serviced by any of the available compute resources (e.g., EC2 instances, AWS Lambda functions).
+For more information on AWS Cloud best practices, please visit the following URL:
+https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf
+The correct answer for this scenario is B. AWS Lambda.
+Explanation: In this scenario, the application is stateless, meaning that it doesn't require any persistence of data or information. This implies that the application can run without maintaining any internal state, and any instance of the application can handle a request without depending on the state of another instance.
+Also, the service must have the ability to scale according to the demand. This means that the compute service must be able to dynamically adjust the resources allocated to it to meet the increasing or decreasing demand for the application.
+AWS Lambda is a serverless computing service that allows developers to run their code without managing any servers or infrastructure. It provides an event-driven architecture that automatically scales to handle the incoming requests, making it an ideal choice for stateless applications that require on-demand scaling.
+When a request is made to AWS Lambda, it creates a new instance of the function to handle the request. As the number of requests increases, AWS Lambda automatically creates new instances to handle the load, and as the load decreases, it scales down the number of instances accordingly. This ensures that the application always has the required compute resources to handle the requests.
+Option A (AWS DynamoDB) is a NoSQL database service that can store and retrieve data, but it doesn't provide compute resources to run the application code.
+Option C (AWS S3) is an object storage service that can store and retrieve data, but it doesn't provide any compute resources to run the application code.
+Option D (AWS SQS) is a message queue service that can store and process messages, but it doesn't provide any compute resources to run the application code.
+Therefore, the best option for this scenario is AWS Lambda, which can provide the required compute resources to run the stateless application code and scale dynamically to meet the demand.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question162:"link"
+
+

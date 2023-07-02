@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "935 - You got hired to implement a system for "
+---
+
+
+[.question]
+== 935-64a1fa6bf053625db51dde8a.
+
+
+****
+
+[.query]
+--
+You got hired to implement a system for a movie theater company.
+This system will allow the user to rent movies for a limited period of time.
+In order to do this, the user will log in to an application and pay to rent the movie.
+Then a link will be sent to the user through email.
+The requisite here is only to allow the user to see this file through CloudFront for a limited period of time.
+What is the easiest way to achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Lambda authorizer and CloudFront.
+* [ ] B. Use Lambda, Cognito and CloudFront.
+* [*] C. Using CloudFront origin access identify (OAI).
+* [*] D. Using CloudFront with signed URL.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Option A is incorrect because a Lambda authorizer just controls the access to an API.
+It does not restrict content to CloudFront.
+More details please check https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html.
+Option B is incorrect because with this combination of services, you can authenticate users in your application.
+But none of these services restrict content to users.
+Option C is incorrect because CloudFront OAI cannot provide access for a limited period of time.
+Option D is CORRECT because with this option, you allow a user to access indivdual files in S3 through CloudFront for a limited period of time.
+There is an expiration date and time in a signed URL.
+CloudFront checks the expiration date and time in the URL at the time of the HTTP request.
+Using this method, you can control the time when the user can see the file.
+For more details, please refer to https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html.
+The easiest way to allow the user to see the file through CloudFront for a limited period of time is by using CloudFront with signed URLs. Therefore, the correct answer is option D.
+CloudFront signed URLs allow you to restrict access to specific content on your website, such as files, images, and videos. A signed URL contains information that CloudFront uses to authorize the requester to access the specific file for a limited period of time, typically a few hours.
+To implement this solution, the movie theater company would need to generate a signed URL for each file that they want to make available to users. The signed URL would include an expiration time, after which the URL would no longer be valid, and the file would be inaccessible.
+The signed URL can be generated using one of the following methods:
+1.
+Using a custom application - The company can create a custom application that generates signed URLs for each file. The application can be hosted on AWS or on the company's own servers.
+2.
+Using the AWS SDK - The company can use the AWS SDK to generate signed URLs programmatically. This method is easier than creating a custom application, as it requires less coding.
+Once the signed URL is generated, it can be sent to the user through email or any other means. When the user clicks on the link, CloudFront will verify the validity of the signed URL and grant access to the file if it's still within the time window.
+Therefore, option D is the easiest and most appropriate solution to achieve this requisite.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question153:"link"
+
+

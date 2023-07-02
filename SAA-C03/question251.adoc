@@ -1,0 +1,219 @@
+---
+layout: default 
+title: "1051 - A company is planning to deploy an appli"
+---
+
+
+[.question]
+== 1051-64a1fa98f053625db51ddf0d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_ssd_vs_hdd.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company is planning to deploy an application in AWS.
+This application requires an EC2 Instance to continuously perform log processing activities requiring Max 500MiB/s of data throughput.
+Which of the following is the most cost-effective storage option for this requirement?
+
+
+[source,java]
+----
+Use Cases
+
+API Name
+Volume Size
+Max. IOPS**/Volume
+
+Max.
+Throughput/Volume
+
+Max. |OPS/Instancett
+
+Max.
+Throughput/Instancett
+
+Solid-State Drives (SSD)
+
+General Purpose SSD
+
+(gp2)*
+
+General purpose SSD
+
+volume that balances
+
+price and performance for
+
+awide variety of
+
+workloads
+
++ Recommended for
+‘most workloads
+
++ System boot volumes
+
++ Virtual desktops
+
++ Low-latency interactive
+apps
+
++ Development and test
+environments
+
+ep2
+1GiB- 16 TB
+16,000"
+
+250 MiB/s***
+
+80,000
+1,750 MiB/s
+
+Provisioned IOPS SSD (io1)
+
+Highest-performance SSD volume for
+‘mission-critical low-latency or high-
+throughput workloads
+
+Grtical business applications that
+require sustained IOPS
+performance, or more than 16,000
+IOPS or 250 MiB/s of throughput
+per volume
+
++ Large database workloads, such as:
+MongoDB
+
+Cassandra
+
+Microsoft SQL Server
+
+MySQL.
+
+PostgreSQL.
+
+Oracle
+
+ion
+4GiB-16 TB
+64,000"
+
+1,000 MiB/st
+
+80,000
+1,750 MiB/s
+
+Throughput
+HDD (sta)
+
+Low-cost HDD volume
+designed for frequently
+accessed, throughput-
+intensive workloads
+
++ Streaming workloads +
+
+requiring
+
+fast throughput at a
+
+low price
++ Big data
+
+* Data warehouses
+
+Hard Disk Drives (HDD)
+
+Optimized | Cold HDD (sc1)
+
+Lowest cost HDD
+volume designed for
+
+less frequently
+accessed workloads
+
+Throughput-
+oriented storage for
+large volumes of
+data that is
+
+consistent,
+
++ Log processing + Scenarios where the
++ Cannot be a boot lowest storage cost
+volume is important
++ Cannot be a boot
+volume
+sti scl
+500 GiB - 16 TiB 500 GiB - 16 TiB
+500 250
+500 MiB/s 250 MiB/s
+80,000 80,000
+1,750 MiB/s 1,750 MiB/s
+----
+
+
+--
+
+[.list]
+--
+* [*] A. EBS IOPS
+* [ ] B. EBS SSD
+* [*] C. EBS Throughput Optimized
+* [ ] D. EBS Cold Storage.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+While considering storage volume types for batch processing activities with large throughput, consider using the EBS Throughput Optimized volume type.
+AWS Documentation mentions this, as shown below.
+For more information on EBS Volume Types, please visit the following URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+Based on the requirements mentioned in the question, the application requires an EC2 instance to perform log processing activities continuously, with a maximum data throughput of 500MiB/s. To determine the most cost-effective storage option for this requirement, we need to consider the various EBS volume types that are available in AWS.
+Here is a brief overview of the EBS volume types:
+1.
+General Purpose SSD (gp2): This type of EBS volume is designed for general-purpose workloads and offers a balance of price and performance. It is suitable for most workloads, including boot volumes, low-latency interactive apps, and dev/test environments.
+2.
+Provisioned IOPS SSD (io1): This type of EBS volume is designed for I/O-intensive workloads, such as large databases and applications that require high IOPS, high throughput, and low latency. It provides predictable and consistent performance and can be scaled up to 64,000 IOPS per volume.
+3.
+Throughput Optimized HDD (st1): This type of EBS volume is designed for frequently accessed, throughput-intensive workloads, such as big data, data warehouses, and log processing. It provides low-cost storage with high throughput performance, suitable for large sequential reads and writes.
+4.
+Cold HDD (sc1): This type of EBS volume is designed for infrequently accessed workloads, such as backups and long-term archives. It provides low-cost storage with low throughput performance, suitable for large sequential reads and writes.
+Based on the requirement mentioned in the question, the application requires an EC2 instance to continuously perform log processing activities, requiring a maximum data throughput of 500MiB/s. Therefore, the most cost-effective storage option for this requirement is EBS Throughput Optimized (st1).
+EBS Throughput Optimized (st1) volumes provide low-cost storage optimized for throughput-intensive workloads. These volumes are designed to deliver high throughput performance that scales up to 500MB/s per volume, making them ideal for log processing activities.
+EBS IOPS (io1) volumes are designed for I/O-intensive workloads that require high IOPS, high throughput, and low latency, and are therefore not the best option for this requirement. EBS SSD (gp2) volumes are designed for general-purpose workloads and may not provide the required throughput performance. EBS Cold Storage (sc1) volumes provide low-cost storage with low throughput performance, making them unsuitable for log processing activities.
+Therefore, based on the requirements mentioned in the question, EBS Throughput Optimized (st1) is the most cost-effective storage option for this application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question287:"link"
+
+

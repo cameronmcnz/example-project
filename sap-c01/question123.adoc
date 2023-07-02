@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "923 - Your application provides data transform"
+---
+
+
+[.question]
+== 923-64a1df22aa736d27b1db9355.
+
+
+****
+
+[.query]
+--
+Your application provides data transformation services.
+Files containing data to be transformed are first uploaded to Amazon S3 and then transformed by a fleet of spot EC2 instances.
+Files submitted by your premium customers must be transformed with the highest priority.
+How should you implement such a system?
+
+
+--
+
+[.list]
+--
+* [*] A. Use a DynamoDB table with an attribute defining the priority level. Transformation instances will scan the table for tasks, sorting the results by priority level.
+* [ ] B. Use Route 53 latency based-routing to send high priority tasks to the closest transformation instances.
+* [*] C. Use two SQS queues, one for high priority messages, the other for default priority. Transformation instances first poll the high priority queue; if there is no message, they poll the default priority queue.
+* [ ] D. Use a single SQS queue. Each message contains the priority level. Transformation instances poll high-priority messages first.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because using DynamoDB tables will be a very expensive solution compared to using the SQS queue(s).
+Option B is incorrect because the transformation instances are spot instances that may not be up and running all the time; there are chances that they will be terminated.
+Option C is CORRECT because (a) it decouples the components of a distributed application, so the application is not impacted due to using spot instances, (b) it is a much cheaper option compared to using DynamoDB tables, and more importantly, (b) it maintains a separate queue for the high priority messages which can be processed before the default priority queue.
+Option D is incorrect because the transformation instances cannot poll high-priority messages first.
+They just poll and can determine priority only after receiving the messages.
+More information about implementing the priority queue via SQS:
+http://awsmedia.s3.amazonaws.com/pdf/queues.pdf
+Option C is the recommended solution for this use case as it provides an efficient way to manage and prioritize tasks using SQS.
+The solution involves the use of two SQS queues, one for high priority messages and another for default priority. The transformation instances poll the high priority queue first and only poll the default priority queue when there are no high priority messages.
+To implement this solution, you would first need to create two SQS queues, one for high priority and the other for default priority. When a new file is uploaded to S3, a message containing the file location and the priority level is sent to the appropriate queue.
+Next, you would launch a fleet of spot EC2 instances to perform the data transformation. These instances would poll the high priority queue first and start working on the messages with the highest priority. If there are no high priority messages in the queue, the instances would then poll the default priority queue.
+You can also configure the number of instances in your fleet based on the expected workload and performance requirements. Additionally, you can use CloudWatch metrics to monitor the number of messages in each queue and adjust the size of your fleet accordingly.
+Using SQS for task management provides several benefits, including fault tolerance and scalability. If an instance fails or is terminated, messages in the queue are not lost and can be processed by another instance. Additionally, the number of instances in the fleet can be adjusted dynamically based on the workload.
+Option A, using a DynamoDB table, can also work but it would require more implementation effort as you need to implement a scanning process that sorts the messages by priority. Furthermore, scanning a DynamoDB table can be less efficient than polling SQS queues.
+Option B, using Route 53 latency based-routing, is not suitable for this use case as it does not provide the ability to prioritize tasks based on their priority level. Latency based-routing is used to route traffic to the closest endpoint based on network latency.
+Option D, using a single SQS queue, can work but it would be less efficient as the transformation instances would need to scan the queue and sort messages based on their priority level, which can be less efficient than using separate queues for each priority level.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question163:"link"
+
+

@@ -1,0 +1,104 @@
+---
+layout: default 
+title: "1023 - A company has a Redshift Cluster defined"
+---
+
+
+[.question]
+== 1023-64a1fa8bf053625db51ddeed.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img113181.PNG[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has a Redshift Cluster defined in AWS.
+The IT Operations team has ensured that both automated and manual snapshots are in place.
+Since the cluster will be run for a couple of years, Reserved Instances have been purchased.
+There has been a recent concern about the cost being incurred by the cluster.
+Which step should be carried out to minimize the costs being incurred by the cluster?
+
+
+[source,java]
+----
+Backup storage
+
+Backup storage is the storage associated with the snapshots taken for your data warehouse. Increasing your backup retention period or
+taking additional snapshots increases the backup storage consumed by your data warehouse. Redshift charges for manual snapshots you
+take using the console, API or CLI. Redshift Automated snapshots, which get created using Redshift's snapshot scheduling feature, are
+not charged for. Data stored on RA3 clusters is part of Redshift Managed Storage (RMS) and is billed at RMS rates, but manual snapshots
+taken for RA3 clusters are billed as backup storage at standard Amazon S3 rates outlined on this page. For example, if your RA3 cluster
+has 10 TB of data and 30 TB of manual snapshots, you would be billed for 10 TB of RMS and 30 TB of backup storage. With dense
+compute (DC) and dense storage (DS) clusters, storage is included on the cluster and is not billed for separately, but backups are stored
+externally in S3. Backup storage beyond the provisioned storage size on DC and DS clusters is billed as backup storage at standard
+Amazon S3 rates. Snapshots are billed until they expire or are deleted, including when the cluster is paused or deleted.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Delete the manual snapshots.
+* [ ] B. Set the retention period of the automated snapshots to 35 days.
+* [*] C. Choose to use Spot Instances instead of Reserved Instances.
+* [ ] D. Choose to use Instance store volumes to store the cluster data.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following.
+Regardless of whether you enable automated snapshots, you can take a manual snapshot whenever you want at any time.
+By default, manual snapshots are retained indefinitely, even after you delete your cluster.
+You can specify the retention period when you create a manual snapshot or change the retention period by modifying the snapshot.
+To reduce cost, we can delete the manual snapshots that are taken, if any.
+Refer link: https://aws.amazon.com/redshift/pricing/
+Automated snapshots are automatically deleted within the period of 1(Least) to 35(Max) days (Based on the retention period settings)
+So we have to take care of the Manual snapshots instead of Automated snapshots.
+Amazon Redshift never deletes Manual snapshots automatically, like how it does for Automatic Snapshots.
+Option B is incorrect because the Automated snapshots are automatically deleted within the period of 1(Least) to 35(Max) days.
+This will NOT have any impact on the cost.
+Option C is incorrect because SPOT instances are not a good fit for snapshot and the question does not mention one of these.
+Option D is incorrect because instance store volumes are volatile and therefore is NOT a good fit for the snapshot.
+For more information on working with Snapshots, please visit the following URL-
+https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+The most suitable step to minimize costs incurred by the Redshift cluster would be to set the retention period of the automated snapshots to 35 days.
+Explanation:
+Reserved Instances are a cost-effective option for running Amazon Redshift Clusters for an extended period of time. However, there are additional measures that can be taken to minimize costs. Here are explanations for why the other options (A, C, and D) are not ideal in this scenario:
+Option A: Delete the manual snapshots. This option should not be chosen as manual snapshots serve as an additional layer of data protection and can help recover data in the case of accidental deletion or data corruption.
+Option B: Set the retention period of the automated snapshots to 35 days. Automated snapshots are a Redshift feature that enables the periodic backup of data stored in a Redshift cluster. The default retention period for automated snapshots is 1 day. However, this can be increased to up to 35 days to retain more snapshots. Reducing the retention period to a shorter time frame will reduce the number of snapshots stored, and therefore, reduce costs.
+Option C: Choose to use Spot Instances instead of Reserved Instances. Spot Instances can help to reduce AWS compute costs, but they are not recommended for a mission-critical workload like a Redshift cluster. Spot Instances can be interrupted at any time if AWS needs the capacity back, which may result in data loss or extended downtime.
+Option D: Choose to use Instance store volumes to store the cluster data. Instance store volumes are local disks that are physically attached to the Amazon EC2 instance. These disks are designed for temporary data storage and can be lost if the instance fails or is stopped. Using instance store volumes to store cluster data is not recommended because they do not provide the same level of durability and availability as Amazon EBS volumes.
+In conclusion, setting the retention period of the automated snapshots to 35 days is the best option to minimize costs while maintaining data protection and availability.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question254:"link"
+
+

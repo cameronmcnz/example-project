@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1352 - An eCommerce website is hosted on two EC"
+---
+
+
+[.question]
+== 1352-64a1fb37f053625db51de091.
+
+
+****
+
+[.query]
+--
+An eCommerce website is hosted on two EC2 instances that sit behind an Elastic Load Balancer.
+The response time of the website has slowed dramatically.
+The analytics team found that one of the EC2 instances failed, leaving only one instance running.
+What is the best course of action to prevent this from happening in the future?
+
+
+--
+
+[.list]
+--
+* [*] A. Change the instance size to the maximum available to compensate for the failure.
+* [ ] B. Use CloudWatch to monitor the instances via VPC Flow Logs.
+* [*] C. Configure the ELB to perform health checks on the EC2 instances and implement auto-scaling.
+* [ ] D. Replicate the existing configuration in several regions for failover.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option C is correct.
+Using the elastic load balancer to perform health checks will determine whether or not to remove a non- or underperforming instance and have the auto-scaling group launch a new instance.
+Option A is incorrect because increasing the instance size doesn't prevent the failure of one or both instances.
+Therefore the website can still become slow or unavailable.
+Option B is incorrect because monitoring the VPC flow logs for the VPC will capture VPC traffic, not traffic for the EC2 instance.
+Option D is incorrect because replicating the same two instance deployment may not prevent the failure of instances and could still result in the website becoming slow or unavailable.
+References:
+https://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#working-with-flow-logs
+The correct answer is C. Configure the ELB to perform health checks on the EC2 instances and implement auto-scaling.
+Explanation: When an EC2 instance fails, the Elastic Load Balancer should automatically detect the failure and stop sending traffic to the failed instance. However, in this case, the website's response time has slowed dramatically, which suggests that the Elastic Load Balancer failed to detect the failure of the EC2 instance.
+To prevent this from happening in the future, the Elastic Load Balancer should be configured to perform health checks on the EC2 instances. Health checks periodically verify that the instances are running and responding correctly, and remove any failed instances from the load balancer's rotation.
+In addition to configuring health checks, the solution should implement auto-scaling. Auto-scaling automatically adjusts the number of EC2 instances based on the demand of the application. When the demand is low, it reduces the number of instances, and when the demand is high, it increases the number of instances. By doing so, it ensures that the application can handle varying levels of traffic.
+Changing the instance size to the maximum available to compensate for the failure (option A) is not the best course of action as it is an expensive and inefficient solution. It will only increase the cost of running the application and may lead to overprovisioning.
+Using CloudWatch to monitor the instances via VPC Flow Logs (option B) is a good practice for troubleshooting network connectivity and security issues. However, it is not directly related to preventing an instance failure or ensuring high availability.
+Replicating the existing configuration in several regions for failover (option D) is a viable solution for achieving high availability and disaster recovery. However, it is not the best option in this scenario as it requires additional resources and complexity. Implementing auto-scaling and health checks is a simpler and more cost-effective solution to prevent instance failures.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question676:"link"
+
+

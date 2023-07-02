@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1124 - Your team has developed an application a"
+---
+
+
+[.question]
+== 1124-64a1fabcf053625db51ddf63.
+
+
+****
+
+[.query]
+--
+Your team has developed an application and now needs to deploy that application onto an EC2 Instance.
+This application interacts with a DynamoDB table.
+Which of the following is the correct and MOST SECURE way to ensure that the application interacts with the DynamoDB table?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a role which has the necessary permissions and can be assumed by the EC2 instance.
+* [ ] B. Use the API credentials from an EC2 instance. Ensure the environment variables areupdated with the API access keys.
+* [ ] C. Use the API credentials from a bastion host. Make the application on the EC2 Instance send requests via the bastion host.
+* [ ] D. Use the API credentials from a NAT Instance. Make the application on the EC2 Instance send requests via the NAT Instance.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+IAM roles are designed in such a way that your applications can securely make API requests from your instances without requiring you to manage the security credentials that the applications use.
+Options B, C, and D are invalid because it is not secure to use API credentials from any EC2 instance.
+The API credentials can be tampered with.
+Hence it is not the ideal secure way to make API calls.
+For more details on AWS Credentials, please refer below URLs-
+https://aws.amazon.com/blogs/security/what-to-do-if-you-inadvertently-expose-an-aws-access-key/ https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey_API
+For more information on IAM roles for EC2, please refer below URL-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
+The most secure way to ensure that an application running on an EC2 instance interacts with a DynamoDB table is to use AWS Identity and Access Management (IAM) roles. IAM roles allow you to grant permissions to entities that you trust, such as EC2 instances, without the need for any hardcoded API credentials.
+Option A, "Create a role which has the necessary permissions and can be assumed by the EC2 instance," is the correct answer. This involves creating an IAM role that has the necessary permissions to access the DynamoDB table, and then assigning that role to the EC2 instance. When the EC2 instance is launched, it can assume the role, and any API calls made by the application running on the instance will automatically inherit the permissions granted to the role.
+Option B, "Use the API credentials from an EC2 instance. Ensure the environment variables are updated with the API access keys," is not as secure as option A because it requires the storage of API access keys on the EC2 instance itself. This approach increases the risk of access key exposure, and also requires you to manually update environment variables on the EC2 instance.
+Option C, "Use the API credentials from a bastion host. Make the application on the EC2 Instance send requests via the bastion host," is not as secure as option A either. This approach involves using a bastion host as an intermediary between the EC2 instance and the DynamoDB table. While the bastion host can be used to restrict access to the DynamoDB table, it also introduces additional complexity and potential points of failure.
+Option D, "Use the API credentials from a NAT Instance. Make the application on the EC2 Instance send requests via the NAT Instance," is also not as secure as option A. This approach involves using a NAT instance as an intermediary between the EC2 instance and the DynamoDB table. While this can be used to restrict access to the DynamoDB table, it also introduces additional complexity and potential points of failure.
+In summary, the most secure way to ensure that an application running on an EC2 instance interacts with a DynamoDB table is to use IAM roles. This approach avoids the need for hardcoded API credentials, reduces the risk of access key exposure, and simplifies the management of permissions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question373:"link"
+
+

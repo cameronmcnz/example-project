@@ -1,0 +1,91 @@
+---
+layout: default 
+title: "1046 - You create an Amazon SQS queue to decoup"
+---
+
+
+[.question]
+== 1046-64a1fa96f053625db51ddf08.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_9.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You create an Amazon SQS queue to decouple software components.
+The messages are processed by a Lambda function.
+Sometimes, the Lambda function fails to process messages in the queue.
+You need a mechanism to isolate the message failures to determine why the processing was unsuccessful.
+Which of the following options would you choose?
+
+
+[source,java]
+----
+Use Redrive Policy @ ©
+
+Dead Letter Queue @ Value must be an existing queue name.
+
+Maximum Receives @ Value must be between 1 and 1000.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. FIFO (First-In-First-Out) queue
+* [ ] B. Visibility timeout
+* [*] C. SQS dead-letter queue
+* [ ] D. SQS long polling.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+SQS dead-letter queue should be selected as it is designed to isolate problematic messages in the queue.
+For details, please check the link-https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html.
+Option A is incorrect: Because the FIFO queue itself does not isolate the messages that have failures.
+Option B is incorrect: Visibility timeout prevents other consumers from processing the message again.
+It does not resolve the mentioned problem.
+Option C is CORRECT: Because users can configure the dead letter queue to isolate the message failures as follows:
+Option D is incorrect: SQS long polling reduces the number of empty responses.
+It cannot handle the problematic messages.
+The correct answer for this scenario is C. SQS dead-letter queue.
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It allows you to send, store, and receive messages between software components at any volume without losing messages or requiring other services to be available. Amazon SQS provides a reliable, highly available, and scalable platform for message-oriented middleware and application integration.
+In this scenario, messages are being processed by a Lambda function from an SQS queue. However, sometimes the Lambda function fails to process the messages in the queue, which is a common scenario when using a message-queueing system. Therefore, there is a need to isolate the message failures and determine why the processing was unsuccessful.
+SQS provides a feature called dead-letter queue, which allows you to capture and store messages that can't be delivered to their intended destination. When a message can't be processed by the Lambda function, it's moved to the dead-letter queue. This enables you to debug the processing errors and take corrective actions.
+Therefore, the correct option for this scenario is C. SQS dead-letter queue.
+Option A, FIFO (First-In-First-Out) queue, is not the right option because it ensures that messages are processed in the order they are received. This means that a failed message would hold up the processing of other messages in the queue, which is not desirable.
+Option B, visibility timeout, is a setting that determines the amount of time a message is invisible to other consumers after it has been retrieved by a consumer. This option does not help to isolate message failures.
+Option D, SQS long polling, is a mechanism for reducing the number of API calls made to SQS while increasing the responsiveness of your application when there are no messages in the queue. It doesn't help in isolating message failures.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question282:"link"
+
+

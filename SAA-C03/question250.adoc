@@ -1,0 +1,87 @@
+---
+layout: default 
+title: "1050 - You have been assigned the task of archi"
+---
+
+
+[.question]
+== 1050-64a1fa98f053625db51ddf0c.
+
+
+****
+
+[.query]
+--
+You have been assigned the task of architecting an application in AWS.
+The architecture would consist of EC2, the Classic Load Balancer, Auto Scaling, and Route 53
+You need to ensure that Blue-Green deployments are possible in this architecture.
+Which routing policy should you ideally use in Route 53 to achieve Blue-Green deployments?
+
+
+--
+
+[.list]
+--
+* [*] A. Simple
+* [ ] B. Multivalue Answer
+* [*] C. Latency
+* [*] D. Weighted.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Documentation mentions that the Weighted routing policy is good for testing new versions of the software.
+Also, It is the ideal approach for Blue-Green deployments.
+Weighted routing lets you associate multiple resources with a single domain name (example.com) or subdomain name (acme.example.com) and choose how much traffic is routed to each resource.
+This can be useful for various purposes, including load balancing and testing new versions of the software.
+For more information on Route 53 routing policies, please visit the following URL-
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html
+Note: Multivalue-answer is recommended to use only when you want to route traffic randomly to multiple resources, such as web servers.
+You can create one multivalue answer record for each resource and, optionally, associate an Amazon Route 53 health check with each record.
+However, in this case, we need to choose how much traffic is routed to each resource (blue and green)
+For example, Blue is currently live, and we need to send less portion of traffic to Green to check everything works fine.
+If yes, then we can decide to go with Green resources.
+If no, we can change the weight for that record to 0
+Blue will be completely live again.
+NOTE:
+When you implement the Blue-Green Deployment, it's not always fixed that the Blue environment is in an Alive state and the Green environment in an Idle state vice versa.
+During the testing phase, you can route your traffic to both the Blue and Green environments with a specified traffic load.
+For more information, please visit the link below.
+https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf
+AWS explained with the proper diagram.
+To achieve Blue-Green deployments in AWS, the ideal routing policy to use in Route 53 is Weighted Routing Policy.
+Here is an explanation of why:
+Blue-Green deployments are a technique that allows for the deployment of two identical environments, one is the current production environment (blue), and the other is a new environment (green) that has the updated code. Once the new environment is fully tested and validated, traffic is redirected to it, and the old environment is decommissioned.
+To achieve this architecture in AWS, the following components will be required:
+1. EC2 instances - These are virtual machines that will host the application.
+2. Classic Load Balancer - This distributes traffic across the EC2 instances.
+3. Auto Scaling - This automatically scales the EC2 instances in and out based on traffic.
+4. Route 53 - This is a Domain Name System (DNS) service that routes traffic to the application.
+In this architecture, to achieve Blue-Green deployments, we need to have two identical environments. We can achieve this by using two Auto Scaling groups, each with the same EC2 instances and the same Classic Load Balancer. One Auto Scaling group will be the blue environment, and the other Auto Scaling group will be the green environment.
+To implement Blue-Green deployments, we will use the Weighted Routing Policy in Route 53. The Weighted Routing Policy enables us to route a portion of the traffic to a specific environment based on a weight assigned to each environment.
+For example, we can assign a weight of 90 to the blue environment and a weight of 10 to the green environment. This means that 90% of the traffic will be routed to the blue environment, and 10% of the traffic will be routed to the green environment.
+Once the green environment has been fully tested and validated, we can change the weight of the blue environment to 0, and the weight of the green environment to 100. This will redirect all traffic to the green environment, making it the new production environment.
+In summary, to achieve Blue-Green deployments in AWS, we need to use two Auto Scaling groups, each with the same EC2 instances and Classic Load Balancer. We also need to use the Weighted Routing Policy in Route 53 to route traffic to each environment based on a weight assigned to each environment.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question286:"link"
+
+

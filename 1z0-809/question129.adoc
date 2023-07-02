@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "929 - Given the code fragments
+Which two modif"
+---
+
+
+[.question]
+== 929-64a1a866ef3e8462333a9cb7.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0012100001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragments:
+Which two modifications enable to sort the elements of the emps list? (Choose two.)
+
+
+[source,java]
+----
+class Person // line ni
+{
+
+String name;
+Person (Btring name) {
+
+this.name = name;
+}
+// line n2
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Replace line n1 with class Person extends Comparator
+* [*] B. At line n2 insert public int compareTo (Person p) { return this.name.compareTo (p.name); }
+* [*] C. Replace line n1 with class Person implements Comparable
+* [ ] D. At line n2 insert public int compare (Person p1, Person p2) { return p1.name.compareTo (p2.name); }
+* [ ] E. At line n2 insert: public int compareTo (Person p, Person p2) { return p1.name.compareTo (p2.name); }
+* [ ] F. Replace line n1 with class Person implements Comparator
+
+--
+****
+
+[.answer]
+BC
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

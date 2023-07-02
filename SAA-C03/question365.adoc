@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1165 - Your company currently has a set of virt"
+---
+
+
+[.question]
+== 1165-64a1fad3f053625db51ddf9b.
+
+
+****
+
+[.query]
+--
+Your company currently has a set of virtual servers that need to be migrated to the AWS Cloud.
+These Instances are normally 70% utilized and committed to run for a minimum of three years.
+As a solutions architect which of the following Instance pricing model would you suggest?
+
+
+--
+
+[.list]
+--
+* [*] A. Reserved instances
+* [ ] B. On-demand instances
+* [ ] C. Spot instances
+* [ ] D. Regular instances.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The AWS Documentation mentions the following on the different instance pricing options.
+Amazon EC2 provides the following purchasing options to enable you to optimize your costs based on your needs:
+On-Demand Instances - Pay, by the second, for the instances that you launch.
+Reserved Instances - Purchase, at a significant discount, instances that are always available, for a term from one to three years.
+Spot Instances - Request unused EC2 instances, which can lower your Amazon EC2 costs significantly.
+Reserved Instances provide you with a significant discount (up to 75%) compared to On-Demand instance pricing.
+Since there is a commitment to run for a minimum period of three years, going for the "Reserved Instances" would minimise the cost.
+On-demand can be used but Reserved Instances are most cost-efficient in the given scenario.
+Option B is incorrect because Reserved Instances are more effective.
+Option C is incorrect because in Spot Instances Instance there is no commitment.
+As soon as the Bid price exceeds the Spot price, a user gets the Instance.
+In an On-demand Instance, a user has to pay the On-demand rate specified by Amazon.
+Once they have bought the Instance they have to use it by paying that rate.
+In Spot Instance, once the Spot price exceeds the Bid price, Amazon will shut the instance.
+The benefit to the user is that they will not be charged for the partial hour in which the Instance was taken back from them.
+Option D is incorrect because there is nothing like Regular Instances in AWS.
+For more information on instance pricing options, please visit the URL.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html
+As a solutions architect, for virtual servers that need to be migrated to AWS Cloud, and are normally 70% utilized and committed to run for a minimum of three years, the best Instance pricing model to suggest would be Reserved Instances.
+Reserved Instances (RIs) provide significant savings over On-demand instances by committing to a certain instance configuration for a specified period, typically one or three years. This pricing model provides a significant cost advantage over on-demand instances, especially for long-term workloads that have predictable and consistent usage patterns.
+On-demand instances, as the name suggests, are priced at an hourly rate and can be started and stopped as needed, which makes them ideal for short-term workloads or workloads that have unpredictable usage patterns.
+Spot instances, on the other hand, provide a cost-effective option for running workloads that are flexible in terms of their start and end times, as the pricing is based on demand and supply of the available capacity in the market.
+Regular instances refer to the standard pricing model for EC2 instances where customers pay for the compute resources on an hourly basis.
+Given the scenario described, Reserved Instances provide the most cost-effective option for long-term workloads with predictable and consistent usage patterns, as they offer a significant discount compared to on-demand instances, and provide a fixed rate for the duration of the commitment.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question429:"link"
+
+

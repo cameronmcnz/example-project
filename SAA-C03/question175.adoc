@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "975 - A company currently hosts its architectu"
+---
+
+
+[.question]
+== 975-64a1fa78f053625db51ddeb5.
+
+
+****
+
+[.query]
+--
+A company currently hosts its architecture in the us-east-1 region.
+They now need to duplicate this architecture to the eu-west-1 region and extend the application hosted on this architecture to the new AWS Region.
+In order to ensure that users in both AWS Regions get the same seamless experience, what should be done?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a Classic Elastic Load Balancer setup to route traffic to both locations.
+* [ ] B. Create a weighted Route 53 policy to route the policy based on the weightage for each location.
+* [*] C. Create an Application Elastic Load Balancer setup to route traffic to both locations.
+* [*] D. Create a Geolocation Route 53 Policy to route the traffic based on the location.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Documentation mentions the following with respect to this requirement:
+Geolocation routing lets you choose the resources that serve your traffic based on the geographic location of your users, which means the location that DNS queries originate from.
+For more information on AWS Route 53 Routing Policies, please visit the following URL:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html
+To ensure that users in both AWS Regions get the same seamless experience, we need to create a high availability and scalable architecture with minimal latency.
+Option A - Create a Classic Elastic Load Balancer setup to route traffic to both locations: A Classic Elastic Load Balancer (ELB) setup is used for distributing traffic to EC2 instances in multiple Availability Zones within a single region. However, it cannot route traffic between regions. Therefore, this option is not suitable for this scenario.
+Option B - Create a weighted Route 53 policy to route the policy based on the weightage for each location: A weighted Route 53 policy is used to distribute traffic between different AWS resources based on assigned weights. We can create an AWS Route 53 weighted policy to distribute traffic between the two regions based on a percentage weightage. However, it doesn't take into account the geographic distance between the user and the resources, which may cause latency issues.
+Option C - Create an Application Elastic Load Balancer setup to route traffic to both locations: An Application Elastic Load Balancer (ALB) can route traffic to different regions based on various routing algorithms such as round-robin, least connections, and IP-based routing. ALB can be used to route traffic between regions, and it also supports various other features like SSL termination, sticky sessions, and URL-based routing. Therefore, this option is a good choice for this scenario.
+Option D - Create a Geolocation Route 53 Policy to route the traffic based on the location: A Geolocation Route 53 policy is used to direct traffic to different resources based on the geographic location of the user. However, this option is not suitable for this scenario, as we want to ensure that users in both regions get the same seamless experience.
+Therefore, option C - Create an Application Elastic Load Balancer setup to route traffic to both locations is the best choice for this scenario, as it can route traffic between regions and support various other features that can ensure high availability, scalability, and low latency.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question196:"link"
+
+

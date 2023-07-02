@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1065 - There is a requirement to create EMR job"
+---
+
+
+[.question]
+== 1065-64a1df58aa736d27b1db9438.
+
+
+****
+
+[.query]
+--
+There is a requirement to create EMR jobs that sift through all web server logs and error logs to pull statistics on clickstream and errors based on client IP address.
+The web application uses HTTPS and is behind a Classic Load Balancer.
+How can the application be configured based on the above requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Modify the application code to get the client IP from the X-Forwarded-Proto header or the X-Forwarded-Port header.
+* [ ] B. Configure ELB access logs. Then create a Data Pipeline job that imports the logs from an S3 bucket into EMR for analyzing and output the EMR data into a new S3 bucket.
+* [*] C. Modify the application code to get the client IP from the x-forwarded-for header.
+* [ ] D. Configure ELB error logs and create a Data Pipeline job that imports the logs from an S3 bucket into EMR for analyzing and outputs the EMR data into a new S3 bucket.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because the X-Forwarded-Proto header is used to determine the protocol used between the client and the load balancer.
+And X-Forwarded-Port header is used to identify the destination port that the client used to connect to the load balancer.
+Option B is incorrect because it does not specify how error logs would be configured and analyzed.
+ELB access logs do not tell the errors in the application layer.
+Option C is CORRECT because the web server can get the client IP address from the x-forwarded-for header for HTTP/HTTPS traffic.
+Option D is incorrect because it does not specify how access logs would be configured and analyzed.
+ELB error logs do not contain the required information.
+For more information on HTTP Headers and Classic ELB, please refer to the links below:
+https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/x-forwarded-headers.html
+The requirement is to create EMR jobs that can analyze web server logs and error logs to gather statistics on clickstream and errors based on the client IP address. The web application is using HTTPS and is behind a Classic Load Balancer.
+Option A suggests modifying the application code to get the client IP from either the X-Forwarded-Proto header or the X-Forwarded-Port header. However, the headers mentioned in this option are used to retrieve the protocol and port numbers used by the client to connect to the load balancer. These headers do not contain the client IP address. Therefore, option A is incorrect.
+Option B suggests configuring ELB access logs to store the logs in an S3 bucket. Then, a Data Pipeline job can be created to import the logs from S3 into EMR for analysis. The analyzed data can be output into a new S3 bucket. This option is correct as it uses the ELB access logs to analyze the client IP addresses from the web server logs and error logs. The ELB access logs contain the client IP address, and hence, they can be used for analyzing statistics based on the client IP address. Therefore, option B is the correct answer.
+Option C suggests modifying the application code to get the client IP from the x-forwarded-for header. The x-forwarded-for header is commonly used to retrieve the client IP address when the application is behind a load balancer. However, the Classic Load Balancer does not support the x-forwarded-for header. Therefore, option C is incorrect.
+Option D suggests configuring ELB error logs to store the logs in an S3 bucket. Then, a Data Pipeline job can be created to import the logs from S3 into EMR for analysis. The analyzed data can be output into a new S3 bucket. However, this option is incorrect as error logs do not contain client IP addresses. Therefore, option D is incorrect.
+In conclusion, the correct answer is option B. Configure ELB access logs. Then create a Data Pipeline job that imports the logs from an S3 bucket into EMR for analyzing and output the EMR data into a new S3 bucket.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question391:"link"
+
+

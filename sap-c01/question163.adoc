@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "963 - Your customer wishes to deploy an enterp"
+---
+
+
+[.question]
+== 963-64a1df31aa736d27b1db9393.
+
+
+****
+
+[.query]
+--
+Your customer wishes to deploy an enterprise application on AWS, consisting of several web servers, several application servers, and a small (50GB) Oracle database.
+The information is stored both in the database and the file systems of the various servers.
+The backup system must support database recovery, whole server, and whole disk restores, and individual file restores with a recovery time of no more than two hours.
+They have chosen to use RDS Oracle as the database.
+
+
+--
+
+[.list]
+--
+* [*] A. Backup RDS using automated daily DB backups. Backup the EC2 instances using AMIs and supplement with file-level backup to S3 using traditional enterprise backup software to provide file-level restore.
+* [ ] B. Backup RDS using a Multi-AZ Deployment. Backup the EC2 instances using AMIs and supplement by copying file system data to S3 to provide file-level restore.
+* [ ] C. Backup RDS using automated daily DB backups. Backup the EC2 instances using EBS snapshots and supplement with file-level backups to Amazon Glacier using traditional enterprise backup software to provide file-level restore.
+* [ ] D. Backup the EC2 instances using AMIs and supplement with EBS snapshots for individual volume restore.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because (a) it uses automated daily backups from which the recovery can be made quickly, (b) the file-level backup to S3 will ensure that the recovery can be made at the individual file level - which satisfies the requirements.
+Option B is incorrect because Multi-AZ deployment is for Disaster Recovery, not for data backup.
+Option C is incorrect because Glacier is an archival solution and most certainly will not meet the criteria of RTO of 2 hours.
+Option D is INCORRECT because just backing up the EC2 instances alone would not suffice.
+Here the RDS database would also need to be backed up to S3.
+For more information on this topic, please visit the links below.
+https://aws.amazon.com/rds/details/backup/ https://d0.awsstatic.com/whitepapers/Backup_and_Recovery_Approaches_Using_AWS.pdf https://blogs.oracle.com/pshuff/amazon-rds
+The correct answer is B: Backup RDS using a Multi-AZ Deployment. Backup the EC2 instances using AMIs and supplement by copying file system data to S3 to provide file-level restore.
+Explanation: The customer's requirement is to have a backup system that supports database recovery, whole server and whole disk restores, and individual file restores with a recovery time of no more than two hours.
+RDS Oracle is chosen as the database, and a Multi-AZ deployment should be used for high availability and automatic failover. This provides the necessary redundancy and resilience for the database. Additionally, automated daily backups should be enabled for the RDS instance, which will allow for fast and easy database recovery if needed.
+For the web servers, application servers, and file systems, EC2 instances should be used, and they should be backed up using Amazon Machine Images (AMIs). AMIs are the best option for backing up entire instances since they can be easily restored and launched in case of a failure. This provides the necessary backups for whole server and whole disk restores.
+For individual file restores, the file system data should be copied to Amazon S3, which can be achieved using the AWS DataSync service. This provides the necessary file-level restore capabilities, and with the use of S3 lifecycle policies, the data can be stored cost-effectively in the long term.
+Option A is incorrect because using traditional enterprise backup software to provide file-level restore is not the most cost-effective solution, and EBS snapshots are not suitable for backing up file-level data.
+Option C is also incorrect because using Amazon Glacier for file-level backup is not suitable for fast restores since it is a cold storage service designed for long-term archiving.
+Option D is incorrect because EBS snapshots are not suitable for backing up file-level data, and they do not provide the necessary backups for whole server restores.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question225:"link"
+
+

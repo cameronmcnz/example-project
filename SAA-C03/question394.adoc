@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1194 - Your company has an application that has"
+---
+
+
+[.question]
+== 1194-64a1fae2f053625db51ddfbe.
+
+
+****
+
+[.query]
+--
+Your company has an application that has been developed and needs to be hosted on an EC2 Instance.
+The EC2 Instance is located in a private subnet and needs to access AWS Kinesis streams without passing into the Internet.
+How can you achieve this in the best manner possible?
+
+
+--
+
+[.list]
+--
+* [*] A. Attach a NAT gateway to the VPC
+* [ ] B. Attach an Internet gateway to the VPC
+* [ ] C. Create a VPC Gateway Endpoint that would allow access to Kinesis Streams
+* [*] D. Create a VPC Interface Endpoint that would allow access to Kinesis Streams.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The AWS Documentation mentions the following.
+You can use an interface VPC endpoint to keep traffic between your Amazon VPC and Kinesis Data Streams from leaving the Amazon network.
+Interface VPC endpoints don't require an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables private communication between AWS services using an elastic network interface with private IPs in your Amazon VPC.Options A and B are incorrect since it is mentioned in the question that traffic should not go via the Internet.
+Option C is incorrect since this is mostly used for S3 and DynamoDB access from Instances in the private subnet.
+For more information on VPC Endpoints Interfaces, please refer to the below URL-
+https://docs.aws.amazon.com/streams/latest/dev/vpc.html
+To access AWS Kinesis streams from an EC2 instance located in a private subnet without routing through the internet, you can use a VPC endpoint. VPC endpoints allow you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+So, the correct answer to this question is C. Create a VPC Gateway Endpoint that would allow access to Kinesis Streams.
+Option A, attaching a NAT gateway to the VPC, is not the best option because NAT gateway requires traffic to flow through the internet gateway, which is not the requirement here.
+Option B, attaching an Internet gateway to the VPC, is not a suitable option because this would allow the EC2 instance to access the internet, which is not required in this scenario.
+Option D, creating a VPC interface endpoint, is also not the correct option for this use case because it is used to connect to an AWS service using a private IP address within the same region, and Kinesis does not support VPC interface endpoints.
+Therefore, the best solution is to create a VPC Gateway Endpoint, which allows the EC2 instance to access Kinesis streams without going through the internet.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question464:"link"
+
+

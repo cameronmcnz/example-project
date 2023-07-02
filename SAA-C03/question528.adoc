@@ -1,0 +1,91 @@
+---
+layout: default 
+title: "1328 - Which of the following is a valid AWS La"
+---
+
+
+[.question]
+== 1328-64a1fb2af053625db51de06f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_59566.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following is a valid AWS Lambda configuration?
+
+
+[source,java]
+----
+The following quotas apply to function configuration, deployments, and execution. They cannot be changed.
+
+Resource Quota
+Function memory allocation 128 MB to 10,240 MB, in 1-MB increments.
+Function timeout 900 seconds (15 minutes)
+Function environment variables 4KB
+Function resource-based policy 20 KB
+Function layers 5 layers
+Function burst concurrency 500 - 3000 (varies per Region)
+Invocation payload (request and response) 6 MB (synchronous)
+256 KB (asynchronous)
+
+Deployment package (.zip file archive) size 50 MB (zipped, for direct upload)
+
+250 MB (unzipped, including layers) x
+----
+
+
+--
+
+[.list]
+--
+* [*] A. 64 GB memory and 212 seconds timeout.
+* [ ] B. 1376 GB memory and 120 seconds timeout.
+* [*] C. 2112 MB memory and 100 seconds timeout.
+* [ ] D. 3072 MB memory and 1300 seconds timeout.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Options A and B are not correct because the units are in GB and NOT in MB.Option D is not correct.
+Maximum time can be 900 seconds only.
+Please refer to the below link to get further information:
+https://docs.aws.amazon.com/lambda/latest/dg/limits.html.
+AWS Lambda is a serverless compute service that allows you to run code without provisioning or managing servers. When creating a Lambda function, you can configure various parameters, including the memory size and timeout duration. The memory size controls the amount of memory allocated to the function, while the timeout duration determines the maximum amount of time the function can run before it times out.
+Out of the options provided, the valid AWS Lambda configuration is option C: 2112 MB memory and 100 seconds timeout.
+Option A has an excessive amount of memory (64 GB) and a high timeout duration (212 seconds), which is not a practical or cost-effective configuration for most Lambda functions.
+Option B has an unrealistically large amount of memory (1376 GB) and a shorter timeout duration (120 seconds). This configuration is not practical as it would be very expensive and could lead to resource wastage.
+Option D has a large memory size (3072 MB) but a very high timeout duration (1300 seconds), which again is not a practical or cost-effective configuration for most Lambda functions.
+Therefore, option C with 2112 MB memory and 100 seconds timeout is the most practical and cost-effective configuration for most Lambda functions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question642:"link"
+
+

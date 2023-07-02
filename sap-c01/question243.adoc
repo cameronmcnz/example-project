@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1043 - A startup company just hired you as an A"
+---
+
+
+[.question]
+== 1043-64a1df4faa736d27b1db940f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_7.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A startup company just hired you as an AWS solutions architect.
+Your manager has assigned you a task to lower down AWS resources' costs due to a limited budget.
+In the meantime, the service should not be impacted when the cost reduction activities are performed.
+For example, idle load balancers can be safely deleted to save costs without service impact.
+Which way can quickly help you to identify ways to optimize the cost?
+
+
+[source,java]
+----
+Service access report
+
+Review access activity to learn when a principal within the organizational entity last accessed a service. Data is available for services that are allowed by directly attached SCPs only. Recent
+activity usually appears within 4 hours. Data is stored for a maximum of 365 days. Learn more [71
+
+Q 123 4 5 6 7 .. 20
+Service Vv Last accessed
+Amazon DynamoDB Today
+AWS Health APIs and Notifications Today
+AWS Organizations Today
+AWS Systems Manager Today
+AWS Identity and Access Management Today
+
+Amazon EC2 Today
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Launch Cost Explorer which can graph, visualize, and analyze the spend and then identify the services to be optimized.
+* [ ] B. Configure AWS Cost and Usage Reports and then analyze the AWS costs as well as the specific product offerings and usage amounts underlying those costs.
+* [*] C. Check the Billing details which list all AWS service charges. Identify and optimize the services that have an unreasonable cost.
+* [*] D. Search for the recommended actions in the Trusted Advisor Cost Optimization dashboard.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+There are various tools that are billing or cost-related.
+However, the quickest way to identify the possibilities to optimize costs is to use the Trusted Advisor Cost Optimization dashboard.
+Option A is incorrect: Because Cost Explorer does not directly tell which services can be adjusted to save cost.
+Option B is incorrect: Although AWS Cost and Usage Reports can provide the cost report in a detailed way, you still need to dig into the resources to differentiate which ones can help save cost.
+Option C is incorrect: This can help if a few resources are used.
+However, more analysis is required to understand how to optimize the spend if compared with Option.
+D.Option D is CORRECT: Because the Cost Optimization dashboard quickly checks several cost-related items, including Low Utilization Amazon EC2 Instances, Underutilized Amazon EBS Volumes, Idle Load Balancers, Unassociated Elastic IP Addresses, etc.
+As an AWS Solutions Architect, your primary responsibility is to design and implement cost-effective solutions for your client. In this scenario, your client is a startup with limited resources, and your task is to lower AWS costs without impacting the service. To achieve this, you need to identify areas where you can optimize costs without affecting the service.
+There are several ways to identify areas for cost optimization in AWS, but the most efficient ones are:
+A. Launch Cost Explorer which can graph, visualize, and analyze the spend and then identify the services to be optimized. Cost Explorer is an AWS service that provides a graphical view of your AWS usage and costs. It allows you to analyze your costs using custom reports, visualize your costs and usage trends, and identify areas for cost optimization. Cost Explorer provides detailed reports on your AWS usage, including usage by service, region, instance type, and more. With this information, you can identify areas where you can reduce costs without impacting the service.
+B. Configure AWS Cost and Usage Reports and then analyze the AWS costs as well as the specific product offerings and usage amounts underlying those costs. AWS Cost and Usage Reports provide a detailed breakdown of your AWS usage and costs. It enables you to analyze your costs and usage on a granular level and identify areas where you can optimize costs. AWS Cost and Usage Reports are available in CSV and JSON format, and you can configure them to receive regular reports via email or S3.
+C. Check the Billing details which list all AWS service charges. Identify and optimize the services that have an unreasonable cost. The billing details page provides a comprehensive breakdown of your AWS charges. It enables you to view your costs by service, region, and resource type, among others. By analyzing your billing details, you can identify areas where you can optimize costs. For example, you can identify unused resources, delete idle load balancers, or resize instances to match the workload.
+D. Search for the recommended actions in the Trusted Advisor Cost Optimization dashboard. Trusted Advisor is an AWS service that provides best practices and recommendations to optimize your AWS resources. The Cost Optimization dashboard provides recommendations to optimize your AWS usage and reduce costs. It provides recommendations such as deleting unused EBS volumes, resizing EC2 instances, and purchasing Reserved Instances. By following these recommendations, you can optimize costs without impacting the service.
+In conclusion, AWS provides several services and tools to help you identify areas for cost optimization. By leveraging these tools, you can identify cost optimization opportunities, reduce your AWS spend, and ensure that your service continues to operate smoothly.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question350:"link"
+
+

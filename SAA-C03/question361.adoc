@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1161 - You are working as an AWS consultant for"
+---
+
+
+[.question]
+== 1161-64a1fad1f053625db51ddf96.
+
+
+****
+
+[.query]
+--
+You are working as an AWS consultant for an online grocery store.
+They are using a two-tier web application with web-servers hosted in VPC's at us-east-1 region & on-premise data-center.
+Network Load balancer is configured in the front end to distribute traffic between these servers.
+All traffic between clients & servers is encrypted.
+They are looking for an alternate solution to terminate the TLS connection on this Network Load balancer to reduce load on back-end servers. This store's management team has engaged you to suggest a solution for certificate management used in case of TLS termination.
+Which of the following is a preferred secure option to provision & store certificates to be used along with Network Load Balancer for terminating TLS?
+
+
+--
+
+[.list]
+--
+* [*] A. Use multiple certificates per TLS listener & If a hostname provided by a client matches multiple certificates in the certificate list. The load balancer selects all of the certificates.
+* [ ] B. Use TLS tools to generate a new certificate & upload in AWS Certificate Manager.
+* [*] C. Use a single certificate per TLS listener provided by AWS Certificate Manager.
+* [ ] D. Use a single certificate with 4096 bits RSA keys for higher security.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Network Load Balancer requires one certificate per TLS connection to encrypt traffic between client &amp; NLB and forward decrypted traffic to target servers.
+UsingAWS Certificate Manager is a preferred option, as these certificates are automatically renewed on expiry.
+Option A is incorrect as Network Load Balancer uses a smart certificate selection algorithm to support Server Name Indication (SNI)
+If the hostname provided by a client matches a single certificate in the certificate list, the load balancer selects this certificate.
+If a hostname provided by a client matches multiple certificates in the certificate list, the load balancer selects the best certificate that the client can support.
+Refer section "Certificate List" under the link: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html.
+Option B is incorrect as this will increase admin work.
+Also, you will need to monitor the expiry dates of certificates &amp; renew these certificates before expiration.
+Option D is incorrect as Network Load Balancer does not support certificates with RSA bits higher than 2048 bits.
+For more information on certificates for TLS termination on Network Load Balancers, refer to the following URL-
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html
+In this scenario, the client is using a two-tier web application, with web servers hosted in VPCs in the us-east-1 region and on-premises data centers. A Network Load Balancer (NLB) is configured in the front end to distribute traffic between these servers, and all traffic between clients and servers is encrypted.
+The client is looking for an alternate solution to terminate the TLS connection on the NLB to reduce the load on the back-end servers. To implement this, the consultant needs to suggest a solution for certificate management used in case of TLS termination.
+TLS termination refers to the process of decrypting the TLS traffic at the NLB, instead of forwarding the encrypted traffic to the backend servers. This approach reduces the load on the backend servers, as they no longer need to handle the overhead of encryption and decryption. However, this also means that the NLB needs to be configured with the appropriate SSL/TLS certificates.
+Option A: Use multiple certificates per TLS listener & If a hostname provided by a client matches multiple certificates in the certificate list. The load balancer selects all of the certificates. This option involves using multiple certificates per TLS listener. If the hostname provided by a client matches multiple certificates in the certificate list, the load balancer selects all of the certificates. While this approach provides flexibility, it may not be the most secure option, as it increases the risk of certificate spoofing attacks.
+Option B: Use TLS tools to generate a new certificate & upload in AWS Certificate Manager. This option involves using TLS tools to generate a new certificate and uploading it to the AWS Certificate Manager. This approach provides a higher level of security, as it allows the client to generate and manage their own certificates. However, this may be more complex and time-consuming, as the client needs to have the necessary expertise to generate and manage the certificates.
+Option C: Use a single certificate per TLS listener provided by AWS Certificate Manager. This option involves using a single certificate per TLS listener provided by the AWS Certificate Manager. This approach provides a simple and secure way to manage SSL/TLS certificates, as the AWS Certificate Manager provides a centralized management interface for all certificates. However, this approach may not be suitable for clients who require more control over their SSL/TLS certificates.
+Option D: Use a single certificate with 4096 bits RSA keys for higher security. This option involves using a single certificate with 4096 bits RSA keys for higher security. While this approach provides a higher level of security, it may also increase the processing overhead on the backend servers, as they need to handle the higher encryption key length.
+In conclusion, option C - using a single certificate per TLS listener provided by the AWS Certificate Manager - is the preferred secure option for provisioning and storing certificates to be used with the Network Load Balancer for terminating TLS. It provides a simple and secure way to manage SSL/TLS certificates, and the AWS Certificate Manager provides a centralized management interface for all certificates.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question424:"link"
+
+

@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "923 - A security audit discovers that one of y"
+---
+
+
+[.question]
+== 923-64a1fa66f053625db51dde7d.
+
+
+****
+
+[.query]
+--
+A security audit discovers that one of your RDS MySQL instances is not encrypted.
+The instance has a Read Replica in the same AWS region which is also not encrypted.
+You need to fix this issue as soon as possible.
+What is the proper way to add encryption to the instance and its replica?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a DB snapshot from the instance. Copy the DB snapshot with encryption enabled. Restore a new DB instance from the new encrypted snapshot and configure a Read Replica in the new DB instance.
+* [ ] B. Encrypt the DB instance. Launch a new Read Replica and the replica is encrypted automatically.
+* [*] C. Create a DB snapshot from the RDS instance and encrypt the newly-created snapshot. Launch a new instance and its Read Replica from the snapshot.
+* [ ] D. Promote the Read Replica to be a standalone instance and encrypt it. Add a new Read Replica to the standalone instance.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Existing unencrypted RDS instances and their snapshots cannot be encrypted.
+Users can only enable encryption for an RDS DB instance when they create it.
+The limitations can be found in the AWS documentation https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html.
+Option A is CORRECT: Because you can encrypt a copy of an unencrypted DB snapshot.
+Then the new RDS instance launched from the snapshot and the Read Replica of the new DB instance are encrypted.
+Option B is incorrect: Because you cannot encrypt an unencrypted RDS instance directly.
+Option C is incorrect: Because you cannot encrypt an unencrypted DB snapshot directly according to the above reference.
+You should create a copy of an unencrypted DB snapshot and then encrypt the new snapshot.
+Option D is incorrect: Because an unencrypted DB Read Replica cannot be encrypted.
+The correct method is to launch a new instance from an encrypted DB snapshot.
+The correct answer is A. Create a DB snapshot from the instance. Copy the DB snapshot with encryption enabled. Restore a new DB instance from the new encrypted snapshot and configure a Read Replica in the new DB instance.
+Explanation: Amazon RDS provides encryption at rest for all database engines. By default, RDS encrypts the data stored in the database instance, including its backups and Read Replicas. However, if the database instance was created without encryption, you can still add encryption to the instance and its Read Replica.
+To add encryption to the RDS instance and its Read Replica, you should follow these steps:
+1.
+Create a DB snapshot from the non-encrypted RDS instance using the AWS Management Console, AWS CLI, or API. This snapshot will contain a copy of the instance's data.
+2.
+Copy the DB snapshot with encryption enabled using the AWS Management Console, AWS CLI, or API. This will create a new DB snapshot with encryption enabled.
+3.
+Restore a new DB instance from the new encrypted snapshot. The new instance will have the same configuration, security groups, parameter groups, and option groups as the original instance, but with encryption enabled.
+4.
+Once the new instance is available, configure a Read Replica in the new DB instance using the AWS Management Console, AWS CLI, or API. The Read Replica will also have encryption enabled.
+Option B is incorrect because encrypting the instance will not automatically encrypt the Read Replica. You need to launch a new Read Replica from the encrypted DB instance.
+Option C is incorrect because encrypting the DB snapshot does not encrypt the original instance or its Read Replica. You need to restore a new DB instance from the encrypted snapshot to enable encryption.
+Option D is incorrect because promoting the Read Replica to a standalone instance will not encrypt the instance. You need to encrypt the instance before creating a new Read Replica.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question140:"link"
+
+

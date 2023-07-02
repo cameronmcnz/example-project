@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "846 - Given the code fragment ListInteger nums"
+---
+
+
+[.question]
+== 846-64a1a84aef3e8462333a9c64.
+
+
+****
+
+[.query]
+--
+Given the code fragment: List<Integer> nums = Arrays.asList (10, 20, 8): System.out.println ( //line n1 ); Which code fragment must be inserted at line n1 to enable the code to print the maximum number in the nums list?
+
+
+--
+
+[.list]
+--
+* [*] A. nums.stream().max(Comparator.comparing(a -> a)).get()
+* [ ] B. nums.stream().max(Integer : : max).get()
+* [ ] C. nums.stream().max()
+* [ ] D. nums.stream().map(a -> a).max()
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

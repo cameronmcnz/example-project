@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "1104 - Your AWS Organization has below hierarch"
+---
+
+
+[.question]
+== 1104-64a1df65aa736d27b1db946c.
+
+
+****
+
+[.query]
+--
+Your AWS Organization has below hierarchy.
+
+
+--
+
+[.list]
+--
+* [*] A. The action will be denied as the SCP in Admin_OU denies the operation.
+* [ ] B. The action will be allowed as the SCP in the root has full AWS access, and Bob is attached with full S3 permissions.
+* [*] C. The action will be denied as SCP in DEV1_OU has an S3 Deny policy, which takes priority.
+* [ ] D. The action will be allowed as DEV2_OU is attached with an S3 Allow SCP policy, which takes priority.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+About how SCPs work, please refer to the documentation in.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html.
+One rule is that any action that has an explicit Deny always takes priority.
+Option A is CORRECT because DEV2_OU inherits the SCP in Admin_OU which contains a Deny policy.
+The policy overrides any Allow that other SCPs might grant.
+Option B is incorrect: because other SCPs that the OU has inherited should also be considered.
+Option C is incorrect because the SCP in DEV1_OU does not need to be considered as it is not a parent node for user Bob.
+Option D is incorrect: because the Allow policy does not override a Deny policy if it exists.
+To answer this question, we need to understand the AWS Organizations hierarchy and Service Control Policies (SCPs) in AWS.
+AWS Organizations is a service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. You can create a hierarchy of organizational units (OUs) to group accounts and apply policies to them.
+SCPs are a type of organization policy that allow you to centrally manage and enforce policies across multiple AWS accounts. SCPs allow you to specify which AWS services and actions are allowed or denied for accounts and OUs in your organization. SCPs are evaluated in a top-down manner, with SCPs at the root level taking priority over those at lower levels.
+Now let's look at the hierarchy and SCPs in the given scenario:
+AWS Organization Hierarchy:
+Root
+Admin_OU
+Bob's_Account
+DEV1_OU
+DEV2_OU
+SCP Policy:
+Root
+Allow Full AWS Access
+Admin_OU
+Deny S3 Access
+DEV1_OU
+Deny S3 Access
+DEV2_OU
+Allow S3 Access
+Based on the above information, let's evaluate the given answers:
+A. The action will be denied as the SCP in Admin_OU denies the operation. This answer is incorrect. While it is true that the Admin_OU has an SCP that denies S3 access, this SCP is not directly applied to Bob's_Account. Instead, Bob's_Account inherits the SCP from the Admin_OU. However, since the SCP at the root level allows full AWS access, Bob's_Account still has access to S3.
+B. The action will be allowed as the SCP in the root has full AWS access, and Bob is attached with full S3 permissions. This answer is incorrect. While the SCP at the root level allows full AWS access, this does not necessarily mean that Bob's_Account has full S3 permissions. Bob's_Account inherits the SCPs from the OUs it belongs to, which may limit its access to S3.
+C. The action will be denied as SCP in DEV1_OU has an S3 Deny policy, which takes priority. This answer is correct. Since the SCP in DEV1_OU denies S3 access, this takes priority over the SCP at the root level that allows full AWS access. As Bob's_Account belongs to DEV1_OU, it is subject to this deny policy and therefore cannot access S3.
+D. The action will be allowed as DEV2_OU is attached with an S3 Allow SCP policy, which takes priority. This answer is incorrect. While DEV2_OU has an SCP that allows S3 access, this SCP only applies to accounts that directly belong to the DEV2_OU. Bob's_Account does not belong to the DEV2_OU, so it does not inherit this SCP. Instead, it inherits the SCP from the Admin_OU, which denies S3 access.
+Therefore, the correct answer is C. The action will be denied as SCP in DEV1_OU has an S3 Deny policy, which takes priority.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question443:"link"
+
+

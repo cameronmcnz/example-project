@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1010 - You have both production and development"
+---
+
+
+[.question]
+== 1010-64a1fa86f053625db51ddedf.
+
+
+****
+
+[.query]
+--
+You have both production and development based instances running on your VPC.
+It is required to ensure that people responsible for the development instances do not have access to work on production instances for better security.
+Which of the following would be the best way to accomplish this using policy with minimal efforts?
+
+
+--
+
+[.list]
+--
+* [*] A. Launch the development and production instances in separate VPCs and use VPC Peering.
+* [ ] B. Create an IAM group with a condition that allows access to only those instances which are used for production or development.
+* [*] C. Launch the development and production instances in different Availability Zones and use Multi-Factor Authentication.
+* [*] D. Define the tags on the Development and production servers and add a condition to the IAM Policy which allows access to specific tags.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+You can easily add tags to define which instances are the production instances and which ones are development instances.
+These tags can then be used while controlling access via an IAM Policy.
+Also the question is asking for minimal efforts and overhead and therefore Option D is the CORRECT choice here.
+For more information on tagging your resources, please refer to the link below:
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
+Note:
+It can be done with the help of option B as well.
+However, the question is looking for the "best way to fulfill the requirement using policies".
+By using the option D, you can reduce the usage of different IAM Policies on each instance.
+The best way to accomplish this would be to use option D: Define the tags on the development and production servers and add a condition to the IAM policy which allows access to specific tags.
+IAM (Identity and Access Management) is the service provided by AWS for managing access to AWS resources. IAM allows you to create policies which define the permissions for your users and groups. The policies are based on JSON and can be customized to allow or deny access to specific resources.
+In this scenario, you have both production and development instances running on your VPC. You want to ensure that people responsible for the development instances do not have access to work on production instances. To achieve this, you can define tags on the development and production servers and add a condition to the IAM policy which allows access to specific tags.
+Tags are key-value pairs that can be assigned to resources in AWS. They can be used to categorize and organize your resources. In this case, you can assign a "Environment" tag with the value "Production" or "Development" to the instances.
+To implement this, you can create an IAM policy that allows access to instances with a specific tag. For example, you could create a policy that allows access to instances with the "Environment" tag set to "Production". You can then assign this policy to the users or groups that need access to the production instances.
+This approach is easy to implement and maintain. It allows you to control access to specific instances based on tags without the need for complex configurations. Additionally, it ensures that users responsible for development instances are not able to access production instances, thus improving the security of your infrastructure.
+Option A: Launch the development and production instances in separate VPCs and use VPC Peering. This option would also work, but it would require more effort to set up and maintain. VPC peering is used to connect two VPCs together so that they can communicate with each other as if they were on the same network. This approach would require creating two separate VPCs, configuring VPC peering, and ensuring that the appropriate security groups and routing tables are set up correctly. While this approach would provide additional security by isolating the environments, it would require more effort to set up and maintain.
+Option B: Create an IAM group with a condition that allows access to only those instances which are used for production or development. This approach would also work, but it would be less granular than using tags. It would require creating two separate groups for production and development instances and assigning the appropriate policies to each group. This approach would not allow for finer control of access based on specific instances or tags.
+Option C: Launch the development and production instances in different Availability Zones and use Multi-Factor Authentication. This option would not address the issue of controlling access to specific instances based on their environment. Multi-factor authentication is a security feature that requires users to provide additional authentication beyond their password, such as a code sent to their phone or a security token. While this feature can add an extra layer of security, it does not address the issue of controlling access to specific instances based on their environment.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question240:"link"
+
+

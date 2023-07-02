@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1212 - A media firm uses the Amazon S3 bucket t"
+---
+
+
+[.question]
+== 1212-64a1faeaf053625db51ddfd3.
+
+
+****
+
+[.query]
+--
+A media firm uses the Amazon S3 bucket to save all videos shared by reporters across the globe.
+Operation Team has instructed all reporters to use only Multipart Uploads while uploading these large-sized videos to Amazon S3 bucket in each region.
+Most of the reporters are working from remote areas & face challenges in uploading videos.
+The Finance Team is concerned about high costs incurred by saving data in the Amazon S3 bucket & seeking your guidance.
+Post verification, you observe a large number of incomplete uploads in Amazon S3 buckets in each region.
+The uncompleted uploads can be deleted after a certain period of time. Which of the following actions can minimize charges for saving video files in the Amazon S3 bucket?
+
+
+--
+
+[.list]
+--
+* [*] A. Reporter`s need to compress video files locally before uploading to Amazon S3 bucket.
+* [ ] B. Reporter’s need to upload Videos to Amazon S3 Glacier to save additional charges.
+* [*] C. Create a Lifecycle Policy to move all incomplete Multipart uploads to Amazon S3 Glacier after weeks’ time from initiation.
+* [*] D. Create a Lifecycle Policy to delete all incomplete Multipart uploads after weeks’ time from initiation.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Incomplete Multipart Uploads incur storage charges on the Amazon S3 bucket.
+Lifecycle rules can be used to abort the uploading of multipart uploads that are incomplete since a specific time frame &amp; also deletes these parts to free up storage, reducing costs for this storage.
+Option A &amp; B are incorrect as Incomplete Multipart Uploads incur charges.
+These charges can be stopped by stopping multipart uploads.
+Option C is incorrect as Moving all incomplete Multipart uploads to Amazon S3 Glacier would not completely reduce the cost for storing data.
+As data in Amazon S3 Glacier would incur cost, it would be less than data storing the Amazon S3 bucket.
+Also, incomplete Multipart uploads would not be used until fully uploaded.
+For more information on Amazon S3 Multipart Upload, refer to the following URLs-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html https://aws.amazon.com/blogs/aws/s3-lifecycle-management-update-support-for-multipart-uploads-and-delete-markers/
+The media firm uses Amazon S3 to store videos shared by reporters across the globe. To upload these large-sized videos to the S3 bucket, the Operations Team has instructed all reporters to use only Multipart Uploads. However, due to the remote locations of most reporters, they are facing challenges in uploading videos, and as a result, a large number of incomplete uploads are observed in the S3 bucket.
+The Finance Team is concerned about the high costs incurred in saving data in the S3 bucket and is seeking guidance on minimizing these costs. To minimize the charges for saving video files in the Amazon S3 bucket, one of the following actions can be taken:
+A. Reporter's need to compress video files locally before uploading to Amazon S3 bucket. This option may help to reduce the size of the videos being uploaded to the S3 bucket, but it will not address the issue of incomplete uploads or minimize the charges for saving data in the S3 bucket.
+B. Reporter's need to upload Videos to Amazon S3 Glacier to save additional charges. S3 Glacier is a low-cost storage option for data archiving and backup. However, it is not suitable for storing videos that need to be accessed frequently. Additionally, this option will not address the issue of incomplete uploads.
+C. Create a Lifecycle Policy to move all incomplete Multipart uploads to Amazon S3 Glacier after weeks' time from initiation. This option addresses the issue of incomplete uploads by moving them to a lower-cost storage option after a certain period of time. This can help to minimize the charges for saving data in the S3 bucket. However, it may not be an ideal solution if the incomplete uploads need to be accessed frequently.
+D. Create a Lifecycle Policy to delete all incomplete Multipart uploads after weeks' time from initiation. This option addresses the issue of incomplete uploads by deleting them after a certain period of time. This can help to minimize the charges for saving data in the S3 bucket. However, it may not be an ideal solution if the incomplete uploads need to be accessed frequently or if there is a possibility of losing important data.
+In summary, option C is the best solution as it addresses the issue of incomplete uploads and minimizes the charges for saving data in the S3 bucket by moving the incomplete uploads to a lower-cost storage option. However, the solution should be chosen based on the specific needs of the media firm, taking into consideration the frequency of accessing incomplete uploads and the possibility of losing important data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question485:"link"
+
+

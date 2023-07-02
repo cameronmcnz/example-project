@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1219 - Your company is planning to set up an ap"
+---
+
+
+[.question]
+== 1219-64a1faeef053625db51ddfdc.
+
+
+****
+
+[.query]
+--
+Your company is planning to set up an application that will consist of a web layer.
+This web layer will consist of EC2 Instances sitting behind an Application Load Balancer.
+The company wants to protect the application against application level attacks.
+Which of the following can be used for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Cloudfront
+* [*] B. AWS WAF
+* [ ] C. AWS Config
+* [ ] D. AWS VPC NACL.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+You use AWS WAF to control how Amazon CloudFront or an Application Load Balancer responds to web requests.
+You start by creating conditions, rules, and web access control lists (web ACLs)
+You define your conditions, combine your conditions into rules, and combine the rules into a web ACL.
+Option A is invalid because this is used for content delivery.
+Option C is invalid because this is a configuration service.
+Option D is invalid because this is used to block traffic based on simple rules.
+For more information on how the AWS WAF works, please refer to the below URL-
+https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html
+The correct answer is B. AWS WAF.
+AWS WAF (Web Application Firewall) is a service that helps protect web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources. It enables you to define customizable web security rules that block common attack patterns like SQL injection or cross-site scripting (XSS) before they reach your application.
+In the scenario given, the company wants to protect their application against application-level attacks. Using AWS WAF in conjunction with the Application Load Balancer, the company can inspect incoming traffic to the web layer and filter out requests that may be malicious or unwanted. This helps to protect the EC2 instances that are serving the web content from being compromised by attackers.
+Let's take a look at the other options to see why they are not the best fit for this scenario:
+A. AWS CloudFront is a content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds. While it can provide some level of protection against certain types of attacks, it is not a dedicated web application firewall like AWS WAF.
+C. AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. While it can help you ensure that your AWS resources are configured correctly and compliant with industry standards, it is not designed to protect web applications from attacks.
+D. AWS VPC NACL (Network Access Control List) is a service that acts as a firewall for controlling traffic in and out of one or more subnets. While it can be used to control access to your resources and limit exposure to attacks, it is not designed to filter out malicious requests at the application level like AWS WAF.
+In conclusion, AWS WAF is the best option for protecting a web layer consisting of EC2 instances behind an Application Load Balancer from application-level attacks. It enables you to define customized web security rules that block common attack patterns before they reach your application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question494:"link"
+
+

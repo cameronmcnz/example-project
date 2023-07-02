@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "917 - Given the code fragment
+You have been as"
+---
+
+
+[.question]
+== 917-64a1a863ef3e8462333a9cab.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0010600001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+You have been asked to define the ProductCode class.
+The definition of the ProductCode class must allow c1 instantiation to succeed and cause a compilation error on c2 instantiation.
+Which definition of ProductCode meets the requirement? A.
+B.
+C.
+D.
+
+
+[source,java]
+----
+ProductCode<Number, Integer> cl = new ProductCode<Number, Integer>()# /* cl
+instantiation */
+ProductCode<Number, String> c2 = new ProductCode<Number, String>(); /* c2
+instantiation */
+----
+
+
+--
+
+[.list]
+--
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

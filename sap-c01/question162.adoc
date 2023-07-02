@@ -1,0 +1,122 @@
+---
+layout: default 
+title: "962 - Which of the following items are require"
+---
+
+
+[.question]
+== 962-64a1df30aa736d27b1db9392.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_pqlkyr.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following items are required to allow an application deployed on an EC2 instance to write data to a DynamoDB table? Assume that no security keys are allowed to be stored on the EC2 instance.
+
+
+[source,java]
+----
+Create role
+Select type of trusted entity
+
+@o::
+
+Another AWS account @
+Belonging to you or 3rd party
+
+ws AWS service
+
+EC2, Lambda and others
+
+Web identity
+Cognito or any OpenID
+provider
+
+SAML 2.0 federation
+Your corporate directory
+
+Allows AWS services to perform actions on your behalf. Learn more
+
+Choose the service that will use this role
+
+Ec2
+Allows EC2 instances to call AWS services on your behalf.
+
+Lambda
+Allows Lambda functions to call AWS services on your behalf.
+API Gateway DMS Elastic Transcoder Machine Learning SageMaker
+Application Auto Scaling Data Pipeline ElasticLoadBalancing MediaConvert Service Catalog
+Auto Scaling Deepens Glue OpsWorks Step Functions
+Batch Directory Service Greengrass RDS Storage Gateway
+~nequres cores EES
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create an IAM Role that allows write access to the DynamoDB table.
+* [ ] B. Encode the IAM User credentials into the application.
+* [ ] C. Create an IAM User that allows write access to the DynamoDB table.
+* [ ] D. Add an IAM User to a running EC2 instance.
+* [ ] E. Launch an EC2 Instance with the IAM Role included in the launch configuration.
+
+--
+****
+
+[.answer]
+Answer  A and
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - A and.
+E.To enable an AWS service to access another one, the most important requirement is to create an appropriate IAM Role and attach that role to the service that needs access.
+Option A is CORRECT because it creates the appropriate IAM Role for accessing the DynamoDB table.
+Option B is INCORRECT because this is not a best practice, and we need to use IAM Role.
+Options C and D are incorrect because IAM Role is preferred and more secure way than IAM User.
+Option E is CORRECT because it launches the EC2 instance after attaching the required role.
+See the steps below.
+1
+Create the IAM Role with appropriate permissions.
+2
+Launch an EC2 instance with this role.
+3
+Attach the role to a running EC2
+Reference Link:
+http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html https://aws.amazon.com/about-aws/whats-new/2017/02/new-attach-an-iam-role-to-your-existing-amazon-ec2-instance/
+In order to allow an application deployed on an EC2 instance to write data to a DynamoDB table, we need to follow the AWS security best practices and avoid storing security keys on the EC2 instance. With this constraint in mind, the following options are possible:
+A. Create an IAM Role that allows write access to the DynamoDB table. This is the recommended option as it follows the AWS security best practices. We can create an IAM Role that has permissions to write data to the DynamoDB table and assign this role to the EC2 instance. The EC2 instance will then assume the role and have the necessary permissions to write data to the table. This approach does not require storing any security keys on the EC2 instance.
+B. Encode the IAM User credentials into the application. This option is not recommended as it involves storing security keys on the EC2 instance. This approach violates the AWS security best practices and can expose the security keys to unauthorized access.
+C. Create an IAM User that allows write access to the DynamoDB table. This option is not recommended as it involves storing security keys on the EC2 instance. This approach violates the AWS security best practices and can expose the security keys to unauthorized access.
+D. Add an IAM User to a running EC2 instance. This option is not recommended as it involves storing security keys on the EC2 instance. This approach violates the AWS security best practices and can expose the security keys to unauthorized access.
+E. Launch an EC2 Instance with the IAM Role included in the launch configuration. This option is similar to option A and is recommended as it follows the AWS security best practices. We can launch an EC2 instance with an IAM Role that has permissions to write data to the DynamoDB table. The EC2 instance will then assume the role and have the necessary permissions to write data to the table. This approach does not require storing any security keys on the EC2 instance.
+In summary, the recommended options are A and E, as they follow the AWS security best practices and do not involve storing security keys on the EC2 instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question224:"link"
+
+

@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1225 - You are the Solutions Architect for a he"
+---
+
+
+[.question]
+== 1225-64a1faf1f053625db51ddfe3.
+
+
+****
+
+[.query]
+--
+You are the Solutions Architect for a health insurance service company that wants to start building and supporting IoT devices for patients who recently signed new clauses in the contract.
+This will open opportunities to expand its market but also introduces some restrictions.
+All services and data involved have to guarantee HIPAA compliance and include in-transit encryption.
+Due to high sensitivity data, bypassing the internet is crucial.
+The architecture uses already ELBs.
+They want to avoid DNS re-configuration and IP address caching when it comes to the IoT devices.
+What combination of services may be the closest option to address this challenge?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS ELBs, AWS IoT, and Amazon Route53 configured with geolocation or latency routing policies. This requires an interface endpoint (PrivateLink) for Route53 to stay inside the AWS backbone.
+* [*] B. AWS ELBs, AWS IoT, and AWS Global Accelerator which provisions two anycast static IP addresses.
+* [ ] C. AWS ELBs, AWS IoT, and Amazon Route53 configured with geolocation or latency routing policies. This does not require an interface endpoint (PrivateLink) because Route53 is inside the AWS backbone.
+* [ ] D. AWS ELBs, AWS IoT, and AWS Global Accelerator which provisions one anycast static IP address.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+AWS Global Accelerator allocates two IPv4 anycast static IP addresses and keeps the traffic inside the AWS globally redundant network.
+Option A is incorrect because there is no interface endpoint for Amazon Route53.
+Option C is incorrect because Amazon Route53 is not inside the AWS backbone.
+Option D is incorrect because AWS Global Accelerator provides two anycast static IP addresses.
+References:
+https://go.aws/2z24ZLL
+Sure, I'd be happy to explain each of the options and help you understand which one would be the best fit for the given scenario.
+Option A: This option includes AWS ELBs, AWS IoT, and Amazon Route53 configured with geolocation or latency routing policies. It requires an interface endpoint (PrivateLink) for Route53 to stay inside the AWS backbone. This option would allow you to avoid DNS re-configuration and IP address caching when it comes to the IoT devices. The use of an interface endpoint ensures that Route53 traffic stays within the AWS network, reducing the risk of data being intercepted while in transit. Additionally, AWS IoT is designed to be HIPAA compliant and includes in-transit encryption. This option would likely be a good fit for the given scenario.
+Option B: This option includes AWS ELBs, AWS IoT, and AWS Global Accelerator, which provisions two anycast static IP addresses. While this option also includes AWS IoT, which is HIPAA compliant and includes in-transit encryption, it may not be the best fit for the given scenario because it does not address the requirement to bypass the internet. Additionally, the use of anycast IP addresses can lead to unpredictable routing behavior, which may negatively impact the performance of the IoT devices.
+Option C: This option is similar to option A, including AWS ELBs, AWS IoT, and Amazon Route53 configured with geolocation or latency routing policies. However, it does not require an interface endpoint (PrivateLink) because Route53 is already inside the AWS backbone. This option would also allow you to avoid DNS re-configuration and IP address caching when it comes to the IoT devices. Like option A, this option is likely a good fit for the given scenario.
+Option D: This option includes AWS ELBs, AWS IoT, and AWS Global Accelerator, which provisions one anycast static IP address. Like option B, this option may not be the best fit for the given scenario because it does not address the requirement to bypass the internet. Additionally, the use of anycast IP addresses can lead to unpredictable routing behavior, which may negatively impact the performance of the IoT devices.
+In summary, the best option for the given scenario would likely be either option A or option C, as they both include AWS ELBs, AWS IoT, and Amazon Route53 configured with geolocation or latency routing policies, which would allow you to avoid DNS re-configuration and IP address caching when it comes to the IoT devices. Additionally, both options address the requirement to bypass the internet and ensure HIPAA compliance with in-transit encryption.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question501:"link"
+
+

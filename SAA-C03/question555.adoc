@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1355 - A small company started using EBS backed"
+---
+
+
+[.question]
+== 1355-64a1fb39f053625db51de095.
+
+
+****
+
+[.query]
+--
+A small company started using EBS backed EC2 instances due to the cost improvements over running their own servers.
+The company's policy is to stop the development servers over the weekend and restart them each week.
+The first time the servers were brought back.
+None of the developers were able to SSH into them.
+What did the server most likely overlook?
+
+
+--
+
+[.list]
+--
+* [*] A. The associated Elastic IP address has changed and the SSH configurations were not updated.
+* [ ] B. The security group for a stopped instance needs to be reassigned after start.
+* [*] C. The public IPv4 address has changed on server restart and the SSH configurations were not updated.
+* [ ] D. EBS backed EC2 instances cannot be stopped and were automatically terminated.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Correct:
+C.
+The instance retains its private IPv4 addresses and any IPv6 addresses when stopped and restarted.
+AWS releases the public IPv4 address and assigns a new one when it's restarted.
+Incorrect:
+A.
+An EC2 instance retains its associated Elastic IP addresses.
+B.
+Security groups do not need to be reassigned to instances that are restarted.
+D.
+EBS backed instances are the only instance type that can be started and stopped.
+Reference:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+The most likely issue that the developers faced when they tried to SSH into the EBS-backed EC2 instances after the servers were restarted is that the public IPv4 address has changed on server restart, and the SSH configurations were not updated.
+When an EC2 instance is stopped and then started again, the public IPv4 address assigned to the instance may change. This is because Amazon EC2 releases the public IPv4 address associated with the instance when it is stopped. When the instance is started again, a new public IPv4 address is assigned to it.
+In this case, the developers were not able to SSH into the instance because they were trying to connect to the old public IPv4 address that was associated with the instance before it was stopped. To fix this issue, the developers need to update the SSH configurations to use the new public IPv4 address assigned to the instance after it was restarted.
+Option A, which suggests that the associated Elastic IP address has changed and the SSH configurations were not updated, is incorrect because Elastic IP addresses are static IP addresses that can be associated with an instance and remain the same even if the instance is stopped and started again. Therefore, if an Elastic IP address was used to connect to the instance before it was stopped, the same Elastic IP address should work after the instance is started again.
+Option B, which suggests that the security group for a stopped instance needs to be reassigned after start, is incorrect because the security group assigned to the instance remains the same even if the instance is stopped and started again.
+Option D, which suggests that EBS-backed EC2 instances cannot be stopped and are automatically terminated, is incorrect because EBS-backed EC2 instances can be stopped and started again. When an EBS-backed EC2 instance is stopped, the instance's root EBS volume is preserved, and the instance can be started again with the same data and configuration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question680:"link"
+
+

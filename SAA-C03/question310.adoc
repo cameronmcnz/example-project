@@ -1,0 +1,106 @@
+---
+layout: default 
+title: "1110 - As the companys cloud administrator you "
+---
+
+
+[.question]
+== 1110-64a1fab4f053625db51ddf4f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_76013.png[]
+
+--
+
+
+****
+
+[.query]
+--
+As the company's cloud administrator, you notice that one of the EC2 instances is frequently restarting.
+There is a need to troubleshoot and analyze the system logs with an embedded metric format.
+What can be used in AWS to store and analyze the log files from the EC2 Instance?
+
+
+[source,java]
+----
+Ingesting high-cardinality logs and
+generating metrics with CloudWatch
+embedded metric format
+
+The CloudWatch embedded metric format enables you to ingest complex high-cardinality application
+data in the form of logs and to generate actionable metrics from them. You can embed custom metrics
+alongside detailed log event data, and CloudWatch automatically extracts the custom metrics so that
+you can visualize and alarm on them, for real-time incident detection. Additionally, the detailed log
+events associated with the extracted metrics can be queried using CloudWatch Logs Insights to provide
+deep insights into the root causes of operational events.
+
+Embedded metric format helps you to generate actionable custom metrics from ephemeral resources
+such as Lambda functions and containers. By using the embedded metric format to send logs from
+these ephemeral resources, you can now easily create custom metrics without having to instrument or
+maintain separate code, while gaining powerful analytical capabilities on your log data.
+
+When using the embedded metric format, you can generate your logs using a client library— for
+
+more information, see Using the client libraries to generate embedded metric format logs (p. 639).
+Alternatively, you can manually construct the logs and submit them using the PutLogEvents API or the
+CloudWatch agent.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. AWS SQS
+* [ ] B. AWS S3
+* [*] C. AWS CloudTrail
+* [*] D. AWS CloudWatch Logs.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS CloudTrail, and other sources.
+For more information on CloudWatch Logs, please visit the following URL-
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html
+Refer to page 638 on the below link:
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/acw-ug.pdf
+Note: The question is not about compliance or auditing or tracking any kind of malicious activity or monitoring API calls in your account.
+If that had been the case, we would have used CloudTrail as it provides info such as who made the request, when the request was made, the request, the response, etc.
+In this question, we need cloud watch logs to store and analyze logs from EC2 to find why the instance is frequently restarting.
+The correct answer is D. AWS CloudWatch Logs.
+Explanation:
+AWS CloudWatch Logs is a service that allows you to store, monitor, and access log files from AWS resources like EC2 instances, AWS Lambda functions, and more. CloudWatch Logs can collect and store logs from any source, and EC2 instances can easily stream their logs to CloudWatch Logs.
+If an EC2 instance is frequently restarting, analyzing the system logs can help identify the root cause of the issue. CloudWatch Logs can be used to store and analyze logs in an embedded metric format, which provides a way to extract metric data from log files without having to manually parse them.
+CloudWatch Logs allows you to create metric filters to extract metric data from logs and store them as CloudWatch metrics. These metrics can then be used to set up alarms, create dashboards, or even trigger automated actions through CloudWatch Events.
+SQS (Simple Queue Service) is a messaging service used to decouple and scale microservices, applications, and distributed systems. It is not designed to store and analyze log files.
+S3 (Simple Storage Service) is a highly scalable object storage service designed for storing and retrieving any amount of data from anywhere. While S3 can be used to store log files, it does not provide any built-in log analysis capabilities.
+CloudTrail is a service that provides governance, compliance, operational auditing, and risk auditing of your AWS account. It logs all API calls made within your AWS account, but it is not designed to store and analyze log files from EC2 instances.
+In conclusion, AWS CloudWatch Logs is the best option for storing and analyzing log files from an EC2 instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question353:"link"
+
+

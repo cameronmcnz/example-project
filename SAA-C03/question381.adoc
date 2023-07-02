@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1181 - An application consists of a fleet of EC"
+---
+
+
+[.question]
+== 1181-64a1fadbf053625db51ddfae.
+
+
+****
+
+[.query]
+--
+An application consists of a fleet of EC2 Instances.
+These Instances are launched in the Oregon (us-west-2) region which consists of 3 availability zones.
+This application needs 6 Instances running at all times.
+As an architect, you need to distribute the instances so that the application could still maintain its capacity if any one of the availability zone goes down.
+Also, you need to ensure that the cost is kept to a minimum? Which of the following configurations would you consider?
+
+
+--
+
+[.list]
+--
+* [*] A. 6 Instances running in us-west-2a, 6 Instances running in us-west-2b, 6 Instances running in us-west-2c
+* [ ] B. 3 Instances running in us-west-2a, 3 Instances running in us-west-2c
+* [ ] C. 6 Instances running in us-west-2a, 3 Instances running in us-west-2b, 3 Instances running in us-west-2c
+* [*] D. 3 Instances running in us-west-2a, 3 Instances running in us-west-2b, 3 Instances running in us-west-2c.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+So now, let's look at.
+Option A.If any availability zone goes down, we will have a total of 12 instances running.
+This is an additional 6 over the requirement of the question and will result in a higher cost.
+So now, let's look at Option.
+B.If the availability zone us-west-2a goes down, then you will have only 3 instances running.
+Because the other 3 instances are running in the us-east-2c region.
+So now, let's look at Option.
+C.If either us-west-2b or us-west-2c availability zone goes down, we will have a total of 9 instances running.
+This is an additional 3 over the requirement of the question and will result in a higher cost.
+So now, let's look at Option.
+D.If either us-east-2a or us-west-2b or us-west-2c availability zone goes down, there will be a total of 6 instances running, which is what we need.
+For more information on Regions and Availability zones, please refer to the below URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+To ensure high availability and fault tolerance, it is recommended to distribute the instances across multiple availability zones in a region. If any one of the availability zones goes down, the application will still be able to operate with the remaining instances in the other availability zones.
+In this scenario, the application needs 6 instances running at all times. To ensure high availability and fault tolerance, it is recommended to have at least 2 instances running in each availability zone. Therefore, options A and D are the most suitable because they both have 6 instances distributed across all 3 availability zones.
+Option B only has 3 instances running in 2 availability zones, which does not provide enough redundancy in case one of the availability zones goes down. Option C has 6 instances running in one availability zone, which could create a single point of failure if that availability zone goes down.
+Therefore, option A and D are the most suitable. However, since the question asks for the option that would keep costs to a minimum, option D would be the most cost-effective as it only requires a total of 9 instances instead of 18 in option A.
+Option D is the best configuration as it has 3 instances running in each availability zone. This would provide high availability and fault tolerance while keeping costs to a minimum.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question448:"link"
+
+

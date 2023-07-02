@@ -1,0 +1,101 @@
+---
+layout: default 
+title: "1067 - A SAAS provider has an online training s"
+---
+
+
+[.question]
+== 1067-64a1df59aa736d27b1db943b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_awsq4-10.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+A SAAS provider has an online training service that is deployed in AWS.
+For each subscriber, there is a new DynamoDB table created for it.
+The company needs the deployment in AWS to be simple.
+It is known that the read throughput is much more than the write throughput.
+During the day, the read traffic is very unbalanced and spiky among various DynamoDB tables.
+What kind of capacity should the DynamoDB tables be configured?
+
+
+[source,java]
+----
+Read/write capacity mode
+
+Select on-demand if you want to pay only for the read and writes you perform, with no capacity planning required.
+Select provisioned to save on throughput costs if you can reliably estimate your application's throughput requirements.
+See the DynamoDB pricing page and DynamoDB Developer Guide to learn more.
+
+Read/write capacity mode can be changed later.
+
+@) Provisioned (free-tier eligible)
+
+On-demand
+
+Last change to on-demand mode: No read/write capacity mode changes have been made.
+
+Next available change to on-demand mode: You can update to on-demand mode at any time.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Depending on which type of subscriber it has, configure a provisioned capacity accordingly.
+* [ ] B. Configure a median provisioned capacity for all tables. Enable Auto Scaling when target utilization is over 80%.
+* [*] C. Set up On-Demand capacity for individual DynamoDB tables.
+* [ ] D. Configure an On-Demand capacity for read, and configure a provisioned capacity for write using a reasonable value.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+DynamoDB on-demand is normally used if the application traffic is difficult to predict and control, the workload has large spikes of short duration, or if the average table utilization is well below the peak.
+Refer to https://aws.amazon.com/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing/ for its use cases.
+Option A is incorrect: Because as the traffic is very different from each other, it is improper to use a provisioned capacity.
+Option B is incorrect: Although this may work, it is not as simple as On-Demand capacity.
+This SAAS provider needs the deployment to be simple.
+Option C is CORRECT: Because by setting up On-Demand capacity, the service provider does not need to be worried about the traffic fluctuation.
+Option D is incorrect: Because you cannot configure On-Demand for read and Provisioned for write.
+You have to use one for both read and write.
+Refer to below:
+In this scenario, the SAAS provider needs a simple deployment of their online training service in AWS. They have multiple subscribers and a new DynamoDB table is created for each subscriber. The read throughput is much higher than the write throughput, and the read traffic is very unbalanced and spiky during the day.
+Option A suggests configuring provisioned capacity based on the type of subscriber. However, this approach may not be feasible as the read traffic is unbalanced and spiky among various DynamoDB tables.
+Option B suggests configuring a median provisioned capacity for all tables and enabling auto-scaling when target utilization is over 80%. While this approach can handle the spikes in read traffic, it may lead to over-provisioning of resources and higher costs during periods of low utilization.
+Option C suggests setting up On-Demand capacity for individual DynamoDB tables. This approach is suitable when the workload is unpredictable, and the company wants to pay only for the resources consumed. However, On-Demand capacity may lead to higher costs if the workload is consistently high.
+Option D suggests configuring an On-Demand capacity for read and a provisioned capacity for write. This approach is suitable for the scenario described as the read traffic is much higher than the write traffic, and the read traffic is unbalanced and spiky during the day. With this approach, the SAAS provider can pay for the resources consumed by read traffic and provision sufficient capacity for write traffic.
+In conclusion, option D is the best option for the SAAS provider to configure the capacity of DynamoDB tables in AWS for their online training service.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question394:"link"
+
+

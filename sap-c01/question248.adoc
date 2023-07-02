@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1048 - An organization has configured Auto Scal"
+---
+
+
+[.question]
+== 1048-64a1df51aa736d27b1db9416.
+
+
+****
+
+[.query]
+--
+An organization has configured Auto Scaling with ELB.
+There is a memory issue in the application which is causing CPU utilization to go above 90%
+The higher CPU usage triggers an event for Auto Scaling as per the scaling policy.
+If the user wants to find the root cause inside the application without triggering a scaling activity, how can he achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Stop the scaling process until research is completed.
+* [ ] B. It is not possible to find the root cause from that instance without triggering scaling.
+* [ ] C. Delete the Auto Scaling group until research is completed.
+* [*] D. Suspend the scaling process until research is completed.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+In this scenario, the user wants to investigate the problem during the Auto Scaling process without triggering the scaling activity.
+For this, the user can leverage the suspend and resume option available on Auto Scaling.
+Option A is incorrect because the scaling process needs not to be stopped.
+It can be suspended so that it can be resumed.
+Option B is incorrect because scaling can be momentarily suspended until the investigation is completed.
+Option C is incorrect because the Auto Scaling group is totally unnecessary in this scenario.
+Option D is CORRECT because you can suspend and then resume one or more of the scaling processes for your Auto Scaling group, if you want to investigate a configuration problem or other issue with your web application and then make changes to your application without triggering the scaling processes.
+For more information on suspending AutoScaling processes, please visit the link.
+http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html
+In this scenario, the user wants to investigate the root cause of the high CPU utilization in the application without triggering a scaling activity. To achieve this, the user can suspend the scaling process until the research is completed.
+Option A, which suggests stopping the scaling process, is not the best option as it could affect the availability of the application. Stopping the scaling process means that instances will not be launched or terminated in response to changes in demand. This could result in insufficient resources to handle traffic spikes, leading to application downtime.
+Option B, which states that it is not possible to find the root cause from that instance without triggering scaling, is incorrect. It is possible to investigate the root cause of the high CPU utilization by analyzing logs and metrics collected from the instance.
+Option C, which suggests deleting the Auto Scaling group until research is completed, is also not the best option. Deleting the Auto Scaling group means that all instances will be terminated, resulting in downtime for the application. Moreover, if the user needs to launch new instances later, they will have to recreate the Auto Scaling group from scratch.
+Option D, which suggests suspending the scaling process until research is completed, is the best option. Suspending the scaling process means that Auto Scaling will not launch or terminate instances in response to changes in demand. This allows the user to investigate the root cause of the high CPU utilization without any interference from the scaling process. Once the research is completed, the user can resume the scaling process if needed.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question357:"link"
+
+

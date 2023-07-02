@@ -1,0 +1,87 @@
+---
+layout: default 
+title: "1175 - A company has a set of EC2 Instances hos"
+---
+
+
+[.question]
+== 1175-64a1fad8f053625db51ddfa6.
+
+
+****
+
+[.query]
+--
+A company has a set of EC2 Instances hosting a revenue generating applications.
+Some of the data on the root EBS volumes are critical to retain.
+Hence it has to be ensured that even after the instances are terminated, the EBS volumes will remain intact.
+Which of the following needs to be done to ensure this requirement can be met?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable the DisableApiTermination for the EC2 Instance.
+* [*] B. Make the attribute of DeleteOnTermination for the EBS volume to false.
+* [ ] C. Run the command, (aws ec2 delete-volume –f) in AWS Command Line Interface to disable deletion of volume on terminating Instances.
+* [ ] D. Run the command ( aws ec2 modify-instance-attribute\--block-device-mappings `DeviceName=/dev/sda1,Ebs={DeleteOnTermination-false} ) in AWS Command Line Interface to disable deletion of volume on terminating Instances.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+Option B is correct because When an instance is terminated, Amazon Elastic Compute Cloud (Amazon EC2) uses the value of the DeleteOnTermination attribute for each root EBS volume to determine whether to preserve or delete the volume when the instance is terminated.
+By default, the DeleteOnTermination attribute for an instance's root volume is set to true, but it is set to false for all other volume types.
+To preserve the root volume when an instance is terminated, change the DeleteOnTermination attribute for the root volume to false.
+Option A is invalid since the flag needs to be set on the EBS volume.
+Option C is invalid because (-f) no such parameter exists as per AWS Documentation, and this command is used to delete the volume.
+See the below correct syntax to delete a volume using CLI.
+aws ec2 delete-volume --volume-id vol-049df61146cXXXX.
+Option D is invalid because command syntax is not correct, (=) should be used, but (-) is used, see the actual syntax below.
+aws ec2 modify-instance-attribute\ --instance-id i-1234567890abcdef0 \ --block-device-mappings 'DeviceName=/dev/sda1,Ebs={DeleteOnTermination=false}'
+In AWS Documentation, the format is given in JSON, so if you follow that, you have to specify the JSON in a file mapping.json.
+[{\"DeviceName\": \"/dev/sda1\",\"Ebs\":{\"DeleteOnTermination\":false}}]
+And run the command as below.
+aws ec2 modify-instance-attribute --block-device-mappings.
+file://mapping.json.
+If you don't want to follow this, another syntax provided above is also correct.
+For more information on the Delete on termination flag, please refer to the below URLs-
+https://aws.amazon.com/premiumsupport/knowledge-center/deleteontermination-ebs/ https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html
+The correct answer to the question is option B: Make the attribute of DeleteOnTermination for the EBS volume to false.
+When an EC2 instance is terminated, by default, all its associated EBS volumes are also terminated, which means that all the data stored on those volumes is lost. However, if you want to retain the data on the EBS volumes even after the instance is terminated, you can modify the DeleteOnTermination attribute of the EBS volume to false.
+This can be done in the following steps:
+1. Open the Amazon EC2 console.
+2. In the navigation pane, choose "Volumes".
+3. Select the EBS volume that you want to modify.
+4. Choose "Actions", and then choose "Modify Volume Attribute".
+5. In the "Modify Volume Attribute" dialog box, clear the "Delete on Termination" check box.
+6. Choose "Save".
+This will ensure that the EBS volume will not be deleted when the associated EC2 instance is terminated.
+Now let's take a look at the other options and why they are incorrect:
+Option A: Enable the DisableApiTermination for the EC2 Instance. This option will prevent the termination of the EC2 instance, but it will not prevent the deletion of the associated EBS volumes.
+Option C: Run the command, (aws ec2 delete-volume -f) in AWS Command Line Interface to disable deletion of volume on terminating Instances. This command will not disable the deletion of EBS volumes on instance termination, but instead, it will forcefully delete the EBS volume, which is the opposite of what the question is asking for.
+Option D: Run the command ( aws ec2 modify-instance-attribute--block-device-mappings 'DeviceName=/dev/sda1,Ebs={DeleteOnTermination-false} ) in AWS Command Line Interface to disable deletion of volume on terminating Instances. This command will modify the instance attribute of the block device mappings to retain the EBS volume when the instance is terminated. However, this command is not the best solution to meet the requirement of retaining the EBS volume, as it modifies the instance attribute instead of modifying the EBS volume attribute directly.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question440:"link"
+
+

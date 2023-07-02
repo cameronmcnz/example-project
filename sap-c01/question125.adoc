@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "925 - One fullstack engineer is developing an "
+---
+
+
+[.question]
+== 925-64a1df23aa736d27b1db9359.
+
+
+****
+
+[.query]
+--
+One full-stack engineer is developing an application to process images and videos from a highly scaled website.
+The incoming web traffic is very unbalanced and unstable during the day.
+When the web traffic rises up, it may require a maximum of 10 m4.xlarge EC2 instances.
+However, the requirement may drop down to 1 m4.xlarge instance.
+The processing for the application takes time, resulting in the delay of web application response.
+He prefers to deploy the App in Elastic Beanstalk.
+Which option should the engineer choose?
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy the application in one Elastic Beanstalk web server environment. Make sure that the environment uses a load-balancing, autoscaling configuration. Therefore, it can auto-scale depending on the traffic level.
+* [*] B. Deploy the application in one Elastic Beanstalk worker environment. Create an SQS queue and an SQS daemon in EC2 to handling with the queue messages. Make sure that the environment uses a load-balancing and autoscaling configuration.
+* [*] C. Create one Elastic Beanstalk worker environment and deploy the application in the new environment. Make sure that the application performs the short-running task in response to the POST from SQS daemon. Uses an auto-scaling configuration for the environment.
+* [ ] D. Create an Elastic Beanstalk web server environment and add the application bundle to it. Make sure that the environment uses an autoscaling configuration with a maximum at 10 and a minimum at 1.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is INCORRECT because the traffic is very unbalanced.
+Since it is a "long-running process" an Elastic Beanstalk Worker environment is preferred over the Elastic Beanstalk Web environment.
+Option B is CORRECT because it is a "long-running process" an Elastic Beanstalk Worker environment is preferred here.
+Also, SQS has the following capabilities: Separating query from long-running task.
+Also, we can "park" the video and let CPUs process from the queue because we cannot wait on the video to be done before sending a response to the user and for building backlogs (Dead Letter Queues for later processing)
+Option C is INCORRECT because it should be a long-time running task instead of a short-time running task.
+Option D is INCORRECT because since the traffic is very unbalanced, we need to consider using an elastic load balancer for the same and this option does not use it.
+The most suitable option for the full-stack engineer to deploy the application that processes images and videos from a highly scaled website in Elastic Beanstalk would be Option A: Deploy the application in one Elastic Beanstalk web server environment. Make sure that the environment uses a load-balancing, autoscaling configuration. Therefore, it can auto-scale depending on the traffic level.
+Here's why:
+Option A suggests deploying the application in a web server environment that uses a load-balancing and autoscaling configuration. This configuration will help to auto-scale the application depending on the incoming web traffic, which is unbalanced and unstable during the day. The maximum requirement for EC2 instances is 10 m4.xlarge, while the minimum requirement is one m4.xlarge instance.
+The autoscaling configuration of Elastic Beanstalk automatically scales up or down the number of EC2 instances running in the environment, based on the demand. This means that when there is a surge in web traffic, Elastic Beanstalk will automatically spin up additional EC2 instances to handle the increased load. Similarly, when the web traffic reduces, Elastic Beanstalk will automatically scale down the number of EC2 instances to save costs.
+Moreover, Elastic Beanstalk also provides the feature of rolling deployments, where the deployment process takes place gradually, so there is no downtime. This helps in avoiding any delay in the web application response while the application is processing images and videos.
+Option B suggests deploying the application in a worker environment, which is not ideal for processing image and video files as it requires high computational resources. This option also suggests creating an SQS queue and an SQS daemon in EC2, which adds complexity to the overall solution.
+Option C suggests creating a worker environment and performing short-running tasks in response to the POST from the SQS daemon. However, this option does not consider the fact that the application processing may take a long time, resulting in a delay in the web application response.
+Option D suggests creating a web server environment with autoscaling configuration, but it does not mention anything about load-balancing, which is essential to distribute incoming traffic across multiple instances.
+In summary, Option A is the best choice for deploying the application to process images and videos from a highly scaled website, as it provides a load-balancing and autoscaling configuration, which will scale the application depending on the incoming web traffic, without affecting the web application response time.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question167:"link"
+
+

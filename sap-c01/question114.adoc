@@ -1,0 +1,105 @@
+---
+layout: default 
+title: "914 - In Cloudfront what is the Origin Protoco"
+---
+
+
+[.question]
+== 914-64a1df1faa736d27b1db9349.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_htnkkl.png[]
+
+--
+
+
+****
+
+[.query]
+--
+In Cloudfront, what is the Origin Protocol policy that must be chosen to ensure that the communication with the origin is done either via HTTP or HTTPS? Choose an answer from the options below.
+
+
+[source,java]
+----
+Origin Protocol Policy (Amazon EC2 and Other Custom Origins Only)
+
+The protocol policy that you want CloudFront to use when fetching objects from your origin server.
+
+Important
+
+If your Amazon $3 bucket is configured as a website endpoint, you must specify HTTP Only.
+Amazon $3 doesn't support HTTPS connections in that configuration.
+
+Choose the applicable value:
+
+© HTTP Only: CloudFront uses only HTTP to access the origin.
+
+© HTTPS Only: CloudFront uses only HTTPS to access the origin.
+
+* Match Viewer: CloudFront communicates with your origin using HTTP or HTTPS, depending on the
+protocol of the viewer request. CloudFront caches the object only once even if viewers make requests
+using both HTTP and HTTPS protocols.
+
+Important
+
+For HTTPS viewer requests that CloudFront forwards to this origin, one of the domain
+names in the SSL certificate on your origin server must match the domain name that you
+specify for Origin Domain Name. Otherwise, CloudFront responds to the viewer
+requests with an HTTP status code 502 (Bad Gateway) instead of the requested object.
+For more information, see Requirements for Using SSL/TLS Certificates with CloudFront.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. HTTP
+* [ ] B. HTTPS
+* [*] C. Match Viewer
+* [ ] D. None of the above.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+It is clearly given in the AWS documentation that the Origin Protocol Policy should be set accordingly.
+Options A, B, and D are all incorrect because the answer is Match Viewer.
+Option C is CORRECT because if the Origin Protocol Policy is set to Match Viewer, the CloudFront communicates with the origin using HTTP or HTTPS, depending on the viewer's protocol.
+For more information on Cloudfront CDN, please see the below link-
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html
+The correct answer is C. Match Viewer.
+When using Amazon CloudFront as a content delivery network, the Origin Protocol Policy determines the protocol that CloudFront uses to communicate with the origin server.
+There are three options for the Origin Protocol Policy:
+1. HTTP Only: With this policy, CloudFront always communicates with the origin server using HTTP.
+2. HTTPS Only: With this policy, CloudFront always communicates with the origin server using HTTPS.
+3. Match Viewer: With this policy, CloudFront communicates with the origin server using the same protocol that the viewer used to request the content. If the viewer used HTTP, then CloudFront will communicate with the origin server using HTTP. If the viewer used HTTPS, then CloudFront will communicate with the origin server using HTTPS.
+The Match Viewer option is useful when you want to ensure that communication with the origin is done either via HTTP or HTTPS, depending on the viewer's request. This is important because HTTPS is a more secure protocol, but there are some situations where using HTTP is necessary, such as when the origin server doesn't support HTTPS.
+Therefore, the correct option to choose when you want to ensure that the communication with the origin is done either via HTTP or HTTPS is the Match Viewer option.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question149:"link"
+
+

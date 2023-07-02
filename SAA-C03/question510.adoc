@@ -1,0 +1,103 @@
+---
+layout: default 
+title: "1310 - In AWS API Gateway which of the followin"
+---
+
+
+[.question]
+== 1310-64a1fb1ef053625db51de052.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_apiss_35_27.png[]
+
+--
+
+
+****
+
+[.query]
+--
+In AWS API Gateway, which of the following security measures is provided default by AWS to protect the backend systems?
+
+
+[source,java]
+----
+You can use the following mechanisms for authentication and authorization:
+
+* Resource policies let you create resource-based policies to allow or deny access to your APIs and methods from specified source IP addresses or VPC
+endpoints. For more information, see Controlling access to an API with API Gateway resource policies.
+
+* Standard AWS IAM roles and policies offer flexible and robust access controls that can be applied to an entire API or individual methods. IAM roles
+and policies can be used for controlling who can create and manage your APIs, as well as who can invoke them. For more information, see Control
+access to an API with IAM permissions.
+
+* 1AM tags can be used together with IAM policies to control access. For more information, see Using tags to control access to AP! Gateway resources.
+
+¢ Endpoint policies for interface VPC endpoints allow you to attach IAM resource policies to interface VPC endpoints to improve the security of your
+private APIs. For more information, see Use VPC endpoint policies for private APIs in API Gateway.
+
+¢ Lambda authorizers are Lambda functions that control access to REST API methods using bearer token authentication—as well as information
+described by headers, paths, query strings, stage variables, or context variables request parameters. Lambda authorizers are used to control who can
+invoke REST API methods. For more information, see Use AP! Gateway Lambda authorizers.
+
+« Amazon Cognito user pools let you create customizable authentication and authorization solutions for your REST APIs. Amazon Cognito user pools
+are used to control who can invoke REST API methods. For more information, see Control access to a REST API using Amazon Cognito user pools as
+authorizer.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Default Cross-Origin Resource Sharing (CORS) configuration.
+* [ ] B. Default Resource Policy.
+* [*] C. Protection from distributed denial-of-service (DDoS) attacks.
+* [ ] D. Security of backend systems falls under customer responsibility. AWS provides different mechanisms to protect backend systems which are not configured by default.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+API Gateway supports throttling settings for each method or route in your APIs.
+You can set a standard rate limit and a burst rate limit per second for each method in your REST APIs and each route in WebSocket APIs.
+Further, API Gateway automatically protects your backend systems from distributed denial-of-service (DDoS) attacks, whether attacked with counterfeit requests (Layer 7) or SYN floods (Layer 3).
+Options A and B are part of the above list and do not have any default configurations.
+Option C is correct.
+Option D's statement is incorrect as it is a distractor.
+The above screenshot shows AWS automatically protects from DDoS attacks.
+Reference:
+https://aws.amazon.com/api-gateway/faqs/ https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html
+In AWS API Gateway, the security of backend systems is the responsibility of the customer. However, AWS provides different mechanisms to protect the backend systems, which are not configured by default. Therefore, option D is the correct answer.
+Let's take a look at each of the options:
+A. Default Cross-Origin Resource Sharing (CORS) configuration: CORS is a security mechanism used by web browsers to prevent web pages from making requests to a different domain. While API Gateway does provide support for CORS, it is not a default security measure to protect backend systems.
+B. Default Resource Policy: Resource policies are used to define access control for AWS resources. While they are important for securing access to API Gateway, they are not a default security measure to protect backend systems.
+C. Protection from distributed denial-of-service (DDoS) attacks: AWS provides protection against DDoS attacks through its AWS Shield service, which is enabled by default for all AWS customers. However, this protection is not specific to API Gateway and does not protect backend systems.
+D. Security of backend systems falls under customer responsibility. AWS provides different mechanisms to protect backend systems which are not configured by default: This is the correct answer. While AWS provides a number of security mechanisms to help protect backend systems, it is ultimately the responsibility of the customer to properly configure and secure their own systems.
+In conclusion, while AWS provides many security measures to protect API Gateway, the security of backend systems is the customer's responsibility. AWS provides different mechanisms to protect backend systems, but these mechanisms are not configured by default.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question613:"link"
+
+

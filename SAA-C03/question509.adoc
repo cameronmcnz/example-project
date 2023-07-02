@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "1309 - You are a solutions architect working fo"
+---
+
+
+[.question]
+== 1309-64a1fb1df053625db51de04f.
+
+
+****
+
+[.query]
+--
+You are a solutions architect working for a financial services firm.
+Your firm requires a very low latency response time for requests via API Gateway and Lambda integration to your securities master database.
+The securities master database, housed in Aurora, contains data about all of the securities your firm trades.
+The data consists of the security ticker, the trading exchange, trading partner firm for the security, etc.
+As this securities data is relatively static, you can improve the performance of your API Gateway REST endpoint by using API Gateway caching.
+Your REST API calls for equity security request types and fixed income security request types to be cached separately. Which of the following options is the most efficient way to separate your cache responses via request type using API Gateway caching?
+
+
+--
+
+[.list]
+--
+* [*] A. Payload compression
+* [ ] B. Custom domain name
+* [*] C. API Stage
+* [*] D. Query string.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Option A is incorrect.
+Payload compression is used to compress and decompress the payload to and from your API Gateway.
+It is not used to separate cache responses.
+Option B is incorrect.
+Custom domain names are used to provide more readable URLs for the users of your AIPs.
+They are not used to separate cache responses.
+Option C is incorrect.
+An API stage is used to create a name for your API deployments.
+They are used to deploy your API in an optimal way.
+Option D is correct.
+You can use your query string parameters as part of your cache key.
+This allows you to separate cache responses for equity requests from fixed income request responses.
+References:
+Please see the Amazon API Gateway developer guide titled Enabling API caching to enhance responsiveness (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html),
+the Amazon API Gateway REST API Reference page titled Making HTTP Requests to Amazon API Gateway (https://docs.aws.amazon.com/apigateway/api-reference/making-http-requests/),
+the Amazon API Gateway developer guide titled Enabling payload compression for an API (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-gzip-compression-decompression.html),
+the Amazon API Gateway developer guide titled Setting up custom domain names for REST APIs (https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html),
+and the Amazon API Gateway developer guide titled Setting up a stage for a REST API (https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html)
+To separate cache responses via request type using API Gateway caching, the most efficient option is to use the query string. The query string is a part of the URL that contains data to be passed to the API Gateway.
+In this scenario, the query string can be used to specify the type of security request being made, such as equity or fixed income. This allows the API Gateway caching to cache the responses for each request type separately.
+Payload compression is a technique used to reduce the size of the data being sent over the network, but it does not relate to separating cache responses via request type using API Gateway caching.
+Custom domain name is a feature that allows a user to map their own domain name to their API Gateway, but it does not relate to separating cache responses via request type using API Gateway caching.
+API stage is a way to manage different versions of your API, and it does not relate to separating cache responses via request type using API Gateway caching.
+In summary, the most efficient way to separate cache responses via request type using API Gateway caching is to use the query string.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question610:"link"
+
+

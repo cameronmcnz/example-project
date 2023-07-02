@@ -1,0 +1,106 @@
+---
+layout: default 
+title: "1349 - Which of the following is not a default "
+---
+
+
+[.question]
+== 1349-64a1fb36f053625db51de08e.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_9gs5q3.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following is not a default metric type for Auto Scaling Group policy?
+
+
+[source,java]
+----
+Create Scaling policy
+
+Name:
+
+Metric type:
+
+Target value:
+
+Instances need:
+
+Disable scal
+
+Create a simple scaling policy:
+Create a scaling policy with steps (P)
+
+[Application Load Balancer Request Count Per Target
+‘Average CPU Utilization
+
+[Average Network In (Bytes)
+Average Network Out (Bytes)
+
+seconds to warm up after scaling
+
+o
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Average CPU Utilization
+* [*] B. Memory Utilization
+* [ ] C. Network In
+* [ ] D. Network Out.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Following are the default metric types available for Simple Policy and Step Policy.
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html
+Auto Scaling is a service offered by Amazon Web Services (AWS) that helps to ensure that the number of EC2 instances running matches the current demand for the application.
+When configuring Auto Scaling, you can define one or more policies that determine when to add or remove instances based on certain conditions or metrics. Metrics are used to monitor the health of your application and make decisions about scaling actions.
+There are several metric types available for use with Auto Scaling Group policies, including:
+Average CPU Utilization
+Average Network In
+Average Network Out
+Average Disk Read Ops
+Average Disk Write Ops
+Sum Request Count
+Sum HTTP 4xx Error Count
+Sum HTTP 5xx Error Count
+The answer to the question is B. Memory Utilization, as it is not a default metric type for Auto Scaling Group policy.
+However, you can use custom CloudWatch metrics for your Auto Scaling Group policies, which allows you to track any metric that is available through CloudWatch, including memory utilization.
+To summarize, the default metric types for Auto Scaling Group policy are average CPU utilization, average network in, average network out, average disk read ops, sum request count, sum HTTP 4xx error count, and sum HTTP 5xx error count. However, you can use custom CloudWatch metrics to track other metrics, such as memory utilization.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question673:"link"
+
+

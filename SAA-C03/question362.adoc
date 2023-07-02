@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "1162 - An organization produces different types"
+---
+
+
+[.question]
+== 1162-64a1fad2f053625db51ddf98.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img6mw_lEiBKK52RRKn4wgYNlgZ8e3hlA81eJX2G9QzpK2TnxT43VXWun7JqLAzrIFs6B5Bqyc-xsWwAsMKAgfNJI3qc3SYYB_XLkl5K771jwyfgd8kmmjI0Gurxy89OE9HFtHbvZ1NL2NUCfzowg[]
+
+--
+
+
+****
+
+[.query]
+--
+An organization produces different types of data on-premises.
+This organization would like to migrate these data to the AWS cloud for analysis purposes. What combination of services will be used to achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. On premises data > Amazon S3 > AWS Glue >> Amazon Athena > Amazon Quicksight
+* [ ] B. On premises data > Amazon S3 > AWS Glue >> S3 Select > Amazon Quicksight
+* [*] C. On premises data > Amazon S3 > AWS Glue >> Glacier Select > Amazon Quicksight
+* [ ] D. On premises data > Amazon S3 > AWS Glue >> Amazon OpenSearch > Amazon Quicksight.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+The key point is to migrate and analyze data.
+Option A is CORRECT, where the data from on-premise is being migrated to the S3 and using AWS Glue ETL jobs data will be transformed.
+AWS Glue crawlers will create the schema in the glue data catalog that can be used to analyze the data further using Amazon Athena, an interactive query service and good for analyzing data.
+Option B is incorrect as S3 Select is a SQL-like query that is used for filtering objects on S3
+This cannot be used for large-scale analysis of data.
+Option C is incorrect as Glacier Select is a SQL-like query used for filtering objects on Glacier.
+This cannot be used for large-scale analysis of data.
+Option D is incorrect because the Amazon OpenSearch service is used to search the data, not for analysis.
+Reference:
+https://aws.amazon.com/blogs/big-data/harmonize-query-and-visualize-data-from-various-providers-using-aws-glue-amazon-athena-and-amazon-quicksight/
+The correct answer is A. On premises data > Amazon S3 > AWS Glue >> Amazon Athena > Amazon Quicksight.
+Explanation:
+1.
+On-premises data: The organization already has data stored in their on-premises system.
+2.
+Amazon S3: Amazon Simple Storage Service (S3) is a highly scalable object storage service. The on-premises data will be migrated to Amazon S3.
+3.
+AWS Glue: AWS Glue is a fully managed ETL (Extract, Transform, and Load) service that can be used to prepare and transform the data for analysis. AWS Glue is used to create a data catalog, extract, transform and load data from various sources such as RDBMS, S3, etc.
+4.
+Amazon Athena: Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Once the data is transformed using AWS Glue, it will be queried using Amazon Athena.
+5.
+Amazon Quicksight: Amazon Quicksight is a business intelligence service that allows users to create interactive dashboards, visualizations, and perform ad-hoc analysis. The data from Amazon Athena will be used in Amazon Quicksight to perform analysis.
+So, the correct sequence of services used to migrate on-premises data to AWS cloud for analysis purposes is: On premises data > Amazon S3 > AWS Glue >> Amazon Athena > Amazon Quicksight.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question426:"link"
+
+

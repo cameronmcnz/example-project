@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "902 - Your team has a Tomcatbased Java applica"
+---
+
+
+[.question]
+== 902-64a1df1aaa736d27b1db9338.
+
+
+****
+
+[.query]
+--
+Your team has a Tomcat-based Java application you need to deploy into development, test, and production environments.
+After some research, you opt to use Elastic Beanstalk due to its tight integration with your developer tools and RDS due to its ease of management.
+Your QA team lead points out that you need to roll a sanitized set of production data into your environment on a nightly basis.
+Similarly, other software teams in your organization want access to that same restored data via their EC2 instances in your VPC.
+What of the following would be the optimal setup for persistence and security that meets the above requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Create your RDS instance as part of your Elastic Beanstalk definition and alter its security group to allow access to it from hosts in your application subnets.
+* [ ] B. Create your RDS instance separately and add its IP address to your application’s DB connection strings in your code. Alter its security group to allow access to it from hosts within your VPC’s IP address block.
+* [*] C. Use the ElasticBeanstalk to deploy your application in various environments. Create your RDS instance separately, controlled by automation, and pass it`s DNS name to your app`s DB connection string as an environment variable. After this, restore the sanitized copy of production data to the RDS instance. Create a security group for client machines and add it as a valid source for DB traffic to the security group of the RDS instance itself.
+* [ ] D. Create your RDS instance separately and pass its DNS name to your DB connection string as an environment variable. Alter its security group to allow access to it from hosts in your application subnets.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The main consideration in this question is only the EC2 instances in your VPC.
+You should be able to access RDS instances, and the setup should support persistence.
+Option A is incorrect because the RDS instance will be part of the Elastic Beanstalk environment and would not be optimal for persistence.
+Option B is incorrect because you should always use the DNS endpoint of the RDS instance, not the IP address, as this option suggests.
+Option C is CORRECT because (a) it uses a separate RDS instance (not part of Beanstalk), (b) it uses the DNS name of the RDS instance to the app's DB connection string for accessing the same and (c) it correctly configures the security group such that only the valid client machines have access to RDS instance.
+( need to create security group on the client machines first )
+Option D is incorrect because the security group is not configured correctly as it gives access to all the hosts in the application subnets.
+The optimal setup for persistence and security that meets the given requirements is Option C: Use the ElasticBeanstalk to deploy your application in various environments. Create your RDS instance separately, controlled by automation, and pass its DNS name to your app's DB connection string as an environment variable. After this, restore the sanitized copy of production data to the RDS instance. Create a security group for client machines and add it as a valid source for DB traffic to the security group of the RDS instance itself.
+Option A is not the best approach because it creates the RDS instance as part of the Elastic Beanstalk definition, which means that it will be deleted along with the Elastic Beanstalk environment. Also, it would require altering the security group of the RDS instance to allow access from hosts in the application subnets, which could potentially create security vulnerabilities.
+Option B is not the best approach either, because it involves hard-coding the IP address of the RDS instance in the application's DB connection strings in the code. This makes it difficult to scale the application and manage the IP addresses of the RDS instances.
+Option D is not the best approach because it only allows access to the RDS instance from hosts in the application subnets. This would make it difficult for other software teams in the organization to access the same restored data via their EC2 instances in the VPC.
+Option C is the best approach because it separates the creation of the RDS instance from the Elastic Beanstalk environment, which allows for greater flexibility and scalability. The RDS instance can be controlled by automation, and its DNS name can be passed to the application's DB connection string as an environment variable. This allows for easy management of the RDS instances and their IP addresses. Also, a security group can be created for client machines, and it can be added as a valid source for DB traffic to the security group of the RDS instance itself. This ensures that only authorized clients can access the RDS instance, and it provides an additional layer of security for the data. Finally, after creating the RDS instance and passing the DNS name to the application's DB connection string, the sanitized copy of production data can be restored to the RDS instance, providing the required functionality.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question132:"link"
+
+

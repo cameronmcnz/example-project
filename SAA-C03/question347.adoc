@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1147 - A company is hosting their website on a "
+---
+
+
+[.question]
+== 1147-64a1facaf053625db51ddf87.
+
+
+****
+
+[.query]
+--
+A company is hosting their website on a cluster of web servers behind a public-facing load balancer.
+The web application interacts with an AWS RDS database.
+It has been noticed that a set of similar types of queries is causing a performance bottleneck at the database layer.
+Which of the following architecture additions can help alleviate this issue?
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy ElastiCache in front of the web servers.
+* [*] B. Deploy ElastiCache in front of the database servers.
+* [ ] C. Deploy Elastic Load balancer in front of the web servers.
+* [ ] D. Enable Multi-AZ for the database.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+Amazon ElastiCache offers fully managed Redis and Memcached.
+Seamlessly deploy, operate, and scale popular open source compatible in-memory data stores.
+Build data-intensive apps or improve your existing apps' performance by retrieving data from high throughput and low latency in-memory data stores.
+Option A is incorrect since the database is having issues.
+Hence you need to ensure that ElastiCache is placed in front of the database servers.
+Option C is incorrect since there is an issue with the database servers.
+So, we don't need to add anything for the web servers.
+Option D is incorrect since this is used for the high availability of the database.
+For more information on ElastiCache, please visit the URL-
+https://aws.amazon.com/elasticache/
+The best solution to alleviate performance bottlenecks at the database layer is to add caching to the web application. When caching is added, the web application will not need to perform repeated queries to the database, thus reducing the load on the database and improving the overall performance of the application.
+Option A - Deploy ElastiCache in front of the web servers: This option is incorrect as ElastiCache is a caching service that can be used to cache frequently accessed data to improve application performance. However, deploying it in front of the web servers will not help with the database query performance bottleneck.
+Option B - Deploy ElastiCache in front of the database servers: This option is closer to the correct answer. Deploying ElastiCache in front of the database servers can help alleviate the performance bottleneck by caching frequently accessed data, thus reducing the load on the database servers. This can improve the response time and scalability of the application.
+Option C - Deploy Elastic Load Balancer in front of the web servers: This option is not directly related to the database query performance bottleneck. Elastic Load Balancer is a service that helps distribute incoming traffic to multiple web servers, increasing availability and scalability. While it can help with performance, it does not directly address the database query performance issue.
+Option D - Enable Multi-AZ for the database: This option is also incorrect, as Multi-AZ is a feature that provides high availability for the database by creating a secondary replica in a different availability zone. It does not directly address the performance bottleneck at the database query level.
+Therefore, the correct answer to alleviate the performance bottleneck at the database layer is to deploy ElastiCache in front of the database servers (Option B).
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question409:"link"
+
+

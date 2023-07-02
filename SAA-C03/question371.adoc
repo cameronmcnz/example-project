@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1171 - Your company is planning on the followin"
+---
+
+
+[.question]
+== 1171-64a1fad6f053625db51ddfa2.
+
+
+****
+
+[.query]
+--
+Your company is planning on the following architecture for their application. A set of EC2 Instances hosting the web part of the application. A relational database for the backend. A Load balancer for distribution of traffic. A NAT gateway for routing traffic from the database server to the Internet. Which of the following architecture ensures high availability across all components?
+
+
+--
+
+[.list]
+--
+* [*] A. A Load balancer with one public subnet, one private subnet. The EC2 Instances placed in one Availability Zone. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone.
+* [*] B. A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed across 2 Availability Zones. RDS with Multi-AZ Enabled. NAT Gateways in each availability zone.
+* [ ] C. A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed in 2 Availability Zones. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone.
+* [ ] D. A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed in one Availability Zone. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone.
+Running a DB instance with high availability can enhance availability during planned system maintenance and help protect your databases against DB instance failure and Availability Zone disruption.
+Option A is incorrect because High Availability is not ensured.
+We recommend that you enable multiple Availability Zones.
+With this configuration, if one Availability Zone becomes unavailable or has no healthy targets, the load balancer can continue to route traffic to the healthy targets in another Availability Zone.
+Option B is Correct because High Availability is ensured.
+If one of the AZs should fail, then the EC2 instances in the remaining private subnet will still be able to communicate with the Internet because they have their own NAT Gateway in the same AZ.
+Options C and D are incorrect because High Availability is not ensured as either if we have EC2 in a single AZ or multiple AZ.
+We have NAT Gateway in single AZ is a cause for not ensuring High Availability.
+However, if there is a failure with Availability Zone A (rare, but can happen), then the NAT Gateway is not reachable from Private-Subnet-B.
+Thus, the system may be impacted even though it runs across two AZs or a single AZ.
+For more information on Elastic Load Balancing, Multi-AZ, and NAT gateway, please refer to the below URLs:-
+https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
+The correct answer is B. A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed across 2 Availability Zones. RDS with Multi-AZ Enabled. NAT Gateways in each availability zone.
+Explanation:
+In order to ensure high availability across all components, we need to have redundancy and fault tolerance built into the architecture. This includes having multiple instances of each component spread across different Availability Zones (AZs) and enabling Multi-AZ for the database.
+Here's why each option is right or wrong:
+Option A: This architecture places all EC2 instances and the NAT Gateway in one Availability Zone, which means they are not redundant. If that AZ goes down, the entire application will go down. RDS with Multi-AZ enabled provides redundancy, but only for the database.
+Option B: This architecture includes two public and two private subnets spread across two Availability Zones. The EC2 instances are also spread across both AZs, providing redundancy. RDS with Multi-AZ enabled provides redundancy for the database, and NAT Gateways in each AZ ensure fault tolerance.
+Option C: This architecture is similar to Option A, with all EC2 instances placed in two Availability Zones but only one NAT Gateway in one AZ. This means there is no fault tolerance for the NAT Gateway.
+Option D: This architecture has multiple subnets spread across two AZs, but all EC2 instances are in one AZ and there is only one NAT Gateway in one AZ. This means there is no redundancy or fault tolerance for the EC2 instances or the NAT Gateway.
+Therefore, the correct option is B, as it provides the necessary redundancy and fault tolerance for all components of the architecture.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question436:"link"
+
+

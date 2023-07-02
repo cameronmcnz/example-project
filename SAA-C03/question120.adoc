@@ -1,0 +1,105 @@
+---
+layout: default 
+title: "920 - An application team needs to quickly pro"
+---
+
+
+[.question]
+== 920-64a1fa65f053625db51dde7a.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_elastic_beanstalk.png[]
+
+--
+
+
+****
+
+[.query]
+--
+An application team needs to quickly provision a development environment consisting of a web and database layer.
+What would be the quickest and most ideal way to get this set up in place?
+
+
+[source,java]
+----
+Sse ‘ou Bio ued ou a auunwia out
+
+oe 2p aah 0
+cose peep npn ober peu tnt da
+
+suoneounON, seqepdn pabeuen, Suuoyuon,
+
+wep uric (95) a7 sumo oe COSTES AVIK HOH en 2 SHOHT Wwe HOH OWED
+‘re usu a ue ‘sseuied nowuca
+ran ex oH (ons) somes queasy
+_sspcorooepcraioe cj a8 203 lira) pone ata amo
+eve ofa manag ‘oon sue 233 pa Sees
+
+‘fygedeo ‘SeOUeISUL ‘aremyos
+
+BD voneun8yuos addy ee ‘maIA@NO UOEINGYUOD
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create Spot Instances and install the web and database components.
+* [ ] B. Create Reserved Instances and install the web and database components.
+* [*] C. Use AWS Lambda to create the web components and AWS RDS for the database layer.
+* [*] D. Use Elastic Beanstalk to quickly provision the environment.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Documentation mentions the following:
+With Elastic Beanstalk, you can quickly deploy and manage applications in the AWS Cloud without worrying about the infrastructure that runs those applications.
+AWS Elastic Beanstalk reduces management complexity without restricting choice or control.
+You simply upload your application, and Elastic Beanstalk automatically handles the details of capacity provisioning, load balancing, scaling, and application health monitoring.
+For more information on AWS Elastic Beanstalk, please refer to the URL below.
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html
+Option A is incorrect.
+Amazon EC2 Spot instances are spare compute capacity in the AWS cloud available to you at steep discounts compared to On-Demand prices.
+Option B is incorrect.
+A Reserved Instance is a reservation of resources and capacity for either one or three years for a particular Availability Zone within a region.
+Option C is incorrect.
+AWS Lambda is a compute service that makes it easy for you to build applications that respond quickly to new information and not for provisioning a new environment.
+Currently, the Elastic Beanstalk environment supports the following configurations:
+It supports RDS.
+Database Configuration Setting.
+AWS Elastic Beanstalk provides connection information to your instances by setting environment properties for the database hostname, username, password, table name, and port.
+When you add a database to your environment, its lifecycle is tied to your environments.
+D. Use Elastic Beanstalk to quickly provision the environment.
+Elastic Beanstalk is the quickest and most ideal way to set up an environment consisting of a web and database layer. Elastic Beanstalk is a fully-managed service that makes it easy to deploy and run web applications, and it handles the deployment, scaling, and monitoring of the application environment. Elastic Beanstalk supports a variety of programming languages and web frameworks.
+When you use Elastic Beanstalk to provision an environment, you can choose from a variety of pre-configured environments that include both the web and database components. You can also customize the environment to meet your specific needs. Elastic Beanstalk can also automatically scale your environment to handle changes in traffic.
+Using Spot Instances or Reserved Instances may require more manual configuration and setup time, as you would need to install the web and database components yourself. Spot Instances are a good option if you want to save money on your infrastructure costs, but they can be less reliable than On-Demand Instances, which are used by Elastic Beanstalk. Reserved Instances are a good option if you know you will need a specific amount of capacity over a longer period of time.
+Using AWS Lambda and AWS RDS can be a good option for certain types of applications, but it may not be the most ideal option for a web and database environment that needs to be quickly provisioned. AWS Lambda is best suited for event-driven applications, while RDS is a good option for managing a relational database. However, setting up these services may require more configuration and development effort than using Elastic Beanstalk.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question137:"link"
+
+

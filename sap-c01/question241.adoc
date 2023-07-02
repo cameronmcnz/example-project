@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1041 - You work in a financial company as an AW"
+---
+
+
+[.question]
+== 1041-64a1df4eaa736d27b1db940c.
+
+
+****
+
+[.query]
+--
+You work in a financial company as an AWS architect.
+The security team has informed you that the company's AWS web product has recently been attacked by SQL injection.
+Several attackers tried to insert certain malicious SQL code into web requests to extract data from the MySQL database.
+The database is deployed in several EC2 instances under an application load balancer.
+Although the attack was unsuccessful, you are expected to provide a better solution to protect the product.
+Which action should you perform?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure a rule in AWS Firewall Manager to block all malicious SQL injection requests for the EC2 instances.
+* [*] B. Create a WAF Access Control List (ACL) with a rule to block the malicious SQL injection requests. Associate the application load balancer with this new ACL.
+* [*] C. Use AWS Shield Advanced service to block the malicious SQL injection requests that go to the application load balancer.
+* [ ] D. Configure a WAF Access Control List (ACL) with a rule to allow all requests except the malicious SQL injection requests. Associate each EC2 instance with the new ACL.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+There are several firewall services that AWS has provided, including AWS WAF, AWS Shield, and AWS Firewall Manager.
+The differences among them can be found in https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html.
+In this case, AWS WAF should be used as it can help to prevent SQL injection attacks.
+Option A is incorrect: AWS Firewall Manager is a tool to simplify the AWS WAF and AWS Shield Advanced administration.
+However, an ACL is still needed in AWS WAF.
+Option B is more accurate.
+Option B is CORRECT: Because AWS WAF can protect against SQL injection attacks for an application load balancer.
+Option C is incorrect: Because AWS Shield Advanced provides expanded DDoS attack protection rather than SQL injection attack protection.
+Option D is incorrect: Because after a WAF Access Control List (ACL) is created, the application load balancer should be associated instead of all EC2 instances.
+The best solution to protect the AWS web product against SQL injection attacks is to use a Web Application Firewall (WAF). A WAF is a security service that provides protection for web applications from common web exploits that could affect the availability, integrity, and confidentiality of the data. WAF is designed to inspect incoming traffic to web applications, and it can block malicious traffic based on predefined rules.
+Answer B is the correct solution to this problem. Creating a WAF Access Control List (ACL) with a rule to block malicious SQL injection requests and associating the application load balancer with the new ACL will prevent SQL injection attacks on the web product. This solution has the following steps:
+1.
+Create a new WAF ACL. In the AWS WAF console, create a new ACL, and add a rule to block SQL injection attacks. AWS provides pre-configured rule sets for common web application vulnerabilities, including SQL injection attacks. You can use these rule sets as a starting point and customize them as per the specific requirements of your web application.
+2.
+Associate the new WAF ACL with the application load balancer. In the AWS console, associate the new WAF ACL with the application load balancer that is fronting the web product. This will enable the WAF to inspect all incoming traffic to the web product and block SQL injection attacks before they reach the EC2 instances running the MySQL database.
+3.
+Test the solution. Once the new WAF ACL is associated with the application load balancer, test the solution to ensure that the web product is protected against SQL injection attacks.
+Option A is incorrect because it suggests configuring a rule in AWS Firewall Manager to block all malicious SQL injection requests for the EC2 instances. Although Firewall Manager is a useful tool for managing network security policies, it is not designed to provide application-level security.
+Option C is also incorrect because AWS Shield Advanced service is designed to protect against Distributed Denial of Service (DDoS) attacks, not SQL injection attacks.
+Option D is incorrect because it suggests configuring a WAF ACL with a rule to allow all requests except malicious SQL injection requests and associating each EC2 instance with the new ACL. This approach is not scalable and can lead to inconsistent security policies across different instances. It is also not recommended to rely on the application-level security of individual instances as they may have different configurations and software stacks. It is more effective to use a centralized security service like a WAF to ensure consistent protection across all instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question347:"link"
+
+

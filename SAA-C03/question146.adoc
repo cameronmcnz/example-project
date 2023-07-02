@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "946 - Which of the following is the correct wa"
+---
+
+
+[.question]
+== 946-64a1fa6ef053625db51dde96.
+
+
+****
+
+[.query]
+--
+Which of the following is the correct way to load streaming data into Amazon OpenSearch Service from different sources?
+
+
+--
+
+[.list]
+--
+* [*] A. Load streaming data from Amazon Kinesis Data Firehose using AWS Lambda functions as event handlers.
+* [*] B. Load streaming data from Amazon S3 using AWS Lambda functions as event handlers.
+* [*] C. Load streaming data from Amazon CloudWatch Logs using AWS Lambda functions as event handlers.
+* [ ] D. Load streaming data from AWS IoT using AWS Lambda functions as event handlers.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+You can load streaming data into your Amazon OpenSearch Service domain from many different sources.
+Some sources, like Amazon Kinesis Data Firehose and Amazon CloudWatch Logs, have built-in support for OpenSearch Service.
+Others, like Amazon S3, Amazon Kinesis Data Streams, and Amazon DynamoDB, use AWS Lambda functions as event handlers.
+The Lambda functions respond to new data by processing it and streaming it to your domain.
+You can use Lambda to send data to your OpenSearch Service domain from Amazon S3
+New data that arrives in an S3 bucket triggers an event notification to Lambda, which then runs your custom code to perform the indexing.
+Options A and C are incorrect because they don't require lambda functions as event handlers to load streaming data.
+Kinesis Data Firehose supports OpenSearch Service as a delivery destination.
+And you can load streaming data from CloudWatch Logs to your OpenSearch Service domain by using a CloudWatch Logs subscription.
+Option D is incorrect because rules are required instead of lambda functions to load streaming data from AWS IoT.
+Rules give your devices the ability to interact with AWS services.
+Rules are analyzed and actions are performed based on the MQTT topic stream.
+For more information on Amazon Athena, please refer to the following URLs:
+https://docs.aws.amazon.com/opensearch-service/latest/developerguide/integrations.html#integrations-s3-lambda https://docs.aws.amazon.com/opensearch-service/latest/developerguide/integrations.html
+Amazon OpenSearch Service is a fully managed search and analytics service that makes it easy to search, analyze, and visualize data in real-time. When it comes to loading streaming data into Amazon OpenSearch Service, there are several options available, including Amazon Kinesis Data Firehose, Amazon S3, Amazon CloudWatch Logs, and AWS IoT.
+Option A: Load streaming data from Amazon Kinesis Data Firehose using AWS Lambda functions as event handlers. Amazon Kinesis Data Firehose is a fully managed service that enables you to deliver real-time streaming data to destinations such as Amazon S3, Amazon Redshift, and Amazon OpenSearch Service. With Kinesis Data Firehose, you can easily load and transform streaming data from various sources, including web applications, IoT devices, and logs. To load streaming data from Kinesis Data Firehose into Amazon OpenSearch Service, you can use AWS Lambda functions as event handlers. The Lambda function will receive the data from Kinesis Data Firehose and transform it before sending it to OpenSearch Service.
+Option B: Load streaming data from Amazon S3 using AWS Lambda functions as event handlers. Amazon S3 is a highly scalable and durable object storage service that can be used to store and retrieve any amount of data from anywhere. To load streaming data from S3 into Amazon OpenSearch Service, you can use AWS Lambda functions as event handlers. The Lambda function will be triggered by a new object being created in the S3 bucket and will transform the data before sending it to OpenSearch Service.
+Option C: Load streaming data from Amazon CloudWatch Logs using AWS Lambda functions as event handlers. Amazon CloudWatch Logs is a fully managed service that enables you to monitor, store, and access log files from EC2 instances, AWS CloudTrail, and other sources. To load streaming data from CloudWatch Logs into Amazon OpenSearch Service, you can use AWS Lambda functions as event handlers. The Lambda function will receive the log data from CloudWatch Logs and transform it before sending it to OpenSearch Service.
+Option D: Load streaming data from AWS IoT using AWS Lambda functions as event handlers. AWS IoT is a fully managed service that enables you to connect IoT devices to the cloud and securely interact with them. To load streaming data from AWS IoT into Amazon OpenSearch Service, you can use AWS Lambda functions as event handlers. The Lambda function will be triggered by a new message being published to an IoT topic and will transform the data before sending it to OpenSearch Service.
+In summary, all of the options listed are valid ways to load streaming data into Amazon OpenSearch Service from different sources. The choice of the most appropriate option will depend on the specific use case and the source of the streaming data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question165:"link"
+
+

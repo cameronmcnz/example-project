@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1037 - An Amazon EMR cluster with four nodes is"
+---
+
+
+[.question]
+== 1037-64a1df4daa736d27b1db9406.
+
+
+****
+
+[.query]
+--
+An Amazon EMR cluster with four nodes is running 24/7/365 and expects potentially to add one extra node for several days only during the entire year that can be terminated.
+Which architecture would have the lowest possible cost for the cluster requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Purchase 4 reserved nodes and rely on on-demand instances for the fifth node, if required.
+* [ ] B. Purchase 5 reserved nodes to cover all possible usage during the year.
+* [*] C. Purchase 4 reserved nodes and launch a spot instance for the extra node if required.
+* [ ] D. Purchase 2 reserved nodes and utilize 3 on-demand nodes only for peak usage times.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is INCORRECT because purchasing On-demand instances would involve more cost than purchasing a spot instance.
+Option B is incorrect because reserving the 5th node is unnecessary.
+Option C is CORRECT because (a) the application requires 4 nodes throughout the year and reserved instances would save the cost and (b) since the extra node needs only to run for several days in a year and it can be terminated, purchasing a spot instance can provide a lowest cost option in addition to purchasing RI.
+Option D is incorrect because reserving only 2 instances would not be sufficient.
+Please find the below link for Reserved Instances.
+https://aws.amazon.com/ec2/pricing/reserved-instances/
+To determine the most cost-effective architecture for the EMR cluster, we need to consider the cluster's expected usage and the pricing models for AWS EC2 instances.
+Option A: Purchase 4 reserved nodes and rely on on-demand instances for the fifth node if required.
+In this architecture, we would purchase reserved instances for the four nodes that run continuously throughout the year. The fifth node, which is only needed for several days during the year, would be launched as an on-demand instance. This approach would provide a predictable cost for the majority of the year but could result in higher costs during the time when the fifth node is needed.
+Option B: Purchase 5 reserved nodes to cover all possible usage during the year.
+In this architecture, we would purchase reserved instances for all five nodes, which would provide a fixed cost for the entire year. However, since the fifth node is only needed for several days during the year, this approach would result in higher costs for the majority of the year when only four nodes are required.
+Option C: Purchase 4 reserved nodes and launch a spot instance for the extra node if required.
+In this architecture, we would purchase reserved instances for the four nodes that run continuously throughout the year. The fifth node would be launched as a spot instance, which is a type of instance that is available at a lower price than on-demand instances but can be terminated at any time. This approach would provide a predictable cost for the majority of the year, and the use of a spot instance for the fifth node would result in lower costs during the time when it is needed.
+Option D: Purchase 2 reserved nodes and utilize 3 on-demand nodes only for peak usage times.
+In this architecture, we would purchase reserved instances for two nodes and use on-demand instances for the remaining three nodes. The on-demand instances would be used only during peak usage times, providing a predictable cost for the majority of the year. However, this approach could result in higher costs during peak usage times, and the use of on-demand instances would not be cost-effective for long-term usage.
+Conclusion:
+Among the four options, Option C is the most cost-effective architecture for the EMR cluster. It provides a predictable cost for the majority of the year, and the use of a spot instance for the fifth node would result in lower costs during the time when it is needed.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question341:"link"
+
+

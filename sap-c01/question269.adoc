@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "1069 - Your company recently got a contract to "
+---
+
+
+[.question]
+== 1069-64a1df5aaa736d27b1db943e.
+
+
+****
+
+[.query]
+--
+Your company recently got a contract to help optimize an IoT based application.
+The application consists of thousands of on-field monitoring devices that send the bulk of data daily via Kinesis.
+Once the data is processed, the snapshot is saved into S3 for later processing.
+There is a deep learning application that runs once a day and consumes these snapshots of data from S3 and generates the forecast reports for the management.
+The snapshots of data in S3 are no longer used after a month.
+The original team optimizes the overall process well and has selected different storage options for different kinds of data.
+An expansion plan put forward by the management will increase the devices by 100 folds and thus has suggested pinpointing the areas which can be optimized for such heavy load.
+Please select the cost-effective option to support the scalability and maintain the durability of the data.
+
+
+--
+
+[.list]
+--
+* [*] A. Shift the snapshots from S3 to the Redshift cluster. This will help to scale based on the additional load and take periodic backups of Redshift to Glacier.
+* [ ] B. Use the S3 standard option to store snapshots. After the processing is complete, change the storage class to Glacier after a month.
+* [*] C. Use the S3 Infrequent Access storage class to save the snapshots. Use a lifecycle rule to migrate the snapshots to Glacier
+* [ ] D. Save the snapshots with the Glacier class and use the low-cost bulk retrieval option to fetch required snapshots for the deep learning program.
+* [ ] E. Migrate the snapshots to EFS attached to the machine where the deep learning program is running. Once the program completes the processing, migrate the snapshots to the Glacier.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer: C.
+Option A is INCORRECT because the Redshift is used for data warehousing.
+Maintaining a cluster for such a large load will be way more costly compared to managing the snapshots to S3.
+Option B is INCORRECT because the standard object storage is comparatively costly (when compared to S3-IA) to store the snapshots.
+Option C is CORRECT because the infrequent storage would be comparatively cheaper (when compared to the S3-Standard) to store the snapshots, and it will be billed for a minimum of 30 days.
+Then, we can move the snapshots to the Glacier immediately after the processing to save the unnecessary billing days.
+Option D is INCORRECT because while saving directly to the Glacier is highly cost-effective, it is mostly used for long-term archival.
+Even with Bulk Retrieval, it would take a few hours to retrieve those snapshots and not effectively use the resources.
+Option E is INCORRECT because maintaining such a large amount of data on EFS will be an additional overhead in itself.
+Simultaneously, EFS is scalable and durable, but not cost-effective compared to the S3 Standard storage class.
+Plus, the migration has to be done to move the snapshots from the S3 to the EFS to the Glacier after the processing.
+Option A: Shift the snapshots from S3 to the Redshift cluster. This will help to scale based on the additional load and take periodic backups of Redshift to Glacier.
+Redshift is a data warehousing service that is optimized for large scale data analytics. It can handle petabyte-scale data and is designed for high throughput and parallel query processing. Moving the snapshots to Redshift can help with scalability and performance. However, Redshift is optimized for analytical workloads and is not suitable for transactional workloads. Additionally, Redshift has a higher cost compared to S3. The periodic backups to Glacier will ensure durability and reduce the cost of storage.
+Option B: Use the S3 standard option to store snapshots. After the processing is complete, change the storage class to Glacier after a month.
+S3 standard is a highly durable and available storage class that is suitable for frequently accessed data. Changing the storage class to Glacier after a month can reduce the storage cost while still maintaining durability. However, this approach may not be suitable for the increased workload as S3 may not be able to handle the increased traffic and may cause performance issues.
+Option C: Use the S3 Infrequent Access storage class to save the snapshots. Use a lifecycle rule to migrate the snapshots to Glacier.
+S3 Infrequent Access is a storage class that is designed for infrequently accessed data. It has a lower cost compared to S3 standard but with a slightly lower availability. Using a lifecycle rule to migrate the snapshots to Glacier after a month can further reduce the storage cost. This option is cost-effective and suitable for the given use case.
+Option D: Save the snapshots with the Glacier class and use the low-cost bulk retrieval option to fetch required snapshots for the deep learning program.
+Glacier is a low-cost storage service designed for long-term data archiving. It has a high latency and is not suitable for frequently accessed data. Using the low-cost bulk retrieval option can reduce the retrieval cost, but it may not be suitable for the daily deep learning program as it requires frequent access to the snapshots.
+Option E: Migrate the snapshots to EFS attached to the machine where the deep learning program is running. Once the program completes the processing, migrate the snapshots to the Glacier.
+EFS is a file system service designed for high-performance computing workloads. It is optimized for low-latency access and high throughput. However, it has a higher cost compared to S3 and is not suitable for long-term data archiving. Additionally, moving data between EFS and Glacier can be time-consuming and can add to the overall processing time.
+Conclusion:
+Option C, using the S3 Infrequent Access storage class and a lifecycle rule to migrate snapshots to Glacier, is the most cost-effective option for the given use case. It provides a balance between cost and durability, and can handle the increased workload while maintaining performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question397:"link"
+
+

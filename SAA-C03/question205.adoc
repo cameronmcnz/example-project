@@ -1,0 +1,104 @@
+---
+layout: default 
+title: "1005 - A VPC has been set up manually with a su"
+---
+
+
+[.question]
+== 1005-64a1fa83f053625db51dded9.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_aycwrc.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A VPC has been set up manually, with a subnet and an internet gateway.
+The EC2 instance is set up with a public IP.
+But you still can not connect to it via the Internet.
+The security groups are also in place.
+What should you do to connect to the EC2 Instance from the Internet?
+
+
+[source,java]
+----
+10008:
+198.51.100.2
+
+C2 instance
+
+‘Suboet
+
+‘ality Zone 8
+
+vec
+10.0.0.016
+
+Region
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Set an Elastic IP Address to the EC2 Instance.
+* [ ] B. Set a Secondary Private IP Address to the EC2 Instance.
+* [*] C. Ensure that the right route entry is there in the Route table.
+* [ ] D. There must be some issue in the EC2 Instance. Check the system logs.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+You have to ensure that the Route table has an entry to the Internet Gateway because this is required for instances to communicate over the Internet.
+The diagram shows the configuration of the public subnet in a VPC.Option A is incorrect.
+Since you already have a public IP assigned to the instance, this should have been enough to connect to the Internet.
+Option B is incorrect.
+Private IPs cannot be accessed from the Internet.
+Option D is incorrect.
+The Route table is causing the issue and not the system.
+For more information on AWS public subnet, please visit the link below:
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html
+If you have set up a VPC, subnet, and an internet gateway, and an EC2 instance with a public IP, but are unable to connect to the instance from the internet, there are a few things you can check to troubleshoot the issue.
+1.
+Check the Security Groups: Ensure that the security group associated with the EC2 instance allows inbound traffic on the ports that you are trying to connect to from the internet. By default, security groups are set to deny all inbound traffic. Therefore, you need to allow traffic explicitly by adding inbound rules.
+2.
+Check the Network Access Control List (NACLs): Ensure that the NACLs associated with the subnet allow inbound traffic on the ports that you are trying to connect to from the internet. NACLs act as a firewall for subnets, and you need to explicitly allow traffic through them as well.
+3.
+Check the Routing Table: Ensure that the route table associated with the subnet that the EC2 instance is launched in has a route entry to the internet gateway. Without this entry, the traffic won't be able to reach the internet gateway and go out to the internet.
+4.
+Set an Elastic IP Address: If you have not set an Elastic IP address to the EC2 instance, you may want to consider doing so. An Elastic IP address is a static, public IP address that you can assign to your instance. With an Elastic IP address, you can ensure that the public IP address assigned to the instance does not change when you stop and start the instance.
+5.
+Check the System Logs: If you have verified the above steps and still cannot connect to the EC2 instance, you may want to check the system logs of the instance to see if there is any issue with the instance itself.
+In summary, the correct answer is option A: Set an Elastic IP address to the EC2 instance. However, it is recommended to check all the steps mentioned above before assigning an Elastic IP address, as it might not be necessary in all cases.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question234:"link"
+
+

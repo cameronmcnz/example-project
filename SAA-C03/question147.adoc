@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "947 - A startup firm has a corporate office in"
+---
+
+
+[.question]
+== 947-64a1fa6ff053625db51dde98.
+
+
+****
+
+[.query]
+--
+A start-up firm has a corporate office in New York & a regional office in Washington & Chicago.
+These offices are interconnected over Internet links.
+Recently they have migrated a few application servers to EC2 instance launched in the AWS US-east-1 region.
+The Developer Team located at the corporate office requires secure access to these servers for initial testing & performance checks before go-live of the new application.
+Since the go-live date is approaching soon, the IT team is looking for quick connectivity to be established.
+As an AWS consultant, which link option will you suggest as a cost-effective & quick way to establish secure connectivity from on-premise to servers launched in AWS?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Direct Connect to establish IPSEC connectivity from On-premise to VGW.
+* [ ] B. Install a third party software VPN appliance from AWS Marketplace in the EC2 instance to create a VPN connection to the on-premises network.
+* [*] C. Use Hardware VPN over AWS Direct Connect to establish IPSEC connectivity from On-premise to VGW.
+* [*] D. Use AWS Site-to-Site VPN to establish IPSEC VPN connectivity between VPC and the on-premises network.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Using AWS VPN is the fastest &amp; cost-effective way of establishing IPSEC connectivity from on-premise to AWS.
+IT teams can quickly set up a VPN connection with VGW in the US-east-1 region so that internal users can seamlessly connect to resources hosted on AWS.
+Option A is incorrect as AWS Direct Connect does not provide IPSEC connectivity.
+It is not a quick way to establish connectivity.
+Option B is incorrect as you need to look for a third party solution from AWS Marketplace.
+And it may not be as cost-efficient as option.
+D.Option C is incorrect as although this will provide a high performance secure IPSEC connectivity from On-premise to AWS, it is not a quick way to establish connectivity.
+It may take weeks or months to configure the AWS Direct Connect connection.
+AWS Direct Connect is also not cost-effective.
+For more information on using AWS Direct Connect &amp; VPN, refer to the following URL:
+https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html
+The requirement is to establish secure connectivity from the corporate office to the EC2 instances launched in the AWS US-east-1 region.
+Option A suggests using AWS Direct Connect to establish IPSEC connectivity from on-premise to Virtual Private Gateway (VGW). AWS Direct Connect is a dedicated network connection from on-premises infrastructure to AWS. This option requires the purchase of dedicated network equipment and a Direct Connect port, which could take some time to set up. It is also the most expensive option among the four. Therefore, this option might not be the most appropriate solution for the situation.
+Option B suggests installing a third-party software VPN appliance from AWS Marketplace in the EC2 instance to create a VPN connection to the on-premises network. This option is relatively quick and easy to set up. It allows secure access to the EC2 instances from the corporate office without requiring dedicated network equipment. The cost is only the hourly fee for running the VPN instance. However, the VPN connection may become a bottleneck for traffic if many users need to access the EC2 instances simultaneously.
+Option C suggests using Hardware VPN over AWS Direct Connect to establish IPSEC connectivity from on-premise to VGW. This option is similar to option A, but it uses a Hardware VPN instead of a Direct Connect port. This option is more cost-effective than option A, but still requires the purchase of dedicated network equipment. Additionally, it might take some time to set up.
+Option D suggests using AWS Site-to-Site VPN to establish IPSEC VPN connectivity between the VPC and the on-premises network. This option is quick and easy to set up, and it does not require any dedicated network equipment. It is a cost-effective solution for the given situation. It allows secure access to the EC2 instances from the corporate office without any additional costs, except for the hourly fee for running the VPN instance.
+Therefore, option D is the most suitable and cost-effective solution for the situation.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question167:"link"
+
+

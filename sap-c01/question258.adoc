@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1058 - An organization needs a plan to store a "
+---
+
+
+[.question]
+== 1058-64a1df55aa736d27b1db942d.
+
+
+****
+
+[.query]
+--
+An organization needs a plan to store a large number of files.
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure that you have RDS set up as an asynchronous Multi-AZ deployment, which automatically provisions and maintains an asynchronous “standby” replica in a different Availability Zone.
+* [ ] B. Set up a number of smaller instances in a different region, which all have Auto Scaling and Elastic Load Balancing enabled. If there is a network outage, these instances will auto scale up. As long as spot instances are used and the instances are small, this should remain a cost-effective solution.
+* [*] C. S3 should be considered due to the low cost of S3 storage. Enable cross-region replication for the S3 buckets.
+* [ ] D. Set up pre-configured servers using Amazon Machine Images. Use an Elastic IP and Route 53 to quickly switch over to your new infrastructure if there are any problems when you run your health checks.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because it can help maintain data, but is not low on cost and is a high-cost option since you need to maintain a Multi-AZ environment.
+Hence we need to count this option out.
+Option B is incorrect because it does not talk about data loss avoidance and is more of network avoidance.
+Option C is CORRECT because S3 provides a durable, highly available, low-cost, and more secure storage solution.
+Option D is incorrect because it talks about AMIs, but not about the underlying data on EBS storage which will need to be backed up.
+More information about Amazon S3:
+Amazon S3 is storage for the Internet.
+It's a simple storage service that offers software developers a highly scalable, reliable, and low-latency data storage infrastructure at very low costs.
+http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
+Option A: This option is not suitable for storing a large number of files because RDS is a relational database service, which is designed for structured data rather than unstructured data such as files. Multi-AZ deployment is used for disaster recovery and high availability, but it does not address the storage requirements for a large number of files.
+Option B: This option is also not suitable for storing a large number of files because instances are designed for running applications and services, not for storing files. Auto Scaling and Elastic Load Balancing are used for scaling applications horizontally, not for scaling storage vertically. Additionally, spot instances are not recommended for storing data because they can be terminated at any time, resulting in data loss.
+Option C: This option is the most suitable for storing a large number of files because S3 is a highly scalable and durable object storage service that is designed for unstructured data such as files. S3 provides low-cost storage, and cross-region replication can be enabled to improve availability and durability. This option also allows for easy integration with other AWS services such as Lambda and CloudFront.
+Option D: This option is also not suitable for storing a large number of files because pre-configured servers using Amazon Machine Images are designed for running applications and services, not for storing files. Elastic IP and Route 53 are used for managing IP addresses and DNS records, not for managing storage. This option also requires manual intervention to switch over to new infrastructure, which may result in downtime and data loss.
+In conclusion, Option C is the most suitable plan for storing a large number of files due to the scalability, durability, and low cost of S3 storage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question380:"link"
+
+

@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1247 - In your AWS account you have configured "
+---
+
+
+[.question]
+== 1247-64a1fafcf053625db51ddffe.
+
+
+****
+
+[.query]
+--
+In your AWS account, you have configured three Application Load Balancers to route the traffic, and each ALB has its own target group.
+As the traffic keeps growing, the cost of the Elastic Load Balancers increases as well.
+Which method would you take to reduce the load balancer cost?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the Application Load Balancers as the spot ones.
+* [*] B. Use one ALB instead of three. Attach all three target groups in the AL.
+* [*] C. Move the Application Load Balancers to the US East (N.Virginia) region.
+* [ ] D. Install an ACM certificate in each Application Load Balancer.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect: Because Application Load Balancers do not have the spot type.
+Option B is CORRECT: Because users are charged for the time, the Application Load Balancers are running.
+The cost will be reduced if only one ALB is used.
+Option C is incorrect: Because this method is not applicable if the application cannot be moved to another region.
+ALB may not be cheaper in the US East (N.Virginia) region too.
+Option D is incorrect: Because installing a certificate does not help to reduce the cost.
+Reference:
+https://aws.amazon.com/elasticloadbalancing/pricing/
+The most cost-effective option to reduce the load balancer cost would be to use one Application Load Balancer (ALB) instead of three and attach all three target groups to the ALB. This would significantly reduce the cost of the Elastic Load Balancers since you would only be paying for one ALB instead of three.
+Option A, configuring the Application Load Balancers as spot ones, would not be a recommended solution in this scenario. Spot instances are a cost-effective option for running workloads that are flexible and can handle interruptions. However, this approach might not be suitable for load balancers that are expected to be always available and provide high availability.
+Option C, moving the Application Load Balancers to the US East (N.Virginia) region, would not have any significant impact on the cost of the load balancers. The cost of the Elastic Load Balancers is determined by the usage and configuration of the load balancers, not the region where they are located.
+Option D, installing an ACM certificate in each Application Load Balancer, is not directly related to reducing the cost of the Elastic Load Balancers. ACM certificates are used to secure the communication between the clients and the load balancers, but they do not affect the cost of the load balancers.
+In summary, the best option to reduce the cost of the Elastic Load Balancers in this scenario would be to use one Application Load Balancer and attach all three target groups to it.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question528:"link"
+
+

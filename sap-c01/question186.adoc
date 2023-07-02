@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "986 - A customer is deploying an SSLenabled We"
+---
+
+
+[.question]
+== 986-64a1df3aaa736d27b1db93bd.
+
+
+****
+
+[.query]
+--
+A customer is deploying an SSL-enabled Web application on AWS that reads the certificate from ACM.
+They would like to implement a separation of roles between the EC2 service administrators entitled to login to Instances and make API calls and the security officers who maintain and have exclusive access to the application's X.509 certificate contains the private key.
+Which configuration option would satisfy the above requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure IAM policies authorizing access to the ACM certificate store only to the authorized security officers.
+* [ ] B. Configure system permissions on the web servers to restrict access to the certificate only to the authorized security officers.
+* [ ] C. Upload the certificate on an S3 bucket owned by the security officers and accessible only by the EC2 role of the web servers
+* [ ] D. Configure the web servers to retrieve the certificate upon boot from a CloudHSM that is managed by the security officers.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because (a) only the security officers have access to the certificate store, and (b) the certificate is not stored on EC2 instances, hence avoiding giving access to it to the EC2 service administrators.
+Option B is incorrect because it will still involve storing the certificate on the EC2 instances and additional configuration overhead to access the security officers, which is unnecessary.
+Options C and D are both incorrect because giving EC2 instances access to the certificate should be avoided.
+It is better to let ELB manage the SSL certificate, instead of the EC2 web servers.
+For more information, please refer to the links given below.
+http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html https://aws.amazon.com/blogs/aws/elastic-load-balancer-support-for-ssl-termination/ https://docs.aws.amazon.com/acm/latest/userguide/authen-overview.html
+The customer wants to deploy an SSL-enabled web application on AWS, and they want to separate the roles between the EC2 service administrators and the security officers. The EC2 service administrators should only have access to login to instances and make API calls, whereas the security officers should maintain and have exclusive access to the X.509 certificate containing the private key.
+To satisfy these requirements, the following configuration options could be considered:
+Option A: Configure IAM policies authorizing access to the ACM certificate store only to the authorized security officers. This option involves using AWS Identity and Access Management (IAM) policies to restrict access to the ACM certificate store. Only the authorized security officers will be able to access the certificate store. This option provides the desired separation of roles and limits access to the certificate to only the security officers. The web servers can retrieve the certificate from the ACM certificate store during boot time.
+Option B: Configure system permissions on the web servers to restrict access to the certificate only to the authorized security officers. This option involves configuring system permissions on the web servers to restrict access to the certificate. Only the authorized security officers will have access to the certificate. This option provides some level of separation of roles, but it is not as secure as Option A because system administrators with privileged access to the web servers could potentially bypass the restrictions and gain access to the certificate.
+Option C: Upload the certificate on an S3 bucket owned by the security officers and accessible only by the EC2 role of the web servers. This option involves uploading the certificate to an S3 bucket owned by the security officers and restricting access to the bucket to only the EC2 role of the web servers. This option provides some level of separation of roles, but it is not as secure as Option A because the certificate is stored in an S3 bucket, which is a shared resource, and there is a potential for unauthorized access.
+Option D: Configure the web servers to retrieve the certificate upon boot from a CloudHSM that is managed by the security officers. This option involves using AWS CloudHSM to store the certificate and configure the web servers to retrieve the certificate during boot time. Only the authorized security officers will have access to the CloudHSM, providing the desired separation of roles. However, this option is more complex to implement and requires additional resources and configuration.
+In conclusion, Option A is the best option for satisfying the customer's requirements. It provides the desired separation of roles and limits access to the certificate to only the security officers.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question267:"link"
+
+

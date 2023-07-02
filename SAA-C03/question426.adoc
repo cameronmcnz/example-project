@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1226 - The fraud detection department in a fina"
+---
+
+
+[.question]
+== 1226-64a1faf2f053625db51ddfe5.
+
+
+****
+
+[.query]
+--
+The fraud detection department in a financial analytics company using Amazon Web Services with recommended configurations needs to transfer data from their POSIX-compliant file system (Lustre) to an Amazon S3 bucket.
+In this context, which statement is correct?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS DataSync is natively integrated with Lustre file system.
+* [ ] B. Create a DataSync task with the EFS file system as the source location and the S3 bucket as the destination location.
+* [*] C. Amazon FSx for Lustre integrates natively with Amazon S3.
+* [ ] D. Amazon FSx for Windows File Server takes highly durable backups stored in S3.
+* [ ] E. If you link your Amazon FSx for Lustre to an Amazon S3 data lake, your content will appear as objects as soon as the attached block-storage is available.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer: C.
+There is native integration of Amazon FSx for Lustre with Amazon S3.
+Option A is incorrect because AWS DataSync does not support Amazon FSx for Lustre file system.
+Option B is incorrect because AWS DataSync only supports Amazon FSx for Windows File Server file system, which is not a POSIX-compliant file system as required.
+Option D is incorrect because although the statement is correct, it does not apply to this scenario.
+Option E is incorrect because when linking Amazon FSx file systems to Amazon S3, the content will appear as files and directories instead of objects.
+References:
+https://go.aws/3bnBEtx https://go.aws/34L8Etn
+The correct answer in this case is B. Create a DataSync task with the EFS file system as the source location and the S3 bucket as the destination location.
+Explanation:
+The requirement is to transfer data from a POSIX-compliant file system (Lustre) to an Amazon S3 bucket. Lustre is a high-performance, parallel file system used in high-performance computing environments. Amazon S3 is a highly scalable and durable object storage service offered by AWS.
+Option A: AWS DataSync is natively integrated with Lustre file system. This statement is incorrect because there is no native integration between AWS DataSync and Lustre file system.
+Option B: Create a DataSync task with the EFS file system as the source location and the S3 bucket as the destination location. This statement is correct because AWS DataSync is a service that simplifies and automates data transfer between on-premises storage and AWS storage services. It can be used to transfer data from an NFS or EFS (Elastic File System) file system to an S3 bucket. In this case, we can create a DataSync task with EFS file system as the source location and S3 bucket as the destination location to transfer data from the Lustre file system to the S3 bucket.
+Option C: Amazon FSx for Lustre integrates natively with Amazon S3. This statement is incorrect because Amazon FSx for Lustre is a fully managed file system that is optimized for compute-intensive workloads, while Amazon S3 is an object storage service. Although Amazon FSx for Lustre can integrate with Amazon S3, it is not a native integration.
+Option D: Amazon FSx for Windows File Server takes highly durable backups stored in S3. This statement is incorrect because Amazon FSx for Windows File Server is a fully managed file storage service that is optimized for Windows-based workloads, while the requirement is to transfer data from a POSIX-compliant file system (Lustre) to an Amazon S3 bucket.
+Option E: If you link your Amazon FSx for Lustre to an Amazon S3 data lake, your content will appear as objects as soon as the attached block-storage is available. This statement is incorrect because it is not possible to link Amazon FSx for Lustre to an Amazon S3 data lake. Although Amazon FSx for Lustre can integrate with Amazon S3, it is not a native integration. Additionally, the statement does not address the requirement to transfer data from a Lustre file system to an S3 bucket.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question503:"link"
+
+

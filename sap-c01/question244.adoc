@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1044 - A user has set up Auto Scaling with ELB "
+---
+
+
+[.question]
+== 1044-64a1df4faa736d27b1db9410.
+
+
+****
+
+[.query]
+--
+A user has set up Auto Scaling with ELB on the EC2 instances.
+The user wants to configure that whenever the CPU utilization is below 10%, Auto Scaling should remove one instance.
+How can the user configure this?
+
+
+--
+
+[.list]
+--
+* [*] A. The user can get an email using SNS when the CPU utilization is less than 10%. The user can use the desired capacity of Auto Scaling to remove the instance.
+* [ ] B. Use CloudWatch to monitor the data and Auto Scaling to remove the instances using scheduled actions.
+* [ ] C. Configure a CloudWatch alarm in the execute policy that notifies the Auto Scaling Launch configuration when the CPU utilization is less than 10%, and configure the Auto Scaling policy to remove the instance.
+* [*] D. Configure a CloudWatch alarm in the execute policy that notifies the Auto Scaling group when the CPU Utilization is less than 10%, and configure the Auto Scaling policy to remove the instance.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because for the user to get the notification, they have to configure CloudWatch which triggers a notification to Auto Scaling Group to terminate the instance.
+Updating the desired capacity will not work in this case.
+Option B is incorrect because scheduled scaling is used to scale your application in response to predictable load changes, not upon any notification.
+Option C is incorrect because the notification should be sent to Auto Scaling Group, not the launch configuration.
+Option D is CORRECT because the notification is sent to Auto Scaling Group, removing an instance from the running instances.
+More information on Auto Scaling, Scheduled Actions:
+Auto Scaling helps you maintain application availability and allows you to scale your Amazon EC2 capacity up or down automatically according to conditions you define.
+You can use Auto Scaling to help ensure that you are running your desired number of Amazon EC2 instances.
+Auto Scaling can also automatically increase the number of Amazon EC2 instances during demand spikes to maintain performance and decrease capacity during lulls to reduce costs.
+For more information on AutoScaling, please visit the link -
+https://aws.amazon.com/autoscaling/ https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html
+The correct answer is D. Configure a CloudWatch alarm in the execute policy that notifies the Auto Scaling group when the CPU Utilization is less than 10%, and configure the Auto Scaling policy to remove the instance.
+Here's why:
+Auto Scaling is a feature of Amazon Web Services (AWS) that allows users to automatically adjust the capacity of their EC2 instances based on demand. Auto Scaling can be configured to launch new instances when demand is high and terminate instances when demand is low. This helps to ensure that users are only paying for the resources they need at any given time.
+To set up Auto Scaling with ELB, the user must create an Auto Scaling group and configure the launch configuration. The launch configuration defines the settings for the instances that will be launched by the Auto Scaling group. The user must also configure the Auto Scaling group to use ELB for load balancing.
+To configure Auto Scaling to remove instances when the CPU utilization is below 10%, the user must use CloudWatch alarms. CloudWatch is a monitoring service that provides metrics and alarms for AWS resources. The user can create a CloudWatch alarm that monitors the CPU utilization of the EC2 instances in the Auto Scaling group. When the CPU utilization falls below 10%, the CloudWatch alarm will be triggered.
+The user can then configure an Auto Scaling policy to remove an instance from the Auto Scaling group when the CloudWatch alarm is triggered. The policy should be set up to remove only one instance at a time. This will ensure that the Auto Scaling group scales down gradually and avoids any sudden drops in capacity.
+Option A is incorrect because it suggests using SNS to send an email when the CPU utilization is less than 10%. While SNS can be used to send notifications, it does not provide the functionality required to remove instances from an Auto Scaling group.
+Option B is incorrect because it suggests using scheduled actions to remove instances. Scheduled actions can be used to scale an Auto Scaling group up or down at specific times, but they cannot be used to respond to changes in demand in real-time.
+Option C is incorrect because it suggests configuring the CloudWatch alarm to notify the Auto Scaling launch configuration. The launch configuration defines the settings for the instances that will be launched by the Auto Scaling group, but it cannot be used to remove instances from the group.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question351:"link"
+
+

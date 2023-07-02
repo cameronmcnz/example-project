@@ -1,0 +1,171 @@
+---
+layout: default 
+title: "1214 - Your team has deployed an application th"
+---
+
+
+[.question]
+== 1214-64a1faebf053625db51ddfd6.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_pgesqo.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your team has deployed an application that consists of a web and database tier hosted on separate EC2 Instances.
+Both EC2 Instances are using General Purpose SSD for their underlying volume type.
+Of late, there are performance issues related to the read and writes of the database EC2 Instance.
+Which of the following could be used to alleviate the issue?
+
+
+[source,java]
+----
+Volume Type
+
+Description
+
+Use Cases
+
+Solid-State Drives (SSD)
+
+General Purpose SSD
+(gp2)*
+
+General purpose SSD
+volume that balances
+price and performance
+for a wide variety of
+workloads
+
+« Recommended for
+most workloads
+
+* System boot volumes
+
+* Virtual desktops
+
+* Low-latency
+interactive apps
+
+* Development and test
+environments
+
+Provisioned IOPS SSD (io1)
+
+Highest-performance SSD volume
+for mission-critical low-latency or
+high-throughput workloads
+
+* Critical business applications that
+
+require sustained IOPS
+
+performance, or more than
+10,000 IOPS or 160 MiB/s of
+
+throughput per volume
+
+* Large database workloads, such
+
+as:
+
+000000
+
+MongoDB
+
+Cassandra
+
+Microsoft SQL Server
+MySQL
+
+PostgreSQL
+
+Oracle
+
+Hard disk Drives (HDD)
+
+Throughput Optimized Cold HDD (sc1)
+HDD (st1)
+
+Low cost HDD volume Lowest cost HDD
+designed for volume designed for
+frequently accessed, _ less frequently
+throughput-intensive | accessed workloads
+workloads
+
+* Streaming * Throughput-
+workloads requiring oriented storage
+consistent, fast for large volumes
+throughput at a low of data that is
+price infrequently
+
+° Big data accessed
+
+« Data warehouses * Scenarios where
+
+* Log processing the lowest storage
+
+* Cannot be a boot cost is important
+volume * Cannot be a boot
+
+volume
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Change the Instance type to a higher Instance Type.
+* [*] B. Change the EBS volume to Provisioned IOPS SS.
+* [ ] C. Enable Enhanced Networking on the Instance.
+* [ ] D. Enable Multi-AZ for the database.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The Provisioned IOPS SSD EBS volume type is perfect for these types of workloads.
+The below excerpt from the documentation shows the key differences between the different volume types.
+Option A is incorrect since the primary issue is that the volume type is not correct.
+Option C is incorrect since networking is not an issue here.
+Option D is incorrect since this option is applicable for the AWS RDS service.
+For more information on EBS volume types, please refer to the below URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+When an application experiences performance issues related to read and writes of the database, there are a few options to alleviate the issue. Let's go through each of the options provided in the question.
+A. Change the Instance type to a higher Instance Type Changing the Instance type to a higher Instance Type could potentially help alleviate the performance issues, especially if the current Instance is running at a high CPU or memory utilization. A higher Instance Type will provide more CPU and memory resources, which could help improve the database's read and write performance. However, if the performance issue is related to the underlying storage, changing the Instance Type might not help.
+B. Change the EBS volume to Provisioned IOPS SSD Changing the EBS volume to Provisioned IOPS SSD is a more targeted approach to address the underlying storage performance issues. Provisioned IOPS SSD volumes are designed to deliver predictable and consistent performance, especially for applications with high read and write workloads. By changing to a Provisioned IOPS SSD volume, it ensures that the database EC2 instance has the required storage performance to meet the application's demands.
+C. Enable Enhanced Networking on the Instance Enabling Enhanced Networking on the Instance can help to improve network performance by allowing higher packet per second (PPS) performance, lower latency, and lower jitter. However, if the performance issue is related to the underlying storage, enabling Enhanced Networking might not help.
+D. Enable Multi-AZ for the database Enabling Multi-AZ for the database creates a standby replica of the primary database in a different Availability Zone. This option provides high availability and improves disaster recovery capabilities. However, enabling Multi-AZ does not address the underlying performance issues with the database.
+In conclusion, the most appropriate option to alleviate performance issues related to the read and writes of the database EC2 Instance is to change the EBS volume to Provisioned IOPS SSD (Option B). This option is a more targeted approach to address the underlying storage performance issues, ensuring that the database EC2 instance has the required storage performance to meet the application's demands.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question488:"link"
+
+

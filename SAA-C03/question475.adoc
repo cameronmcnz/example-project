@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1275 - Your organization had setup a VPC with C"
+---
+
+
+[.question]
+== 1275-64a1fb09f053625db51de01e.
+
+
+****
+
+[.query]
+--
+Your organization had setup a VPC with CIDR range 10.10.0.0/16
+There are total 100 subnets within the VPC and are being actively used by multiple application teams.
+An application team who is using 50 EC2 instances in subnet 10.10.55.0/24 complains there are intermittent outgoing network connection failures for around 30 random EC2 instances in a given day.
+How would you troubleshoot issue with minimal configuration and minimal logs written?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a flow log for the VPC and filter the logs in CloudWatch log group.
+* [ ] B. Create flow log for each EC2 instance network interface one by one and troubleshoot the connection issue.
+* [*] C. Create a flow log for subnet 10.10.55.0/24.
+* [ ] D. None of the above.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+VPC Flow Logs captures IP traffic going to and from network interfaces in your VPC.
+Flow log data is stored using Amazon CloudWatch Logs.
+After you've created a flow log, you can view and retrieve its data in Amazon CloudWatch Logs.
+You can create a flow log for a VPC, a subnet, or a network interface.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-logs-basics
+VPC Flow Logs capture following information and logs them to CloudWatch logs,
+version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status.
+Find more information about each record here.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-log-records
+For option A, although creating a flow log for entire VPC would work, it captures lot of unrequired information from rest 99 subnets and finding out the affected EC2 instances from CloudWatch logs would become really troublesome.
+For Option B, creating flow log at each EC2 network interface would work, but it takes log of configuration and time consuming trial and error troubleshooting.
+For Option C, creating a flow log for the subnet would capture just the traffic going in and out of the subnet.
+This would help us identify the network trace for the affected EC2 instances and find out the root cause in timely manner.
+The best option to troubleshoot the network connection issue with minimal configuration and minimal logs written is option A, which is to create a flow log for the VPC and filter the logs in CloudWatch log group.
+A flow log captures information about the IP traffic going to and from network interfaces in a VPC. By creating a flow log for the VPC, we can capture the traffic flow information for all the subnets within the VPC, including the subnet 10.10.55.0/24 where the EC2 instances are located. This allows us to see the network traffic flow and detect any anomalies or issues.
+By filtering the flow log in the CloudWatch log group, we can search for the specific traffic flow related to the EC2 instances in subnet 10.10.55.0/24 that are experiencing the intermittent outgoing network connection failures. With the flow log, we can see if there are any issues with the traffic flow, such as a high number of rejected packets or dropped connections. This information can help identify the root cause of the issue.
+Option B, which is to create flow logs for each EC2 instance network interface one by one, is not recommended as it is time-consuming and resource-intensive. It is also not practical for troubleshooting network issues on a large scale.
+Option C, which is to create a flow log for subnet 10.10.55.0/24, only captures traffic flow information for that specific subnet. This may not provide enough context to identify the root cause of the issue, as the issue may be caused by traffic flow from other subnets within the VPC.
+Therefore, the best option for troubleshooting the intermittent outgoing network connection failures is to create a flow log for the VPC and filter the logs in CloudWatch log group.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question560:"link"
+
+

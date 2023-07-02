@@ -1,0 +1,94 @@
+---
+layout: default 
+title: "1345 - Your organization has an AWS Setup and w"
+---
+
+
+[.question]
+== 1345-64a1fb34f053625db51de088.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_rvdxqy.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization has an AWS Setup and wants to have the history of all API calls and the responses given out by AWS SNS for audit purposes.
+Which of the following logging mechanisms would you configure?
+
+
+[source,java]
+----
+Q: Can I get a history of SNS API calls made on my account for security analysis and operational troubleshooting purposes?
+
+Yes. SNS supports AWS CloudTrail, a web service that records AWS API calls for your account and delivers log files to you. With
+CloudTrail, you can obtain a history of such information as the identity of the API caller, the time of the API call, the source IP address
+
+of the API caller, the request parameters, and the response elements returned by SNS.
+
+SNS currently supports CloudTrail auditing for authenticated calls only. CloudTrail Audit logs for unauthenticated ConfirmSubscription
+and Unsubscribe calls are not available at this time. For more information, see the CloudTrail section of the SNS Developer Guide.
+
+To receive a history of SNS API calls made on your account, simply turn on AWS CloudTrail in the AWS Management Console. To learn
+
+more about AWS CloudTrail, click here.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Enable SNS logging to S3 bucket.
+* [ ] B. Enable X-ray logging for SNS.
+* [*] C. Enable CloudTrail logging for SNS.
+* [ ] D. Enable CloudWatch logging for SNS.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Options A and B are not correct.
+Option D is not correct.
+Amazon SNS and CloudWatch are integrated so you can collect, view, and analyze metrics for every active Amazon SNS notification.
+Once you have configured CloudWatch for Amazon SNS, you can gain better insight into the performance of your Amazon SNS topics, push notifications, and SMS deliveries.
+But it does not provide information on the API calls made to SNS.
+The correct answer for this question is C. Enable CloudTrail logging for SNS.
+Explanation:
+AWS CloudTrail is a service that logs, monitors, and retains account activity related to actions across your AWS infrastructure. CloudTrail provides a history of AWS API calls for your account, including API calls made through AWS Management Console, AWS SDKs, command-line tools, and other AWS services.
+To monitor the activity for SNS, you can enable CloudTrail logs for SNS. When you enable CloudTrail logging for SNS, it creates log files that capture the activity for SNS API calls, such as creating a topic, subscribing to a topic, and publishing to a topic.
+The logs contain information about who made the API call, the time the API call was made, which API was called, what parameters were passed to the API, and the response returned by the API. These logs are delivered to an S3 bucket that you specify.
+Enabling SNS logging to S3 bucket (Option A) is not a valid option since SNS does not provide a direct way of logging to S3 bucket.
+X-ray logging (Option B) is a debugging tool used to identify and diagnose errors in distributed applications. It is not specifically designed for audit purposes and does not provide complete details about API calls and responses like CloudTrail does.
+CloudWatch logging (Option D) is used to monitor and collect log data from different resources, including EC2 instances, Lambda functions, VPC flow logs, and more. However, it does not provide a complete history of API calls like CloudTrail does.
+Therefore, the correct answer is C. Enable CloudTrail logging for SNS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question667:"link"
+
+

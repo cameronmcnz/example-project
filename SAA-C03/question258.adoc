@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1058 - You are developing a mobile application "
+---
+
+
+[.question]
+== 1058-64a1fa9bf053625db51ddf14.
+
+
+****
+
+[.query]
+--
+You are developing a mobile application for your company with DynamoDB as the back end and JavaScript as the front end.
+During the daytime, you notice that sometimes there are spikes in the application, especially in the DynamoDB write throughput.
+What would be the most cost-effective and scalable architecture for this application?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable DynamoDB Auto Scaling to meet the requirements.
+* [ ] B. Increase the write capacity of DynamoDB tables by 20% to meet the peak loads.
+* [*] C. Create a service that pulls SQS messages and writes them to DynamoDB to handle sudden spikes in DynamoD.
+* [ ] D. Launch DynamoDB in Multi-AZ configuration with a global index to balance writes.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is CORRECT because with DynamoDB Auto Scaling, DynamoDB can automatically increase its write capacity for the spike and decrease the throughput after the spike.
+Option B is incorrect because the extra write capacity is a waste after the spike.
+It is not a cost-efficient solution.
+Option C is incorrect because the new SQS is not cost-efficient, and it is not needed after the spike.
+Option D is incorrect because this causes extra costs and is not a cost-efficient solution.
+For more information on DynamoDB auto-scaling, please refer to the below URL-
+https://aws.amazon.com/blogs/aws/new-auto-scaling-for-amazon-dynamodb/ https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html
+The most cost-effective and scalable architecture for a mobile application with DynamoDB as the backend and JavaScript as the frontend, experiencing spikes in DynamoDB write throughput during the daytime would be option A: Enable DynamoDB Auto Scaling to meet the requirements.
+Explanation:
+Option A: Enable DynamoDB Auto Scaling to meet the requirements Enabling DynamoDB Auto Scaling is the most cost-effective and scalable option for handling sudden spikes in DynamoDB write throughput. DynamoDB Auto Scaling automatically adjusts the provisioned throughput capacity of a DynamoDB table in response to traffic changes, ensuring that the application has enough capacity to handle the traffic spikes. Auto Scaling adjusts the capacity up and down based on predefined scaling policies, which can be based on metrics such as CPU usage, disk usage, or the number of requests to the table. With DynamoDB Auto Scaling, there is no need to manually adjust the write capacity of the DynamoDB tables, which can result in overprovisioning and unnecessary costs. Additionally, Auto Scaling can provide quick scaling for sudden traffic spikes, which can improve the application's performance during peak loads.
+Option B: Increase the write capacity of DynamoDB tables by 20% to meet the peak loads Increasing the write capacity of DynamoDB tables by 20% can help meet the peak loads, but it is not the most cost-effective or scalable option. Overprovisioning the write capacity can result in unnecessary costs, especially if the peak loads are infrequent or unpredictable. Additionally, manually adjusting the write capacity of the DynamoDB tables can be time-consuming and may not be able to provide quick scaling for sudden traffic spikes.
+Option C: Create a service that pulls SQS messages and writes them to DynamoDB to handle sudden spikes in DynamoDB Creating a service that pulls SQS messages and writes them to DynamoDB can handle sudden spikes in DynamoDB write throughput, but it is not the most cost-effective or scalable option. This option requires additional development effort, and the service needs to be monitored and maintained. Additionally, this option may not provide quick scaling for sudden traffic spikes, as the service needs to pull messages from SQS before writing them to DynamoDB.
+Option D: Launch DynamoDB in Multi-AZ configuration with a global index to balance writes Launching DynamoDB in Multi-AZ configuration with a global index to balance writes can improve the application's availability and performance, but it is not the most cost-effective or scalable option for handling sudden spikes in DynamoDB write throughput. Multi-AZ configuration provides high availability and automatic failover capabilities, while global indexes allow for low-latency access to data in any region. However, this option does not provide quick scaling for sudden traffic spikes, as it requires manually adjusting the write capacity of the DynamoDB tables. Additionally, launching DynamoDB in Multi-AZ configuration with a global index can result in additional costs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question294:"link"
+
+

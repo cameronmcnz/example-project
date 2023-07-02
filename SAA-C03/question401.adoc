@@ -1,0 +1,97 @@
+---
+layout: default 
+title: "1201 - In your AWS VPC you need to add a new su"
+---
+
+
+[.question]
+== 1201-64a1fae5f053625db51ddfc6.
+
+
+****
+
+[.query]
+--
+In your AWS VPC, you need to add a new subnet that will allow you to host a total of 20 EC2 instances.
+Which IPv4 CIDR block would you use to achieve the same?
+
+
+--
+
+[.list]
+--
+* [*] A. 151.0.0.0/27
+* [ ] B. 151.0.0.0/28
+* [*] C. 151.0.0.0/29
+* [ ] D. 151.0.0.0/30
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+AWS reserves 5 IP addresses.
+The first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use, and cannot be assigned to an instance.
+For example, in a subnet with CIDR block 10.0.0.0/24, the following five IP addresses are reserved:
+10.0.0.0: Network address.
+10.0.0.1: Reserved by AWS for the VPC router.
+10.0.0.2: Reserved by AWS.
+The IP address of the DNS server is the base of the VPC network range plus two.
+For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR.
+We also reserve the base of each subnet range plus two for all CIDR blocks in the VPC.
+For more information, see the Amazon DNS server.
+10.0.0.3: Reserved by AWS for future use.
+10.0.0.255: Network broadcast address.
+We do not support broadcast in a VPC, therefore we reserve this address.
+The formula to calculate the number of assignable IP addresses to CIDR networks is similar to classful networking.
+Subtract the number of network bits from 32
+For example, a /24 network has 2^(32-24) - 2 addresses available for host assignment.
+A.Prefix Length is ‘27'
+Therefore 32-27 = 5 and 2 ^ 5 (i.e 2 * 2 * 2 * 2 * 2) - 5 = 27
+B.Prefix Length is ‘28'
+Therefore 32-28 = 4 and 2 ^ 4 (i.e 2 * 2 * 2 * 2) - 5= 11
+C.Prefix Length is ‘29'
+Therefore 32-29 = 3 and 2 ^ 3 (i.e 2 * 2 * 2) - 5 = 3
+D.Prefix Length is ‘30'
+Therefore 32-30 = 2 and 2 ^ 2 (i.e 2 * 2) - 5 = -1
+For option ‘A', we get ‘27' IP addresses (or indirectly the number of instances to be provisioned) as shown above.
+Since the user has to provision ‘20' EC2 instances, we need to go with option ‘A', which is the only correct IPv4 CIDR block.
+Option B is incorrect because we get only ‘11' IP addresses (or indirectly the number of instances to be provisioned ).
+Option C is incorrect because we get only ‘3' IP addresses.
+Option D is incorrect because we get only ‘-1' IP address.
+For more information, please refer to the below URL-
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4
+To determine the appropriate IPv4 CIDR block for a new subnet in AWS VPC that will host 20 EC2 instances, we need to first calculate the number of IP addresses required for the instances and other network resources.
+Each EC2 instance needs at least one private IP address assigned to it. Additionally, we may require IP addresses for other network resources such as a NAT gateway, a VPN gateway, and DNS servers.
+Assuming that we need 1 IP address for each instance and 4 IP addresses for other network resources, the total number of IP addresses required would be:
+Total IP addresses = Number of instances + Number of network resources = 20 + 4 = 24
+Next, we need to choose an IPv4 CIDR block that can accommodate at least 24 IP addresses. In AWS VPC, we can choose from the following predefined CIDR blocks:
+/16 (65,536 IP addresses)
+/20 (4,096 IP addresses)
+/24 (256 IP addresses)
+/28 (16 IP addresses)
+/29 (8 IP addresses)
+/30 (4 IP addresses)
+Out of these, the smallest CIDR block that can accommodate at least 24 IP addresses is /27. This CIDR block provides 32 IP addresses, out of which 5 are reserved by AWS, leaving us with 27 usable IP addresses.
+Therefore, the correct answer is option A: 151.0.0.0/27. This CIDR block can accommodate up to 32 IP addresses, out of which we can use 27 for our EC2 instances and other network resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question472:"link"
+
+

@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "990 - You are a software engineer
+You are deve"
+---
+
+
+[.question]
+== 990-64a1df3caa736d27b1db93c6.
+
+
+****
+
+[.query]
+--
+You are a software engineer.
+You are developing an online food order web application.
+The Node.js backend needs to get the client's IP to understand users' locations.The application is deployed in AWS EC2 with a network load balancer to distribute traffic.
+For the network load balancer, the target is specified using instance id.
+TLS is also terminated on the Network Load Balancer.
+You are worried that the backend cannot get the client's IP due to the network load balancer.
+Which below description is correct in this situation?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable proxy protocol using AWS CLI for the network load balancer so that you can get the client IP in the backend service.
+* [ ] B. You just need to get the client IP from the TCP X-Forwarded-For header, which is used to identify the user`s originating IP address connecting to the webserver.
+* [*] C. Source IP continues to be preserved to your back-end applications when TLS is terminated on the Network Load Balancer in this case.
+* [ ] D. Change listener protocol to TCP or change the load balancer to the application or classic load balancer. Otherwise, the client IP cannot be preserved.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Network Load Balancer supports TLS termination between the clients and the load balancer.
+You can configure a target group so that you register targets by instance ID or IP address.
+If you specify targets using an instance ID, the clients' source IP addresses are preserved and provided to your applications.
+If you specify targets by IP address, the source IP addresses are the private IP addresses of the load balancer nodes.
+Therefore, in this case, the source IP is preserved since the targets are specified by instance ID.References are in https://aws.amazon.com/elasticloadbalancing/features/#compare and https://docs.amazonaws.cn/en_us/elasticloadbalancing/latest/network/elb-ng.pdf.
+Option A is incorrect because the proxy protocol is not required in this case since the source IP is preserved.
+Option B is incorrect because X-Forwarded-For is an HTTP header instead of a TCP header.
+Also, it is not needed in this scenario.
+Option C is CORRECT because since the source IP is preserved, nothing else needs to be done.
+Option D is incorrect because changing the protocol to TCP will have a security issue.
+Again it is not required.
+In this scenario, the Node.js backend of an online food order web application needs to get the client's IP to understand user locations. The application is deployed in AWS EC2 with a network load balancer to distribute traffic. However, the software engineer is worried that the backend cannot get the client's IP due to the network load balancer.
+Option A suggests enabling the proxy protocol using AWS CLI for the network load balancer so that the client IP can be obtained in the backend service. The Proxy Protocol is a Layer 4 protocol that sends connection information between the client and the server as part of the network packet. By enabling the proxy protocol, the network load balancer can send the client's IP address to the backend instances using Proxy Protocol. This option is correct, and it is the recommended approach for preserving the client IP address in the backend service while using a network load balancer.
+Option B suggests getting the client IP from the TCP X-Forwarded-For header, which is used to identify the user's originating IP address connecting to the webserver. The X-Forwarded-For header is an HTTP header field that identifies the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer. This option is incorrect because the Node.js backend is not a web server, and the X-Forwarded-For header is not supported by the network load balancer.
+Option C suggests that the source IP continues to be preserved to the backend applications when TLS is terminated on the Network Load Balancer. This option is incorrect because when TLS is terminated on the network load balancer, the client IP address is replaced with the IP address of the network load balancer.
+Option D suggests changing the listener protocol to TCP or changing the load balancer to an application or classic load balancer. This option is incorrect because changing the listener protocol to TCP or using an application or classic load balancer does not guarantee preserving the client IP address in the backend service.
+Therefore, the correct option is A, which suggests enabling the proxy protocol using AWS CLI for the network load balancer to preserve the client IP address in the backend service.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question276:"link"
+
+

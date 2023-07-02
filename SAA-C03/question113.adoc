@@ -1,0 +1,125 @@
+---
+layout: default 
+title: "913 - A Solutions Architect is designing an on"
+---
+
+
+[.question]
+== 913-64a1fa63f053625db51dde73.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_v4l6nr.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A Solutions Architect is designing an online shopping application running in a VPC on EC2 Instances behind an Elastic Load Balancer.
+The instances run in an Auto Scaling group across multiple Availability Zones.
+The application tier must read and write data to a customer-managed database cluster.
+There should be no access to the database from the Internet.
+But the cluster must be able to obtain software patches from the Internet.
+Which VPC design meets these requirements?
+
+
+[source,java]
+----
+198.51.
+198.51]
+198.51.
+
+\t
+
+simply GS
+
+100.3 IP) 100.07 NAT gateway
+‘Web servers 198 51.100.4 (Elastic IP)
+
+Public subnet
+
+Custom route table
+
+Destination Target
+10.0.0.0/16 local
+0.00.00 igw-id
+
+a
+
+Main route table
+
+Destination Target
+10.0.0.0/16 local
+0.0.0.0/0 nat-gateway-id
+
+10.0.0.0/16
+
+Region
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create public subnets for the application tier and the database cluster.
+* [ ] B. Create public subnets for the application tier and private subnets for the database cluster.
+* [*] C. Create public subnets for the application tier and NAT Gateway, and private subnets for the database cluster.
+* [ ] D. Create private subnets for the application tier, and private subnets for the database cluster and NAT Gateway.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+The following diagram from AWS Documentation shows the right setup for this scenario:
+We always need to keep NAT gateway on public Subnet only, because it needs to communicate the Internet.
+AWS says that "To create a NAT gateway, you must specify the public subnet in which the NAT gateway should reside.
+You must also specify an Elastic IP address to associate with the NAT gateway when you create it.
+After you've created a NAT gateway, you must update the route table associated with one or more of your private subnets to point Internet-bound traffic to the NAT gateway.
+This enables instances in your private subnets to communicate with the internet."
+NOTE:
+Here the requirement is that "There should be no access to the database from the Internet, but the cluster must be able to obtain software patches from the Internet."
+1) There should be no access to the database from the Internet.
+To achieve this step, we have to launch the database inside the private subnet.
+2) But the cluster must be able to obtain software patches from the Internet.
+For this, we have to create NAT Gateway inside the Public Subnet.
+Because the subnet with the internet gateway attached is known as Public Subnet.
+Through the NAT Gateway, a database inside the Private subnet can access the internet.
+Option D is saying that "Use private subnet for NAT gateway".
+Option C includes these discussed Points, and thus, it's a perfect answer.
+For more information on this setup, please refer to the below URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
+The requirement is to design a VPC to host an online shopping application running on EC2 instances behind an Elastic Load Balancer. The application must read and write data to a customer-managed database cluster. The design should ensure that there is no access to the database from the Internet, but the database cluster must be able to obtain software patches from the Internet.
+Option A: Create public subnets for the application tier and the database cluster. This option creates public subnets for both the application tier and the database cluster, which means that both the application and the database would be publicly accessible. This violates the requirement of having no access to the database from the Internet.
+Option B: Create public subnets for the application tier and private subnets for the database cluster. This option creates public subnets for the application tier, allowing access to the Internet, and private subnets for the database cluster, which ensures that the database is not directly accessible from the Internet. However, this design does not allow the database cluster to obtain software patches from the Internet as there is no direct access to the Internet from the private subnets.
+Option C: Create public subnets for the application tier and NAT Gateway, and private subnets for the database cluster. This option creates public subnets for the application tier, allowing access to the Internet, and private subnets for the database cluster, ensuring that the database is not directly accessible from the Internet. A NAT Gateway is also included in the public subnet, which allows the database cluster to obtain software patches from the Internet. This option meets all the requirements and is a suitable design for the given scenario.
+Option D: Create private subnets for the application tier, and private subnets for the database cluster and NAT Gateway. This option creates private subnets for both the application tier and the database cluster, which means that both the application and the database would not be directly accessible from the Internet. However, this design does not allow the database cluster to obtain software patches from the Internet as there is no direct access to the Internet from the private subnets.
+Therefore, option C, i.e., creating public subnets for the application tier and NAT Gateway and private subnets for the database cluster, is the correct design as it meets all the requirements.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question130:"link"
+
+

@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1098 - An application currently writes a large "
+---
+
+
+[.question]
+== 1098-64a1faaff053625db51ddf42.
+
+
+****
+
+[.query]
+--
+An application currently writes a large number of records to a DynamoDB table in one region.
+There is a requirement for a secondary application to retrieve new records written to the DynamoDB table every 2 hours and process the updates accordingly.
+What would be an ideal method to ensure that the secondary application gets the relevant changes from the DynamoDB table?
+
+
+--
+
+[.list]
+--
+* [*] A. Insert a timestamp for each record and then, scan the entire table for the timestamp as per the last 2 hours.
+* [ ] B. Create another DynamoDB table with the records modified in the last 2 hours.
+* [*] C. Use DynamoDB Streams to monitor the changes in the DynamoDB table.
+* [ ] D. Transfer records to S3 which were modified in the last 2 hours.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+AWS Documentation mentions the following.
+A DynamoDB Stream is an ordered flow of information about changes to items in an Amazon DynamoDB table.
+When you enable a stream on a table, DynamoDB captures information about every modification to data items in the table.
+Whenever an application creates, updates or deletes items in the table, DynamoDB Streams write a stream record with the primary key attribute(s) of the modified items.
+A stream record contains information about a data modification to a single item in a DynamoDB table.
+You can configure the stream to capture additional information, such as the "before" and "after" images of modified items.
+For more information on DynamoDB Streams, please visit the URL below.
+http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html
+The ideal method to ensure that the secondary application gets the relevant changes from the DynamoDB table is to use DynamoDB Streams to monitor the changes in the DynamoDB table.
+DynamoDB Streams is a feature of DynamoDB that allows you to capture changes made to a DynamoDB table in real-time. When an application writes to a DynamoDB table, DynamoDB Streams can provide a time-ordered sequence of item-level changes that can be consumed by multiple applications. These changes can be used to trigger actions, such as updating a search index or sending a notification to another application.
+In this scenario, you can use DynamoDB Streams to capture the changes made to the DynamoDB table and send them to the secondary application every 2 hours. The secondary application can then process the changes accordingly.
+Option A, inserting a timestamp for each record and scanning the entire table for the timestamp as per the last 2 hours, is not an efficient solution as it requires scanning the entire table every 2 hours, which could be very time-consuming and expensive.
+Option B, creating another DynamoDB table with the records modified in the last 2 hours, is not a scalable solution as it would require duplicating data from the original table to the new table every 2 hours, which could lead to increased storage costs and maintenance overhead.
+Option D, transferring records to S3 which were modified in the last 2 hours, is not an optimal solution for this scenario as it requires additional processing to move the data from DynamoDB to S3 and then back to the secondary application.
+Therefore, the correct answer is option C, using DynamoDB Streams to monitor the changes in the DynamoDB table.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question340:"link"
+
+

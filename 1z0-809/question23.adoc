@@ -1,0 +1,61 @@
+---
+layout: default 
+title: "823 - Assuming that the file datadecemberlogtx"
+---
+
+
+[.question]
+== 823-64a1a842ef3e8462333a9c4d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0001900001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Assuming that the file /data/december/log.txt does not exist and given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+Path source Paths.get (“/data/december/log.txt”);
+Path destination = Paths.get (“/data”);
+Files.copy (source, destination);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. A file with the name log.txt is created in the /data directory and the content of the /data/december/log.txt file is copied to it.
+* [ ] B. The program executes successfully and does NOT change the file system.
+* [ ] C. A FileNotFoundException is thrown at run time.
+* [*] D. A NoSuchFileException is thrown at run time.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

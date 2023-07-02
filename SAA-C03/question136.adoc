@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "936 - A startup firm is using an AWS Organizat"
+---
+
+
+[.question]
+== 936-64a1fa6bf053625db51dde8b.
+
+
+****
+
+[.query]
+--
+A start-up firm is using an AWS Organization for managing policies across its Development and Production accounts.
+The development account needs an EC2 dedicated host.
+The Production account has subscribed to an EC2 dedicated host for its application but is not currently using it.
+Sharing has NOT been enabled with the AWS Organization in AWS RAM.
+Which of the following can be done to share the Amazon EC2 dedicated host from the Production account to the Development account?
+
+
+--
+
+[.list]
+--
+* [*] A. Remove both Development & Production Accounts from Organisation & then share resources between them.
+* [ ] B. Resources in the same organization are automatically shared without the need to accept the invitation of sharing resources.
+* [*] C. Create a resource share in the production account and accept the invitation in the development account.
+* [ ] D. Remove the destination Development account from an Organisation & then share resources with it.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+For accounts that are part of the AWS Organization, Resource sharing can be done on an individual account basis if resource sharing is not enabled at the AWS Organisation level.
+With this, resources are shared within accounts as external accounts &amp; an invitation needs to be accepted between these accounts to start resource sharing.
+Option A is incorrect as removing both accounts from AWS Organization for Resource sharing is not a valid option.
+Option B is incorrect because when sharing is not enabled in the Organization, resources are not automatically shared.
+Option D is incorrect as removing a destination account from AWS Organisation is not required for resource sharing.
+For more information on using AWS Resource Access Manager, refer to the following URL:
+https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html
+The correct answer is C. Create a resource share in the production account and accept the invitation in the development account.
+Explanation: AWS Organizations provides a way for customers to consolidate multiple AWS accounts into an organization that can be centrally managed. It allows an organization to manage policies for multiple AWS accounts from a single master account.
+In this scenario, the start-up firm is using an AWS Organization to manage policies across its Development and Production accounts. The Development account needs an EC2 dedicated host, while the Production account has subscribed to an EC2 dedicated host but is not currently using it.
+To share the Amazon EC2 dedicated host from the Production account to the Development account, we need to create a resource share in the Production account and accept the invitation in the Development account. Resource Access Manager (RAM) is the service used to share resources across multiple AWS accounts.
+To create a resource share in the Production account, follow these steps:
+1. Open the RAM console at https://console.aws.amazon.com/ram/.
+2. In the navigation pane, choose Resource shares, and then choose Create resource share.
+3. For Resource type, choose EC2 Dedicated Hosts.
+4. For Select the resources to share, choose the EC2 dedicated host that needs to be shared.
+5. For Sharing settings, choose Specific AWS account(s), and then enter the AWS account ID for the Development account.
+6. Choose Create resource share.
+Once the resource share is created in the Production account, the Development account will receive an invitation to accept the share. To accept the share in the Development account, follow these steps:
+1. Open the RAM console at https://console.aws.amazon.com/ram/.
+2. In the navigation pane, choose Resource shares, and then choose the Pending tab.
+3. Choose the resource share invitation for the Production account, and then choose Accept.
+Option A is incorrect because removing both accounts from the organization is not a viable solution. It would break the organization's management structure and policies.
+Option B is incorrect because resources in the same organization are not automatically shared without explicit sharing or acceptance of sharing invitations.
+Option D is incorrect because removing the destination Development account from the organization is not necessary, and it would break the organization's management structure and policies.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question154:"link"
+
+

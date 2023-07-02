@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1139 - Your company has a web application hoste"
+---
+
+
+[.question]
+== 1139-64a1fac5f053625db51ddf7b.
+
+
+****
+
+[.query]
+--
+Your company has a web application hosted in AWS that makes use of an Application Load Balancer.
+You need to ensure that the web application is protected from web-based attacks such as cross-site scripting etc. Which of the following implementation steps can help protect web applications from common security threats from the outside world?
+
+
+--
+
+[.list]
+--
+* [*] A. Place a NAT instance in front of the web application to protect against attacks.
+* [*] B. Use the WAF service in front of the web application.
+* [ ] C. Place a NAT gateway in front of the web application to protect against attacks.
+* [ ] D. Place the web application in front of a CDN service instead.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+AWS WAF is a web application firewall that helps protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.
+AWS WAF gives you control over which traffic to allow or block your web applications by defining customizable web security rules.
+You can use AWS WAF to create custom rules that block common attack patterns, such as SQL injection or cross-site scripting, and rules designed for your specific application.
+Options A and C are incorrect because these are used to allow instances in your private subnet to communicate with the internet.
+Option D is incorrect since this is ideal for content distribution and good when you have DDoS attacks, but the WAF should be used for concentrated types of web attacks.
+For more information on AWS WAF, please refer to the below link-
+https://aws.amazon.com/waf/
+The correct answer is B. Use the WAF service in front of the web application.
+Explanation: The AWS WAF (Web Application Firewall) is a web application firewall that helps protect web applications from common web exploits that can affect the availability, compromise the security, or consume excessive resources of your web application.
+By placing the WAF in front of your web application, it can monitor and filter the traffic coming to your web application, and block any malicious requests. The WAF supports a range of customizable rules to block common attack patterns such as SQL injection, cross-site scripting, and more.
+The other options listed are not appropriate for protecting against web-based attacks: A. Placing a NAT instance or NAT gateway in front of the web application can help with network address translation but will not provide any protection against web-based attacks. D. A CDN service can help with delivering content to users more quickly, but it does not provide any security benefits.
+In summary, using the AWS WAF in front of your web application is the best solution for protecting against common web-based attacks.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question397:"link"
+
+

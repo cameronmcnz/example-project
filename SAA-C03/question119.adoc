@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "919 - Your company manages an application that"
+---
+
+
+[.question]
+== 919-64a1fa65f053625db51dde79.
+
+
+****
+
+[.query]
+--
+Your company manages an application that currently allows users to upload images to an S3 bucket.
+These images are picked up by EC2 Instances for processing and then placed in another S3 bucket.
+You need an area where the metadata for these images can be stored.
+What would be an ideal data store for this?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Redshift
+* [ ] B. AWS Glacier
+* [*] C. AWS DynamoDB
+* [ ] D. AWS SQS.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect because this is normally used for petabyte based storage.
+Option B is incorrect because this is used for archive storage.
+Option C is correct.
+AWS DynamoDB is the best, light-weight and durable storage option for metadata.
+Option D is incorrect because this is used for messaging purposes.
+For more information on DynamoDB, please refer to the URL below.
+https://aws.amazon.com/dynamodb/
+The ideal data store for storing metadata about images in this scenario would be AWS DynamoDB, option C.
+DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. It is designed to handle large volumes of data and can easily accommodate the metadata for the uploaded images.
+In this scenario, DynamoDB could be used to store metadata such as image names, upload times, file sizes, and any other relevant information about the images. The EC2 instances could then access this metadata from DynamoDB during image processing.
+Option A, AWS Redshift, is a data warehouse that is optimized for analyzing large datasets. While Redshift could technically store the metadata, it is overkill for this scenario and would be unnecessarily complex and expensive.
+Option B, AWS Glacier, is an archival storage service that is optimized for data that is rarely accessed. It is not designed to handle frequent read and write operations, making it a poor choice for storing metadata that will be accessed frequently.
+Option D, AWS SQS, is a message queue service that allows decoupling and asynchronous processing between different components of an application. While it could potentially be used to store metadata as messages, it is not an ideal data store for this scenario, as it is primarily designed for messaging and not data storage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question136:"link"
+
+

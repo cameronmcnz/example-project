@@ -1,0 +1,89 @@
+---
+layout: default 
+title: "991 - A user has created a VPC with CIDR 20000"
+---
+
+
+[.question]
+== 991-64a1df3daa736d27b1db93ca.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_cidr.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A user has created a VPC with CIDR 20.0.0.0/16
+The user has created one subnet with CIDR 20.0.0.0/16 in this VPC.
+The user is trying to create another subnet with the same VPC for CIDR 20.0.0.0/24
+What will happen in this scenario?
+
+
+[source,java]
+----
+Name tag  Subnet-2 Ci}
+
+VPC* = vpc-0200efcaea3d12050 vy 6
+VPC CIDRs | CIDR Status
+20.0.0.0/16 associated
+Availability Zone us-east-2b vy 6
+IPv4 CIDR block* — 20.0.0.0/24 e
+
+A CIDR Address overlaps with existing Subnet CIDR: 20.0.0.0/16
+----
+
+
+--
+
+[.list]
+--
+* [*] A. It will throw a CIDR overlap error.
+* [ ] B. It is not possible to create a subnet with the same CIDR as the VP.
+* [ ] C. The second subnet will be created.
+* [ ] D. The VPC will modify the first subnet to allow this IP range.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Since the CIDR of the new subnet overlaps with that of the first subnet, an overlap error will be displayed.
+See the snapshot below.
+For more information on VPC subnets, please refer to the below link.
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
+The correct answer is A. It will throw a CIDR overlap error.
+A Virtual Private Cloud (VPC) is a virtual network dedicated to the user's AWS account. When a user creates a VPC, they specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block. The CIDR block is a range of IP addresses in CIDR notation that is reserved for the VPC. For example, a CIDR block of 10.0.0.0/16 represents a range of IP addresses from 10.0.0.0 to 10.0.255.255.
+When a user creates a subnet in a VPC, they specify a range of IP addresses from the VPC CIDR block to allocate to the subnet. A subnet is a range of IP addresses in the VPC CIDR block that can be used to launch Amazon Elastic Compute Cloud (EC2) instances, Amazon Relational Database Service (RDS) instances, and other resources.
+In this scenario, the user has created a VPC with CIDR 20.0.0.0/16 and one subnet with CIDR 20.0.0.0/16. The user is trying to create another subnet with CIDR 20.0.0.0/24 in the same VPC. However, this is not possible as the CIDR blocks of the subnets are overlapping.
+CIDR block 20.0.0.0/16 represents a range of IP addresses from 20.0.0.0 to 20.0.255.255. CIDR block 20.0.0.0/24 represents a range of IP addresses from 20.0.0.0 to 20.0.0.255. As we can see, the CIDR block 20.0.0.0/24 is a subset of CIDR block 20.0.0.0/16. This means that the second subnet's IP address range falls within the IP address range of the first subnet, causing an overlap.
+Therefore, when the user tries to create the second subnet with CIDR 20.0.0.0/24, it will throw a CIDR overlap error, and the user will not be able to create the subnet with the same IP address range as the existing subnet in the VPC.
+Option A is the correct answer as the CIDR overlap error will prevent the creation of a subnet with an overlapping IP address range. Option B is incorrect because it is possible to create a subnet with a different CIDR block within the VPC. Option C and D are incorrect because the second subnet cannot be created due to the CIDR overlap error.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question280:"link"
+
+

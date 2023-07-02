@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1077 - A company hosts a popular web applicatio"
+---
+
+
+[.question]
+== 1077-64a1faa5f053625db51ddf2b.
+
+
+****
+
+[.query]
+--
+A company hosts a popular web application that connects to an Amazon RDS MySQL DB instance running in a private VPC subnet created with default ACL settings.
+The IT Security department has identified a DoS attack from a suspecting IP.
+How would you protect the subnets from this attack?
+
+
+--
+
+[.list]
+--
+* [*] A. Change the Inbound Security Groups to deny access from the suspecting IP.
+* [ ] B. Change the Outbound Security Groups to deny access from the suspecting IP.
+* [*] C. Change the Inbound NACL to deny access from the suspecting IP.
+* [ ] D. Change the Outbound NACL to deny access from the suspecting IP.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Options A and B are invalid because the Security Groups block traffic by default.
+You can use NACLs as an additional security layer for the subnet to deny traffic.
+Option D is invalid since just changing the Inbound Rules is sufficient.
+AWS Documentation mentions the following.
+A Network Access Control List (ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets.
+You might set up network ACLs with rules similar to your security groups to add an additional layer of security to your VPC.
+For more information on Network Access Control Lists, please visit the following URL-
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
+In this scenario, the company hosts a popular web application that connects to an Amazon RDS MySQL DB instance running in a private VPC subnet created with default ACL settings. The IT Security department has identified a DoS (Denial-of-Service) attack from a suspecting IP. To protect the subnets from this attack, the following options are provided:
+A. Change the Inbound Security Groups to deny access from the suspecting IP. B. Change the Outbound Security Groups to deny access from the suspecting IP. C. Change the Inbound NACL to deny access from the suspecting IP. D. Change the Outbound NACL to deny access from the suspecting IP.
+Out of these four options, the best approach to protect the subnets from a DoS attack from the suspecting IP is to change the Inbound NACL (Network Access Control List) to deny access from the suspecting IP (Option C).
+A Network ACL is a firewall-like feature in AWS that controls inbound and outbound traffic at the subnet level. Network ACLs are stateless, meaning that responses to allowed inbound traffic are not automatically allowed to flow out, and vice versa. They are also ordered, meaning that the rules are evaluated in order, starting with the lowest numbered rule.
+By default, all inbound and outbound traffic is allowed in a subnet that has the default ACL settings. In this scenario, changing the Inbound NACL to deny access from the suspecting IP is the best option because the DoS attack is coming from that IP address. Denying access from that IP address will prevent the attacker from sending any further traffic to the subnet.
+Option A, changing the Inbound Security Groups to deny access from the suspecting IP, is incorrect because Security Groups are used to control traffic at the instance level, whereas the question is asking about protecting the subnet.
+Option B, changing the Outbound Security Groups to deny access from the suspecting IP, is incorrect because the attacker is sending traffic to the subnet, not receiving traffic from it.
+Option D, changing the Outbound NACL to deny access from the suspecting IP, is incorrect because the attacker is not sending traffic from the subnet, but to it. Changing the Outbound NACL would prevent instances in the subnet from sending traffic to the attacker's IP address, but it would not prevent the attacker from sending traffic to the subnet.
+Therefore, the best approach in this scenario would be to change the Inbound NACL to deny access from the suspecting IP.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question317:"link"
+
+

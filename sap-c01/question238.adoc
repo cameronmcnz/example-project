@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "1038 - A fintech startup company is developing "
+---
+
+
+[.question]
+== 1038-64a1df4daa736d27b1db9408.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_cywckr.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A fintech startup company is developing a product on the AWS platform.
+To speed up the development, the company plans to use a SaaS provided by AWS Marketplace.
+The SaaS provider already configured an AWS PrivateLink.
+In the company's VPC, which configuration is required to utilize this private connection so that traffic flows to the service provider over private AWS networking rather than over the Internet?
+
+
+--
+
+[.list]
+--
+* [*] A. In the VPC, configure an interface VPC endpoint for the SaaS which creates an elastic network interface in the subnet with a private IP address.
+* [ ] B. Configure a site-to-site VPN connection in customer VPC for the SaaS to use the AWS private link connection.
+* [ ] C. In the VPC, set up a gateway VPC endpoint for the SaaS which creates an elastic network interface in the subnet with an elastic IP address.
+* [ ] D. In the VPC, create an AWS Direct Connect connection for the SaaS to securely connect with the AWS PrivateLink.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+AWS Direct Connect enables you to directly interface your on-premises network with a device at an AWS Direct Connect location.
+You need to configure a Public Virtual Interface AND configure on-premises routing to utilize the direct connect for AWS public-facing services.
+Each virtual interface needs a VLAN ID, interface IP address, ASN, and BGP key.
+See the image below.
+Option A is CORRECT because, as mentioned above, it creates a public virtual interface to connect to the S3 endpoint.
+Option B is incorrect because to connect to the S3 endpoint a public virtual interface needs to be created, not VPN.
+Option C is incorrect because to connect to the S3 endpoint a public virtual interface needs to be created, not private.
+Option D is incorrect because this setup will not help to connect to the S3 endpoint.
+For more information on virtual interfaces, please visit the below URL-
+http://docs.aws.amazon.com/directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.html
+Sure, I'd be happy to provide a detailed explanation.
+AWS PrivateLink is a service that enables private connectivity between VPCs, AWS services, and on-premises applications using the AWS network. It allows you to access services over private AWS networking instead of the public internet, which enhances security and reduces data transfer costs.
+In this scenario, the fintech startup company plans to use a SaaS provided by AWS Marketplace, which has already configured an AWS PrivateLink. To utilize this private connection so that traffic flows over private AWS networking rather than over the internet, the company needs to configure an interface VPC endpoint for the SaaS in its VPC. Therefore, answer A is correct.
+An interface VPC endpoint is an elastic network interface with a private IP address that serves as an entry point for traffic destined to a service. When you create an interface VPC endpoint, AWS creates an elastic network interface in the specified subnet with a private IP address that serves as an entry point for traffic destined to the service.
+By configuring an interface VPC endpoint for the SaaS in the company's VPC, the SaaS can be accessed securely and privately over the AWS PrivateLink. This means that the traffic flows over private AWS networking instead of over the internet, enhancing security and reducing data transfer costs.
+Answer B is incorrect because it suggests configuring a site-to-site VPN connection in the customer VPC for the SaaS to use the AWS PrivateLink connection. This is not necessary as AWS PrivateLink provides a private, secure, and scalable way to access services over the AWS network without the need for a VPN.
+Answer C is also incorrect because it suggests setting up a gateway VPC endpoint for the SaaS, which creates an elastic network interface in the subnet with an elastic IP address. This is not necessary as interface VPC endpoints are the recommended way to connect to AWS services over AWS PrivateLink.
+Answer D is also incorrect because it suggests creating an AWS Direct Connect connection for the SaaS to securely connect with the AWS PrivateLink. This is not necessary as AWS Direct Connect is used to establish a dedicated network connection between the customer's datacenter and AWS, and it is not relevant in this scenario.
+In conclusion, to utilize the private connection already configured by the SaaS provider over AWS PrivateLink, the fintech startup company needs to configure an interface VPC endpoint for the SaaS in its VPC.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question343:"link"
+
+

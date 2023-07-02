@@ -1,0 +1,90 @@
+---
+layout: default 
+title: "1332 - Which of the following statement is not "
+---
+
+
+[.question]
+== 1332-64a1fb2df053625db51de077.
+
+
+****
+
+[.query]
+--
+Which of the following statement is not true with respect to the default retry behavior of the AWS Lambda function?
+
+
+--
+
+[.list]
+--
+* [*] A. With synchronous invocation, the invoking application receives a 429 error and is responsible for retries.
+* [ ] B. With asynchronous invocation, If the function returns an error, Lambda attempts to run it two more times.
+* [ ] C. With Poll-based (or pull model) event sources that are stream-based, when a Lambda function invocation fails, AWS Lambda attempts to process the erring batch of records until the time the data expires, which can be up to seven days.
+* [ ] D. With Poll-based event sources that are not stream-based, if the invocation fails or times out, the message will be returned to the queue and will be available for invocation once the Visibility Timeout period expires.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Synchronous invocation - Lambda includes the
+FunctionError.
+field in the response body, with details about the error in the
+X-Amz-Function-Error.
+header.
+The status code is 200 for function errors.
+Event sources that aren't stream-based - Some of these event sources are set up to invoke a Lambda function synchronously, and others invoke it asynchronously.
+Accordingly, exceptions are handled as follows:
+Synchronous invocation - Lambda includes the
+FunctionError.
+field in the response body, with details about the error in the
+X-Amz-Function-Error.
+header.
+The status code is 200 for function errors.
+Lambda only returns error status codes if there is an issue with the request, function, or permissions that prevent the handler from processing the event.
+See Invoke Errors for details.
+Asynchronous invocation - Lambda retries function errors twice.
+If the function doesn't have enough capacity to handle all incoming requests, events might wait in the queue for hours or days to be sent to the function.
+You can configure a dead-letter queue on the function to capture events that weren't successfully processed.
+For more information, see Asynchronous invocation.
+Lambda manages the function's asynchronous event queue and attempts to retry on errors.
+If the function returns an error, Lambda attempts to run it two more times, with a one-minute wait between the first two attempts, and two minutes between the second and third attempts.
+Function errors include errors returned by the function's code and errors returned by the function's runtime, such as timeouts.
+References:
+https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html https://aws.amazon.com/about-aws/whats-new/2019/11/aws-lambda-supports-max-retry-attempts-event-age-asynchronous-invocations/ https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html
+Sure, I'd be happy to explain the default retry behavior of AWS Lambda in detail and which statement is not true.
+AWS Lambda provides automatic retry behavior for function invocations that result in certain errors. The default retry behavior varies depending on the invocation type and the event source that triggered the function.
+Let's examine each statement provided in the question:
+A. With synchronous invocation, the invoking application receives a 429 error and is responsible for retries.
+This statement is true. With synchronous invocation, if a function returns a 429 error, it indicates that the function has reached its concurrency limit. In this case, the invoking application receives the 429 error and is responsible for retrying the invocation.
+B. With asynchronous invocation, If the function returns an error, Lambda attempts to run it two more times.
+This statement is also true. With asynchronous invocation, if a function returns an error, Lambda automatically retries the invocation twice. If the function still fails after the third attempt, the event is discarded and the function's error is logged.
+C. With Poll-based (or pull model) event sources that are stream-based, when a Lambda function invocation fails, AWS Lambda attempts to process the erring batch of records until the time the data expires, which can be up to seven days.
+This statement is true. With stream-based event sources, such as Amazon Kinesis or DynamoDB Streams, Lambda processes records in batches. If a batch of records fails to invoke the function successfully, AWS Lambda retries the batch until the data expires, which can be up to seven days.
+D. With Poll-based event sources that are not stream-based, if the invocation fails or times out, the message will be returned to the queue and will be available for invocation once the Visibility Timeout period expires.
+This statement is the one that is NOT true. Poll-based event sources that are not stream-based, such as Amazon Simple Queue Service (SQS), follow a different retry behavior. If a function invocation fails or times out, the message remains in the queue and becomes available for another invocation after the Visibility Timeout period expires. It is up to the application to handle the retries in this case.
+So, to sum up, the statement that is not true with respect to the default retry behavior of AWS Lambda is:
+D. With Poll-based event sources that are not stream-based, if the invocation fails or times out, the message will be returned to the queue and will be available for invocation once the Visibility Timeout period expires.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question650:"link"
+
+

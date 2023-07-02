@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1008 - You currently manage a set of web server"
+---
+
+
+[.question]
+== 1008-64a1fa84f053625db51ddedc.
+
+
+****
+
+[.query]
+--
+You currently manage a set of web servers hosted on EC2 Servers with public IP addresses.
+These IP addresses are mapped to domain names.
+There was an urgent maintenance activity that had to be carried out on the servers.
+The servers had to be stopped and restarted.
+Now the web application hosted on these EC2 Instances is not accessible via the domain names configured earlier.
+Which of the following could be a reason for this?
+
+
+--
+
+[.list]
+--
+* [*] A. The Route 53 hosted zone needs to be restarted.
+* [ ] B. The network interfaces need to initialized again.
+* [*] C. The public IP addresses need to be associated with the ENI again.
+* [*] D. The public IP addresses have changed after the instance was stopped and started again.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+By default, the public IP address of an EC2 Instance is released after the instance is stopped and started.
+Hence, the earlier IP address which was mapped to the domain names would have become invalid now.
+For more information on public IP address, please visit the URL below:
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses
+Note:
+This only applies to IPv4 public addresses.
+IPv6 public address isn't disassociated after an instance is stopped.
+When an EC2 instance is stopped and started again, it is possible that its public IP address may change. This is because EC2 instances are assigned public IP addresses dynamically from a pool of available addresses, and releasing an address when an instance is stopped can cause it to be assigned to another instance when it is started again. Therefore, option D could be the reason why the web application is not accessible via the domain names configured earlier.
+Option A is not a valid reason for this issue because Route 53 is a DNS service and is not directly involved in the configuration of public IP addresses or network interfaces on EC2 instances.
+Option B is also not a valid reason for this issue because the network interfaces are typically initialized automatically when an EC2 instance is started, and stopping and starting the instance should not affect this process.
+Option C could be a possible reason for this issue if the Elastic Network Interfaces (ENIs) associated with the EC2 instances were not re-associated with the correct public IP addresses after the instances were stopped and started again. However, this option is less likely to be the issue since public IP addresses are typically automatically re-associated with ENIs when an instance is started.
+Therefore, the most likely reason why the web application hosted on the EC2 Instances is not accessible via the domain names configured earlier is that the public IP addresses have changed after the instance was stopped and started again.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question237:"link"
+
+

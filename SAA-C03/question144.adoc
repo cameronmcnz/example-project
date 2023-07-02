@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "944 - A large IT company is using Amazon Cloud"
+---
+
+
+[.question]
+== 944-64a1fa6ef053625db51dde94.
+
+
+****
+
+[.query]
+--
+A large IT company is using Amazon CloudFront for its web application.
+Static Content for this application is saved in the Amazon S3 bucket.
+Amazon CloudFront is configured for this application to provide faster access to these files for global users. IT Team is concerned about some critical files that need to be accessed only by users from certain white-list countries that you have defined in Amazon CloudFront geo-restriction.
+There is a requirement that no users should access these files directly using the Amazon S3 URL.
+Which of the following is the best way to achieve the given requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an OAI user to associate with distribution & modify permission on Amazon S3 bucket using bucket policy.
+* [ ] B. Create Amazon CloudFront Signed URLs to limit access to these files & modify permission on Amazon S3 bucket using bucket policy.
+* [*] C. Create an OAI user to associate with distribution & modify permission on Amazon S3 bucket using object ACL’s.
+* [ ] D. Create Amazon CloudFront Signed URLs to limit access to these files & modify permission on Amazon S3 bucket using object ACL’s.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Amazon CloudFront Origin Access Identity is a special user that can control access to content in the Amazon S3 bucket.
+Using Object ACLs provides a granular control on each file in the Amazon S3 bucket.
+Associating Amazon CloudFront OAI to distribution &amp; modifying permission on the S3 bucket allows access only to OAI.
+When you create or update a distribution, you can add an origin access identity (OAI) and automatically update the Amazon S3 bucket policy to give the OAI permission to access your bucket.
+Alternatively, you can choose to manually create or update the bucket policy, or use object ACLs that control access to individual files in the bucket.
+Using CloudFront geo-restriction:
+When a user requests your content, CloudFront typically serves the requested content regardless of where the user is located.
+If you need to prevent users in specific countries from accessing your content, you can use the CloudFront geo restriction feature to do one of the following:
+Allow your users to access your content only if they're in one of the countries on a whitelist of approved countries.
+Prevent your users from accessing your content if they're in one of the countries on a blacklist of banned countries.
+Using a third-party geolocation service:
+When you're using a third-party geolocation service, we recommend that you use CloudFront signed URLs, which let you specify an expiration date and time after which the URL is no longer valid.
+In addition, you use an Amazon S3 bucket as your origin because you can then use a CloudFront origin access identity to prevent users from accessing your content directly from the origin.
+Option A is incorrect as modifying permission in the Amazon S3 bucket using bucket policy will not provide granular control on access to each file in a bucket.
+Options B and D are incorrect as Amazon CloudFront Signed URLs will provide access only to authorized users for a specified time period.
+Signed URLs are mainly used with CloudFront third-party geolocation services.
+For more information on using restricting access using Amazon CloudFront OAI, refer to the following URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/georestrictions.html#georestrictions-cloudfront
+The best way to achieve the given requirement is to use Amazon CloudFront Signed URLs to limit access to the files and modify permissions on the Amazon S3 bucket using a bucket policy. Therefore, the correct answer is B.
+Explanation: Amazon CloudFront is a content delivery network (CDN) service that speeds up the distribution of your static and dynamic web content, such as HTML, CSS, JavaScript, and images, to users worldwide. CloudFront has several features, including Geo-Restriction and Signed URLs, that can help restrict access to content based on location and expiration time.
+In this case, the IT team has concerns about some critical files that should only be accessed by users from certain white-list countries that have been defined in Amazon CloudFront geo-restriction. To achieve this requirement, we need to prevent users from accessing these files directly using the Amazon S3 URL. Therefore, we need to create signed URLs for these files that are only accessible through CloudFront.
+Creating a signed URL involves adding query string parameters to the URL that provide authentication information, such as an expiration time and a private key. The user must have access to the private key to generate a signed URL, which limits access to the content to a specific time period and can restrict access to specific IP addresses, HTTP methods, and other parameters.
+To implement this solution, we also need to modify the permissions on the Amazon S3 bucket to prevent direct access to the files using the Amazon S3 URL. We can do this by creating a bucket policy that denies access to the bucket from all IP addresses except for those coming from the CloudFront distribution.
+Therefore, the correct solution is to create Amazon CloudFront Signed URLs to limit access to the files and modify permissions on the Amazon S3 bucket using a bucket policy. Option B is the correct answer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question163:"link"
+
+

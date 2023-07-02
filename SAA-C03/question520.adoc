@@ -1,0 +1,118 @@
+---
+layout: default 
+title: "1320 - Your organization uploads relatively lar"
+---
+
+
+[.question]
+== 1320-64a1fb25f053625db51de062.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_fvblkh.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization uploads relatively large compressed files ranging between 100MB - 200MB in size to AWS S3 bucket.
+Once uploaded, they are looking to calculate the total number objects in the compressed file and add the total count as a metadata to the compressed file in AWS S3
+They approached you for a cost-effective solution.
+You have recommended using AWS Lambda through S3 event notifications to perform this operation.
+However, they were concerned about failures as S3 event notification is an asynchronous one-time trigger and Lambda can fail due to operation time outs, max memory limits, max execution time limits etc.
+What is the best retry approach you recommend?
+
+
+[source,java]
+----
+o Asynchronous invocation - Asynchronous events are queued before being used to invoke the Lambda function. If AWS Lambda
+is unable to fully process the event, it will automatically retry the invocation twice, with delays between retries. If you have
+specified a Dead Letter Queue for your function, then the failed event is sent to the specified Amazon SQS queue or Amazon SNS
+topic. If you don't specify a Dead Letter Queue (DLQ), which is not required and is the default setting, then the event will be
+discarded. For more information, see Dead Letter Queues.
+
+e thumbnail
+jis dropped
+
+thumbnail
+
+henge uptond Thumbnail
+mobile client bucket bucket
+
+Upon error
+
+Lambda will via
+DLQ configured
+(SNS
+
+here)
+
+SNS invoke:
+Lambda function
+
+to process error
+
+notification
+----
+
+
+--
+
+[.list]
+--
+* [*] A. All the failed events will be logged to CloudWatch. You can manually retrigger failed events.
+* [*] B. Configure Dead-letter queue with SQS. Configure SQS to trigger Lambda function again.
+* [ ] C. All failures will be caught during exception inside Lambda function. Trigger lambda function inside lambda function code to process failed event.
+* [ ] D. Enable Active tracing using AWS X-Ray. It will automatically retrigger failed events.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is not recommended approach.
+Although you can configure logging to CloudWatch, it is difficult to find the specific failure logs.
+Manual retries are not a best practice in an enterprise level solution designs.
+Option B is correct.
+You can forward non-processed or failed payloads to Dead Letter Queue.
+(DLQ) using AWS SQS, AWS SNS.
+https://aws.amazon.com/blogs/compute/robust-serverless-application-design-with-aws-lambda-dlq/
+Option C is not correct.
+Max memory limit and max execution time limit gets terminated without being caught in the handler exception.
+Option D is not correct.
+Active tracing option can be used for detailed logging.
+It will not retry failed events.
+https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html
+When uploading relatively large compressed files to AWS S3 bucket, and then looking to calculate the total number of objects in the compressed file and add the total count as metadata to the compressed file, it is recommended to use AWS Lambda through S3 event notifications. However, there are concerns about failures as S3 event notification is an asynchronous one-time trigger, and Lambda can fail due to various reasons such as operation timeouts, max memory limits, and max execution time limits.
+To address this concern, the best retry approach is to configure a Dead-Letter Queue (DLQ) with Simple Queue Service (SQS) and configure SQS to trigger the Lambda function again. This approach allows for automatic retries of failed events, and if the maximum number of retries is exceeded, the event will be sent to the DLQ for further analysis. The DLQ can be monitored for errors, allowing for efficient troubleshooting and problem resolution.
+Option A, where failed events are logged to CloudWatch, and then manually retriggered, is not a recommended approach as it requires manual intervention and is not an automatic retry mechanism.
+Option C, where failed events are caught during exceptions inside the Lambda function, and the Lambda function is triggered inside the Lambda function code to process failed events, can result in an infinite loop of retries and is not a recommended approach.
+Option D, where Active tracing using AWS X-Ray is enabled to automatically retrigger failed events, is not a correct option as AWS X-Ray is a debugging and analysis tool that provides information on the performance of applications and services, and does not provide automatic retry functionality.
+In summary, the best retry approach for handling Lambda function failures when processing S3 events is to configure a DLQ with SQS and configure SQS to trigger the Lambda function again.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question629:"link"
+
+

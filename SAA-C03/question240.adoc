@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1040 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 1040-64a1fa93f053625db51ddf00.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a global media firm.
+They have web servers deployed on EC2 instances across multiple regions.
+For audit purposes, you have created a CloudTrail trail that delivers the CloudTrail event log files to the S3 bucket This trail applies to all regions & delivers the CloudTrail event log files to the S3 buckets in the EU-Central region.
+During last year's audit, auditors have raised a query on the integrity of log files that are delivered to the S3 buckets and raised a Non-Compliance flag against them.
+Which feature could help you to gain compliance from Auditors for given issue?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon SSE-S3 encryption for the CloudTrail log file while storing it to S3 buckets.
+* [ ] B. Use Amazon SSE-KMS encryption for CloudTrail log file while storing it to S3 buckets.
+* [*] C. Use an S3 bucket policy to grant access to only Security head for S3 buckets having CloudTrail log files.
+* [*] D. Enable the CloudTrail log file integrity validation feature.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+To determine whether a log file was modified, deleted, or unchanged after CloudTrail delivered it, you can use CloudTrail log file integrity validation.
+This feature is built using industry-standard algorithms: SHA-256 for hashing and SHA-256 with RSA for digital signing.
+This makes it computationally infeasible to modify, delete or forge CloudTrail log files without detection.
+Option A is incorrect as, by default, all CloudTrail log files are delivered to S3 buckets using SSE-S3 encryption.
+This will not ensure the integrity of log files.
+Option B is incorrect as with Amazon SSE-KMS encryption for CloudTrail log files.
+There would be an additional layer of security for log files.
+But it won't ensure the integrity of log files.
+Option C is incorrect as this will restrict access to the bucket.
+But it won't ensure that no modification has been done to log files post delivering in S3 buckets.
+For more information on CloudTrail Log files Integrity, please refer to the following URLs-
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html https://aws.amazon.com/blogs/aws/aws-cloudtrail-update-sse-kms-encryption-log-file-integrity-verification/
+The auditors have raised a Non-Compliance flag against the integrity of log files that are delivered to the S3 buckets. To gain compliance from the auditors, we need to implement a solution that ensures the integrity of log files in transit and at rest.
+Option A - Using Amazon SSE-S3 encryption for CloudTrail log files while storing it to S3 buckets: Amazon S3 Server-Side Encryption with Amazon S3 Managed Keys (SSE-S3) is a feature that encrypts the S3 object using server-side encryption. With this option, S3 encrypts the data at rest within the S3 bucket. However, this feature does not address the issue of log file integrity, and data in transit between the EC2 instances and S3 is still not encrypted.
+Option B - Using Amazon SSE-KMS encryption for CloudTrail log files while storing it to S3 buckets: Amazon S3 Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS) is a feature that encrypts the S3 object using server-side encryption and provides an additional layer of security by integrating with AWS Key Management Service (KMS). With this option, S3 encrypts the data at rest within the S3 bucket, and we can also control the encryption keys used for encryption. However, this feature does not address the issue of log file integrity, and data in transit between the EC2 instances and S3 is still not encrypted.
+Option C - Using an S3 bucket policy to grant access to only Security head for S3 buckets having CloudTrail log files: S3 bucket policies are used to manage access to S3 buckets and objects. With this option, we can restrict access to the S3 bucket containing the CloudTrail log files to only the security head. However, this option does not address the issue of log file integrity.
+Option D - Enabling the CloudTrail log file integrity validation feature: CloudTrail log file integrity validation is a feature that verifies the integrity of CloudTrail log files in transit and at rest. With this option, CloudTrail verifies the integrity of log files using SHA-256 hash, which ensures that log files have not been tampered with. The hash is included in the S3 object metadata, so we can check the hash value to ensure the log file has not been altered. This option provides end-to-end data protection, including data in transit between EC2 instances and S3, and data at rest within S3.
+In conclusion, Option D is the best option for gaining compliance from auditors as it ensures the integrity of log files in transit and at rest.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question273:"link"
+
+

@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "909 - Your firm has uploaded a large amount of"
+---
+
+
+[.question]
+== 909-64a1df1caa736d27b1db933f.
+
+
+****
+
+[.query]
+--
+Your firm has uploaded a large amount of aerial image data to S3
+In the past, in your on-premises environment, you used a dedicated group of servers to process this data.
+You used Rabbit MQ - An open-source messaging system to get job information to the servers.
+Once processed, the data would go to the tape and be shipped offsite.
+Your manager told you to stay with the current design and leverage AWS archival storage and messaging services to minimize cost.
+Which of the following options is correct?
+
+
+--
+
+[.list]
+--
+* [*] A. Use SQS for passing job messages. Use Cloud Watch alarms to terminate EC2 worker instances when they become idle. Once data is processed, change the storage class of the S3 objects to Reduced Redundancy Storage.
+* [*] B. Setup Auto-Scaled workers triggered by queue depth that use instances to process messages in SQS. Once data is processed, change the storage class of the S3 objects to Glacier.
+* [ ] C. Setup Auto-Scaled workers triggered by queue depth that use instances to process messages in SQS. Once data is processed, change the storage class of the S3 objects to Reduced Redundancy Storage (RRS).
+* [ ] D. Use SNS to pass the job messages. Use Cloud Watch alarms to terminate worker instances when they become idle. Once data is processed, change the storage class of the S3 object to Glacier.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The most suggestive hint in this question is that it asks you to leverage AWS archival storage and messaging services.
+Hence, you should look for options Glacier and SQS.
+Option A is incorrect because (a) RRS is not an archival storage option, and (b) since auto-scaling is not mentioned, you cannot use CloudWatch alarms to terminate the idle EC2 instances.
+Option B is CORRECT because (a) it uses SQS to process the messages, (b) it uses Glacier as the archival storage solution - which is cost-optimized.
+Option C is incorrect because RRS is not an archival storage option; instead, use Glacier as it is a low-cost archival solution (cost lower than RRS).
+Option D is incorrect as SNS cannot be used to process the messages.
+It cannot replace the functionality that was getting provided by RabbitMQ.
+The best answer is B.
+Explanation:
+Option A suggests using SQS for job messages, CloudWatch alarms for terminating idle EC2 instances, and changing the storage class of the S3 objects to Reduced Redundancy Storage once the data is processed. Although this option utilizes messaging services and archival storage, it does not provide any scaling capability to handle large amounts of data. Additionally, changing the storage class to Reduced Redundancy Storage may reduce costs, but it also means that the data is less durable, which could be a problem for aerial images.
+Option B is the correct answer because it suggests using Auto-Scaled workers triggered by queue depth that use instances to process messages in SQS. This approach enables automatic scaling to handle large amounts of data, and using Glacier for storage ensures that the data is secure and durable. Glacier also provides cost savings over other storage options.
+Option C is similar to Option A, but instead of using CloudWatch alarms to terminate idle EC2 instances, it suggests using Auto-Scaled workers. However, like Option A, changing the storage class to Reduced Redundancy Storage may not be suitable for aerial images.
+Option D suggests using SNS for job messages, CloudWatch alarms for terminating idle worker instances, and changing the storage class of the S3 object to Glacier once the data is processed. This approach does not provide scaling capability, which may be necessary for processing large amounts of aerial image data. Additionally, SNS is a pub/sub messaging system, which means that messages may be lost if a worker instance is not available to receive them.
+In summary, Option B is the best answer as it suggests using Auto-Scaled workers triggered by queue depth that use instances to process messages in SQS, and storing the processed data in Glacier for secure, durable, and cost-effective archival storage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question139:"link"
+
+

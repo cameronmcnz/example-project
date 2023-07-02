@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1090 - Your team is developing a new Lambda fun"
+---
+
+
+[.question]
+== 1090-64a1df60aa736d27b1db9456.
+
+
+****
+
+[.query]
+--
+Your team is developing a new Lambda function for a microservice component.
+You need to package and deploy the Lambda function as a container image.
+The container image should be built based on the python:buster image with other dependencies and libraries installed.
+In order to use the container image properly for the Lambda function, which of the following actions is required?
+
+
+--
+
+[.list]
+--
+* [*] A. In the Dockerfile, assume the IAM role through the “aws sts assume-role” CLI for the Lambda function during runtime.
+* [ ] B. Install the CloudWatch Log agent in the container image for the Lambda function to forward its logs to a CloudWatch Log group.
+* [*] C. Install the Amazon Elastic Container Registry (Amazon ECR) agent for the Lambda function to interact with ECR to fetch the Docker image.
+* [*] D. Install the runtime interface client in the container image to make it compatible with Lambda.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Option A is incorrect because there is no need to assume the IAM role in the Dockerfile.
+Users should configure the IAM role when creating the Lambda function.
+Option B is incorrect because Lambda automatically forwards logs to CloudWatch Logs.
+Users do not need to install the CloudWatch agent in Dockerfile.
+Option C is incorrect because after the Docker image has been built, users should push the image to ECR.
+There is no ECR agent that needs to be installed in the Docker image.
+Option D is CORRECT because the container image for Lambda must implement the Lambda Runtime API that is added by the open-source runtime interface client.
+References:
+https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/ https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
+To package and deploy a Lambda function as a container image, you will need to follow the steps below:
+1.
+Create a Dockerfile: A Dockerfile is a script that contains a set of instructions for building a Docker image. In this case, you will need to start with the python:buster image and add any dependencies or libraries that your Lambda function requires. You can use any package manager such as pip, conda or apt-get to install the dependencies.
+2.
+Build the Docker image: Once you have created the Dockerfile, you can use it to build a Docker image using the "docker build" command. This will create a Docker image that contains your Lambda function code and all its dependencies.
+3.
+Push the Docker image to a container registry: To use the Docker image for your Lambda function, you will need to push it to a container registry such as Amazon Elastic Container Registry (ECR). This will allow Lambda to fetch the image and create a container from it.
+Now, let's review the answer options to determine which is required:
+A. In the Dockerfile, assume the IAM role through the “aws sts assume-role” CLI for the Lambda function during runtime. This is not required to package and deploy the Lambda function as a container image. Assuming the IAM role through the “aws sts assume-role” CLI is required if the Lambda function needs to access AWS resources, but it does not apply to building and deploying the container image.
+B. Install the CloudWatch Log agent in the container image for the Lambda function to forward its logs to a CloudWatch Log group. This is not required to package and deploy the Lambda function as a container image. The CloudWatch Log agent is used to forward logs from the container to CloudWatch Logs, but it is not necessary for building and deploying the container image.
+C. Install the Amazon Elastic Container Registry (Amazon ECR) agent for the Lambda function to interact with ECR to fetch the Docker image. This is not required because Amazon ECR is a container registry service that manages Docker images and makes them available to services like Lambda. Lambda can fetch the Docker image directly from Amazon ECR without any additional agent.
+D. Install the runtime interface client in the container image to make it compatible with Lambda. This is the correct answer. The runtime interface client is a piece of software that provides the interface between the Lambda service and the container. When Lambda creates a container from the Docker image, it will use the runtime interface client to communicate with the container and invoke the Lambda function code.
+Therefore, the action required to use the container image properly for the Lambda function is to install the runtime interface client in the container image to make it compatible with Lambda.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question421:"link"
+
+

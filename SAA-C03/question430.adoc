@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1230 - During troubleshooting processes evaluat"
+---
+
+
+[.question]
+== 1230-64a1faf4f053625db51ddfec.
+
+
+****
+
+[.query]
+--
+During troubleshooting processes evaluating how to benefit from enhanced networking in your HPC instances, you find out that the setting does not seem functioning.
+You have VPC peering connection configurations in place.
+Some of your instances support EFA.
+You are using AWS CLI, and you have checked that all instances have internet connectivity.
+Which relevant statement is correct in this scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. All instance types are supported for using the EN.
+* [*] B. Make sure you are using a supported version of the Linux kernel and a supported distribution, you run ethtool -i eth0 and you have to get ENA as the driver.
+* [ ] C. Some instance types are supported for using the EN.
+* [ ] B. Make sure you are using a supported version of the Linux kernel and a supported distribution, you run ethtool -i eth0 and you have to get ENA as the driver.
+* [ ] E. Neither Enhanced networking uses SR-IOV nor transitive peering is supported.
+* [ ] F. Enhanced networking uses SR-IOV and transitive peering is supported.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+B.
+E.
+F.
+Answer: B.
+ENA is a custom network interface optimized to deliver high throughput on specific supported EC2 instances.
+This statement defines the correct steps to enable an ENA interface and validate the driver is in place.
+Option A is incorrect because not all instance types are supported for using the ENA interface.
+Option C is incorrect because enhanced networking uses SR-IOV, and transitive VPC peering is not supported.
+Option D is incorrect because although enhanced networking does use SR-IOV, transitive VPC peering is not relevant and not supported either.
+References:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html
+Enhanced networking (EN) is a feature that allows for higher packet per second (PPS) performance, lower network jitter, and lower latency for Amazon Elastic Compute Cloud (EC2) instances. EN can be achieved through two different technologies: Single Root I/O Virtualization (SR-IOV) and Elastic Fabric Adapter (EFA).
+In this scenario, the user is troubleshooting why EN is not functioning on their EC2 instances that support EFA, while VPC peering connection configurations are in place, and all instances have internet connectivity.
+Option A is incorrect because not all instance types are supported for using EN. For example, t2, t3, and micro instances do not support EN. Therefore, some instance types may support EN, while others may not.
+Option B is the correct answer in this scenario. To use EN, the instances must have a supported version of the Linux kernel and a supported distribution. The user can check the driver version by running ethtool -i eth0, and the driver should be ENA (Elastic Network Adapter). If the driver is not ENA, then the user needs to install the latest version of the driver.
+Option E is incorrect because EN does use SR-IOV, and option F is incorrect because transitive peering is not supported for VPC peering connections.
+In summary, to troubleshoot EN not functioning on EC2 instances that support EFA, the user should ensure that the instances have a supported version of the Linux kernel and a supported distribution, and that the driver version is ENA.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question510:"link"
+
+

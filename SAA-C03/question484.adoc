@@ -1,0 +1,144 @@
+---
+layout: default 
+title: "1284 - As an AWS Solutions Architect you are he"
+---
+
+
+[.question]
+== 1284-64a1fb0df053625db51de028.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgvpc-5.1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+As an AWS Solutions Architect, you are helping the team to set up an AWS Site-to-Site VPN so that the AWS resources in a VPC can communicate with one remote site.
+You plan to use IPSec VPN tunnels in the VPN connections as they provide secure connections with redundancy.
+When creating the Site-to-Site VPN connection in AWS console, which of the following options can you configure for the VPN tunnels?
+
+
+[source,java]
+----
+Advanced Options for Tunnel 1
+
+O Use Default Options
+
+® Edit Tunnel 1 Options
+
+Phase 1 Encryption Algorithms
+
+Phase 2 Encryption Algorithms
+
+Phase 1 Integrity Algorithms
+
+Phase 2 Integrity Algorithms
+
+Phase 1 DH Group Numbers
+
+Phase 2 DH Group Numbers
+
+IkeVersion
+
+AES128 AES256
+
+AES128 AES256
+
+SHA1 SHA2-256
+
+SHA1 SHA2-256
+
+G2 414 415 M16
+
+G2 %5 414
+
+ikev1 ikev2
+
+315 416
+
+SHA2-384
+
+SHA2-384
+
+417 418
+
+G17 418
+
+19 420
+
+SHA2-512
+
+SHA2-512
+
+19 20
+
+AES128-GCM-16 AES256-GCM-16
+
+AES128-GCM-16 AES256-GCM-16
+
+21 22
+
+21 422 23 424
+
+23 24
+----
+
+
+--
+
+[.list]
+--
+* [*] A. The number of VPN tunnels.
+* [*] B. The encryption algorithms used by the VPN tunnels.
+* [*] C. The memory used by the VPN tunnels.
+* [ ] D. The TCP ports allowed by the VPN tunnels.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is incorrect because AWS Site-to-Site VPN has two tunnels for redundancy and users cannot modify this setting.
+Option B is CORRECT because the encryption algorithms of VPN IPSec tunnels can be configured by users such as AES128 and AES256
+Please check the following screenshot when configuring the VPN tunnels:
+AWS Site-to-Site VPN provides two tunnels for redundancy shown by the following snapshot:
+When one tunnel becomes unavailable, network traffic is automatically routed to the other available tunnel.
+Option C is incorrect because users cannot configure memories used by VPN tunnels.
+Option D is incorrect because when creating a VPN tunnel, users cannot allow or block any TCP ports.
+References:
+https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html
+As an AWS Solutions Architect, when creating a Site-to-Site VPN connection in AWS console, you can configure the following options for the VPN tunnels:
+A. The number of VPN tunnels: You can configure the number of VPN tunnels you want to create for redundancy purposes. Two tunnels are created by default for each VPN connection, but you can create up to four tunnels.
+B. The encryption algorithms used by the VPN tunnels: You can choose from a variety of encryption algorithms, such as AES-128, AES-192, AES-256, or Triple DES (3DES). The encryption algorithm determines how the data is encrypted and decrypted by the VPN tunnels.
+C. The memory used by the VPN tunnels: Memory configuration is not an option when creating Site-to-Site VPN connection in AWS console.
+D. The TCP ports allowed by the VPN tunnels: The TCP ports allowed by the VPN tunnels are not configurable during the creation of Site-to-Site VPN connection in AWS console. However, you can use security groups to control the traffic allowed over the VPN connection.
+It's important to note that when setting up Site-to-Site VPN connections, you need to ensure that the IP address ranges used in the VPC and remote network do not overlap. Additionally, you will need to configure the remote site's VPN gateway to establish the VPN connection with AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question570:"link"
+
+

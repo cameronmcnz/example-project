@@ -1,0 +1,90 @@
+---
+layout: default 
+title: "967 - You have several instances doing machine"
+---
+
+
+[.question]
+== 967-64a1fa76f053625db51ddead.
+
+
+****
+
+[.query]
+--
+You have several instances doing machine learning to compute.
+You have all the data required for the machine learning in an S3 bucket.
+You need to find a high-performance storage in which all the instances can read and write data simultaneously.
+Which of the following options is the best suited solution for this?
+
+
+--
+
+[.list]
+--
+* [*] A. FSx for Windows File Server.
+* [ ] B. EFS.
+* [*] C. FSx for Lustre.
+* [ ] D. DynamoDB Accelerator.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect.
+FSx for Windows File Server is well suited to have a shared storage for your Windows instances.
+But it does not read data from S3, and it isn't a high-performance storage.
+More details:
+https://aws.amazon.com/fsx/windows/
+Option B is incorrect.
+EFS is a shared storage for Linux instances.
+But it does not read data from S3, and it is not a high-performance storage.
+More details:
+https://aws.amazon.com/efs/
+Option C is CORRECT.
+FSx for Lustre is a high-performance storage.
+It can read data from S3 and connect to multiple instances at the same time.
+More details:
+https://aws.amazon.com/fsx/lustre/faqs/
+Option D is incorrect.
+DynamoDB accelerator is an in-memory cache used to increase the performance of DynamoDB.
+More details:
+https://aws.amazon.com/dynamodb/dax/
+Based on the scenario described, the best option among the given choices is C. FSx for Lustre.
+FSx for Lustre is a highly scalable and high-performance file system designed for processing large-scale workloads, such as machine learning, high-performance computing, and video processing. It provides sub-millisecond latencies, high throughput, and consistent performance.
+Here are some reasons why FSx for Lustre is the best option:
+1.
+High performance: FSx for Lustre can deliver throughput up to hundreds of gigabytes per second, which is suitable for data-intensive workloads. The performance is consistent, regardless of the file size, number of files, or number of clients accessing the file system.
+2.
+Scalability: FSx for Lustre can scale up or down to meet the workload demands. You can start with a small file system and add more capacity as needed without impacting performance.
+3.
+Simultaneous access: FSx for Lustre supports concurrent read and write access from multiple instances, which is critical for machine learning workloads. All the instances can access the same file system and data simultaneously.
+4.
+S3 integration: FSx for Lustre can seamlessly integrate with S3, which is where all the data required for machine learning is stored. This allows the instances to read and write data directly to/from S3 without any data movement or replication.
+In contrast, let's briefly examine the other options:
+A. FSx for Windows File Server: It provides a fully managed Windows file server that is accessible over the industry-standard Server Message Block (SMB) protocol. It is more suitable for Windows-based workloads and not ideal for machine learning workloads.
+B. EFS: It is a fully managed, highly available, and scalable file system for Linux-based workloads. While it can be used for machine learning workloads, it may not provide the required performance and scalability as FSx for Lustre.
+D. DynamoDB Accelerator: It is an in-memory cache for DynamoDB that can improve performance and reduce latency for read-intensive workloads. It is not suitable for machine learning workloads that require high throughput and simultaneous read/write access.
+In summary, FSx for Lustre is the best option among the given choices for machine learning workloads that require high-performance storage with simultaneous read and write access.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question188:"link"
+
+

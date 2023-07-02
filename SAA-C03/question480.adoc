@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "1280 - You are working as a Cloud Solutions Arc"
+---
+
+
+[.question]
+== 1280-64a1fb0cf053625db51de024.
+
+
+****
+
+[.query]
+--
+You are working as a Cloud Solutions Architect in a Series-B funding startup.
+The Senior Director asked you to deploy a data mining server for their financial data on a Reserved EC2 instance in any region using IPv6
+As the data is related to the financial, the company's CEO was worried about the security.
+He suggested that the system be highly secured to avoid unauthorized access, and other security features must also be implemented.
+In order to follow the instruction given by your CEO, which of the following VPC feature you will implement to achieve the given security?
+
+
+--
+
+[.list]
+--
+* [*] A. VPC Peering
+* [ ] B. NAT Instances
+* [*] C. Egress-only Internet Gateway
+* [ ] D. NAT Gateway.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option C is CORRECT because egress-only Internet gateway is a VPC component that allows outbound communication over IPv6 from instances in your VPC to the Internet, and prevents the Internet from initiating an IPv6 connection with your instances.
+Option A is incorrect because VPC Peering is used to connect multiple VPCs.
+Options B and D are incorrect if communication is required using IPV6.
+Refer: https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html.
+To meet the requirements for a secure data mining server on an IPv6 reserved EC2 instance, we should implement a NAT Gateway.
+A NAT Gateway is a highly available, managed service that provides network address translation (NAT) for instances in private subnets to access the Internet. NAT Gateway allows outbound traffic from the private subnet to the Internet, while blocking inbound traffic from the Internet to the private subnet. It also provides a layer of security by hiding the IP addresses of the instances in the private subnet from the Internet.
+By using NAT Gateway, we can ensure that the data mining server can securely access the Internet to fetch data required for analysis, while preventing unauthorized access from the Internet. Additionally, using IPv6 addressing is beneficial in terms of security, as it can provide a larger address space and better security features than IPv4.
+VPC peering allows communication between two VPCs, but it does not provide any security features. Egress-only Internet Gateway only allows outbound traffic from the VPC to the Internet, but does not provide NAT functionality. NAT Instances are less recommended than NAT Gateway because they require additional setup and management, and do not provide high availability by default.
+Therefore, the best option to achieve secure data mining server access from IPv6 on a Reserved EC2 instance is to use NAT Gateway.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question566:"link"
+
+

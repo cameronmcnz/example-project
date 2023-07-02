@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1036 - You have a set of IIS Servers running on"
+---
+
+
+[.question]
+== 1036-64a1fa91f053625db51ddefc.
+
+
+****
+
+[.query]
+--
+You have a set of IIS Servers running on EC2 Instances.
+You want to collect and process the log files generated from these IIS Servers.
+Which service would be ideal for utilizing the Big Data analytics in this scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon S3 for storing the log files and Amazon EMR for processing the log files.
+* [ ] B. Amazon S3 for storing the log files and EC2 Instances for processing the log files.
+* [*] C. Amazon EC2 for storing and processing the log files.
+* [ ] D. Amazon DynamoDB to store the logs and EC2 for running custom log analysis scripts.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data.
+Using these frameworks and related open-source projects, such as Apache Hive and Apache Pig, you can process data for analytics purposes and business intelligence workloads.
+Additionally, you can use Amazon EMR to transform and move a large amount of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB.Options B and C are incorrect as it would be an overhead for EC2 Instances to process log files when you already have a ready-made service to help in this regard.
+Option D is incorrect because DynamoDB is not an ideal option to store log files.
+For more information on EMR, please visit the URL below:
+http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html
+The ideal service for collecting and processing log files generated from IIS servers on EC2 instances is Amazon S3 for storing the log files and Amazon EMR for processing the log files.
+Amazon S3 is a highly scalable, secure, and durable object storage service that allows you to store and retrieve any amount of data from anywhere on the web. With Amazon S3, you can store log files generated from IIS servers on EC2 instances easily, and it provides an efficient way to access and manage the data.
+Amazon EMR (Elastic MapReduce) is a fully-managed big data processing service that makes it easy to process large amounts of data using open-source frameworks such as Apache Hadoop, Spark, and Presto. EMR is designed to handle large datasets, and it can quickly process and analyze log files generated from IIS servers on EC2 instances.
+Using Amazon EMR, you can run big data analytics jobs on your log data using Hadoop, Spark, or other distributed processing frameworks. This allows you to extract valuable insights and patterns from your log files, which can help you optimize your IIS server performance, troubleshoot issues, and improve overall system efficiency.
+Option B, Amazon S3 for storing the log files and EC2 instances for processing the log files, is not as ideal as it requires more management overhead and configuration, as well as a significant amount of time and effort to set up and maintain the EC2 instances.
+Option C, using Amazon EC2 for storing and processing the log files, is not recommended because it is not an efficient way to store and process large amounts of data, and it requires more management overhead and configuration compared to using Amazon S3 and EMR.
+Option D, using Amazon DynamoDB to store the logs and EC2 for running custom log analysis scripts, is not recommended as DynamoDB is not ideal for storing large amounts of unstructured data such as log files, and it would require significant effort to develop custom log analysis scripts to process the data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question269:"link"
+
+

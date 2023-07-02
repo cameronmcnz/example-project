@@ -1,0 +1,133 @@
+---
+layout: default 
+title: "1081 - Your company has a set of 100 servers ho"
+---
+
+
+[.question]
+== 1081-64a1faa7f053625db51ddf2f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgCSAA-addi-8.PNG[]
+
+--
+
+
+****
+
+[.query]
+--
+Your company has a set of 100 servers hosted on the AWS Cloud.
+There is a need to stream the Logs from the Instances for analysis purposes.
+From a security compliance perspective, additional logic will be executed to analyze the data for any sort of abnormal behaviour.
+Which of the following would be used to stream the log data?
+
+
+[source,java]
+----
+on i} =
+o—
+o. = oo
+o— oo
+oo
+
+Input
+
+Capture and send data to
+Amazon Kinesis Data Streams
+
+wa
+EO |
+
+Amazon Kinesis Data
+Streams
+
+Ingests and stores data
+streams for processing
+
+SS Amazon Kinesis
+Zul] Data Analytics
+
+spent Spark on EMR
+re Amazon EC2
+
+D, AWS Lambda
+
+Build custom, real-time
+applications using Amazon
+Kinesis Data Analytics,
+stream processing
+frameworks like Apache
+Spark, or your code
+running Amazon EC2 or
+AWS Lambda
+
+LA lok
+&) tlh
+
+Output
+
+Analyze streaming data
+using your favorite
+BI tools
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon CloudFront
+* [ ] B. Amazon SQS
+* [*] C. Amazon Kinesis Data Streams (KDS)
+* [ ] D. Amazon SES (Simple Email Service)
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+The AWS Documentation mentions the following.
+Amazon Kinesis Data Streams enables you to build custom applications that process or analyze streaming data for specialized needs.
+You can continuously add various types of data such as clickstreams, application logs, and social media to an Amazon Kinesis data stream from hundreds of thousands of sources.
+Within seconds, the data will be available for your Amazon Kinesis Applications to read and process from the stream.
+Use cases of Kinesis Data Streams:
+Log and event data collection.
+Real-time analytics.
+Mobile data capture.
+Gaming data feed.
+Option A is incorrect since CloudFront is a content distribution service.
+Option B is incorrect since SQS is used as a messaging service.
+Option D is incorrect since SES is an email service.
+For more information on AWS Kinesis, please visit the below URL.
+https://aws.amazon.com/kinesis/data-streams/faqs/ https://aws.amazon.com/kinesis/data-streams/
+The appropriate service to use for streaming logs from AWS instances for analysis and additional processing is Amazon Kinesis Data Streams (KDS), which is a scalable and durable real-time data streaming service.
+Amazon CloudFront is a content delivery network (CDN) that accelerates the delivery of static and dynamic web content, such as websites, APIs, and video. It does not support the streaming of log data for analysis.
+Amazon SQS (Simple Queue Service) is a managed message queuing service used to decouple and scale microservices, distributed systems, and serverless applications. While it is possible to use SQS to transport log data from instances to a processing system, it is not the best service for real-time streaming and processing of log data.
+Amazon SES (Simple Email Service) is a cloud-based email sending service designed for marketing and transactional email messages. It is not intended for log data streaming and analysis.
+Therefore, Amazon Kinesis Data Streams (KDS) is the most appropriate service for real-time streaming and processing of log data for analysis purposes. With KDS, you can collect and process large amounts of data in real-time, and analyze it using AWS services such as AWS Lambda, Amazon Elasticsearch Service, or Amazon Kinesis Data Analytics. Additionally, KDS provides scalability, durability, and fault tolerance, which makes it a reliable choice for log data streaming.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question321:"link"
+
+

@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "940 - A Financial firm is planning to build a "
+---
+
+
+[.question]
+== 940-64a1fa6cf053625db51dde90.
+
+
+****
+
+[.query]
+--
+A Financial firm is planning to build a highly resilient application with primary database servers located at on-premises data centers while maintaining its DB snapshots in an S3 bucket.
+The IT Team is looking for a cost-effective and secure way of transferring the large customer financial databases from on-premises servers to the Amazon S3 bucket with no impact on the client usage of these applications.
+Also, post this data transfer, the on-premises application will be fetching data from the Amazon S3 bucket in case of a primary database failure. So, your solution should ensure that the Amazon S3 data is fully synced with the on-premises database.
+Which of the following can be used to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon S3 Transfer Acceleration for transferring data between the on-premises & Amazon S3 bucket while using AWS Data Sync for accessing these S3 bucket data from the on-premises application.
+* [*] B. Use AWS Data Sync for transferring data between the on-premises & Amazon S3 bucket while using AWS Storage Gateway for accessing these S3 bucket data from the on-premises application.
+* [*] C. Use AWS Snowball Edge for transferring data between the on-premises & Amazon S3 bucket while using AWS Storage Gateway for accessing these S3 bucket data from the on-premises application.
+* [ ] D. Use AWS Transfer for transferring data between the on-premises & Amazon S3 bucket while using AWS Data Sync for accessing these S3 bucket data from the on-premises application.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS DataSync can be used for huge amounts of data transfer between on-premises &amp; AWS.
+AWS Data Sync is a secure way of online data transfer.
+Once data is transferred to the AWS S3 bucket, AWS Storage Gateway can have data synced between on-premises servers &amp; AWS S3 buckets.
+Option A is incorrect as Amazon S3 Transfer Acceleration can be used for applications that have already integrated with Amazon S3 API.
+Option C is incorrect as AWS Snowball Edge can be used for offline data transfer between on-premises &amp; AWS S3 bucket.
+Option D is incorrect as AWS Transfer is a better choice for transferring SFTP data between on-premises &amp; Amazon S3.
+For more information on using AWS DataSync, refer to the following URLs:
+https://aws.amazon.com/datasync/faqs/ https://aws.amazon.com/blogs/storage/migrating-hundreds-of-tb-of-data-to-amazon-s3-with-aws-datasync/
+The best option to meet the requirements of the Financial firm is to use AWS Data Sync for transferring data between the on-premises and Amazon S3 bucket, while using AWS Storage Gateway for accessing the S3 bucket data from the on-premises application. Therefore, the correct answer is B.
+Here's why:
+Option A, which suggests using Amazon S3 Transfer Acceleration for transferring data between on-premises and Amazon S3 bucket, is not a suitable choice for this use case. Amazon S3 Transfer Acceleration is designed to accelerate transfers over the internet, and it's not optimized for use within private networks. Furthermore, this option suggests using AWS Data Sync for accessing S3 bucket data from the on-premises application, which isn't optimal. While AWS Data Sync is excellent for transferring data between on-premises storage and AWS storage services, it doesn't provide a seamless way to access the data from on-premises applications.
+Option C, which recommends using AWS Snowball Edge for transferring data, is an excellent option for large data transfers, but it may not be cost-effective for this particular use case, considering that the Financial firm plans to transfer data frequently. Additionally, using AWS Storage Gateway for accessing S3 bucket data from the on-premises application is still the most suitable option.
+Option D, which suggests using AWS Transfer for transferring data, may not be the best option for this use case since AWS Transfer is optimized for transferring files to and from Amazon S3 over the internet. Therefore, using it to transfer data between on-premises and Amazon S3 bucket may not be the most efficient option.
+That leaves us with option B, which is the best choice for the Financial firm's requirements. AWS Data Sync is an excellent solution for synchronizing data between on-premises storage and AWS storage services, including S3 buckets. AWS Storage Gateway, on the other hand, is designed to provide a seamless way to access AWS storage services from on-premises applications, including S3 bucket data. Therefore, using AWS Data Sync for transferring data and AWS Storage Gateway for accessing S3 bucket data from the on-premises application is the most cost-effective, efficient, and secure way to meet the requirements of the Financial firm.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question159:"link"
+
+

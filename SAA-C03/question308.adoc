@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1108 - A company has a requirement for blocklev"
+---
+
+
+[.question]
+== 1108-64a1fab3f053625db51ddf4d.
+
+
+****
+
+[.query]
+--
+A company has a requirement for block-level storage that should be able to store 800GB of data.
+Also, encryption of the data is required.
+What can be used in this case?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS EBS Volumes
+* [ ] B. AWS S3
+* [*] C. AWS Glacier
+* [ ] D. AWS EFS.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+For block-level storage, consider EBS Volumes.
+Options B and C are incorrect since they provide object-level storage.
+Option D is incorrect since this provides file-level storage.
+For more information on EBS Volumes, please visit the following URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html
+The best option for this requirement would be AWS EBS Volumes (option A).
+AWS EBS (Elastic Block Store) Volumes provide block-level storage that can be attached to Amazon EC2 instances. It is a durable, high-performance, and cost-effective storage solution for applications that require persistent storage.
+AWS EBS Volumes offer several features that make it an ideal choice for this requirement. Firstly, EBS Volumes are able to store up to 16 terabytes of data, which is well beyond the required 800GB. This means that there will be plenty of room to store the required data, and even more if necessary.
+Secondly, AWS EBS Volumes support encryption of data at rest. This means that data stored on the EBS Volumes will be encrypted and secure, providing an added layer of protection to the data.
+AWS S3 (option B) is an object storage service that is best used for storing and retrieving large amounts of data. It is ideal for storing data such as images, videos, and backup files. However, it is not well suited for block-level storage, which is required in this case.
+AWS Glacier (option C) is a low-cost storage service designed for data archiving and long-term backup. It is not designed for block-level storage and is not recommended for this requirement.
+AWS EFS (option D) is a fully managed file system that can be mounted on Amazon EC2 instances. It is ideal for applications that require shared file storage. However, it is not well suited for block-level storage, which is required in this case.
+In conclusion, the best option for this requirement would be AWS EBS Volumes as it meets all the requirements of block-level storage, and supports encryption of data at rest.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question351:"link"
+
+

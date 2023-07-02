@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "934 - You have developed a web application to "
+---
+
+
+[.question]
+== 934-64a1df26aa736d27b1db9369.
+
+
+****
+
+[.query]
+--
+You have developed a web application to collect monthly expense reports.
+As the nature of the application and looking at the usage statistics, it is mostly used around the last week of the month and the first week of the month.
+To increase the application performance, you added a caching layer in front of the application servers.
+So the reports are cached and served immediately.
+You started off with Elasticache Redis with a "cache.t2.small" node type.
+The application has been running fine.
+When looking at the performance activity into the CloudWatch, hardly 50% of the requests are served by the cache, and the cache cannot cope with additional content requirements.
+You want to improve the application with minimal changes and resources.
+Please select a valid option.
+
+
+--
+
+[.list]
+--
+* [*] A. Modify the ElastiCache instance from t2 small to t2 medium, as t2 medium is more suitable for the given requirement.
+* [ ] B. Create a new ElastiCache instance with t2 micro, and terminate the t2 small instance.
+* [*] C. Migrate the application to Elastic Beanstalk to use auto-scaling and set the desired and min capacity to 1, use the RDS and Cache layer of Beanstalk to save the cost.
+* [ ] D. Run the web application from S3 and serve with CloudFront.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is CORRECT because we can modify the cache node type from "cache.t2.small" to "cache.t2.medium" in the console.
+We must increase the size of the Redis instance for the server to serve more requests from the cache.
+Option B is INCORRECT because creating a new Elasticache instance with a "cache.t2.micro" node type is not needed here.
+Option C is INCORRECT because migrating to Beanstalk will simply not save the cost.
+Also, Beanstalk has an RDS layer but no caching layer.
+Option D is INCORRECT because S3 and CloudFront will incur additional costs for such a minimal use case.
+There are two things here.
+Elastic Cache Instance -&gt; this supports the underlying Elasticache engine.
+This is similar to our ec2 instance like "t2.micro" , "t2.mall" etc.
+This instance type can be modified either through the AWS console or through the CLI.
+Redis -&gt; This is the engine that runs the elasticache cluster.
+This engine can only be "upgraded" and cannot be "downgraded".
+Please refer to page 99 of the below link-
+https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/redis-ug.pdf
+Based on the usage statistics of the web application, it is observed that the majority of the requests are made during the last week and first week of the month. To optimize the performance, a caching layer was added in front of the application servers. However, the current Elasticache Redis instance with "cache.t2.small" node type is not able to serve all the requests and there is a need to improve the performance of the application.
+Option A: Modify the ElastiCache instance from t2 small to t2 medium, as t2 medium is more suitable for the given requirement. This option suggests upgrading the current Elasticache Redis instance from "cache.t2.small" to "cache.t2.medium". This may improve the performance of the application as t2.medium has higher specifications than t2.small. However, it may not be a cost-effective solution as it involves an increase in instance size, which can be expensive, and may not be required to handle the spike in traffic during the peak usage period.
+Option B: Create a new ElastiCache instance with t2 micro and terminate the t2 small instance. This option suggests creating a new Elasticache Redis instance with "cache.t2.micro" node type and terminating the existing "cache.t2.small" instance. While t2.micro instances are smaller than t2.small instances, this option may work because the majority of the requests for the application are concentrated in a short period of time. Additionally, t2.micro instances are less expensive than t2.small instances, making it a cost-effective solution.
+Option C: Migrate the application to Elastic Beanstalk to use auto-scaling and set the desired and min capacity to 1, use the RDS and Cache layer of Beanstalk to save the cost. This option suggests migrating the web application to Elastic Beanstalk, which will allow the use of auto-scaling with a desired and minimum capacity of 1. Additionally, the RDS and cache layers of Beanstalk can be utilized to optimize performance and save costs. However, this option involves a significant amount of effort to migrate the application and may not be the most efficient solution for the given requirement.
+Option D: Run the web application from S3 and serve with CloudFront. This option suggests running the web application from Amazon S3 and serving it with Amazon CloudFront. While Amazon S3 can be used to host static websites, it may not be a suitable solution for dynamic web applications. Additionally, CloudFront is a content delivery network that can improve the performance of web applications by caching content at the edge, but it may not be a complete solution to optimize performance for the given requirement.
+Based on the given options, the best solution for optimizing the application's performance with minimal changes and resources would be to choose option B. Creating a new Elasticache Redis instance with t2.micro node type and terminating the t2.small instance will provide a cost-effective solution to handle the spike in traffic during the peak usage period of the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question183:"link"
+
+

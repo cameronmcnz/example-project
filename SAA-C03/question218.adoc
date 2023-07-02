@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1018 - Your company has a MySQL database deploy"
+---
+
+
+[.question]
+== 1018-64a1fa89f053625db51ddee7.
+
+
+****
+
+[.query]
+--
+Your company has a MySQL database deployed in an on-premise datacenter.
+You start using AWS Database Migration Service (AWS DMS) to migrate the database to AWS RDS.
+You have a replication instance in DMS to run the migration task.
+Which of the following options assign permissions that determine who is allowed to manage AWS DMS resources?
+
+
+--
+
+[.list]
+--
+* [*] A. Transport Layer Security (TLS) connections between AWS DMS and local datacenter.
+* [ ] B. AWS Key Management Service (AWS KMS) encryption used by the replication instance.
+* [*] C. AWS Identity and Access Management (IAM) policies.
+* [ ] D. Network Control Lists (NCLs) in VPC subnets.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+There are multiple approaches to secure the AWS DMS resources.
+Details can be found in.
+https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html.
+Option A is incorrect: TLS protects the network layer.
+However, it does not assign permissions.
+Option B is incorrect: KMS encrypts data.
+But it cannot manage the permissions.
+Option C is CORRECT: Because IAM policies can be assigned to IAM users who need to manage DMS resources.
+Option D is incorrect: NCL acts as a firewall to protect the VPC subnets.
+But it does not determine who can access DMS resources.
+The correct answer to this question is C. AWS Identity and Access Management (IAM) policies.
+Explanation: AWS DMS is a managed service provided by AWS to migrate data to and from various databases, data warehouses, and other data stores. AWS DMS allows the user to migrate data in real-time and also to perform one-time migrations. The user can create a replication instance in AWS DMS to run the migration task.
+AWS Identity and Access Management (IAM) is a web service that provides security controls for AWS services. IAM allows the user to manage access to AWS resources by creating IAM policies. These policies specify who is allowed to perform specific actions on specific resources.
+In this scenario, the user needs to assign permissions that determine who is allowed to manage AWS DMS resources. To do this, the user needs to create IAM policies that define the actions that are allowed or denied on AWS DMS resources. These policies can be attached to IAM users, groups, or roles.
+Option A, Transport Layer Security (TLS) connections between AWS DMS and the local datacenter, is incorrect because TLS is a security protocol used for securing network communication between two endpoints. It is not used to manage AWS DMS resources.
+Option B, AWS Key Management Service (AWS KMS) encryption used by the replication instance, is incorrect because AWS KMS is a service that is used to create and manage encryption keys used to encrypt data stored in AWS services. It is not used to manage AWS DMS resources.
+Option D, Network Control Lists (NCLs) in VPC subnets, is incorrect because Network Control Lists (NCLs) are used to control traffic at the subnet level. They are not used to manage AWS DMS resources.
+Therefore, the correct answer is option C, AWS Identity and Access Management (IAM) policies, which are used to manage access to AWS DMS resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question248:"link"
+
+

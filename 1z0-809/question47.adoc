@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "847 - Given
+Which statement is true Java Certi"
+---
+
+
+[.question]
+== 847-64a1a84aef3e8462333a9c65.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0003900001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which statement is true?
+
+
+[source,java]
+----
+public final class Cream {
+public void prepare() {}
+B
+public class Cake extends Cream{
+public void bake(int min, int temp) {}
+public void mix()  {}
+B
+public class Shop {
+private Cake c = new Cake ()7
+private final double discount = 0.25;
+public void makeReady () { c¢.bake(10, 120); }
+B
+public class Bread extends Cake {
+public void bake(int minutes, int temperature)
+public void addToppings() {}
+
+t
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. A compilation error occurs in Cream.
+* [ ] B. A compilation error occurs in Cake.
+* [ ] C. A compilation error occurs in Shop.
+* [ ] D. A compilation error occurs in Bread.
+* [*] E. All classes compile successfully.
+
+--
+****
+
+[.answer]
+E
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

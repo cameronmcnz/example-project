@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1169 - Your company has started hosting its dat"
+---
+
+
+[.question]
+== 1169-64a1fad5f053625db51ddfa0.
+
+
+****
+
+[.query]
+--
+Your company has started hosting its data store on AWS by using the Simple Storage service.
+They are storing files that are downloaded by users frequently.
+After 3 months, the files need to be transferred to archive storage since they are not used beyond this point.
+Which of the following could be used to manage this requirement effectively?
+
+
+--
+
+[.list]
+--
+* [*] A. Transfer the files via scripts from S3 to Glacier after a period of 3 months.
+* [*] B. Use Lifecycle policies to transfer the files onto Glacier after a period of 3 months.
+* [ ] C. Use Lifecycle policies to transfer the files onto Cold HDD after a period of 3 months.
+* [ ] D. Create a snapshot of the files in S3 after a period of 3 months.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+To manage your objects so that they are stored cost-effectively throughout their lifecycle, you need to configure their lifecycle.
+A lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects.
+There are two types of actions:
+Transition actions-Define when objects transition to another storage class.
+For example, you might choose to transition objects to the STANDARD_IA storage class 30 days after you created them or archive objects to the GLACIER storage class one year after creating them.
+Expiration actions-Define when objects expire.
+Amazon S3 deletes expired objects on your behalf.
+The lifecycle expiration costs depend on when you choose to expire objects.
+Option A is invalid since there is already the option of lifecycle policies.
+Option C is invalid since lifecycle policies are used to transfer to Glacier or S3-Infrequent Access.
+Option D is invalid since snapshots are used for EBS volumes.
+For more information on S3 lifecycle policies, please visit the below URL-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+The most effective way to manage this requirement is to use Lifecycle policies in Amazon S3 to automatically transfer the files to a lower-cost storage class after a period of 3 months. This is because Amazon S3 offers multiple storage classes that provide different levels of durability, availability, performance, and cost.
+Option A is not the best approach because it involves transferring the files manually using scripts, which is a time-consuming and error-prone process. In addition, it is difficult to keep track of which files have been transferred and which files have not.
+Option B is the correct answer because Lifecycle policies allow you to automate the process of transferring objects to another storage class or deleting them after a specified period of time. You can set up a policy that transfers the files to Amazon S3 Glacier after 3 months of inactivity, which is a lower-cost storage class designed for data archiving and long-term backup.
+Option C is not recommended because Cold HDD is a storage class optimized for infrequently accessed data that requires high throughput and low cost. It is not suitable for archiving data that is not accessed beyond a certain point, as it is not designed for long-term storage.
+Option D is also not recommended because creating a snapshot of the files in S3 after 3 months would not transfer them to a lower-cost storage class. Snapshots are point-in-time copies of a volume that can be used to restore data, but they do not provide a way to archive data in a cost-effective manner.
+In conclusion, the best way to manage this requirement is to use Lifecycle policies to transfer the files to Amazon S3 Glacier after a period of 3 months. This approach is cost-effective, scalable, and easy to automate.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question434:"link"
+
+

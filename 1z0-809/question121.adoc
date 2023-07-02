@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "921 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 921-64a1a863ef3e8462333a9caf.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0011400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+Deque<Integer> nums = new ArrayDeque<>();
+nums.add(1000) 7
+
+nums .push (2000)
+
+nums add (3000) 7
+
+nums .push (4000) +
+
+Integer il = nums.remove();
+
+Integer i2 = nums.pop()7
+System.out.printin(il +
+
+" 4 42);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 4000 : 2000
+* [*] B. 4000 : 1000
+* [ ] C. 1000 : 4000
+* [ ] D. 1000 : 2000
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

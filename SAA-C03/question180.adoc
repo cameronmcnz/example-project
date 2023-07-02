@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "980 - With its own Active Directory your compa"
+---
+
+
+[.question]
+== 980-64a1fa7af053625db51ddebd.
+
+
+****
+
+[.query]
+--
+With its own Active Directory, your company authenticates users for different applications.
+You have been assigned the task of consolidating and migrating services to the cloud and using the same credentials if possible.
+What would you recommend?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Directory Service that allows users to sign in with their existing corporate credentials.
+* [ ] B. Create two Active Directories – one for the cloud and one for on-premises – reducing username/password combinations to two.
+* [*] C. Require users to use third-party identity providers to log-in for all services.
+* [ ] D. Build out Active Directory on EC2 instances to gain more control over user profiles.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is correct.
+AWS Directory Service enables your end-users to use their existing corporate credentials while accessing AWS applications.
+Once you've been able to consolidate services to AWS, you won't have to create new credentials.
+Instead, you'll be able to allow the users to use their existing username/password.
+Option B is incorrect.
+One Active Directory can be used for both on-premises and the cloud.
+This isn't the best option provided.
+Option C is incorrect.
+This won't always reduce the number of username/password combinations.
+Option D is incorrect.
+This requires more effort and additional management than using a managed service.
+For more information, please refer to the URLs below:
+https://aws.amazon.com/directoryservice/faqs https://aws.amazon.com/directoryservice/ https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html
+As the company is currently using Active Directory for user authentication, it would be best to look for a solution that can integrate with the existing Active Directory. Out of the given options, the best choice would be A: Use AWS Directory Service that allows users to sign in with their existing corporate credentials.
+AWS Directory Service provides multiple options for integrating with existing Active Directory environments. These options include:
+1.
+AWS Managed Microsoft AD: It is a fully managed Active Directory in the AWS cloud. It can be integrated with an existing on-premises Active Directory using AD Connector, allowing users to access resources in both environments using their existing credentials.
+2.
+AD Connector: It allows the AWS resources to authenticate and authorize users against the existing on-premises Active Directory. It acts as a proxy between the AWS applications and the on-premises directory.
+3.
+Simple AD: It is a standalone directory that is compatible with Microsoft Active Directory. It can be used as a standalone directory or can be integrated with an existing on-premises Active Directory using AD Connector.
+By using AWS Directory Service, the company can consolidate its user authentication and management, which can simplify administration and reduce costs. Additionally, it can provide a more seamless experience for users by allowing them to use their existing corporate credentials to access cloud-based applications.
+Option B is not a recommended approach as it would create two separate directories, which could lead to more complexity and potential security issues. Option C is not a good choice as it would require users to log in using different credentials for different services, leading to confusion and more administrative overhead. Option D is not recommended as it would require managing and securing Active Directory on EC2 instances, which could be complex and costly.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question204:"link"
+
+

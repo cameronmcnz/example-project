@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1022 - A company has been using AWS cloud servi"
+---
+
+
+[.question]
+== 1022-64a1fa8bf053625db51ddeec.
+
+
+****
+
+[.query]
+--
+A company has been using AWS cloud services for six months and has just finished a security review. Which of the following is considered a best practice in the security pillar of the well-architected framework?
+
+
+--
+
+[.list]
+--
+* [*] A. Using the root user to create all-new user accounts, at any time
+* [*] B. Monitoring and using alerts using CloudTrail and CloudWatch
+* [*] C. Assigning Private IP address ranges to VPCs that do not overlap
+* [ ] D. Designing the system using elasticity to meet changes in demand.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option B is correct.
+Monitoring and alerting for key metrics and events are the best practices of the Security pillar.
+Option A is incorrect.
+For the root user, you should follow the best practice of using this login only to create another, an initial set of IAM users and groups for longer-term identity management operations.
+Option C is incorrect.
+Non-overlapping Private IP addresses are in the Reliability pillar.
+D.
+Design using elasticity to meet demand is in the Performance Efficiency pillar (Design for Cloud Operations).
+References:
+https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf https://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pdf
+Sure, I'd be happy to explain the answer in detail!
+The well-architected framework is a set of best practices developed by AWS to help organizations design and operate reliable, secure, efficient, and cost-effective systems in the cloud. The framework consists of five pillars: operational excellence, security, reliability, performance efficiency, and cost optimization.
+Based on the given scenario, the question is asking for the best practice in the security pillar. The security pillar of the well-architected framework includes several best practices, such as:
+Implementing a strong identity foundation: This involves using AWS Identity and Access Management (IAM) to manage user access and permissions, enforcing least privilege, and using multi-factor authentication (MFA) where appropriate.
+Protecting data: This includes using encryption to protect data at rest and in transit, implementing secure key management, and using secure protocols for communication.
+Securing network traffic: This involves using Amazon Virtual Private Cloud (VPC) to isolate and control network traffic, using security groups and network access control lists (ACLs) to restrict access, and using bastion hosts and jump boxes to access resources securely.
+Managing security events: This includes monitoring and logging all API calls and changes to AWS resources using AWS CloudTrail, using Amazon GuardDuty to detect and respond to threats, and using AWS Config to audit and assess compliance.
+Out of the given options, the best practice in the security pillar of the well-architected framework is option B: Monitoring and using alerts using CloudTrail and CloudWatch. This option aligns with the managing security events best practice and involves using AWS CloudTrail to log all API calls and changes to AWS resources and using Amazon CloudWatch to monitor and set up alerts on system metrics, logs, and events.
+Option A: Using the root user to create all-new user accounts, at any time, is not a best practice as it violates the principle of least privilege and increases the risk of unauthorized access.
+Option C: Assigning Private IP address ranges to VPCs that do not overlap is a best practice in the networking pillar of the well-architected framework, but it is not directly related to the security pillar.
+Option D: Designing the system using elasticity to meet changes in demand is a best practice in the performance efficiency pillar of the well-architected framework, but it is not directly related to the security pillar.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question253:"link"
+
+

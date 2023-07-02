@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "908 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 908-64a1a860ef3e8462333a9ca2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0010000001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+// Login time:2015-01-12721:58:18.8172
+Instant loginTime = Instant.now()7
+Thread. sleep (1000);
+
+// Logout time:2015-01-12721:58:19.8802
+Instant logoutTime = Instant.now();
+
+loginTime = loginTime.truncatedTo(ChronoUnit MINUTES); // line n1
+logoutTime = logoutTime.truncatedTo (ChronoUnit .MINUTES) ;
+
+Af (logoutTime.isAfter (loginTime) )
+System. out.printIn ("Logged out at:"+logoutTime) ;
+else
+System.out.printIn("Can't logout");
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. A compilation error occurs at line n1.
+* [ ] B. Logged out at: 2015-01-12T21:58:19.880Z
+* [ ] C. Can`t logout
+* [*] D. Logged out at: 2015-01-12T21:58:00Z.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

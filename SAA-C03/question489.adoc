@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1289 - You are designing a web application that"
+---
+
+
+[.question]
+== 1289-64a1fb10f053625db51de030.
+
+
+****
+
+[.query]
+--
+You are designing a web application that stores static assets in an Amazon S3 bucket.
+You expect this bucket to immediately receive over 400 requests with a mix of GET/PUT/DELETE per second.
+What should you do to ensure optimal performance?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon S3 will automatically manage performance at this scale.
+* [ ] B. Add a random prefix to the key names.
+* [*] C. Use a predictable naming scheme, such as sequential numbers or date time sequences, in the key names.
+* [ ] D. Use multi-part upload.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+#####################
+Request Rate and Performance Guidelines.
+Amazon S3 automatically scales to high request rates.
+For example, your application can achieve at least 3,500 PUT/POST/DELETE and 5,500 GET requests per second per prefix in a bucket.
+There are no limits to the number of prefixes in a bucket.
+It is simple to increase your read or write performance exponentially.
+For example, if you create 10 prefixes in an Amazon S3 bucket to parallelize reads, you could scale your read performance to 55,000 read requests per second.
+###################################
+For More Information:
+https://aws.amazon.com/about-aws/whats-new/2018/07/amazon-s3-announces-increased-request-rate-performance/
+When designing a web application that stores static assets in an Amazon S3 bucket, it is important to consider the performance of the bucket, especially when it is expected to receive a high volume of requests. In this case, the bucket is expected to receive over 400 requests with a mix of GET/PUT/DELETE per second.
+Option A: Amazon S3 will automatically manage performance at this scale.
+This option is not entirely correct as Amazon S3 does not automatically manage performance at any scale. Although S3 is designed to handle massive scale and offers high durability, availability, and scalability, there are still some considerations to keep in mind to ensure optimal performance.
+Option B: Add a random prefix to the key names.
+Adding a random prefix to the key names can help to distribute the load across different partitions and improve performance. This is because Amazon S3 uses the key name to determine the partition in which the object will be stored. By adding a random prefix to the key names, the objects are distributed across multiple partitions, which can help to reduce the likelihood of hotspots and improve performance.
+Option C: Use a predictable naming scheme, such as sequential numbers or date time sequences, in the key names.
+Using a predictable naming scheme such as sequential numbers or date time sequences in the key names can lead to performance issues. This is because Amazon S3 stores objects in alphabetical order based on the key name, and if the key names are predictable, they can cause hotspots on a single partition, leading to performance issues.
+Option D: Use multi-part upload.
+Multi-part upload can improve performance when uploading large files to Amazon S3 by breaking the file into smaller parts and uploading them in parallel. However, in this case, the request mix is a mix of GET/PUT/DELETE, and multi-part upload does not apply.
+Therefore, the best option for ensuring optimal performance for a web application that stores static assets in an Amazon S3 bucket that receives over 400 requests with a mix of GET/PUT/DELETE per second is option B: Add a random prefix to the key names.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question578:"link"
+
+

@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1099 - You are an AWS architect in an IT startu"
+---
+
+
+[.question]
+== 1099-64a1df64aa736d27b1db9464.
+
+
+****
+
+[.query]
+--
+You are an AWS architect in an IT startup company.
+Last month you configured an AWS Organization.
+Although the default feature set of AWS Organization is “All Features”, you only enabled the “Consolidated Billing” feature at that time.
+Later on, you found it was necessary to use service control policies (SCPs) to provide a central control to enable “All Features” for the Organization.
+Recently, the company is short on budget and has to make a cost reduction.
+Your manager asked you whether you can modify “All Features” to “Consolidated Billing” to save some cost.
+How would you answer this question?
+
+
+--
+
+[.list]
+--
+* [*] A. All attached SCPs need to be detached first in the Organization before All Features is changed to Consolidated Billing. This can also save some cost as Consolidated Billing is a free feature.
+* [ ] B. All Features can be switched to Consolidated Billing as long as the user has proper IAM permission. However, it will not save any cost as Consolidated Billing and All Features charge the same.
+* [*] C. Users can switch between All Features and Consolidated Billing anytime. However, this will not save any cost since AWS Organization is offered without charge as long as there are more than 5 OUs in the Organization.
+* [*] D. All Features cannot be switched back to Consolidated Billing. Besides, AWS Organization is a free service, so it is not required to modify it.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+About AWS Organization pricing, please refer to.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html.
+AWS Organization itself is a free service.
+Users are only charged for the AWS resources in their accounts.
+Option A is incorrect: All Features cannot be switched back to Consolidated Billing.
+This is described in.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html.
+Option B is incorrect: Similar to.
+Option A.Option C is incorrect: AWS Organization is a free service regardless of how many OUs in the Organization.
+Option D is CORRECT: After All Features is enabled, it cannot be changed back.
+Besides, since it is a free service, you have to consider other AWS services to save some costs.
+The correct answer is A.
+AWS Organization is a management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. This service offers two types of features, Consolidated Billing and All Features. Consolidated Billing enables you to consolidate payment for multiple AWS accounts. All Features includes Consolidated Billing and also provides you with additional management capabilities like Service Control Policies (SCPs) to control access to AWS services across your organization.
+When you create an AWS Organization, the default feature set is All Features, which means that all AWS services are enabled across all accounts in the organization. However, you can disable certain services using SCPs.
+In the scenario described in the question, the organization was created with only the Consolidated Billing feature enabled. Later, the need arose to use SCPs to provide central control, which requires the All Features option to be enabled.
+If the organization is short on budget and needs to reduce costs, it is possible to switch back to Consolidated Billing. However, before doing so, all attached SCPs need to be detached first. This is because SCPs only apply to accounts that have All Features enabled. If you switch back to Consolidated Billing, the SCPs will no longer be applied, and the organization will lose its central control. Additionally, it is worth noting that Consolidated Billing is a free feature and will not save any costs compared to All Features.
+It is also important to note that AWS Organization itself is a free service, so modifying it will not have any impact on the budget. However, enabling All Features may result in additional costs if more AWS services are used across the organization.
+Therefore, the correct answer is A. All attached SCPs need to be detached first in the Organization before All Features is changed to Consolidated Billing. This can also save some cost as Consolidated Billing is a free feature.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question435:"link"
+
+

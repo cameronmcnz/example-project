@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "920 - Your customer has recently completed a P"
+---
+
+
+[.question]
+== 920-64a1df21aa736d27b1db9350.
+
+
+****
+
+[.query]
+--
+Your customer has recently completed a Proof of Concept (PoC) and now wants you to recommend a database solutions in AWS.
+The PoC deployed 100 sensors to measure street noise and air quality for 3 months.
+During the PoC, your peak IOPS was 10, and the database received 30 GB worth of key-value sensor data per month.
+You are required to provide an architecture for 100,000 sensors initially and accommodate future scaling needs.
+The sensor data must be retained for a least two years to compare yearly improvements.
+Which AWS storage solution requires the least amount of change to the application?
+
+
+--
+
+[.list]
+--
+* [*] A. DynamoDB
+* [ ] B. RDS MySQL
+* [ ] C. Kinesis
+* [ ] D. S3
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The key point here is that the data is being sent key-value pairs from the sensors.
+Whenever you see key-value, you should immediately think of the Amazon no-SQL database DynamoDB.
+DynamoDB has nearly infinite capacity, sub-second latency, and designed to ingest large amounts of data.
+Option A is correct as DynamoDB is best suited to store and analysis key-value data.
+Reference - https://aws.amazon.com/nosql/key-value/
+Option B is incorrect as MySQL has a limit of 16 TB, and a no-SQL database is recommended for key-value pairs.
+Reference - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.FileSize.
+Option C is incorrect as Kinesis is not a storage solution and only stores data for up to 7 days.
+(24 hours by default) The data from the sensors doesn't need to be analyzed in real-time or converted from a key-value pair.
+So Kinesis isn't needed.
+Reference - https://docs.aws.amazon.com/streams/latest/dev/kinesis-extended-retention.html.
+Option D is incorrect as it would require a change to the application.
+The PoC sent the data to a table in a database to use S3
+We would need to change the application to add a log file to S3, as S3 is object storage.
+(.txt, .jpg, mp4, etc.)
+More importantly, S3 is not an ideal service for database storage.
+So it is not suitable for this case.
+Reference - https://aws.amazon.com/s3/
+If you are interested in learning more about how to use DynamoDB for high-volume, time-series data.
+Here is a reference link on the Database Blog from 2019:
+https://aws.amazon.com/blogs/database/design-patterns-for-high-volume-time-series-data-in-amazon-dynamodb/
+Based on the given scenario, the customer needs a database solution for their sensor data that will be collected from 100,000 sensors. The data will be retained for at least two years, and the customer wants to compare yearly improvements. Additionally, the solution must require the least amount of change to the application.
+Of the options given, DynamoDB is the most suitable solution for the customer's requirements. Here's why:
+Option A: DynamoDB DynamoDB is a fully managed NoSQL database service that can handle massive amounts of data and scale to accommodate growing needs. It's ideal for applications that require high performance and low latency, such as IoT applications. DynamoDB's flexible data model can handle key-value data, which is what the sensor data is in the given scenario. DynamoDB can also store and retrieve large volumes of data, making it suitable for storing two years' worth of data from 100,000 sensors. Finally, DynamoDB is fully managed, meaning the customer won't need to worry about infrastructure management or scaling the database as the application grows.
+Option B: RDS MySQL Amazon RDS is a managed relational database service that supports various database engines, including MySQL. While RDS MySQL can handle the amount of data being collected, it's not the best solution for the given scenario because it's a relational database, and the data collected is key-value. Moreover, the application may require significant changes to accommodate MySQL's schema and data types. Additionally, as the data grows, it may become difficult to scale RDS MySQL to accommodate the increasing storage needs.
+Option C: Kinesis Amazon Kinesis is a managed service for real-time processing of streaming data at scale. While Kinesis is suitable for real-time data processing and analytics, it's not the best solution for the given scenario. The sensor data is not real-time and is instead collected over three months. Kinesis is also designed for processing data as it streams in, whereas the sensor data in the given scenario is collected and then stored for analysis.
+Option D: S3 Amazon S3 is a scalable object storage service that can store and retrieve large volumes of data. While S3 can store the sensor data, it's not the best solution for the given scenario because it's not a database service and doesn't offer the querying and indexing capabilities required for analyzing sensor data. Additionally, storing the data in S3 may require significant changes to the application to access the data and perform analysis.
+In conclusion, based on the given scenario, DynamoDB is the best solution for the customer's requirements because it can handle massive amounts of data and scale to accommodate growing needs. Moreover, DynamoDB's flexible data model can handle key-value data, making it suitable for storing sensor data. Finally, DynamoDB is fully managed, meaning the customer won't need to worry about infrastructure management or scaling the database as the application grows.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question157:"link"
+
+

@@ -1,0 +1,108 @@
+---
+layout: default 
+title: "1231 - A web application uses Amazon CloudFront"
+---
+
+
+[.question]
+== 1231-64a1faf5f053625db51ddfed.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A web application uses Amazon CloudFront to deliver its static and dynamic web content.
+You want to customize the error page returned to the viewer when there is a problem with the origin server.
+For example, if the origin server returns a 500 Internal Server Error, CloudFront should present a page that you have prepared.
+How would you achieve this requirement in CloudFront?
+
+
+[source,java]
+----
+CloudFront Distributions
+
+General Origins and Origin Groups Behaviors Error Pages Restrictions Invalidations Tags
+You can configure CloudFront to respond to requests using a custom error page when your origin returns an HTTP 4x or 5xx
+status code. For example, when your custom origin is unavailable and returning 5xx responses, CloudFront can return a static
+
+error page that is hosted on Amazon S3. You can also specify a minimum TTL to control how long CloudFront caches errors.
+For more information, see Customizing Error Responses in the Amazon CloudFront Developer Guide.
+
+Create Custom Error Response Edit Delete
+
+HTTP Error Code Error Caching Minimum TTL Response Page Path HTTP Response Code
+
+QO 500 60 /error-pages/500-Internal-Server-Error.htm| 500
+
+Viewing 1 to 1 of 1 Items
+
+Viewing 1 to 1 of 1 Items
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Modify the application to store custom error pages. CloudFront can cache these error pages automatically.
+* [ ] B. Create a new CloudFront distribution to fetch error pages. Configure the original CloudFront to use the new one as its custom error responses.
+* [*] C. Put the static error pages in an S3 bucket. Create custom error responses for the HTTP 5xx status code in the CloudFront distribution.
+* [ ] D. Upload custom error pages to the CloudFront distribution. Return the error pages when there is a server error.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect because the custom error pages should be configured through CloudFront instead of the application.
+Option B is incorrect because there is no need to create a new CloudFront distribution.
+Option C is CORRECT because the error pages can be customized through CloudFront.
+The following is an example.
+Option D is incorrect because this is not how custom error responses are configured in CloudFront.
+You cannot upload custom error pages to CloudFront directly.
+Reference:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html.
+The correct answer is option C.
+To customize error pages in Amazon CloudFront, you need to perform the following steps:
+1.
+Store error pages in an S3 bucket: You need to upload your custom error pages to an S3 bucket. These error pages can be HTML, images, or any other static content.
+2.
+Create a CloudFront distribution: After you have uploaded the error pages, you need to create a CloudFront distribution. In the distribution, you can specify the S3 bucket where your custom error pages are stored.
+3.
+Configure custom error responses: In the CloudFront distribution, you can configure custom error responses for HTTP status codes 4xx and 5xx. For example, if there is a 404 Not Found error, CloudFront will present the custom error page you have specified for this error.
+4.
+Verify your configuration: After you have configured custom error responses, you should verify your configuration by testing it. You can simulate an error by requesting a non-existent object from your CloudFront distribution. If everything is configured correctly, CloudFront should present the custom error page you have specified for the HTTP status code.
+Option A is incorrect because modifying the application to store custom error pages will not work. The reason is that the application is responsible for serving content to CloudFront, and CloudFront cannot modify or replace the content that the origin server returns.
+Option B is incorrect because creating a new CloudFront distribution is unnecessary. Instead, you can configure the existing CloudFront distribution to use the S3 bucket as the origin for custom error pages.
+Option D is incorrect because uploading custom error pages to the CloudFront distribution will not work. The reason is that CloudFront is a content delivery network and does not allow you to modify or replace the content that the origin server returns.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question511:"link"
+
+

@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1129 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 1129-64a1fac0f053625db51ddf6f.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a retail company using AWS EC2 instance for a web application.
+The company is using Provisioned IOPS SSD EBS volumes to store all product database. This is a critical database & you need to ensure appropriate backups are accomplished every 12 hours.
+Also, you need to ensure that storage space is optimally used for storing all these snapshots removing all older files.
+Which of the following can help to meet this requirement with the least management overhead?
+
+
+--
+
+[.list]
+--
+* [*] A. Manually create snapshots & delete old snapshots for EBS volumes as this is a critical data.
+* [ ] B. Use Amazon CloudWatch events to initiate AWS Lambda which will create snapshot of EBS volumes along with deletion of old snapshots.
+* [*] C. Use Amazon Data Lifecycle Manager to schedule EBS snapshots and delete old snapshots as per retention policy.
+* [ ] D. Use Third party tool to create snapshot of EBS volumes along with deletion of old snapshots.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Amazon Data Lifecycle Manager can be used for creation, retention &amp; deletion of EBS snapshots.
+It protects critical data by initiating backup of Amazon EBS volumes at selected intervals, along with storing &amp; deletion of old snapshots to save storage space &amp; cost.
+Option A is incorrect as this will result in additional admin work &amp; there can be a risk of losing critical data due to manual errors.
+Option B is incorrect as for this we will need to do additional config changes in CloudWatch &amp; AWS Lambda.
+Also, AWS Lambda would need a script to create snapshots which can be an overhead.
+Option D is incorrect as this will result in an additional cost to maintain a third-party software.
+For more information on Automating Amazon EBS Snapshot Lifecycle, refer to the following URL,
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html
+The best option to meet the requirement of creating backups every 12 hours and managing storage space optimally for a critical database is to use Amazon Data Lifecycle Manager (DLM) to schedule EBS snapshots and delete old snapshots as per the retention policy. Option C is the correct answer.
+Explanation: Option A is not a scalable solution because it requires manual intervention, which is not feasible when managing multiple instances or volumes. It is also prone to human errors.
+Option B, using Amazon CloudWatch events to trigger an AWS Lambda function to create snapshots and delete old snapshots, is possible but not the optimal solution. It requires more management overhead, as it involves creating and managing the Lambda function, configuring the CloudWatch event trigger, and ensuring that the function is running correctly.
+Option D, using a third-party tool, is not recommended because it adds another layer of complexity and cost, and it may not integrate well with AWS services.
+Option C, using Amazon Data Lifecycle Manager (DLM), is the best option because it is a fully managed service that automates the process of creating EBS snapshots according to a defined schedule and retention policy. DLM allows you to create policies that can define the interval between snapshots, the number of snapshots to retain, and the time to delete older snapshots. With DLM, you can automate the backup process, reduce the risk of human errors, and optimize storage space.
+In conclusion, option C, using Amazon Data Lifecycle Manager, is the best option to ensure appropriate backups are accomplished every 12 hours, manage storage space optimally, and minimize management overhead.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question385:"link"
+
+

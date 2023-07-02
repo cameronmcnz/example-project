@@ -1,0 +1,123 @@
+---
+layout: default 
+title: "1324 - You are planning to schedule a daily job"
+---
+
+
+[.question]
+== 1324-64a1fb27f053625db51de068.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_k0uchp.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are planning to schedule a daily job with AWS CloudWatch scheduled event and AWS Lambda function triggered by the event that will perform a daily health check on your applications running on a fleet of EC2 instances.
+To achieve this, you need to provide the EC2 instances' name tags to identify the right resources.
+What is the correct way of passing the inputs in this case?
+
+
+[source,java]
+----
+CloudWatch Step 1: Create rule
+
+Dashboards “=
+Atarins: 4 Create rules to automate actions in your AWS environment.
+
+ALARM. 1)
+
+Event selector Targets
+OK
+ia o Build a pattern that selects events for processing by your targets. Select the targets to receive the events that match the rule you defined.
+ling
+Events New Schedule Na Lambda function me °
+Logs @ Fixed rate of 5 Minutes s Function* SomethingHappened ’
+Metrics Cron expression > Configure version/alias
+Learn more about CloudWatch Events schedules. ¥ Configure input
+
+Billing
+
+DynamoDB Matched event
+
+EBS Specify constant values Part of the matched event
+
+Ec2 instead of matched events. ————— > _© Censtant SON text
+
+te {"employees":{ _ {"firstName":"John’, “lastName":
+
+ElastiCache
+ElasticBeanstalk © Add target*
+Events
+
+Firehose *
+He Required Cancel MCiur tke
+io)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the “Variables” option on the AWS CloudWatch scheduled event.
+* [ ] B. You can modify the “Matched Event” option while selecting AWS Lambda as the trigger for CloudWatch scheduled event.
+* [*] C. You can set the “Constant (JSON text)” option while configuring the AWS Cloudwatch rule to trigger a Lambda function from AWS CloudWatch scheduled event.
+* [ ] D. “Details” object of “Matched Event” can be configured while creating an AWS CloudWatch scheduled event.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+When using an AWS Cloudwatch rule to trigger a Lambda event, one of the multiple options you have to pass data onto your Lamba function is “Constant (JSON Text)”
+This handy feature allows you to send static content to your function instead of the matched event.
+You can also create the input targets via the CLI:
+aws events put-targets --rule testjson --targets file://targetfile.
+Reference:
+https://aws.amazon.com/blogs/compute/simply-serverless-use-constant-values-in-cloudwatch-event-triggered-lambda-functions/
+In order to schedule a daily job with AWS CloudWatch scheduled event and AWS Lambda function triggered by the event that will perform a daily health check on your applications running on a fleet of EC2 instances, you need to provide the EC2 instances' name tags to identify the right resources.
+The correct way of passing the inputs in this case is option C: You can set the "Constant (JSON text)" option while configuring the AWS Cloudwatch rule to trigger a Lambda function from AWS CloudWatch scheduled event.
+Here's how to configure this option:
+1. Navigate to the AWS CloudWatch console.
+2. Click on "Rules" in the left-hand menu.
+3. Click "Create rule" to create a new rule.
+4. In the "Event Source" section, select "Schedule" as the Event Source Type.
+5. Configure the "Fixed rate of" field to define how often the rule will be triggered.
+6. In the "Targets" section, click "Add target".
+7. Select "Lambda function" as the target type.
+8. Select your Lambda function from the dropdown list.
+9. In the "Configure input" section, select "Constant (JSON text)".
+10. Enter the name tag of your EC2 instances in JSON format, for example:
+{ "tagKey": "Name", "tagValue": "myEC2Instance" }
+This will pass the name tag "myEC2Instance" to your Lambda function, which can then use it to identify the correct EC2 instance for performing the health check.
+Option A, configuring the "Variables" option on the AWS CloudWatch scheduled event, is not correct because this option is not available for a scheduled event. Option B, modifying the "Matched Event" option while selecting AWS Lambda as the trigger for CloudWatch scheduled event, is not correct because the "Matched Event" option is used for event pattern matching, not for passing inputs to Lambda functions. Option D, configuring the "Details" object of "Matched Event" while creating an AWS CloudWatch scheduled event, is not correct because the "Details" object is used for passing event data to the Lambda function, not for passing inputs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question635:"link"
+
+

@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "954 - An instance is launched into a VPC subne"
+---
+
+
+[.question]
+== 954-64a1fa71f053625db51dde9f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_k9tkhw.png[]
+
+--
+
+
+****
+
+[.query]
+--
+An instance is launched into a VPC subnet with the network ACL configured to allow all outbound traffic and deny all inbound traffic.
+The security group of the instance is configured to allow SSH from any IP address.
+What changes are required to allow SSH access to the instance?
+
+
+[source,java]
+----
+Security rules with Security Group & NACL
+
+Security Group - SSH Allow Deny
+
+Network ACL - SSH Allow Allow
+----
+
+
+--
+
+[.list]
+--
+* [*] A. The Outbound Security Group needs to be modified to allow outbound traffic.
+* [*] B. The Inbound Network ACL needs to be modified to allow inbound traffic
+* [*] C. Nothing, it can be accessed from any IP address using SSH.
+* [ ] D. Both the Outbound Security Group and Outbound Network ACL need to be modified to allow outbound traffic.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+For an EC2 Instance to allow SSH, you can have the below configurations for the Security and Network ACL for Inbound and Outbound Traffic.
+Network ACL has to have both an Allow for Inbound and Outbound because network ACLs are stateless.
+Responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa)
+Whereas for Security groups, responses are stateful.
+So if an incoming request is granted, by default, an outgoing request will also be granted.
+Options A and D are invalid because Security Groups are stateful.
+Here, any traffic allowed in the Inbound rule is allowed in the Outbound rule too.
+Option C is also incorrect.
+For more information on Network ACLs, please refer to the URL below.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
+The given scenario is that an EC2 instance is launched into a subnet of a VPC with the network ACL configured to allow all outbound traffic and deny all inbound traffic. The security group of the instance is configured to allow SSH from any IP address.
+To allow SSH access to the instance, we need to make some changes.
+Network ACLs and Security groups are the two main components of VPC networking that control inbound and outbound traffic to and from the instances in the VPC.
+Network Access Control Lists (NACLs) operate at the subnet level, whereas security groups operate at the instance level.
+NACLs are stateless, meaning that if you allow inbound traffic for a particular port, you must also allow outbound traffic for the same port. NACLs are evaluated in a sequential manner, which means that you need to take care while modifying them because a deny rule can block all subsequent traffic even if there are allow rules that follow.
+Security groups are stateful, meaning that if you allow inbound traffic for a particular port, the return traffic is automatically allowed, even if there is no explicit rule that permits it. Security groups are evaluated at the instance level and are independent of each other.
+In the given scenario, the security group is already configured to allow SSH from any IP address, so we don't need to make any changes to it.
+However, the network ACL is configured to deny all inbound traffic, so we need to modify it to allow SSH traffic on port 22. To do this, we can add an inbound rule to the NACL that allows traffic on port 22 from any IP address.
+Therefore, the correct answer is B. The Inbound Network ACL needs to be modified to allow inbound traffic.
+Option A is incorrect because the outbound security group is already configured to allow all outbound traffic, so there is no need to modify it.
+Option C is incorrect because although the security group is configured to allow SSH traffic, the inbound traffic is blocked by the network ACL.
+Option D is incorrect because we only need to modify the inbound traffic rules of the network ACL to allow SSH traffic, and there is no need to modify the outbound rules.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question174:"link"
+
+

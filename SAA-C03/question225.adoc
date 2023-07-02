@@ -1,0 +1,181 @@
+---
+layout: default 
+title: "1025 - As a solutions architect you need to des"
+---
+
+
+[.question]
+== 1025-64a1fa8cf053625db51ddef0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgCSAA-4-17.PNG[]
+
+--
+
+
+****
+
+[.query]
+--
+As a solutions architect, you need to design a multi-tier architecture for a project in AWS.
+The application contains three tiers: the frontend layer, business logic layer, and storage layer.
+Auto Scaling groups implement the front-end and business logic layers.
+AWS RDS is selected as the storage layer.
+The front-end layer is in public subnets.
+The backend and data storage layers are in private subnets.
+Which of the following options is NOT a feature of this architecture?
+
+
+[source,java]
+----
+User accesses Single
+Page Application via
+custorn domain name,
+
+e.g, https://example.com
+
+AWS Cloud
+
+CCloudFront pulls static files (HTML,
+CSS, JS) from S3 Origin
+
+AWS Certificate Manager
+
+Client app (running in browser)
+issues HTTPS roquest to API
+Gateway via custom domain
+name, e.g, https://api-
+example.com, and includes 3%
+party token
+
+Amazon CloudFront
+
+4
+
+Enable SSUTLS via custom
+certificate
+
+Amazon S3
+
+|
+
+Amazon API Gateway
+
+Retrieve. jato
+lambde-tickel-rle pynamoD8 information
+
+AWS Lambda (/tickets) ‘Amazon DynamoDB
+
+CO
+
+cS»
+Client ciient app fogs in with Fru
+3° party and receives HTT}
+
+a3party access Aut
+token
+
+Third-Party
+Identity Providers
+
+te
+
+token received in
+
+PS request (Custom
+
+izer returns an IAM
+Policy)
+
+Custom Authorizer
+
+(i.e., Facebook, Google, etc.)
+
+Verify token with Identity
+Provider
+
+(Check ElastiCache for
+lambda-show-role 2PPr9priate information
+
+Amazon ElastiCache
+
+(On cache miss, retrieve
+‘appropriate information
+
+AWS Lambda (/shows) from DynamoDB
+
+DS ambde-info-role
+
+N}
+Retrieve appropriate
+Information from S3
+
+AWS Lambda (/info) Amazon S3
+
+‘Sond HTTPS request to
+‘appropriate Lambda based
+‘on requested resource
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Each layer is modularized and managed independently.
+* [ ] B. The backend and data storage are not exposed to the internet and protected in private subnets.
+* [*] C. In this architecture, users do not have to configure the desired number of servers or capabilities.
+* [ ] D. Frontend and backend servers can be configured in different availability zones for high availability.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+The multi-tier architecture in AWS has several features such as high availability and scalability, fault-tolerant, and security.
+The question asks for the option that is NOT a feature.
+Option C should be selected as the users need to configure the min/max/desired number of servers in ASGs and the read/write capabilities for the RDS database.
+Option A is incorrect because the application is divided into three components, and each component works independently.
+Option B is incorrect because the backend and data storage are located in private subnets.
+Users can only reach the frontend layer.
+Option C is CORRECT Refer to the above explanations.
+This architecture is not a serverless architecture.
+Option D is incorrect because the servers in ASG can be put into several availability zones, even if one AZ has an outage, the servers in other AZs can still work as normal.
+Sample Architecture.
+Reference:
+https://docs.aws.amazon.com/whitepapers/latest/serverless-multi-tier-architectures-api-gateway-lambda/single-page-application.html
+The given architecture for the project in AWS consists of three tiers: frontend layer, business logic layer, and storage layer. The frontend and business logic layers are implemented using Auto Scaling groups and are placed in public subnets, while the backend and data storage layers are placed in private subnets and use AWS RDS as the storage layer.
+Option A: Each layer is modularized and managed independently.
+This is a feature of the given architecture. Each layer is designed as a separate module and can be managed independently. This allows for easy maintenance and scalability of the application.
+Option B: The backend and data storage are not exposed to the internet and protected in private subnets.
+This is a feature of the given architecture. The backend and data storage layers are placed in private subnets, which are not exposed to the internet. This ensures that the data stored in the backend layer is secure and protected from external threats.
+Option C: In this architecture, users do not have to configure the desired number of servers or capabilities.
+This is not a feature of the given architecture. Users still need to configure the desired number of servers and capabilities in the Auto Scaling groups for the frontend and business logic layers.
+Option D: Frontend and backend servers can be configured in different availability zones for high availability.
+This is a feature of the given architecture. The frontend and backend servers are placed in different availability zones to ensure high availability and redundancy. In case one availability zone fails, the other availability zone can take over, and the application can continue to run smoothly.
+Therefore, the correct answer is option C. In this architecture, users still need to configure the desired number of servers and capabilities in the Auto Scaling groups for the frontend and business logic layers.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question257:"link"
+
+

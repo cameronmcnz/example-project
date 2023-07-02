@@ -1,0 +1,93 @@
+---
+layout: default 
+title: "1158 - A company has an AWS account that contai"
+---
+
+
+[.question]
+== 1158-64a1facff053625db51ddf93.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_r7j0kw.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has an AWS account that contains three VPCs (Dev, Test, and Prod) in the same region.
+There is a requirement to ensure that instances in the Development and Test VPC's can access resources in the Production VPC.
+There should be minimal efforts with minimal administrative overhead.
+Which of the following would be the ideal way to get this in place?
+
+
+[source,java]
+----
+AVPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private IPv4
+addresses or IPv6 addresses. Instances in either VPC can communicate with each other as if they are within the same network. You can
+
+create a VPC peering connection between your own VPCs, or with a VPC in another AWS account. The VPCs can be in different regions (also
+known as an inter-region VPC peering connection).
+
+10.0.0.0/16 172.31.0.016
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create an AWS Direct Connect connection between the Development, Test VPC to the Production VP.
+* [*] B. Create a separate VPC peering connection from Development to Production and from Test to the Production VP.
+* [ ] C. Create a VPN connection between the Development, Test VPC to the Production VP.
+* [ ] D. Create a VPC peering connection between the Development to the Production VPC and from Development to the Test VP.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Options A and C are incorrect since these options will NOT involve minimal efforts or minimal overhead.
+Hence you need to choose VPC peering.
+Options D is incorrect since the VPC Peering configuration mentioned would be invalid.
+We need access from Production to Test and NOT from "Development to Test" as given in the option.
+You need VPC Peering Configuration between Dev to Prod and Test to Prod.
+"A VPC peering connection is a networking connection between two VPCs that enable you to route traffic between them using private IPv4 addresses or IPv6 addresses.
+Instances in either VPC can communicate with each other as if they are within the same network.
+You can create a VPC peering connection between your own VPCs, or with a VPC in another AWS account.
+The VPCs can be in different regions (also known as an inter-region VPC peering connection)."
+For more information on VPC peering, please visit the URL-
+https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/Welcome.html
+To allow instances in the Development and Test VPC to access resources in the Production VPC, there are a few options to consider:
+A. AWS Direct Connect: AWS Direct Connect is a dedicated network connection between an on-premises data center and AWS. It provides a high-speed, low-latency connection that can be used to access AWS resources. In this case, Direct Connect would not be the best option because all three VPCs are already in AWS. Additionally, Direct Connect has a high setup cost and ongoing fees, making it more expensive than other options.
+B. VPC peering connections: VPC peering allows direct communication between two VPCs. It's a good option for connecting VPCs within the same region, as it provides low-latency, high-bandwidth communication without going over the public internet. In this case, creating separate VPC peering connections from the Development VPC and Test VPC to the Production VPC would be a good option. It provides direct communication between the VPCs, and the setup and ongoing maintenance is minimal.
+C. VPN connections: A VPN connection is a secure, encrypted tunnel between two networks. It's a good option for connecting VPCs that are in different regions or on-premises data centers. However, in this case, all three VPCs are in the same region, and VPN connections have higher latency and lower bandwidth than VPC peering.
+D. VPC peering connections between Development and Production VPC, and Development and Test VPC: Creating VPC peering connections between the Development VPC and Production VPC, as well as between the Development and Test VPC, would not allow direct communication between the Test VPC and Production VPC, which is a requirement in this case. Additionally, it would create a more complex network topology, increasing administrative overhead.
+Therefore, option B (creating separate VPC peering connections from the Development VPC and Test VPC to the Production VPC) would be the ideal way to get this in place, as it provides direct communication between the VPCs with minimal administrative overhead.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question421:"link"
+
+

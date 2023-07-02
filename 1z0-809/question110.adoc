@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "910 - Assume customerstxt is accessible and co"
+---
+
+
+[.question]
+== 910-64a1a860ef3e8462333a9ca4.
+
+
+****
+
+[.query]
+--
+Assume customers.txt is accessible and contains multiple lines.
+Which code fragment prints the contents of the customers.txt file?
+
+
+--
+
+[.list]
+--
+* [ ] A. Stream stream = Files.find (Paths.get ("customers.txt")); stream.forEach((String c) -> System.out.println(c));
+* [ ] B. Stream stream = Files.find (Paths.get ("customers.txt")); stream.forEach( c) -> System.out.println(c));
+* [ ] C. Stream stream = Files.list (Paths.get ("customers.txt")); stream.forEach( c) -> System.out.println(c));
+* [*] D. Stream lines = Files.lines (Paths.get ("customers.txt")); lines.forEach( c) -> System.out.println(c));
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

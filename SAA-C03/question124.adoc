@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "924 - You have an application hosted on AWS co"
+---
+
+
+[.question]
+== 924-64a1fa67f053625db51dde7e.
+
+
+****
+
+[.query]
+--
+You have an application hosted on AWS consisting of EC2 Instances launched via an Auto Scaling Group.
+You notice that the EC2 Instances are not scaling when the traffic is high.
+Which check should be done to ensure that the scaling occurs as expected?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure that the right metrics are being used to trigger the scaling.
+* [ ] B. Check your scaling policies to see whether more than one policy is triggered by an event.
+* [*] C. Ensure that AutoScaling health checks are being used.
+* [ ] D. Ensure that you are using Load Balancers.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+There could be several reasons mentioned in AWS Documentation.
+But only options A and B are applicable from the given choices.
+Option A is correct.
+If your scaling events are not based on the right metrics and do not have the right threshold defined, the scaling will not occur as you want it to happen.
+Option B is incorrect because if two policies are executed at the same time, Amazon EC2 Auto Scaling follows the policy with the greater impact.
+For example, if you have one policy to add two instances and another policy to add four instances, Amazon EC2 Auto Scaling adds four instances when both policies are triggered simultaneously.
+In this question, the EC2 instances are not scaling at all so this option is incorrect.
+Option C is incorrect because health checks will help us know the health status of an Auto Scaling instance.
+It is not a Check if AutoScaling is not working as expected.
+It is a health check for EC2 instances.
+Option D is incorrect because AutoScaling can be used without Load Balancer also.
+For more information on Auto Scaling Dynamic Scaling and troubleshooting, please visit the following URLs:
+https://aws.amazon.com/premiumsupport/knowledge-center/auto-scaling-troubleshooting/ https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-instancelaunchfailure.html
+When an application hosted on AWS consists of EC2 instances launched via an Auto Scaling Group, the scaling is triggered by certain metrics that are monitored by AWS services. If the EC2 instances are not scaling when the traffic is high, it could be due to various reasons such as incorrect metrics, incorrect scaling policies, or other configuration issues.
+To ensure that the scaling occurs as expected, the following check should be performed:
+A. Ensure that the right metrics are being used to trigger the scaling: The metrics that are being used to trigger scaling should be appropriate for the application. These metrics could be related to CPU utilization, network traffic, disk usage, or other performance indicators. It is important to ensure that the right metrics are being monitored and the appropriate thresholds are set to trigger scaling.
+B. Check your scaling policies to see whether more than one policy is triggered by an event: If more than one scaling policy is triggered by an event, it could lead to conflicting actions. For example, if one policy scales up and another policy scales down, the scaling group may not scale at all. Therefore, it is important to ensure that only one policy is triggered by an event.
+C. Ensure that AutoScaling health checks are being used: AutoScaling health checks are used to ensure that only healthy instances are part of the scaling group. If a scaling group contains unhealthy instances, it may not scale up as expected. Therefore, it is important to ensure that AutoScaling health checks are being used.
+D. Ensure that you are using Load Balancers: Load Balancers are used to distribute traffic across multiple instances. If an application is not using Load Balancers, it may not scale up as expected, as the traffic is not distributed across multiple instances.
+In conclusion, to ensure that the scaling occurs as expected, it is important to monitor the appropriate metrics, ensure that only one scaling policy is triggered by an event, use AutoScaling health checks, and use Load Balancers.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question141:"link"
+
+

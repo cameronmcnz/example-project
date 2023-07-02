@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "1134 - You have been designing a CloudFormation"
+---
+
+
+[.question]
+== 1134-64a1fac2f053625db51ddf74.
+
+
+****
+
+[.query]
+--
+You have been designing a CloudFormation template that creates one elastic load balancer fronting two EC2 instances.
+Which section of the template should you edit so that the load balancer's DNS is returned upon creating the stack?
+
+
+--
+
+[.list]
+--
+* [*] A. Resources
+* [ ] B. Parameters
+* [*] C. Outputs
+* [ ] D. Mappings.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The below example shows a simple CloudFormation template.
+It creates an EC2 instance based on the AMI - ami-d6f32ab5
+When the instance is created, it will output the AZ in which it is created.
+{
+"Resources": {
+"MyEC2Instance": {
+"Type": "AWS::EC2::Instance",
+"Properties": {
+"ImageId": "ami-d6f32ab5"
+}
+}
+},
+"Outputs": {
+"Availability": {
+"Description": "The Instance ID",
+"Value":
+{ "Fn::GetAtt" : [ "MyEC2Instance", "AvailabilityZone" ]}
+}
+}
+}
+Option A is incorrect because this is used to define the main resources in the template.
+Option B is incorrect because this is used to define parameters that can be taken during template deployment.
+Option D is incorrect because this is used to map key-value pairs in a template.
+To understand more on CloudFormation, please visit the URL-
+https://aws.amazon.com/cloudformation/ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html
+The correct answer is C. Outputs.
+In an AWS CloudFormation template, the Resources section is where you define the AWS resources you want to create, such as EC2 instances, load balancers, and databases. The Parameters section is where you define the parameters that your users can pass to your CloudFormation stack at runtime, such as instance types, security groups, and key pairs. The Mappings section is where you define a set of named keys and associated values that you can later reference in your CloudFormation template.
+The Outputs section is where you can define the values that you want to be returned when the CloudFormation stack is created. These outputs can be used by other resources, by other CloudFormation stacks, or by external systems. For example, you might want to return the DNS name of an elastic load balancer so that your users can use it to access your application.
+To return the DNS name of an elastic load balancer in your CloudFormation template, you would define an output in the Outputs section. Here's an example:
+yamlCopy codeOutputs:   LoadBalancerDNS:     Description: The DNS name of the load balancer     Value: !GetAtt MyLoadBalancer.DNSName 
+In this example, the output is named LoadBalancerDNS and has a description that explains what it is. The Value property uses the intrinsic function !GetAtt to retrieve the DNS name of the MyLoadBalancer resource, which is the elastic load balancer you created in the Resources section.
+When you create the CloudFormation stack, the LoadBalancerDNS output will be returned along with any other outputs you define. You can then use this output in other parts of your CloudFormation template, or pass it to external systems as needed.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question390:"link"
+
+

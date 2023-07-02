@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1054 - You need to ensure that instances in a p"
+---
+
+
+[.question]
+== 1054-64a1fa9af053625db51ddf10.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_vpc-nat.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You need to ensure that instances in a private subnet can access the Internet.
+The solution should be highly available and ensure less maintenance overhead.
+Which of the following would ideally fit this requirement?
+
+
+[source,java]
+----
+19851
+10851
+19851
+
+‘Custom route table
+
+Destination ‘Target
+1.00076 local
+00000 iow
+‘Main route table
+Destination Target
+7000076 toca!
+00000 at-gatoway-id
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Host the NAT Instance in the private subnet.
+* [ ] B. Host the NAT Instance in the public subnet.
+* [*] C. Host the NAT Gateway in the private subnet.
+* [*] D. Host the NAT Gateway in the public subnet.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+NAT gateway is used to enable instances in a private subnet to connect to the internet.
+However, the NAT gateway is implemented or placed in the public subnet of a VPC.For more information, please check out the following URLs-
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-network-internet-manual.html
+Shown below is a comparison of the NAT Gateway and NAT Instances as per the AWS Documentation.
+The documentation states that the NAT Gateway is highly available and requires less management.
+For more information on the above comparison, please visit the following URL-
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-comparison.html
+To allow instances in a private subnet to access the internet, we need to use a NAT (Network Address Translation) instance or NAT Gateway. Both options allow instances to initiate outbound traffic to the internet, but there are some differences between them.
+Option A: Host the NAT Instance in the private subnet.
+This option requires setting up a NAT instance in the private subnet, which will then allow instances in the private subnet to access the internet. This solution is highly available if we launch multiple NAT instances in different availability zones, but it requires more maintenance overhead as we have to manage the NAT instance ourselves. This option is also not the recommended approach since NAT instances are generally considered a legacy solution.
+Option B: Host the NAT Instance in the public subnet.
+This option requires setting up a NAT instance in the public subnet, which will then allow instances in the private subnet to access the internet. However, hosting a NAT instance in the public subnet increases the attack surface area of the system, as it is accessible from the internet. Therefore, it is not a recommended approach.
+Option C: Host the NAT Gateway in the private subnet.
+This option requires setting up a NAT Gateway in the private subnet, which will then allow instances in the private subnet to access the internet. This solution is highly available and requires less maintenance overhead as Amazon manages the NAT Gateway. Therefore, this is the recommended approach for this scenario.
+Option D: Host the NAT Gateway in the public subnet.
+This option is similar to Option B and is not recommended as it increases the attack surface area of the system.
+In summary, option C, hosting the NAT Gateway in the private subnet, is the recommended solution as it is highly available and requires less maintenance overhead.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question290:"link"
+
+

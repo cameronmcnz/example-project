@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "928 - Your recent security review revealed a l"
+---
+
+
+[.question]
+== 928-64a1fa68f053625db51dde83.
+
+
+****
+
+[.query]
+--
+Your recent security review revealed a large spike in attempted logins to your AWS account.
+For sensitive data stored in encryption enabled S3, the data has not been encrypted and is susceptible to fraud if it was to be stolen.
+You've recommended AWS Key Management Service as a solution.
+Which of the following is true regarding the server-side encryption of KMS?
+
+
+--
+
+[.list]
+--
+* [*] A. Only KMS generated keys can be used to encrypt or decrypt data.
+* [*] B. Data is encrypted at rest with KMS.
+* [*] C. KMS allows all users and roles to use the keys by default.
+* [ ] D. Data is encrypted in transit with the KMS key.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option B is correct.
+Data is encrypted at rest once uploaded to S3.
+Option A is incorrect.
+Data can be encrypted/decrypted using AWS keys or keys provided by your company.
+Option C is incorrect.
+Users are granted permissions explicitly, not by default by KMS.
+Option D is incorrect.
+KMS is used for the encryption at rest instead of in transit.
+References:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html
+ttps://d1.awsstatic.com/whitepapers/AWS_Securing_Data_at_Rest_with_Encryption.pdf.
+https://aws.amazon.com/kms/faqs/ https://docs.aws.amazon.com/general/latest/gr/rande.html#kms_region https://www.slideshare.net/AmazonWebServices/encryption-and-key-management-in-aws
+Sure, I'd be happy to help!
+Regarding the server-side encryption of KMS, let's take a closer look at each of the options:
+A. Only KMS generated keys can be used to encrypt or decrypt data.
+This statement is true. KMS allows users to create and manage customer master keys (CMKs), which are used to encrypt and decrypt data. When using KMS to encrypt S3 data, only KMS-generated keys can be used.
+B. Data is encrypted at rest with KMS.
+This statement is partially true. While KMS does not directly encrypt data at rest, it allows users to encrypt data with KMS-generated keys. The data itself is encrypted by the service that stores the data, such as S3.
+C. KMS allows all users and roles to use the keys by default.
+This statement is false. KMS provides fine-grained access control to CMKs, allowing users and roles to be granted specific permissions to use the keys. By default, no one has access to a CMK.
+D. Data is encrypted in transit with the KMS key.
+This statement is false. KMS is not involved in encrypting data in transit. Instead, SSL/TLS is used to encrypt data as it travels over the network.
+In summary, the correct answer is A, which states that only KMS-generated keys can be used to encrypt or decrypt data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question146:"link"
+
+

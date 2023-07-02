@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "916 - Given the definition of the Book class
+W"
+---
+
+
+[.question]
+== 916-64a1a862ef3e8462333a9caa.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0010500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the definition of the Book class:
+Which statement is true about the Book class?
+
+
+[source,java]
+----
+public class Book {
+private int id;
+private String name;
+public Book(int id, String name) {this.id = id; this.name = names}
+public int getId() { return id; }
+public String getName() { return name; }
+public void setid(int id) { this.id = id; }
+public void setName (String name) { this.name = name; }
+
+}
+----
+
+
+--
+
+[.list]
+--
+* [*] A. It demonstrates encapsulation.
+* [ ] B. It is defined using the factory design pattern.
+* [ ] C. It is defined using the singleton design pattern.
+* [ ] D. It demonstrates polymorphism.
+* [ ] E. It is an immutable class.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

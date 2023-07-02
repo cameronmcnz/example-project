@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "989 - Your company hosts an onpremises legacy "
+---
+
+
+[.question]
+== 989-64a1df3caa736d27b1db93c5.
+
+
+****
+
+[.query]
+--
+Your company hosts an on-premises legacy engineering application with 900GB of data shared via a central file server.
+The engineering data consists of thousands of individual files ranging in size from megabytes to multiple gigabytes.
+Engineers typically modify 5-10 percent of the files a day.
+Your CTO would like to migrate this application to AWS, with minimal downtime during normal business hours ( days )
+You calculate that it will take a minimum of 48 hours to transfer 900GB of data using your company's existing 45-Mbps Internet connection.
+
+
+--
+
+[.list]
+--
+* [*] A. Copy the data to Amazon S3 using multiple threads and multi-part upload for large files over the weekend, and work in parallel with your developers to reconfigure the replicated application environment to leverage Amazon S3 to serve the engineering files.
+* [*] B. Sync the application data to Amazon S3 starting a week before the migration. On Friday night, perform the final sync, and copy the entire data set to your AWS file server after the sync completes.
+* [ ] C. Copy the application data to a 1-TB USB drive on Friday and immediately send overnight, with Saturday delivery, the USB drive to AWS Import/Export to be imported as an EBS volume, mount the resulting EBS volume to your AWS file server on Sunday.
+* [ ] D. Leverage the AWS Storage Gateway to create a Gateway-Stored volume. On Friday, copy the application data to the Storage Gateway volume. After the data has been copied, perform a snapshot of the volume, and restore the volume as an EBS volume to be attached to your AWS file server on Sunday.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+In this scenario, the following important points need to be considered - (i) only the fraction of the data (5-10%) is modified every day, (ii) there are only 48 hrs for the migration, (iii) downtime should be minimized, and (iv) there should be no data loss.
+Option A is incorrect because even though it is theoretically possible to transfer 972GB of data in 48 hours with 45Mbps speed, this option will only work if you consistently utilize the bandwidth to the max.
+This option will have less time in hand if there are any problems with the multipart upload.
+Hence, not a practical solution.
+Option B is a proactive approach, which is CORRECT because the data changes are limited and can be propagated over the week.
+Also, the bandwidth would be used efficiently, and you would have sufficient time and bandwidth in hand, should there be any unexpected issues while migrating.
+Option C is incorrect because physically shipping the disk to Amazon would involve many external factors such as shipping delays, loss of shipping, damage to the disk, and the time would not be sufficient to import the data in a day.
+This is a very risky option and should not be exercised.
+Option D is incorrect because AWS Storage Gateway involves creating S3 snapshots and synchronizing.
+This option is slow and may not meet the limitation of 48 hrs downtime.
+Besides, using EBS volume to store a large amount of data is not cost-efficient.
+Please view the below video for best practices for cloud migration to AWS:
+https://www.youtube.com/watch?v=UpeV4OqB6Us&amp;list=PL_RVC-cMNyYTz8zlxq117O1bfji-knooI&amp;index=23
+Sure, I'll be happy to explain the answer options for this question in detail:
+Option A: Copy the data to Amazon S3 using multiple threads and multi-part upload for large files over the weekend, and work in parallel with your developers to reconfigure the replicated application environment to leverage Amazon S3 to serve the engineering files.
+This option suggests copying the on-premises engineering application data to Amazon S3 over the weekend using multiple threads and multi-part upload for large files. This approach can help speed up the transfer process by allowing the transfer of multiple files concurrently. Once the data is in S3, you can work with your developers to reconfigure the application environment to use Amazon S3 to serve the engineering files. This approach can minimize downtime as you can gradually switch over to the AWS-based solution.
+Option B: Sync the application data to Amazon S3 starting a week before the migration. On Friday night, perform the final sync, and copy the entire data set to your AWS file server after the sync completes.
+This option suggests syncing the on-premises engineering application data to Amazon S3 starting a week before the migration. You can perform the final sync on Friday night and copy the entire data set to your AWS file server after the sync completes. This approach can help minimize downtime as you can copy the data to the AWS file server during off-business hours. However, it may not be an optimal solution as syncing the data can take longer than transferring it directly to AWS.
+Option C: Copy the application data to a 1-TB USB drive on Friday and immediately send overnight, with Saturday delivery, the USB drive to AWS Import/Export to be imported as an EBS volume, mount the resulting EBS volume to your AWS file server on Sunday.
+This option suggests copying the on-premises engineering application data to a 1-TB USB drive on Friday and sending it overnight to AWS Import/Export to be imported as an EBS volume. You can then mount the resulting EBS volume to your AWS file server on Sunday. This approach can minimize downtime as you can copy the data during off-business hours. However, it may not be an optimal solution as it can be time-consuming to copy the data to a USB drive, and the shipping time can vary.
+Option D: Leverage the AWS Storage Gateway to create a Gateway-Stored volume. On Friday, copy the application data to the Storage Gateway volume. After the data has been copied, perform a snapshot of the volume, and restore the volume as an EBS volume to be attached to your AWS file server on Sunday.
+This option suggests using the AWS Storage Gateway to create a Gateway-Stored volume. You can copy the on-premises engineering application data to the Storage Gateway volume on Friday. After the data has been copied, you can perform a snapshot of the volume and restore it as an EBS volume to be attached to your AWS file server on Sunday. This approach can minimize downtime as you can copy the data during off-business hours. However, it may not be an optimal solution as the transfer speed can depend on your network bandwidth and the volume of data being transferred.
+In summary, option A seems to be the most optimal solution as it allows for parallel transfer of data to Amazon S3 and provides flexibility to reconfigure the application environment gradually. Option B can also work but may take longer as the data needs to be synced first. Option C and D can minimize downtime but may not be the most efficient solutions due to the time and effort required to copy the data to a USB drive or use the AWS Storage Gateway.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question275:"link"
+
+

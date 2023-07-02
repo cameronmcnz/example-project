@@ -1,0 +1,86 @@
+---
+layout: default 
+title: "1100 - Your IT Security department has mandated"
+---
+
+
+[.question]
+== 1100-64a1fab0f053625db51ddf44.
+
+
+****
+
+[.query]
+--
+Your IT Security department has mandated that all the traffic flowing in and out of EC2 instances needs to be monitored.
+The EC2 instances in question are launched in a VPC.
+Which services would you use to achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Trusted Advisor
+* [*] B. VPC Flow Logs
+* [*] C. Use CloudWatch metrics
+* [ ] D. Use CloudTrail.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+VPC Flow Log is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC.
+Flow log data is stored using Amazon CloudWatch Logs.
+After you've created a flow log, you can view and retrieve its data in Amazon CloudWatch Logs.
+For more information on VPC Flow Logs, please visit the following URL-
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html
+Note:
+The question asks to monitor all traffic flowing in and out of EC2 instances.
+Now you have to launch the EC2 instance inside the VPC.
+As there is no other option available to monitor IP traffic navigation, we use VPC Flow Logs.
+Now coming to the question - why not CloudTrail?
+Before venturing into it, let's look into the types of log categories we have in AWS.
+1
+AWS Infrastructure Logs - AWS CloudTrail, Amazon VPC Flow Logs.
+2
+AWS Service Logs - Amazon S3, AWS Elastic Load Balancing, Amazon CloudFront, AWS Lambda, AWS Elastic Beanstalk, etc.,
+3
+Host-Based Logs - Messages, Security, NGINX/Apache/IIS, Windows Event Logs, Windows Performance Counters, etc.,
+AWS CloudTrail: it is used to record AWS API calls for your account like,
+- who made the API call?
+- when was the API call made?
+- what was the API call?
+- which resources were acted upon in the API call?
+- where were the API calls made from and made to?
+NOTE:
+AWS has launched a new feature called VPC Traffic Mirroring, which is used to capture and inspect network traffic at scale.To know more about this feature, please check the link below.
+https://aws.amazon.com/blogs/aws/new-vpc-traffic-mirroring/
+The service that you would use to achieve monitoring of traffic flowing in and out of EC2 instances launched in a VPC is VPC Flow Logs. Therefore, the correct answer is option B.
+VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. With VPC Flow Logs, you can monitor the traffic going in and out of your EC2 instances and identify potential security threats or network issues.
+When you enable VPC Flow Logs for a VPC, it creates a flow log that captures information about each IP packet that traverses the network interfaces in the VPC. The flow log contains information such as the source and destination IP addresses, protocol, port, and the number of bytes and packets transferred.
+You can then configure CloudWatch Logs to store the flow log data, which enables you to search, filter, and analyze the data using CloudWatch Logs insights. You can also set up CloudWatch Alarms to alert you when certain traffic patterns or thresholds are met.
+Trusted Advisor is a service that provides best practice recommendations for optimizing your AWS resources, and is not related to monitoring network traffic. CloudWatch metrics are used to monitor the performance of your AWS resources, such as EC2 instances, and are not related to monitoring network traffic either. CloudTrail, on the other hand, is used to monitor API activity in your AWS account, which is not directly related to monitoring network traffic going in and out of EC2 instances launched in a VPC.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question342:"link"
+
+

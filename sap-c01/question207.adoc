@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1007 - You have been asked to design the storag"
+---
+
+
+[.question]
+== 1007-64a1df42aa736d27b1db93de.
+
+
+****
+
+[.query]
+--
+You have been asked to design the storage layer for an application.
+The application requires the disk performance to be at least 100000 IOPS.
+The data should be highly available without data loss, even when an availability zone has an outage.
+The volume you provide must have a capacity of at least 2 TB.
+Which of the following designs will meet these objectives?
+
+
+--
+
+[.list]
+--
+* [*] A. Instantiate an i2.8xlarge instance in us-east-1a. Create a RAID 0 volume using the four 800GB SSD disks provided with the instance. Provision 3×1 TB EBS volumes attach them to the instance and configure them as a second RAID 0 volume. Configure synchronous, block-level replication from the ephemeral backed volume to the EBS-backed volume.
+* [*] B. Instantiate an i2.8xlarge instance in us-east-1a. Create a RAID 0 volume using the four 800GB SSD disks provided with the Instance Configure synchronous block-level replication to an identically configured instance in us-east-1b.
+* [ ] C. Instantiate a c3.8xlarge instance in us-east-1. Provision an AWS Storage Gateway and configure it for 3 TB of storage and 100,000 IOPS. Attach the volume to the instance.
+* [ ] D. Instantiate a c3.8xlarge instance in us-east-1 provision 4x1TB EBS volumes, attach them to the instance, and configure them as a single RAID 5 volume. Ensure that EBS snapshots are performed every 15 minutes.
+* [ ] E. Instantiate a c3 8xlarge Instance in us-east-1 Provision 3x1TB EBS volumes, attach them to the instance, and configure them as a single RAID 0 volume. Ensure that EBS snapshots are performed every 15 minutes.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - B.
+Option A is incorrect because this configuration is done entirely in a single AZ.
+There will be a data loss if the entire AZ goes down.
+Option B is CORRECT because (a) it uses RAID 0 configuration that utilizes all the volumes and gives the aggregated IOPS performance, and (b) the replication across another AZ gives higher availability and fault tolerance even in case of an entire AZ becomes unavailable.
+Option C is incorrect because it uses an asynchronous backup of the data.
+The problem scenario demands a synchronous replication to prevent any data loss.
+Option D is incorrect because RAID 5 is not recommended for Amazon EBS since the parity write operations consume some of the IOPS available to the volumes.
+See the links below for more details.
+http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/raid-config.html https://en.wikipedia.org/wiki/Standard_RAID_levels
+Option E is incorrect because, even if the snapshots are taken every 15 minutes, there are chances that there will be data loss during this time.
+The requirement is that there should be absolutely no data loss.
+To meet the requirement of providing a highly available storage layer with a capacity of at least 2TB and 100,000 IOPS, we need to carefully consider the design options that AWS offers.
+A. Instantiate an i2.8xlarge instance in us-east-1a. Create a RAID 0 volume using the four 800GB SSD disks provided with the instance. Provision 3×1 TB EBS volumes attach them to the instance and configure them as a second RAID 0 volume. Configure synchronous, block-level replication from the ephemeral backed volume to the EBS-backed volume.
+Option A uses an i2.8xlarge instance with four 800GB SSD disks to create a RAID 0 volume with a capacity of 3.2TB. Additionally, three 1TB EBS volumes are attached to the instance to create a second RAID 0 volume with a total capacity of 3TB. Synchronous, block-level replication is configured from the ephemeral backed volume to the EBS-backed volume. While this solution meets the capacity and IOPS requirements, it does not meet the highly available requirement since the instance is deployed in a single availability zone.
+B. Instantiate an i2.8xlarge instance in us-east-1a. Create a RAID 0 volume using the four 800GB SSD disks provided with the Instance Configure synchronous block-level replication to an identically configured instance in us-east-1b.
+Option B also uses an i2.8xlarge instance with four 800GB SSD disks to create a RAID 0 volume with a capacity of 3.2TB. However, synchronous, block-level replication is configured to an identically configured instance in a different availability zone. This solution meets the capacity and IOPS requirements and provides high availability by replicating the data to another availability zone.
+C. Instantiate a c3.8xlarge instance in us-east-1. Provision an AWS Storage Gateway and configure it for 3 TB of storage and 100,000 IOPS. Attach the volume to the instance.
+Option C uses a c3.8xlarge instance with an AWS Storage Gateway configured for 3TB of storage and 100,000 IOPS. The Storage Gateway is a hybrid cloud storage service that provides on-premises applications with low-latency access to cloud-based storage. This solution meets the capacity and IOPS requirements and provides high availability by replicating the data to AWS cloud storage.
+D. Instantiate a c3.8xlarge instance in us-east-1 provision 4x1TB EBS volumes, attach them to the instance, and configure them as a single RAID 5 volume. Ensure that EBS snapshots are performed every 15 minutes.
+Option D uses a c3.8xlarge instance with four 1TB EBS volumes configured as a single RAID 5 volume. EBS snapshots are configured to be taken every 15 minutes. While this solution meets the capacity and IOPS requirements, it does not provide high availability since the data is stored in a single availability zone.
+E. Instantiate a c3 8xlarge Instance in us-east-1 Provision 3x1TB EBS volumes, attach them to the instance, and configure them as a single RAID 0 volume. Ensure that EBS snapshots are performed every 15 minutes.
+Option E uses a c3.8xlarge instance with three 1TB EBS volumes configured as a single RAID 0 volume. EBS snapshots are configured to be taken every 15 minutes. While this solution meets the capacity and IOPS requirements, it does not provide high availability since the data is stored in a single availability zone.
+Overall, option B is the most appropriate solution as it meets all the requirements of capacity, IOPS
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question301:"link"
+
+

@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "1288 - You are a solutions architect working fo"
+---
+
+
+[.question]
+== 1288-64a1fb10f053625db51de02e.
+
+
+****
+
+[.query]
+--
+You are a solutions architect working for a media company that produces stock images and videos for sale via a mobile app and website.
+Your app and website allow users to gain access only to stock content they have purchased.
+Your content is stored in S3 buckets.
+You need to restrict access to multiple files that your users have purchased.
+Also, due to the nature of the stock content (purchasable by multiple users), you don't want to change the URLs of each stock item. Which access control option best fits your scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. Use CloudFront signed URLs
+* [ ] B. Use S3 Presigned URLs
+* [*] C. UseCloudFront Signed Cookies
+* [ ] D. Use S3 Signed Cookies.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect.
+CloudFront signed URLs allow you to restrict access to individual files.
+Signed URLs require you to change your content URLs for each customer access.
+Option B is incorrect.
+S3 Presigned URLs require you to change your content URLs.
+The presigned URL expires after its defined expiration date.
+Option C is correct.
+CloudFront Signed Cookies allow you to control access to multiple content files and you don't have to change your URL for each customer access.
+Option D is incorrect.
+There is no S3 Signed Cookies feature.
+References:
+Please see the Amazon CloudFront developer guide titled Using signed cookies (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-cookies.html), the Amazon Simple Storage Service user guide titled Sharing an object with a presigned URL (https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), the Amazon Simple Storage Service user guide titled Using presigned URLs (https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html#PresignedUrlUploadObject-LimitCapabilities), and the Amazon CloudFront developer guide titled Choosing between signed URLs and signed cookies (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html)
+The best option for this scenario would be to use CloudFront signed URLs (Option A).
+Here's why:
+1.
+CloudFront is a content delivery network (CDN) service that can be used to distribute your content to users around the world. It can help improve the performance and availability of your content by caching it in multiple locations.
+2.
+CloudFront signed URLs provide a way to control access to your content by requiring users to have a signed URL in order to access it. The signed URL includes a signature that is generated using a private key, and is only valid for a specified period of time. This means that you can control exactly who has access to your content, and for how long.
+3.
+Using CloudFront signed URLs does not require changing the URLs of your content. This is important for your scenario since you don't want to change the URLs of each stock item.
+4.
+CloudFront signed URLs can be used with S3 buckets. This means that you can continue to store your content in S3 buckets, and use CloudFront to distribute it to users.
+5.
+S3 presigned URLs (Option B) are another option for controlling access to S3 content. However, they require you to generate a new URL for each user and each piece of content. This could be problematic for your scenario since you have multiple users purchasing the same stock content.
+6.
+CloudFront signed cookies (Option C) and S3 signed cookies (Option D) are other options for controlling access to your content. However, they are typically used for scenarios where you need to control access based on a user's identity, rather than specific pieces of content. In your scenario, you need to control access to specific pieces of content that have been purchased by multiple users.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question576:"link"
+
+

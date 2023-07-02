@@ -1,0 +1,86 @@
+---
+layout: default 
+title: "1326 - You created an AWS Lambda function to pr"
+---
+
+
+[.question]
+== 1326-64a1fb28f053625db51de06b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_9dxppt.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You created an AWS Lambda function to process files uploaded to AWS S3 bucket.
+Lambda function started receiving requests and working properly.
+You have changed the code and uploaded new version of code to AWS Lambda function.
+What will happen to the requests sent right after the AWS lambda function update?
+
+
+[source,java]
+----
+Q: Do my AWS Lambda functions remain available when | change my code or its configuration?
+
+Yes, When you update a Lambda function, there will be a brief window of time, typically less than a minute, when
+requests could be served by either the old or the new version of your function.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Requests will queue until the changes are fully propagated. You could experience up to 5 minutes of wait during this period.
+* [ ] B. Requests will be served by old version till you enable new version as latest.
+* [ ] C. When you have multiple versions of Lambda function, in the code you need to define which version of function to be used. Otherwise, requests would fail.
+* [*] D. Requests might be served by old or new version for a brief period of less than one minute.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Option A is not a valid statement.
+It will not continually queue automatically or 5 minute wait time.
+Option B is not correct.
+By default, whenever you update the code, it updates the LATEST version.
+Option C is not correct.
+There is no need to define in code which version to be used.
+However, you can define which version to be used at the source which triggers Lambda function by providing version qualified ARN if you have published version.
+When you update the code of an AWS Lambda function, AWS creates a new version of the function. The new version does not immediately become the default version for incoming requests. Instead, it is published as a version and a new alias is created, which points to the new version. The old alias, which points to the old version of the function, is still active and serves incoming requests.
+Therefore, the correct answer is:
+B. Requests will be served by the old version until you enable the new version as the latest.
+When you are ready to start using the new version of the function, you can update the alias to point to the new version. Once the alias is updated, all incoming requests will be served by the new version.
+It's important to note that when you have multiple versions of a Lambda function, you can specify which version or alias of the function you want to use in your code. If you do not specify a version or alias, the default version (which is the latest version) will be used. However, this is not related to the scenario in the question.
+In summary, the requests sent right after updating the AWS Lambda function will be served by the old version until you update the alias to point to the new version.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question638:"link"
+
+

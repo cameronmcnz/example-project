@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1004 - Your application provides data transform"
+---
+
+
+[.question]
+== 1004-64a1fa83f053625db51dded8.
+
+
+****
+
+[.query]
+--
+Your application provides data transformation services.
+Files containing data to be transformed are first uploaded to Amazon S3 and then transformed by a fleet of Spot EC2 Instances.
+Files submitted by your premium customers must be transformed at the highest priority.
+How would you implement such a system?
+
+
+--
+
+[.list]
+--
+* [*] A. Use a DynamoDB table with an attribute defining the priority level. Transformation instances will scan the table for tasks, sorting the results by priority level.
+* [ ] B. Use Route 53 latency-based routing to send high priority tasks to the closest transformation instances.
+* [*] C. Use two SQS queues, one for high priority messages and the other for default priority. Transformation instances will first poll the high priority queue; if there is no message, they will poll the default priority queue.
+* [ ] D. Use a single SQS queue. Each message contains the priority level. Transformation instances poll high-priority messages first.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+The best way is to use two SQS queues.
+Each queue can be polled separately.
+The high priority queue can be polled first.
+For more information on AWS SQS, please refer to the link below:
+https://aws.amazon.com/sqs/
+The correct answer is C: Use two SQS queues, one for high priority messages and the other for default priority. Transformation instances will first poll the high priority queue; if there is no message, they will poll the default priority queue.
+Here is a detailed explanation of how this solution works:
+1.
+Amazon S3 is used to store the files containing the data to be transformed. Users upload their files to S3 and provide the necessary information for the transformation process.
+2.
+The application uses SQS (Simple Queue Service) to manage the transformation requests. A separate SQS queue is used for high-priority messages and default-priority messages.
+3.
+When a file is uploaded to S3, the application places a message in the appropriate SQS queue based on the priority level of the customer. The message includes information about the file and the priority level.
+4.
+A fleet of Spot EC2 instances is used for the data transformation. These instances are configured to poll the high-priority queue first. If there are no messages in the high-priority queue, they will then poll the default-priority queue.
+5.
+When an instance receives a message from the queue, it retrieves the file from S3 and performs the necessary transformations. Once the transformation is complete, the instance places the transformed file in another S3 bucket or sends it to the customer, depending on the application's requirements.
+Using two separate SQS queues based on priority level ensures that premium customers receive the highest priority. Transformation instances are configured to prioritize high-priority messages and handle default-priority messages only when no high-priority messages are available. This solution is both scalable and cost-effective as it uses Spot EC2 instances, which offer significant cost savings compared to on-demand instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question233:"link"
+
+

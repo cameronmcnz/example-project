@@ -1,0 +1,96 @@
+---
+layout: default 
+title: "1179 - A company has set up its application in "
+---
+
+
+[.question]
+== 1179-64a1fadaf053625db51ddfab.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_moqjus.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has set up its application in AWS.
+It consists of a web tier hosted on a set of EC2 Instances.
+These instances interact with a MongoDB database server located in a private subnet.
+The web tier also interacts with many service-based applications in the private subnet.
+A NAT Instance is being used to route traffic from the instances in the private subnet to the Internet.
+The IT Administrative team is now getting Cloudwatch alerts that the NAT Instance is going beyond its threshold value for Network Activity.
+Which of the following would you advise to increase the performance of this architecture?
+
+
+[source,java]
+----
+Comparison of NAT Instances and NAT Gateways
+
+The following is a high-level summary of the differences between NAT instances and NAT gateways.
+
+Attribute NAT gateway NAT instance
+
+Availability Highly available. NAT gateways in each Availability Zone are Use a script to manage failover between instances.
+implemented with redundancy. Create a NAT gateway in each
+Availability Zone to ensure zone-independent architecture.
+
+Bandwidth Can scale up to 45 Gbps. Depends on the bandwidth of the instance type.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Place the database server and application servers in the public subnet.
+* [ ] B. Place the NAT instance closer to the database servers by placing them in the private subnet.
+* [*] C. Use the NAT gateway service instead of the NAT Instance.
+* [ ] D. Use a VPN connection for the Instances in the private subnet.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The below snapshot from the AWS Documentation shows a partial comparison of the NAT Instance and NAT Gateway.
+You should consider using the NAT gateway for higher bandwidth requirements.
+Option A is incorrect since you should not change the database or application servers' architecture since this would result in security issues.
+Option B is incorrect since this would still alleviate the current network issue.
+Option D is incorrect since the NAT instance should be used to route traffic to the Internet from the Instances in the private subnet.
+For more information on the comparison between NAT Instances and the NAT gateway, please refer to the below URL-
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
+The scenario describes a web application hosted on EC2 instances that interact with a MongoDB database in a private subnet. Additionally, the web tier interacts with various other services in the private subnet, and a NAT instance is used to route traffic from the instances in the private subnet to the Internet. The IT administrative team is receiving Cloudwatch alerts indicating that the NAT instance is exceeding its threshold value for network activity. To increase the performance of this architecture, we need to identify the best solution from the options provided:
+A. Place the database server and application servers in the public subnet: This option is not recommended as it would expose the database and application servers to the public Internet, which could potentially compromise their security. Additionally, if the instances are moved to the public subnet, the NAT instance would still be needed to route traffic from the private subnet to the Internet, and this could further exacerbate the existing performance issue.
+B. Place the NAT instance closer to the database servers by placing them in the private subnet: This option is not ideal as it does not address the root cause of the problem, which is the network activity exceeding the threshold value. Additionally, placing the NAT instance in the private subnet may cause issues with connectivity to the Internet, and could make it more difficult to manage the instance.
+C. Use the NAT gateway service instead of the NAT Instance: This option is the recommended solution. NAT Gateway is a fully managed service that provides better scalability, availability, and performance than a NAT instance. It eliminates the need for a dedicated NAT instance, which reduces management overhead and simplifies the architecture. By using NAT Gateway, the network activity can be distributed across multiple NAT Gateway instances, which helps to increase performance and reduce the likelihood of exceeding threshold values.
+D. Use a VPN connection for the Instances in the private subnet: This option is not directly related to the performance issue with the NAT instance. VPN connections are typically used to provide secure access to resources in a private subnet over the Internet, but they can be more complex to set up and manage than NAT Gateway.
+In summary, the best solution to increase the performance of the architecture would be to use the NAT gateway service instead of the NAT Instance. This approach would provide better scalability, availability, and performance while reducing management overhead and simplifying the architecture.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question445:"link"
+
+

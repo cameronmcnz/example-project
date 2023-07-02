@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1163 - You are working for a startup firm worki"
+---
+
+
+[.question]
+== 1163-64a1fad2f053625db51ddf99.
+
+
+****
+
+[.query]
+--
+You are working for a start-up firm, working on a POC project, in which multiple EC2 instances are launched for an internal project to check Web application performance.
+You need to pre-warm EC2 instances by initiating them into the desired mode & then moving to Hibernate state.
+You are looking for IP address changes when EC2 instances move from Running state to Hibernate and back to Running state.
+Which of the following statements is correct?
+
+
+--
+
+[.list]
+--
+* [*] A. Both Public IPv4 and Private IPv4 addresses are assigned with new IP addresses, whereas any IPv6 address is retained.
+* [*] B. Only Public IPv4 addresses are assigned with new IP addresses, whereas Private IPv4 and any IPv6 address are retained.
+* [*] C. Only IPv6 addresses are assigned with new IP addresses, whereas both Private IPv4 and Public IPv4 addresses are retained.
+* [ ] D. All IP addresses assigned to the EC2 instances are released & new IP addresses are allocated to EC2 instances post hibernation.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The instance retains its private IPv4 and any IPv6 addresses when hibernated and started.
+AWS releases the public IPv4 address and assigns a new one when you start it.
+Option A is incorrect as when the EC2 instance is hibernated &amp; restarted, there is no change in the private IPv4 address assigned to the EC2 instance.
+Option C is incorrect as when the EC2 instance is hibernated &amp; restarted, there is no change in the public IPv6 address assigned to the EC2 instance.
+Option D is incorrect as when the EC2 instance is hibernated &amp; restarted, there is a change in the public IPv4 address assigned to the EC2 instance while no change in the private IPv4 &amp; IPv6 address assigned to the EC2 instance.
+For more information on IP Address for EC2 in Hibernate state, refer to the following URL,
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#instance_hibernate
+The correct answer is B. Only Public IPv4 addresses are assigned with new IP addresses, whereas Private IPv4 and any IPv6 address are retained.
+When an EC2 instance is stopped, it loses its associated public IP address (if one is assigned) and receives a new one when it's started again. However, the instance retains its private IP address and any associated IPv6 address.
+When an EC2 instance is in hibernation, its in-memory state is saved to the instance store or to Amazon Elastic Block Store (EBS) volumes, and the instance is put into a stopped state. When the instance is resumed from hibernation, it's started from the saved state, and its public IP address is replaced with a new one.
+In this scenario, the EC2 instances need to be pre-warmed by initiating them into the desired mode and then moving them to hibernate state. This means that the instances will be started and stopped to warm them up, and then put into hibernation mode. When they are resumed from hibernation, their public IP addresses will be assigned new addresses, while their private IPv4 and any IPv6 addresses will be retained.
+Therefore, option B is the correct answer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question427:"link"
+
+

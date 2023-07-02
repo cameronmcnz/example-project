@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "1206 - A midsized Fintech company is using AWS "
+---
+
+
+[.question]
+== 1206-64a1fae7f053625db51ddfcb.
+
+
+****
+
+[.query]
+--
+A mid-sized Fintech company is using AWS Organization to manage multiple AWS accounts created for each department.
+A default IAM policy is configured for all accounts.
+Each of the accounts has purchased a Reserved Instance & is running web applications on a mix of On-Demand & Reserved Instances.
+Due to high recurring costs, Management has appointed you as an AWS consultant to reduce costs.
+After the analysis, you suggested purchasing more Reserved Instance as compared to using On-Demand EC2 instance.
+What actions would you take to justify your suggestions?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Organization Management account to create RI coverage budgets for all the accounts in an organization and receive an SNS alert once the threshold is below 50%.
+* [*] B. Use Organization Member account owners to create RI coverage budgets for their individual accounts in an organization & receive SNS alert once the threshold is below 50%.
+* [*] C. Use Organization Member account owners to create RI utilization budgets for their individual accounts in an organization and receive SNS alert once the threshold is below 50%.
+* [ ] D. Use Organization Management account to create RI utilization budgets for all the accounts in an organization and receive SNS alert once the threshold is below 50%.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The Reserved Instance Utilization and Coverage reports are not the same.
+EC2 RI Utilization % offers relevant data to identify and act on opportunities to increase your Reserved Instance usage efficiency.
+It's calculated by dividing the Reserved Instance used hours by total Reserved Instance purchased hours.
+EC2 RI Coverage % shows how much of your overall instance usage is covered by Reserved Instances.
+This lets you make informed decisions about when to purchase or modify a Reserved Instance to ensure maximum coverage.
+It's calculated by dividing the Reserved Instance used hours by total EC2 On-Demand and Reserved Instance hours.
+RI Coverage Budget reports the number of instances that are part of the Reserved Instance.
+This helps you get an alert when the number of instances covered by reservation falls below 50% of the number of instances launched.
+This report can identify the instance which is consistently running using On-Demand instance &amp; can be converted to Reserved Instance for cost savings.
+AWS Organization member accounts' owners can create a budget for individual accounts.
+AWS Organization master account pays for usage incurred by all accounts in the organization.
+Option A is incorrect since the company uses a default IAM policy.
+Each member account owner needs to create a budget policy for individual accounts &amp; not by master account.
+Option C is incorrect as RI utilization Budget reports the utilization of your RI instance.
+You need an RI Coverage report to check when the number of instances covered by reservation falls below 50% of the number of instances launched.
+Option D is incorrect since the company uses a default IAM policy.
+Each member account owner needs to create a budget policy for individual accounts &amp; not by Management account.
+Also, you need an RI Coverage report to check when the number of instances covered by reservation falls below 50% of the total number of instances launched.
+For more information, refer to the following URLs:
+https://aws.amazon.com/aws-cost-management/reserved-instance-reporting/ https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html
+In this scenario, the company is using AWS Organization to manage multiple AWS accounts created for each department. A default IAM policy is configured for all accounts. Each account has purchased a Reserved Instance and is running web applications on a mix of On-Demand and Reserved Instances. Due to high recurring costs, the management has appointed an AWS consultant to reduce costs. The consultant has suggested purchasing more Reserved Instances compared to using On-Demand EC2 instances to reduce costs.
+To justify the suggestion, the consultant should set up RI coverage or utilization budgets for all accounts in the organization and receive an SNS alert once the threshold is below 50%. The goal of setting up these budgets and alerts is to ensure that the accounts are utilizing their RIs effectively and not overspending on On-Demand instances.
+Option A: Use Organization Management account to create RI coverage budgets for all the accounts in an organization and receive an SNS alert once the threshold is below 50%. This option is a good approach because it sets up RI coverage budgets for all accounts in the organization, which will help track the usage of RIs. Receiving an SNS alert once the threshold is below 50% will ensure that the accounts purchase more RIs before they run out, avoiding additional costs associated with On-Demand instances.
+Option B: Use Organization Member account owners to create RI coverage budgets for their individual accounts in an organization and receive an SNS alert once the threshold is below 50%. This option is not as effective as Option A because it requires each account owner to create RI coverage budgets for their individual accounts. This approach may lead to inconsistencies in tracking RI usage and alerting.
+Option C: Use Organization Member account owners to create RI utilization budgets for their individual accounts in an organization and receive SNS alert once the threshold is below 50%. This option is not as effective as Option A because it sets up RI utilization budgets for individual accounts rather than all accounts in the organization. This approach may lead to inconsistencies in tracking RI usage and alerting.
+Option D: Use Organization Management account to create RI utilization budgets for all the accounts in an organization and receive SNS alert once the threshold is below 50%. This option is a good approach because it sets up RI utilization budgets for all accounts in the organization, which will help track the usage of RIs. Receiving an SNS alert once the threshold is below 50% will ensure that the accounts purchase more RIs before they run out, avoiding additional costs associated with On-Demand instances.
+In conclusion, the best option for justifying the suggestion to purchase more Reserved Instances is to use the Organization Management account to create RI coverage or utilization budgets for all accounts in the organization and receive an SNS alert once the threshold is below 50%.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question477:"link"
+
+

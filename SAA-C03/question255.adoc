@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1055 - You need to have a Data storage layer in"
+---
+
+
+[.question]
+== 1055-64a1fa9af053625db51ddf11.
+
+
+****
+
+[.query]
+--
+You need to have a Data storage layer in AWS.
+Following are the key requirements: a) Storage of documents in JSON file format. b) Availability of Indexes c) Automatic scaling What would be an ideal storage layer for the above requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS DynamoDB
+* [ ] B. AWS EBS Volumes
+* [*] C. AWS S3
+* [ ] D. AWS Glacier.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following.
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
+DynamoDB enables customers to offload the administrative burdens of operating and scaling distributed databases to AWS.
+For that, they don't have to worry about hardware provisioning, setup, and configuration, throughput capacity planning, replication, software patching, or cluster scaling.
+- Indexes give you access to alternate query patterns and can speed up queries.
+This section compares and contrasts index creation and usage in SQL and Amazon DynamoDB.- Amazon DynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns.
+This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling.
+For more information on DynamoDB, please visit the following URL-
+https://aws.amazon.com/dynamodb/faqs/ https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html
+Based on the key requirements mentioned, the ideal storage layer for this scenario would be AWS DynamoDB.
+Here is why:
+1.
+Storage of documents in JSON file format: DynamoDB is a NoSQL database service provided by AWS that allows storing unstructured data in JSON format. It is optimized for fast and predictable performance, making it an ideal choice for storing large volumes of structured and semi-structured data.
+2.
+Availability of Indexes: DynamoDB allows creating indexes on any attribute in a table, enabling fast and efficient querying of data. These indexes can be created with either the primary key or non-primary key attributes, providing flexibility in the query patterns.
+3.
+Automatic Scaling: DynamoDB is designed to automatically scale up or down based on the traffic to the database. This means that the database can handle sudden spikes in traffic without impacting performance, ensuring that the application remains highly available.
+AWS EBS volumes are a block storage service that provides persistent storage for EC2 instances. It is not designed for storing unstructured data in JSON format, and does not provide automatic scaling. Therefore, it is not a suitable option for this scenario.
+AWS S3 is an object storage service that provides scalable and durable storage for data. While S3 allows storing unstructured data in JSON format, it does not provide the ability to create indexes for efficient querying of data. Additionally, S3 is not designed for high performance and low latency access to data, making it a less ideal choice for this scenario.
+AWS Glacier is a low-cost archival storage service designed for infrequently accessed data. It is not optimized for fast and efficient querying of data, making it a less ideal choice for this scenario.
+In conclusion, AWS DynamoDB is the most suitable option for storing JSON documents with indexes and automatic scaling requirements.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question291:"link"
+
+

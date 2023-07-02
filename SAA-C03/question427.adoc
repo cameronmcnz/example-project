@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1227 - As a Solutions Architect you are dealing"
+---
+
+
+[.question]
+== 1227-64a1faf3f053625db51ddfe8.
+
+
+****
+
+[.query]
+--
+As a Solutions Architect, you are dealing with an architecture that supports Amazon EC2 Auto Scaling to handle an application load.
+When considering current policies in the design, you have noticed a variety of choices in place.
+Which statement is NOT true in these cases?
+
+
+--
+
+[.list]
+--
+* [*] A. In most cases, step scaling policies are a better choice than simple scaling policies, even if you have only a single scaling adjustment.
+* [*] B. You cannot have multiple target tracking scaling policies for an Auto Scaling group, but you can have multiple scaling policies in force simultaneously.
+* [ ] C. CloudWatch alarms associated with your target tracking scaling policies are deleted automatically when you delete the scaling policies.
+* [ ] D. The gaps between the target value and the actual metric data points prevents you from adding an insufficient number of instances or removing too many instances.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+You can have multiple target tracking scaling policies for an Auto Scaling group, provided that each of them uses a different metric.
+You can also have multiple scaling policies in force at the same time.
+Option A is incorrect because the statement is true.
+Amazon recommends step scaling policies as a better choice than simple scaling policies.
+Option C is incorrect because the statement is true.
+Amazon suggests not to edit or delete the CloudWatch alarms that are configured for the target tracking scaling policy.
+Option D is incorrect because the statement is true.
+Amazon acts conservatively by rounding up or down when determining how many instances to add or remove.
+References:
+https://amzn.to/2KbpIz6 https://amzn.to/2xG9Emd
+Sure, I'd be happy to help! Let me explain each statement in turn:
+A. In most cases, step scaling policies are a better choice than simple scaling policies, even if you have only a single scaling adjustment.
+This statement is generally false. While step scaling policies can be useful in certain situations, such as when you want to add or remove a specific number of instances based on a threshold, they are not always the best choice. Simple scaling policies, which allow you to increase or decrease the desired capacity of your Auto Scaling group by a certain percentage, are often simpler and more flexible. They can also help you maintain a consistent number of instances regardless of the size of the change in demand. So, this statement is not true in all cases.
+B. You cannot have multiple target tracking scaling policies for an Auto Scaling group, but you can have multiple scaling policies in force simultaneously.
+This statement is false. In fact, you can have multiple target tracking scaling policies for an Auto Scaling group, each tracking a different metric. For example, you might have one policy that scales based on CPU utilization and another that scales based on network throughput. You can also have multiple scaling policies in force simultaneously, including both target tracking and step scaling policies.
+C. CloudWatch alarms associated with your target tracking scaling policies are deleted automatically when you delete the scaling policies.
+This statement is true. When you delete a target tracking scaling policy, any associated CloudWatch alarms will also be deleted automatically. This can be useful to keep your CloudWatch Alarms organized and avoid clutter. However, it's important to note that this does not apply to other types of scaling policies, such as step scaling policies.
+D. The gaps between the target value and the actual metric data points prevent you from adding an insufficient number of instances or removing too many instances.
+This statement is generally true. When using target tracking scaling policies, you set a target value for the metric you want to track, such as CPU utilization or network throughput. The Auto Scaling group then adjusts the number of instances up or down based on the difference between the target value and the actual metric data points. However, there may be cases where the actual metric data points do not align perfectly with the target value, which can result in the Auto Scaling group adding too many or too few instances. To mitigate this, you can set a cooldown period to prevent rapid scaling events and allow the metric data to stabilize before making any further scaling decisions.
+I hope that helps! Let me know if you have any further questions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question506:"link"
+
+

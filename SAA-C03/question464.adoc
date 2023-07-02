@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1264 - Your company owns several EC2 Windows se"
+---
+
+
+[.question]
+== 1264-64a1fb04f053625db51de012.
+
+
+****
+
+[.query]
+--
+Your company owns several EC2 Windows servers in production.
+In order to be compliant with recent company security policies, you need to create an EC2 Windows bastion host for users to connect to the instances via the Remote Desktop Protocol (RDP)
+How would you ensure that users can perform remote administration for the Windows servers ONLY through the new bastion host?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the security groups of the Windows server instances to only accept TCP/3389 connections from the security group of the Windows bastion host.
+* [ ] B. Configure the security group of the Windows bastion host to only allow RDP from the company’s IP addresses.
+* [*] C. Add a NACL rule in the subnets of the Windows server instances to deny TCP/443 and TCP/22.
+* [ ] D. In the NACL of the bastion host server, allow the inbound and outbound traffic for TCP/3389.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is CORRECT because with this option, Windows server instances only allow the RDP traffic from the bastion host instance.
+Users need to login to the bastion host to connect to the Windows servers.
+Option B is incorrect because this option only allows the connections to the bastion host.
+It does not provide the RDP connections to the Windows servers through the bastion host.
+Option C is incorrect because this option only denies ports 443 and 22
+It does not allow any rules for the inbound RDP connections.
+Option D is incorrect because similar to option B, it only controls the RDP traffic of the bastion host and there are no controls or limitations on the Windows instances.
+Users can bypass the bastion host to connect to the Windows servers via RDP and there is no NACL rule to deny it.
+The NACL of the bastion host server cannot block the unexpected connections.
+Instead, the control should be applied in the Windows instances to only allow the connections from the Windows bastion host.
+Reference:
+https://aws.amazon.com/blogs/security/controlling-network-access-to-ec2-instances-using-a-bastion-server/
+Sure, I'd be happy to explain each of the answer choices and which one is the most appropriate for the given scenario.
+A. Configure the security groups of the Windows server instances to only accept TCP/3389 connections from the security group of the Windows bastion host. This answer choice suggests configuring the security groups of the Windows server instances to only allow connections on TCP/3389 (RDP port) from the security group of the Windows bastion host. This would ensure that only connections originating from the bastion host can access the Windows servers. However, this answer choice does not address how to ensure that remote administration can only be performed through the bastion host. It only limits the source of the incoming RDP connections.
+B. Configure the security group of the Windows bastion host to only allow RDP from the company's IP addresses. This answer choice suggests configuring the security group of the Windows bastion host to only allow RDP connections from the company's IP addresses. This would ensure that only connections originating from the company's IP addresses can access the bastion host, which would limit the attack surface. However, this answer choice also does not address how to ensure that remote administration can only be performed through the bastion host.
+C. Add a NACL rule in the subnets of the Windows server instances to deny TCP/443 and TCP/22. This answer choice suggests adding a Network Access Control List (NACL) rule in the subnets of the Windows server instances to deny TCP/443 (HTTPS) and TCP/22 (SSH). This would limit the attack surface by blocking incoming traffic on ports commonly used for remote access. However, this answer choice does not address how to ensure that remote administration can only be performed through the bastion host.
+D. In the NACL of the bastion host server, allow the inbound and outbound traffic for TCP/3389. This answer choice suggests allowing inbound and outbound traffic for TCP/3389 in the NACL of the bastion host server. This would ensure that users can connect to the Windows servers only through the bastion host, as it is the only server with RDP access. This also limits the attack surface by ensuring that RDP traffic is only allowed through the bastion host. Therefore, this is the most appropriate answer choice for the given scenario.
+In summary, the most appropriate answer choice for ensuring that users can perform remote administration for the Windows servers ONLY through the new bastion host is to allow inbound and outbound traffic for TCP/3389 in the NACL of the bastion host server.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question548:"link"
+
+

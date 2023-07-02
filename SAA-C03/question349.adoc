@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1149 - Your company is using different AWS reso"
+---
+
+
+[.question]
+== 1149-64a1facbf053625db51ddf89.
+
+
+****
+
+[.query]
+--
+Your company is using different AWS resources and services.
+As an architect, you have to instruct the operations department on which service they can use to trigger AWS Lambda functions based on AWS events.
+Which of the following would you recommend?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS CloudTrail
+* [*] B. AWS CloudWatch Event
+* [ ] C. AWS SQS
+* [ ] D. AWS CloudWatch Log.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+Amazon CloudWatch is a monitoring and management which collects monitoring and operational data in the form of logs, metrics, and events, providing you with a unified view of AWS resources, applications and services that run on AWS, and on-premises servers.
+It captures real-time events which can be further used to trigger AWS Lambda.
+AWS CloudTrail is an AWS service that helps you enable governance, compliance, and operational and risk auditing of your AWS account.
+Actions taken by a user, role, or an AWS service are recorded as events in CloudTrail.
+Events include actions taken in the AWS Management Console, AWS Command Line Interface, and AWS SDKs and APIs.
+It doesn't have the capability to trigger anything.
+For more details on the process, refer below URL-
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html
+Option C is incorrect since this is used to working with messages in the queue.
+Option D is incorrect CloudWatch Log cannot trigger the Lambda function based on real-time events.
+There is some delay for the logs to be sent to CloudWatch Logs.
+For more information on AWS CloudWatch, please visit the below URL-
+https://aws.amazon.com/cloudwatch/
+As an AWS Solutions Architect, if you need to instruct the operations department on which service they can use to trigger AWS Lambda functions based on AWS events, the recommended option would be AWS CloudWatch Events.
+AWS CloudWatch Events is a fully managed event-routing service that enables you to match events produced by various AWS services, including Lambda functions, to different targets such as SNS, SQS, Lambda functions, Kinesis data streams, and more.
+AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. It can be used to track user activity and API usage, but it does not provide direct support for triggering Lambda functions based on events.
+AWS Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. While it can be used to store and process messages, it does not directly support triggering Lambda functions based on events.
+AWS CloudWatch Logs is a fully managed log storage and monitoring service that enables you to collect, monitor, and analyze logs from various sources. It can be used to track and analyze Lambda function logs, but it does not provide direct support for triggering Lambda functions based on events.
+Therefore, the recommended option for triggering AWS Lambda functions based on AWS events is AWS CloudWatch Events.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question411:"link"
+
+

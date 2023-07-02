@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1154 - You have been hired as a consultant for "
+---
+
+
+[.question]
+== 1154-64a1facdf053625db51ddf8e.
+
+
+****
+
+[.query]
+--
+You have been hired as a consultant for a company to implement their CI/CD processes.
+They currently use an on-premises deployment of Chef for their configuration management on servers.
+You need to advise them on what they can use on AWS to leverage their existing capabilities.
+Which of the following service would you recommend?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon Simple Workflow Service
+* [ ] B. AWS Elastic Beanstalk
+* [ ] C. AWS CloudFormation
+* [*] D. AWS OpsWorks.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The AWS Documentation mentions the following.
+AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet.
+Chef and Puppet are automation platforms that allow you to use code to automate your servers' configurations.
+OpsWorks let you use Chef and Puppet to automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments.
+OpsWorks have three offerings, AWS Opsworks for Chef Automate, AWS OpsWorks for Puppet Enterprise, and AWS OpsWorks Stacks.
+All of the other options are incorrect since the only tool which works effectively with the Chef Configuration management tool is AWS OpsWorks.
+For more information on AWS Opswork, please visit the URL-
+https://aws.amazon.com/opsworks/
+Based on the scenario provided, the service that would best fit the requirements of the company is AWS OpsWorks.
+AWS OpsWorks is a configuration management service that enables the management of Chef and Puppet-powered servers. It provides a complete DevOps experience for managing applications on AWS. OpsWorks automates the deployment, configuration, and management of applications, so that developers can focus on writing code instead of managing infrastructure.
+Since the company already uses an on-premises deployment of Chef, OpsWorks would be the most logical choice for them to leverage their existing capabilities. OpsWorks supports Chef recipes and cookbooks, enabling them to easily migrate their existing Chef infrastructure to AWS. With OpsWorks, they can manage their configuration management at scale and automate the deployment of new servers and applications.
+Amazon Simple Workflow Service (SWF) is a service that coordinates tasks across distributed applications. SWF can be used to build applications with tasks that are long-running, asynchronous, and require coordination between multiple components.
+AWS Elastic Beanstalk is a Platform-as-a-Service (PaaS) offering that simplifies the process of deploying, managing, and scaling web applications. Elastic Beanstalk supports multiple programming languages, including Java, .NET, PHP, Node.js, Python, Ruby, and Go.
+AWS CloudFormation is a service that provides a way to create and manage a collection of AWS resources as a single unit, called a stack. CloudFormation templates are used to define the desired state of the resources and the relationships between them.
+In summary, based on the scenario provided, the service that would best fit the company's requirements is AWS OpsWorks because it is a configuration management service that supports Chef and Puppet-powered servers, allowing them to easily migrate their existing Chef infrastructure to AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question416:"link"
+
+

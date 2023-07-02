@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "907 - As a Solutions Architect for a multinati"
+---
+
+
+[.question]
+== 907-64a1fa61f053625db51dde6d.
+
+
+****
+
+[.query]
+--
+As a Solutions Architect for a multinational organization with more than 150000 employees, management has decided to implement a real-time analysis for their employees' time spent in offices worldwide.
+You are tasked to design an architecture that will receive the inputs from 10000+ sensors with swipe machine sending in and out data across the globe, each sending 20KB data every 5 Seconds in JSON format.
+The application will process and analyze the data and upload the results to dashboards in real-time. Other application requirements will include the ability to apply real-time analytics on the captured data.
+Processing of captured data will be parallel and durable.
+The application must be scalable as per the requirement as the load varies and new sensors are added or removed at various facilities.
+The analytic processing results are stored in a persistent data storage for data mining.
+What combination of AWS services would be used for the above scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. Use EMR to copy the data coming from Swipe machines into DynamoDB and make it available for analytics.
+* [*] B. Use Amazon Kinesis Streams to ingest the Swipe data coming from sensors, Custom Kinesis Streams Applications to analyze the data and then move analytics outcomes to RedShift using AWS EMR.
+* [*] C. Use SQS to receive the data coming from sensors, Kinesis Firehose to analyze the data from SQS, then save the results to a Multi-AZ RDS instance.
+* [ ] D. Use Amazon Kinesis Streams to ingest the sensors’ data, custom Kinesis Streams applications to analyze the data, and move analytics outcomes to RDS using AWS EMR.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect.
+EMR is not for receiving real-time data from thousands of sources.
+EMR is mainly used for Hadoop ecosystem-based data used for Big data analysis.
+Option B is correct as the Amazon Kinesis streams are used to read the data from thousands of sources like social media, survey-based data, etc.
+The Kinesis streams can be used to analyze the data and feed it using AWS EMR to the analytics-based database like RedShift which works on OLAP.
+Option C is incorrect.
+SQS cannot be used to read the real-time data from thousands of sources.
+The Kinesis Firehose is used to ship the data to other AWS services, not for the analysis.
+And finally, RDS is again an OLTP based database.
+Option D is incorrect as the AWS EMR can read large amounts of data.
+However, RDS is a transactional database that works based on the OLTP.
+Thus, it cannot store the analytical data.
+The best combination of AWS services to achieve the desired outcome would be option B, which includes the use of Amazon Kinesis Streams, custom Kinesis Streams applications, and AWS EMR, to move the analytics outcomes to RedShift.
+Here is an overview of how this combination of services would work together to meet the application requirements:
+1.
+Amazon Kinesis Streams: The first step in the architecture is to ingest the Swipe data coming from sensors. Amazon Kinesis Streams is a fully managed service for real-time data streaming, and it can handle large amounts of data from multiple sources. Kinesis Streams provides the ability to process and analyze data in real-time with low latency. This service will be used to ingest the data coming from the sensors.
+2.
+Custom Kinesis Streams Applications: Once the data is ingested into Kinesis Streams, custom Kinesis Streams applications can be developed to analyze the data in real-time. These applications can be developed using a variety of programming languages, and they can leverage AWS services such as AWS Lambda, Amazon EC2, and AWS EMR to perform real-time data processing and analytics.
+3.
+AWS EMR: AWS EMR is a fully managed service that simplifies big data processing, and it provides a managed Hadoop framework that makes it easy to process large amounts of data using Amazon EC2 instances. In this architecture, AWS EMR will be used to move the analytics outcomes from Kinesis Streams to RedShift, which is a petabyte-scale data warehouse that makes it easy to analyze large amounts of data.
+4.
+RedShift: Once the data has been analyzed by the custom Kinesis Streams applications using AWS EMR, the analytics outcomes can be moved to RedShift. RedShift provides fast querying and data analysis capabilities, and it can easily handle petabyte-scale data sets. RedShift will be used to store the analytics results for data mining purposes.
+Overall, this architecture meets all of the application requirements, including the ability to ingest large amounts of data from multiple sensors, real-time data processing and analytics, durability and scalability, and persistent data storage for data mining.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question124:"link"
+
+

@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "1337 - Which of the following is not true with "
+---
+
+
+[.question]
+== 1337-64a1fb2ff053625db51de07d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_k2ko89.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following is not true with respect to EBS volume encryption?
+
+
+[source,java]
+----
+Amazon EBS Encryption
+
+Amazon EBS encryption offers a simple encryption solution for your EBS volumes without the need to build,
+maintain, and secure your own key management infrastructure. When you create an encrypted EBS volume and
+attach it to a supported instance type, the following types of data are encrypted:
+
+* Data at rest inside the volume
+
+* All data moving between the volume and the instance
+All snapshots created from the volume
+
+All volumes created from those snapshots
+
+Encryption operations occur on the servers that host EC2 instances, ensuring the security of both data-at-rest and
+data-in-transit between an instance and its attached EBS storage.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Encrypts data at rest inside the volume.
+* [ ] B. Encrypts all data moving between the volume and the instance.
+* [ ] C. Encrypts all snapshots created from the volume.
+* [*] D. Encrypted EBS volumes are not supported on all current generation instance types.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Options A, B, C are true statements but the question asks for the false statement.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
+Option D is a false statement, so it is correct.
+Supported instance types:
+Amazon EBS encryption is available on all current generation instance types and the following previous generation instance types: A1, C3, cr1.8xlarge, G2, I2, M3, and R3.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_s%20upported_instances
+EBS volume encryption is a feature of Amazon Elastic Block Store (EBS) that enables you to encrypt data at rest inside the volume. This feature provides an additional layer of security for your data by encrypting all data stored on an EBS volume.
+The correct answer to the question is D. Encrypted EBS volumes are not supported on all current generation instance types.
+Explanation of each answer:
+A. Encrypts data at rest inside the volume: This statement is true. EBS volume encryption encrypts all data stored on an EBS volume at rest using the industry-standard AES-256 encryption algorithm. This encryption provides data protection even in the case of unauthorized access to the underlying storage.
+B. Encrypts all data moving between the volume and the instance: This statement is false. EBS volume encryption only encrypts data at rest inside the volume. It does not encrypt data in transit between the volume and the instance. For encrypting data in transit, you can use SSL/TLS encryption or IPsec VPN.
+C. Encrypts all snapshots created from the volume: This statement is true. When you create a snapshot of an encrypted EBS volume, the snapshot is also encrypted using the same encryption key as the original volume. You can also copy encrypted snapshots to another region, and the snapshot will remain encrypted.
+D. Encrypted EBS volumes are not supported on all current generation instance types: This statement is true. Not all current generation instance types support encrypted EBS volumes. You should check the documentation for the specific instance type you plan to use to determine whether it supports encrypted volumes. If the instance type does not support encrypted volumes, you can still use encrypted snapshots to store encrypted data.
+In summary, EBS volume encryption encrypts data at rest inside the volume, encrypts snapshots created from the volume, but does not encrypt data in transit between the volume and the instance. Encrypted EBS volumes are not supported on all current generation instance types.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question656:"link"
+
+

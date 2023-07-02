@@ -1,0 +1,96 @@
+---
+layout: default 
+title: "1266 - A large corporation has several branch o"
+---
+
+
+[.question]
+== 1266-64a1fb05f053625db51de015.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgvpc-4.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A large corporation has several branch offices and applications are deployed in AWS.
+The branch offices and the AWS VPC need to communicate with each other.
+The connectivity should be secure, cost-effective, and based on existing internet connections.
+Which of the following methods would you choose?
+
+
+[source,java]
+----
+Customer Network
+
+¢ Customer Network
+
+Customer Network
+Cus pet
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Configure an AWS Direct Connect with hardware VPNs to establish secure network connections between remote sites and AWS VP.
+* [ ] B. Launch an EC2 instance with the VPN software installed to establish IPSec VPN connections.
+* [*] C. Use AWS VPN CloudHub to enable the communication between the branch offices and the VP.
+* [ ] D. For each branch office, create a Virtual Private Gateway in AWS VPC to establish a software VPN connection.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect because although hardware VPNs can provide secure connections, Direct Connect should not be used as it is not cost-effective and not based on existing internet connections.
+Option B is incorrect because this option uses a single EC2 instance that may have availability issues.
+It also does not provide the connectivity between branch offices.
+Option C is CORRECT because AWS VPN CloudHub provides secure connections based on existing internet.
+AWS VPN CloudHub uses an Amazon VPC virtual private gateway with multiple customer gateways to provide the connectivities.
+It operates on a simple hub-and-spoke model as the following snapshot:
+Option D is incorrect because there is no need to create a Virtual Private Gateway for each branch office.
+With AWS VPN CloudHub, a VPC only needs a single Virtual Private Gateway.
+Other than that, a hardware VPN is established with Virtual Private Gateway instead of a software VPN.
+References:
+https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-vpn-cloudhub.html https://docs.aws.amazon.com/vpn/latest/s2svpn/VPN_CloudHub.html, https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-managed-vpn.html
+Sure, I'd be happy to explain the different methods and help you choose the most appropriate one.
+Option A: Configure an AWS Direct Connect with hardware VPNs to establish secure network connections between remote sites and AWS VPC.
+AWS Direct Connect is a dedicated network connection between the customer's data center and AWS. With this option, you can establish a secure network connection between your remote sites and AWS VPC by using AWS Direct Connect along with hardware VPNs. However, this option can be expensive, especially if you have several remote sites, and may not be cost-effective if you have existing internet connections that can be leveraged.
+Option B: Launch an EC2 instance with the VPN software installed to establish IPSec VPN connections.
+With this option, you can launch an EC2 instance with VPN software installed, configure it to establish IPSec VPN connections, and use it to securely connect the remote sites to AWS VPC. While this option is cost-effective, it requires manual configuration and maintenance of the VPN software on the EC2 instance, which can be time-consuming and error-prone.
+Option C: Use AWS VPN CloudHub to enable the communication between the branch offices and the VPC.
+AWS VPN CloudHub is a managed VPN service provided by AWS that allows you to easily establish secure network connections between your remote sites and AWS VPC. With this option, you can create a single VPN connection between the AWS VPC and AWS VPN CloudHub, and then use CloudHub to connect all the remote sites to the VPC. This option is cost-effective, requires minimal configuration and maintenance, and can scale easily to support a large number of remote sites.
+Option D: For each branch office, create a Virtual Private Gateway in AWS VPC to establish a software VPN connection.
+With this option, you can create a Virtual Private Gateway in the AWS VPC for each remote site and establish a software VPN connection between the remote site and the VPC. While this option is secure and can scale easily, it can be expensive if you have several remote sites and may not be cost-effective if you have existing internet connections that can be leveraged.
+Based on the requirements of the large corporation, Option C would be the most appropriate method. It is cost-effective, requires minimal configuration and maintenance, and can scale easily to support a large number of remote sites. It also uses existing internet connections, which can save costs for the organization.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question551:"link"
+
+

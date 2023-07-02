@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1027 - For a new application you need to build "
+---
+
+
+[.question]
+== 1027-64a1fa8df053625db51ddef2.
+
+
+****
+
+[.query]
+--
+For a new application, you need to build up the logic tier and data storage tier in AWS.
+The whole architecture needs to be serverless so that designers can quickly deploy the application without the need to manage servers.
+Which of the following AWS services would you choose?
+
+
+--
+
+[.list]
+--
+* [*] A. Logic tier: “Amazon Cognito + Lambda”. Data Storage tier: “Amazon RDS”
+* [*] B. Logic tier: “API Gateway + Lambda”. Data Storage tier: “Amazon DynamoDB”
+* [*] C. Logic tier: “API Gateway + Lambda”. Data Storage tier: “Amazon Redshift”
+* [ ] D. Logic tier: “Elastic Beanstalk”. Data Storage tier: “Amazon Aurora”
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The key to the question is that the architecture should be serverless.
+For AWS serverless multi-tier architectures, please refer to https://d1.awsstatic.com/whitepapers/AWS_Serverless_Multi-Tier_Architectures.pdf.
+Option A is incorrect: Because Amazon Cognito is not suitable for the logic tier, and Amazon RDS is not a serverless service.
+Option B is CORRECT: Because both API Gateway/Lambda and Amazon DynamoDB are serverless so that the process of deploying servers is simplified.
+Option C is incorrect: Amazon Redshift is a data warehouse service and is not serverless.
+Option D is incorrect: Because Elastic Beanstalk utilizes EC2 instances as its computing resources are not a serverless service.
+The best option for building a serverless architecture for a new application would be option B. The logic tier can be built using Amazon API Gateway and AWS Lambda, while the data storage tier can be built using Amazon DynamoDB.
+Here's a more detailed explanation of each option:
+A. Logic tier: “Amazon Cognito + Lambda”. Data Storage tier: “Amazon RDS” Amazon Cognito is an authentication service that can be used to manage user sign-up, sign-in, and access control. It is not a suitable choice for building a logic tier. AWS Lambda can be used to run serverless code, but it is not designed to build the logic tier. Amazon RDS is a managed relational database service, which means it requires servers to be managed. This option is not a good fit for a serverless architecture.
+B. Logic tier: “API Gateway + Lambda”. Data Storage tier: “Amazon DynamoDB” Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. AWS Lambda is a serverless compute service that can run code in response to events and automatically manage the underlying compute resources. Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. This combination of services is a good fit for building a serverless architecture for a new application.
+C. Logic tier: “API Gateway + Lambda”. Data Storage tier: “Amazon Redshift” Amazon Redshift is a fully managed data warehouse service that allows for fast querying and analysis of data using SQL. However, it is not suitable for a serverless architecture, as it requires servers to be managed. Amazon DynamoDB would be a better choice for a data storage tier.
+D. Logic tier: “Elastic Beanstalk”. Data Storage tier: “Amazon Aurora” AWS Elastic Beanstalk is a service that makes it easy to deploy, manage, and scale applications in the AWS Cloud. However, it requires servers to be managed, which is not a good fit for a serverless architecture. Amazon Aurora is a MySQL and PostgreSQL compatible relational database built for the cloud, but it also requires servers to be managed. This option is not a good fit for building a serverless architecture for a new application.
+In conclusion, option B is the best choice for building a serverless architecture for a new application, as it uses Amazon API Gateway, AWS Lambda, and Amazon DynamoDB to build the logic and data storage tiers.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question259:"link"
+
+

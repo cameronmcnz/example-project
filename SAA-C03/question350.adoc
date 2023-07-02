@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1150 - A company is planning to store its files"
+---
+
+
+[.question]
+== 1150-64a1facbf053625db51ddf8a.
+
+
+****
+
+[.query]
+--
+A company is planning to store its files from their on-premises location onto the Simple Storage service.
+After a period of 3 months, they want to archive the files, since they would be rarely used.
+Which of the following would be the right way to preserve this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use an EC2 instance with EBS volumes. After a period of 3 months, keep on taking snapshots of the data.
+* [*] B. Store the data on S3 and then use Lifecycle policies to transfer the data to Amazon Glacier
+* [ ] C. Store the data on Amazon Glacier and then use Lifecycle policies to transfer the data to Amazon S3
+* [ ] D. Use an EC2 instance with EBS volumes. After a period of 3 months , keep on taking copies of the volume using Cold HDD volume type.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+To manage your objects so that they are stored cost-effectively throughout their lifecycle, configure their lifecycle.
+A lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects.
+There are two types of actions.
+Transition actions-Define when objects transition to another storage class.
+For example, you might choose to transition objects to the STANDARD_IA storage class 30 days after you created them or archive objects to the GLACIER storage class one year after creating them.
+Expiration actions-Define when objects expire.
+Amazon S3 deletes expired objects on your behalf.
+Options A and D are incorrect since using EBS volumes is not the right storage option for this sort of requirement.
+Option C is incorrect since the files should be initially stored in S3.
+For more information on AWS S3 Lifecycle policies, please visit the below URL-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+The best option for preserving the requirement to store files from an on-premises location on the Simple Storage Service (S3) and archive them after three months would be to use S3 and Lifecycle policies to transfer the data to Amazon Glacier. Therefore, the correct answer is B.
+Explanation: Option A: Using an EC2 instance with EBS volumes and taking snapshots of the data would not be a suitable solution for this requirement. EBS snapshots are used for backup and disaster recovery purposes, and they do not provide an efficient way to archive data that is rarely used. Additionally, EC2 instances require ongoing management and maintenance, which would not be necessary with S3.
+Option B: Storing the data on S3 and using Lifecycle policies to transfer the data to Amazon Glacier would be the most appropriate solution for this requirement. S3 provides a scalable and durable storage solution for storing files, and Lifecycle policies can be used to automatically transition the files to lower-cost storage tiers, such as Amazon Glacier. Amazon Glacier is a cost-effective archival storage service that is designed for data that is rarely accessed. By using S3 and Lifecycle policies, the company can reduce its storage costs while still maintaining access to its archived data.
+Option C: Storing the data on Amazon Glacier and using Lifecycle policies to transfer the data to S3 would not be the best solution for this requirement. While Glacier is designed for archival storage, it is not suitable for frequently accessed data. If the company needs to access its data frequently, storing it on Glacier would result in high retrieval costs. Additionally, Glacier does not provide the same level of durability and availability as S3.
+Option D: Using an EC2 instance with EBS volumes and taking copies of the volume using Cold HDD volume type is not the best solution for this requirement. Similar to Option A, this solution requires ongoing management and maintenance of the EC2 instance, which is not necessary with S3. Additionally, copying the entire volume every three months would be time-consuming and inefficient.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question412:"link"
+
+

@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "861 - Given public interface MoveableInteger  "
+---
+
+
+[.question]
+== 861-64a1a850ef3e8462333a9c73.
+
+
+****
+
+[.query]
+--
+Given: public interface Moveable<Integer> { public default void walk (Integer distance) {System.out.println("Walking");) public void run(Integer distance); } Which statement is true?
+
+
+--
+
+[.list]
+--
+* [*] A. Moveable can be used as below: Moveable animal = n - > System.out.println("Running" + n); animal.run(100); animal.walk(20);
+* [ ] B. Moveable can be used as below: Moveable animal = n - > n + 10; animal.run(100); animal.walk(20);
+* [ ] C. Moveable can be used as below: Moveable animal = (Integer n1, Integer n2) -> n+ n2; animal.run(100); animal.walk(20);
+* [ ] D. Movable cannot be used in a lambda expression.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

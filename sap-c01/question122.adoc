@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "922 - Your company has an onpremises multitier"
+---
+
+
+[.question]
+== 922-64a1df22aa736d27b1db9354.
+
+
+****
+
+[.query]
+--
+Your company has an on-premises multi-tier PHP web application, which recently experienced downtime due to a large burst In web traffic due to a company announcement.
+Over the coming days, you are expecting similar announcements to drive similar unpredictable bursts.
+You are looking for ways to quickly improve your infrastructure's ability to handle unexpected traffic increases.
+
+
+--
+
+[.list]
+--
+* [*] A. Offload traffic from an on-premises environment by setting up a CloudFront distribution and configure CloudFront to cache objects from a custom origin. Choose to customize your object cache behavior, and select a TTL that objects should exist in the cache.
+* [ ] B. Migrate to AWS. Use VM import ‘Export to quickly convert an on-premises web server to an AMI create an Auto Scaling group, which uses the imported AMI to scale the web tier based on incoming traffic. Create an RDS read replica and setup replication between the RDS instance and on-premises MySQL server to migrate the database.
+* [ ] C. Create an S3 bucket and configure it tor website hosting. Migrate your DNS to Route53 using zone import and leverage Route53 DNS failover to failover to the S3 hosted website.
+* [ ] D. Create an AMI which can be used to launch web servers in EC2. Create an Auto Scaling group which uses the AMI’s to scale the web tier based on incoming traffic. Leverage Elastic Load Balancing to balance traffic between on-premises web servers and those hosted in AWS.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+In this scenario, the major points of consideration are: (1) your application may get unpredictable bursts of traffic, (b) you need to improve the current infrastructure in the shortest period possible, and (3) your web servers are on-premises.
+Since the time period in hand is short, instead of migrating the app to AWS, you need to consider different ways to improve the performance without modifying the existing infrastructure.
+Option A is CORRECT because (a) CloudFront is AWS's highly scalable, highly available content delivery service, where it can perform excellently even in case of a sudden unpredictable burst of traffic, (b) the only change you need to make is making the on-premises load balancer as the custom origin of the CloudFront distribution.
+Option B is incorrect because you are supposed to improve the current situation in the shortest time possible.
+Migrating to AWS would be more time consuming than simply setting up the CloudFront distribution.
+Option C is incorrect because you cannot host dynamic websites on the S3 bucket.
+Also, this option provides insufficient infrastructure to set up options.
+Option D is incorrect.
+It is now possible to use Application Load Balancers through IP Address to On-Premises and AWS Resources.
+However, option D is incorrect as it is not covering the database tier which is an essential part of this 2 tier architecture.
+More information on CloudFront:
+You can have CloudFront sit in front of your on-premise web environment via a custom origin.
+This would protect against unexpected bursts in traffic by letting CloudFront handle the traffic from the cache, thus removing some of the load from the on-premise web servers.
+Amazon CloudFront is a web service that gives businesses and web application developers an easy and cost-effective way to distribute content with low latency and high data transfer speeds.
+Like other AWS services, Amazon CloudFront is a self-service, pay-per-use offering, requiring no long-term commitments or minimum fees.
+With CloudFront, your files are delivered to end-users using a global network of edge locations.
+If you have dynamic content, then it is best to have the TTL set to 0.
+For more information on CloudFront, please visit the below URL-
+https://aws.amazon.com/cloudfront/
+Sure, I'd be happy to explain the options and their implications.
+Option A: Offload traffic from an on-premises environment by setting up a CloudFront distribution and configure CloudFront to cache objects from a custom origin. Choose to customize your object cache behavior, and select a TTL that objects should exist in the cache.
+This option involves using AWS CloudFront, a content delivery network (CDN), to cache objects from a custom origin server. By doing so, CloudFront can offload traffic from your on-premises environment, reducing the load on your servers and potentially improving their availability during traffic surges. The TTL (time-to-live) value determines how long CloudFront caches objects before fetching them again from the origin server. This option could be a good fit if your application has static content that can be cached for long periods, or if you can tolerate some delay in serving stale content.
+Option B: Migrate to AWS. Use VM import 'Export to quickly convert an on-premises web server to an AMI create an Auto Scaling group, which uses the imported AMI to scale the web tier based on incoming traffic. Create an RDS read replica and set up replication between the RDS instance and on-premises MySQL server to migrate the database.
+This option involves migrating your entire application to AWS. It starts with using VM Import/Export to create an Amazon Machine Image (AMI) of your on-premises web server, which can then be launched as an EC2 instance. An Auto Scaling group can be set up to automatically launch additional instances as traffic increases, using the imported AMI. An RDS read replica can also be created to migrate your database to AWS, and replication can be set up between the RDS instance and your on-premises MySQL server to ensure data consistency. This option provides a scalable, resilient environment for your application, but requires more effort to set up and migrate your data to AWS.
+Option C: Create an S3 bucket and configure it for website hosting. Migrate your DNS to Route53 using zone import and leverage Route53 DNS failover to failover to the S3 hosted website.
+This option involves using Amazon S3 to host your website, which can then be accessed using a custom domain name through Amazon Route53. Route53 DNS failover can be configured to automatically route traffic to the S3-hosted website in the event of a failure on your on-premises environment. This option is suitable for simple websites with static content, but may not be suitable for more complex web applications.
+Option D: Create an AMI which can be used to launch web servers in EC2. Create an Auto Scaling group which uses the AMI's to scale the web tier based on incoming traffic. Leverage Elastic Load Balancing to balance traffic between on-premises web servers and those hosted in AWS.
+This option involves creating an AMI of your web server and launching it as an EC2 instance. An Auto Scaling group can be set up to automatically launch additional instances as traffic increases, using the AMI. Elastic Load Balancing can be used to distribute traffic between your on-premises web servers and those hosted in AWS. This option provides a scalable and resilient environment, but may require more complex networking configurations to integrate with your on-premises environment.
+Overall, each option has its pros and cons depending on the specific requirements of your application. Option B provides the most comprehensive solution but requires the most effort to set up and migrate data. Option A and D are more focused on offloading traffic and providing scalable capacity, respectively. Option C is the simplest option but may not be suitable for more complex applications.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question162:"link"
+
+

@@ -1,0 +1,112 @@
+---
+layout: default 
+title: "1362 - You are planning to launch a web based a"
+---
+
+
+[.question]
+== 1362-64a1fb3df053625db51de09e.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_scuygl.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are planning to launch a web based application in two different regions within US on AWS due to your organization compliance policies.
+You have setup 2 EC2 instances attached to an elastic load balancer in us-east-1
+You have replicated the same setup in us-west-1
+Now you have two load balancers which needs to listen traffic from internet.
+You would want to split the requests equally between both load balancers from a domain name hosted on your AWS Route 53
+How should you configure your Route 53 record sets?
+
+
+[source,java]
+----
+Weighted Routing
+
+Weighted routing lets you associate multiple resources with a single domain name (example.com) or subdomain name (acme.example.com) and choose how much traffic is routed to each
+resource. This can be useful for a variety of purposes, including load balancing and testing new versions of software.
+
+To configure weighted routing, you create records that have the same name and type for each of your resources. You assign each record a relative weight that corresponds with how much
+traffic you want to send to each resource. Amazon Route 53 sends traffic to a resource based on the weight that you assign to the record as a proportion of the total weight for all records
+
+in the group:
+
+Weight for a specified record
+Sum of the weights for all records
+
+For example, if you want to send a tiny portion of your traffic to one resource and the rest to another resource, you might specify weights of 1 and 255. The resource with a weight of 1
+gets 1/256th of the traffic (1/1+255), and the other resource gets 255/256ths (255/1+255). You can gradually change the balance by changing the weights. If you want to stop seni
+traffic to a resource, you can change the weight for that record to 0.
+
+For information about values that you specify when you use the weighted routing policy to create records, see the following topics:
+
+* Values for Weighted Records
+* Values for Weighted Alias Records
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create two record sets, one each for us-east-1 and us-west-1 load balancers. Set weighted routing policy with weights as 1 and 2 respectively.
+* [*] B. Create two record sets, one each for us-east-1 and us-west-1 load balancers. Set weighted routing policy with weights as 1 and 1 respectively.
+* [ ] C. Create one record set and select both load balancers as Alias Targets. Set weighted routing policy with weights as 1 and 2 respectively.
+* [ ] D. Create one record set and select both load balancers as Alias Targets. Set weighted routing policy with weights as 1 and 1 respectively.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
+Option A is not correct.
+According to above screen shot, with weights 1 and 2, the request distribution is 1:2 which is not equal.
+Option B is correct as the distribution ratio would be 1:1
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/TutorialManagingOver100WRR.html
+Options C and D are not correct.
+A record set can only have one Alias Target.
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values-alias.html#rrsets-values-alias-alias-target
+Sure, I can provide a detailed explanation of the answer options for this question.
+Scenario: The scenario involves launching a web-based application in two different regions within the US on AWS. Two EC2 instances have been set up in us-east-1 and us-west-1, respectively, and both are attached to an Elastic Load Balancer. Two load balancers have been replicated to cater to each region.
+Requirement: The requirement is to split the requests equally between both load balancers from a domain name hosted on AWS Route 53.
+Answer Option A: This answer option suggests creating two record sets, one for each load balancer in us-east-1 and us-west-1. The weighted routing policy would be set with weights as 1 and 2, respectively.
+Explanation: Weighted routing policy is used to distribute traffic across multiple resources in proportion to their assigned weights. In this case, the weight assigned to the us-west-1 load balancer is higher than the us-east-1 load balancer. As a result, the traffic distribution would not be equal, and the requirement of splitting requests equally would not be met. Hence, this answer option is incorrect.
+Answer Option B: This answer option suggests creating two record sets, one for each load balancer in us-east-1 and us-west-1. The weighted routing policy would be set with weights as 1 and 1, respectively.
+Explanation: This option satisfies the requirement of splitting requests equally between both load balancers. By setting the weights as 1 and 1, the Route 53 service would distribute the traffic equally between both load balancers, ensuring that the requests are split equally. Therefore, this answer option is correct.
+Answer Option C: This answer option suggests creating a single record set and selecting both load balancers as Alias Targets. The weighted routing policy would be set with weights as 1 and 2, respectively.
+Explanation: This option is incorrect as the weighted routing policy is not required to achieve the requirement of splitting requests equally between both load balancers. Moreover, selecting both load balancers as Alias Targets with different weights will result in an unequal distribution of traffic, which does not meet the requirement. Therefore, this answer option is incorrect.
+Answer Option D: This answer option suggests creating a single record set and selecting both load balancers as Alias Targets. The weighted routing policy would be set with weights as 1 and 1, respectively.
+Explanation: This option is the same as Option B, which satisfies the requirement of splitting requests equally between both load balancers. By setting the weights as 1 and 1, the Route 53 service would distribute the traffic equally between both load balancers, ensuring that the requests are split equally. Therefore, this answer option is correct.
+In summary, the correct answer to this question is B. Create two record sets, one each for us-east-1 and us-west-1 load balancers. Set weighted routing policy with weights as 1 and 1, respectively.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question689:"link"
+
+

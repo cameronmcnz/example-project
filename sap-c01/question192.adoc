@@ -1,0 +1,129 @@
+---
+layout: default 
+title: "992 - Currently a company uses Redshift to sto"
+---
+
+
+[.question]
+== 992-64a1df3daa736d27b1db93cb.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_63234.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Currently, a company uses Redshift to store its analyzed data.
+They need to configure the Redshift cluster for a demo.
+What would be the minimum configuration that a user can choose for an SSD storage using Redshift in the console?
+
+
+[source,java]
+----
+——
+
+&
+
+CONFIG
+
+e
+
+MARKETPLACE
+
+(°)
+
+ADVISOR
+
+WHAT'S NEW
+
+What are you planning to use this cluster for?
+
+Dc2
+High performance with fixed local SSD storage
+
+dc2.large
+Storage: 160 GB/node
+$0.25/node/hour
+
+2 vCPU (gen 2)
+
+© Free trial
+Configure for learning about Amazon Redshift. This
+configuration is free for a limited time if your
+organization has never created an Amazon Redshift
+cluster.
+
+dc2.8xlarge
+Storage: 2.6 TB/node
+$4.80/node/hour
+
+32 vCPU (gen 2)
+
+NS? flanacw)
+
+y drive type requirements.
+
+| dc2.large
+
+a
+
+Nodes
+Enter the number of nodes that you need.
+
+Lr
+
+Range (1-32)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Three nodes with 320GB each
+* [ ] B. One node of 320GB
+* [ ] C. Two nodes with 128 TB each
+* [*] D. One node of 160GB.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+For more information on Redshift, please refer to the below URL-
+https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-launch-sample-cluster.html
+Redshift is a data warehousing service provided by AWS that enables you to store and analyze large amounts of data in a scalable and cost-effective manner. When configuring a Redshift cluster, you can choose between two types of storage: SSD and HDD. SSD storage provides faster performance compared to HDD storage, but it is also more expensive.
+To determine the minimum configuration for an SSD storage using Redshift, you need to consider the amount of data that needs to be stored and the performance requirements for the demo. The answer to this question depends on the size of the data and the query performance required.
+Option A, which suggests configuring three nodes with 320GB each, may not be sufficient for large data sets. Option B, which suggests configuring a single node with 320GB storage, may not be able to deliver the performance required for the demo.
+Option C, which suggests configuring two nodes with 128TB each, seems excessive for a demo, as this would be suitable for large-scale production workloads with petabytes of data.
+Option D, which suggests configuring a single node with 160GB of storage, is the most reasonable configuration for a demo, assuming that the data set is not very large and the query performance requirements are not very high.
+In summary, the minimum configuration for SSD storage using Redshift for a demo would be one node with 160GB of storage, which is Option D.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question281:"link"
+
+

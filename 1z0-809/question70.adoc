@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "870 - You have been asked to create a Resource"
+---
+
+
+[.question]
+== 870-64a1a854ef3e8462333a9c7c.
+
+
+****
+
+[.query]
+--
+You have been asked to create a ResourceBundle which uses a properties file to localize an application.
+Which code example specifies valid keys of menu1 and menu2 with values of File Menu and View Menu?
+
+
+--
+
+[.list]
+--
+* [ ] A. File Menu View Menu
+* [ ] B. menu1File Menu menu2View Menu
+* [ ] C. menu1, File Menu, menu2, View Menu Menu
+* [*] D. menu1 = File Menu menu2 = View Menu.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

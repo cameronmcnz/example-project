@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1009 - You have been asked to leverage Amazon V"
+---
+
+
+[.question]
+== 1009-64a1df43aa736d27b1db93e0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_6tawan.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have been asked to leverage Amazon VPC EC2 and SQS to implement an application that processes millions of messages per second from a message queue.
+You want to ensure that your application in EC2 instances has sufficient bandwidth when the SQS queue grows.
+The instances also need to access the internet.
+Which option will provide the most scalable solution for the application?
+
+
+[source,java]
+----
+Amazon SQS Queue
+
+uest Queue
+
+Web Server
+(EC2 Instance)
+
+fa
+
+Processing Servers
++ (Buto Sealing Group)
+
+J)
+
+Response Queue
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure the application instances are properly configured with an Elastic Load Balancer.
+* [ ] B. Ensure the application instances are launched in private subnets with the EBS-optimized option enabled.
+* [ ] C. Ensure the application instances are launched in private subnets with the associate-public-IP-address=true option enabled. Remove any NAT instance from the public subnet, if any.
+* [*] D. Ensure the application instances are launched in public subnets with an Auto Scaling group and Auto Scaling triggers are configured to watch the SQS queue size.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The Amazon EC2 instance requires access to the Internet.
+Hence, it should be in a public subnet or be in a private subnet with a NAT instance/gateway in the public subnet.
+Option A is incorrect because ELB does not ensure scalability.
+Option B is incorrect because (a) the EBS-optimized option will not contribute to scalability, and (b) there should be a NAT instance/gateway in the public subnet of the VPC for accessing SQS.
+Option C is incorrect because if you remove the NAT instance, the EC2 instance cannot access the SQS service.
+Option D is CORRECT because (a) it uses Auto Scaling for ensuring scalability of the application, and (b) it has instances in the public subnet so they can access the SQS service.
+For more information on SQS, please visit the below URL-
+https://aws.amazon.com/sqs/faqs/
+To implement an application that processes millions of messages per second from a message queue using Amazon VPC, EC2, and SQS, the most scalable solution would be to launch the application instances in private subnets with the associate-public-IP-address=true option enabled. Removing any NAT instance from the public subnet, if any, would also be required.
+Option A - Ensure the application instances are properly configured with an Elastic Load Balancer: Using an Elastic Load Balancer (ELB) ensures that incoming traffic is distributed evenly across multiple EC2 instances. However, it does not address the issue of ensuring that the application in EC2 instances has sufficient bandwidth when the SQS queue grows. ELB does not provide any additional bandwidth and does not affect the private/public subnet choice.
+Option B - Ensure the application instances are launched in private subnets with the EBS-optimized option enabled: Launching the application instances in private subnets with the EBS-optimized option enabled ensures that the instances have optimized performance for EBS volumes, but it does not address the issue of ensuring that the application in EC2 instances has sufficient bandwidth when the SQS queue grows. EBS-optimized instances are recommended for applications that require high I/O operations on their EBS volumes.
+Option C - Ensure the application instances are launched in private subnets with the associate-public-IP-address=true option enabled. Remove any NAT instance from the public subnet, if any: This option is the most scalable solution. Launching the instances in private subnets ensures that they are not directly accessible from the internet, while enabling the associate-public-IP-address option allows the instances to access the internet for tasks like software updates and accessing third-party APIs. Removing the NAT instance from the public subnet ensures that all traffic flows through the private subnets, avoiding a single point of failure that can occur with NAT instances.
+Option D - Ensure the application instances are launched in public subnets with an Auto Scaling group and Auto Scaling triggers are configured to watch the SQS queue size: Launching instances in public subnets is not a recommended best practice, as it exposes them directly to the internet. It also does not address the issue of ensuring that the application in EC2 instances has sufficient bandwidth when the SQS queue grows. While using an Auto Scaling group and triggers to watch the SQS queue size is a good practice, it does not replace the need for proper subnet configurations.
+Therefore, the correct answer is C - Ensure the application instances are launched in private subnets with the associate-public-IP-address=true option enabled. Remove any NAT instance from the public subnet, if any.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question303:"link"
+
+

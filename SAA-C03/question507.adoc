@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1307 - Your organization is planning to use AWS"
+---
+
+
+[.question]
+== 1307-64a1fb1bf053625db51de049.
+
+
+****
+
+[.query]
+--
+Your organization is planning to use AWS for BigData analysis.
+Total data is expected to be 400 TB.
+They were planning to use 150 EC2 instances with EFS because of better performance needs for the analysis.
+They have reached out to you asking for recommendation on performance mode.
+What would you suggest?
+
+
+--
+
+[.list]
+--
+* [*] A. Performance mode = General Purpose, AWS can handle performance with general purpose mode till 10s of EC2 instances.
+* [ ] B. Performance mode = General Purpose, provides low-latency access to EFS.
+* [ ] C. Performance mode = General Purpose, provides higher levels of aggregate throughput and operations per second.
+* [*] D. Performance mode = Max I/O, provides higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Max I/O Performance Mode.
+"File systems in the Max I/O mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for file operations.
+Highly parallelized applications and workloads, such as big data analysis, media processing, and genomics analysis, can benefit from this mode".
+For more information, Please check following AWS Docs:
+https://docs.aws.amazon.com/efs/latest/ug/performance.html
+As the organization is planning to use AWS for BigData analysis and the total data size is expected to be 400TB, they are planning to use 150 EC2 instances with EFS for better performance needs. Now, they have asked for a recommendation on performance mode for EFS.
+Amazon Elastic File System (Amazon EFS) is a fully managed, scalable, and highly available cloud-native file system. It provides a simple, scalable, and fully managed elastic NFS file system for use with AWS Cloud services and on-premises resources. EFS supports two performance modes: General Purpose and Max I/O.
+General Purpose mode is the default performance mode for EFS. It provides low-latency access to EFS, which is suitable for a wide range of use cases such as web serving, content management, and home directories. General Purpose mode can handle performance with general purpose mode till 10s of EC2 instances.
+Max I/O mode provides higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies. It is designed for higher levels of concurrency and higher throughput workloads such as big data, analytics, and media processing. Max I/O mode is recommended for use cases that require higher levels of parallelism and throughput, such as HPC, big data, and media processing.
+Considering the use case of BigData analysis and the requirement of better performance with 150 EC2 instances, it is recommended to use Performance mode = Max I/O. This will provide higher levels of aggregate throughput and operations per second, which is suitable for big data analytics workloads.
+In conclusion, the recommendation for the organization is to use Performance mode = Max I/O for EFS when analyzing BigData with 150 EC2 instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question604:"link"
+
+

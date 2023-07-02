@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1256 - A new VPC with CIDR range 10100016 has b"
+---
+
+
+[.question]
+== 1256-64a1fb00f053625db51de008.
+
+
+****
+
+[.query]
+--
+A new VPC with CIDR range 10.10.0.0/16 has been set up with a public and a private subnet.
+Internet Gateway and a custom route table have been created, and a route has been added with the 'Destination' as '0.0.0.0/0' and the 'Target' with Internet Gateway ( igw-id )
+A new Linux EC2 instance has been launched on the public subnet with the auto-assign public IP option enabled, but the connection is getting failed when trying to SSH into the machine.
+What could be the reason?
+
+
+--
+
+[.list]
+--
+* [*] A. Elastic IP is not assigned.
+* [*] B. The NACL of the public subnet disallows the ingress SSH traffic.
+* [ ] C. A public IP address is not assigned.
+* [ ] D. The Security group of the instance disallows the egress traffic on port 80.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect.
+An Elastic IP address is a public IPv4 address with which you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account.
+If your instance does not have a public IPv4 address, you can associate an Elastic IP address with your instance to enable communication with the internet; for example, to connect to your instance from your local computer.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#eip-
+From our problem statement, EC2 is launched with Auto-assign public IP enabled.
+So, since public IP is available, Elastic IP is not necessary to connect from the internet.
+Option C is incorrect because the problem statement clearly states that EC2 is launched with Auto-assign Public IP enabled, so this option cannot be true.
+Option B is CORRECT as the NCL may not allow the ingress SSH traffic so that the connection failed to connect.
+Option D is incorrect because SSH uses port 22
+A security group is stateful and in this scenario, the security group may disallow the ingress SSH traffic instead of egress.
+The most likely reason for the failed connection when trying to SSH into the new Linux EC2 instance launched in the public subnet is option B: The NACL of the public subnet disallows the ingress SSH traffic.
+Here's why:
+1.
+Elastic IP is not assigned: This is not the reason for the failed connection as it's not required to assign an Elastic IP to the instance in order to SSH into it. The instance can be accessed using its public IP address.
+2.
+The NACL of the public subnet disallows the ingress SSH traffic: Network Access Control Lists (NACLs) are stateless and operate at the subnet level. By default, all inbound and outbound traffic is allowed. If there is no NACL associated with the subnet, then this cannot be the reason for the failed connection. However, if there is a NACL associated with the public subnet, then it is likely that the SSH traffic is being blocked by the NACL. In this case, a custom NACL rule would need to be created to allow SSH traffic on port 22.
+3.
+A public IP address is not assigned: This could be the reason for the failed connection if the instance was not launched with the "Auto-assign Public IP" option enabled. However, the question specifically states that this option was enabled, so this cannot be the reason for the failed connection.
+4.
+The Security group of the instance disallows the egress traffic on port 80: This cannot be the reason for the failed connection as egress traffic refers to outbound traffic, and SSH traffic is inbound traffic. Therefore, the security group egress rules would not affect the SSH connection to the instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question538:"link"
+
+

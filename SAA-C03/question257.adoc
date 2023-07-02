@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1057 - A company has confidential documents sto"
+---
+
+
+[.question]
+== 1057-64a1fa9bf053625db51ddf13.
+
+
+****
+
+[.query]
+--
+A company has confidential documents stored on Amazon S3
+The Company wants to share these documents securely to 3rd parties without exposing the S3 files in public.
+The files are shared only within a limited timeframe. What is the best, most reliable and secure way to deliver these documents?
+
+
+--
+
+[.list]
+--
+* [*] A. Assign IAM users for the 3rd party and create a bucket policy to allow access of bucket though IAM users.
+* [*] B. Create presigned URLs for the objects and share the URLs with the 3rd parties.
+* [ ] C. Create a bucket policy that allows access to CloudFront distribution Ids.
+* [ ] D. Assign IAM Roles for the 3rd party and create a bucket policy to allow access of bucket through IAM Roles.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect because assigning IAM users is not a reliable way to securable sharing of content.
+Option B is CORRECT.
+With presigned URLs, the objects can be shared with others securely.
+The presigned URLs are valid only for the specified duration.
+Option C is incorrect as CloudFront distribution IDs won't give secure access.
+Option D is incorrect as Assigning AWS Roles will not be a reliable way to secure content sharing.
+References:
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+The best, most reliable and secure way to share confidential documents stored on Amazon S3 with 3rd parties without exposing the S3 files in public is to use presigned URLs for the objects and share the URLs with the 3rd parties. Therefore, option B is the correct answer.
+Here's a detailed explanation of why presigned URLs are the most appropriate solution:
+Presigned URLs provide a secure way to share confidential documents stored on Amazon S3 with 3rd parties. With presigned URLs, a user can generate a URL that provides time-limited access to a specific S3 object. The user can then share the URL with a 3rd party, who can use the URL to access the object for a limited time period.
+Presigned URLs are more secure than assigning IAM users or IAM roles to the 3rd party, as they do not require the 3rd party to have an IAM account or access key. This means that the 3rd party cannot access other S3 objects or resources in the AWS account, and the access is limited only to the specific S3 object.
+Presigned URLs can also be created with specific conditions, such as an expiration time, an IP address range, or a specific HTTP method. This provides an additional layer of security and control over who can access the S3 object and how they can access it.
+Creating a bucket policy that allows access to CloudFront distribution Ids (Option C) can also be used to securely share S3 objects, but this method is more complex and involves additional setup and configuration. In addition, it requires the use of a CloudFront distribution, which may not be necessary for all use cases.
+Assigning IAM users (Option A) or IAM roles (Option D) to the 3rd party may also work, but it can be more complicated and time-consuming to set up. It also requires managing and maintaining IAM accounts and access keys, which can be challenging to handle if there are multiple 3rd parties who need access to different S3 objects.
+In summary, the most appropriate and secure way to share confidential documents stored on Amazon S3 with 3rd parties is to use presigned URLs for the objects and share the URLs with the 3rd parties.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question293:"link"
+
+

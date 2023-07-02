@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "924 - Given the content
+Which two code fragmen"
+---
+
+
+[.question]
+== 924-64a1a864ef3e8462333a9cb2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0011600002.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the content:
+Which two code fragments, when inserted at line 1 independently, enable the code to print "Wie geht's?"
+
+
+[source,java]
+----
+MessagesBundle.properties file:
+inquiry = How are you?
+
+MessagesBundle_de_DE.properties fil
+
+inquiry = Wie geht's?
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. currentLocale = new Locale ("de", "DE");
+* [*] B. currentLocale = new Locale.Builder ().setLanguage ("de").setRegion ("DE").build();
+* [ ] C. currentLocale = Locale.GERMAN;
+* [*] D. currentlocale = new Locale(); currentLocale.setLanguage ("de"); currentLocale.setRegion ("DE");
+* [ ] E. currentLocale = Locale.getInstance(Locale.GERMAN,Locale.GERMANY);
+
+--
+****
+
+[.answer]
+BD
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

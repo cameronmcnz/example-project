@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1115 - Your company is utilizing CloudFront to "
+---
+
+
+[.question]
+== 1115-64a1fab7f053625db51ddf55.
+
+
+****
+
+[.query]
+--
+Your company is utilizing CloudFront to distribute its media content to multiple regions.
+Users frequently access the content.
+As a cloud architect, which of the following options would help you improve the system's performance?
+
+
+--
+
+[.list]
+--
+* [*] A. Change the origin location from an S3 bucket to an EL.
+* [ ] B. Use a faster Internet connection.
+* [*] C. Increase the cache expiration time.
+* [ ] D. Create an "invalidation" for all your objects, and recache them.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+You can control how long your objects stay in a CloudFront cache before CloudFront forwards another request to your origin.
+Reducing the duration allows you to serve dynamic content.
+Increasing the duration means your users get better performance because your objects are more likely to be served directly from the edge cache.
+A longer duration also reduces the load on your origin.
+For more information on CloudFront cache expiration, please refer to the following link-
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html
+The correct answer for improving the performance of the CloudFront system for distributing media content to multiple regions is option C: Increase the cache expiration time.
+CloudFront is a content delivery network (CDN) that can distribute content to multiple regions worldwide, thereby improving the performance and reliability of web applications and content. CloudFront caches the content in edge locations, which are located closer to the users accessing the content, thus reducing the latency and improving the performance.
+When a user requests content from a CloudFront distribution, the request is first routed to the edge location closest to the user, which then checks whether it has the requested content in its cache. If the content is not present in the cache or if the cache has expired, the request is forwarded to the origin server (S3 bucket or EC2 instance) to fetch the content. This process can add to the latency and reduce the performance.
+By increasing the cache expiration time, we can instruct CloudFront to keep the content in its cache for a longer duration. This would result in fewer requests being forwarded to the origin server, thereby reducing the latency and improving the performance. However, we should be careful while increasing the cache expiration time, as it could lead to stale content being served to the users.
+Option A, changing the origin location from an S3 bucket to an EC2 instance, may not necessarily improve the performance, as it depends on various factors such as the size of the content, the network bandwidth, and the availability of the origin server.
+Option B, using a faster internet connection, is not relevant in this scenario, as CloudFront already utilizes a high-speed network to distribute content to edge locations.
+Option D, creating an invalidation for all objects and recaching them, would result in CloudFront fetching fresh content from the origin server and recaching them. However, this process could add to the latency and result in a temporary decrease in performance. It should be used only when there is a need to invalidate the cached content, such as when there is a change in the content or when we want to remove stale content from the cache.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question359:"link"
+
+

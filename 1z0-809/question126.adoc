@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "926 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 926-64a1a865ef3e8462333a9cb4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0011800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+interface Interfacel {
+public default void sayHi() {
+System. out.printIn("Hi Interface-1");
+y
+y
+
+interface Interface2 {
+public default void sayHi() {
+System.out.printin("Hi Interface-2") +
+y
+d
+public class MyClass implements Interfacel, Interface2 {
+public static void main(String{] args) {
+Interfacel obj = new MyClass();
+obj. sayHi();
+y
+public void sayHi() {
+‘System. out.print1n ("Hi MyClass");
+y
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Hi Interface-2
+* [ ] B. A compilation error occurs.
+* [ ] C. Hi Interface-1
+* [*] D. Hi MyClass.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

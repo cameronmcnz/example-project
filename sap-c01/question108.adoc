@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "908 - A webstartup runs its very successful so"
+---
+
+
+[.question]
+== 908-64a1df1caa736d27b1db933e.
+
+
+****
+
+[.query]
+--
+A web-startup runs its very successful social news application on Amazon EC2 with an Elastic Load Balancer, an Auto-Scaling group of Java/Tomcat application-servers, and DynamoDB as a data store.
+The main web application best runs on m2 x large instances since it is highly memory-bound.
+Each new deployment requires the semi-automated creation and testing of a new AMI for the application servers which takes quite a while and is therefore only done once per week.
+Recently, a new chat feature has been implemented in Node.js and waits to be integrated into the architecture.
+The first tests show that the new component is CPU bound.
+Since the company has some experience with using Chef, they decided to streamline the deployment process and use AWS OpsWorks as an application lifecycle tool to simplify the application's management and reduce the deployment cycles.
+What configuration in AWS OpsWorks is required to manage the application integrated with the new chat module in the most cost-efficient and flexible way?
+
+
+--
+
+[.list]
+--
+* [*] A. Create one AWS OpsWorks stack, create one AWS OpsWorks layer, and create one custom recipe.
+* [*] B. Create one AWS OpsWorks stack, create two AWS OpsWorks layers, and create one custom recipe.
+* [ ] C. Create two AWS OpsWorks stacks, create two AWS OpsWorks layers, and create one custom recipe.
+* [ ] D. Create two AWS OpsWorks stacks, create two AWS OpsWorks layers, and create two custom recipes.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The scenario here requires that you need to manage the application that is created with java, node.js, and DynamoDB using AWS OpsWorks.
+The deployment process should be streamlined, and the deployment cycles should be reduced.
+As the java and node.js have different resource requirements, it makes sense to deploy them on different layers.
+It would make maintenance easier as well.
+Option A is incorrect because it would be a better solution to create two separate layers: one for Java and one for node.js.
+Option B is CORRECT because only one stack would be sufficient, and two layers (one for Java and one for node.js) would be required for handling separate requirements.
+One custom recipe for DynamoDB would be required.
+Option C is incorrect because two OpsWork stacks are unnecessary.
+Option D is incorrect because two OpsWork stacks are unnecessary.
+More information on AWS OpsWork Stack.
+An AWS OpsWorks Stack defines your entire application's configuration: the load balancers, server software, database, etc.
+You control every part of the stack by building layers that define the software packages deployed to your instances and other configuration details such as Elastic IPs and security groups.
+You can also deploy your software onto layers by identifying the repository and optionally using Chef Recipes to automate everything Chef can do, such as creating directories and users, configuring databases, etc.
+You can use OpsWorks Stacks' built-in automation to scale your application and automatically recover from instance failures.
+You can control who can view and manage the resources used by your application, including ssh access to the instances that your application uses.
+For more information on Ops work, please visit the below URL-
+https://aws.amazon.com/opsworks/stacks/faqs/
+The best answer for this question would be B. Create one AWS OpsWorks stack, create two AWS OpsWorks layers, and create one custom recipe.
+Explanation: AWS OpsWorks is an application lifecycle management tool that provides many benefits, including managing AWS resources, creating and managing instances, and deploying applications. To manage the application integrated with the new chat module in the most cost-efficient and flexible way, the following configuration in AWS OpsWorks is required:
+1.
+Create one AWS OpsWorks stack: An AWS OpsWorks stack is a container for AWS resources that are used to manage the application's lifecycle. Creating one stack for the entire application is the best choice since it allows for centralized management and better organization of resources.
+2.
+Create two AWS OpsWorks layers: An AWS OpsWorks layer is a set of resources that share the same configuration, security settings, and lifecycle. Creating two layers for the application allows for more control over the resources and better scalability. One layer should be created for the Java/Tomcat application servers and another for the Node.js chat feature.
+3.
+Create one custom recipe: A custom recipe in AWS OpsWorks is a set of instructions that automate the configuration of instances in a layer. In this case, one custom recipe should be created for the Node.js chat feature to optimize the CPU usage and ensure efficient deployment. The existing recipe for the Java/Tomcat application servers can be reused.
+Therefore, option B is the best answer as it allows for centralized management of the entire application, better scalability, and more control over resources while minimizing deployment cycles and reducing costs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question138:"link"
+
+

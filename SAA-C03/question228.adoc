@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1028 - A Solutions Architect is designing a sol"
+---
+
+
+[.question]
+== 1028-64a1fa8ef053625db51ddef3.
+
+
+****
+
+[.query]
+--
+A Solutions Architect is designing a solution to store and archive corporate documents.
+The Architect has determined that Amazon Glacier is the right solution.
+Data has to be retrieved within 3-5 hrs as directed by the management. Which feature in Amazon Glacier could be helpful to meet this requirement and ensure cost-effectiveness?
+
+
+--
+
+[.list]
+--
+* [*] A. Vault Lock
+* [ ] B. Expedited retrieval
+* [*] C. Bulk retrieval
+* [*] D. Standard retrieval.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A - Vault Lock.
+This feature of Amazon Glacier allows you to lock your vault with various compliance controls designed to support such long-term records retention.
+Due to this reason, this is not the correct answer.
+Option B - Expedited retrieval.
+- It allows you to quickly access your data when occasional urgent requests are required for a subset of archives.
+The data is available within 1 - 5 minutes.
+Since our requirement is 3 - 5 hours, we do not need to use this option.
+Option C - Bulk retrieval.
+- They are the lowest-cost retrieval option, enabling you to retrieve large amounts of data within 5 - 12hours.
+Due to this reason, it is not the correct answer.
+AWS Documentation mentions the following on Standard retrievals.
+Standard retrievals are a low-cost way to access your data within just a few hours.
+For example, you can use Standard retrievals to restore backup data, retrieve archived media content for same-day editing or distribution, or pull and analyze logs to drive business decisions within hours.
+For more information on Amazon Glacier retrievals, please visit the following URL-
+https://aws.amazon.com/glacier/faqs/#dataretrievals
+Amazon Glacier is a cloud-based storage service provided by AWS that is primarily designed for data archiving and long-term storage of infrequently accessed data. Since the storage is designed for long-term retention of data, it is cost-effective but also has a longer retrieval time. However, AWS provides a few retrieval options that allow users to retrieve their data from Glacier at varying speeds based on their needs.
+In this scenario, the Solutions Architect has determined that Amazon Glacier is the right solution for storing and archiving corporate documents. However, the data needs to be retrieved within 3-5 hours as directed by management. This means that the standard retrieval option would not be suitable as it may take several hours to days to retrieve the data. Therefore, we need to look for an option that can retrieve the data faster while also being cost-effective.
+Option A: Vault Lock - This feature is used to enforce compliance controls for data retention. It is not related to data retrieval speed, so it is not relevant to this scenario.
+Option B: Expedited retrieval - This option allows data to be retrieved in 1-5 minutes by paying a higher fee. This option is suitable for scenarios where the data needs to be retrieved quickly, but it is not cost-effective for large amounts of data.
+Option C: Bulk retrieval - This option allows data to be retrieved within 5-12 hours and is designed for larger datasets. The cost is lower than the expedited retrieval option, making it more cost-effective for larger datasets. However, it is still not suitable for data that needs to be retrieved within 3-5 hours.
+Option D: Standard retrieval - This option allows data to be retrieved within 3-5 hours, making it suitable for this scenario. The cost is lower than the expedited retrieval option, making it more cost-effective for smaller datasets. Therefore, the correct answer is D.
+In conclusion, the Solutions Architect could use the standard retrieval option in Amazon Glacier to meet the data retrieval requirements while ensuring cost-effectiveness.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question260:"link"
+
+

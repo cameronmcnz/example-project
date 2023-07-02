@@ -1,0 +1,108 @@
+---
+layout: default 
+title: "1343 - Your organization AWS Setup has an AWS S"
+---
+
+
+[.question]
+== 1343-64a1fb33f053625db51de086.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_inv9na.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization AWS Setup has an AWS S3 bucket which stores confidential documents which can be only downloaded by users authenticated and authorized via your application.
+You do not want to create IAM users for each of these users and as a best practice you have decided to generate AWS STS Federated User temporary credentials each time when a download request is made and then use the credentials to generate presigned URL and redirect user for download.
+However, when user is trying to access the presigned URL, they are getting Access Denied Error.
+What could be the reason?
+
+
+[source,java]
+----
+Policy
+
+‘An IAM policy in JSON format. You must pass an IAM permissions policy to GetFederationToken. When you pass a policy to this operation, the resulting
+
+temporary credentials are defined by the intersection of your IAM user policies and the policy that you pass. The passed policy defines the permissions of the
+federated user. AWS allows the federated user's request only when both the attached policy and the IAM user policy explicitly allow the federated user to
+perform the requested action. The passed policy cannot grant more permissions than those that are defined in the [AM user policy.
+
+The format for this parameter, as described by its regex pattern, is a string of characters up to 2048 characters in length. The characters can be any ASCII
+character from the space character to the end of the valid character list (\u0020-\UOOFF). It can also include the tab (\U0009), linefeed (\uO00A), and carriage
+return (\uOOOD) characters.
+
+Note
+
+The policy plaintext must be 2048 bytes or shorter. However, an internal conversion compresses it into a packed binary format with a separate limit.
+The PackedPolicySize response element indicates by percentage how close to the upper size limit the policy is, where 100 percent is the maximum
+allowed size.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. AWS STS service must be given access in S3 bucket ACL.
+* [*] B. IAM User used to generate Federated User credentials does not have access on S3 bucket.
+* [ ] C. IAM Role used to generate Federated User credentials does not have access on S3 bucket.
+* [ ] D. Your application must be whitelisted in AWS STS service to perform FederatedUser action.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is not a correct statement.
+Option B is correct.
+https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html
+Option C is not correct.
+You can generated FederatedUser credentials using an IAM User, not using an IAM Role.
+Option D is not a correct statement.
+The most likely reason for the Access Denied Error is option C: IAM Role used to generate Federated User credentials does not have access on S3 bucket.
+When generating temporary security credentials using AWS Security Token Service (STS), you need to specify an IAM role that defines the permissions for the federated user. This IAM role must have the necessary permissions to access the S3 bucket that stores the confidential documents.
+Here are some steps to check if the IAM role has access to the S3 bucket:
+1.
+Go to the IAM console and select the IAM role that is used to generate the temporary security credentials.
+2.
+Check if the IAM role has a policy that allows access to the S3 bucket. The policy should have an action that grants access to the S3 bucket, such as "s3:GetObject", "s3:PutObject", or "s3:ListBucket".
+3.
+If the IAM role doesn't have a policy that grants access to the S3 bucket, you need to create a new policy or modify the existing policy to include the necessary permissions.
+4.
+After creating or modifying the policy, attach it to the IAM role.
+5.
+Test the presigned URL again to see if the Access Denied Error has been resolved.
+Option A (AWS STS service must be given access in S3 bucket ACL) is not correct because the ACL (Access Control List) of the S3 bucket only controls access to the bucket itself, not to the AWS STS service.
+Option B (IAM User used to generate Federated User credentials does not have access on S3 bucket) is not correct because IAM users are not used to generate temporary security credentials for federated users. IAM users are used to manage access to AWS resources, but they are not suitable for granting access to external users.
+Option D (Your application must be whitelisted in AWS STS service to perform FederatedUser action) is not correct because there is no requirement to whitelist an application in the AWS STS service. However, you do need to make sure that the application is configured to use the temporary security credentials generated by the AWS STS service.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question665:"link"
+
+

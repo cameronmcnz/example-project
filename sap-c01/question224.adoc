@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1024 - A user has created a mobile application "
+---
+
+
+[.question]
+== 1024-64a1df48aa736d27b1db93f6.
+
+
+****
+
+[.query]
+--
+A user has created a mobile application that makes calls to DynamoDB to fetch certain data.
+The application uses the DynamoDB SDK and root account access/secret access key to connect to DynamoDB from mobile.
+Which of the below-mentioned user's authentication is true concerning the best practice for security in this scenario?
+
+
+--
+
+[.list]
+--
+* [*] A. The user should create a separate IAM user for each mobile application and provide DynamoDB access with it.
+* [ ] B. The user should create an IAM role with DynamoDB and EC2 access. Attach the role with EC2 and route all calls from the mobile through EC2.
+* [*] C. The application should use an IAM role with web identity federation, which validates calls to DynamoDB with identity providers, such as Google, Amazon, and Facebook.
+* [ ] D. Create an IAM Role with DynamoDB access and attach it with the mobile application.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because creating a separate user for each application user is not a feasible, secure, and recommended solution.
+Option B is incorrect because the mobile users may not be AWS users.
+You need to give access to the mobile application via a federated identity provider.
+Option C is CORRECT because it creates a role for Federated Users, enabling the users to sign in to the app using their Amazon, Facebook, or Google identity and authorize them to access DynamoDB seamlessly.
+Option D is incorrect because creating an IAM Role is not sufficient.
+You need to authenticate the application users via a web identity provider, get the temporary credentials via a Security Token Service (STS) and then access DynamoDB.More information on Web Identity Federation:
+With Web Identity Federation, you don't need to create custom sign-in code or manage your own user identities.
+Instead, users of your app can sign in using a well-known identity provider (IdP) -such as Login with Amazon, Facebook, Google, or any other OpenID Connect (OIDC)-compatible IdP, receive an authentication token, and then exchange that token for temporary security credentials in AWS that map to an IAM role with permissions to use the resources in your AWS account.
+For more information on Web Identity Federation, please visit the link.
+http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html
+The scenario described in the question involves a mobile application that accesses DynamoDB using root account access/secret access key. This approach is not recommended as it poses a security risk. Best practices for security suggest that root account access/secret access key should not be used in mobile applications or any other client-side applications.
+To improve security, we need to consider the following options:
+Option A: The user should create a separate IAM user for each mobile application and provide DynamoDB access with it. This option is a better approach than using root account access/secret access key. By creating an IAM user for each mobile application, we can limit the permissions of each user to only the resources they need to access. This approach helps to reduce the attack surface and prevent unauthorized access.
+Option B: The user should create an IAM role with DynamoDB and EC2 access. Attach the role with EC2 and route all calls from the mobile through EC2. This option involves creating an IAM role that grants access to both DynamoDB and EC2. The mobile application would then route all calls through the EC2 instance, which would assume the IAM role and make requests to DynamoDB. While this approach may be useful in some scenarios, it is not necessary for accessing DynamoDB from a mobile application.
+Option C: The application should use an IAM role with web identity federation, which validates calls to DynamoDB with identity providers, such as Google, Amazon, and Facebook. This option involves using web identity federation to authenticate users of the mobile application with identity providers such as Google, Amazon, and Facebook. The mobile application can then assume an IAM role that grants access to DynamoDB. This approach provides a secure way to authenticate users of the mobile application and access DynamoDB.
+Option D: Create an IAM Role with DynamoDB access and attach it with the mobile application. This option involves creating an IAM role that grants access to DynamoDB and attaching it to the mobile application. This approach is better than using root account access/secret access key, but it still does not provide a secure way to authenticate users of the mobile application.
+In summary, the best option for securing access to DynamoDB from a mobile application is to create a separate IAM user for each mobile application and provide DynamoDB access with it. Option C is also a valid option, but it may not be necessary in all scenarios. Option B is not required for accessing DynamoDB from a mobile application, and Option D is better than using root account access/secret access key, but it does not provide a secure way to authenticate users of the mobile application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question325:"link"
+
+

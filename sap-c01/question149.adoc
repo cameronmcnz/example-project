@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "949 - You are designing network connectivity f"
+---
+
+
+[.question]
+== 949-64a1df2daa736d27b1db9384.
+
+
+****
+
+[.query]
+--
+You are designing network connectivity for your thick client application.
+The application is designed for business travellers who must be able to connect to it from their hotel rooms, cafes, public Wi-Fi hotspots, and elsewhere on the Internet.
+But you do not want to publish the application on the Internet.
+
+
+--
+
+[.list]
+--
+* [*] A. Implement AWS Direct Connect, and create a private interface to your VP.
+* [ ] B. Create a public subnet and place your application servers in it.
+* [ ] C. Implement Elastic Load Balancing with an SSL listener that terminates the back-end connection to the application.
+* [*] D. Configure an IPsec VPN connection, and provide the users with the configuration details. Create a public subnet in your VPC, and place your application servers in it.
+* [ ] E. Configure an SSL VPN solution in a public subnet of your VPC, then install and configure SSL VPN client software on all user computers. Create a private subnet in your VPC and place your application servers in it.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - D.
+Option A is incorrect because AWS Direct Connect is not a cost-effective solution compared to using a VPN solution.
+Option B is incorrect because it does not mention how the application would be accessible only to business travellers and not to the public.
+Option C is incorrect because IPsec requires third-party client software, so it is more expensive to set up and maintain.
+And it would be better to move the instances to a private subnet.
+Option D is CORRECT because configuring the SSL VPN solution is cost-effective and allows access only to business travelers.
+Since the application servers are in a private subnet, the application is not accessible via the internet.
+For more details, please refer to section "AWS Client VPN Categories" in the below link-
+https://docs.aws.amazon.com/vpn/latest/clientvpn-user/client-vpn-user-what-is.html
+The scenario requires designing network connectivity for a thick client application that is accessed by business travellers from different locations on the Internet. However, the application should not be published on the public Internet. Let's analyze each of the given options to determine the best solution.
+Option A: Implement AWS Direct Connect, and create a private interface to your VPC.
+AWS Direct Connect is a service that provides dedicated network connectivity between on-premises infrastructure and AWS. It can be used to establish a private, dedicated network connection between a VPC and an on-premises data center or other remote location. However, this option may not be the best fit for this scenario, as it does not provide access to the application for public users.
+Option B: Create a public subnet and place your application servers in it.
+This option suggests placing the application servers in a public subnet, which is accessible from the public Internet. However, this contradicts the requirement of not publishing the application on the Internet.
+Option C: Implement Elastic Load Balancing with an SSL listener that terminates the back-end connection to the application.
+Elastic Load Balancing (ELB) is a managed load balancing service provided by AWS that distributes incoming traffic across multiple targets, such as EC2 instances. It provides the option to configure SSL/TLS encryption for traffic between the client and the load balancer. This option could work well in the scenario, as it allows terminating SSL connections at the load balancer and forwarding traffic to the application servers over a private network connection within the VPC.
+Option D: Configure an IPsec VPN connection, and provide the users with the configuration details. Create a public subnet in your VPC, and place your application servers in it.
+This option suggests creating an IPsec VPN connection to the VPC and placing the application servers in a public subnet. Users would need to have the VPN client software installed on their computers to access the application. While this option would provide secure access to the application for users, it does not align with the requirement of not publishing the application on the Internet.
+Option E: Configure an SSL VPN solution in a public subnet of your VPC, then install and configure SSL VPN client software on all user computers. Create a private subnet in your VPC and place your application servers in it.
+This option suggests configuring an SSL VPN solution in a public subnet of the VPC and placing the application servers in a private subnet. Users would need to have SSL VPN client software installed on their computers to access the application. This option aligns with the requirement of not publishing the application on the public Internet and provides secure access to the application for users.
+Based on the analysis of the given options, option E is the most suitable solution for this scenario. It provides secure access to the application for users while keeping the application private from the public Internet.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question210:"link"
+
+

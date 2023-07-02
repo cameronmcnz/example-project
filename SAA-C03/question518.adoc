@@ -1,0 +1,104 @@
+---
+layout: default 
+title: "1318 - You are uploading large files to AWS S3 "
+---
+
+
+[.question]
+== 1318-64a1fb23f053625db51de05f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_qxczdi.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are uploading large files to AWS S3 bucket, ranging from 1GB - 3GB.
+Your organization has a requirement to calculate the hash checksum of the file by reading entire file so the users can validate the checksum to identify any potential corruptions during downloads.
+For this, you created a Lambda function and getting it triggered through S3 notifications.
+However, the request is getting timed out.
+What could be the reason?
+
+
+[source,java]
+----
+AWS Lambda Limits
+AWS Lambda Resource Limits per Invocation
+
+Resource Limits
+
+Minimum = 128 MB / Maximum = 3008 MB (with 64 MB increments). If
+the maximum memory use is exceeded, function invocation will be
+terminated.
+
+Memory allocation range
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Lambda function is configured with minimal memory of 128 M.
+* [*] B. Lambda function is set to run in a private VPC without NAT Gateway or VPC Endpoint.
+* [ ] C. You have not setup S3 bucket name in the environment variable.
+* [ ] D. Lambda function is created in a different region than S3 bucket.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is not correct.
+If the function reaches the maximum configured memory, in this case.
+128 MB, the function gets terminated with an error message as below, not as request timed out.
+REPORT RequestId: xxxxxxxx Duration: xxxxx ms Billed Duration: xxxxx ms.
+Memory Size: 128 MB Max Memory Used: 129 MB RequestId: xxxxxxx Process exited before completing request.
+Option B is correct.
+AWS Lambda functions can run within a private VPC with the resources allocated inside the subnet provided during configuration.
+For the lambda function to access S3 service endpoint from within private VPC, there should be a NAT Gateway or S3 VPC Endpoint configured in the route table associated with the subnet which was chosen during Lambda function setup.
+If not, the request would get timed out.
+https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/
+Option C is not correct.
+Bucket need not be configured as environment variable.
+Lambda function environment variables are used to configure additional parameters that can be passed to lambda function.
+https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html
+Option D is not correct.
+As long as Lambda function has internet access, it can access S3 service endpoints irrespective of S3 bucket region.
+The most likely reason for the Lambda function timing out when triggered through S3 notifications could be due to the default timeout limit of the Lambda function being exceeded. The default timeout limit for a Lambda function is 3 seconds.
+Since the Lambda function is required to read an entire large file and calculate the hash checksum, it might take longer than the default timeout limit. Therefore, it is necessary to increase the timeout limit of the Lambda function to ensure that it has sufficient time to complete the task.
+Option A states that the Lambda function is configured with minimal memory of 128 M. This might be a concern if the Lambda function requires more memory to read and process large files. However, it is not the main reason for the request timing out.
+Option B states that the Lambda function is set to run in a private VPC without NAT Gateway or VPC Endpoint. This might also be a concern if the Lambda function needs to communicate with resources outside the VPC, such as S3 bucket or internet. However, it is not the main reason for the request timing out.
+Option C states that the S3 bucket name has not been set up in the environment variable. This might cause issues with the Lambda function accessing the S3 bucket. However, it is not directly related to the request timing out.
+Option D states that the Lambda function is created in a different region than the S3 bucket. This might cause latency issues when accessing the S3 bucket, but it is not the main reason for the request timing out.
+To resolve the issue of the Lambda function timing out, the timeout limit of the Lambda function should be increased to a value that is sufficient for the function to read and process the large file. This can be done by adjusting the timeout configuration in the AWS Lambda console or by updating the function's code with a higher timeout value.
+In summary, the most likely reason for the Lambda function timing out when triggered through S3 notifications is due to the default timeout limit of the Lambda function being exceeded. Increasing the timeout limit of the Lambda function should resolve the issue.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question626:"link"
+
+

@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "913 - As an AWS Administrator you have set up "
+---
+
+
+[.question]
+== 913-64a1df1eaa736d27b1db9348.
+
+
+****
+
+[.query]
+--
+As an AWS Administrator, you have set up an ELB within a couple of Availability Zones.
+The ELB distributes application traffic to an Auto Scaling group with session affinity enabled.
+You notice that the traffic is not being evenly distributed across the AZ's.
+Which option may help to alleviate this issue? Choose an answer from the below options.
+
+
+--
+
+[.list]
+--
+* [*] A. Disable sticky sessions on the EL.
+* [ ] B. Reduce the frequency of the health checks.
+* [ ] C. Increase the number of instances hosting the web application in each AZ.
+* [ ] D. Recreate the ELB again.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The traffic is not evenly distributed across the instances in multiple AZs.
+That means the traffic is going to only specific EC2 instances.
+This happens when either the instances that are not receiving the traffic are unhealthy or the instances receiving the traffic are holding onto the session.
+This scenario does not mention any unhealthy instances.
+So, it is most likely related to instances holding onto sessions.
+This means the ELB has sticky sessions enabled.
+Option A is CORRECT because this situation occurs when ELB has sticky sessions or session affinity enabled.
+Option B is incorrect because reducing the frequency of health checks will not force the even distribution of the traffic.
+Option C is incorrect because if sticky sessions are enabled, increasing the number of instances in each AZ will not help receive the traffic.
+In fact, more instances will remain idle now.
+Option D is incorrect because recreating ELB again will not resolve this issue.
+More information on ELB Sticky Sessions:
+The load balancer uses a special cookie to track the instance for each request to each listener.
+When the load balancer receives a request, it first checks to see if this cookie is present in the request.
+If so, the request is sent to the instance specified in the cookie.
+If there is no cookie, the load balancer chooses an instance based on the existing load balancing algorithm.
+A cookie is inserted into the response for binding subsequent requests from the same user to that instance.
+The stickiness policy configuration defines a cookie expiration, which establishes the duration of validity for each cookie.
+This could be a reason as to why the sessions are going to a certain AZ.
+For more information on ELB sticky sessions, please refer to the below URL-
+http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html
+The issue here is that the traffic is not being evenly distributed across the Availability Zones (AZs) despite having session affinity enabled. Session affinity, also known as sticky sessions, ensures that a client's subsequent requests are sent to the same instance that handled their initial request. This feature can lead to an imbalance in traffic distribution if the same AZ has a large number of active sessions.
+Out of the options given, the best solution to alleviate this issue is to increase the number of instances hosting the web application in each AZ (Option C). This will increase the number of available instances to handle requests, leading to better load distribution. When the number of available instances is higher, the ELB can distribute incoming traffic more evenly among them, reducing the load on any single instance and ensuring that the overall load is balanced across all AZs.
+Disabling sticky sessions (Option A) is not a good solution because it will cause the loss of session state for clients, leading to potential data loss and a poor user experience. Sticky sessions are essential for maintaining user state and providing a consistent user experience.
+Reducing the frequency of health checks (Option B) may cause the ELB to route traffic to unhealthy instances, resulting in degraded performance or unavailability of the application. Health checks are essential for ensuring that the instances are available and healthy to serve traffic.
+Recreating the ELB (Option D) will not solve the issue because the problem is not with the ELB itself but with the uneven distribution of traffic across the AZs.
+In conclusion, the best solution to alleviate the issue of uneven traffic distribution is to increase the number of instances hosting the web application in each AZ.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question148:"link"
+
+

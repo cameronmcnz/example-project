@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "927 - Given
+Which definition of the ColorSorte"
+---
+
+
+[.question]
+== 927-64a1a865ef3e8462333a9cb5.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0011900001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which definition of the ColorSorter class sorts the blocks list? A.
+B.
+C.
+D.
+
+
+[source,java]
+----
+class Block {
+String color;
+
+int size;
+Block(int size, string color)
+this.size = size;
+this.color = colo:
+----
+
+
+--
+
+[.list]
+--
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

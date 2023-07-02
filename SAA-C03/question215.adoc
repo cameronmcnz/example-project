@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1015 - You have enabled CloudTrail logs for you"
+---
+
+
+[.question]
+== 1015-64a1fa88f053625db51ddee4.
+
+
+****
+
+[.query]
+--
+You have enabled CloudTrail logs for your company's AWS account and store the logs in an S3 bucket.
+In addition, the IT Security department has mentioned that the logs need to be encrypted.
+How could this be achieved?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable SSL certificates for the CloudTrail logs.
+* [*] B. There is no need to do anything since the logs are encrypted by default.
+* [*] C. Enable Server-Side Encryption for the trail.
+* [ ] D. Enable Server-Side Encryption for the destination S3 bucket.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+By default, CloudTrail event log files are encrypted using Amazon S3 server-side encryption (SSE)
+You can also choose to encrypt your log files with an AWS Key Management Service (AWS KMS) key.
+You can store your log files in your bucket for as long as you want.
+You can also define Amazon S3 lifecycle rules to archive or delete log files automatically.
+If you want notifications about log file delivery and validation, you can set up Amazon SNS notifications.
+For more information on how CloudTrail works, please visit the following URL-
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html
+The correct answer is option D: Enable Server-Side Encryption for the destination S3 bucket.
+Explanation:
+AWS CloudTrail provides audit logs for monitoring AWS account activity. When you enable CloudTrail, AWS logs all events that occur in your account and delivers the logs to an S3 bucket that you specify. By default, the logs are stored in an S3 bucket without any encryption, but the IT Security department has mandated that the logs should be encrypted.
+To encrypt the CloudTrail logs, you need to enable Server-Side Encryption for the S3 bucket where you store the logs. You can enable Server-Side Encryption in the following ways:
+1.
+Use Amazon S3-Managed Keys (SSE-S3): With this option, S3 encrypts your data at the object level using Advanced Encryption Standard (AES) 256-bit encryption. SSE-S3 encrypts data at rest and decrypts it when it is accessed.
+2.
+Use AWS Key Management Service-Managed Keys (SSE-KMS): With this option, AWS manages the encryption keys, and you can manage access to the keys using AWS Key Management Service (KMS). SSE-KMS offers additional features such as auditing, key rotation, and fine-grained access controls.
+3.
+Use Server-Side Encryption with Customer-Provided Keys (SSE-C): With this option, you provide your encryption keys to AWS to encrypt and decrypt the data. SSE-C gives you full control over your encryption keys and the encryption process.
+So, to summarize, the correct way to encrypt CloudTrail logs in an S3 bucket is by enabling Server-Side Encryption for the destination S3 bucket using either SSE-S3, SSE-KMS, or SSE-C. Therefore, option D is the correct answer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question245:"link"
+
+

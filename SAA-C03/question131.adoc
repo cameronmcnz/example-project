@@ -1,0 +1,63 @@
+---
+layout: default 
+title: "931 - A company has a set of HyperV machines a"
+---
+
+
+[.question]
+== 931-64a1fa69f053625db51dde86.
+
+
+****
+
+[.query]
+--
+A company has a set of Hyper-V machines and VMware virtual machines.
+They are now planning to migrate these resources to the AWS Cloud.
+What should they use to move these resources to the AWS Cloud?
+
+
+--
+
+[.list]
+--
+* [*] A. DB Migration utility
+* [*] B. AWS Server Migration Service
+* [*] C. Use AWS Migration Tools.
+* [ ] D. Use AWS Config Tools.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Server Migration Service (SMS) is an agentless service that makes it easier and faster for you to migrate thousands of on-premises workloads to AWS.
+AWS SMS allows you to automate, schedule, and track incremental replications of live server volumes, making it easier for you to coordinate large-scale server migrations.
+For more information on AWS Server Migration Service, please visit the following URL:
+https://aws.amazon.com/server-migration-service/
+The recommended service for migrating Hyper-V machines and VMware virtual machines to the AWS Cloud is AWS Server Migration Service (SMS), which is option B.
+AWS Server Migration Service (SMS) is an agentless service that makes it easier and faster for you to migrate your on-premises workloads to AWS. With SMS, you can automate, schedule, and track incremental replications of live server volumes, making it easier for you to coordinate large-scale server migrations. SMS supports both Windows and Linux operating systems and allows you to replicate your server images from your on-premises environment to the AWS Cloud, and automate the creation of Amazon Machine Images (AMIs) and launch instances in AWS.
+Option A, DB Migration utility, is not the recommended service for migrating Hyper-V machines and VMware virtual machines to AWS. The DB Migration utility is primarily used for migrating database workloads to AWS.
+Option C, Use AWS Migration Tools, is too broad and not specific enough. AWS Migration Tools is a suite of services and tools that are designed to help you migrate your data, applications, and other resources to AWS. While AWS Server Migration Service is included in AWS Migration Tools, it is the recommended service for migrating Hyper-V machines and VMware virtual machines.
+Option D, Use AWS Config Tools, is also not the recommended service for migrating Hyper-V machines and VMware virtual machines to AWS. AWS Config Tools is a service that allows you to monitor and track changes to your AWS resources, ensuring that your configurations comply with your policies and standards. It is not used for migrating workloads to AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question149:"link"
+
+

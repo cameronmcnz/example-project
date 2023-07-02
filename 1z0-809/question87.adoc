@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "887 - Given
+Which modification enables the cod"
+---
+
+
+[.question]
+== 887-64a1a85aef3e8462333a9c8d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0006900001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which modification enables the code fragment to print Speaker?
+
+
+[source,java]
+----
+class Product {
+String name;
+int qty?
+public String toString(){
+return name;
+?
+public Product (String name, int qty) {
+this.name = name;
+this.qty = qty;
+)
+static class ProductPilter {
+public boolean isAvailable(Product p) { // line ni
+return p.gty >= 10;
+}
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Implement Predicate in the Product.ProductFilter class and replace line n2 with .filter (p -> p.ProductFilter.test (p))
+* [*] B. Replace line n1 with: public static boolean isAvailable (Product p) {
+* [ ] C. Replace line n2 with: .filter (p -> p.ProductFilter: :isAvailable (p))
+* [ ] D. Replace line n2 with: .filter (p -> Product: :ProductFilter: :isAvailable ())
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

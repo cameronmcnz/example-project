@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "989 - One AWS Organization owns several AWS ac"
+---
+
+
+[.question]
+== 989-64a1fa7df053625db51ddec6.
+
+
+****
+
+[.query]
+--
+One AWS Organization owns several AWS accounts.
+Recently, due to a change of company organizations, one member account needs to be moved from this AWS Organization to another one.
+How can you achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. In the AWS console, drag and drop this account from one Organization to another.
+* [ ] B. In the AWS console, select the member account and migrate it to the destination AWS Organization.
+* [*] C. Delete the old AWS Organization. Send an invite from the new Organization and accept the invite for the member account.
+* [*] D. Remove the member account from the old Organization. Send an invite from the new Organization to the member account and accept the invite.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect: This operation cannot be performed.
+Option B is incorrect: Because a member account cannot be migrated to another AWS Organization directly.
+Option C is incorrect: Because there is no need to delete the old Organization.
+Option D is CORRECT: The account needs to be removed from the old Organization and then accept the invitation from the new Organization.
+The option describes the correct method.
+Planning the migration process:
+If you have only a few accounts to migrate, you can use the Organizations console.
+Remove the member account from the old Organization.
+Send an invite to the member account from the new Organization.
+Accept the invite to the new Organization from the member account.
+Reference:
+https://aws.amazon.com/premiumsupport/knowledge-center/organizations-move-accounts/
+To move a member account from one AWS Organization to another, you can follow the below steps:
+1. Log in to the AWS Management Console using the credentials of the AWS Organizations management account.
+2. Navigate to the AWS Organizations console and select the source Organization from which you want to move the member account.
+3. In the left navigation pane, click on "Accounts."
+4. Select the account you want to move to a new Organization.
+5. Choose "Move account" from the "Actions" dropdown menu.
+6. In the "Move account" dialog box, select the destination AWS Organization that you want to move the account to.
+7. Review the information and ensure that the correct account is selected for the move.
+8. Click "Move account."
+AWS Organizations will initiate the account move process, and it may take some time to complete the move. The status of the move will be displayed in the AWS Organizations console.
+Option A is not a valid approach to move a member account from one Organization to another. Drag and drop is only available to move accounts within the same Organization.
+Option B is not a valid approach because there is no option available to "migrate" an account to a destination AWS Organization.
+Option C is not a valid approach because deleting an old AWS Organization is not required to move a member account to a new Organization.
+Option D is not a complete solution, as sending an invite from the new Organization and accepting the invite is only one step in the process. The account must first be removed from the old Organization before accepting the new invite.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question214:"link"
+
+

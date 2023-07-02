@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "984 - You have a small company running on Wind"
+---
+
+
+[.question]
+== 984-64a1fa7cf053625db51ddec1.
+
+
+****
+
+[.query]
+--
+You have a small company, running on Windows OS, that leverages cloud resources like AWS Workspaces and AWS Workmail.
+You want a fully managed solution to set policies and provide user management.
+Which of the minimum required AWS Directory Service would you recommend?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Managed Microsoft AD for its full-blown AD features and capabilities
+* [ ] B. AD Connector to be used with on-premises applications
+* [*] C. AWS Cognito for its scalability and customization
+* [*] D. Simple AD for limited functionality and compatibility with desired applications.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Option D - Simple AD for limited functionality and compatibility with desired applications is the correct answer.
+Simple AD is a Microsoft Active Directory-compatible directory from AWS Directory Service.
+You can use Simple AD as a standalone directory in the cloud to support Windows workloads that need basic AD features or compatible AWS applications.
+It can also be used to support Linux workloads that need LDAP service.
+Option A is incorrect.
+This is more functionality and feature-rich than you need, given the desired applications.
+Option B is incorrect.
+You don't have on-premises applications, so AD Connector is not needed.
+Option C is incorrect.
+This is more functionality and feature-rich than you need, given the desired applications.
+For more information, please check the URLs below:
+https://aws.amazon.com/directoryservice/ https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html
+Based on the scenario provided, the recommended minimum required AWS Directory Service for a small company that runs on Windows OS and leverages AWS Workspaces and AWS Workmail, and requires a fully managed solution to set policies and provide user management is the AWS Managed Microsoft AD.
+Option A: AWS Managed Microsoft AD provides a fully managed Active Directory (AD) in the AWS Cloud, which enables the company to manage users and groups, join Amazon EC2 instances to a domain, and use Group Policies to configure and lock down the environment. This option offers the most comprehensive features and capabilities for Windows-based workloads and is the recommended solution for managing and securing Windows-based resources in AWS.
+Option B: AD Connector is a proxy service that allows on-premises directory services to be used with AWS applications such as Amazon WorkSpaces and Amazon WorkMail. While it is a useful option for customers who want to extend their on-premises directory to AWS, it is not a fully managed solution for user management in the AWS Cloud.
+Option C: AWS Cognito is a user sign-up, sign-in, and access control service that is commonly used in mobile and web applications. It provides scalable and customizable user authentication and authorization solutions and is not designed for managing Windows-based resources like AWS Workspaces.
+Option D: Simple AD is a low-cost directory service that provides a subset of AD features, including user and group management and authentication for Amazon EC2 instances running Linux or Windows. However, it has limited functionality and compatibility with the desired applications, which may result in management and compatibility issues for Windows-based workloads.
+In conclusion, based on the requirements stated in the scenario, the most suitable option for the minimum required AWS Directory Service is AWS Managed Microsoft AD, as it provides a fully managed solution for Windows-based workloads and offers the most comprehensive features and capabilities for user management in the AWS Cloud.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question209:"link"
+
+

@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1088 - A global pharma company has a tieup with"
+---
+
+
+[.question]
+== 1088-64a1faaaf053625db51ddf37.
+
+
+****
+
+[.query]
+--
+A global pharma company has a tie-up with hospitals across the globe.
+The hospitals share patient reports with the pharma company, which are further analyzed & used to create new drug formulations.
+Daily large numbers of reports are shared by these hospitals, which are uploaded from various sources.
+Pharma firm is planning to tie up with more hospitals, which will increase the data load.
+These uploadings should be scalable to save a large amount of data for further analysis.
+Which of the following can be used for a scalable application solution in AWS?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Kinesis Streams to upload data to Amazon Redshift.
+* [*] B. Use AWS Kinesis Firehose to upload data to Amazon Redshift.
+* [*] C. Use AWS Kinesis Streams to upload data to Amazon RDS.
+* [ ] D. Use AWS Kinesis Firehose to upload data to Amazon RDS.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Amazon Kinesis Firehose is a scalable option to load data to analytical tools like Amazon Redshift from multiple sources.
+Amazon Redshift can be used for complex analytical queries for large amounts of data.
+Option A is incorrect as AWS Kinesis Streams cannot directly upload data to Amazon Redshift.
+Additional applications need to be installed to get these data from Kinesis Streams &amp; upload them to Amazon Redshift.
+Options C &amp; D are incorrect as Amazon Redshift will be a better option for analyzing large streams of data instead of Amazon RDS.
+For more information on using Amazon Redshift with Kinesis Firehose, refer to the following URLs-
+https://aws.amazon.com/kinesis/data-firehose/ https://aws.amazon.com/redshift/faqs/
+For a scalable solution in AWS, it is important to consider the requirements of the pharma company's tie-up with hospitals. The company needs to store and analyze a large amount of patient reports that are uploaded from various sources on a daily basis.
+AWS provides various services for data ingestion and storage, including Kinesis Streams, Kinesis Firehose, Amazon Redshift, and Amazon RDS.
+Kinesis Streams is a real-time data streaming service that allows you to build custom applications that process or analyze streaming data for specialized needs. Amazon RDS is a managed relational database service that allows you to set up, operate, and scale a relational database in the cloud.
+Kinesis Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and Splunk. Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and existing business intelligence tools.
+Option A: Use AWS Kinesis Streams to upload data to Amazon Redshift. This option would allow the pharma company to stream the data from the hospitals directly to Amazon Redshift. Kinesis Streams can handle real-time streaming data, but it requires custom coding to process and analyze the data. Amazon Redshift can handle petabyte-scale data and is designed for data warehousing and business intelligence. This option is feasible but would require custom coding to process the data, which may add complexity to the solution.
+Option B: Use AWS Kinesis Firehose to upload data to Amazon Redshift. This option would allow the pharma company to stream the data from the hospitals directly to Amazon Redshift via Kinesis Firehose. Kinesis Firehose handles the data delivery and automatically loads the data into Amazon Redshift. This option is more straightforward than Option A and is recommended for a scalable solution.
+Option C: Use AWS Kinesis Streams to upload data to Amazon RDS. This option would allow the pharma company to stream the data from the hospitals directly to Amazon RDS. However, RDS is a managed relational database service, and it may not be the best fit for handling large amounts of data. Additionally, custom coding would be required to process and analyze the data, which may add complexity to the solution.
+Option D: Use AWS Kinesis Firehose to upload data to Amazon RDS. This option would allow the pharma company to stream the data from the hospitals directly to Amazon RDS via Kinesis Firehose. However, RDS may not be the best fit for handling large amounts of data, and custom coding would be required to process and analyze the data, which may add complexity to the solution.
+In summary, the best option for a scalable solution would be to use AWS Kinesis Firehose to upload data to Amazon Redshift. This option allows the pharma company to easily stream large amounts of data from the hospitals and load it directly into Amazon Redshift, which is designed for data warehousing and business intelligence.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question329:"link"
+
+

@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1105 - You are in charge of configuring an AWS "
+---
+
+
+[.question]
+== 1105-64a1df66aa736d27b1db946d.
+
+
+****
+
+[.query]
+--
+You are in charge of configuring an AWS Organization as below hierarchy.
+
+
+--
+
+[.list]
+--
+* [*] A. Create an SCP that denies required actions and attach it to Root. Attach another SCP that contains an Allow list in Project_OU.
+* [*] B. In Project_OU, attach an SCP that contains a Deny list to deny the deletion of IAM roles.
+* [*] C. Make sure that Root, Project_OU, and Security_OU are attached with a full access SCP. Attach another SCP that contains the Deny list to DEV1_OU, DEV2_OU, and QA1_OU.
+* [ ] D. Create an SCP that denies the required actions. Attach it to Project_OU, DEV_OU, and QA_OU.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+OUs in AWS Organization inherit the SCPs from the parent OU.
+Reference can be found in.
+https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html.
+Option A is incorrect because it is improper to attach the Deny SCP to Root as it affects all other nodes including Security_OU.
+Option B is CORRECT: because the Deny SCP only affects all OUs under Project_OU.
+Other OUs such as Security_OU are not affected.
+Option C is incorrect because Project_OU and Security_OU do not need to attach full access SCP since they can inherit from the Root.
+Option D is incorrect: because DEV_OU and QA_OU are not required to attach the Deny SCP separately since Project_OU as a parent can effectively do that.
+AWS Organizations is a service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. You can create a hierarchy of organizational units (OUs) to group AWS accounts and apply policies to them.
+The question asks you to configure an AWS organization with a specific hierarchy and policies. Let's go through each answer option and see which one is correct.
+Option A: Create an SCP that denies required actions and attach it to Root. Attach another SCP that contains an Allow list in Project_OU.
+This option suggests creating a Service Control Policy (SCP) that denies certain actions and attaching it to the root of the organization. Additionally, another SCP that contains an Allow list should be attached to the Project_OU.
+This option is partially correct. Attaching an SCP that contains an Allow list to the Project_OU will allow only specific actions in that OU. However, attaching a Deny list SCP to the root of the organization may not be a good idea since it will apply to all OUs and accounts under the root, potentially causing unintended consequences.
+Option B: In Project_OU, attach an SCP that contains a Deny list to deny the deletion of IAM roles.
+This option suggests attaching an SCP to the Project_OU that denies the deletion of IAM roles.
+This option is too narrow in scope. It only addresses the deletion of IAM roles in the Project_OU, but there may be other policies and restrictions that need to be applied to other OUs and accounts in the organization.
+Option C: Make sure that Root, Project_OU, and Security_OU are attached with a full access SCP. Attach another SCP that contains the Deny list to DEV1_OU, DEV2_OU, and QA1_OU.
+This option suggests attaching a full access SCP to the Root, Project_OU, and Security_OU. Additionally, an SCP that contains the Deny list should be attached to DEV1_OU, DEV2_OU, and QA1_OU.
+This option is a better approach since it applies a full access SCP to the top-level OUs, allowing for maximum flexibility and control, and a Deny list SCP to the lower-level OUs, ensuring that specific policies and restrictions are enforced. However, this option does not cover all the OUs mentioned in the question.
+Option D: Create an SCP that denies the required actions. Attach it to Project_OU, DEV_OU, and QA_OU.
+This option suggests creating an SCP that denies required actions and attaching it to Project_OU, DEV_OU, and QA_OU.
+This option is too broad since it applies the SCP to multiple OUs without specifying which actions should be denied. Additionally, it does not cover the other OUs mentioned in the question.
+Based on the above analysis, Option C is the correct answer as it provides a balanced approach to policy enforcement across the organization. However, it is important to note that the specific policies and restrictions should be tailored to the specific requirements of the organization.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question444:"link"
+
+

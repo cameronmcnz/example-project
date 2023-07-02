@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "926 - A big company has a service to process g"
+---
+
+
+[.question]
+== 926-64a1df23aa736d27b1db935a.
+
+
+****
+
+[.query]
+--
+A big company has a service to process gigantic clickstream data sets which are often the result of holiday shopping traffic on a retail website, or sudden dramatic growth on the data network of a media or social networking site.
+It is becoming more and more complex to analyze these clickstream datasets for its on-premise infrastructure.
+As the sample data set keeps growing, fewer applications are available to provide a timely response.
+The service is using a Hadoop cluster with Cascading.
+How can they migrate the applications to AWS in the best way?
+
+
+--
+
+[.list]
+--
+* [*] A. Put the source data to S3 and migrate the processing service to an AWS EMR Hadoop cluster with Cascading. Enable EMR to read and query data from S3 buckets directly. Write the output to the RDS database.
+* [ ] B. Put the source data to a Kinesis stream and migrate the processing service to AWS lambda to utilize its scaling feature. Enable lambda to read and query data from the Kinesis stream directly. Write the output to the RDS database.
+* [*] C. Put the source data to an S3 bucket and migrate the processing service to AWS EC2 with auto-scaling. Ensure that the auto-scaling configuration has a proper maximum and minimum number of instances. Monitor the performance in the Cloudwatch dashboard. Write the output to the DynamoDB table for downstream to process.
+* [*] D. Put the source data to a Kinesis stream and migrate the processing service to an AWS EMR cluster with Cascading. Enable EMR to read and query data from Kinesis streams directly. Write the output to Redshift.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+The application needs to process data timely; therefore Kinesis stream should be considered first.
+After a click event happens, a message should be put into the Kinesis stream in real-time.
+Moreover, Cascading is a proven, highly extensible application development framework for building massively parallelized data applications on EMR.
+By using EMR, the application does not need to change a lot for the migration.
+Refer to https://aws.amazon.com/blogs/big-data/integrating-amazon-kinesis-amazon-s3-and-amazon-redshift-with-cascading-on-amazon-emr/.
+Option A is incorrect: Because the RDS database's output is improper as RDS does not scale well when the traffic is high.
+Redshift is much more appropriate.
+Option B is incorrect: AWS Lambda can potentially work for Hadoop.
+However, EMR provides native support for Hadoop.
+Also, RDS is incorrect.
+Option C is incorrect: Because EC2 is not suitable for Hadoop processing if compared with EMR.
+This question asks for the best option.
+So EMR should be chosen.
+Option D is CORRECT: Because the EMR cluster with Cascading can process the data from Kinesis stream in real-time, and Redshift is also a proper place to store the output data.
+The best way to migrate the clickstream data processing service from on-premises infrastructure to AWS depends on various factors, such as the volume of data, processing requirements, budget, and business objectives. However, among the given options, the most appropriate one is:
+A. Put the source data to S3 and migrate the processing service to an AWS EMR Hadoop cluster with Cascading. Enable EMR to read and query data from S3 buckets directly. Write the output to the RDS database.
+This option offers several advantages for processing large clickstream datasets, such as:
+1.
+Scalability: AWS EMR is a managed Hadoop cluster service that allows users to process big data workloads at any scale. EMR automatically provisions and scales the cluster based on the workload and terminates it when the processing is complete, which reduces the cost and complexity of managing the cluster manually.
+2.
+Cost-effectiveness: S3 is a highly durable and cost-effective object storage service that allows users to store and retrieve any amount of data from anywhere. By putting the clickstream data in S3, the company can reduce the storage and management costs of the on-premises infrastructure. Moreover, EMR pricing is based on the number and type of instances used, so the company can optimize the cost of processing the clickstream data by choosing the appropriate instance types and scaling policies.
+3.
+Flexibility: EMR supports various Hadoop applications, including Cascading, which is a popular Java-based framework for building complex data processing workflows. By migrating the Cascading applications to EMR, the company can leverage the power of Hadoop and its ecosystem tools, such as Hive, Pig, and Spark, to process and analyze the clickstream data in a more efficient and flexible way.
+4.
+Integration: EMR integrates with other AWS services, such as RDS, which is a managed relational database service that allows users to store, retrieve, and manage structured data. By writing the output of the Cascading applications to RDS, the company can enable downstream processes to consume and analyze the processed data more easily.
+Therefore, the best approach is to put the clickstream data to S3 and migrate the processing service to an EMR Hadoop cluster with Cascading, enabling EMR to read and query data from S3 buckets directly and writing the output to the RDS database. This approach offers scalability, cost-effectiveness, flexibility, and integration, which are essential for processing large clickstream datasets on AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question168:"link"
+
+

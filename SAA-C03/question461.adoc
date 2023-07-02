@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1261 - You have a bastion host EC2 instance on "
+---
+
+
+[.question]
+== 1261-64a1fb03f053625db51de00f.
+
+
+****
+
+[.query]
+--
+You have a bastion host EC2 instance on AWS VPC public subnet.
+You would want to SSH to Bastion host EC2 instance.
+What would be the secure and minimal configuration you need for SSH requests to work? Assume route table is already set up with Internet Gateway.
+
+
+--
+
+[.list]
+--
+* [*] A. Allow SSH protocol(port 22) on Security Group Inbound and Security Group Outbound. Allow Network ACL inbound and Network ACL outbound for IP range 0.0.0.0/0
+* [ ] B. Allow SSH protocol(port 22) on Security Group Inbound and Security Group Outbound. Allow Network ACL inbound for your IP address.
+* [ ] C. Allow SSH protocol(port 22) on Security Group Inbound and Network. ACL inbound for your IP address
+* [*] D. Allow SSH protocol(port 22) on Security Group Inbound. Allow Network ACL inbound and Network ACL outbound for your IP address.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer D.
+Security groups are stateful - if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules.
+Responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules.
+Network ACLs are stateless; responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa)
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Security.html#VPC_S
+In option A, Security Group outbound is not necessary for SSH connection to work.
+Also, opening to 0.0.0.0/0 is insecure as it allows ALL on SSH.
+Although this option works, this is not secure and not a minimal configuration.
+In options B and C, Network ACL outbound is not open.
+According to Network ACL stateless definition, this option would fail.
+In option D, this is a minimal and secure configuration to open only to your IP address.
+This is the correct answer.
+The best option for securing SSH access to a bastion host EC2 instance on a public subnet in an AWS VPC would be to choose option B.
+Option A allows SSH access to anyone from anywhere, which is not secure. Network ACLs are stateless and allow only inbound or outbound traffic, which can cause connectivity issues. Also, they require more maintenance overhead because it's necessary to create separate rules for inbound and outbound traffic.
+Option C only allows access to a specific IP address, but it's not scalable, and you would need to update the rule for every new IP address you want to grant access to.
+Option D only allows SSH access from a specific IP address, but it does not provide a secure outbound path, which can cause issues when trying to access resources from the bastion host.
+Therefore, option B is the most secure and minimal configuration as it allows SSH access only from your IP address, which can be specified in the Security Group Inbound rule. This rule allows traffic to come in from a specific IP address, and by default, traffic is not allowed. The Security Group Outbound rule is set to allow all traffic by default, which means that the instance can initiate connections to anywhere. It's also a good practice to limit outbound traffic to only the necessary protocols and ports.
+To summarize, the minimal and secure configuration for SSH requests to work on a bastion host EC2 instance in a public subnet in an AWS VPC is to allow SSH protocol (port 22) on Security Group Inbound and Security Group Outbound, and to allow Network ACL inbound for your IP address. This ensures that only authorized users can access the bastion host and that the instance can initiate connections to anywhere it needs to.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question545:"link"
+
+

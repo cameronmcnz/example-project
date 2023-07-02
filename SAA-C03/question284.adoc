@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1084 - You run an adsupported photosharing webs"
+---
+
+
+[.question]
+== 1084-64a1faa9f053625db51ddf33.
+
+
+****
+
+[.query]
+--
+You run an ad-supported photo-sharing website using S3 to serve photos to visitors of your site.
+At some point, you find out that other sites have been linking to photos on your site, causing loss to your business.
+What would be an effective method to mitigate this?
+
+
+--
+
+[.list]
+--
+* [*] A. Use CloudFront distributions for static content.
+* [ ] B. Store photos on an EBS volume of the web server.
+* [*] C. Remove public read access and use presigned URL with expiration.
+* [ ] D. Block the IPs of the offending websites in Security Groups.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+When you create a presigned URL for your object, you must provide your security credentials, specify a bucket name, an object key, specify the HTTP method (GET to download the object) and expiration date and time.
+The presigned URLs are valid only for the specified duration.
+The credentials that you can use to create a presigned URL include:
+IAM instance profile: Valid up to 6 hours.
+AWS Security Token Service: Valid up to 36 hours when signed with permanent credentials, such as the credentials of the AWS account root user or an IAM user.
+IAM user: Valid up to 7 days when using AWS Signature Version 4
+To create a presigned URL that's valid for up to 7 days, first designate IAM user credentials (the access key and secret access key) to the SDK that you're using.
+Then, generate a presigned URL using AWS Signature Version 4.
+For more information on presigned URLs, please visit the link below.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html
+The correct answer for this scenario would be C - Remove public read access and use presigned URL with expiration.
+Explanation: The scenario describes a problem where other websites are linking to photos on the photo-sharing website, causing a loss to the business. This indicates that the photos are publicly accessible, which means that anyone can access them if they know the URL. To mitigate this, the website owner should remove the public read access from the S3 bucket and instead use presigned URLs with expiration.
+Presigned URLs are a way to grant temporary access to objects in an S3 bucket. When a user requests a presigned URL, they receive a URL that contains a signature. This signature allows them to access the object for a limited time. After the expiration time has passed, the URL will no longer work. This means that even if someone knows the URL for a photo on the website, they will not be able to access it indefinitely.
+By using presigned URLs with expiration, the website owner can control who has access to the photos on their website. They can generate new URLs as needed, and they can set the expiration time to a short period, such as a few minutes or hours, to ensure that the URLs are not shared or used for malicious purposes.
+Option A - Using CloudFront distributions for static content - is a good solution for improving the performance of the website by caching the content and distributing it through a global network. However, it does not address the issue of unauthorized access to the photos.
+Option B - Storing photos on an EBS volume of the web server - is not a good solution because it can result in slower performance and higher costs. It also does not address the issue of unauthorized access to the photos.
+Option D - Blocking the IPs of the offending websites in Security Groups - is not a good solution because it is a reactive measure and does not prevent other websites from linking to the photos in the future. Additionally, it can result in false positives and block legitimate users from accessing the website.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question325:"link"
+
+

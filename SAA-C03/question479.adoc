@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "1279 - You are appointed as Cloud Consultant in"
+---
+
+
+[.question]
+== 1279-64a1fb0bf053625db51de023.
+
+
+****
+
+[.query]
+--
+You are appointed as Cloud Consultant in a Cloud Solutions Firm.
+They have the following VPCs set up in the US East Region: The first VPC with CIDR block 172.10.0.0/16 having a subnet with CIDR block 172.10.10.0/24
+The second VPC with CIDR block 192.168.0.0/16, having a subnet with CIDR block 192.168.20.0/24
+Your colleague is trying to establish a network connection between two subnets, a subnet with CIDR block 172.10.10.0/24 and another subnet with CIDR block 192.168.20.0/24
+Also, they don't want any transitive peering relationship.
+The connection should not have a single point of failure for communication or a bandwidth bottleneck.
+Which of the following is the easiest solution?
+
+
+--
+
+[.list]
+--
+* [*] A. Use VPC Peering i.e. AWS-provided network connectivity between two VPCs.
+* [ ] B. Use Software VPN i.e. Software appliance to VPN connection between VPCs.
+* [*] C. Use VPC-to-VPC routing over IPsec VPN connection.
+* [ ] D. VPC-to-VPC routing in an AWS Direct Connect location.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is CORRECT because VPC Peering uses the existing infrastructure of a VPC and this solution is straightforward that facilitates the transfer of data between two VPCs.
+Options B, C, and D are incorrect because they are not the easiest solution or may be a single point of failure for the connections.
+Refer: https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html.
+To establish a network connection between two subnets located in different VPCs, there are several options available in AWS. The chosen solution should meet the requirements of not having a single point of failure for communication and not creating a transitive peering relationship between VPCs.
+Option A - Use VPC Peering: AWS VPC peering is a simple and easy-to-use solution for connecting two VPCs in the same or different regions. With VPC peering, the traffic between the subnets travels directly over the AWS network, and there is no need for a VPN connection or a dedicated physical connection.
+However, VPC peering creates a transitive peering relationship between VPCs, which means that traffic from one VPC can flow through another VPC to reach a third VPC. This is not desirable in this case, so option A is not the best solution.
+Option B - Use Software VPN: A software VPN allows for a secure connection between two VPCs over the internet using a software appliance. This option provides secure connectivity between VPCs but requires additional configuration, management, and potential costs for the software VPN appliance.
+Additionally, using a software VPN appliance for connectivity may create a bottleneck in bandwidth or a single point of failure if the appliance goes down. Therefore, this option does not meet the requirements of the question.
+Option C - Use VPC-to-VPC routing over IPsec VPN connection: Using VPC-to-VPC routing over an IPsec VPN connection provides a secure and encrypted connection between the two VPCs while also meeting the requirements of not creating a transitive peering relationship and not having a single point of failure for communication.
+This solution requires configuring a customer gateway, virtual private gateway, and VPN connection between the VPCs, which can be a bit more complicated than VPC peering or software VPN. However, this option provides secure connectivity between the VPCs and can be more scalable than software VPN.
+Option D - VPC-to-VPC routing in an AWS Direct Connect location: AWS Direct Connect is a dedicated physical connection between the on-premises infrastructure and AWS. This option is not necessary in this scenario as there is no on-premises infrastructure involved. Therefore, option D is not the best solution.
+Based on the requirements mentioned in the question, Option C is the easiest and most appropriate solution. However, depending on the specific requirements and constraints of the scenario, any of the other options may also be viable.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question565:"link"
+
+

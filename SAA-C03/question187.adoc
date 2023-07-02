@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "987 - Your company has been hosting a static w"
+---
+
+
+[.question]
+== 987-64a1fa7df053625db51ddec4.
+
+
+****
+
+[.query]
+--
+Your company has been hosting a static website in an S3 bucket for several months and gets a fair amount of traffic.
+Now you want your website to make requests to another website (example.com) with a different domain name.
+The requests are unsuccessful in the browser.
+However, the website (example.com) works properly when the requests are not from your website.
+What could be the most likely cause of this disruption?
+
+
+--
+
+[.list]
+--
+* [*] A. The new domain name is not registered in CloudWatch monitoring.
+* [*] B. The S3 bucket has not been configured to allow Cross-Origin Resource Sharing (CORS).
+* [*] C. The S3 bucket was not created in the correct region.
+* [ ] D. The domain name wasn’t registered with AWS Route 53 and therefore won’t work.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option B is correct.
+The S3 bucket has not been configured to allow Cross-Origin Resource Sharing (CORS)
+To keep your content safe, your web browser implements something called the same-origin policy.
+The default policy ensures that scripts and other active content loaded from one site or domain cannot interfere or interact with content from another location without an explicit indication that this is the desired behavior.
+Option A is incorrect.
+Enabling Cloudwatch doesn't affect Cross-Origin Resource Sharing (CORS).
+Option C is incorrect.
+The S3 region does not cause the issue.
+Option D is incorrect.
+The domain can be registered with any online registrar, not just AWS Route53
+The question also mentions that the website (example.com) works properly when the requests are not from your website.
+References:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html https://aws.amazon.com/blogs/aws/amazon-S3-cross-origin-resource-sharing/
+The most likely cause of this disruption is that the S3 bucket has not been configured to allow Cross-Origin Resource Sharing (CORS) (Option B).
+CORS is a security feature implemented in web browsers to prevent websites from making requests to a different domain than the one that served the original content. This is a common technique used to prevent cross-site scripting (XSS) attacks.
+When the website hosted in the S3 bucket tries to make a request to example.com, the browser blocks the request by default because it is a cross-origin request. To allow the website to make requests to example.com, the server hosting the website must include specific HTTP headers in its responses that tell the browser it's safe to make cross-origin requests. These headers are collectively referred to as CORS headers.
+To enable CORS on an S3 bucket, you must configure the bucket's CORS policy. This policy specifies which origins are allowed to make cross-origin requests to the bucket and which HTTP methods are allowed in these requests. You can define a CORS policy for an S3 bucket using the AWS Management Console or AWS CLI.
+Option A (The new domain name is not registered in CloudWatch monitoring) is not relevant to this issue since CloudWatch is a monitoring service and does not affect the functionality of the website or its ability to make requests.
+Option C (The S3 bucket was not created in the correct region) is also not relevant to this issue since the region in which the bucket is created does not affect its ability to make cross-origin requests.
+Option D (The domain name wasn't registered with AWS Route 53 and therefore won't work) is also not relevant to this issue since registering a domain name with Route 53 does not affect the ability of a website to make cross-origin requests. However, if the website's domain name was not correctly configured in DNS, it could potentially cause issues with accessing the website in general.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question212:"link"
+
+

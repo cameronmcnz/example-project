@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "891 - Given the content of the employeetxt fil"
+---
+
+
+[.question]
+== 891-64a1a85cef3e8462333a9c91.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0007500001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the content of the employee.txt file: Every worker is a master.
+Given that the employee.txt file is accessible and the file allemp.txt does NOT exist, and the code fragment:
+What is the result?
+
+
+[source,java]
+----
+try {
+List<String> content = Files.readAllLines (Paths.get ("employee.txt")) 7
+content.stream().forEach(line -> {
+try {
+Files.write(
+Paths.get ("allemp.txt"),
+line.getBytes(),
+Standardopenoption.APPEND
+ve
+} catch (IOException e) { System.out.println("Exception 1"); }
+de
+} catch (IOException e) { System.out.printin("Exception 2"); }
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Exception 1
+* [ ] B. Exception 2
+* [ ] C. The program executes, does NOT affect the system, and produces NO output.
+* [ ] D. allemp.txt is created and the content of employee.txt is copied to it.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

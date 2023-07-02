@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "918 - You currently have the following archite"
+---
+
+
+[.question]
+== 918-64a1fa65f053625db51dde78.
+
+
+****
+
+[.query]
+--
+You currently have the following architecture in AWS: a.
+A couple of EC2 Instances located in us-west-2a b.
+The EC2 Instances are launched via an Auto Scaling group. c.The EC2 Instances sit behind a Classic ELB.
+Which additional step would ensure that the above architecture conforms to a well-architected framework?
+
+
+--
+
+[.list]
+--
+* [*] A. Convert the Classic ELB to an Application EL.
+* [ ] B. Add an additional Auto Scaling Group.
+* [*] C. Add additional EC2 Instances to us-west-2a.
+* [*] D. Add or spread existing instances across multiple Availability Zones.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Documentation provides the following information to support this concept:
+Balancing resources across Availability Zones is a best practice for well-architected applications, as this greatly increases aggregate system availability.
+Auto Scaling automatically balances EC2 instances across zones when you configure multiple zones in your Auto Scaling group settings.
+Auto Scaling always launches new instances such that they are balanced between zones as evenly as possible across the entire fleet.
+For more information on managing resources with Auto Scaling, please refer to the URL below.
+https://aws.amazon.com/blogs/compute/fleet-management-made-easy-with-auto-scaling/
+The AWS Well-Architected Framework is a set of best practices for designing and operating reliable, secure, efficient, and cost-effective systems in the cloud. The framework provides a consistent approach for customers and partners to evaluate architectures, and it provides guidance to help implement designs that will scale with your application needs over time.
+Based on the current architecture, the additional step that would ensure the architecture conforms to a well-architected framework is D - Add or spread existing instances across multiple Availability Zones.
+Availability Zones (AZs) are distinct data centers within a region that are isolated from each other in terms of power, cooling, and network connectivity. Deploying instances across multiple AZs helps protect applications against failures in a single location. In the event of a failure, the application can continue to operate from another AZ without interruption.
+By adding or spreading existing instances across multiple AZs, you can improve the availability and reliability of the architecture. You can achieve this by adding instances to different AZs or by moving existing instances to different AZs. You can also use Auto Scaling groups to automatically launch instances in different AZs.
+Option A, converting the Classic ELB to an Application ELB, is not directly related to improving the availability or reliability of the architecture. It would improve the ability to route traffic based on application-level information, but it would not provide fault tolerance across AZs.
+Option B, adding an additional Auto Scaling group, would not directly improve the availability or reliability of the architecture. Auto Scaling groups are used to scale instances based on demand, but they do not provide fault tolerance across AZs.
+Option C, adding additional EC2 instances to us-west-2a, would not provide fault tolerance across AZs. In fact, it could potentially decrease availability if all instances are in the same AZ and that AZ experiences a failure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question135:"link"
+
+

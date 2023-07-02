@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "906 - You are running a successful multitier w"
+---
+
+
+[.question]
+== 906-64a1df1baa736d27b1db933c.
+
+
+****
+
+[.query]
+--
+You are running a successful multitier web application on AWS.
+Your marketing department has asked you to add a reporting tier to the application.
+The reporting tier will aggregate and publish status reports every 30 minutes from user-generated information that is being stored in your web application's database.
+You are currently running a Multi-AZ RDS MySQL instance for the database tier.
+You also have implemented ElastiCache as a database caching layer between the application tier and database tier.
+Select the answer that will allow you to successfully implement the reporting tier with as little impact as possible to your database.
+
+
+--
+
+[.list]
+--
+* [*] A. Continually send transaction logs from your master database to an S3 bucket and generate the reports from the S3 bucket using S3 byte-range requests.
+* [ ] B. Generate the reports by querying the synchronously replicated standby RDS MySQL instance maintained through Multi-AZ.
+* [*] C. Launch an RDS Read Replica connected to your Multi AZ master database and generate reports by querying the Read Replica.
+* [ ] D. Generate the reports by querying the ElasliCache database caching tier.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+In question is asking you to design a reporting layer with the least impact on the database.
+If the reporting queries are fired on the database instance, the database instance's performance would surely get impacted.
+Since querying for the report would be a read-heavy operation, the best solution is to create the read replicas of the database instance and query on them rather than on the database instance.
+This way, the existing database instance will have the least impact.
+Option A is incorrect because sending the logs to S3 would add to the overhead on the database instance.
+Option B is incorrect because you cannot access the standby instance.
+Option C is CORRECT because it uses the Read Replicas of the database for the querying of reports.
+Option D is incorrect because the querying on ElastiCache may not always give you the latest and entire data, as the cache may not always be up-to-date.
+For more information on Read Replica's, please visit the below URL-
+https://aws.amazon.com/rds/details/read-replicas/ https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Strategies.html
+The best option for adding a reporting tier to a multitier web application on AWS with as little impact as possible to the database is to use an RDS Read Replica.
+Option A, sending transaction logs to an S3 bucket and generating reports from there, may not be the best option since it involves a lot of manual work to create and maintain reports from S3 data, and S3 byte-range requests may not be efficient or cost-effective.
+Option B, generating reports by querying the synchronously replicated standby RDS MySQL instance maintained through Multi-AZ, is also not the best option because the standby instance is meant for disaster recovery and not for reporting, so it may not be able to handle reporting workload.
+Option D, generating reports by querying the ElastiCache database caching tier, is not optimal since the ElastiCache layer is designed for caching and not for reporting. This means that the reports generated from the cache layer may not be up-to-date or accurate, since the cache layer may not always contain the latest data.
+Therefore, the best option is to launch an RDS Read Replica connected to the Multi-AZ master database and generate reports by querying the Read Replica. This allows for reporting to be performed without impacting the performance of the Multi-AZ master database, as the Read Replica is separate from the master database and can be scaled and managed independently. Additionally, the Read Replica can be located in a different Availability Zone or region, which provides additional redundancy and resiliency for reporting purposes.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question136:"link"
+
+

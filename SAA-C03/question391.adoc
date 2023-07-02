@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "1191 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 1191-64a1fae0f053625db51ddfba.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for an enterprise customer.
+Users access Amazon S3 buckets to save all project-related documents and use business applications like Office 365 for daily work activities.
+These applications need to be accessible from any device for a limited number of hours in the day. They are using AWS SSO to manage and control access to AWS resources centrally.
+Users are complaining that they are getting logout from the console & need to re-login after each hour.
+You need to ensure that the User session is optimum based on completing the activity.
+Which of the following can be set to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a custom Permission Set with session duration as 24 hours.
+* [ ] B. Use an existing Job Function policy to set session duration as 24 hours.
+* [*] C. Create a custom Permission Set with session duration as 6 hours.
+* [ ] D. Use an existing Job Function policy to set session duration as 6 hours.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer -C.
+Permission sets can control the time duration for user login to the AWS Console by setting session duration.
+The Default Session duration is 1 hour, while the maximum can be set to 12 hours.
+Post this session duration.
+The user is automatically logout.
+AWS Single Sign-On (SSO) enables you to customize the session duration to AWS accounts ranging from 1 hour up to 12 hours.
+You can configure session duration for each permission set so that you can optimize how long your users can access the AWS Management Console and AWS CLI for your AWS accounts.
+For example, when your users need to run long-running operations, you can increase the session duration to complete the operation using a single session.
+Option A is incorrect as the maximum Session duration that can be set is 12 hours.
+Option B is incorrect.
+This will use predefined AWS managed policies since the requirement is for a customized permission policy for session duration.
+Also, the maximum Session duration that can be set is 12 hours.
+Option D is incorrect.
+This will use predefined AWS managed policies since the requirement is for a customized permission policy for session duration.
+For more information on Permission Set properties in AWS SSO, refer to the following URLs-
+https://aws.amazon.com/about-aws/whats-new/2018/10/aws-single-sign-on-now-enables-you-to-optimize-how-long-you-can-access-aws-accounts/ https://docs.aws.amazon.com/singlesignon/latest/userguide/howtosessionduration.html
+The issue reported by users suggests that the session duration for AWS SSO is not meeting their requirements, and they are being logged out of the console and need to re-login after each hour. As an AWS Architect, you need to ensure that the user session is optimized based on completing the activity.
+AWS Single Sign-On (SSO) is a cloud-based service that makes it easy to centrally manage SSO access to multiple AWS accounts and business applications. With AWS SSO, users can sign in to a user portal with their existing corporate credentials and access all their assigned accounts and applications from one place.
+When users sign in to the AWS SSO user portal, they obtain temporary security credentials that provide access to AWS resources for a limited period. This time period is defined as the session duration, which is configurable by using AWS SSO console.
+To ensure that user sessions are optimized based on completing the activity, you should adjust the session duration based on the user's activity level. For example, if the users are accessing the applications for a limited number of hours in the day, you may want to set the session duration to match this time frame.
+Option A: Create a custom Permission Set with session duration as 24 hours.
+This option would not optimize the user session based on completing the activity as the session duration is set to a fixed value of 24 hours. This could potentially lead to security risks as the user's temporary security credentials would be valid for a longer period.
+Option B: Use an existing Job Function policy to set session duration as 24 hours.
+This option would not optimize the user session based on completing the activity as the session duration is set to a fixed value of 24 hours. This option may be useful if there is a job function policy that matches the user's activity level and provides access to the required resources.
+Option C: Create a custom Permission Set with session duration as 6 hours.
+This option would optimize the user session based on completing the activity as the session duration is set to a value that matches the user's activity level. A custom Permission Set can be created in the AWS SSO console and assigned to the users who require access to the applications. The session duration can be set to 6 hours, which would provide the users with enough time to complete their work without being logged out of the console.
+Option D: Use an existing Job Function policy to set session duration as 6 hours.
+This option would optimize the user session based on completing the activity as the session duration is set to a value that matches the user's activity level. An existing Job Function policy can be used to provide access to the required resources and set the session duration to 6 hours, which would provide the users with enough time to complete their work without being logged out of the console.
+In conclusion, options C and D are the most suitable solutions to ensure that the user session is optimized based on completing the activity. These options provide the users with enough time to complete their work without being logged out of the console while still maintaining a high level of security.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question460:"link"
+
+

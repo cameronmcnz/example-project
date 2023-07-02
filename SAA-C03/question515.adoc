@@ -1,0 +1,86 @@
+---
+layout: default 
+title: "1315 - Which of the following can be used with "
+---
+
+
+[.question]
+== 1315-64a1fb21f053625db51de05a.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_arnnso.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following can be used with Amazon ECS to run containers without managing servers or clusters of Amazon EC2 instances?
+
+
+[source,java]
+----
+Amazon ECS Launch Types
+
+An Amazon ECS launch type determines the type of infrastructure on which your tasks and services are hosted.
+
+Fargate Launch Type
+
+The Fargate launch type allows you to run your containerized applications without the need to provision and manage
+the backend infrastructure. Just register your task definition and Fargate launches the container for you.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. AWSVPC
+* [*] B. FARGATE
+* [ ] C. AWS ECR
+* [ ] D. Docker.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+For detailed information on AWS ECS Launch types, refer to documentation here.
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html
+For Option D, Docker is a container type, not a launch type.
+Amazon ECS uses Docker images in task definitions to launch containers on EC2 instances in your clusters.
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html.
+The correct answer is B. FARGATE.
+Amazon Elastic Container Service (ECS) is a fully-managed container orchestration service that supports Docker containers. ECS can be used to run containers on clusters of Amazon Elastic Compute Cloud (EC2) instances, or on AWS Fargate.
+AWS Fargate is a serverless compute engine for containers that allows you to run containers without the need to manage servers or clusters of EC2 instances. With Fargate, you can specify the amount of CPU and memory required for your containers, and AWS will take care of provisioning the necessary resources to run them.
+AWS VPC (Virtual Private Cloud) is a service that lets you launch Amazon Web Services resources into a virtual network that you define. It provides you with complete control over your virtual networking environment, including IP address ranges, subnets, and routing tables.
+AWS ECR (Elastic Container Registry) is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images. It integrates with Amazon ECS and other container services, making it easy to deploy containers on AWS.
+Docker is a platform that allows developers to build, package, and deploy applications as Docker containers. Docker containers can run on any system that supports Docker, including Amazon ECS and Fargate.
+In summary, while AWS VPC and AWS ECR are related to container management in AWS, they are not directly used to run containers without managing servers or clusters of Amazon EC2 instances. The correct answer is B. FARGATE, as it is a serverless compute engine for containers that allows you to run containers without the need to manage servers or clusters of EC2 instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question621:"link"
+
+

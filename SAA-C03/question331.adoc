@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1131 - You work as an architect for a company
+A"
+---
+
+
+[.question]
+== 1131-64a1fac1f053625db51ddf71.
+
+
+****
+
+[.query]
+--
+You work as an architect for a company.
+An application will be deployed on a set of EC2 instances in a private subnet of VPC.
+You need to ensure that IT administrators can securely administer the instances in the private subnet.
+How can you accomplish this?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a NAT gateway, ensure SSH access is provided to the NAT gateway. Access the Instances via the NAT gateway.
+* [ ] B. Create a NAT instance in a public subnet, ensure SSH access is provided to the NAT instance. Access the Instances via the NAT instance.
+* [ ] C. Create a bastion host in the private subnet. Make IT admin staff use this as a jump server to the backend instances.
+* [*] D. Create a bastion host in the public subnet. Make IT admin staff use this as a jump server to the backend instances.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The AWS Documentation mentions the following.
+A bastion host is a server whose purpose is to provide access to a private network from an external network, such as the Internet.
+Because of its exposure to potential attacks, a bastion host must minimize the chances of penetration.
+For example, you can use a bastion host to mitigate the risk of allowing SSH connections from an external network to the Linux instances launched in a private subnet of your Amazon Virtual Private Cloud (VPC).
+Option A is invalid because you would not allow the inbound SSH access via the NAT gateway.
+Option B is invalid because you would not allow the inbound access via the NAT instance.
+Option C is incorrect since the bastion host needs to be in the public subnet.
+For more information on bastion hosts, please visit the below URL-
+https://aws.amazon.com/blogs/security/how-to-record-ssh-sessions-established-through-a-bastion-host/
+The correct answer to this question is option C: Create a bastion host in the private subnet. Make IT admin staff use this as a jump server to the backend instances.
+Explanation: When an application is deployed in a private subnet of a VPC, the instances are not accessible from the internet. However, it is necessary to provide secure access for IT administrators to manage the instances.
+Option A is incorrect because it suggests creating a NAT gateway to access the instances. Although a NAT gateway provides internet access to instances in a private subnet, it does not provide secure access for IT administrators.
+Option B is incorrect because it suggests creating a NAT instance in a public subnet. NAT instances are not recommended because they require maintenance and do not provide high availability.
+Option D is incorrect because it suggests creating a bastion host in the public subnet. This approach exposes the bastion host to the internet, making it vulnerable to attacks.
+Option C is the correct answer because it suggests creating a bastion host in the private subnet. A bastion host is a secure gateway that provides access to the backend instances. By creating a bastion host in the private subnet, IT administrators can securely access the backend instances without exposing them to the internet. The IT administrators can connect to the bastion host using SSH and then use the bastion host as a jump server to access the backend instances.
+In summary, option C is the most secure and recommended approach for providing secure access to instances in a private subnet of a VPC.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question387:"link"
+
+

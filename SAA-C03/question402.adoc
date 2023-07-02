@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1202 - A Company is currently hosting an applic"
+---
+
+
+[.question]
+== 1202-64a1fae5f053625db51ddfc7.
+
+
+****
+
+[.query]
+--
+A Company is currently hosting an application that connects to a MySQL AWS RDS Instance.
+Of late, there have been many performance issues being encountered.
+After careful analysis, it has been determined that the issue is occurring due to the static (same) queries being fired against the database.
+Which of the following can be added to the architecture to enhance the performance?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable Multi-AZ for the database.
+* [*] B. Use the ElastiCache Service.
+* [ ] C. Use Read Replica.
+* [ ] D. Use CloudFront in front of the database.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+ElastiCache can be used to reduce the latency of requests as it is returning values directly from RAM.
+A read replica is more suitable for frequently changing, or dynamic queries.
+Up-to-dateness of data:
+A read replica will continuously sync from the master.
+So your results will probably lag 0 - 3s (depending on the load) behind the master.
+A cache takes the query result at a specific point in time and stores it for a certain amount of time.
+Performance:
+A cache can only return results for queries it has already seen.
+So if you run the same queries over and over again, it's a good match.
+If you have many different, frequently changing, or dynamic queries, a read replica will be a better match.
+ElastiCache should be much faster since it's returning values directly from RAM.
+However, this also limits the number of results you can store.
+Option A is incorrect since this is used for the high availability of the database.
+Option C is incorrect since using read replica is not suitable as mentioned above.
+Option D is incorrect since CloudFront can be used forWeb distributions, not for caching.
+For more information on ElastiCache, please refer to the below URL-
+https://aws.amazon.com/elasticache
+Based on the problem statement, the performance issue is occurring due to the static queries being fired against the database. In such a scenario, there are a few options that can be explored to enhance the performance. Let's discuss each answer option and their relevance in this context.
+A. Enable Multi-AZ for the database: Multi-AZ deployment provides enhanced availability and data durability for an RDS instance. It involves automatic replication of the primary database instance to a standby instance in a different Availability Zone. While it provides redundancy, it does not address the performance issue of static queries.
+B. Use the ElastiCache Service: Amazon ElastiCache is a web service that makes it easy to deploy and run an in-memory cache in the cloud. It supports widely adopted in-memory caching engines such as Memcached and Redis. Caching can be a useful technique to reduce the number of static queries that are fired against the database. However, it may not solve all performance issues related to static queries.
+C. Use Read Replica: Amazon RDS provides the capability to create one or more read replicas of the database instance. Read replicas can be used to offload read traffic from the primary database instance, thereby reducing the load on it. In this scenario, if the static queries are mainly read queries, then using a read replica can help in enhancing the performance.
+D. Use CloudFront in front of the database: Amazon CloudFront is a content delivery network (CDN) that can be used to improve the performance of web applications. However, it is not relevant in the context of a database that is being accessed by an application.
+In conclusion, the most relevant option in this scenario would be to use a read replica. It can help in offloading read traffic from the primary database instance and enhance the performance of static queries.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question473:"link"
+
+

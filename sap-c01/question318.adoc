@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1118 - You are developing a mobile application
+"
+---
+
+
+[.question]
+== 1118-64a1df6aaa736d27b1db947d.
+
+
+****
+
+[.query]
+--
+You are developing a mobile application.
+As it is a proof of concept, you want to deliver the project as soon as possible and you prefer using a serverless pattern.
+The whole application contains the presentation tier, the logical tier and the database tier.
+The component in the presentation tier is the mobile application running on a user device.
+For the logical tier and database tier, which services should you use as the serverless mobile backend?
+
+
+--
+
+[.list]
+--
+* [*] A. The logical tier contains Amazon API Gateway and AWS Lambda. The API Gateway endpoints are secured via Amazon Certificate Manager. Amazon RDS MySQL is used for the data tier.
+* [ ] B. The logic tier contains Amazon API Gateway and AWS ECS with EC2 instances. The API Gateway endpoints are secured via third-party identity providers. The data tier includes the resource of Amazon DynamoD.
+* [*] C. The logic tier contains Amazon CloudFront and AWS Auto Scaling Group. Amazon Cognito identity pools provide identity services. Amazon DocumentDB is used for the data tier.
+* [*] D. The logic tier contains Amazon API Gateway and AWS Lambda. The API Gateway endpoints are secured via Amazon Cognito user pools. Amazon DynamoDB is used for the data tier.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+As the serverless pattern is required, we should choose the serverless services that AWS fully manages.
+Option A is incorrect: Because Amazon RDS MySQL is not a pure serverless service.
+Users still need to configure the database instance type, storage and provisioned IOPS.
+Details can be found in https://d1.awsstatic.com/whitepapers/AWS_Serverless_Multi-Tier_Architectures.pdf.
+Option B is incorrect: Because AWS ECS with EC2 instance is not a serverless service, ECS with Fargate can be a serverless service.
+In this scenario, Amazon API Gateway with AWS Lambda is the most appropriate for the logic tier.
+Option C is incorrect: Because AWS Auto Scaling Group and Amazon DocumentDB are not serverless services.
+Option D is CORRECT: Because all the mentioned services are serverless.
+Users do not need to create or maintain servers for the whole architecture.
+Check https://d1.awsstatic.com/whitepapers/AWS_Serverless_Multi-Tier_Architectures.pdf on how to create AWS serverless multi-tier architectures via Amazon API Gateway and AWS Lambda.
+Option D is the correct answer.
+The logical tier contains Amazon API Gateway and AWS Lambda. API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. Lambda is a serverless compute service that allows you to run code without provisioning or managing servers. Lambda functions can be triggered by API Gateway endpoints.
+The API Gateway endpoints are secured via Amazon Cognito user pools, which provides a secure user directory that scales to hundreds of millions of users. Cognito user pools provide user authentication and authorization services, allowing users to sign up, sign in, and manage their profile information.
+Amazon DynamoDB is used for the data tier. DynamoDB is a fully managed NoSQL database service that can handle any amount of traffic and scale up or down automatically. DynamoDB is a great fit for mobile applications as it provides low latency and high throughput for read and write operations.
+Overall, this architecture is a good fit for a proof of concept mobile application that needs to be delivered quickly. The serverless pattern allows for easy scaling and cost savings, and the use of fully managed services means that developers can focus on writing code rather than managing infrastructure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question460:"link"
+
+

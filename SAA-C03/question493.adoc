@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "1293 - You have uploaded a file to AWS S3 bucke"
+---
+
+
+[.question]
+== 1293-64a1fb13f053625db51de038.
+
+
+****
+
+[.query]
+--
+You have uploaded a file to AWS S3 bucket with content ‘foo'
+You have overwritten the file with the content ‘bar'
+When you made a GetObject request immediately after overwrite, what output can you expect?
+
+
+--
+
+[.list]
+--
+* [*] A. foo
+* [*] B. bar
+* [ ] C. either foo or bar
+* [ ] D. An error stating “Object updating. Please try after some time.”
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+S3 now supports strong read-after-write consistency.
+What you write is what you will read, and the results of a LIST will be an accurate reflection of what's in the bucket.
+Details can be found in https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency/.
+If you have uploaded a file to an S3 bucket with the content 'foo' and then overwritten the file with the content 'bar', when you make a GetObject request immediately after the overwrite, the output you can expect is 'bar'.
+This is because when you overwrite an existing object in an S3 bucket, the new content replaces the old content of the object. The object's metadata, including the ETag, is updated to reflect the new content.
+When you make a GetObject request for the object immediately after the overwrite, S3 will return the latest version of the object, which in this case is the one with the content 'bar'.
+So the correct answer is B. bar.
+Option A, 'foo', is incorrect because the object has been overwritten with the new content 'bar'.
+Option C, 'either foo or bar', is incorrect because once the object is overwritten with the new content, the old content is replaced and is no longer available.
+Option D, 'An error stating "Object updating. Please try after some time."', is incorrect because overwriting an object in an S3 bucket does not result in any errors that prevent you from reading the object immediately after the overwrite.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question586:"link"
+
+

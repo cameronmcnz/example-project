@@ -1,0 +1,136 @@
+---
+layout: default 
+title: "1268 - You have created a custom VPC with publi"
+---
+
+
+[.question]
+== 1268-64a1fb06f053625db51de017.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_uxdbdg.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have created a custom VPC with public and private subnets.
+You will also be setting up a VPN connection with your organization to communicate with resources within the VPC.
+Your organization would need DNS names for some of the on-premise applications to communicate with VPC resources.
+You have launched a new EC2 instance with Auto-assign public IP as enable.
+When the instance is ready to use, you found that the Public DNS name is missing.
+What should be done to enable it?
+
+
+[source,java]
+----
+DNS Support in Your VPC
+
+Your VPC has attributes that determine whether your instance receives public DNS hostnames, and whether DNS
+resolution through the Amazon DNS server is supported.
+
+Attribute
+
+Description
+
+enableDnsHostnames |ndicates whether the instances launched in the VPC get public DNS hostnames.
+
+enableDnsSupport
+
+If this attribute is true, instances in the VPC get public DNS hostnames, but only if the
+enableDnsSupport attribute is also set to true.
+
+Indicates whether the DNS resolution is supported for the VPC.
+
+If this attribute is false, the Amazon-provided DNS server in the VPC that resolves public DNS
+hostnames to IP addresses is not enabled.
+
+If this attribute is true, queries to the Amazon provided DNS server at the 169.254.169.253 IP
+address, or the reserved IP address at the base of the VPC IPv4 network range plus two will
+succeed. For more information, see Amazon DNS Server.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Check whether attributes for DNS Hostnames and DNS Resolution are enabled for VP.
+* [ ] B. Check DHCP options set
+* [ ] C. Set auto-assign public IP to Use Subnet Setting.
+* [ ] D. You cannot have private DNS names for custom VPCs. Setup EC2 instance in default VP.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+By default, both attributes are set to '
+true'
+in a default VPC or a VPC created by the VPC wizard.
+The following rules apply:
+If both attributes are set to
+true.
+, the following occurs:
+Instances with a public IP address receive corresponding public DNS hostnames.
+The Amazon Route 53 Resolver server can resolve Amazon-provided private DNS hostnames.
+If either or both of the attributes is set to
+false.
+, the following occurs:
+Instances with a public IP address do not receive corresponding public DNS hostnames.
+The Amazon Route 53 Resolver cannot resolve Amazon-provided private DNS hostnames.
+Instances receive custom private DNS hostnames if there is a custom domain name in the DHCP options set.
+If you are not using the Amazon Route 53 Resolver server, your custom domain name servers must resolve the hostname as appropriate.
+Option B is incorrect because the DHCP options set is used if there is a custom domain name created by the user.
+If you are not using the Amazon Route 53 Resolver server, your custom domain name servers must resolve the hostname as appropriate.
+So there is no need to check the DHCP options set.
+Default DHCP options set: AmazonProvidedDNS.
+Option C is incorrect because it is mentioned that EC2 instance is enabled with Auto-assign public IP, auto-assign public IP defines whether you can have a public IP address for the EC2 you are launching.
+If you launch EC2 in the public subnet, you can choose to have a public IP address or not.
+Option D is incorrect.
+Custom VPC provides an option to enable/disable DNS Hostnames as described above.
+We provide a DNS server (the Amazon Route 53 Resolver) for your VPC.
+To use your own DNS server, create a new set of DHCP options for your VPC.
+For more information, see DHCP options sets for your VPC.Reference:
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-viewing https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html
+The correct answer is A. Check whether attributes for DNS Hostnames and DNS Resolution are enabled for VP.
+Explanation: When you create a custom VPC with public and private subnets, DNS resolution and DNS hostnames attributes are disabled by default. These attributes need to be enabled in order to resolve public DNS names to private IP addresses within the VPC.
+Enabling DNS resolution allows Amazon-provided DNS servers to resolve public DNS names to their corresponding IP addresses within the VPC. Enabling DNS hostnames allows Amazon to provide unique DNS names for resources that are launched within the VPC.
+To enable these attributes for the VPC:
+1. Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+2. In the navigation pane, choose Your VPCs.
+3. Select the custom VPC that you want to enable DNS resolution and DNS hostnames for.
+4. Choose Actions, Edit DNS resolution or Edit DNS hostnames.
+5. Select Yes to enable the attribute and choose Save.
+Once DNS resolution and DNS hostnames are enabled, you can verify that the EC2 instance has a Public DNS name by navigating to the EC2 console, selecting the instance, and checking the Public DNS column.
+Option B, checking DHCP options set, is not relevant to this scenario as it pertains to assigning IP addresses and network configuration to instances launched within the VPC.
+Option C, setting auto-assign public IP to Use Subnet Setting, is also not relevant to this scenario as the EC2 instance already has auto-assign public IP enabled.
+Option D, setting up EC2 instance in the default VPC, is not necessary as custom VPCs can support private DNS names with the appropriate attributes enabled.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question553:"link"
+
+

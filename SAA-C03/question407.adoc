@@ -1,0 +1,111 @@
+---
+layout: default 
+title: "1207 - Your current architecture consists of a "
+---
+
+
+[.question]
+== 1207-64a1fae7f053625db51ddfcc.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_uaqcml.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your current architecture consists of a set of web servers spun up as part of an Autoscaling group.
+These web servers then communicate with a set of database servers.
+You need to ensure that the database servers' security groups are set properly to accept traffic from the web servers.
+Which of the following is the best way to accomplish this?
+
+
+[source,java]
+----
+DBServerSG: Recommended Rules
+
+Inbound
+
+Source
+
+The ID of your WebServerSG
+security group
+
+The ID of your WebServerSG
+security group
+
+Protocol Port
+
+TCP
+
+TCP
+
+Range
+
+1433
+
+3306
+
+Comments
+
+Allow inbound Microsoft SQL Server access from the web servers associated with
+the WebServerSG security group.
+
+Allow inbound MySQL Server access from the web servers associated with the
+WebServerSG security group.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure that the Private IP addresses of the web servers are put as sources for the incoming rules in the database server security group.
+* [ ] B. Ensure that the Public IP addresses of the web servers are put as sources for the incoming rules in the database server security group.
+* [*] C. Ensure that the web server security group is placed as the source for the incoming rules in the database server security group.
+* [ ] D. Ensure that the Instance ID of the web servers are put as sources for the incoming rules in the database server security group.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The below example from the AWS Documentation also shows the Source of the database security group involving the web server security groups' ID.Options A and B are invalid or not the best practice.
+Since they are part of the Autoscaling Group, the IP addresses of the instances can change.
+Option D is incorrect since normally you don't specify the Instance ID in Security Groups.
+For more information on the Security Groups for the VPC, please refer to the below URL-
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html
+The best way to ensure that the database servers' security groups are set properly to accept traffic from the web servers is by configuring the security group rules on the database servers to allow inbound traffic from the web servers' security group.
+Option A, which involves adding the private IP addresses of the web servers as sources for the incoming rules in the database server security group, is not the best option. This is because the IP addresses of the web servers can change over time, especially if they are part of an Autoscaling group. Additionally, adding the IP addresses of individual servers can be cumbersome to manage.
+Option B, which involves adding the public IP addresses of the web servers as sources for the incoming rules in the database server security group, is also not the best option. This is because the public IP addresses of the web servers can change if the servers are stopped and started again. Also, if the web servers are part of a private subnet, they may not have public IP addresses.
+Option D, which involves adding the instance ID of the web servers as sources for the incoming rules in the database server security group, is also not the best option. This is because the instance IDs of the web servers can change if they are terminated and replaced.
+Option C is the best option. By configuring the database server security group to allow inbound traffic from the web server security group, you ensure that any new web servers launched by the Autoscaling group will automatically have access to the database servers. This approach simplifies security group management and ensures that the appropriate security measures are in place to protect your database servers.
+In summary, the best way to accomplish this is to ensure that the web server security group is placed as the source for the incoming rules in the database server security group.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question478:"link"
+
+

@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1254 - You use CloudFormation to create an Auto"
+---
+
+
+[.question]
+== 1254-64a1fafff053625db51de005.
+
+
+****
+
+[.query]
+--
+You use CloudFormation to create an Auto Scaling group for a web application.
+The application needs to be deployed in both non-production and production AWS accounts.
+You want to use Spot Instances in the non-production environment to save costs.
+Which of the following methods would you choose?
+
+
+--
+
+[.list]
+--
+* [*] A. In the CloudFormation template, use a variable to set the OnDemandPercentageAboveBaseCapacity property. Set the variable to be 100 in non-production and 0 in production.
+* [*] B. In the CloudFormation template, use a parameter to set the OnDemandPercentageAboveBaseCapacity property. Set the parameter to be 0 in non-production and 100 in production.
+* [*] C. In the CloudFormation template, use a parameter for the SpotMaxPrice property. Set the parameter to be 100 in non-production and 0 in production.
+* [ ] D. . In the CloudFormation template, use a parameter for the SpotMaxPrice property. Set the parameter to be 0.5 in non-production and the On-Demand price in production.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect: Because OnDemandPercentageAboveBaseCapacity determines the percentages of On-Demand Instances and Spot Instances beyond OnDemandBaseCapacity.
+The value should be 100 in production as no Spot Instances should be used in production.
+Option B is CORRECT: As the value of OnDemandPercentageAboveBaseCapacity is 0 in non-production, Spot Instances will be used.
+For the production environment, On-Demand Instances are launched as OnDemandPercentageAboveBaseCapacity is 100.
+Option C is incorrect: SpotMaxPrice determines the maximum price that you are willing to pay for Spot Instances.
+It does not decide the percentage between Spot and On-Demand instances.
+Option D is incorrect: In this scenario, OnDemandPercentageAboveBaseCapacity should be configured to launch Spot Instances in non-production and On-Demand Instances in production.
+Reference:
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotmaxprice
+Sure, I'll be happy to explain the answer choices to you.
+CloudFormation is an AWS service that allows you to create and manage AWS resources in a repeatable and automated way. It uses templates to define the infrastructure and configurations required to deploy and run your application. An Auto Scaling group is a feature of Amazon EC2 that automatically scales your EC2 instances up or down based on demand.
+Spot Instances are a cost-effective way to run your applications on the AWS cloud. They provide compute capacity at a significantly lower price than On-Demand instances, but the availability of the capacity is subject to change based on supply and demand. In this scenario, we want to use Spot Instances in the non-production environment to save costs.
+Let's take a look at each answer choice and see which one is the best fit for this scenario.
+A. In the CloudFormation template, use a variable to set the OnDemandPercentageAboveBaseCapacity property. Set the variable to be 100 in non-production and 0 in production.
+The OnDemandPercentageAboveBaseCapacity property specifies the percentage of On-Demand instances to launch above the base capacity of the Auto Scaling group. This option would allow us to launch all instances as On-Demand instances in production and all instances as Spot instances in non-production. However, using variables in CloudFormation templates is not a recommended best practice because it can lead to errors and make the templates harder to read and understand.
+B. In the CloudFormation template, use a parameter to set the OnDemandPercentageAboveBaseCapacity property. Set the parameter to be 0 in non-production and 100 in production.
+This option is similar to the previous one but uses parameters instead of variables. This is a better option because parameters are a recommended best practice in CloudFormation templates. However, this option would launch all instances as Spot instances in non-production and all instances as On-Demand instances in production, which is the opposite of what we want.
+C. In the CloudFormation template, use a parameter for the SpotMaxPrice property. Set the parameter to be 100 in non-production and 0 in production.
+The SpotMaxPrice property specifies the maximum price that you are willing to pay for a Spot instance. This option would allow us to set the maximum price to be very high in non-production, which would effectively launch all instances as On-Demand instances. In production, we would set the maximum price to be 0, which would effectively launch all instances as Spot instances. This option is a good fit for this scenario.
+D. In the CloudFormation template, use a parameter for the SpotMaxPrice property. Set the parameter to be 0.5 in non-production and the On-Demand price in production.
+This option sets the maximum price to be 0.5 in non-production, which would launch instances as Spot instances as long as the current Spot price is less than or equal to 0.5. If the current Spot price is higher than 0.5, instances would not launch. In production, the maximum price would be set to the On-Demand price, which would launch all instances as On-Demand instances. This option is also a good fit for this scenario.
+Therefore, the best answer choices for this scenario are C and D. Both options allow us to launch Spot instances in non-production and On-Demand instances in production. Option C is simpler because it only requires setting the SpotMaxPrice parameter, while option D requires setting both the SpotMaxPrice and On-Demand price parameters.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question535:"link"
+
+

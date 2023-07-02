@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "1001 - Currently youre responsible for the desi"
+---
+
+
+[.question]
+== 1001-64a1fa82f053625db51dded5.
+
+
+****
+
+[.query]
+--
+Currently, you're responsible for the design and architect of a highly available application.
+After building the initial environment, you discover that your application does not work correctly until port 443 is added to the security group.
+After adding port 443 to the appropriate security group, how much time will it take for the application to work correctly?
+
+
+--
+
+[.list]
+--
+* [*] A. Generally, it takes 2-5 minutes for the rules to propagate.
+* [ ] B. Immediately after a reboot of the EC2 Instances, belonging to that security group.
+* [*] C. Changes apply instantly to the security group, and the application should be able to respond to 443 requests.
+* [ ] D. It will take 60 seconds for the rules to apply to all Availability Zones within the region.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+This is given in the AWS Documentation:
+"Some systems for setting up firewalls let you filter on source ports.
+Security groups let you filter only on destination ports.
+When you add or remove rules, they are automatically applied to all instances associated with the security group".
+For more information on Security Groups, please refer to the below link:
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html
+When you add or modify a security group rule in AWS, the changes should be applied immediately to the security group. However, it's important to note that the rules may not be applied immediately to all instances associated with the security group.
+AWS recommends waiting for a few minutes after adding or modifying a security group rule for the changes to propagate to all instances associated with the security group. This propagation time can vary depending on the size of the security group and the number of instances associated with it.
+Therefore, answer A, "Generally, it takes 2-5 minutes for the rules to propagate," is partially correct. It's a general rule of thumb, but the propagation time can vary.
+Answer B, "Immediately after a reboot of the EC2 Instances, belonging to that security group," is incorrect. Rebooting the instances will not immediately apply the security group changes.
+Answer C, "Changes apply instantly to the security group, and the application should be able to respond to 443 requests," is partially correct. The changes do apply instantly to the security group, but it may take a few minutes for the changes to propagate to all instances associated with the security group.
+Answer D, "It will take 60 seconds for the rules to apply to all Availability Zones within the region," is incorrect. The propagation time for security group changes can vary and is not specific to the availability zones within a region.
+In summary, the correct answer is A, "Generally, it takes 2-5 minutes for the rules to propagate." However, it's important to keep in mind that this is a general rule of thumb and the propagation time can vary depending on the size of the security group and the number of instances associated with it.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question230:"link"
+
+

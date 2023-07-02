@@ -1,0 +1,62 @@
+---
+layout: default 
+title: "1016 - A company is developing a big data analy"
+---
+
+
+[.question]
+== 1016-64a1fa88f053625db51ddee5.
+
+
+****
+
+[.query]
+--
+A company is developing a big data analytics application that requires access to an object immediately after a write.
+A big amount of objects will be stored for the application.
+You need to design a proper service to store the data.
+Is AWS S3 service suitable?
+
+
+--
+
+[.list]
+--
+* [*] A. No. AWS uses an eventual consistency model.
+* [*] B. Yes. AWS S3 delivers strong read-after-write and list consistency automatically.
+* [*] C. No. AWS S3 is not suitable for big data applications.
+* [ ] D. No. AWS S3 is not cost-effective to store a big amount of data.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Amazon S3 delivers strong read-after-write consistency and is suitable for this scenario.
+Please check the reference in https://aws.amazon.com/cn/s3/consistency/.
+The correct answer is B: Yes. AWS S3 delivers strong read-after-write and list consistency automatically.
+Amazon Simple Storage Service (S3) is a highly scalable, durable, and secure object storage service offered by Amazon Web Services (AWS). S3 can store and retrieve any amount of data, from anywhere on the web, and is designed to provide 99.999999999% (11 9's) durability of objects over a given year. It is ideal for storing and retrieving large amounts of data for big data applications.
+When data is written to an S3 bucket, it becomes available for retrieval immediately. S3 guarantees strong read-after-write consistency for new object uploads and overwrites. This means that as soon as a write operation has been completed on an object, subsequent read requests for that object will return the updated data. In addition, S3 provides list consistency, which means that after a new object has been created or a previous object has been deleted, subsequent list requests will reflect the change.
+S3 is designed to be highly scalable, allowing it to handle large amounts of data without any issues. It is also cost-effective and offers a variety of storage classes with different pricing tiers to suit different data access patterns and retention requirements.
+Therefore, the correct answer is B. AWS S3 delivers strong read-after-write and list consistency automatically, making it suitable for storing data for big data applications that require immediate access to data after a write operation.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question246:"link"
+
+

@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1002 - You work in a large organization
+Your te"
+---
+
+
+[.question]
+== 1002-64a1fa82f053625db51dded6.
+
+
+****
+
+[.query]
+--
+You work in a large organization.
+Your team creates AWS resources such as Amazon EC2 dedicated hosts and reserved capacities that need to be shared by other AWS accounts.
+You need an AWS service to centrally manage these resources so that you can easily specify which accounts or Organizations can access the resources.
+Which AWS service would you choose to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. IAM
+* [*] B. Resource Access Manager
+* [*] C. Service Catalog
+* [ ] D. AWS Single Sign-On.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Resource Access Manager (AWS RAM) helps users to share resources with other AWS accounts or Organizations.
+Refer to the reference in https://docs.aws.amazon.com/ram/latest/userguide/what-is.html.
+Option A is incorrect: Because IAM cannot be used to manage and share these resources.
+Option B is CORRECT: EC2 dedicated hosts and reserved capacities are shareable resources that are supported by Resource Access Manager.
+Check the reference in https://docs.aws.amazon.com/ram/latest/userguide/shareable.html.
+Option C is incorrect: Because Service Catalog is used to manage catalogs and cannot share resources with others.
+Option D is incorrect: Because AWS Single Sign-On is used for SSO access and does not share the mentioned resources.
+The AWS service that can centrally manage and share resources such as Amazon EC2 dedicated hosts and reserved capacities with other AWS accounts or Organizations is Resource Access Manager (RAM). Therefore, the correct answer is B. Resource Access Manager.
+Resource Access Manager is a service that enables you to share AWS resources such as Amazon EC2 instances, Amazon RDS databases, and Amazon S3 buckets with other AWS accounts or within your organization. With RAM, you can create resource shares that specify which accounts or Organizations can access the shared resources and what level of access they have. RAM simplifies resource sharing across accounts and reduces the need for manual processes or custom scripts to manage resource sharing.
+IAM (Identity and Access Management) is a service that helps you manage access to AWS resources within your own account. IAM is not designed for sharing resources with other accounts or Organizations.
+Service Catalog is a service that enables organizations to create and manage catalogs of IT services that can be used by their employees or customers. Service Catalog is not designed for sharing resources with other accounts.
+AWS Single Sign-On (SSO) is a service that makes it easy to centrally manage single sign-on access to multiple AWS accounts and business applications. SSO is not designed for sharing resources with other accounts.
+Therefore, Resource Access Manager (RAM) is the correct answer for the requirement mentioned in the question.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question231:"link"
+
+

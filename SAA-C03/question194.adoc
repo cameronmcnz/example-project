@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "994 - You have been asked to create a VPC netw"
+---
+
+
+[.question]
+== 994-64a1fa7ff053625db51ddecc.
+
+
+****
+
+[.query]
+--
+You have been asked to create a VPC network topology for your company.
+The VPC network must support both internet-facing and intranet applications, accessed only over VPN.
+Both internet-facing and intranet applications must be able to leverage at least 3 AZs each for high availability.
+How many subnets must you create within your VPC to accommodate these requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. 2
+* [ ] B. 3
+* [*] C. 4
+* [*] D. 6
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Since each subnet corresponds to one Availability Zone and you need 3 AZs for both the internet and intranet applications, you will need 6 subnets.
+For internet-facing and intranet applications, they should be put at different subnets.
+For more information on VPC and subnets, please visit the below URL:
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
+To accommodate both internet-facing and intranet applications and support high availability, the VPC network should have multiple subnets distributed across multiple Availability Zones (AZs).
+To calculate the number of subnets required, we need to consider the following points:
+1. Both internet-facing and intranet applications are accessed only over VPN.
+2. Each of the internet-facing and intranet applications should be able to leverage at least 3 AZs for high availability.
+To support both types of applications, we need to create subnets for each type of application separately. Each subnet should span across at least 3 AZs for high availability.
+Considering the above points, we need to create:
+3 subnets for the internet-facing application (1 subnet per AZ)
+3 subnets for the intranet application (1 subnet per AZ)
+Therefore, we need a total of 6 subnets for the VPC network topology to accommodate the given requirements.
+So the correct answer is (D) 6.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question220:"link"
+
+

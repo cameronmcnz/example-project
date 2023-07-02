@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "934 - Your company currently has setup their d"
+---
+
+
+[.question]
+== 934-64a1fa6af053625db51dde89.
+
+
+****
+
+[.query]
+--
+Your company currently has setup their data store on AWS DynamoDB.
+One of your main revenue generating applications uses the tables in this service.
+Your application is now expanding to 2 different other locations and you want to ensure that the latency for data retrieval is the least from the new regions.
+Which of the following can help accomplish this?
+
+
+--
+
+[.list]
+--
+* [*] A. Place a cloudfront distribution in front of the database
+* [ ] B. Enable Multi-AZ for DynamoDB
+* [*] C. Place an ElastiCache in front of DynamoDB
+* [*] D. Enable global tables for DynamoDB.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+The AWS Documentation mentions the following.
+To illustrate one use case for a global table, suppose that you have a large customer base spread across three geographic areas-the US east coast, the US west coast, and western Europe.
+Customers would need to update their profile information while using your application.
+To address these requirements, you could create three identical DynamoDB tables named CustomerProfiles, in three different AWS regions.
+These three tables would be entirely separate from each other, and changes to the data in one table would not be reflected in the other tables.
+Without a managed replication solution, you could write code to replicate data changes among these tables; however, this would be a time-consuming and labor-intensive effort.
+Option A is incorrect since cloudfront should ideally be used in front of web distributions.
+Option B is incorrect since this is not an option for DynamoDB.
+Option C is incorrect since would not be affective for multiple regions.
+For more information on AWS DynamoDB global tables, please visit the below URL.
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html
+To minimize the latency for data retrieval from DynamoDB for the new locations, you can enable Global Tables for DynamoDB.
+Option A: Placing a CloudFront distribution in front of the database is not a recommended solution as it will not reduce the latency for data retrieval from DynamoDB. CloudFront is a content delivery network (CDN) that caches data at the edge locations to minimize the latency for content delivery, but it cannot cache data from a database.
+Option B: Enabling Multi-AZ for DynamoDB ensures high availability of your DynamoDB data by replicating it across multiple availability zones within a single region. However, this will not help in reducing the latency for data retrieval from the new regions.
+Option C: Placing an ElastiCache in front of DynamoDB can reduce the read latency for frequently accessed data. ElastiCache is an in-memory caching service that can store frequently accessed data in memory, which can reduce the number of requests to DynamoDB. However, this solution is only effective for read-intensive workloads and will not help in reducing the latency for write operations.
+Option D: Enabling Global Tables for DynamoDB can replicate your DynamoDB tables automatically across multiple AWS regions, which can help reduce the latency for data retrieval from the new regions. Global Tables can also provide disaster recovery and high availability. With Global Tables, you can read and write to the replicated tables with low latency, which can help improve the performance of your application for the new regions.
+Therefore, the correct answer is D. Enable global tables for DynamoDB.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question152:"link"
+
+

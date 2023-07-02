@@ -1,0 +1,112 @@
+---
+layout: default 
+title: "1265 - Your organization had asked to be costef"
+---
+
+
+[.question]
+== 1265-64a1fb05f053625db51de014.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_w8nnxh.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your organization had asked to be cost-efficient in designing AWS solutions.
+You have created three VPCs(VPC A, VPC B, VPC C), peered VPC A to VPC B and VPC B to VPC C.
+You have created a NAT gateway in VPC B and would like to use the same NAT Gateway for resources within VPC A and VPC C.
+However, the resources within VPC A and VPC C cannot communicate to the internet through NAT Gateway, but resources in VPC B can communicate.
+What could be the reason?
+
+
+[source,java]
+----
+Using a NAT Gateway with VPC Endpoints, VPN, AWS Direct Connect, or VPC Peering
+
+ANAT gateway cannot send traffic over VPC endpoints, VPN connections, AWS Direct Connect, or VPC peering
+connections. If your instances in the private subnet must access resources over a VPC endpoint, a VPN connection, or
+AWS Direct Connect, use the private subnet's route table to route the traffic directly to these devices.
+
+For example, your private subnet's route table has the following routes: internet-bound traffic (0.0.0.0/0) is routed to a
+NAT gateway, Amazon S3 traffic (pl-xxxxxxxx; a specific IP address range for Amazon S3) is routed to a VPC endpoint,
+and 10.25.0.0/16 traffic is routed to a VPC peering connection. The pl-xxxxxxxx and 10.25.0.0/16 IP address ranges are
+more specific than 0.0.0.0/0; when your instances send traffic to Amazon S3 or the peered VPC, the traffic is sent to the
+VPC endpoint or the VPC peering connection. When your instances send traffic to the internet (other than the Amazon
+S3 IP addresses), the traffic is sent to the NAT gateway.
+
+You cannot route traffic to a NAT gateway through a VPC peering connection, a VPN connection, or AWS Direct
+Connect. A NAT gateway cannot be used by resources on the other side of these connections.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Route tables in VPC A and VPC C are not configured to have VPC B’s NAT gateway.
+* [*] B. Using another VPC`s NAT Gateway is not supported in AWS.
+* [ ] C. VPC B’s subnet which contains NAT gateway is not configured in VPC A and VPC C route tables.
+* [ ] D. NAT Gateway is not created inside VPC B’s public subnet.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+In a VPC peering connection, using the NAT Gateway of another VPC becomes transitive routing and is not supported in AWS.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html#nat-
+For.
+Option A, in VPC's route table, only NAT Gateway of the belonging VPC can be configured.
+VPC A and VPC C cannot configure VPC B's NAT Gateway in their respective route tables.
+This option is incorrect.
+For Option B, as explained above, transitive routing is not supported.
+This option is correct.
+For Option C, even if two VPCs have peered and configured route tables with their entire IP range, as explained above, transitive routing is not supported.
+This option is incorrect.
+For Option D, the question says VPC B resources can communicate with the internet, for which NAT gateway should be on a public subnet.
+So this option is not valid.
+The reason why resources in VPC A and VPC C cannot communicate with the internet through the NAT Gateway in VPC B could be due to incorrect routing configuration in the VPC route tables.
+When a VPC is created, a default route table is also created for the VPC. This default route table has a local route for all subnets in the VPC, but it does not have a route for internet traffic. Therefore, if resources in VPC A and VPC C need to communicate with the internet through the NAT Gateway in VPC B, the route tables in these VPCs need to be modified.
+The correct answer is A. Route tables in VPC A and VPC C are not configured to have VPC B's NAT gateway. In order for resources in VPC A and VPC C to communicate with the internet through the NAT Gateway in VPC B, the route tables in VPC A and VPC C need to have a route that directs internet traffic to the NAT Gateway in VPC B.
+To configure the route tables, the following steps should be taken:
+1.
+In the AWS Management Console, navigate to the VPC Dashboard and select the VPC A.
+2.
+Click on the "Route Tables" option on the left-hand side menu, and select the default route table for the VPC.
+3.
+Click on the "Edit" button at the bottom of the route table, and add a new route to the NAT Gateway in VPC B. The destination should be "0.0.0.0/0" to route all internet traffic, and the target should be the NAT Gateway in VPC B.
+4.
+Repeat steps 2 and 3 for VPC C's route table.
+C is also a correct answer as VPC B's subnet which contains NAT gateway is not configured in VPC A and VPC C route tables. This means that the subnet in which the NAT Gateway is created in VPC B is not added to the route tables of VPC A and VPC C. Therefore, traffic from VPC A and VPC C is not being routed to the NAT Gateway in VPC B.
+However, B is incorrect. Using another VPC's NAT Gateway is supported in AWS, and it is a common practice to use a single NAT Gateway for multiple VPCs to save costs.
+D is also incorrect as the NAT Gateway needs to be created in a public subnet in VPC B. Otherwise, it will not be able to communicate with the internet. Therefore, the NAT Gateway in VPC B should be created in a public subnet, and the route tables in VPC A and VPC C should be configured to direct traffic to the NAT Gateway.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question550:"link"
+
+

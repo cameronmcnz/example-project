@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "1105 - With a Redshift cluster in AWS you are t"
+---
+
+
+[.question]
+== 1105-64a1fab2f053625db51ddf4a.
+
+
+****
+
+[.query]
+--
+With a Redshift cluster in AWS, you are trying to use SQL Client tools from an EC2 Instance.
+But you aren't able to connect to the Redshift Cluster.
+What must you do to ensure that you can connect to the Redshift Cluster from the EC2 Instance?
+
+
+--
+
+[.list]
+--
+* [*] A. Install Redshift client tools on the EC2 Instance first.
+* [*] B. Modify the Security Groups.
+* [*] C. Use the AWS CLI instead of the Redshift client tools.
+* [ ] D. Modify the Route Table of the subnet.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+By default, any cluster that you create is closed to everyone.
+IAM credentials only control access to the Amazon Redshift API-related resources: the Amazon Redshift console, Command Line Interface (CLI), API, and SDK.
+To enable access to the cluster from SQL client tools via JDBC or ODBC, you use security groups:
+If you are using the EC2-Classic platform for your Amazon Redshift cluster, you must use Amazon Redshift security groups.
+If you are using the EC2-VPC platform for your Amazon Redshift cluster, you must use VPC security groups.
+For more information on Amazon Redshift, please refer to the URL below.
+http://docs.aws.amazon.com/redshift/latest/mgmt/overview.html
+To connect to a Redshift cluster from an EC2 instance, you need to follow the below steps:
+1. Install the Redshift client tools on the EC2 instance: You need to install the Redshift client tools on the EC2 instance to connect to the Redshift cluster. You can install the tools using the following command:
+Copy codesudo yum install -y amazon-redshift-utils 
+1.
+Modify the Security Groups: You also need to ensure that the EC2 instance's security group allows inbound traffic from the Redshift cluster's security group on the appropriate port. By default, Redshift uses port 5439. So, you need to add an inbound rule to the security group that allows traffic from the EC2 instance's security group on port 5439.
+2.
+Use the correct endpoint: When connecting to the Redshift cluster, you need to use the correct endpoint. You can find the endpoint in the AWS Management Console by navigating to the Redshift cluster's details page.
+3.
+Use the correct credentials: You need to use the correct credentials to connect to the Redshift cluster. The credentials should have appropriate permissions to access the cluster.
+4.
+Modify the Route Table of the subnet: You do not need to modify the route table of the subnet to connect to the Redshift cluster from an EC2 instance.
+Therefore, the correct answer is A. Install Redshift client tools on the EC2 Instance first, and B. Modify the Security Groups.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question348:"link"
+
+

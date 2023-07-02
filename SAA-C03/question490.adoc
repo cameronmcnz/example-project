@@ -1,0 +1,110 @@
+---
+layout: default 
+title: "1290 - You have an application running on EC2
+W"
+---
+
+
+[.question]
+== 1290-64a1fb11f053625db51de031.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_um4w28.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have an application running on EC2
+When the application trying to upload a 7 GB file to S3, the operation fails.
+What could be the reason for failure, and what would be the solution?
+
+
+[source,java]
+----
+Uploading Objects
+
+Depending on the size of the data you are uploading, Amazon S3 offers the following options:
+
+° Upload objects in a single operation—With a single PUT operation, you can upload objects up to 5 GB in size.
+For more information, see Uploading Objects in a Single Operation.
+
+¢ Upload objects in parts—Using the multipart upload API, you can upload large objects, up to 5 TB.
+The multipart upload API is designed to improve the upload experience for larger objects. You can upload objects
+in parts. These object parts can be uploaded independently, in any order, and in parallel. You can use a multipart
+upload for objects from 5 MB to 5 TB in size. For more information, see Uploading Objects Using Multipart
+Upload API.
+
+We recommend that you use multipart uploading in the following ways:
+
+° If you're uploading large objects over a stable high-bandwidth network, use multipart uploading to maximize the
+use of your available bandwidth by uploading object parts in parallel for multi-threaded performance.
+
+* If you're uploading over a spotty network, use multipart uploading to increase resiliency to network errors by
+avoiding upload restarts. When using multipart uploading, you need to retry uploading only parts that are
+interrupted during the upload. You don't need to restart uploading your object from the beginning.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. With a single PUT operation, you can upload objects up to 5 GB in size. Use multi-part upload for larger file uploads.
+* [ ] B. EC2 is designed to work best with EBS volumes. Use EBS Provisioned IOPs and use an Amazon EBS-optimized instance.
+* [ ] C. NAT gateway only supports data transfers going out upto 5 G.
+* [ ] D. Use EBS Provisioned IOPs and use an Amazon EBS-optimized instance.
+* [ ] E. VPC Endpoints only supports data transfers going out upto 5 G.
+* [ ] F. Use EBS Provisioned IOPs and use an Amazon EBS-optimized instance.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+F.
+Answer: A.
+AWS recommends using multi-part uploads for larger objects.
+For more information on multi-part uploads, refer to documentation here.
+https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html
+For option B, Amazon EBS is a storage for the drives of your virtual machines.
+It stores data as blocks of the same size and organizes them through a hierarchy similar to a traditional file system.
+EBS is not a standalone storage service like Amazon S3
+So you can use it only in combination with Amazon EC2.
+Objects can be stored on EBS volumes, but not cost-effective and not highly resilient and fault-tolerant compared to S3.
+Options C and D are incorrect.
+NAT Gateway ad VPC endpoints do not have any data transfer limitations.
+The correct answer for this question is A: With a single PUT operation, you can upload objects up to 5 GB in size. Use multi-part upload for larger file uploads.
+Explanation: When uploading a file to Amazon S3 using the PutObject operation, the maximum size of the object that can be uploaded in a single operation is 5 GB. If the file is larger than 5 GB, the operation will fail. Therefore, the recommended solution is to use multi-part upload to upload the file in smaller parts.
+Multi-part upload allows you to upload large objects in parts, which can be uploaded independently and in parallel. This increases the speed of upload and also allows for resuming failed uploads from the last successful part.
+In addition, it is important to ensure that the EC2 instance is correctly configured and has sufficient resources to upload large files. EBS Provisioned IOPs and Amazon EBS-optimized instances can help to optimize the performance of the instance and the storage.
+Option B, D, and F are incorrect because they do not address the issue of uploading a large file to S3. They refer to optimizing the performance of the EC2 instance, but not the S3 upload.
+Option C and E are incorrect because they refer to NAT gateway and VPC Endpoints, which are not relevant to the issue of uploading a file to S3.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question579:"link"
+
+

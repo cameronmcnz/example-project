@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "1188 - Your team has an application hosted on A"
+---
+
+
+[.question]
+== 1188-64a1fadff053625db51ddfb7.
+
+
+****
+
+[.query]
+--
+Your team has an application hosted on AWS.
+This application currently interacts with a DynamoDB table which has the Read capacity set to 10
+Based on recent cloudwatch alarms which indicated that throttling was occurring in the requests to the DynamoDB table.
+Which of the following would help ensure the issue was resolved now and help ensure the issue does not occur in the future?
+
+
+--
+
+[.list]
+--
+* [*] A. Add an Elastic Load Balancer in front of the DynamoDB table.
+* [ ] B. Change the Read Capacity for the table to 20.
+* [ ] C. Change the Write capacity for the table to offset the Read capacity.
+* [*] D. Enable Autoscaling for the underlying DynamoDB table.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The AWS Documentation mentions the following.
+DynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns.
+This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic without throttling.
+When the workload decreases, Application Auto Scaling decreases the throughput so that you don't pay for unused provisioned capacity.
+You can optionally allow DynamoDB Auto-scaling to manage your table's throughput capacity.
+However, you still must provide initial settings for read and write capacity when you create the table.
+DynamoDB auto scaling uses these initial settings as a starting point and then adjusts them dynamically in response to your application's requirements.
+As your application data and access requirements change, you might need to adjust your table's throughput settings.
+If you're using DynamoDB Auto-scaling, the throughput settings are automatically adjusted in response to actual workloads.
+You can also use the
+UpdateTable.
+operation to adjust your table's throughput capacity manually.
+You might decide to do this if you need to bulk-load data from an existing data store into your new DynamoDB table.
+For more details, please refer to the below URLs-
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html https://aws.amazon.com/blogs/database/amazon-dynamodb-auto-scaling-performance-and-cost-optimization-at-any-scale/
+Option A is incorrect since the Elastic Load balancer in front of the DynamoDB table won't help increase the capacity of DynamoDB.
+Here, We need to scale up and down the capacity automatically based on the requirement.
+Option B is incorrect since this would only help in temporarily resolving the situation.
+Option C is incorrect since provisioning Write capacity would not help in this case.
+For more information on DynamoDB Autoscaling, please refer to the below URL-
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html
+The correct answer to this question is B - Change the Read Capacity for the table to 20.
+Here's why:
+DynamoDB is a fully managed NoSQL database service provided by AWS. When you create a DynamoDB table, you must specify its capacity settings, which determine the amount of read and write activity that the table can handle. These capacity settings are measured in units, with one read capacity unit equal to one strongly consistent read request per second or two eventually consistent read requests per second, and one write capacity unit equal to one write request per second.
+In this scenario, the DynamoDB table has a Read capacity set to 10, which means that it can handle up to 10 strongly consistent read requests per second or up to 20 eventually consistent read requests per second. However, based on recent CloudWatch alarms, it appears that the application is experiencing throttling when trying to read from the table, indicating that the table's current Read capacity is not sufficient to handle the workload.
+To resolve the issue now and prevent it from occurring in the future, the best course of action is to increase the table's Read capacity. Option B - Change the Read Capacity for the table to 20 - is the correct choice. By doubling the Read capacity to 20, the table will be able to handle up to 20 strongly consistent read requests per second or up to 40 eventually consistent read requests per second, which should be sufficient to handle the current workload without throttling.
+Option A - Add an Elastic Load Balancer in front of the DynamoDB table - is not a viable solution in this scenario. An Elastic Load Balancer is a service that automatically distributes incoming application traffic across multiple targets, such as EC2 instances or containers, to improve availability and fault tolerance. However, an Elastic Load Balancer is not designed to improve the performance of a single DynamoDB table.
+Option C - Change the Write capacity for the table to offset the Read capacity - is not a recommended solution in this scenario. While it's true that increasing the Write capacity of a DynamoDB table can help to offset increased read activity, it's generally not recommended to make changes to the Write capacity unless you actually need more write throughput. Changing the Write capacity could also cause additional costs for the customer.
+Option D - Enable Autoscaling for the underlying DynamoDB table - is a good solution for ensuring that a DynamoDB table can automatically scale its capacity up or down in response to changing workloads. However, it's not the best choice in this scenario because the question is asking for a solution that can be implemented immediately to resolve the issue. Autoscaling can take some time to set up and configure properly, so it may not be the most effective solution for addressing an immediate performance issue.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question457:"link"
+
+

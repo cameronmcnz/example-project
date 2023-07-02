@@ -1,0 +1,112 @@
+---
+layout: default 
+title: "1273 - Following are Security Group inbound rul"
+---
+
+
+[.question]
+== 1273-64a1fb08f053625db51de01c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/question/imgquestions_yh4umf.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Following are Security Group inbound rules.
+What is the correct statement below?
+
+
+[source,java]
+----
+Type
+HTTP (80)
+HTTP (80)
+ALLTCP
+
+SSH (22)
+
+Protocol
+TCP (6)
+TCP (6)
+TCP (6)
+TCP (6)
+
+Custom UDP Rule UDP (17)
+
+PortRange Source
+
+80
+
+80
+
+ALL
+
+22
+
+3000
+
+10.10.1.148/32
+
+10.10.1.0/28
+
+10.10.1.148/32
+
+10.10.1.0/28
+
+10.10.1.148/32
+
+Description
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Only some rules are correct.
+* [*] B. HTTP port 80 for source 10.10.1.148/32 is duplicated.
+* [ ] C. SSH port 22 for source 10.10.1.0/28 is duplicated.
+* [ ] D. Custom UDP rule port 3000 for source 10.10.1.148/32 is duplicated.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Let's take a look at the inbound rules.
+· Rule # 3 defines ALL TCP allowed for 10.10.1.148 IP address.
+· Rule # 2 and # 4 define port 80 and 22 allowed for IP addresses 10.10.1.0- 10.10.1.16.
+· Rule # 1 defines port 80 for 10.10.1.148 IP address.
+· Rule # 5 defines custom UDP port 3000 for 10.10.1.148 IP address.
+Out of these rules, only rule # 1 is duplicated with rule # 3.
+So option B is correct.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question558:"link"
+
+

@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "1002 - You are having trouble maintaining sessi"
+---
+
+
+[.question]
+== 1002-64a1df41aa736d27b1db93d9.
+
+
+****
+
+[.query]
+--
+You are having trouble maintaining session states on some of your applications using an Elastic Load Balancer(ELB)
+Requests from the same session should be routed to the same target in the target group.
+Which of the following is the quickest and cost-efficient method to implement this?
+
+
+--
+
+[.list]
+--
+* [*] A. Disable Sticky session. Use Elasticache to put session data. Elasticache is easy to set up, manage, and scale a distributed in-memory cache environment in the cloud.
+* [ ] B. Use a special cookie to track the instance for each request to each listener. When the load balancer receives a request, it will then check to see if this cookie is present in the request.
+* [*] C. Use the sticky session feature (also known as session affinity), enabling the load balancer to bind a user`s session to a specific instance. This ensures that all requests from the user during the session are sent to the same instance.
+* [ ] D. If your application does not have its own session cookie, then you can configure Elastic Load Balancing to create a session cookie by specifying your own stickiness duration.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because although ElastiCache can be utilized to store the session state in the cache rather than in any database, it is slow to implement and not cost-efficient if compared with option.
+C.Option C is CORRECT because Sticky sessions, also known as session affinity, allow you to route a site user to the particular web server managing that individual user's session.
+It is also the most cost-efficient method.
+Options B and D are incorrect because they describe the methods partially and do not clearly indicate that the sticky session feature should be used.
+Reference can be found in https://aws.amazon.com/caching/session-management/.
+The correct answer to the question is C. Use the sticky session feature (also known as session affinity), enabling the load balancer to bind a user's session to a specific instance. This ensures that all requests from the user during the session are sent to the same instance.
+Explanation: In a load-balanced environment, requests from a user can be distributed across multiple instances, making it challenging to maintain session state information. Elastic Load Balancer (ELB) distributes incoming traffic across multiple instances, allowing you to scale your applications quickly and efficiently. However, ELB's default behavior is to distribute incoming requests across all healthy instances evenly.
+To maintain session state information and ensure that requests from a user during a session are sent to the same instance, you can use the sticky session feature. When you enable sticky sessions, ELB binds a user's session to a specific instance for the duration of the session. All requests from that user during the session are sent to the same instance, ensuring that session state information is maintained.
+Answer A is incorrect because Elasticache is a caching service, and while it can be used to store session data, it is not the quickest and most cost-efficient method to implement sticky sessions. Additionally, Elasticache adds complexity to your architecture, which can make it more difficult to manage.
+Answer B is incorrect because it requires the use of a special cookie to track the instance for each request to each listener, which adds complexity to your application architecture. Additionally, this method does not ensure that all requests from a user during a session are sent to the same instance.
+Answer D is incorrect because it requires the configuration of a session cookie, which adds complexity to your application architecture. Additionally, this method does not ensure that all requests from a user during a session are sent to the same instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question296:"link"
+
+

@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1066 - What of the following is true about the "
+---
+
+
+[.question]
+== 1066-64a1df59aa736d27b1db943a.
+
+
+****
+
+[.query]
+--
+What of the following is true about the features Lambda@Edge in AWS?
+
+
+--
+
+[.list]
+--
+* [*] A. It is used specifically for the Edge-based programing language.
+* [ ] B. It is used for running Lambda functions at edge locations defined by S3.
+* [*] C. It is used for running Lambda functions at edge locations used by CloudFront.
+* [ ] D. It can support any type of programming language.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect as it is not used for Edge-based programming.
+Option B is incorrect because edge locations are part of the CloudFront setup, not S3.
+Option C is CORRECT because Lambda@Edge allows you to run Lambda functions at the AWS edge locations in response to CloudFront events.
+Without Lambda@Edge, customized processing requires requests to be forwarded back to compute resources at the centralized servers.
+This slows down the user experience.
+Option D is incorrect because Lambda@Edge supports only Node.js, which is a server-side JavaScript framework.
+For more information on Lambda@Edge, please visit the link:
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/what-is-lambda-at-edge.html
+Lambda@Edge is a service provided by AWS that allows developers to run AWS Lambda functions at AWS Edge locations, specifically at the edge locations of the Amazon CloudFront content delivery network.
+The correct answer is C. It is used for running Lambda functions at edge locations used by CloudFront.
+When a user requests content from an AWS CloudFront distribution, the content is served from the CloudFront edge location closest to the user. With Lambda@Edge, developers can add custom logic to CloudFront by writing and deploying AWS Lambda functions that are triggered by CloudFront events such as viewer requests, origin requests, and response generation.
+Lambda@Edge provides a range of benefits, including reducing network latency by moving computation closer to the user, improving application security, and reducing infrastructure costs by only running the code when needed.
+Lambda@Edge supports any programming language that can be run within an AWS Lambda function, including Node.js, Python, Java, Go, and C#. However, the developer must package their code and dependencies into a zip file and upload it to AWS Lambda.
+In summary, Lambda@Edge is a powerful tool that allows developers to customize and enhance the performance and security of their CloudFront distributions by running AWS Lambda functions at CloudFront edge locations.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question393:"link"
+
+

@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "997 - A company website is set to launch in th"
+---
+
+
+[.question]
+== 997-64a1fa80f053625db51dded0.
+
+
+****
+
+[.query]
+--
+A company website is set to launch in the upcoming weeks.
+There is a probability that the traffic will be quite high during the initial weeks.
+How is it possible to set up DNS failover to a static website in the event of a load failure?
+
+
+--
+
+[.list]
+--
+* [*] A. Duplicate the exact application architecture in another region and configure DNS Weight-based routing.
+* [ ] B. Enable failover to an on-premises data center to the application hosted there.
+* [*] C. Use Route 53 with the failover option, to failover to a static S3 website bucket or CloudFront distribution.
+* [ ] D. Add more servers in case the application fails.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Amazon Route 53 health checks monitor the health and performance of your web applications, web servers, and other resources.
+If you have multiple resources that perform the same function, you can configure DNS failover so that Amazon Route 53 will route your traffic from an unhealthy resource to a healthy resource.
+For example, if you have two web servers and one web server becomes unhealthy, Amazon Route 53 can route traffic to the other web server.
+So you can route traffic to a website hosted on S3 or to a CloudFront distribution.
+For more information on DNS failover using Route 53, please refer to the link below:
+http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html
+Sure, I'd be happy to provide a detailed explanation for each answer choice.
+A. Duplicate the exact application architecture in another region and configure DNS Weight-based routing.
+This answer choice is suggesting that you duplicate your application in another region and use DNS Weight-based routing to direct traffic to both regions. Weight-based routing allows you to split the traffic between regions in a specific ratio. For example, you could direct 80% of your traffic to your primary region and 20% to your secondary region. If the primary region becomes overloaded, the traffic will automatically failover to the secondary region.
+This approach requires you to duplicate your entire application architecture in another region, which can be expensive and time-consuming. Additionally, this solution may not be the best fit for a static website as it may not require such a complex setup.
+B. Enable failover to an on-premises data center to the application hosted there.
+This answer choice suggests that you can host your website in both AWS and an on-premises data center, and failover to the on-premises data center if AWS fails. While this approach can provide additional resilience, it adds complexity to the architecture and may not be necessary for a static website.
+C. Use Route 53 with the failover option, to failover to a static S3 website bucket or CloudFront distribution.
+This answer choice is the most appropriate option for a static website hosted on AWS. Route 53, AWS's DNS service, offers a failover option that can automatically route traffic to a different resource when the primary resource is unavailable. In this case, you can configure Route 53 to failover to a static S3 website bucket or CloudFront distribution if the primary resource becomes unavailable. This is a simple and cost-effective solution that requires minimal setup.
+D. Add more servers in case the application fails.
+This answer choice is not the best solution for a static website. Adding more servers may help to handle additional traffic, but it does not address the issue of a load failure or provide automatic failover. Additionally, adding more servers can be expensive and may not be necessary for a static website.
+In summary, the best answer choice for setting up DNS failover to a static website in the event of a load failure is to use Route 53 with the failover option, to failover to a static S3 website bucket or CloudFront distribution.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question224:"link"
+
+

@@ -1,0 +1,97 @@
+---
+layout: default 
+title: "1353 - In an AWS Setup of a company a webbased "
+---
+
+
+[.question]
+== 1353-64a1fb38f053625db51de092.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgCSAA-efs-7-1.PNG[]
+
+--
+
+
+****
+
+[.query]
+--
+In an AWS Setup of a company, a web-based application has a fleet of 10 EC2 instances.
+7 EC2 instances are present in Availability Zone A, whereas 3 EC2 instances are in Availability Zone B.
+The percentage (%) of requests received in Availability Zone B is greater than the percentage (%) of requests in Availability Zone A.
+What can be done at the architecture level to balance the load across the two availability zones?
+
+
+[source,java]
+----
+If cross-zone load balancing is enabled, each of the 10 targets receives 10% of the traffic. This is because
+each load balancer node can route its 50% of the client traffic to all 10 targets.
+
+7 coeienienteetententestentententententententon
+
+Availability Zone A
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use X-forwarded headers
+* [ ] B. Enable “split traffic equally” checkbox under load balancer configuration.
+* [*] C. Use Cross-Zone load balancing.
+* [ ] D. Use Sticky Sessions.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Cross-zone load balancing.
+The nodes for your load balancer distribute requests from clients to registered targets.
+When cross-zone load balancing is enabled, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones.
+When cross-zone load balancing is disabled, each load balancer node distributes traffic only across the registered targets in its Availability Zone.
+Option A is incorrect because X-forwarded headers are not used to distribute the traffic.
+Option B is incorrect because it is just a distractor, there is no such configuration.
+Option D is incorrect because the sticky session feature is used to enable the load balancer to bind a user's session to a specific target.
+This ensures that all requests from the user during the session are sent to the same target.
+Reference:
+https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#availability-zones https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html https://docs.aws.amazon.com/elasticloadbalancing/latest/application/x-forwarded-headers.html
+The correct answer is C. Use Cross-Zone load balancing.
+Explanation: In this scenario, the web-based application has a fleet of 10 EC2 instances, with 7 instances in Availability Zone A and 3 instances in Availability Zone B. Additionally, the percentage of requests received in Availability Zone B is greater than the percentage of requests in Availability Zone A. To balance the load across the two availability zones, we need to use a load balancer.
+A load balancer distributes incoming traffic across multiple instances to ensure that no single instance is overwhelmed. In Amazon Web Services (AWS), we can use Elastic Load Balancer (ELB) to distribute traffic across EC2 instances in multiple availability zones.
+There are two types of load balancing available in AWS:
+1. Internal Load Balancer (ILB) - It distributes traffic within the same VPC.
+2. External Load Balancer (ELB) - It distributes traffic from the internet to the VPC.
+In this scenario, we can use an External Load Balancer (ELB) to distribute traffic across the two availability zones. The ELB can be configured to distribute traffic evenly across all instances in both availability zones. There are different types of load balancing algorithms available in AWS, such as round-robin, least connections, and IP hash. We can choose an appropriate algorithm based on our requirements.
+The options provided are: A. Use X-forwarded headers - This option is not related to load balancing. X-forwarded headers are used to identify the originating IP address of a client connecting to a web server through a load balancer or proxy server.
+B. Enable “split traffic equally” checkbox under load balancer configuration - This option is not available in AWS. It seems like an incorrect answer.
+C. Use Cross-Zone load balancing - This is the correct answer. Cross-Zone load balancing distributes traffic evenly across all instances in both availability zones. It allows the ELB to distribute traffic across all instances, even if they are not in the same availability zone as the ELB.
+D. Use Sticky Sessions - Sticky Sessions allow the ELB to route requests from a particular client to the same EC2 instance every time. This option is not recommended in scenarios where we need to distribute traffic evenly across all instances.
+Therefore, the correct answer is C. Use Cross-Zone load balancing.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question677:"link"
+
+

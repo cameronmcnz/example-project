@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1026 - A user has launched an EC2 instance stor"
+---
+
+
+[.question]
+== 1026-64a1df49aa736d27b1db93f8.
+
+
+****
+
+[.query]
+--
+A user has launched an EC2 instance store-backed instance in the us-east-1a zone.
+The user created AMI #1 and copied it to the eu-west-1 region.
+After that, the user made a few updates to the application running in the us-east-1a zone.
+The user makes an AMI #2 after the changes.
+If the user launches a new instance in Europe from the AMI #1 copy, which statement is true?
+
+
+--
+
+[.list]
+--
+* [*] A. The new instance will have the changes made after the AMI copy as AWS copies the original AMI reference during the copying. Thus, the copied AMI will have all the updated data.
+* [ ] B. The new instance will have the changes made after the AMI copy since AWS keeps updating the AMI.
+* [ ] C. It is not possible to copy the instance store-backed AMI from one region to another.
+* [*] D. The new instance in the eu-west-1 region will not have the changes made after the AMI copy.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because (a) the changes made to the instance will not automatically get updated in the AMI in US-East-1, and (b) the already copied AMI will not have any reference to the AMI in the US-East-1 region.
+Option B is incorrect because AWS does not automatically update the AMIs.
+It needs to be done manually.
+Option C is incorrect because you can copy the instance store AMI between different regions.
+Option D is CORRECT because the instance in the EU region will not make any changes after copying the AMI.
+You will need to copy the AMI#2 to eu-west-1 and then relaunch the instance to have all the changes.
+For the entire details to copy AMI's, please visit the link -
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html
+When an Amazon Machine Image (AMI) is created from an EC2 instance, it captures the state of the instance at the time the AMI was created, including the operating system, application server, and application code. An AMI can be used to launch new EC2 instances with the same configuration as the original instance.
+In this scenario, the user has launched an EC2 instance in the us-east-1a zone, created AMI #1, and copied it to the eu-west-1 region. After that, the user made some updates to the application running on the EC2 instance in the us-east-1a zone and created AMI #2 after the changes.
+If the user launches a new instance in the eu-west-1 region from the copied AMI #1, the new instance will have the state of the original instance at the time the AMI was created, which means it will not have the changes made after AMI #1 was created.
+Option A is incorrect because when an AMI is copied to another region, a new copy of the AMI is created in the destination region, and the new copy has no connection with the original AMI. So, any changes made to the original instance after the AMI was copied will not be reflected in the copied AMI.
+Option B is incorrect because AWS does not automatically update the AMI when changes are made to the original instance. The user must create a new AMI after making changes to the instance.
+Option C is incorrect because instance store-backed AMIs can be copied from one region to another. However, instance store-backed AMIs can only be launched in the same availability zone where they were created.
+Therefore, the correct answer is Option D - the new instance in the eu-west-1 region will not have the changes made after the AMI copy.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question327:"link"
+
+

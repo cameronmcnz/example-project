@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "1220 - A global IT firm has a Hybrid connectivi"
+---
+
+
+[.question]
+== 1220-64a1faeef053625db51ddfdd.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgbZ1iV-iIdFoUZH88HZjWUBzw8aK5A95GW3ubGSahAvscKnGE2XHLwXOxPFy67rmQFG4uueblDao2k_1X_evdwnCIP6z_xVTs1ZMRMnyLG_UhrLIQ_FZovLxgmGPrxqIO8AxYeO4[]
+
+--
+
+
+****
+
+[.query]
+--
+A global IT firm has a Hybrid connectivity for its applications servers deployed across on-premise Data Centre & AWS Cloud infrastructure.
+Developers have designed a new application that will be deployed at both locations & are expecting to be accessed by 4000 users globally.
+Customer Security Team requires the same security policies to be applied to users when accessing new applications from on-premise servers or AWS Cloud.
+A customer has already deployed an Active directory on-premise with all security compliance.
+The IT Head has informed you about budget constraints & no additional cost should be incurred for a new solution. Which of the following can be used to design AD services for new applications?
+
+
+[source,java]
+----
+corporate ata centre
+
+EC2 Instance
+
+Availabilty 208 8
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Active Directory Service.
+* [ ] B. Use Simple AD
+* [*] C. Use AD Connector.
+* [ ] D. Use Amazon EC2 instance with Active Directory installed.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Using an AD connector, customers can use existing AD deployed at on-premise servers.
+For this, no additional deployment is required, just over existing VPN /DX connectivity.
+All requests can be forwarded to on-premise AD.
+With this, the same security policies can be applied for both on-premise &amp; users accessing from the cloud.
+With AWS Managed Active Directory Service or deploying AD on Amazon EC2 instance, additional cost will incur to deploy separate AD in AWS cloud.
+Simple AD does not forward requests to on-premise AD.
+So security policies cannot be the same.
+Option A is incorrect since the customer is looking for no additional cost for setting a new Active Directory.
+Existing AD deployed at an on-premise location can be used.
+Option B is incorrect as with Simple AD, Policies cannot be implemented same for on-premise &amp; In AWS.
+Option D is incorrect as using the Amazon EC2 instance will incur additional costs.
+For more information on Active Directory Connector, refer to the following URL-
+https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_ad_connector.html
+The customer has a requirement to deploy a new application on both on-premise and AWS cloud infrastructure, and ensure that the same security policies are applied to users accessing the application from both locations. The customer already has an Active Directory deployed on-premise with all security compliance. Additionally, the customer has budget constraints and wants to avoid incurring any additional costs for a new solution.
+Given these requirements, the most appropriate option for designing AD services for the new application is to use AD Connector (option C).
+AD Connector is a free service provided by AWS that allows customers to connect their on-premise Active Directory to AWS, without the need for a separate Active Directory instance in the AWS cloud. It allows customers to use their existing on-premise Active Directory infrastructure to manage user identities and permissions for applications deployed in AWS. AD Connector also enables secure and efficient communication between the on-premise Active Directory and AWS services.
+By using AD Connector, the customer can ensure that the same security policies are applied to users accessing the new application from both on-premise and AWS cloud locations. This is because AD Connector enables authentication and authorization of users using the same Active Directory deployed on-premise.
+AWS Active Directory Service (option A) and Simple AD (option B) are also Active Directory solutions provided by AWS, but they require the deployment of a separate Active Directory instance in the AWS cloud. This would result in additional costs for the customer, which is not desirable given the budget constraints.
+Using an Amazon EC2 instance with Active Directory installed (option D) is also not the best option because it would require additional infrastructure deployment and management. Additionally, it could result in additional costs for the customer due to the need for an EC2 instance and associated resources.
+In summary, using AD Connector is the most appropriate option for the customer given the requirement for a solution that does not require additional costs and utilizes their existing on-premise Active Directory infrastructure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question495:"link"
+
+

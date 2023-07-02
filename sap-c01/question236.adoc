@@ -1,0 +1,99 @@
+---
+layout: default 
+title: "1036 - You are designing multiregion architectu"
+---
+
+
+[.question]
+== 1036-64a1df4caa736d27b1db9405.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_gjozvy.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are designing multi-region architecture, and you want to send users to a geographic location based on latency-based routing, which seems simple enough.
+However, you also want to use weighted-based routing among resources within that region.
+Which of the below setups would best accomplish this?
+
+
+[source,java]
+----
+Latency alias resource record set
+Name: example.com
+Type: A
+Region: us-east-1 Region: ap-southeast-2
+Set ID: 1 Set ID: 2
+Evaluate Target Health: Yes Evaluate Target Health: Yes
+Weighted Weighted Weighted
+resource record set fesource record set fesource record set fesource record set
+Name: us-east- ‘Name: us-east-1- Name: ap-southeast- Name: ap-southeast-2-
+www.example.com www.example.com www.example.com www.example.com
+Type: A Type: A Type: A Type: A
+Value: 192.0.2.11 Value: 192.0.2.12 Value: 192.0.2.13 Value: 192.0.2.14
+Set ID: 1 Set ID: Set ID: 1 Set ID: 2
+Weight: 10 Weight: 20 Weight: 15 Weight: 20
+I I I I
+HTTP health check HTTP health check HTTP health check HTTP health check
+ID: abod-1111 ID: abod-2222 ID: abod-3333 ID: abcd-4444
+IP address: 192.0.2.11 IP address: 192.0.2.12 IP address: 192.0.2.13 192.0.2.14
+Port: 80 Port: 80 Port: 80
+----
+
+
+--
+
+[.list]
+--
+* [*] A. You will need to use complex routing (nested recordsets) and ensure that you define the latency based records first.
+* [*] B. You will need to use complex routing (nested recordsets) and ensure that you define the weighted resource record sets first.
+* [ ] C. This cannot be done. You can`t use different routing records together.
+* [ ] D. You will need to use AAAA - IPv6 addresses when you define your weighted based record sets.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is incorrect because you need to define the recordset to be pointed to (in this case, weighted) before creating the top level recordset (in this case, latency).
+Option B is CORRECT because you need to create the weighted policies first because you will use those record sets as the alias pointing to in the latency record sets.
+Option C is incorrect because you can create the nested recordsets to accomplish this.
+Option D is incorrect because the use of IPv6 is not mandatory in this configuration (and it does not mention any latency based routing - which is one of the requirements).
+Please refer to the below documentation from AWS for an example where you can define complex routing.
+Please find the below link for complex-based routing.
+http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html
+To accomplish geographic location-based routing with weighted-based routing among resources within the region in a multi-region architecture, you will need to use complex routing (nested record sets) and ensure that you define the latency-based records first.
+Latency-based routing directs traffic to the region with the lowest latency, which results in faster response times and better user experience. Weighted routing directs traffic to specific resources within a region based on defined weights.
+By using nested record sets, you can combine these two types of routing to achieve the desired setup. You can set up a top-level latency-based record set that directs traffic to the appropriate region based on latency. Within each region, you can set up a weighted resource record set that directs traffic to specific resources based on the defined weights.
+It's important to define the latency-based record sets first because they will determine which region the traffic goes to, and then the weighted resource record sets can be defined for resources within that region.
+Option A is the correct answer as it correctly explains the setup required for achieving the desired outcome. Option B is incorrect because it suggests defining the weighted resource record sets first, which would not work as expected. Option C is incorrect because different routing records can be used together with the use of nested record sets. Option D is irrelevant because AAAA-IPv6 addresses are not necessary for this setup.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question340:"link"
+
+

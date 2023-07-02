@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "1274 - Which of the following statements is cor"
+---
+
+
+[.question]
+== 1274-64a1fb09f053625db51de01d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/question/imgquestions_x5difj.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following statements is correct for the route table of the VPC created with the primary CIDR of 20.0.0.0/16?
+
+
+[source,java]
+----
+Destination
+
+30.0.0.0/20
+
+20.0.0.0/16
+
+Target
+local
+
+local
+
+Status
+
+Active
+
+Active
+
+Propagated
+
+No
+
+No
+----
+
+
+--
+
+[.list]
+--
+* [*] A. VPC peering connection route for VPC with a 30.0.0.0/20 IP range.
+* [ ] B. VPN connection route for the remote network with a 30.0.0.0/20 IP range.
+* [ ] C. Direct Connect connection route for the remote network with a 30.0.0.0/20 IP range.
+* [*] D. Secondary IP CIDR range 30.0.0.0/20 for VPC with the local route.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+You can associate secondary IPv4 CIDR blocks with your VPC.
+When you associate a CIDR block with your VPC, a route is automatically added to your VPC route tables to enable routing within the VPC (the destination is the CIDR block and the target is local).
+In the following example, the VPC on the left has a single CIDR block (10.0.0.0/16) and two subnets.
+The VPC on the right represents the architecture of the same VPC after you've added a second CIDR block (10.2.0.0/16) and created a new subnet from the range of the second CIDR.
+https://aws.amazon.com/about-aws/whats-new/2017/08/amazon-virtual-private-cloud-vpc-
+From the above image, the Main route table shows the routes for primary and secondary IP ranges.
+So the correct option is.
+D.For option A, VPC peering connection route contains Target as pcx-xxxxxx.
+For option B, the routing table should contain an entry with 'vgw-xxxxx' for a VPN connection.
+For option C, the Direct Connect connection route should contain the Target as vgw-xxxxxx.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question559:"link"
+
+

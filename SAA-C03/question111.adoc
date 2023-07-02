@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "911 - You currently have your EC2 instances ru"
+---
+
+
+[.question]
+== 911-64a1fa63f053625db51dde71.
+
+
+****
+
+[.query]
+--
+You currently have your EC2 instances running in multiple availability zones in an AWS region.
+You need to create NAT gateways for your private instances to access internet.
+How would you set up the NAT gateways so that they are highly available?
+
+
+--
+
+[.list]
+--
+* [*] A. Create two NAT Gateways and place them behind an EL.
+* [*] B. Create a NAT Gateway in each Availability Zone.
+* [*] C. Create a NAT Gateway in another region.
+* [ ] D. Use Auto Scaling groups to scale the NAT Gateways.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect because you cannot create such configurations.
+Option B is CORRECT because this is recommended by AWS.
+With this option, if a NAT gateway's Availability Zone is down, resources in other Availability Zones can still access internet.
+Option C is incorrect because the EC2 instances are in one AWS region so there is no need to create a NAT Gateway in another region.
+Option D is incorrect because you cannot create an Auto Scaling group for NAT Gateways.
+For more information on the NAT Gateway, please refer to the below URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
+To ensure high availability for NAT gateways, you can create NAT gateways in each availability zone where your private instances reside. This is because NAT gateways are region-specific resources and do not span multiple regions.
+Therefore, option B - "Create a NAT Gateway in each Availability Zone" - is the correct answer. This approach ensures that if one NAT gateway or an entire availability zone fails, traffic can automatically failover to another NAT gateway in another availability zone.
+Option A, which suggests placing two NAT gateways behind an Elastic Load Balancer (ELB), is not recommended because NAT gateways do not support load balancing. They are not designed to work behind an ELB.
+Option C - "Create a NAT Gateway in another region" - is not ideal because it introduces additional latency and potential network issues, and increases data transfer costs since traffic would have to traverse the public internet between regions.
+Option D - "Use Auto Scaling groups to scale the NAT Gateways" - is also not recommended as NAT gateways do not support auto-scaling, and it is not necessary to use auto-scaling for high availability since creating NAT gateways in each availability zone provides sufficient redundancy.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question128:"link"
+
+

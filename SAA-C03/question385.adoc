@@ -1,0 +1,106 @@
+---
+layout: default 
+title: "1185 - Your application consists of a set of EC"
+---
+
+
+[.question]
+== 1185-64a1faddf053625db51ddfb3.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img155255.PNG[]
+
+--
+
+
+****
+
+[.query]
+--
+Your application consists of a set of EC2 Instances spun up as part of an Auto Scaling group.
+These Instances need to access objects in an S3 bucket.
+Which of the following is the ideal approach to ensure this access is set in place?
+
+
+[source,java]
+----
+--iam-instance-profile (string)
+
+The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for
+the instance. The instance profile contains the IAM role.
+
+For more information, see IAM role for applications that run on Amazon EC2 instances in the Amazon
+EC2 Auto Scaling User Guide .
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure that the Access Keys are picked up from another S3 bucket. Access Keys can be embedded in the User data during Instance Launch.
+* [*] B. Ensure that the launch configurations in Auto scaling group have an instance profile associated with the IAM role to access S3 Objects.
+* [ ] C. Ensure that an IAM policy is attached to the S3 bucket which allows access to the S3 buckets.
+* [ ] D. Ensure that the launch configurations in Auto scaling group have an IAM user to access S3 Objects.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Applications must sign their API requests with AWS credentials.
+Therefore, if you are an application developer, you need a strategy for managing credentials for your applications that run on EC2 instances.
+For example, you can securely distribute your AWS credentials to the instances, enabling the applications on those instances to use your credentials to sign requests while protecting your credentials from other users.
+However, it's challenging to securely distribute credentials to each instance, especially those that AWS creates on your behalfs, such as Spot Instances or instances in Auto Scaling groups.
+You must also be able to update the credentials on each instance when you rotate your AWS credentials.
+We designed IAM roles so that your applications can securely make API requests from your instances without requiring you to manage the security credentials that the applications use.
+For details about launch configurations, please refer to the below URL-
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html
+Option A is incorrect since using Access keys is the least secure option.
+Option C is incorrect since the IAM policy is not the right option.
+You have to use IAM Roles instead.
+Also, attaching the IAM role should be a part of Launch Configurations.
+Option D is incorrect since you need to use IAM Roles and not IAM Users.
+To understand the basic difference between IAM Roles and Users:
+IAM controls: Who can do What in your AWS account.
+Who (Authentication) in IAM is defined using users/groups and roles means what (Authorization) is defined by policies.
+User - End-user think about people.
+Groups- a set of users under one set of permission(policies)
+Roles - are used for granting specific permission to specific users for a specific time.
+For more information on IAM Roles for EC2, please refer to the below URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html https://docs.aws.amazon.com/cli/latest/reference/autoscaling/create-launch-configuration.html
+The ideal approach to grant EC2 instances in an Auto Scaling group access to objects in an S3 bucket is to use an instance profile associated with an IAM role. Therefore, option B is the correct answer.
+Explanation: An instance profile is a container for an IAM role that you can use to pass role information to an EC2 instance when the instance starts. By using an instance profile associated with an IAM role, EC2 instances can securely make API requests to AWS services such as S3 without having to store long-term security credentials.
+To configure the instance profile associated with the IAM role, you can follow these steps:
+1. Create an IAM role with permissions to access the S3 bucket containing the objects.
+2. Create an instance profile and attach the IAM role to it.
+3. When creating or updating the Auto Scaling group launch configuration, specify the instance profile.
+With this configuration, EC2 instances launched as part of the Auto Scaling group will automatically receive the necessary permissions to access the S3 bucket using the associated IAM role.
+Option A is incorrect because embedding access keys in user data is not a secure way to provide access to AWS services. User data can be viewed by anyone with access to the EC2 instance, including attackers.
+Option C is incorrect because attaching an IAM policy to an S3 bucket does not grant access to EC2 instances. Instead, it controls access to the S3 bucket itself.
+Option D is incorrect because IAM users are meant for interactive use and do not provide a secure way to access AWS services from EC2 instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question453:"link"
+
+

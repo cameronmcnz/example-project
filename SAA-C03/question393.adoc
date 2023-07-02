@@ -1,0 +1,88 @@
+---
+layout: default 
+title: "1193 - A Startup company is launching a threeti"
+---
+
+
+[.question]
+== 1193-64a1fae1f053625db51ddfbd.
+
+
+****
+
+[.query]
+--
+A Startup company is launching a three-tier application with the Multicontainer Docker platform.
+This application needs to be integrated with the Amazon RDS database instance.
+The application will be launched using AWS Elastic Beanstalk.
+As an AWS consultant for this company, you need to design the environment for blue/green deployment and decoupled architecture in the production environment.
+What would you recommend for integrating the Amazon RDS database with AWS Elastic Beanstalk?
+
+
+--
+
+[.list]
+--
+* [*] A. Launch Amazon RDS instance within the same AWS Elastic Beanstalk environment, setting connection string to the database in environment properties.
+* [*] B. Launch Amazon RDS instance outside the AWS Elastic Beanstalk environment storing the connection string in the S3 bucket.
+* [*] C. Launch Amazon RDS instance within the same AWS Elastic Beanstalk environment storing the connection string in the S3 bucket.
+* [ ] D. Launch Amazon RDS instance outside AWS Elastic Beanstalk environment, setting connection string to the database in environment properties.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Elastic Beanstalk provisions and configures all the AWS resources required to run and support your application.
+For the Amazon RDS database instance to be launched in the production environment, the best practice is to launch it outside the AWS Elastic Beanstalk environment.
+It helps in having multiple environments connecting to a single database, using database types not supported with the integrated database, performing blue/green deployments.
+Also, the database instance remains up &amp; running when the AWS Elastic Beanstalk environment is terminated.
+For a production environment, you can launch a database instance outside of your environment and configure your application to connect to it outside of the functionality provided by Elastic Beanstalk.
+Using a database instance that is external to your environment requires additional security group and connection string configuration.
+Providing connection information to your application with environment properties is a good way to keep passwords out of your code, but it's not a perfect solution.
+Environment properties are discoverable in the environment management console and can be viewed by any user with permission to describe configuration settings on your environment.
+Depending on the platform, environment properties may also appear in instance logs.
+You can lock down your connection information by storing it in an Amazon S3 bucket that you control.
+The basic steps are as follows:
+Upload a file that contains your connection string to an Amazon S3 bucket.
+Grant the EC2 instance profile permission to read the file.
+Configure your application to download the file during deployment.
+Read the file in your application code.
+Option A is incorrect as launching Amazon RDS in an AWS Elastic Beanstalk environment is suitable for test/development purposes &amp; not for a production environment.
+If the AWS Elastic Beanstalk environment is terminated, the Amazon RDS database instance is also terminated.
+Option C is incorrect as launching Amazon RDS in an AWS Elastic Beanstalk environment is suitable for test/development purposes &amp; not for the production environment.
+Option D is incorrect.
+When the Amazon RDS instance is launched outside the AWS Elastic Beanstalk environment, the best practice is to save the connection string in the Amazon S3 bucket.
+For more information on launching Amazon RDS instance with AWS Elastic Beanstalk and storing the connection string, refer to the following URLs-
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/rds-external-credentials.html
+When it comes to integrating an Amazon RDS database with AWS Elastic Beanstalk for a three-tier application, there are a few factors that need to be considered such as scalability, availability, and decoupling. Blue/green deployment is a deployment strategy that allows you to launch a new version of an application alongside the old version and then switch traffic to the new version once it's ready. This ensures that you can quickly roll back to the old version in case there are any issues with the new version.
+Given these requirements, option A (Launch Amazon RDS instance within the same AWS Elastic Beanstalk environment, setting connection string to the database in environment properties) is a suitable choice for integrating Amazon RDS with Elastic Beanstalk for this three-tier application.
+Explanation:
+Option A proposes launching an Amazon RDS instance within the same AWS Elastic Beanstalk environment, which allows for better integration and scalability of the application. By having the database instance within the same environment, you can configure the environment properties to include the connection string for the database. This makes it easier to manage and maintain the connection between the application and the database.
+Additionally, having the database within the same environment allows for easy scalability of both the application and the database. You can scale the application and database together as needed, making sure that the resources are being utilized efficiently.
+Furthermore, this option also satisfies the requirement for a decoupled architecture. With the database and application within the same environment, they can still be considered decoupled because they are running on separate containers. This means that they are isolated from each other and can be managed independently.
+Option B (Launch Amazon RDS instance outside the AWS Elastic Beanstalk environment storing the connection string in the S3 bucket) is not a suitable choice because it introduces additional complexity and can make it difficult to manage the connection between the application and the database. This option also does not provide the necessary decoupling between the application and database.
+Option C (Launch Amazon RDS instance within the same AWS Elastic Beanstalk environment storing the connection string in the S3 bucket) is not a suitable choice because storing the connection string in an S3 bucket introduces additional complexity and can lead to issues with the connection between the application and database. It also does not provide any benefits over option A.
+Option D (Launch Amazon RDS instance outside AWS Elastic Beanstalk environment, setting connection string to the database in environment properties) is not a suitable choice because it does not allow for the necessary integration and scalability of the application and database. This option also does not provide the necessary decoupling between the application and database.
+In summary, option A is the best choice because it allows for better integration, scalability, and decoupling of the application and database in a blue/green deployment environment.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question463:"link"
+
+

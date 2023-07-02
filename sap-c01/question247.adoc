@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1047 - An organization has created one IAM user"
+---
+
+
+[.question]
+== 1047-64a1df50aa736d27b1db9414.
+
+
+****
+
+[.query]
+--
+An organization has created one IAM user and applied the below mentioned policy to the user.
+What entitlements do the IAM users avail with this policy?
+
+
+--
+
+[.list]
+--
+* [*] A. The policy will allow the user to perform all read-only activities on the EC2 services including EC2 instances, Auto Scaling groups and ELBs.
+* [ ] B. The policy will allow the user to list all the EC2 resources including EC2 instances, Auto Scaling groups and ELBs.
+* [ ] C. The policy will allow the user to perform all read and write activities on the EC2 services including EC2 instances, Auto Scaling groups and ELBs.
+* [*] D. The policy will allow the user to perform the read-only activities on the EC2 instances and Auto Scaling groups.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+AWS Identity and Access Management is a web service that allows organizations to manage users and user permissions for various AWS services.
+If an organization wants to set up read-only access to EC2 for a particular user, they should mention the action in the IAM policy which entitles the user for Describe rights for EC2, CloudWatch, Auto Scaling, and ELB.
+The user will have read-only access for EC2, CloudWatch, and Auto Scaling in the policy shown below.
+Since ELB is not mentioned as a part of the list, the user will not have access to ELB.The above policy will allow the user to view EC2 instances (look at Auto Scaling and CloudWatch).
+Options A, B and C are incorrect because the policy does not include ELB permissions.
+For more information on IAM policy, please visit the URL:
+http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+The policy mentioned in the question is not provided. Without the policy, it's not possible to provide a definitive answer. However, I can provide an explanation of IAM policies and how they work in AWS.
+IAM (Identity and Access Management) is a service that allows you to manage users, groups, and permissions in AWS. IAM policies are JSON documents that define permissions for IAM users, groups, and roles. Policies can be attached to users, groups, and roles to grant or deny access to AWS resources.
+IAM policies consist of a set of permissions called "actions" and a set of resources to which those actions can be performed. Actions represent individual operations that can be performed on a resource. Resources represent AWS resources such as EC2 instances, S3 buckets, or RDS databases.
+There are two types of IAM policies: managed policies and inline policies. Managed policies are standalone policies that can be attached to multiple users, groups, and roles. Inline policies are policies that are created and embedded directly into a user, group, or role.
+In order to determine what entitlements an IAM user has with a particular policy, you need to look at the actions and resources defined in the policy. The actions in the policy will determine what the user is allowed to do, and the resources will determine which AWS resources the user is allowed to perform those actions on.
+In summary, without the policy that was mentioned in the question, it is not possible to provide a definitive answer to what entitlements the IAM user will have.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question355:"link"
+
+

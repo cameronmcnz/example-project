@@ -1,0 +1,45 @@
+---
+layout: default 
+title: "835 - Given the definition of the Vehicle clas"
+---
+
+
+[.question]
+== 835-64a1a847ef3e8462333a9c59.
+
+
+****
+
+[.query]
+--
+Given the definition of the Vehicle class: class Vehicle{ String name; void setName (String name){ this.name = name; } String getName(){ return name; } } Which action encapsulates the Vehicle class?
+
+
+--
+
+[.list]
+--
+* [ ] A. Make the Vehicle class public.
+* [ ] B. Make the name variable public.
+* [ ] C. Make the getName method public.
+* [*] D. Make the name variable private.
+* [ ] E. Make the setName method private.
+* [ ] F. Make the getName method private.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

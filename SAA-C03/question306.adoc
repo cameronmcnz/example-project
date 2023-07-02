@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1106 - You currently work for a company that is"
+---
+
+
+[.question]
+== 1106-64a1fab2f053625db51ddf4b.
+
+
+****
+
+[.query]
+--
+You currently work for a company that is specialized in baggage management.
+GPS devices installed on all the baggages deliver the coordinates of the unit every 10 seconds.
+You need to collect and analyze these coordinates in real-time from multiple sources.
+Which tool should you use to collect the data in real-time for processing?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon EMR
+* [ ] B. Amazon SQS
+* [*] C. AWS Data Pipeline
+* [*] D. Amazon Kinesis.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+The AWS Documentation mentions the following.
+Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information.
+Amazon Kinesis offers key capabilities to cost-effectively process streaming data at any scale, along with the flexibility to choose the tools that best suit the requirements of your application.
+With Amazon Kinesis, you can ingest real-time data such as video, audio, application logs, website clickstreams, and IoT telemetry data for machine learning, analytics, and other applications.
+Amazon Kinesis enables you to process and analyze data as it arrives and respond instantly instead of having to wait until all your data is collected before the processing can begin.
+For more information on Amazon Kinesis, please visit the link below.
+https://aws.amazon.com/kinesis/
+The best tool to collect and analyze real-time data from multiple sources in AWS is Amazon Kinesis.
+Amazon Kinesis is a fully managed, scalable, and highly available platform for collecting, processing, and analyzing real-time, streaming data. It allows you to collect and process large amounts of data from multiple sources, such as sensors, social media, logs, and other streaming sources, in real-time.
+In the scenario given, GPS devices installed on all the baggage are delivering the coordinates of the unit every 10 seconds. These coordinates need to be collected and analyzed in real-time from multiple sources. Amazon Kinesis is the ideal tool for this task, as it can ingest, process, and analyze streaming data with sub-second latencies.
+With Amazon Kinesis, you can create a data stream for each source of data, which will receive the data in real-time. You can then use Kinesis Data Analytics or Kinesis Data Firehose to process and analyze the data as it flows through the stream.
+Kinesis Data Analytics allows you to analyze streaming data using SQL queries, while Kinesis Data Firehose can transform and load the data into other services, such as Amazon S3, Amazon Redshift, or Amazon Elasticsearch.
+In summary, Amazon Kinesis is the best tool to collect and analyze real-time data from multiple sources in AWS, making it the ideal choice for the scenario given.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question349:"link"
+
+

@@ -1,0 +1,46 @@
+---
+layout: default 
+title: "865 - For which three objects must a vendor pr"
+---
+
+
+[.question]
+== 865-64a1a852ef3e8462333a9c77.
+
+
+****
+
+[.query]
+--
+For which three objects must a vendor provide implementations in its JDBC driver? (Choose three.)
+
+
+--
+
+[.list]
+--
+* [ ] A. Time
+* [ ] B. Date
+* [*] C. Statement
+* [*] D. ResultSet
+* [*] E. Connection
+* [ ] F. SQLException
+* [ ] G. DriverManager.
+
+--
+****
+
+[.answer]
+CDE
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

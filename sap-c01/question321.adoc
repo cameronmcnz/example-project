@@ -1,0 +1,109 @@
+---
+layout: default 
+title: "1121 - You have deployed a new Lambda Function "
+---
+
+
+[.question]
+== 1121-64a1df6baa736d27b1db9481.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imggpIC6XloczWpdRvUiey6fDXjdblI_9a1sZkTYZXPtqt6IP_9fQ0j3wWt0br3e3JrnaX8JuFzABWa4wfXzKKXx7Bey7RecHff8XkW9NK-smQPBf_BiXQ9f4TrtAZ-9QA-dORENeb2[]
+
+--
+
+
+****
+
+[.query]
+--
+You have deployed a new Lambda Function and an RDS MySQL database.
+The Lambda is not configured in any VPC and has internet access.
+As the Lambda Function needs to communicate with the RDS database to fetch data, you configure the Lambda Function in the private subnet where the database resides.
+However, after that, the Lambda Function has lost the internet connection.
+How would you resolve this problem?
+
+
+[source,java]
+----
+Network
+
+Virtual Private Cloud (VPC) Info
+Choose a VPC for your function to access.
+
+No VPC v
+No VPC
+— Default vp
+
+(172.31.0.0/16)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. In the VPC private subnet, route the outbound traffic to a NAT gateway in a public subnet.
+* [ ] B. Create VPC endpoints for all the services that the Lambda Function needs to access.
+* [*] C. Do not attach the VPC access to the Lambda Function as, by default, the Lambda Function has the internet access.
+* [ ] D. Attach an Internet gateway to the public subnet of the VP.
+* [ ] E. Modify the route table to use the internet gateway for all inbound and outbound traffic.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer - A.
+Refer to https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html for how to configure a Lambda Function to access resources in a VPC.
+You can configure the Lambda Function to access to a VPC as below:
+Option A is CORRECT: Because when a function is attached in the private subnet, it does not have access to the internet unless the VPC provides access.
+The NAT Gateway can provide the internet access for the resources in the private gateway.
+Option B is incorrect: In this question, the Lambda function needs the internet access.
+It does not mention that it needs to access other AWS services.
+VPC endpoints cannot fulfill the requirements.
+Option C is incorrect: Because if the Lambda function is not attached to the VPC, it cannot communicate with the RDS instance.
+However, the Lambda function needs to fetch data from the RDS database.
+Option D is incorrect: Because the NAT gateway should be used for the resources in the private subnet to connect to the internet.
+Attaching an internet gateway in the public subnet does not help.
+The scenario in the question describes a Lambda function that needs to access an RDS MySQL database residing in a private subnet. After configuring the Lambda function in the private subnet, it has lost internet access. To resolve this issue, we need to consider the following:
+1.
+Private Subnet and Internet Access: By default, resources deployed in a private subnet cannot access the internet directly. To access the internet, we need to use a NAT (Network Address Translation) gateway or a proxy server.
+2.
+NAT Gateway: A NAT gateway is a managed service by AWS that allows resources within a private subnet to access the internet. It acts as an intermediary between the private subnet and the internet. When a resource in the private subnet needs to access the internet, it sends its traffic to the NAT gateway, which then forwards the traffic to the internet. The NAT gateway replaces the private IP address with a public IP address and vice versa. To use a NAT gateway, we need to deploy it in a public subnet and route the outbound traffic from the private subnet to the NAT gateway.
+3.
+VPC Endpoints: A VPC endpoint is another option for enabling internet access to a Lambda function in a private subnet. It allows resources within a VPC to communicate with AWS services such as S3 and DynamoDB over a private connection rather than going through the public internet. VPC endpoints are secure and provide high-bandwidth, low-latency connections to AWS services.
+4.
+Internet Gateway: An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in a VPC and the internet. An internet gateway enables instances in a private subnet to communicate with the internet using public IP addresses. To use an internet gateway, we need to attach it to a public subnet and modify the route table to use it for outbound traffic.
+Now, let's look at each of the answer options in more detail:
+A. In the VPC private subnet, route the outbound traffic to a NAT gateway in a public subnet. This is the correct answer. By routing the outbound traffic from the Lambda function to a NAT gateway in a public subnet, the Lambda function can access the internet. The NAT gateway will handle the translation of private IP addresses to public IP addresses.
+B. Create VPC endpoints for all the services that the Lambda Function needs to access. This is also a valid option but is not the best solution in this case. Creating VPC endpoints only allows the Lambda function to access specific AWS services privately. It does not enable the Lambda function to access the internet.
+C. Do not attach the VPC access to the Lambda Function as, by default, the Lambda Function has the internet access. This option is not valid as it contradicts the scenario given in the question. The question states that the Lambda function is deployed without VPC access and, therefore, does not have internet access.
+D. Attach an Internet gateway to the public subnet of the VPC. This option is not valid as attaching an internet gateway to the public subnet of the VPC does not enable the Lambda function to access the internet directly. It only allows resources in the public subnet to access the internet.
+E. Modify the route table to use the internet gateway for all inbound and outbound traffic. This option is not valid as modifying the route table to use the internet gateway for all inbound and outbound traffic enables internet access to all resources in the VPC, including the public subnet. It is not a secure solution and could potentially expose the resources to security threats.
+In conclusion, the correct answer to the question is A. In the VPC private subnet, route the outbound traffic to a NAT gateway in a public subnet. This allows the Lambda function to access the internet through the NAT gateway while maintaining the security of the resources in the private
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question464:"link"
+
+

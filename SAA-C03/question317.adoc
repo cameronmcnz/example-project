@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "1117 - An application consists of the following"
+---
+
+
+[.question]
+== 1117-64a1fab8f053625db51ddf57.
+
+
+****
+
+[.query]
+--
+An application consists of the following architecture. a.
+EC2 Instances are in multiple AZ's behind an ELB.b.
+The EC2 Instances are launched via an Auto Scaling Group. c.
+There is a NAT instance used so that instances can download updates from the internet. Due to the high bandwidth being consumed by the NAT instance, it has been decided to use a NAT Gateway.
+How could this be implemented?
+
+
+--
+
+[.list]
+--
+* [*] A. Use NAT Instances along with the NAT Gateway.
+* [ ] B. Host the NAT instance in the private subnet.
+* [*] C. Migrate from NAT Instance to a NAT Gateway and host the NAT Gateway in the public subnet.
+* [ ] D. Host the NAT gateway in the private subnet.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+One can simply start using the NAT Gateway service and stop using the deployed NAT instances.
+But you need to ensure that the NAT Gateway is deployed in the public subnet.
+For more information on migrating to a NAT Gateway, please visit the following URL-
+https://aws.amazon.com/premiumsupport/knowledge-center/migrate-nat-instance-gateway/
+The correct answer is C: Migrate from NAT Instance to a NAT Gateway and host the NAT Gateway in the public subnet.
+Explanation:
+a) EC2 Instances are in multiple AZ's behind an ELB: This architecture provides high availability and fault tolerance to the application by distributing the EC2 instances across multiple Availability Zones (AZs). Elastic Load Balancing (ELB) ensures that traffic is distributed evenly across the EC2 instances in the AZs.
+b) The EC2 Instances are launched via an Auto Scaling Group: An Auto Scaling Group automatically scales the number of EC2 instances in response to changes in demand. This ensures that the application can handle spikes in traffic and that there are always enough resources available to serve users.
+c) There is a NAT instance used so that instances can download updates from the internet: By default, EC2 instances in a private subnet cannot access the internet directly. A Network Address Translation (NAT) instance is used to allow instances to access the internet for tasks such as downloading updates. The NAT instance is launched in a public subnet, and traffic is routed through it.
+Due to the high bandwidth being consumed by the NAT instance, it has been decided to use a NAT Gateway. NAT Gateway is a managed AWS service that provides better availability, higher bandwidth, and requires less administration compared to NAT instances. A NAT Gateway scales automatically up to 45 Gbps.
+To implement a NAT Gateway, the following steps can be taken:
+1.
+Migrate from NAT Instance to a NAT Gateway: The first step is to migrate from NAT instances to a NAT Gateway. This can be done by creating a new NAT Gateway and updating the routing tables of the private subnets to use the NAT Gateway instead of the NAT instance.
+2.
+Host the NAT Gateway in the public subnet: The NAT Gateway needs to be hosted in a public subnet to allow it to communicate with the internet. The public subnet should have a route to an internet gateway.
+3.
+Update the routing tables of the private subnets: The routing tables of the private subnets should be updated to use the NAT Gateway as the default route for traffic destined for the internet.
+Option A is incorrect because there is no need to use both NAT instances and NAT Gateway.
+Option B is incorrect because NAT instances should be hosted in a public subnet, not a private subnet.
+Option D is incorrect because NAT Gateway needs to be hosted in a public subnet to allow it to communicate with the internet.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question361:"link"
+
+

@@ -1,0 +1,111 @@
+---
+layout: default 
+title: "1327 - You work for a team which has 10s of app"
+---
+
+
+[.question]
+== 1327-64a1fb29f053625db51de06d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_karzrb.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You work for a team which has 10s of applications running on AWS EC2 instances.
+All these applications would need a common backend processing job.
+You have created an AWS Lambda function with name “app-backend-job”and published PROD version with version “1” in order to make sure any changes to the function by anyone will not impact the PROD execution code.
+You have shared the version qualified ARN to all the applications assuming requests would be sent to the specific version.
+However, due to frequent changes in requirements, you had to change the code of Lambda function many times and keep publishing versions.
+This is causing a lot of overhead at the application level to update the Lambda function ARN each time you publish a new version.
+How can you overcome this situation?
+
+
+[source,java]
+----
+AWS Lambda aliases enable the following use cases:
+
+Easier support for promotion of new versions of Lambda functions and rollback when needed - After initially creating a Lambda
+function (the $LATEST version), you can publish a version 1 of it. By creating an alias named PROD that points to version 1, you can now
+use the PROD alias to invoke version 1 of the Lambda function.
+
+Now, you can update the code (the $LATEST version) with all of your improvements, and then publish another stable and improved
+version (version 2). You can promote version 2 to production by remapping the PROD alias so that it points to version 2. If you find
+something wrong, you can easily roll back the production version to version 1 by remapping the PROD alias so that it points to version
+1.
+
+Note
+
+In this context, the terms promotion and roll back refer to the remapping of aliases to different function versions.
+
+Simplify management of event source mappings - Instead of using Amazon Resource Names (ARNs) for Lambda function in event
+source mappings, you can use an alias ARN. This approach means that you don't need to update your event source mappings when you
+
+promote a new version or roll back to a previous version
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create an alias, point it to PROD version and share the ARN with applications. When new version is published, change the alias to point to it.
+* [ ] B. Do not publish versions for every code change. Instead, update the published version so that ARN to be invoked will not change.
+* [ ] C. Delete the old published version “1” before publishing new version. This way when you publish, you will get the version ID as “1” and the lambda version ARN will remain unchanged.
+* [ ] D. Do not use versioning in this case. Always use $LATEST version and share its ARN with applications.You can update the codes of $LATEST version any number of times.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+By using aliases, you can access the Lambda function an alias is pointing to (for example, to.
+invoke the function) without the caller having to know the specific version the alias is pointing to.
+https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html?shortFooter=true
+Option B is not correct.
+https://docs.aws.amazon.com/lambda/latest/dg/versioning-intro.html?shortFooter=true
+Option C is not correct.
+Although Option D sounds correct, it is not a recommended approach since $LATEST version can be changed by anyone who has access to it.
+Any code running in PRODUCTION mode and using.
+$LATEST version, there are chances that the configuration can be meddled and can cause unwanted issues.
+https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html?shortFooter=true
+The correct answer to this question is A. Create an alias, point it to PROD version and share the ARN with applications. When a new version is published, change the alias to point to it.
+Explanation:
+AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. It allows you to create functions that can be triggered by various events, such as an HTTP request, S3 bucket upload, or an event from other AWS services. Lambda functions can be invoked using a unique Amazon Resource Name (ARN) that includes a version number.
+In this scenario, the team has created an AWS Lambda function called “app-backend-job” and published a PROD version with version number “1”. They have shared the version qualified ARN with all the applications, assuming requests would be sent to the specific version.
+However, due to frequent changes in requirements, the Lambda function code has to be changed many times, causing overhead at the application level to update the Lambda function ARN each time a new version is published.
+To overcome this situation, the team can create an alias for the Lambda function and point it to the PROD version. An alias is a pointer to a specific version of a Lambda function, which allows you to decouple the function's version number from the ARN used to invoke it. By using an alias, you can share a single ARN with the applications and not worry about updating it every time a new version is published.
+When a new version of the Lambda function is published, the team can simply update the alias to point to the new version. This will ensure that all the applications continue to use the same ARN to invoke the function, and the alias will automatically route requests to the latest version of the function.
+Option B, "Do not publish versions for every code change. Instead, update the published version so that ARN to be invoked will not change" is not recommended because it does not allow you to track changes and roll back to a previous version if needed. It also makes it difficult to test and deploy new changes in a controlled manner.
+Option C, "Delete the old published version “1” before publishing a new version. This way when you publish, you will get the version ID as “1” and the lambda version ARN will remain unchanged" is also not recommended. Deleting old versions may cause issues if there are other applications or services still using that version. It also makes it difficult to roll back to a previous version if needed.
+Option D, "Do not use versioning in this case. Always use $LATEST version and share its ARN with applications. You can update the codes of $LATEST version any number of times" is also not recommended. Using $LATEST makes it difficult to track changes and roll back to a previous version if needed. It also does not provide the ability to create stable versions of the Lambda function that can be used in production environments.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question640:"link"
+
+

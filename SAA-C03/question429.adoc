@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "1229 - You are working as a Solutions Architect"
+---
+
+
+[.question]
+== 1229-64a1faf4f053625db51ddfeb.
+
+
+****
+
+[.query]
+--
+You are working as a Solutions Architect in a university where you take part in a migration to the cloud.
+Their HPC Clusters are meant to leverage research processes relying on MPI applications in Biology and Physics departments.
+There are some decisions to make to manage the cluster correctly.
+What option is the most appropriate to set up the environment?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS ParallelCluster is a fully managed cluster. EFA support is enabled by default but can be disabled dynamically, on-demand on any EC2 instance.
+* [ ] B. To use EFA, the primary ENI has to be detached, EFA enabled, and reattach the ENI either at the launch of the instance or added to a stopped instance. This will get OS-bypass capabilities for low-latency network communications with other instances on the same subnet.
+* [ ] C. You are responsible for operating ParallelCluster, including required maintenance on EC2 instances and batch schedulers, security patching, user management, and MPI troubleshooting. EFA support is enabled by default but can be disabled dynamically, on-demand on any EC2 instance.
+* [*] D. To use EFA, it has to be enabled with AWS ParallelCluster to get OS-bypass capabilities for low-latency network communications with other instances on the same subnet. This support can be enabled in specific instance types either at the launch of the instance or added to a stopped instance.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+This option guarantees one of the fastest and scalable settings in HPC Clusters.
+AWS ParallelCluster supports EFA, which can get OS-bypass capabilities (kernel-bypass networking), which is possible only in specific instance types and limited to a single subnet.
+Also, you cannot attach an EFA to an instance that is in the running state.
+Option A is incorrect because AWS ParallelCluster is a self-service solution.
+Option B is incorrect because you cannot detach the primary ENI.
+Option C is incorrect because EFA support is not enabled by default and is not supported in any EC2 instance type.
+References:
+https://go.aws/2ys7erk https://amzn.to/3exVVic
+In this scenario, the university is planning to migrate their HPC clusters to the cloud, which will be used for research purposes in Biology and Physics departments. MPI applications will be heavily used for research workloads. Therefore, it is crucial to have an environment that can manage HPC clusters, MPI applications, and low-latency network communications.
+Option A states that AWS ParallelCluster is a fully managed cluster with Elastic Fabric Adapter (EFA) support enabled by default. This option means that the AWS ParallelCluster service will handle the management of the cluster, including necessary maintenance on EC2 instances and batch schedulers, security patching, user management, and MPI troubleshooting. Additionally, EFA support is enabled by default but can be disabled dynamically, on-demand, on any EC2 instance. EFA is an Amazon network interface that provides low-latency and high-bandwidth network communication among instances, which is essential for MPI applications. Hence, this option is the most appropriate for setting up the HPC cluster environment since it provides a fully managed service with EFA support by default.
+Option B mentions that to use EFA, the primary Elastic Network Interface (ENI) has to be detached, EFA enabled, and reattach the ENI either at the launch of the instance or added to a stopped instance. This will get OS-bypass capabilities for low-latency network communications with other instances on the same subnet. While this option might work for small scale MPI applications, it is not practical for large scale applications, and manually detaching and reattaching the ENI could be time-consuming and prone to human error.
+Option C states that the responsibility of operating ParallelCluster, including necessary maintenance on EC2 instances and batch schedulers, security patching, user management, and MPI troubleshooting, falls on the user. Although EFA support is enabled by default, the user has to disable it dynamically, on-demand, on any EC2 instance. This option can be suitable for users who are familiar with managing HPC clusters and MPI applications. Still, it is not a viable option for users who want a fully managed HPC cluster environment.
+Option D suggests that EFA support has to be enabled with AWS ParallelCluster to get OS-bypass capabilities for low-latency network communications with other instances on the same subnet. This support can be enabled in specific instance types either at the launch of the instance or added to a stopped instance. While this option provides EFA support, it does not offer a fully managed cluster service like AWS ParallelCluster does, and users have to take responsibility for managing the environment.
+In conclusion, option A is the most appropriate option for setting up the environment for the university's HPC clusters since it provides a fully managed service with EFA support enabled by default.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question509:"link"
+
+

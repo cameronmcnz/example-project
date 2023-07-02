@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "988 - An AWS Organization has below the hierar"
+---
+
+
+[.question]
+== 988-64a1fa7df053625db51ddec5.
+
+
+****
+
+[.query]
+--
+An AWS Organization has below the hierarchy of Organizational Units (OUs): Root -> Project_OU -> Dev_OU The Root is attached to the default Service Control Policy (SCP). Project_OU is attached to an SCP that prevents users from deleting VPC Flow Logs. Dev_OU has an SCP that allows the action of "ec2: DeleteFlowLogs". Are the IAM users/roles in Dev_OU AWS accounts allowed to delete VPC Flow Logs?
+
+
+--
+
+[.list]
+--
+* [*] A. It is permitted because the SCP in Dev_OU allows it.
+* [ ] B. It is allowed because the Root has the default SCP that allows all actions.
+* [*] C. It is not allowed as the SCP in Project_OU restricts the action.
+* [ ] D. It is not allowed as the default SCP in Root denies the action.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Check the AWS documentation https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html for how SCPs work in an AWS Organization.
+Option A is incorrect: Because if any parent OU has an SCP to deny the action, the final result is Deny.
+Option B is incorrect: Although the default SCP allows the action, the parent OU (Project_OU) denies it.
+Option C is CORRECT: Because an explicit Deny statement in Project_OU overrides any Allow.
+Option D is incorrect: Because the default SCP is FullAWSAccess which allows all actions and all services.
+The correct answer is D. It is not allowed as the default SCP in Root denies the action.
+Here's why:
+First, let's understand what Service Control Policies (SCPs) do. SCPs are a type of AWS Identity and Access Management (IAM) policy that allow you to set permissions on the maximum permissions that can be granted to accounts in your organization. SCPs can be attached to either the root of the organization or to individual organizational units (OUs) within the organization. SCPs are designed to limit the actions that can be performed on AWS services, APIs, and resources.
+In this scenario, the Root of the organization has an attached default SCP. This means that all OUs within the organization inherit the permissions defined in the default SCP, unless a more restrictive policy is attached to an individual OU.
+The Project_OU is attached to an SCP that prevents users from deleting VPC Flow Logs. This means that IAM users/roles in the Project_OU cannot delete VPC Flow Logs.
+The Dev_OU has an SCP that allows the action of "ec2: DeleteFlowLogs". This means that IAM users/roles in the Dev_OU are allowed to delete VPC Flow Logs.
+However, since the Root has the default SCP that denies the action of deleting VPC Flow Logs, IAM users/roles in the Dev_OU are not allowed to delete VPC Flow Logs.
+Therefore, the correct answer is D. It is not allowed as the default SCP in Root denies the action.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question213:"link"
+
+

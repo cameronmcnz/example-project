@@ -1,0 +1,108 @@
+---
+layout: default 
+title: "916 - You own a MySQL RDS instance in AWS Regi"
+---
+
+
+[.question]
+== 916-64a1fa64f053625db51dde76.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_19.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You own a MySQL RDS instance in AWS Region us-east-1
+The instance has a Multi-AZ instance in another availability zone for high availability.
+As business grows, more and more clients come from Europe (eu-west-2), and most of the database workload is read-only.
+What is the proper way to reduce the load on the source RDS instance?
+
+
+[source,java]
+----
+Network & Security
+
+Destination region
+The region in which the replica will be launched
+
+EU (London) Vv
+
+Destination DB subnet group
+
+None Vv
+
+The EC2 Availability Zone that the database instance will be created in.
+
+No preference Vv
+
+Publicly accessible
+
+© Yes
+
+EC2 instances and devices outside of the VPC hosting the DB instance will connect to the DB instances. You must also select one or
+more VPC security groups that specify which EC2 instances and devices can connect to the DB instance.
+
+© No
+
+DB instance will not have a public IP address assigned. No EC2 instance or devices outside of the VPC will be able to connect.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create a snapshot of the instance and launch a new instance in eu-west-2.
+* [ ] B. Promote the Multi-AZ instance to be a Read Replica and move the instance to eu-west-2 region.
+* [*] C. Configure a read-only Multi-AZ instance in eu-west-2 as Read Replicas cannot span across regions.
+* [*] D. Create a Read Replica in the AWS Region eu-west-2.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Read Replica should be used to share the read workload of the source DB instance.
+Read Replica can also be configured in a different AWS region.
+Refer to this link-https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html.
+Option A is incorrect: Because Read Replica should be configured to share the read traffic.
+You should not launch a totally new instance.
+Option B is incorrect: Because a Multi-AZ instance cannot be promoted to be a Read Replica.
+Option C is incorrect: Because a Read Replica can be launched in another region for RDS MySQL.
+Option D is CORRECT: Users can quickly configure a Read Replica in another region.
+The best approach to reduce the load on the source RDS instance while catering to the growing number of clients from the Europe region (eu-west-2) with a read-heavy workload is to create a Read Replica in the eu-west-2 region. The correct answer is option D.
+A Read Replica is a feature of Amazon RDS that allows you to create one or more read-only copies of your source DB instance in the same or a different AWS region. These replicas can then be used to offload read traffic from the source DB instance, freeing up resources for other tasks.
+Option A (Create a snapshot of the instance and launch a new instance in eu-west-2) is not a recommended solution for reducing the load on the source RDS instance because it involves setting up a new instance from a snapshot, which can take a long time, and any updates made to the source RDS instance will not be reflected in the new instance.
+Option B (Promote the Multi-AZ instance to be a Read Replica and move the instance to eu-west-2 region) is also not a recommended solution because it involves promoting the Multi-AZ instance to be a Read Replica and then moving it to the eu-west-2 region. However, Read Replicas cannot be moved across regions, so this option is not feasible.
+Option C (Configure a read-only Multi-AZ instance in eu-west-2 as Read Replicas cannot span across regions) is also not a recommended solution because Read Replicas cannot be configured to span across regions. Therefore, this option is not feasible.
+In conclusion, creating a Read Replica in the eu-west-2 region is the most appropriate solution for reducing the load on the source RDS instance while catering to the growing number of clients from the Europe region (eu-west-2) with a read-heavy workload.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question133:"link"
+
+

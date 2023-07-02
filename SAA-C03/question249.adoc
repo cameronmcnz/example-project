@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "1049 - You want to build a decoupled highly ava"
+---
+
+
+[.question]
+== 1049-64a1fa98f053625db51ddf0b.
+
+
+****
+
+[.query]
+--
+You want to build a decoupled, highly available and fault-tolerant architecture, including buffered request for your application in AWS.
+You decide to use EC2, the Classic Load Balancer, Auto Scaling, and Route 53
+Which one of the following additional services should you involve in this architecture?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS SNS
+* [*] B. AWS SQS
+* [ ] C. AWS API Gateway
+* [ ] D. AWS Config.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The Simple Queue Service can be used to build a decoupled architecture.
+AWS Documentation further mentions the following.
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that makes it easy to decouple and scale microservices, distributed systems, and serverless applications.
+Building applications from individual components that perform a discrete function improves scalability and reliability.
+It is the best practice design for modern applications.
+• Scalability - Amazon SQS can process each buffered request (p.
+202) independently, scaling transparently to handle any load increases or spikes without any provisioning instructions.
+For more information on the Simple Queue Service, please visit the following URL-
+https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dg.pdf
+The correct answer is B. AWS SQS.
+Explanation: To build a decoupled, highly available and fault-tolerant architecture, including buffered request for your application in AWS, using EC2, Classic Load Balancer, Auto Scaling, and Route 53, you should involve AWS SQS.
+AWS SQS (Simple Queue Service) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It eliminates the complexity and overhead associated with managing and operating message-oriented middleware, and provides a highly available and scalable queue for buffering messages between distributed application components.
+By using SQS in this architecture, you can ensure that the application is decoupled, and that all requests are buffered before they are processed, ensuring that the application can handle large bursts of traffic without being overwhelmed.
+Here's how each of the services listed in the question can be used in this architecture:
+EC2: This is the compute service that provides resizable compute capacity in the cloud. EC2 instances can be used to run your application code.
+Classic Load Balancer: This is the load balancing service that distributes incoming traffic across multiple EC2 instances. It helps to improve the availability and fault tolerance of your application.
+Auto Scaling: This is the scaling service that automatically adjusts the number of EC2 instances in response to changes in demand. It helps to ensure that you have enough compute capacity to handle varying levels of traffic.
+Route 53: This is the DNS service that provides global DNS resolution for your domain name. It helps to route traffic to the appropriate endpoint.
+None of these services alone can provide the buffering of requests that is required to ensure that the application can handle large bursts of traffic without being overwhelmed. This is where AWS SQS comes in. It can be used to buffer incoming requests, and then process them in a controlled and scalable manner, ensuring that the application remains highly available and fault tolerant.
+Here's how AWS SQS can be used in this architecture:
+When a request is received, it is added to an SQS queue. This ensures that the request is buffered before it is processed.
+An application component retrieves messages from the SQS queue and processes them. This ensures that the application can handle requests at a controlled and scalable rate.
+As the number of requests increases, the number of EC2 instances can be automatically scaled up using Auto Scaling.
+Overall, using AWS SQS in this architecture ensures that the application is decoupled, highly available, and fault tolerant, and that all requests are buffered before they are processed. This helps to ensure that the application can handle large bursts of traffic without being overwhelmed.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question285:"link"
+
+

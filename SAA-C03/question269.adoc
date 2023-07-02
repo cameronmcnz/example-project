@@ -1,0 +1,112 @@
+---
+layout: default 
+title: "1069 - You are working in a Global Pharma firm "
+---
+
+
+[.question]
+== 1069-64a1faa0f053625db51ddf20.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_vpn.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+You are working in a Global Pharma firm, having its Head Office in Washington & Branch offices in Chicago & Paris.
+The Firm has a two-tier Intranet website deployed in US-East-1 Region & database servers deployed on-premise at the Head office.
+The Head Office has a Direct Connect link to VPC, and it is connected to Chicago & Paris offices via WAN links, while each of these offices has separate internet links from the local ISP.
+Recently they faced link outage issues with WAN links that resulted in the isolation of the branch offices from the head office.
+They are looking for a cost-effective backup solution that could be set-up quickly without any additional devices and links.
+What would be the most suitable connectivity option in this scenario?
+
+
+[source,java]
+----
+Chicago
+
+e-
+
+Customer Gateway
+
+Paris
+
+Customer Gateway
+
+us-east-1
+
+7
+
+jrtual Private Gateway
+
+rect Connection :
+
+co
+Cc
+
+Washington head office
+
+head office on-premise
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Using existing Internet connection in Washington, Chicago, and Paris, set up a Direct Connection with us-east-1 VGW advertising prefixes via BGP. BGP ASN should be unique at these locations. VGW at us-east-1 will re-advertise these prefixes to the Washington office.
+* [*] B. Using existing Internet connection in Chicago and Paris, set up a VPN connection with us-east-1 VGW advertising prefixes via BGP. BGP ASN should be unique at these locations. VGW at us-east-1 will re-advertise these prefixes to the Washington office.
+* [*] C. Using existing Internet connection in Chicago and Paris, set up a VPN connection between us-west-1 and eu-west-3 regions.
+* [ ] D. Using existing Internet connection in Chicago and Paris, set up VPC peering connections from the branch offices to the VPC in the head office.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect as there is no need to setup Direct Connection in us-east-1.
+Option B is CORRECT because VPN connection is suitable to establish the communications between the branch offices and the head office VPC.Option C is incorrect as the question needs to setup VPN connections between branch offices and the head office.
+Option D is incorrect as VPC peering connection is used for the connections between VPCs.
+In this question, the branch offices in Chicago &amp; Paris do not use VPCs.
+Please check the following diagram:
+For more information on using VPN connections, please refer to the following reference:
+https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html
+In this scenario, the company is looking for a cost-effective backup solution that can be set up quickly without any additional devices and links. The company has its head office in Washington, with branch offices in Chicago and Paris. The two-tier Intranet website is deployed in the US-East-1 region, while the database servers are deployed on-premise at the head office. The head office has a Direct Connect link to the VPC, and the branch offices are connected via WAN links. Each office has a separate internet connection from the local ISP.
+Option A: Using existing Internet connection in Washington, Chicago, and Paris, set up a Direct Connection with us-east-1 VGW advertising prefixes via BGP. BGP ASN should be unique at these locations. VGW at us-east-1 will re-advertise these prefixes to the Washington office.
+This option suggests setting up a Direct Connect connection with the VGW (Virtual Private Gateway) in the US-East-1 region. This would require setting up BGP (Border Gateway Protocol) advertising prefixes that are unique at each location. The VGW in the US-East-1 region would then re-advertise these prefixes to the Washington office. This option can be a suitable solution as it utilizes the existing internet connection in each office and leverages Direct Connect, which provides a more reliable and consistent connection compared to VPN connections. However, it requires the setup of BGP advertising prefixes, which can be complex and time-consuming.
+Option B: Using existing Internet connection in Chicago and Paris, set up a VPN connection with us-east-1 VGW advertising prefixes via BGP. BGP ASN should be unique at these locations. VGW at us-east-1 will re-advertise these prefixes to the Washington office.
+This option suggests setting up a VPN connection with the VGW in the US-East-1 region. This would require setting up BGP advertising prefixes that are unique at each location. The VGW in the US-East-1 region would then re-advertise these prefixes to the Washington office. This option can be a suitable solution as it utilizes the existing internet connection in each office and leverages VPN connections, which are simpler to set up than Direct Connect. However, VPN connections can be less reliable than Direct Connect connections, especially during high traffic periods.
+Option C: Using existing Internet connection in Chicago and Paris, set up a VPN connection between us-west-1 and eu-west-3 regions.
+This option suggests setting up a VPN connection between the US-West-1 and EU-West-3 regions. This option does not utilize the existing Direct Connect connection to the US-East-1 region and may require additional setup time and resources to set up a new VPN connection. Additionally, this option does not provide a direct connection to the two-tier Intranet website deployed in the US-East-1 region, which may be a critical resource for the company.
+Option D: Using existing Internet connection in Chicago and Paris, set up VPC peering connections from the branch offices to the VPC in the head office.
+This option suggests setting up VPC peering connections between the branch offices and the VPC in the head office. This option does not utilize the existing Direct Connect connection to the US-East-1 region and may require additional setup time and resources to set up VPC peering connections. Additionally, this option does not provide a direct connection to the two-tier Intranet website deployed in the US-East-1 region.
+Overall, option A seems to be the most suitable option in this scenario as it leverages the existing Direct Connect connection and utilizes BGP advertising prefixes to provide a reliable and consistent connection between the offices. However, each option has its advantages and disadvantages, and the final decision should consider the specific needs and resources of the company.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question306:"link"
+
+

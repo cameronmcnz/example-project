@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "964 - You manage the IT users for a large orga"
+---
+
+
+[.question]
+== 964-64a1fa75f053625db51ddeaa.
+
+
+****
+
+[.query]
+--
+You manage the IT users for a large organization that is moving many services to AWS.
+You want a seamless way for your employees to log in and use cloud services.
+You also want to use AWS Managed Microsoft AD and have been asked if users can use it to access services in the on-premises environment.
+What would you respond?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Managed Microsoft AD requires data synchronization and replication to work properly.
+* [ ] B. AWS Managed Microsoft AD can only be used for cloud or on-premises environments, not both.
+* [*] C. AWS Managed Microsoft AD can be used as the Active Directory over VPN or Direct Connect.
+* [ ] D. AWS Managed Microsoft AD is 100% the same as Active Directory running on separate EC2 instance.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option C is correct.
+Because you want to use AWS Managed Microsoft AD, you want to be certain that your users can use the AWS cloud resources and services in your on-premise environment.
+To make your company have connectivity for AWS services, once you implement VPN or Direct Connect, your AWS Managed Microsoft AD can be used for both cloud services and on-premises services.
+Option A is incorrect.
+To access on-premises resources through AWS Managed Microsoft AD, synchronization or replication is not needed.
+Option B is incorrect.
+AWS Managed Microsoft AD can be used for both.
+It's not one or the other.
+Option D is incorrect.
+AWS Managed Microsoft AD being a managed service limits some capabilities versus running Active Directory by itself on EC2 instances.
+For more information, please visit the URLs below:
+https://aws.amazon.com/directoryservice/ https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html
+As the IT manager for a large organization moving many services to AWS, you want a seamless way for employees to log in and use cloud services. You also want to use AWS Managed Microsoft AD and have been asked if users can use it to access services in the on-premises environment.
+AWS Managed Microsoft AD is a fully managed Active Directory service that enables you to connect AWS resources with your on-premises network. It provides managed Active Directory in the AWS Cloud, allowing you to manage users, groups, and computers from a single location. AWS Managed Microsoft AD is compatible with Microsoft AD, so you can use it to manage your Windows workloads in the cloud.
+To answer the question, the correct answer is C. AWS Managed Microsoft AD can be used as the Active Directory over VPN or Direct Connect. This means that users can use AWS Managed Microsoft AD to access services in the on-premises environment, as long as they are connected to the on-premises network through a VPN or Direct Connect connection.
+Option A is incorrect because although data synchronization and replication are required for AWS Managed Microsoft AD to work properly, it is not the answer to the question being asked.
+Option B is incorrect because AWS Managed Microsoft AD can be used for both cloud and on-premises environments, and it is designed to provide a seamless experience for users regardless of where they are accessing the resources from.
+Option D is incorrect because AWS Managed Microsoft AD is not exactly the same as Active Directory running on a separate EC2 instance. While it is compatible with Microsoft AD, it is a managed service that provides additional features and benefits such as automatic backups, automatic software updates, and built-in security features.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question185:"link"
+
+

@@ -1,0 +1,129 @@
+---
+layout: default 
+title: "1317 - You are working for an organization whic"
+---
+
+
+[.question]
+== 1317-64a1fb23f053625db51de05e.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_zn8kfw.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are working for an organization which is actively using AWS.
+They have noticed that few AWS ECS clusters are running and they do not know who and when the clusters are created.
+They tasked you to find out the logs regarding this.
+What will you do?
+
+
+[source,java]
+----
+The following example shows a CloudTrail log entry that demonstrates the CreateCluster action.
+
+“eventVersion”
+“userIdentity": {
+
+“type”: “AssumedRole”,
+
+“principalld”: "AIDACKCEVSQ6C2EXAMPLE: account_name” ,
+aus: sts: :123456789@12:user/Mary_ Major”,
+
+ted": “False”,
+'2018-@6-20T18:32:252"
+
+“principalld": “ATDACKCEVSQ6C2EXAMPLE”,
+"arn": “arn:aws: iam: :123456789012:role/Admin” ,
+accountId": "123456789612",
+
+"userName": "Mary Major”
+
+a
+he
+‘eventTime": "218-06-20T19:04:362",
+“eventSource”: “ecs.amazonaws.com”,
+“eventName": “CreateCluster”,
+‘awsRegion": “us-east-1",
+“sourcelPAddress": "203.0.113.12",
+“useragent": “console. amazonaws.com”,
+“requestParameters”: {
+“clusterName": “default”
+
+bh
+“pesponse€lements":
+“cluster”: {
+
+“clusterarn”: “arn:aws:ecs:us-east-1:123456789012: cluster/default”,
+"pendingTasksCount": @,
+“registeredContainerInstancesCoun
+"status": "ACTIV
+“runningTasksCount": @,
+“statistics”: [],
+“clusterName": “default”,
+
+{
+
+bh
+
+“pequestID": “cb8c167e-EXAMPLE”,
+"e3c6F4ce-EXAMPLE”,
+“eventType": “AwsApicall”,
+“recipientAccountId”: "123456789612"
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Check CloudWatch event logs.
+* [*] B. Check CloudTrail logs.
+* [ ] C. Check CloudWatch metrics dashboard.
+* [ ] D. Check Trusted Advisor.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Amazon ECS is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon ECS.
+CloudTrail captures all API calls for Amazon ECS as events, including calls from the Amazon ECS console and from code calls to the Amazon ECS APIs.
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/logging-using-cloudtrail.html#understanding-service-name-entries
+Options A and C are for monitoring the ECS resources, not for the API actions made on ECS.
+You can monitor your Amazon ECS resources using Amazon CloudWatch, which collects and processes raw data from Amazon ECS into readable, near real-time metrics.
+In this scenario, the organization wants to know who and when the ECS clusters were created. To achieve this, the best option is to check the CloudTrail logs.
+CloudTrail is a service that records AWS API calls and stores the resulting logs in an S3 bucket or CloudWatch Logs. It provides a history of AWS API calls for an account, including the source IP address of the API call, the user identity, the time of the API call, and the parameters passed to the API.
+Using the CloudTrail logs, we can determine who created the ECS clusters and when they were created. The CloudTrail logs capture all the API calls that were made to the ECS service, including those for creating, modifying, and deleting clusters.
+The other options provided in the answers are not relevant for this scenario. CloudWatch event logs and metrics dashboard are used for monitoring and analyzing the performance of AWS services. Trusted Advisor is used to provide recommendations for optimizing AWS resources and reducing costs.
+In conclusion, the correct answer for this scenario is B, Check CloudTrail logs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question625:"link"
+
+

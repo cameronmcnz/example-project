@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "820 - Given the code fragment Path p1  Pathsge"
+---
+
+
+[.question]
+== 820-64a1a841ef3e8462333a9c4a.
+
+
+****
+
+[.query]
+--
+Given the code fragment: Path p1 = Paths.get("/Pics/MyPic.jpeg"); System.out.println (p1.getNameCount() + ":" + p1.getName(1) + ":" + p1.getFileName()); Assume that the Pics directory does NOT exist.
+What is the result?
+
+
+--
+
+[.list]
+--
+* [ ] A. An exception is thrown at run time.
+* [*] B. 2:MyPic.jpeg: MyPic.jpeg
+* [ ] C. 3:.:MyPic.jpeg
+* [ ] D. 2:Pics: MyPic.jpeg.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

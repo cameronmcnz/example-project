@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "1084 - Which of the below mentioned ways can be"
+---
+
+
+[.question]
+== 1084-64a1df5eaa736d27b1db944e.
+
+
+****
+
+[.query]
+--
+Which of the below mentioned ways can be used to provide additional layers of protection to all your EC2 resources?
+
+
+--
+
+[.list]
+--
+* [*] A. To control AWS API calls to EC2 instances, add policies that have a deny and/or allow permissions on tagged resources.
+* [ ] B. Ensure that the proper tagging strategies have been implemented to identify all of your EC2 resources.
+* [ ] C. Add an IP address condition to policies that specify that the requests to EC2 instances should come from a specific IP address or CIDR block range.
+* [*] D. All actions listed here would provide additional layers of protection.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Tagging allows you to understand which resources belong to the test, development, and production environment if done properly.
+Tags enable you to categorize your AWS resources differently, such as by purpose, owner, or environment.
+This is useful when you have many resources of the same type - you can quickly identify a specific resource based on the tags you've assigned to it.
+Each tag consists of a key and an optional value, both of which you define.
+If you have tagging, you can then also allow permissions based on the tags.
+You can also use IP Address conditions in IAM policies for denying access to AWS resources.
+{
+"Version": "2012-10-17",
+"Statement": {
+"Effect": "Deny",
+"Action": "*",
+"Resource": "*",
+"Condition": {"NotIpAddress": {"aws:SourceIp": [
+"192.0.2.0/24",
+"203.0.113.0/24"
+]}}
+}
+}
+Options A, B, and C all provide an additional layer of protection to the EC2 instances.
+Hence, D is the best answer.
+For more information on tagging, please see the below link.
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
+All of the options provided can be used to provide additional layers of protection to your EC2 resources, but let's examine each option in more detail:
+A. To control AWS API calls to EC2 instances, add policies that have a deny and/or allow permissions on tagged resources. This option suggests controlling API calls to EC2 instances by adding policies that specify deny or allow permissions on tagged resources. This can help you ensure that only authorized users or resources can access and manage your EC2 instances, adding an extra layer of security to your infrastructure.
+B. Ensure that the proper tagging strategies have been implemented to identify all of your EC2 resources. Proper tagging strategies can help you identify and organize your EC2 resources, and can also help you apply consistent security policies to your resources. By tagging your resources appropriately, you can easily group and manage your resources based on their function, environment, or any other criteria that make sense for your organization.
+C. Add an IP address condition to policies that specify that the requests to EC2 instances should come from a specific IP address or CIDR block range. By adding an IP address condition to policies, you can specify that requests to your EC2 instances should come from a specific IP address or CIDR block range. This can help you limit access to your instances and reduce the risk of unauthorized access or attacks.
+D. All actions listed here would provide additional layers of protection. This option suggests that all of the actions listed (A, B, and C) can be used to provide additional layers of protection to your EC2 resources.
+In summary, to provide additional layers of protection to your EC2 resources, you can control API calls to your instances by adding policies that specify deny or allow permissions on tagged resources, implement proper tagging strategies to identify and organize your resources, and add IP address conditions to policies to limit access to your instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question413:"link"
+
+

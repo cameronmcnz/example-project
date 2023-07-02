@@ -1,0 +1,107 @@
+---
+layout: default 
+title: "1297 - You have a version enabled S3 bucket
+You"
+---
+
+
+[.question]
+== 1297-64a1fb16f053625db51de03c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_ieqovd.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have a version enabled S3 bucket.
+You have accidentally deleted an object which contains 3 versions.
+You would want to restore the deleted object.
+What can be done?
+
+
+[source,java]
+----
+| | Name Version ID
+
+amazon-reindeer jog
+0 Sep 1, 2017 5:43:05 PM (Latest version) na_axXxRr.xxDaWfcp4idCkipXsyvém9
+O Sep 1, 2017 5:42:50 PM cM5luTOWMEOWUDRZuAqv7vbhm7Zi...
+
+amazon-spheres jpg
+
+2) Sep 1, 2017 5:46:31 PM (Delete marker) XfdtMN.2X.yHhbNiceyAoM_mikDA3Nzi
+
+a Sep 1, 2017 5:43:07 PM 1yAY8OBXQoaELJOL393xCg.CaqjbGe...
+a Sep 1, 2017 5:42:52 PM AidhSgfCljB902ygpjQErUQPbVj7HMur
+
+screen-shot3.png
+
+0 Apr 15, 2016 4:04:18 PM (Latest version) null
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Select the deleted object and choose to restore option in More menu.
+* [*] B. Delete the delete-marker on the object.
+* [ ] C. Versioning in S3 only supports keeping multiple copies. It does not support restoring deleted objects.
+* [ ] D. In version enabled bucket, Delete request only deletes the latest version. You can still see the older versions of the object using version Id in the GET request.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+When you delete an object in a versioning-enabled bucket, all versions remain in the bucket, and Amazon S3 creates a delete marker for the object.
+To undelete an object, you must delete the delete marker.
+Select the checkbox next to the object's delete marker to recover, and then choose delete from the More menu.
+For more information on how to undelete objects in version enabled S3 bucket, refer to documentation here.
+https://docs.aws.amazon.com/AmazonS3/latest/user-guide/undelete-objects.html
+If you have a versioned S3 bucket and accidentally delete an object that has multiple versions, you can restore the deleted object by following these steps:
+1.
+Navigate to the S3 console and select the bucket that contains the deleted object.
+2.
+Click on the "Versions" tab to see the list of all versions of the objects in the bucket.
+3.
+Identify the version of the object that you want to restore. You can do this by looking at the "Version ID" column.
+4.
+Select the version of the object that you want to restore by clicking the checkbox next to it.
+5.
+Click on the "Actions" drop-down menu and select "Restore" from the list of options.
+6.
+In the "Restore object" dialog box, choose the duration for which you want to restore the object. You can choose from a minimum of 1 day to a maximum of 365 days.
+7.
+Click "Restore" to restore the object. The restored object will be available in the S3 bucket after the restoration is complete.
+Option A is the correct answer. Option B is not correct as deleting the delete-marker on the object will only hide the object and its versions from view but will not restore the object. Option C is incorrect as versioning in S3 supports restoring deleted objects. Option D is partially correct but does not provide the complete solution to restoring a deleted object with multiple versions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question591:"link"
+
+

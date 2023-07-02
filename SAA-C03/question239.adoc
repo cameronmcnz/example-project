@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1039 - A storage solution is required in AWS to"
+---
+
+
+[.question]
+== 1039-64a1fa93f053625db51ddeff.
+
+
+****
+
+[.query]
+--
+A storage solution is required in AWS to store videos uploaded by the user.
+After accessing these videos frequently for a period of a month, these videos can be deleted.
+How could this be implemented in the most cost-effective manner?
+
+
+--
+
+[.list]
+--
+* [*] A. Use EBS Volumes to store the videos. Create a script to delete the videos after a month.
+* [*] B. Configure object expiration lifecycle policy rule on the S3 bucket and the policy will take care of deleting the videos on the completion of 30 days.
+* [*] C. Store the videos in Amazon Glacier and then use Lifecycle Policies.
+* [ ] D. Store the videos using Stored Volumes. Create a script to delete the videos after a month.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following on Lifecycle Policies.
+Lifecycle configuration enables you to specify the lifecycle management of objects in a bucket.
+The configuration is a set of one or more rules, where each rule defines an action for Amazon S3 to apply to a group of objects.
+These actions can be classified as follows.
+Transition actions - In which you define when objects transition occurs to another storage class.
+For example, you may choose transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation or archive objects to the GLACIER storage class one year after creation.
+Expiration actions - In which you specify when the objects expire.
+Then Amazon S3 deletes the expired objects on your behalf.
+For more information on AWS S3 Lifecycle policies, please visit the following URL-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+The most cost-effective solution for storing videos uploaded by users on AWS would be to use Amazon S3 (Simple Storage Service) with a lifecycle policy. Option B is the correct answer.
+Amazon S3 provides a scalable and durable object storage service that is designed for storing and retrieving any type of data, including videos. It allows users to store and retrieve objects from anywhere on the web, making it a popular choice for storing large media files like videos.
+A lifecycle policy in S3 is used to automatically transition objects between different storage classes or delete them when they are no longer needed. By configuring a lifecycle policy, we can specify rules for transitioning objects to lower-cost storage classes or deleting them after a certain period of time.
+Option A suggests using EBS (Elastic Block Store) volumes to store the videos. However, this is not the recommended solution for storing large media files like videos, as EBS volumes are typically used for block-level storage, such as operating system files, application data, and database storage.
+Option C suggests using Amazon Glacier to store the videos. While Amazon Glacier is a low-cost storage solution designed for long-term archiving of data, it is not suitable for storing frequently accessed data like videos that need to be accessed frequently.
+Option D suggests using stored volumes to store the videos, but this is not a correct answer because Stored Volumes is not an AWS storage service.
+In conclusion, the most cost-effective solution for storing videos uploaded by users in AWS would be to use Amazon S3 with a lifecycle policy. We can create a lifecycle policy that specifies a rule to delete objects after 30 days. This ensures that we only pay for the storage that we need and don't incur unnecessary costs by storing data that is no longer required.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question272:"link"
+
+

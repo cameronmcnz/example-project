@@ -1,0 +1,111 @@
+---
+layout: default 
+title: "1251 - You create a new EC2 Instance Savings Pl"
+---
+
+
+[.question]
+== 1251-64a1fafef053625db51de002.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_4448.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You create a new EC2 Instance Savings Plan in the Asia Pacific region (Sydney)
+You have committed to 20$/hour of usage for one year, and the instance family is selected as C5
+For which of the following EC2 instances can you get a discount?
+
+
+[source,java]
+----
+AWS Cost Management > Savings Plans > Purchase a Savings Plan
+
+Purchase details
+
+Savings Plans are a flexible pricing model that offer low prices on AWS usage, in exchange for a commitment to a consistent amount of usage (measured in $/hour) for a 1- or 3-year term.
+
+Savings Plan type
+
+Compute Savings Plans © EC2 Instance Savings Plans
+
+Applies to EC2 instance usage, AWS Fargate, and AWS Lambda service usage, regardless of region, instance Applies to instance usage within the committed EC2 family and region, regardless of size, tenancy, and
+family, size, tenancy, and operating system. Learn more operating system. Learn more
+
+Term
+© 1-year
+3-year
+
+Region
+
+Asia Pacific (Sydney) Vv
+
+Instance Family
+
+cS Vv
+
+See applicable rates for Savings Plans here.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. An Amazon Linux instance (c5.xlarge).
+* [ ] B. A Windows instance (c5.2xlarge).
+* [*] C. A Red Hat Linux instance with Dedicated Tenancy (c5.2xlarge).
+* [*] D. All of the above.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Options A, B and C are incorrect: Because EC2 Instance Savings Plans apply to usage regardless of size, OS, or tenancy within the specified family.
+In this Savings Plan, the C5 instance family is selected.
+All instances using the C5 instance type can get a discount.
+Option D is CORRECT: Because the instances in Options A, B and C use the C5 instance type.
+So all of them are covered by the new Savings Plan.
+An example of creating a Savings Plan for the c5 instance family is as follows:
+Reference:
+https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html
+EC2 Instance Savings Plans (ISPs) are a flexible pricing model for EC2 instances that offer significant savings in exchange for a commitment to a specific instance family, region, and term length. ISPs can provide up to 72% discount compared to On-Demand pricing.
+In this scenario, you have created a new EC2 Instance Savings Plan in the Asia Pacific region (Sydney), and committed to $20/hour of usage for one year, and the instance family is selected as C5.
+The C5 instance family is optimized for compute-intensive workloads and offers high performance and network throughput. Therefore, to receive a discount, the EC2 instances must belong to the C5 instance family.
+Now, let's examine each option to determine if they meet the criteria for receiving a discount:
+A. An Amazon Linux instance (c5.xlarge): This instance belongs to the C5 instance family and is eligible for the discount.
+B. A Windows instance (c5.2xlarge): This instance also belongs to the C5 instance family and is eligible for the discount.
+C. A Red Hat Linux instance with Dedicated Tenancy (c5.2xlarge): This instance also belongs to the C5 instance family and is eligible for the discount. The dedicated tenancy does not affect the eligibility for the discount.
+D. All of the above: This option is correct since all three instances belong to the C5 instance family and meet the criteria for receiving a discount.
+Therefore, the correct answer is D. All of the above.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question532:"link"
+
+

@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1087 - Developer Team is working on a new mobil"
+---
+
+
+[.question]
+== 1087-64a1faaaf053625db51ddf36.
+
+
+****
+
+[.query]
+--
+Developer Team is working on a new mobile game that will use Amazon DynamoDB to store player details.
+The team is unsure of the success of this game, but needs to make sure it will meet demand for any number of concurrent players.
+During the table's initial creation, they are planning to create a local secondary index to create a top ten players scores dashboard.
+Also, a global secondary index is created to prepare a separate top ten players per country.
+IT Head is concerned about the game's performance, which will be used as a reference for all future games.
+Which of the following can be used to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable Auto-Scaling for DynamoDB Table with same setting applied to Global Secondary Index.
+* [ ] B. Enable Auto-Scaling for DynamoDB Table with same setting applied to Local Secondary Index.
+* [*] C. Enable Auto-Scaling only for Global Secondary Index.
+* [ ] D. Enable Auto-Scaling only for Local Secondary Index.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+For applications where database utilization cannot be predicted, Amazon DynamoDB can be used with Auto Scaling, which can help to scale dynamically to any load.
+Auto-Scaling needs to be applied to the DynamoDB table and Global Secondary Index that use separate read /write capacity.
+Option B is incorrect as the Local Secondary Index uses the same read &amp; write capacity as the primary DynamoDB table.
+Hence, it needs to enable a separate Auto-Scaling policy.
+Option C is incorrect as Auto-Scaling needs to enable for both DynamoDB tables and Global Secondary Index.
+Option D is incorrect as Auto-Scaling needs to enable on the DynamoDB table &amp; Global Secondary Index &amp; not on the Local Secondary index.
+For more information on using Auto-Scaling with Amazon DynamoDB, refer to the following URL-
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html
+To meet the requirement of ensuring that the DynamoDB table can handle any number of concurrent players, while also ensuring optimal performance, auto-scaling should be enabled. Auto-scaling will automatically adjust the capacity of the DynamoDB table and indexes based on the actual usage and demand.
+Option A: Enable Auto-Scaling for DynamoDB Table with same setting applied to Global Secondary Index.
+This option is the most appropriate solution to meet the requirements. Enabling auto-scaling for the DynamoDB table with the same settings applied to the Global Secondary Index will ensure that both the table and the index can handle any number of concurrent players. When auto-scaling is enabled, the table will automatically increase or decrease its capacity based on the demand. If the capacity of the table is increased, the Global Secondary Index will also automatically increase its capacity accordingly.
+Option B: Enable Auto-Scaling for DynamoDB Table with same setting applied to Local Secondary Index.
+This option is not the best solution because the Local Secondary Index is dependent on the capacity of the DynamoDB table. If the capacity of the table is not enough to support the index, then enabling auto-scaling for the Local Secondary Index alone will not be sufficient to meet the requirements.
+Option C: Enable Auto-Scaling only for Global Secondary Index.
+This option is not the best solution because enabling auto-scaling only for the Global Secondary Index will not be enough to ensure that the DynamoDB table can handle any number of concurrent players. The table capacity should also be increased accordingly if the demand increases.
+Option D: Enable Auto-Scaling only for Local Secondary Index.
+This option is not the best solution because enabling auto-scaling only for the Local Secondary Index will not be enough to ensure that the DynamoDB table can handle any number of concurrent players. The table capacity should also be increased accordingly if the demand increases.
+In conclusion, option A is the most appropriate solution to meet the requirement of ensuring that the DynamoDB table can handle any number of concurrent players while ensuring optimal performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question328:"link"
+
+

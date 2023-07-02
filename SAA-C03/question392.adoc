@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "1192 - Your company has an application hosted i"
+---
+
+
+[.question]
+== 1192-64a1fae1f053625db51ddfbc.
+
+
+****
+
+[.query]
+--
+Your company has an application hosted in AWS.
+This application consists of a web tier and database tier.
+The web tier is hosted on EC2 Instances.
+The database is hosted in the AWS RDS service, and data keeps changing every few hours.
+Recently performance issues have been encountered in the application, which is due to the high number of read requests.
+Which of the following can be used to help resolve the issue?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable Multi-AZ for the database
+* [*] B. Use Read Replica
+* [ ] C. Use Amazon DynamoDB Accelerator (DAX)
+* [ ] D. Place an Elastic Cache service in front of the database service.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer -B.
+In terms of load, they have the same goal, but they differ in some areas:
+Up-to-dateness of data:
+A read replica will continuously sync from the master.
+So your results will probably lag 0 - 3s (depending on the load) behind the master.
+A cache takes the query result at a specific point in time and stores it for a certain amount of time.
+Performance:
+A cache can only return results for queries it has already seen.
+So if you run the same queries over and over again, it's a good match.
+If you have many different, frequently changing, or dynamic queries, a read replica will be a better match.
+ElastiCache should be much faster since it's returning values directly from RAM.
+However, this also limits the number of results you can store.
+Option B is correct since the question specifies data keeps frequently changing, as it keeps data up-to-date and read performance is also improved.
+ElastiCache can be used to reduce the latency of requests.
+Still, it is a caching service.
+According to the question, data keeps changing every few hours, so Elasticache is not recommended choice.
+Option A is incorrect since this is used for high availability for the databases.
+Option C is incorrect since Amazon DynamoDB Accelerator (DAX) is a Fully managed, in-memory cache for DynamoDB only.
+For more information on Read Replica and Elasticache, please refer to the below URLs-
+https://aws.amazon.com/rds/features/read-replicas/ https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-use-cases.htm
+To resolve the performance issue in the application caused by a high number of read requests, there are several options to consider.
+A. Enable Multi-AZ for the database: Enabling Multi-AZ (Availability Zone) for the database creates a standby replica of the primary database in a different Availability Zone. This feature provides high availability and automatic failover capabilities for the database. Multi-AZ does not directly address the issue of high read requests but can help to ensure availability and durability of the database.
+B. Use Read Replica: A Read Replica is a copy of the database that is used to serve read requests, offloading traffic from the primary database. Read replicas are available for several AWS database services, including Amazon RDS, Amazon Aurora, and Amazon DocumentDB. The primary database continues to serve write requests, while the read replicas serve read requests. This approach can be effective in reducing the load on the primary database, improving read performance and reducing latency.
+C. Use Amazon DynamoDB Accelerator (DAX): DynamoDB Accelerator (DAX) is an in-memory cache that can improve the performance of read-heavy workloads on DynamoDB tables. It is a fully managed service that is API-compatible with DynamoDB, and can be used to speed up read requests by caching frequently accessed data. DAX can improve the performance of applications that require microsecond response times and can significantly reduce the load on the database.
+D. Place an Elastic Cache service in front of the database service: Amazon ElastiCache is a managed in-memory cache service that can be used to improve the performance of read-heavy workloads. It supports popular caching engines such as Memcached and Redis, and can be used to store frequently accessed data in memory, reducing the load on the database. Placing an Elastic Cache service in front of the database can improve the performance of read requests and reduce latency.
+In summary, options B, C, and D can help to address the performance issue caused by high read requests. Option A can help to ensure availability and durability but does not directly address the issue of high read requests. The best option to choose depends on the specific requirements and constraints of the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question462:"link"
+
+

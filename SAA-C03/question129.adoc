@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "929 - Your company has a set of EC2 Instances "
+---
+
+
+[.question]
+== 929-64a1fa69f053625db51dde84.
+
+
+****
+
+[.query]
+--
+Your company has a set of EC2 Instances hosted in AWS.
+It is mandatory to prepare for regional disasters and come up with the necessary disaster recovery procedures.
+What would help to mitigate the effects of a disaster for the EC2 Instances?
+
+
+--
+
+[.list]
+--
+* [*] A. Place an ELB in front of the EC2 Instances.
+* [ ] B. Use Auto Scaling to ensure that the minimum number of instances are always running.
+* [*] C. Use CloudFront in front of the EC2 Instances.
+* [*] D. Create AMIs from the EC2 Instances. Use them to recreate the EC2 Instances in another region.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+You can create an AMI from the EC2 Instances and then copy them to another region.
+In case of a disaster, an EC2 Instance can be created from the AMI.
+Options A and B are good for fault tolerance.
+But they cannot help completely in disaster recovery for the EC2 Instances.
+Option C is incorrect because we cannot determine if CloudFront would be helpful in this scenario or not without knowing what is hosted on the EC2 Instance.
+For disaster recovery, we have to make sure that we can launch instances in another region when required.
+For more information on AWS AMIs, please visit the following URL:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
+In the event of a regional disaster, the availability of your EC2 instances hosted in that region may be affected, causing downtime or even data loss. To mitigate the impact of such an event, you need to prepare a disaster recovery plan that includes replicating your data and infrastructure to a different region.
+The most effective way to mitigate the effects of a disaster for your EC2 instances is to create Amazon Machine Images (AMIs) from them and use them to recreate the EC2 instances in another region. This ensures that you have a backup of your infrastructure, and can quickly restore it in a different region in the event of a disaster.
+Option A, placing an Elastic Load Balancer (ELB) in front of the EC2 instances, would help distribute traffic across multiple instances, but it would not necessarily mitigate the effects of a disaster.
+Option B, using Auto Scaling to ensure that the minimum number of instances are always running, would help maintain availability but would not help in case of a disaster, as the instances would still be located in the same region.
+Option C, using CloudFront in front of the EC2 instances, would help cache content and improve performance but would not mitigate the effects of a disaster.
+Therefore, the correct answer is D, creating AMIs from the EC2 instances and using them to recreate the instances in another region.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question147:"link"
+
+

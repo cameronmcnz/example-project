@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "1004 - You have an EBS root device on devsda1 o"
+---
+
+
+[.question]
+== 1004-64a1df41aa736d27b1db93db.
+
+
+****
+
+[.query]
+--
+You have an EBS root device on /dev/sda1 on one of your EC2 instances.
+You are having trouble with this particular instance, and you want to either Stop/Start, Reboot, or Terminate the instance.
+But you do not want to lose any data that you have stored on /dev/sda1
+Which of the below statements best describes the effect each change of instance state would have on the data you have stored on /dev/sda1?
+
+
+--
+
+[.list]
+--
+* [*] A. Whether you stop/start, reboot, or terminate the instance, it does not matter because data on an EBS volume is not ephemeral, and the data will not be lost regardless of what method is used.
+* [ ] B. Whether you stop/start, reboot, or terminate the instance, it does not matter because data on an EBS volume is ephemeral, and it will be lost no matter what method is used.
+* [ ] C. If you stop/start the instance, the data will not be lost. However, if you either terminate or reboot the instance, the data will be lost.
+* [*] D. The data will remain on /dev/sda1 if you reboot or stop/start the instance because data on an EBS volume is not ephemeral.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Since this is an EBS backed instance, it can be stopped and later restarted without affecting data stored in the attached volumes.
+By default, the root device volume for this instance will be deleted when the instance terminates.
+Option A is incorrect because, upon termination, the volume would get deleted, and the data would get lost (DeleteOnTermination setting is not mentioned, so this is a default case).
+Option B is incorrect because the data on EBS volume would not get lost upon stop/start or reboot.
+Option C is incorrect because the data on EBS volume would not get lost upon reboot.
+Option D is CORRECT because the data on EBS volume would not get lost upon stop/start or reboot as it is not ephemeral.
+On the other hand, the Instance store is ephemeral storage, and the data would get lost upon starting/stopping the instance.
+More information on this topic:
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html
+The correct answer is (A) Whether you stop/start, reboot, or terminate the instance, it does not matter because data on an EBS volume is not ephemeral, and the data will not be lost regardless of what method is used.
+Explanation:
+An Amazon Elastic Block Store (EBS) volume is a persistent block-level storage device for use with Amazon EC2 instances. EBS volumes are independent from the EC2 instance, which means that the data on the EBS volume is not lost when the EC2 instance is stopped or terminated.
+When an EC2 instance is launched, the root device is typically an EBS volume attached to the instance. In this case, /dev/sda1 refers to the root EBS volume.
+When an EC2 instance is stopped or terminated, the root EBS volume is not deleted by default, and the data stored on the volume remains intact. When you start the instance again, the same root EBS volume is reattached to the instance, and the data on it is available.
+If you terminate an EC2 instance, the root EBS volume is deleted by default, but you can choose to keep the volume as a separate resource. In this case, you can attach the EBS volume to a new EC2 instance and access the data on it.
+In summary, the data on an EBS volume is persistent, meaning that it is not lost when the EC2 instance is stopped or terminated. Therefore, regardless of whether you stop/start, reboot, or terminate the EC2 instance, the data on /dev/sda1 will not be lost.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question298:"link"
+
+

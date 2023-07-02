@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "845 - Which statement is true about the Driver"
+---
+
+
+[.question]
+== 845-64a1a84aef3e8462333a9c63.
+
+
+****
+
+[.query]
+--
+Which statement is true about the DriverManager class?
+
+
+--
+
+[.list]
+--
+* [*] A. It returns an instance of database.
+* [ ] B. It executes SQL statements against the database.
+* [ ] C. It loads the database driver class mentioned in the jdbc.drivers property
+* [ ] D. it is written by different vendors for their specific database.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

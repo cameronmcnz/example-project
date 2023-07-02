@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "980 - A user is trying to save some cost on th"
+---
+
+
+[.question]
+== 980-64a1df37aa736d27b1db93ad.
+
+
+****
+
+[.query]
+--
+A user is trying to save some cost on the AWS services.
+Which of the below mentioned options will not help him to save cost?
+
+
+--
+
+[.list]
+--
+* [*] A. Delete the unutilized EBS volumes once the instance is terminated.
+* [*] B. Delete the Auto Scaling launch configuration after the instances are terminated.
+* [ ] C. Release the elastic IP if not required once the instance is terminated.
+* [ ] D. Delete the AWS ELB after all the instances behind it are terminated.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is incorrect because EBS volumes have a costing aspect, hence deleting the unutilized volumes will save some cost.
+Option B is CORRECT because an unused Auto Scaling launch configuration will not cost anything.
+Option C is incorrect because non-associated Elastic IP will cost you if not released.
+Option D is incorrect because an ELB without any instances behind it incurs costs.
+For more information on AWS Pricing, please visit the link-
+https://aws.amazon.com/pricing/services/
+All the options listed above are relevant for cost savings, except for one. Let's examine each option in more detail:
+A. Delete the unutilized EBS volumes once the instance is terminated: When an EC2 instance is terminated, its associated EBS (Elastic Block Store) volumes continue to exist and will continue to incur charges until they are explicitly deleted. Therefore, deleting unutilized EBS volumes once the instance is terminated is an essential step in managing costs.
+B. Delete the Auto Scaling launch configuration after the instances are terminated: Auto Scaling launch configuration provides the necessary information to launch new EC2 instances automatically. Once the instances are terminated, it is necessary to delete the launch configuration as it will continue to incur charges as long as it exists. Therefore, deleting the Auto Scaling launch configuration is an essential step in managing costs.
+C. Release the elastic IP if not required once the instance is terminated: An Elastic IP (EIP) is a static IP address associated with your AWS account. When an EC2 instance is launched, it can be associated with an EIP. Once the instance is terminated, the EIP remains associated with the account, and you continue to incur charges. Therefore, releasing the elastic IP if not required once the instance is terminated is an essential step in managing costs.
+D. Delete the AWS ELB after all the instances behind it are terminated: An Elastic Load Balancer (ELB) distributes incoming traffic across multiple EC2 instances. When all the instances behind the ELB are terminated, the ELB still exists and will continue to incur charges. Therefore, deleting the ELB after all the instances behind it are terminated is an essential step in managing costs.
+Option D is incorrect as it suggests deleting the AWS ELB after all the instances behind it are terminated, which is the right thing to do in order to reduce cost.
+In conclusion, all the options except for option D will help the user to save costs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question251:"link"
+
+

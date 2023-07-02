@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1151 - A company has a workflow that sends vide"
+---
+
+
+[.question]
+== 1151-64a1faccf053625db51ddf8b.
+
+
+****
+
+[.query]
+--
+A company has a workflow that sends video files from their on-premise system to AWS for transcoding.
+They use EC2 worker instances that pull transcoding jobs from SQS.
+As an architect, you need to design how the SQS service would be used in this architecture to achieve high throughput.
+Which of the following is the ideal way in which the SQS service should be used?
+
+
+--
+
+[.list]
+--
+* [*] A. SQS should be used to guarantee high throughput because of the order of messages.
+* [ ] B. SQS should be used to synchronously manage the transcoding output.
+* [ ] C. SQS should be used to check the health of the worker instances.
+* [*] D. SQS should be used to facilitate horizontal scaling.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The AWS Documentation mentions the following.
+Amazon Simple Queue Service (Amazon SQS) offers a secure, durable, and available hosted queue that lets you integrate and decouple distributed software systems and components.
+Option A is incorrect since the ordering of messages won't help to achieve high throughput.
+Options B and C are incorrect since these are not the responsibility of the SQS queue.
+For more information on AWS SQS Horizontal Scaling, please visit the below URL-
+https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-throughput-horizontal-scaling-and-batching.html#horizontal-scaling
+The ideal way to use the Amazon Simple Queue Service (SQS) in this architecture is D. SQS should be used to facilitate horizontal scaling.
+SQS is a distributed message queuing service that enables decoupling of distributed systems and applications. In this case, SQS is used to decouple the on-premise system from the EC2 worker instances that perform the transcoding jobs. This decoupling is essential to achieve high throughput as it allows the worker instances to pull transcoding jobs from SQS at their own pace.
+Horizontal scaling is a technique used to increase the number of instances of a component in the system to improve performance and throughput. In this architecture, the worker instances can be horizontally scaled to handle more transcoding jobs.
+SQS provides a scalable and reliable way of managing the transcoding jobs between the on-premise system and the worker instances. By using SQS to facilitate horizontal scaling, the architecture can handle a higher number of transcoding jobs without putting any undue stress on the worker instances.
+Therefore, the ideal way to use the SQS service in this architecture is to facilitate horizontal scaling of the worker instances, thereby achieving high throughput.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question413:"link"
+
+

@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "958 - As an AWS Solutions Architect you are de"
+---
+
+
+[.question]
+== 958-64a1fa73f053625db51ddea4.
+
+
+****
+
+[.query]
+--
+As an AWS Solutions Architect, you are designing a new Java application in EC2 with a relational database deployed in RDS.
+During proof of concept, it has been found that the database encounters an extended number of write operations at certain times and cannot handle the load.
+Which of the following options is appropriate to improve the write performance?
+
+
+--
+
+[.list]
+--
+* [*] A. Add a read replica to the RDS DB instance.
+* [ ] B. Replace AWS RDS with DynamoD.
+* [*] C. Use SQS to queue the database writes.
+* [ ] D. Use SNS to send notification for the missed database writes and then add them manually at a later stage.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+SQS Queues can be used to cache the pending database writes so that the database can handle the load properly.
+For more information on AWS SQS, please refer to the URL below:
+https://aws.amazon.com/sqs/faqs/
+Option A is incorrect because read replica cannot help on the write requests.
+Option B is incorrect because DynamoDB is non-relational however the application needs a relational database.
+Option D is incorrect because adding the missed write operation back manually is not a suitable approach.
+The correct option to improve write performance for an RDS database that encounters an extended number of write operations at certain times is:
+C. Use SQS to queue the database writes.
+Explanation:
+Option A, adding a read replica to the RDS DB instance, won't necessarily improve write performance since the write operations will still hit the primary RDS instance, and then be replicated to the read replica(s). This will reduce read latency, but not write latency.
+Option B, replacing AWS RDS with DynamoDB, is a viable option for improving write performance since DynamoDB is designed to handle high write throughput. However, it may require significant application changes since DynamoDB is a NoSQL database and has a different data model than a relational database like RDS.
+Option D, using SNS to send notifications for missed database writes and then adding them manually at a later stage, is not a scalable solution for handling high write throughput since it requires manual intervention.
+Option C, using SQS to queue the database writes, is the most appropriate option since it can handle high write throughput and provides scalable and reliable message queuing. The Java application can send messages to an SQS queue instead of writing directly to the RDS database. The SQS queue will then handle the writes in a more scalable and efficient way by buffering and batching the writes to the RDS instance, thereby reducing the load on the RDS database. The SQS queue can also be configured to automatically scale to handle higher write throughput.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question179:"link"
+
+

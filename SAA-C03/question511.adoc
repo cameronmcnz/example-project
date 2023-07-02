@@ -1,0 +1,96 @@
+---
+layout: default 
+title: "1311 - With respect to API caching for API Gate"
+---
+
+
+[.question]
+== 1311-64a1fb1ff053625db51de053.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_wcrr9c.png[]
+
+--
+
+
+****
+
+[.query]
+--
+With respect to API caching for API Gateway through the console, which of the following is not a cache setting?
+
+
+[source,java]
+----
+Cache Settings
+
+Cache status AVAILABLE} Flush entire cache
+
+Enable API cache Mi
+
+Enabling API cache increases cost and is not covered by the free tier. ¢
+
+Cache capacity 0.568 [v|
+Encrypt cache data (1
+
+Cache time-to-live (TTL) 10
+Per-key cache invalidation
+
+Require authorization VI
+
+Handle unauthorized requests |gnore cache control header, Add a warning in response header |
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Cache capacity
+* [ ] B. Encrypt cache data
+* [*] C. Import cache
+* [ ] D. Flush entire cache.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Following are the settings when enabling/disabling API caching for API Gateway.
+Options A, B, D are highlighted in the above screenshots.
+There is no 'Import cache' on API Gateway.
+Reference:
+https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
+API caching is a feature of Amazon API Gateway that enables you to cache the responses from backend APIs and reduce the number of requests made to those APIs. Caching can also help to reduce latency and improve the performance of your APIs.
+When configuring caching for an API Gateway through the console, you can adjust several settings. Let's review each of the options listed in the question:
+A. Cache capacity: This setting allows you to specify the maximum size of the cache. This is the amount of memory allocated to store the cached responses. When the cache reaches its capacity limit, the least frequently used items are evicted from the cache to make room for new entries.
+B. Encrypt cache data: This setting enables you to encrypt the cache data at rest using an AWS KMS key. This adds an additional layer of security to your cached data.
+C. Import cache: This setting allows you to import an existing cache configuration from another API Gateway deployment. This is useful if you want to reuse a cache configuration for a similar API.
+D. Flush entire cache: This setting allows you to clear the entire cache for an API. This can be useful if you need to invalidate all cached responses for an API.
+Therefore, the correct answer to the question is C. Import cache is not a cache setting. It is a cache management feature that enables you to import an existing cache configuration from another API Gateway deployment.
+In summary, API caching can help improve the performance of your APIs by reducing the number of requests made to the backend APIs. When configuring caching for an API Gateway through the console, you can adjust several settings, including cache capacity, encrypt cache data, and flush entire cache.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question614:"link"
+
+

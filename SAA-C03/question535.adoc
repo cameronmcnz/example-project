@@ -1,0 +1,105 @@
+---
+layout: default 
+title: "1335 - Which of the following is an action you "
+---
+
+
+[.question]
+== 1335-64a1fb2ef053625db51de07b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_eei7gp.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which of the following is an action you cannot perform on an EBS snapshot?
+
+
+[source,java]
+----
+To create an AMI from your root volume using the console
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+2. In the navigation pane, choose Elastic Block Store, Snapshots.
+3. Choose Create Snapshot.
+4. For Volumes, start typing the name or ID of the root volume, and then select it from the list of options.
+5. Choose the snapshot that you just created, and then choose Actions, Create Image.
+
+6. In the Create Image from EBS Snapshot dialog box, provide the following information and then choose Create. If you're re-creating a parent instance, then choose
+the same options as the parent instance.
+
+* Architecture: Choose i386 for 32-bit or x86_64 for 64-bit.
+
+* Root device name: Enter the appropriate name for the root volume. For more information, see Device Naming on Linux Instances.
+
+* Virtualization type: Choose whether instances launched from this AMI use paravirtual (PV) or hardware virtual machine (HVM) virtualization. For more
+information, see Linux AMI Virtualization Types.
+
+© (PV virtualization type only) Kernel ID and RAM disk ID: Choose the AKI and ARI from the lists. If you choose the default AKI or don't choose an AKI, you are
+required to specify an AKI every time you launch an instance using this AMI. In addition, your instance may fail the health checks if the default AKI is
+incompatible with the instance.
+
+* (Optional) Block Device Mappings: Add volumes or expand the default size of the root volume for the AMI. For more information about resizing the file system
+on your instance for a larger volume, see Extending a Linux File System after Resizing the Volume.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create Image from snapshot.
+* [ ] B. Create EBS volume from snapshot.
+* [ ] C. Share a snapshot with another AWS account.
+* [*] D. Provide permissions to snapshots based on AWS Account Names.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Option A is a snapshot action.
+Option B is a snapshot action.
+Option C is a snapshot action.
+Option D is the correct answer.
+We can give permissions to snapshots based on AWS Account Numbers and not based on AWS Account names.
+Reference:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html
+Answer: A. Create Image from snapshot.
+Explanation:
+EBS snapshots are point-in-time copies of an EBS volume. They can be used to create new EBS volumes or to restore an existing volume to a previous state. Snapshots are stored in Amazon S3 and can be used to migrate data between regions, copy data across accounts, and protect data for long-term retention.
+The following actions can be performed on an EBS snapshot:
+A. Create EBS volume from snapshot: You can create a new EBS volume from a snapshot. The new volume will be an exact copy of the original volume at the time the snapshot was taken.
+B. Share a snapshot with another AWS account: You can share a snapshot with another AWS account. The other account will be able to create a new volume from the snapshot or use it to launch an EC2 instance.
+C. Provide permissions to snapshots based on AWS Account Names: You can provide permissions to snapshots based on AWS Account Names. This allows you to control which AWS accounts can access the snapshot and what actions they can perform on it.
+However, you cannot create an Amazon Machine Image (AMI) directly from an EBS snapshot. An AMI is a pre-configured virtual machine image, which includes the operating system, application server, and any additional software required to run the application. To create an AMI, you need to launch an EC2 instance from the snapshot and then create an image of the instance.
+Therefore, the correct answer is A. Create Image from snapshot.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question654:"link"
+
+

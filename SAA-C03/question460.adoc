@@ -1,0 +1,129 @@
+---
+layout: default 
+title: "1260 - You are building a fleet of EC2 Linux In"
+---
+
+
+[.question]
+== 1260-64a1fb02f053625db51de00e.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_gumeu5.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are building a fleet of EC2 Linux Instances in the AWS environment to manage heavy workloads and write data into AWS Redshift.
+The developers and administrators need to login to these EC2 machines to develop, fix, deploy, and manage workloads within your organizational network ONLY.
+Which of the following would allow only the personnel within the organization to access the resources most securely?
+
+
+[source,java]
+----
+The solution architecture
+
+In this section, | present the architecture of this solution and explain how you can configure the bastion host to record SSH sessions. Later in this post, | provide instructions about how to
+implement and test the solution.
+
+Amazon VPC enables you to launch AWS resources on a virtual private network that you have defined. The bastion host runs on an Amazon EC2 instance that is typically in a public
+subnet of your Amazon VPC. Linux instances are in a subnet that is not publicly accessible, and they are set up with a security group that allows SSH access from the security group
+attached to the underlying EC2 instance running the bastion host. Bastion host users connect to the bastion host to connect to the Linux instances, as illustrated in the following diagram.
+
+&
+
+SeU
+©)
+be |
+Bastion host Bastion Linux
+users host instances
+
+Bastion host
+security group
+
+Linux instances
+security group
+
+Public subnet Private subnet
+----
+
+
+--
+
+[.list]
+--
+* [*] A. EC2 instances on public subnet with secure SSH keys to login, RedShift in private subnet.
+* [ ] B. A bastion host in public subnet with secure SSH key to login, EC2 instances in private subnet with secure SSH keys to login, RedShift in private subnet.
+* [*] C. AWS VPN connection from your organization to AWS VPC, a bastion host in VPN enabled subnet with secure SSH key to login, EC2 instances in private subnet with secure SSH keys to login, Redshift in private subnet.
+* [ ] D. AWS VPN connection from your organization to AWS VPC, EC2 instances in VPN enabled subnet with secure SSH keys to login, Redshift in public subnet.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+For.
+Option A, this is not secure because EC2 instances are in public subnet and are open to attacks such as DDoS.
+If you do not have a requirement to access the internet, try not to put AWS resources in the public subnet as a security best practice.
+For more information on DDoS attacks, refer to documentation here
+https://aws.amazon.com/answers/networking/aws-ddos-attack-mitigation/
+For Option B, Although EC2 instances are secured by putting them on private subnet and only enabling bastion host on public subnet looks correct, the requirement states, these instances should only be accessed via their organization network.
+So this option is incorrect.
+A bastion host is a server whose purpose is to provide access to a private network from an external network, such as the Internet.
+It does not act as a proxy to route traffic from the internet to private EC2 instance.
+AWS Document says:
+The solution architecture.
+In this section, I present this solution's architecture and explain how you can configure the bastion host to record SSH sessions.
+Later in this post, I provide instructions about how to implement and test the solution.
+Amazon VPC enables you to launch AWS resources on a virtual private network that you have defined.
+The bastion host runs on an Amazon EC2 instance that is typically in a public subnet of your Amazon VPC.
+Linux instances are in a subnet that is not publicly accessible.
+They are set up with a security group that allows SSH access from the security group attached to the underlying EC2 instance running the bastion host.
+Bastion host users connect to the bastion host to connect to the Linux instances, as illustrated in the following diagram.
+For Option C, VPN connections are used to connect AWS VPC from your organization's network.
+By default, instances that you launch into an Amazon VPC can't communicate with your own (remote) network.
+You can enable access to your remote network from your VPC by attaching a virtual private gateway to the VPC, creating a custom route table, updating your security group rules, and creating an AWS managed VPN connection.
+For more information on VPN, refer to documentation here.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html
+So, in this option, even from a VPN connection, only bastion host is exposed from AWS to VPN, and you only open one connection from your organization to AWS.
+From bastion host, you can open connections to other resources in private subnet or other resources in peering VPCs.
+https://aws.amazon.com/blogs/mt/replacing-a-bastion-host-with-amazon-ec2-systems-manager/
+Option D is INCORRECT because Redshift needs to be placed in the "private" subnet and not in the "public" subnet."
+Note:
+In the question, they mentioned that "Developers and Administrators need the login to the EC2 instances Only within your organization network." So, they should access it via their organization network.
+Establish a VPN connection between your Organization network and your AWS.
+The most secure option for accessing EC2 instances and Redshift in the AWS environment would be option C: AWS VPN connection from your organization to AWS VPC, a bastion host in VPN enabled subnet with secure SSH key to login, EC2 instances in private subnet with secure SSH keys to login, Redshift in private subnet.
+Here's why:
+A. EC2 instances on public subnet with secure SSH keys to login, RedShift in private subnet. This option puts the EC2 instances on a public subnet, which means they are directly accessible from the internet. Although the SSH keys provide some security, they are not enough to protect the instances from attacks. Additionally, Redshift is in a private subnet, which means it can only be accessed from the VPC. Therefore, this option is not the most secure way to access the resources.
+B. A bastion host in public subnet with secure SSH key to login, EC2 instances in private subnet with secure SSH keys to login, RedShift in private subnet. This option includes a bastion host, which is a jump server that allows access to the EC2 instances in the private subnet. The bastion host is in the public subnet, which means it is accessible from the internet. While the bastion host provides an extra layer of security, it is still vulnerable to attacks. Redshift is still in a private subnet, which is secure, but this option is not as secure as option C.
+C. AWS VPN connection from your organization to AWS VPC, a bastion host in VPN enabled subnet with secure SSH key to login, EC2 instances in private subnet with secure SSH keys to login, Redshift in private subnet. This option uses a VPN connection to connect to the VPC, which provides a secure way to access the resources. The bastion host is in a VPN-enabled subnet, which means it can only be accessed through the VPN connection. The EC2 instances are also in a private subnet and can only be accessed through the bastion host. Redshift is also in a private subnet, which provides an extra layer of security. This option is the most secure way to access the resources.
+D. AWS VPN connection from your organization to AWS VPC, EC2 instances in VPN enabled subnet with secure SSH keys to login, Redshift in public subnet. This option puts the EC2 instances in a VPN-enabled subnet, which means they can only be accessed through the VPN connection. However, Redshift is in a public subnet, which is accessible from the internet. This option is less secure than option C because Redshift is directly accessible from the internet.
+In summary, option C is the most secure way to access the resources. It uses a VPN connection to connect to the VPC, a bastion host in a VPN-enabled subnet, EC2 instances in a private subnet, and Redshift in a private subnet. This provides multiple layers of security to protect the resources from attacks.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question544:"link"
+
+

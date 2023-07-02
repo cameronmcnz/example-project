@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "1211 - A company currently is hosting a Redshif"
+---
+
+
+[.question]
+== 1211-64a1faeaf053625db51ddfd2.
+
+
+****
+
+[.query]
+--
+A company currently is hosting a Redshift cluster.
+There is a requirement for the data to be available in the Redshift cluster in another region as part of the company's disaster recovery setup.
+How would you achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Use the Elastic Beanstalk service to copy the cluster to another region.
+* [ ] B. Use Cloudformation templates to copy the cluster to another region.
+* [*] C. Configure cross-region snapshots for the underlying Redshift cluster.
+* [ ] D. Use the snapshots stored in S3 to create a new Redshift cluster in another region.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+You can configure Amazon Redshift to automatically copy snapshots (automated or manual) for a cluster to another region.
+When a snapshot is created in the cluster's primary region, it will be copied to a secondary region known as the source region and destination region.
+By storing a copy of your snapshots in another region, you have the ability to restore your cluster from recent data if anything affects the primary.
+Snapshots are point-in-time backups of a cluster.
+There are two types of snapshots: automated and manual.
+Amazon Redshift stores these snapshots internally in Amazon S3 using an encrypted Secure Sockets Layer (SSL) connection.
+Amazon Redshift automatically takes incremental snapshots that track changes to the cluster since the previous automated snapshot.
+Automated snapshots retain all of the data required to restore a cluster from a snapshot.
+You can create a snapshot schedule to control when automated snapshots are taken, or you can take a manual snapshot at any time.
+When you restore from a snapshot, Amazon Redshift creates a new cluster and makes the new cluster available before all of the data is loaded, so you can begin querying the new cluster immediately.
+The cluster streams data on demand from the snapshot in response to active queries then loads the remaining data in the background.
+https://aws.amazon.com/blogs/aws/automated-cross-region-snapshot-copy-for-amazon-redshift/
+Option A is invalid since AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and is not used to copy snapshots for disaster recovery.
+Option B is invalid since the CloudFormation template can help create clusters.
+But it won't help in disaster recovery.
+To check how to create Cluster using CloudFormation, refer below URL-
+https://aws.amazon.com/blogs/big-data/automate-amazon-redshift-cluster-creation-using-aws-cloudformation/
+Option D is invalid since it will be a manual process.
+For more information on working with snapshots, please refer to the below URL-
+https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+The correct answer to this question is D. Use the snapshots stored in S3 to create a new Redshift cluster in another region.
+Explanation: Redshift is a fully managed, petabyte-scale data warehouse service provided by AWS. It enables customers to store and analyze large amounts of structured and semi-structured data using SQL queries. In a disaster recovery scenario, it is important to have data available in another region in case the primary region becomes unavailable.
+To achieve this requirement, we need to copy the data from the Redshift cluster in one region to another region. AWS provides different services to achieve this, but the most efficient and cost-effective way to copy the data to another region is by using the Redshift snapshot feature.
+A snapshot is a point-in-time copy of the cluster data. It captures all the data in the cluster, including the database schema and configuration settings. Redshift snapshots are stored in S3, which provides high durability and availability.
+To copy the Redshift cluster data to another region, we need to perform the following steps:
+1. Take a snapshot of the Redshift cluster in the primary region.
+2. Copy the snapshot to S3 in the secondary region.
+3. Restore the snapshot in the secondary region, which will create a new Redshift cluster with the same schema and data as the primary region.
+By using this approach, we can achieve disaster recovery for the Redshift cluster in a cost-effective way. We do not need to create a new cluster from scratch, and we only pay for the storage and compute resources used in the secondary region when the cluster is restored from the snapshot.
+Therefore, option D is the correct answer. Options A and B are incorrect because Elastic Beanstalk and CloudFormation are not used for copying Redshift clusters between regions. Option C is incorrect because cross-region snapshots are used for backup and recovery purposes, but they do not copy the Redshift cluster to another region.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question484:"link"
+
+

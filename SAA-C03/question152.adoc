@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "952 - Your app uses AWS Cognito Identity for a"
+---
+
+
+[.question]
+== 952-64a1fa70f053625db51dde9d.
+
+
+****
+
+[.query]
+--
+Your app uses AWS Cognito Identity for authentication and stores user profiles in a User Pool.
+To expand the availability and ease of signing in to the app, your team is requesting advice on allowing the use of OpenID Connect (OIDC) identity providers as additional means of authenticating users and saving the user profile information.
+What is your recommendation on OIDC identity providers?
+
+
+--
+
+[.list]
+--
+* [*] A. This is supported, along with social and SAML based identity providers.
+* [ ] B. This is not supported, only social identity providers can be integrated into User Pools
+* [*] C. If you want OIDC identity providers, then you must include SAML and social-based support as well
+* [ ] D. It’s too much effort to add non-Cognito authenticated user information to a User Pool.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is correct.
+OpenID Connect (OIDC) identity providers (IdPs) (like Salesforce or Ping Identity) are supported in Cognito, along with social and SAML based identity providers.
+You can add an OIDC IdP to your user pool in the AWS Management Console, with the AWS CLI, or with the user pool API method CreateIdentityProvider.
+Option B is incorrect.
+Cognito supports more than just social identity providers, including OIDC, SAML, and its own identity pools.
+Option C is incorrect.
+You can add any combination of federated types.
+You don't have to add them all.
+Option D is incorrect.
+While there is additional coding to develop this, the effort is most likely not too great to add the feature.
+References:
+https://aws.amazon.com/cognito/ https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-oidc-idp.html http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html https://aws.amazon.com/cognito/getting-started/ https://docs.aws.amazon.com/cognito/latest/developerguide/concepts.html
+The correct answer to this question is A. This is supported, along with social and SAML based identity providers.
+AWS Cognito Identity is a service that provides user authentication, authorization, and user management. It allows developers to add user sign-up, sign-in, and access control to their web and mobile apps quickly and easily. Cognito User Pools, a component of AWS Cognito Identity, is a user directory that allows developers to add user registration and sign-in to their web and mobile apps.
+OpenID Connect (OIDC) is a simple identity layer on top of the OAuth 2.0 protocol. It allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner. In simpler terms, OIDC is a protocol that allows third-party identity providers to authenticate users for a given application.
+AWS Cognito Identity supports the integration of OIDC identity providers as well as social and SAML-based identity providers. This means that developers can use Cognito User Pools to store user profiles and manage authentication for all these different types of identity providers. By supporting multiple identity providers, developers can offer their users more options for signing in to their application.
+To summarize, the recommendation on OIDC identity providers is that they are supported, along with social and SAML based identity providers, when using AWS Cognito Identity for authentication and user profile management.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question172:"link"
+
+

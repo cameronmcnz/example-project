@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "946 - The Marketing Director in your company a"
+---
+
+
+[.question]
+== 946-64a1df2caa736d27b1db9381.
+
+
+****
+
+[.query]
+--
+The Marketing Director in your company asked you to create an app that lets users post sightings of good deeds known as random acts of kindness in 80-character summaries.
+You decided to write the application in JavaScript to run on the broadest range of phones, browsers, and tablets.
+Your application should provide access to Amazon DynamoDB to store the good deed summaries.
+Initial testing of a prototype shows that there aren't large spikes in usage.
+Which option provides the most cost-effective and scalable architecture for this application?
+
+
+--
+
+[.list]
+--
+* [*] A. Provide the JavaScript client with temporary credentials from the Security Token Service using a Token Vending Machine (TVM) on an EC2 instance to provide signed credentials mapped to an Amazon Identity and Access Management (IAM) user allowing DynamoDB puts and S3 gets. You serve your mobile application out of an S3 bucket enabled as a website. Your client updates DynamoD.
+* [*] B. Register the application with a Web Identity Provider like Amazon, Google, or Facebook, create an IAM role for that provider, and set up permissions for the IAM role to allow S3 gets and DynamoDB puts. You serve your application out of an S3 bucket enabled as a website. Your client updates DynamoD.
+* [ ] C. Provide the JavaScript client with temporary credentials from the Security Token Service using a Token Vending Machine (TVM) to provide signed credentials mapped to an IAM user allowing DynamoDB puts. You serve your mobile application out of Apache EC2 instances that are load-balanced and autoscaled. Your EC2 instances are configured with an IAM role that allows DynamoDB puts. Your server updates DynamoD.
+* [ ] D. Register the JavaScript application with a Web Identity Provider like Amazon, Google, or Facebook, create an IAM role for that provider, and set up permissions for the IAM role to allow DynamoDB puts. You serve your mobile application out of Apache EC2 instances that are load-balanced and autoscaled. Your EC2 instances are configured with an IAM role that allows DynamoDB puts. Your server updates DynamoD.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+This scenario asks to design a cost-effective and scalable solution where a multi-platform application needs to communicate with DynamoDB.
+For such scenarios, federated access to the application is the most likely solution.
+Option A is incorrect because the Token Vending Machine (STS Service) is implemented on a single EC2 instance which is a single point of failure.
+This is not a scalable solution either, as the instance can become the performance bottleneck.
+Option B is CORRECT because, (i) it authenticates the application via federated identity provider such as Amazon, Google, Facebook, etc, (ii) it sets up the proper permission for DynamoDB access, and (iii) S3 website which supports Javascript - is a highly scalable and cost-effective solution.
+The application is authenticated through the "assumeRolewithWebIdenity" API via the federated identity provider.
+Option C is incorrect because deploying EC2 instances in the Auto Scaled environment is not as cost-effective solution as the S3 website, even though it is scalable.
+Option D is incorrect because it suggests running the website on an Auto Scaling group of EC2 instances with an ELB in the front end.
+This option is not the most cost-effective solution provided.
+Hence this is invalid.
+For this application, we need to provide access to Amazon DynamoDB to store the good deed summaries. The application is written in JavaScript, and it needs to run on a broad range of phones, browsers, and tablets. We also know that initial testing of a prototype shows that there aren't large spikes in usage. Based on these requirements, the most cost-effective and scalable architecture for this application is option B:
+Option B: Register the application with a Web Identity Provider like Amazon, Google, or Facebook, create an IAM role for that provider, and set up permissions for the IAM role to allow S3 gets and DynamoDB puts. You serve your application out of an S3 bucket enabled as a website. Your client updates DynamoDB.
+Explanation: In option B, the JavaScript application is registered with a Web Identity Provider like Amazon, Google, or Facebook. This registration enables the application to authenticate users through these providers. After registration, we create an IAM role for the provider and set up permissions for that role to allow S3 gets and DynamoDB puts.
+Next, we serve the application out of an S3 bucket enabled as a website. This option provides a simple, cost-effective, and scalable way to serve static websites. Since there aren't any large spikes in usage, we don't need to worry about scaling the server infrastructure. We can simply use S3 to host the application and serve it to the client's browser.
+Finally, the client updates DynamoDB to store the good deed summaries. We can use the AWS SDK for JavaScript in the client-side code to interact with DynamoDB. The SDK provides a set of APIs for accessing and manipulating data in DynamoDB.
+In summary, option B provides a cost-effective and scalable architecture that meets the requirements of the application. It uses S3 to serve the application and DynamoDB to store the good deed summaries. The Web Identity Provider authentication enables users to authenticate through popular providers like Amazon, Google, or Facebook, which can help increase adoption of the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question207:"link"
+
+

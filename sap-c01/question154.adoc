@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "954 - A web company is looking to implement an"
+---
+
+
+[.question]
+== 954-64a1df2eaa736d27b1db9389.
+
+
+****
+
+[.query]
+--
+A web company is looking to implement an external payment service into their highly available application deployed in a VPC.
+Their application EC2 instances are behind a public-facing ELB with NAT instances and Public IP s in place.
+Auto Scaling is used to add additional instances as traffic increases under normal load.
+The application runs 2 instances in the Auto Scaling group, but it can scale 3x in size at the peak.
+The application instances need to communicate with the payment service over the Internet, which requires whitelisting all public IP addresses to communicate with it.
+A maximum of 4 whitelisting IP addresses are allowed at a time and can be added through an API.
+How should they architect their solution?
+
+
+--
+
+[.list]
+--
+* [*] A. Route payment requests through two NAT instances setup for High Availability and whitelist the Elastic IP addresses attached to the NAT instances.
+* [ ] B. Whitelist the VPC Internet Gateway Public IP and route payment requests through the Internet Gateway.
+* [ ] C. Whitelist the ELB IP addresses and route payment requests from the Application servers through the EL.
+* [ ] D. Automatically assign public IP addresses to the application instances in the Auto Scaling group and run a script on boot that adds each instance`s public IP address to the payment validation whitelist API.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because (a) the requests originated from the instances in the subnet would be routed through the NAT, so they would have the NAT's IP address (which is whitelisted), and (b) two NAT instances would provide high availability.
+Option B is incorrect because (a) Internet Gateway (IGW) can only route the traffic.
+It cannot whitelist any particular IP and payment requests, and (b) EC2 instances with public IP addresses in a public subnet are routed through the gateway.
+Still, they will keep their own IP address.
+So they will not get whitelisted.
+Option C is incorrect because the outbound traffic cannot be routed through an ELB.Option D is incorrect because the ASG will have 6 servers during the peak load, and the payment service only allows 4 to be whitelisted.
+So, it will exceed the allowed 4 IP addresses.
+The correct answer is option D: Automatically assign public IP addresses to the application instances in the Auto Scaling group and run a script on boot that adds each instance's public IP address to the payment validation whitelist API.
+Here's the explanation:
+The web company has a highly available application deployed in a VPC, with EC2 instances behind a public-facing ELB with NAT instances and Public IP addresses in place. Auto Scaling is used to add additional instances as traffic increases under normal load.
+The application instances need to communicate with an external payment service over the Internet, and this service requires whitelisting all public IP addresses to communicate with it. However, a maximum of 4 whitelisting IP addresses are allowed at a time and can be added through an API.
+To solve this problem, we need to find a solution that allows the application instances to communicate with the payment service while staying within the limitations of the whitelisting IP addresses.
+Option A suggests routing payment requests through two NAT instances set up for high availability and whitelisting the Elastic IP addresses attached to the NAT instances. However, this solution does not work because the payment service only allows four whitelisting IP addresses, and the number of NAT instances does not matter.
+Option B suggests whitelisting the VPC Internet Gateway Public IP and routing payment requests through the Internet Gateway. However, this solution is not practical because the VPC Internet Gateway Public IP changes every time the Internet Gateway is deleted and recreated.
+Option C suggests whitelisting the ELB IP addresses and routing payment requests from the application servers through the ELB. However, this solution does not work because the payment service requires whitelisting of public IP addresses, and the ELB IP addresses are not public.
+Option D is the correct answer. This option suggests automatically assigning public IP addresses to the application instances in the Auto Scaling group and running a script on boot that adds each instance's public IP address to the payment validation whitelist API. With this solution, we can stay within the limitations of the whitelisting IP addresses while allowing the application instances to communicate with the payment service. The script that adds the public IP address to the payment validation whitelist API must be triggered on every instance launch to ensure that the new instances are added to the whitelist.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question215:"link"
+
+

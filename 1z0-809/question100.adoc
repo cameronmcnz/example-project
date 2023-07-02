@@ -1,0 +1,61 @@
+---
+layout: default 
+title: "900 - Given the code fragment
+Which code fragm"
+---
+
+
+[.question]
+== 900-64a1a85eef3e8462333a9c9a.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0008800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which code fragment, when inserted at line n1, enables the code to print /First.txt?
+
+
+[source,java]
+----
+//line ni
+System. out .printIn (iP);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Path iP = new Paths ("/First.txt");
+* [ ] B. Path iP = Paths.toPath ("/First.txt");
+* [ ] C. Path iP = new Path ("/First.txt");
+* [*] D. Path iP = Paths.get ("/", "First.txt");
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

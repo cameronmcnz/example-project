@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1172 - Your company has an AWS account and a lo"
+---
+
+
+[.question]
+== 1172-64a1fad7f053625db51ddfa3.
+
+
+****
+
+[.query]
+--
+Your company has an AWS account and a lot of resources defined in the Frankfurt region.
+They want to use an API monitoring service to track the calls to the resources in their account.
+Which of the following should be used for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Config
+* [*] B. AWS CloudTrail
+* [ ] C. AWS CloudWatch
+* [ ] D. AWS Opswork.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect because AWS Config is a fully managed service that provides you with a resource inventory, configuration history, and configuration change notifications to enable security and governance.
+You can also discover existing AWS resources, export a complete inventory of your AWS resources with all configuration details, and determine how a resource was configured at any point in time.
+Option B is correct because this is an API monitoring service and using CloudTrail.
+You can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure.
+CloudTrail provides the event history of your AWS account activity, including actions taken through the AWS management console, AWS SDKs, command-line tools, and other AWS services.
+This event history simplifies security analysis, resource change tracking, and troubleshooting.
+Besides, you can use CloudTrail to detect unusual activity in your AWS accounts.
+Option C is incorrect because this is a metric and logging service.
+Option D is incorrect because it is used to deploy stacks of resources.
+CloudWatch and Config serve distinct use cases for monitoring and complements each other from the AWS ecosystem.
+Config is typically used for auditing and compliance purposes across organizations to verify whether AWS resource changes being made are per compliance rules.
+CloudWatch is designed to provide performance information about AWS resources such as EC2, Lambda, etc.
+Developers can use information from CloudWatch to identify bottlenecks in applications or workflows.
+CloudWatch will help you send alerts when CPU /Memory utilization reaches a certain threshold and browse metrics associated with CPU/Network to identify operational and security issues.
+For more information on AWS CloudTrail, please refer to the below URL-
+https://aws.amazon.com/cloudtrail/
+The correct answer for this scenario is C. AWS CloudWatch.
+AWS CloudWatch is a monitoring service that allows you to monitor your AWS resources and the applications you run on AWS. It provides a unified view of your AWS resources, services, and applications that run on AWS and on-premises servers. CloudWatch can be used to collect and track metrics, collect and monitor log files, and set alarms. CloudWatch provides data and actionable insights to monitor your applications, respond to system-wide performance changes, optimize resource utilization, and get a unified view of operational health.
+In the given scenario, the company wants to use an API monitoring service to track the calls to the resources in their account. AWS CloudWatch can be used to collect and track metrics related to API calls, such as the number of requests, latency, and error rates. You can create custom metrics to monitor the specific APIs that are critical to your business, and set up alarms to alert you when the metrics breach certain thresholds.
+AWS Config is a service that enables you to assess, audit, and evaluate the configuration of your AWS resources. It provides a detailed inventory of your AWS resources and the relationships between them, as well as a history of configuration changes. AWS Config can help you ensure compliance with regulatory standards, security policies, and operational best practices.
+AWS CloudTrail is a service that enables you to monitor, log, and retain account activity related to actions across your AWS infrastructure. It provides an event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services.
+AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet. It automates the deployment, configuration, and management of applications and infrastructure across AWS and on-premises environments.
+In summary, for API monitoring purposes in the given scenario, AWS CloudWatch is the most appropriate service to use.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question437:"link"
+
+

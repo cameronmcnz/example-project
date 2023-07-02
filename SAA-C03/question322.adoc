@@ -1,0 +1,88 @@
+---
+layout: default 
+title: "1122 - Your company is planning on hosting a se"
+---
+
+
+[.question]
+== 1122-64a1fabbf053625db51ddf61.
+
+
+****
+
+[.query]
+--
+Your company is planning on hosting a set of EC2 Instances in AWS.
+The Instances would be configured in a way that one will be used as a web tier and the other as a database (EC2 Hosted)
+The web tier should be exposed to the Internet in the Public Subnet and Database is in Private Subnet in the same VPC with the default configuration.
+What configuration needs to be done in order to let Web Server communicate with Database Server?
+
+
+--
+
+[.list]
+--
+* [*] A. Change the main route tables to have the desired routing between the subnets
+* [*] B. Ensure that the Security Groups have the required rules defined to allow traffic
+* [ ] C. Ensure that all instances have a public IP for communication
+* [ ] D. Ensure that all subnets are defined as public subnets.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The AWS Documentation mentions the following.
+A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
+When you launch an instance in a VPC, you can assign up to five security groups to the instance.
+Security groups act at the instance level, not the subnet level.
+Therefore, each instance in a subnet in your VPC could be assigned to a different set of security groups.
+If you don't specify a particular group at launch time, the instance is automatically assigned to the default security group for the VPC.
+Main route table.
+The first entry is the default entry for local routing in the VPC; this entry enables the instances in the VPC to communicate with each other.
+Destination.
+Target.
+10.0.0.0/16
+local.
+Option A is invalid since the main route table will have the required rules to route traffic between subnets in a VPC (By default)
+No change is required there.
+Refer below URL for more details,
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html#VPC_Scenario2_Routing
+Option C is invalid since the instances would communicate with each other on the private IP.
+The primary reason to use the Private IP of an EC2 instance is to route the traffic internally within your VPC.If you use the private IP to communicate, traffic will stay within the VPC, it will not be routed out, the routing table will route it internally.
+Option D is invalid since the database should be in the private subnet and not the public subnet.
+This question asks for communication between subnets.
+For more information on Security Groups, please visit the below URL:
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.htm
+The correct answer is B - Ensure that the Security Groups have the required rules defined to allow traffic.
+In the given scenario, the EC2 instances are configured in such a way that one is used as a web tier and the other as a database (EC2 hosted). The web tier is exposed to the internet in the Public Subnet, and the database is in the Private Subnet in the same VPC with the default configuration.
+To allow the web server to communicate with the database server, the following steps need to be taken:
+Step 1: Create Security Groups Create two security groups, one for the web tier and the other for the database tier. The security group for the web tier should allow incoming traffic on port 80 or 443 (depending on your configuration), and the security group for the database tier should allow incoming traffic on the database port (for example, port 3306 for MySQL or port 5432 for PostgreSQL).
+Step 2: Associate Security Groups Associate the security groups with the appropriate instances. The security group for the web tier should be associated with the web server instance, and the security group for the database tier should be associated with the database server instance.
+Step 3: Update Security Group Rules Update the security group rules to allow traffic between the web server and the database server. In the security group for the web tier, add an outbound rule to allow traffic to the security group for the database tier on the database port. In the security group for the database tier, add an inbound rule to allow traffic from the security group for the web tier on the database port.
+By following these steps, the web server will be able to communicate with the database server securely.
+Now let's take a look at the other answer options and see why they are not correct:
+A. Change the main route tables to have the desired routing between the subnets This is not required because the instances are already in the same VPC, and the default configuration of the VPC should allow communication between instances in different subnets.
+C. Ensure that all instances have a public IP for communication This is not required because the web server needs a public IP to be accessible from the internet, but the database server should not have a public IP address since it should only be accessible from the web server.
+D. Ensure that all subnets are defined as public subnets. This is not required because the web server should be in a public subnet, but the database server should be in a private subnet for security reasons.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question371:"link"
+
+

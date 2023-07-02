@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "888 - Given the content
+What is the result Jav"
+---
+
+
+[.question]
+== 888-64a1a85bef3e8462333a9c8e.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0007000001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the content:
+What is the result?
+
+
+[source,java]
+----
+MessagesBundle. properties fill
+
+username = Enter User Name
+password = Enter Password
+
+MessagesBundle_fr_FR.properties file:
+
+username = Entrez le nom d'utilisateur
+password = Entrez le mot de passe
+----
+
+
+--
+
+[.list]
+--
+* [*] A. username = Entrez le nom d`utilisateur password = Entrez le mot de passe
+* [ ] B. username = Enter User Name password = Enter Password
+* [ ] C. A compilation error occurs.
+* [ ] D. The program prints nothing.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

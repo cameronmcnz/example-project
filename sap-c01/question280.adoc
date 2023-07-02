@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "1080 - A recent increase of users of an applica"
+---
+
+
+[.question]
+== 1080-64a1df5daa736d27b1db944a.
+
+
+****
+
+[.query]
+--
+A recent increase of users of an application hosted on an EC2 instance has caused the instance's OS to run out of CPU resources and crash.
+The crash caused several users' unsaved data to be lost, and your supervisor wants to know how this problem can be avoided in the future.
+Which of the following would you NOT recommend?
+
+
+--
+
+[.list]
+--
+* [*] A. Redesign the application so that users’ unsaved data is periodically written to disk.
+* [*] B. Take frequent snapshots of the EBS volume during business hours to ensure users’ data is backed up.
+* [ ] C. Snapshot the EBS volume and re-deploy the application server as a larger instance type.
+* [ ] D. Use Auto Scaling to deploy additional application server instances when the load is high.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is incorrect because this option would ensure that the user's unsaved data gets preserved just in case the instance crashes.
+Option B is CORRECT because taking frequent snapshots of the EBS volume during business hours may cause data loss (losing the data that is not yet written to the volume backed up via snapshot)
+AWS is strongly recommended to either detach the volume or freeze all writes before taking the snapshot to prevent data loss.
+Hence, this option is certainly not recommended.
+Option C is incorrect because using a larger instance type can mitigate the problem of the instance running out of CPU.
+Option D is incorrect because Auto Scaling will ensure that that at least one (or minimum number of) instance(s) would be running to ensure that the application is always up and running.
+For more information on EBS snapshots, please refer to the below URLs-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html https://forums.aws.amazon.com/thread.jspa?threadID=92160
+Option A: Redesign the application so that users' unsaved data is periodically written to disk.
+This option is a valid solution to avoid loss of unsaved data during an EC2 instance crash. By periodically saving the users' data to disk, you ensure that even if the instance crashes, the data will not be lost. However, this option alone does not address the underlying cause of the crash, which is the insufficient CPU resources. Therefore, you should recommend this option along with other solutions to ensure that the instance can handle the increased load.
+Option B: Take frequent snapshots of the EBS volume during business hours to ensure users' data is backed up.
+This option is not a solution to avoid the EC2 instance crash caused by insufficient CPU resources. Taking frequent snapshots of the EBS volume is a good practice to ensure that the data is backed up, but it does not prevent the instance from crashing due to lack of resources. Moreover, taking frequent snapshots during business hours may cause a significant impact on the application's performance, as it could cause I/O wait time on the EBS volume.
+Option C: Snapshot the EBS volume and re-deploy the application server as a larger instance type.
+This option addresses the cause of the EC2 instance crash caused by insufficient CPU resources. By deploying a larger instance type, you increase the instance's CPU resources, which can handle the increased load. However, snapshotting the EBS volume and re-deploying the application server is a time-consuming process, and it involves downtime, which could cause inconvenience to the users. Moreover, this solution may not be cost-effective, as larger instance types are more expensive.
+Option D: Use Auto Scaling to deploy additional application server instances when the load is high.
+This option is a recommended solution to avoid EC2 instance crashes caused by insufficient CPU resources. By using Auto Scaling, you can deploy additional application server instances to handle the increased load. This solution ensures that the application can handle the increased load without causing downtime or inconvenience to the users. Moreover, Auto Scaling allows you to save costs by automatically scaling down when the load decreases.
+Conclusion:
+In conclusion, the recommended solutions to avoid EC2 instance crashes caused by insufficient CPU resources are Option A, Option C, and Option D. Option B is not a recommended solution as it does not address the underlying cause of the EC2 instance crash.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question409:"link"
+
+

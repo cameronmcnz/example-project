@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "902 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 902-64a1a85fef3e8462333a9c9c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0008900001.jpg[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public static void main(String[] args) {
+Console console = System.console();
+char[] pass = console.readPassword ("Enter passwor
+String password = new String(pass); // line n2
+
+# // line nl
+----
+
+
+--
+
+[.list]
+--
+* [*] A. A compilation error occurs at line n1.
+* [ ] B. A compilation error occurs at line n2.
+* [ ] C. The code reads the password without echoing characters on the console.
+* [ ] D. A compilation error occurs because the IOException isn`t declared to be thrown or caught?
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

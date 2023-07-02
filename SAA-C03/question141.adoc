@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "941 - A company has an application that delive"
+---
+
+
+[.question]
+== 941-64a1fa6df053625db51dde91.
+
+
+****
+
+[.query]
+--
+A company has an application that delivers objects from S3 to global users.
+Of late, some users have been complaining of slow response times.
+Which additional step would help to build a cost-effective solution and ensure that the users get an optimal response to objects from S3?
+
+
+--
+
+[.list]
+--
+* [*] A. Use S3 Replication to replicate the objects to regions closest to the users.
+* [ ] B. Ensure S3 Transfer Acceleration is enabled to ensure that all users get the desired response times.
+* [*] C. Place an ELB in front of S3 to distribute the load across S3.
+* [*] D. Place the S3 bucket behind a CloudFront distribution.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Documentation mentions the following:
+If your workload is mainly sending GET requests, in addition to the preceding guidelines, you should consider using Amazon CloudFront for performance optimization.
+Integrating Amazon CloudFront with Amazon S3, you can distribute content to your users with low latency and a high data transfer rate.
+You will also send fewer direct requests to Amazon S3, which will reduce your costs.
+For example, suppose that you have a few very popular objects.
+Amazon CloudFront fetches those objects from Amazon S3 and caches them.
+Amazon CloudFront can then serve future requests for the objects from its cache, reducing the number of GET requests it sends to Amazon S3.
+For more information on performance considerations in S3, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
+Option A is incorrect.
+S3 Cross-Region Replication is not the correct answer for this business scenario.You are asked how to provide easier &amp; faster access to data in the S3 bucket, and this option is used to replicate S3 bucket data across regions.
+Option B is incorrect.
+S3 TA is used for fast, easy, and secure file transfer over long distances between your client and your Amazon S3 bucket.
+S3 Transfer Acceleration does leverage Amazon CloudFront's globally distributed AWS Edge Locations.
+But it would be too costly for this situation.
+Option C is incorrect.
+ELB is used to distribute traffic on to EC2 Instances.
+The best option to address the slow response times for global users accessing objects from S3 while also being cost-effective would be to use Amazon CloudFront.
+CloudFront is a content delivery network (CDN) that distributes content to various locations globally using edge locations. By placing an S3 bucket behind a CloudFront distribution, the user requests can be routed to the edge location that is closest to the user, resulting in lower latency and faster response times.
+Option A, using S3 replication to replicate objects to regions closest to the users, is a valid solution but may not be as cost-effective as CloudFront. Replicating objects to multiple regions would incur additional costs and would require more time and effort to set up and manage.
+Option B, enabling S3 Transfer Acceleration, is useful for speeding up transfers over long distances but does not address the issue of slow response times for users accessing objects from S3.
+Option C, placing an Elastic Load Balancer (ELB) in front of S3, would not be useful since S3 is not an application server and cannot be load-balanced by ELB.
+Therefore, the best option to ensure optimal response times for users accessing objects from S3 globally while also being cost-effective is to place the S3 bucket behind a CloudFront distribution.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question160:"link"
+
+

@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "963 - A legal consultant firm is using version"
+---
+
+
+[.question]
+== 963-64a1fa74f053625db51ddea9.
+
+
+****
+
+[.query]
+--
+A legal consultant firm is using versioning enabled S3 buckets to save all its legal documents.
+To avoid any deletion/ modification of these documents, they have locked these files with a retention period of 6 months.
+In some cases, these legal documents are getting updated with new information that the firm requires to set a different retention period than the original object.
+Which of the following actions will meet this requirement with the least efforts?
+
+
+--
+
+[.list]
+--
+* [*] A. Create another version of the object with the same name and have a separate retention period than the current object.
+* [ ] B. Create another bucket & place new objects with different retention periods.
+* [*] C. Overwrite the current object and then place the object in the same bucket with different retention periods.
+* [ ] D. Modify name & version of object & have separate retention period than the current object.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+With version-enabled S3 buckets, each version of an object can have a different retention period.
+Option B is incorrect because although creating different buckets and placing an object in that bucket will work, this is not required as the same can be done using the existing S3 bucket.
+We have to select the option with the least effort.
+Option C is incorrect because if we overwrite the object then there is no use of versioning-enabled bucket.
+It will create more complexity within the bucket to identify the actual content modified in the object.
+Option D is incorrect because modifying the name of the same object will increase additional complexity in the bucket.
+For more information on using Amazon S3 object lock, refer to the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-retention-periods
+The best option to meet the requirement with the least effort would be A. Create another version of the object with the same name and have a separate retention period than the current object.
+Explanation: The legal consultant firm is using versioning-enabled S3 buckets to store all its legal documents. Versioning-enabled S3 buckets help to keep multiple versions of the same object in the same bucket, with unique version IDs. With versioning, it is possible to recover any previous version of an object that has been overwritten or deleted.
+To avoid any deletion/modification of these documents, the firm has locked these files with a retention period of 6 months. This retention policy ensures that the objects in the bucket cannot be deleted or modified for a period of 6 months.
+In some cases, these legal documents are getting updated with new information that the firm requires to set a different retention period than the original object. This means that the retention period needs to be changed for the new version of the object.
+To meet this requirement with the least effort, the firm can create another version of the object with the same name and have a separate retention period than the current object. This is possible because versioning allows multiple versions of the same object to be stored in the same bucket. By creating a new version of the object, the firm can set a different retention period for that specific version, without affecting the previous versions. This approach is also cost-effective because it does not require the creation of a new bucket or the modification of the existing object.
+Option B, creating another bucket, and placing new objects with different retention periods is not the best approach because it is not necessary to create a new bucket for this scenario. It is also not the most cost-effective option.
+Option C, overwriting the current object and then placing the object in the same bucket with different retention periods, is not recommended because it would modify the original object, which would result in the loss of the original information. This option does not meet the requirement of keeping the original object intact.
+Option D, modifying the name and version of the object and having a separate retention period than the current object, is not necessary because versioning already provides the functionality to keep multiple versions of the same object in the same bucket. This option is also not the most cost-effective approach.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question184:"link"
+
+

@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "1109 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 1109-64a1fab4f053625db51ddf4e.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a media firm.
+The firm has large text files that need to be converted into audio files.
+They are using S3 buckets to store this text files. AWS Batch is used to process these files along with Amazon Polly.
+For the compute environment, you have a mix of EC2 On-Demand & Spot instances.
+Critical Jobs are required to be completed quickly, while non-critical Jobs can be scheduled during non-peak hours.
+While using AWS Batch, management wants a cost-effective solution with no performance impact.
+Which of the following Job Queue can be selected to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Create single Job Queue with EC2 On Demand instance having higher priority & Spot Instance having lower priority.
+* [*] B. Create multiple Job Queues with one Queue having EC2 On Demand instance & having higher priority while another queue having Spot Instance & lower priority.
+* [*] C. Create multiple Job Queues with one Queue having EC2 On Demand instance & having lower priority while another queue having Spot Instance & higher priority.
+* [ ] D. Create single Job Queue with EC2 On Demand instance having lower priority & Spot Instance having higher priority.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+You can create multiple Job queues with different priority &amp; mapped Compute environments to each Job queue.
+When Job queues are mapped to the same compute environment, queues with higher priority are evaluated first.
+Option A is incorrect as Multiple queues need to be created for each Job type.
+In the requirement, critical Jobs will be processed using EC2 instance while low priority jobs will be using Job queue with Spot Instance.
+Option C is incorrect as Priority for a Job queue is selected in descending order.
+Higher priority Job queue is preferred first.
+Option D is incorrect as Multiple queues need to be created for each Job type.
+In the requirement, critical Jobs will be processed using EC2 instance while low priority jobs will be using Job queue with Spot Instance.
+Also, a higher priority Job queue is preferred first.
+For more information on Job queues in AWS Batch, refer to the following URL-
+https://docs.aws.amazon.com/batch/latest/userguide/job_queue_parameters.html
+AWS Batch is a fully managed service that enables developers, scientists, and engineers to easily and efficiently run batch computing workloads of any scale on AWS. Batch jobs can be used to process large amounts of data or to perform complex calculations that take a long time to complete. Amazon Polly is a text-to-speech service that uses advanced deep learning technologies to synthesize speech that sounds like a human voice.
+To meet the requirements of the media firm, a cost-effective solution is needed with no performance impact. The critical jobs need to be completed quickly, while non-critical jobs can be scheduled during non-peak hours. Since the firm is using a mix of EC2 On-Demand and Spot instances for the compute environment, AWS Batch can be used to process the text files into audio files.
+Job Queues are used to manage batch jobs in AWS Batch. A Job Queue is a collection of Jobs that share the same compute resources. Jobs in a Job Queue are processed in the order they are received. AWS Batch automatically selects the optimal instance types and sizes based on the resource requirements of the Jobs in the queue.
+Option A: Create single Job Queue with EC2 On-Demand instance having higher priority & Spot Instance having lower priority.
+This option uses a single Job Queue with a mix of On-Demand and Spot instances. On-Demand instances are used for critical jobs that need to be completed quickly, while Spot instances are used for non-critical jobs that can be scheduled during non-peak hours. This option is not optimal as it does not take into account the fact that Spot instances can be interrupted at any time if the Spot price goes above the maximum bid price.
+Option B: Create multiple Job Queues with one Queue having EC2 On-Demand instance & having higher priority while another queue having Spot Instance & lower priority.
+This option uses multiple Job Queues to manage the critical and non-critical jobs separately. On-Demand instances are used for critical jobs that need to be completed quickly, while Spot instances are used for non-critical jobs that can be scheduled during non-peak hours. This option is better than option A as it separates the critical and non-critical jobs into different Job Queues. However, it does not take into account the fact that Spot instances can be interrupted at any time if the Spot price goes above the maximum bid price.
+Option C: Create multiple Job Queues with one Queue having EC2 On-Demand instance & having lower priority while another queue having Spot Instance & higher priority.
+This option uses multiple Job Queues to manage the critical and non-critical jobs separately. On-Demand instances are used for non-critical jobs that can be scheduled during non-peak hours, while Spot instances are used for critical jobs that need to be completed quickly. This option is better than option B as it takes into account the fact that Spot instances can be interrupted at any time if the Spot price goes above the maximum bid price. Using Spot instances for critical jobs may cause delays and impact the performance of the workload.
+Option D: Create single Job Queue with EC2 On-Demand instance having lower priority & Spot Instance having higher priority.
+This option uses a single Job Queue with a mix of On-Demand and Spot instances. On-Demand instances are used for non-critical jobs that can be scheduled during non-peak hours, while Spot instances are used for critical jobs that need to be completed quickly. This option is the best choice as it separates the critical and non-critical jobs into different priorities, and uses On-Demand instances for non-critical jobs, which have a higher chance of being interrupted by Spot instances.
+In conclusion, Option D is the best choice for meeting the media firm's requirements, as it separates the critical and non-critical jobs into different priorities and uses On-Demand
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question352:"link"
+
+

@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1301 - You have an AWS setup with an existing V"
+---
+
+
+[.question]
+== 1301-64a1fb18f053625db51de042.
+
+
+****
+
+[.query]
+--
+You have an AWS setup with an existing VPC in us-east-1
+You have a fleet of 20 EC2 instances attached to EFS with mount targets on all existing VPC's availability zones.
+Your organization had requested you to replicate the same setup in another VPC within us-east-1 keeping the same EFS volume.
+How will you achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Attach new VPC to existing EFS, create new mount targets for new VPC and mount EFS on EC2 instances within new VP.
+* [*] B. Create a new VP.
+* [ ] C. Establish a VPC peering connection between the VPCs. Use the instances that are created in the new VPC to access the already existing EFS with mount targets.
+* [ ] D. EFS is available for all VPCs within a region by default. Mount EFS on new EC2 instances and configure EFS security group to allow inbound traffic.
+* [ ] E. EFS can be used only within one VPC at a time. You need to launch EC2 instances in existing VP.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer: B.
+Working with VPC Peering in Amazon EFS.
+A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private Internet Protocol version 4 (IPv4) or Internet Protocol version 6 (IPv6) addresses.
+For more information on VPC peering, see What is VPC Peering? in the Amazon VPC Peering Guide.
+https://aws.amazon.com/about-aws/whats-new/2018/11/amazon-efs-now-supports-access-across-accounts-and-vpcs/ https://docs.aws.amazon.com/efs/latest/ug/manage-fs-access-change-vpc.html#manage-fs-access-vpc-peering
+For options A and C, you can use an Amazon EFS file system in one VPC at a time.
+That is, you create mount targets in a VPC for your file system and use those mount targets to provide access to the file system from EC2 instances in that VPC.For option D, although the statement is correct, launching EC2 instances within the same VPC is not a solution when you were asked to do in a new VPC.
+The correct answer from the given options would be to peer the VPC and use appropriate instance types.
+The correct answer to this question is C. Establish a VPC peering connection between the VPCs. Use the instances that are created in the new VPC to access the already existing EFS with mount targets.
+Explanation: The first thing to note is that EFS is not VPC-specific, which means that EFS volumes can be shared across multiple VPCs within a region. Therefore, we can reuse the same EFS volume that is already attached to the existing EC2 instances.
+To set up the new VPC, we can use VPC peering. VPC peering enables you to connect two VPCs together so that they can communicate with each other using private IP addresses. This is done without the need for a VPN connection or a dedicated connection. In this case, we will establish a VPC peering connection between the existing VPC and the new VPC.
+Once the VPC peering connection is established, we can create new EC2 instances within the new VPC and use them to access the EFS volume that is already mounted on the existing EC2 instances. We can do this by configuring the security groups for the EC2 instances to allow traffic between the two VPCs.
+In summary, the steps to achieve the required setup are:
+1. Establish a VPC peering connection between the existing VPC and the new VPC.
+2. Create new EC2 instances within the new VPC.
+3. Mount the existing EFS volume on the new EC2 instances.
+4. Configure the security groups for the EC2 instances to allow traffic between the two VPCs.
+Option A is incorrect because we cannot attach a single EFS volume to multiple VPCs at the same time. Therefore, we cannot simply attach the new VPC to the existing EFS volume.
+Option B is incorrect because creating a new VPC alone does not solve the problem. We need to establish a connection between the new VPC and the existing VPC.
+Option D is incorrect because we do not need to configure the security group for the EFS volume. Instead, we need to configure the security group for the EC2 instances to allow traffic between the two VPCs.
+Option E is incorrect because EFS volumes can be shared across multiple VPCs within a region. Therefore, we can use the existing EFS volume in the new VPC.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question597:"link"
+
+

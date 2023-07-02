@@ -1,0 +1,91 @@
+---
+layout: default 
+title: "1030 - Your application uses an ELB in front of"
+---
+
+
+[.question]
+== 1030-64a1df4aaa736d27b1db93fd.
+
+
+****
+
+[.query]
+--
+Your application uses an ELB in front of an Auto Scaling group of web/application servers deployed across two AZs and a Multi-AZ RDS Instance for data persistence.
+The database CPU is often above 80% usage, and 90% of I/O operations on the database are reads.
+To improve the performance, you recently added a single-node Memcached ElastiCache Cluster to cache frequent DB query results.
+In the next weeks, the overall workload is expected to grow by 30%
+Do you need to change anything in the architecture to maintain the high availability of the application with the anticipated additional load, and why?
+
+
+--
+
+[.list]
+--
+* [*] A. Yes. You should deploy two Memcached ElastiCache clusters in different AZ`s with a change in application logic to support both clusters because the RDS instance will not be able to handle the load if the cache node fails.
+* [ ] B. No. If the cache node fails, the automated ElastiCache node recovery feature will prevent any availability impact.
+* [ ] C. Yes. You should deploy the Memcached ElastiCache Cluster with two nodes in the same AZ as the RDS DB master instance to handle the load if one cache node fails.
+* [ ] D. No. If the cache node fails, you can always get the same data from the DB without having any availability impact.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because having two clusters in different AZs provides high availability of the cache nodes, removing the single point of failure.
+It will help caching the data; hence, reducing the overload on the database, maintaining the availability, and reducing the impact.
+Option B is incorrect because, even though AWS will automatically recover the failed node, there are no other nodes in the cluster once the failure happens.
+So, the data from the cluster would be lost once that single node fails.
+For higher availability, there should be multiple nodes.
+Also, once the cache node fails, all the cached read load will go to the database, which will not be able to handle the load with a 30% increase to current levels.
+This means there will be an availability impact.
+Option C is incorrect because provisioning the nodes in the same AZ does not tolerate an AZ failure.
+For higher availability, the nodes should be spread across multiple AZs.
+Option D is incorrect because the very purpose of the cache node was to reduce the impact on the database by not overloading it.
+If the cache node fails, the database will not be able to handle the 30% increase in the load; so, it will have an availability impact.
+More information on this topic from AWS Documentation:
+http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html
+Mitigating Node Failures.
+To mitigate the impact of a node failure, spread your cached data over more nodes.
+Because Memcached does not support replication, a node failure will always result in some data loss from your cluster.
+When you create your Memcached cluster, you can create it with 1 to 20 nodes or more by special request.
+Partitioning your data across a greater number of nodes means you'll lose less data if a node fails.
+For example, if you partition your data across 10 nodes, any single node stores approximately 10% of your cached data.
+In this case, a node failure loses approximately 10% of your cache which needs to be replaced when a replacement node is created and provisioned.
+Mitigating Availability Zone Failures.
+To mitigate the impact of an availability zone failure, locate your nodes in as many availability zones as possible.
+In the unlikely event of an AZ failure, you will lose only the data cached in that AZ, not the data cached in the other AZs.
+Based on the information provided, the application is using an ELB in front of an Auto Scaling group of web/application servers deployed across two AZs, and a Multi-AZ RDS Instance for data persistence. The database CPU usage is high, and 90% of I/O operations on the database are reads, which can lead to performance issues.
+To address the performance issues, a single-node Memcached ElastiCache Cluster has been added to cache frequent DB query results. However, the workload is expected to grow by 30% in the next few weeks, which may impact the overall availability of the application.
+Answering the question:
+A. Yes. You should deploy two Memcached ElastiCache clusters in different AZ's with a change in application logic to support both clusters because the RDS instance will not be able to handle the load if the cache node fails.
+Explanation: Deploying two Memcached ElastiCache clusters in different AZs would help ensure high availability and avoid a single point of failure. By deploying two clusters, the application can continue to function even if one of the cache nodes fails. However, it is important to ensure that the application logic can support both clusters to take advantage of the increased availability.
+B. No. If the cache node fails, the automated ElastiCache node recovery feature will prevent any availability impact.
+Explanation: ElastiCache provides automated node recovery features, which can help avoid availability impact in case of a cache node failure. However, it is important to note that a single-node cache cluster may not provide the required performance and availability for the application, especially with the anticipated workload growth.
+C. Yes. You should deploy the Memcached ElastiCache Cluster with two nodes in the same AZ as the RDS DB master instance to handle the load if one cache node fails.
+Explanation: Deploying a two-node Memcached ElastiCache cluster in the same AZ as the RDS DB master instance can help ensure high availability and reduce network latency. In this scenario, the application can continue to function even if one of the cache nodes fails. However, it is important to note that this approach may not provide optimal performance and availability if the AZ experiences a failure.
+D. No. If the cache node fails, you can always get the same data from the DB without having any availability impact.
+Explanation: If the cache node fails, the application can still retrieve the required data from the RDS instance, but it may impact performance and availability. Additionally, the RDS instance is already experiencing high CPU usage, which may worsen with the anticipated workload growth. Hence, relying solely on the RDS instance may not provide optimal performance and availability for the application.
+In conclusion, option A is the most appropriate answer as it provides high availability by deploying two Memcached ElastiCache clusters in different AZs, and ensures the application logic can support both clusters.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question332:"link"
+
+

@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "1086 - A cashstarved startup firm is using AWS "
+---
+
+
+[.question]
+== 1086-64a1faaaf053625db51ddf35.
+
+
+****
+
+[.query]
+--
+A cash-starved start-up firm is using AWS Storage Gateway to back up all on-premise data to Amazon S3
+For this, they have set up VPN connectivity to VGW from client end devices using existing internet links.
+They are recently observing data backups taking a long time to complete due to large data size.
+They are also looking for an immediate resolution for quick data backup.
+Which of the following is a cost-effective way to faster data backups on the VPN tunnel?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a new VPN tunnel with ECMP enabled on a separate VGW.
+* [ ] B. Create a new VPN tunnel with ECMP enabled on the same VGW.
+* [*] C. Create an additional VPN tunnel using a different VGW-Client end device
+* [*] D. Enable ECMP with multiple VPN tunnels associated with a transit gateway.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+For each VPN Tunnel, AWS provides two different VPN endpoints.
+ECMP (Equal Cost Multi-Path) can be used to carry traffic on both VPN endpoints, increasing performance &amp; faster data transfer.
+Options A &amp; B are incorrect because ECMP needs to be enabled through a transit gateway.
+Option C is incorrect as creating a separate VPN tunnel will incur additional cost &amp; will not enhance any performance without enabling ECMP.
+For more information on AWS VPN performance, refer to the following URL-
+https://aws.amazon.com/vpn/features/ https://aws.amazon.com/premiumsupport/knowledge-center/transit-gateway-ecmp-multiple-tunnels/
+The situation here is that a startup firm is using AWS Storage Gateway to back up on-premise data to Amazon S3, and they have set up VPN connectivity to VGW from client end devices using existing internet links. However, the firm has noticed that data backups are taking a long time to complete due to large data sizes. They are looking for a cost-effective way to quickly backup data over the VPN tunnel.
+Option A: Create a new VPN tunnel with ECMP enabled on a separate VGW. ECMP stands for Equal Cost Multipath, which enables the use of multiple paths for traffic between two endpoints. In this option, a new VPN tunnel would be created with ECMP enabled on a separate VGW. This would allow traffic to be split between two different paths, increasing bandwidth and potentially reducing backup time. However, this option requires the startup firm to have additional VGW, which may not be cost-effective.
+Option B: Create a new VPN tunnel with ECMP enabled on the same VGW. This option is similar to option A, but instead of using a separate VGW, ECMP is enabled on the same VGW. This would still allow traffic to be split between two different paths, potentially increasing bandwidth and reducing backup time. This option may be more cost-effective than option A, as it does not require additional VGW.
+Option C: Create an additional VPN tunnel using a different VGW-Client end device. In this option, an additional VPN tunnel would be created using a different VGW-Client end device. This would allow traffic to be split between two different VPN tunnels, potentially increasing bandwidth and reducing backup time. However, this option requires the startup firm to have additional VGW, which may not be cost-effective.
+Option D: Enable ECMP with multiple VPN tunnels associated with a transit gateway. A transit gateway is a network transit hub that enables interconnection between multiple VPCs and VPN connections. In this option, ECMP would be enabled with multiple VPN tunnels associated with a transit gateway. This would allow traffic to be split between multiple VPN tunnels, potentially increasing bandwidth and reducing backup time. This option may be more cost-effective than option C and A, as it uses a transit gateway, which can be more cost-effective than additional VGW.
+Overall, the best option would be D. Enabling ECMP with multiple VPN tunnels associated with a transit gateway. This option offers the potential to split traffic between multiple VPN tunnels, which can increase bandwidth and reduce backup time, while also being cost-effective.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question327:"link"
+
+

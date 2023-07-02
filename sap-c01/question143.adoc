@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "943 - Two departments A and B have been added "
+---
+
+
+[.question]
+== 943-64a1df2baa736d27b1db937e.
+
+
+****
+
+[.query]
+--
+Two departments A and B have been added into a consolidated billing organization.
+Department A has 5 reserved RDS instances with DB Engine as MySQL.
+During one particular hour, department A used three DB Instances, and department B used two RDS instances for a total of 5 DB Instances on the consolidated bill.
+How should the RDS instances in department B be configured so that all five instances are charged as Reserved DB Instances?
+
+
+--
+
+[.list]
+--
+* [*] A. Department B should launch DB instances in the same region as Reserved Instance in department
+* [ ] B. The DB engine in Department B should be MySQL.
+* [*] C. The DB Instance Class should be the same in both departments such as m1.large.
+* [ ] D. The deployment type such as Multi-AZ should be the same in both department A and department
+* [*] E. All the above are needed.
+
+--
+****
+
+[.answer]
+Correct Answer E
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer E.
+In order to receive the cost-benefit from Reserved DB Instances, all the attributes of DB Instances (DB Engine, DB Instance class, Deployment type, and License Model) in another account should match the attributes of the Reserved DB Instances.
+Option A &amp; D are all required, and do find the reference in the following link.
+Option E is CORRECT: Because all of the other options are needed.
+The reference is in https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidatedbilling-other.html.
+When multiple AWS accounts are consolidated under a single payer account, it is referred to as consolidated billing. In this scenario, it is important to ensure that all the resources are utilized efficiently to minimize costs. Reserved Instances (RIs) are a way to save costs in AWS by committing to use a certain amount of resources for a specified period.
+In this scenario, department A has 5 reserved RDS instances with DB Engine as MySQL. During one hour, department A used three instances, and department B used two RDS instances for a total of 5 DB Instances on the consolidated bill. To ensure that all five instances are charged as Reserved DB Instances, the following configurations should be in place:
+A. Department B should launch DB instances in the same region as Reserved Instances in department A. The first configuration required is that department B should launch DB instances in the same region as the reserved instances in department A. The pricing of RIs is region-specific, and a reserved instance purchased in one region cannot be used in another region. Therefore, to ensure that department B instances are charged as reserved instances, they need to be launched in the same region as department A's reserved instances.
+B. The DB engine in Department B should be MySQL. The second configuration required is that the DB engine used by department B should be MySQL. Department A's reserved instances have a DB engine of MySQL, and AWS charges based on the DB engine used. If department B uses a different DB engine, then it will not be charged as a reserved instance.
+C. The DB Instance Class should be the same in both departments such as m1.large. The third configuration required is that the DB instance class should be the same in both departments. AWS charges based on the instance type, and if the instance types differ between the two departments, then department B's instances will not be charged as reserved instances. Therefore, to ensure that department B instances are charged as reserved instances, they need to use the same instance type as department A's reserved instances.
+D. The deployment type such as Multi-AZ should be the same in both department A and department B. The fourth configuration required is that the deployment type should be the same in both department A and department B. AWS charges based on the deployment type, and if the deployment type differs between the two departments, then department B's instances will not be charged as reserved instances. Therefore, to ensure that department B instances are charged as reserved instances, they need to have the same deployment type as department A's reserved instances.
+E. All the above are needed. Therefore, all the above configurations are required to ensure that department B's instances are charged as reserved instances, and there are no additional charges incurred.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question204:"link"
+
+

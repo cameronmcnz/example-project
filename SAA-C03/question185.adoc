@@ -1,0 +1,110 @@
+---
+layout: default 
+title: "985 - A solutions architect is designing the c"
+---
+
+
+[.question]
+== 985-64a1fa7cf053625db51ddec2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgNxxL8O1TzhItFhj3Ax0G6_A1wbbPBrMreXXdMtEm5cu0MH13L2VnGkG_e5fpp-LhN1Np1RNzl31XV9buPwLXJC_GRRgSIxD_2RirKOrvU4J5nN3aoqxO_wovSU_wutCNDfUhXWdTOSgPbwdsaw[]
+
+--
+
+
+****
+
+[.query]
+--
+A solutions architect is designing the cloud architecture of a new application being deployed onto AWS Cloud.
+This application has a set of instances that are required to be placed in a placements group.
+The instances should be placed on distinct racks, with each rack having its own network and power source. Which of the following designs provides the highest availability for the application?
+
+
+[source,java]
+----
+a logical grouping of instances within a
+single Availability Zone
+
+exist instance can not be moved into PG
+
+PG can not be merged
+
+‘Sample Region,
+
+Placement Group
+
+NOT support multiple zones
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Place the instances into a cluster placement group that can span across multiple Availability Zones.
+* [ ] B. Place the instances into a partitions placement group to evenly distribute the instances across partitions in an availability zone.
+* [*] C. Place the instances into a spread placement group that can span multiple Availability Zones in the same Region.
+* [ ] D. Place the instances into a spread placement group that can span multiple Availability Zones in the multiple Regions.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Cluster.
+Partition.
+Spread.
+Option A is incorrect because a cluster placement group cannot span across multiple Availability Zones, doesn't meet HA requirements.
+Option B is incorrect because the instances are placed in an availability zone.
+If this particular availability zone has an outage, the application will be impacted.
+As this question asks for the design with the highest availability, this option is not suitable.
+Option C is CORRECT as this meets the HA requirement.
+See above diagrams.
+A spread placement group supports a maximum of seven running instances per Availability Zone.
+For example, in a Region with three Availability Zones, a total of 21 instances ( 7 x 3)in the group (seven per zone)
+If any plans to start the eighth instance in the same AZ and the same spread placement group, the instance will not launch.
+Option D is incorrect because the spread placement group cannot span across multiple regions.
+References:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#concepts-placement-groups
+The requirement is to place the instances of an application in a placements group such that each instance is on a distinct rack with its own network and power source to ensure the highest availability. The options given are:
+A. Place the instances into a cluster placement group that can span across multiple Availability Zones. B. Place the instances into a partitions placement group to evenly distribute the instances across partitions in an availability zone. C. Place the instances into a spread placement group that can span multiple Availability Zones in the same Region. D. Place the instances into a spread placement group that can span multiple Availability Zones in the multiple Regions.
+Let's discuss each option and its suitability for the given requirement:
+Option A: Place the instances into a cluster placement group that can span across multiple Availability Zones.
+A cluster placement group is a logical grouping of instances within a single availability zone, and it can span across multiple instances. This placement group type is best suited for applications that require low network latency, high network throughput, or both. However, this placement group does not meet the requirement of placing instances on distinct racks with their own network and power source, as the instances within the group are placed in close physical proximity to each other.
+Therefore, Option A is not suitable for this requirement.
+Option B: Place the instances into a partitions placement group to evenly distribute the instances across partitions in an availability zone.
+A partitions placement group is a logical grouping of instances within a single availability zone, and it evenly distributes instances across partitions to provide high availability. This placement group type is best suited for applications that have a large number of instances and require high availability within a single availability zone. However, like a cluster placement group, it does not meet the requirement of placing instances on distinct racks with their own network and power source.
+Therefore, Option B is not suitable for this requirement.
+Option C: Place the instances into a spread placement group that can span multiple Availability Zones in the same Region.
+A spread placement group is a logical grouping of instances that are placed on distinct underlying hardware to reduce the risk of simultaneous failure. This placement group type is best suited for applications that require high availability and isolation from other instances within the same availability zone. The spread placement group ensures that each instance is placed on a distinct rack with its own network and power source, which meets the requirement. Additionally, the spread placement group can span multiple availability zones in the same region, providing additional redundancy.
+Therefore, Option C is the most suitable for this requirement.
+Option D: Place the instances into a spread placement group that can span multiple Availability Zones in the multiple Regions.
+This option provides the highest level of availability by placing instances in multiple regions, but it is not required by the given requirement. Additionally, this option increases the complexity of the deployment and may have higher costs associated with it. Therefore, it is not the most suitable option for this requirement.
+In conclusion, the correct answer is option C: Place the instances into a spread placement group that can span multiple Availability Zones in the same Region.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question210:"link"
+
+

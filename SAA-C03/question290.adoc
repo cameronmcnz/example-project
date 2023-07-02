@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "1090 - Your architecture for an application cur"
+---
+
+
+[.question]
+== 1090-64a1faacf053625db51ddf3a.
+
+
+****
+
+[.query]
+--
+Your architecture for an application currently consists of EC2 Instances sitting behind a classic ELB.
+The EC2 Instances are used to serve an application and are accessible through the internet.
+What could be done to improve this architecture if the number of users accessing the application increases regularly?
+
+
+--
+
+[.list]
+--
+* [*] A. Add another ELB to the architecture.
+* [*] B. Use Auto Scaling Groups.
+* [*] C. Use an Application Load Balancer instead.
+* [ ] D. Use the Elastic Container Service.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+AWS Auto Scaling monitors your applications and automatically adjusts the capacity to maintain steady, predictable performance at the lowest possible cost.
+Using AWS Auto Scaling, it is easy to setup application scaling for multiple resources across multiple services in minutes.
+For more information on AWS Auto Scaling, please visit the following URL-
+https://aws.amazon.com/autoscaling/
+When the number of users accessing an application increases regularly, the architecture needs to be adjusted to ensure that the application can handle the increased traffic load. There are several possible solutions to this problem, but the best one depends on the specific requirements and constraints of the application.
+Option A: Add another ELB to the architecture. This option may provide some additional capacity, but it does not address the issue of automatically scaling the number of EC2 instances based on the traffic load. Therefore, it is not an ideal solution for applications that require automatic scaling.
+Option B: Use Auto Scaling Groups. Auto Scaling Groups allow for automatically scaling the number of EC2 instances based on the traffic load. This is a good option when the traffic load is unpredictable or varies greatly over time. Auto Scaling Groups can be configured to automatically launch additional EC2 instances when the traffic load increases, and terminate them when the load decreases.
+Option C: Use an Application Load Balancer instead. An Application Load Balancer (ALB) provides more advanced routing and load balancing capabilities than a classic ELB. It can route traffic based on the content of the request, and distribute traffic to target instances based on various criteria such as the least busy instance or the instance with the highest priority. ALB also provides support for WebSocket and HTTP/2 protocols. Using an ALB instead of a classic ELB can provide more flexibility and scalability for the application.
+Option D: Use the Elastic Container Service. Using the Elastic Container Service (ECS) can improve the scalability and availability of the application by providing a managed container orchestration platform. ECS allows for running and scaling containerized applications on AWS. It provides support for Docker containers and can integrate with other AWS services such as Auto Scaling Groups, ALB, and Elastic Block Store (EBS). Using ECS can simplify the deployment and management of containerized applications and improve the overall scalability of the application.
+In summary, while all the options presented can improve the scalability of an application, the best solution depends on the specific requirements and constraints of the application. Auto Scaling Groups, an Application Load Balancer, or Elastic Container Service can all be effective solutions for increasing application scalability.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question332:"link"
+
+

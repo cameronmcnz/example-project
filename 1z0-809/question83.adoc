@@ -1,0 +1,43 @@
+---
+layout: default 
+title: "883 - Given the code fragment Path path1  Path"
+---
+
+
+[.question]
+== 883-64a1a85aef3e8462333a9c89.
+
+
+****
+
+[.query]
+--
+Given the code fragment: Path path1 = Paths.get("/app/./sys/"); Path res1 = path1.resolve("log"); Path path2 = Paths.get("/server/exe/"); Path res1 = path1.resolve("/readme/"); System.out.println(res1); System.out.println(res2); What is the result?
+
+
+--
+
+[.list]
+--
+* [ ] A. /app/sys/log /readme/server/exe
+* [ ] B. /app/log/sys /server/exe/readme
+* [*] C. /app/./sys/log /readme
+* [ ] D. /app/./sys/log /server/exe/readme.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

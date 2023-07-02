@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "999 - To manage a large number of AWS accounts"
+---
+
+
+[.question]
+== 999-64a1fa81f053625db51dded2.
+
+
+****
+
+[.query]
+--
+To manage a large number of AWS accounts in a better way, you create a new AWS Organization and invite multiple accounts.
+You only enable the “Consolidated billing” feature set in the organization.
+Which of the following signifies Consolidated billing in the AWS Organization?
+
+
+--
+
+[.list]
+--
+* [*] A. Apply SCPs to restrict the services that IAM users can access.
+* [ ] B. Configure tag policies to maintain consistent tags for resources in the organization`s accounts.
+* [*] C. Configure a policy to prevent IAM users in the organization from disabling AWS CloudTrail.
+* [*] D. Combine the usage across all accounts to share the volume pricing discounts.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+For the differences between “Consolidated billing” and “All features”, refer to the reference in https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only.
+Option A is incorrect: Because SCP is part of the advanced features which belong to “All features”.
+Option B is incorrect: Because tag policies can be applied under the feature set of “All features”.
+Option C is incorrect: This is implemented using SCP which is not supported in “Consolidated billing”.
+Option D is CORRECT: This is supported in “Consolidated billing” according to.
+https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html.
+The correct answer is D. Combine the usage across all accounts to share the volume pricing discounts.
+When you create an AWS Organization and enable the Consolidated billing feature set, you can consolidate payment for multiple AWS accounts within your organization by designating a single account to pay for all of the other accounts.
+This consolidated billing feature provides a way to consolidate billing information across multiple AWS accounts, making it easier to track and analyze costs. By combining the usage across all accounts, you can benefit from the volume pricing discounts. For example, if you have multiple AWS accounts, each with its own S3 bucket, by using consolidated billing, you can take advantage of the pricing tiers that are based on the combined usage of all of the S3 buckets.
+The other options listed in the question are not related to consolidated billing.
+Option A, Apply SCPs to restrict the services that IAM users can access, refers to Service Control Policies (SCPs), which are used to control which AWS services and features can be accessed by IAM users and roles within an AWS account.
+Option B, Configure tag policies to maintain consistent tags for resources in the organization's accounts, refers to the Tagging feature, which allows you to assign metadata to AWS resources in the form of tags. A tag policy helps you maintain consistency in the way tags are applied across AWS accounts in your organization.
+Option C, Configure a policy to prevent IAM users in the organization from disabling AWS CloudTrail, refers to AWS CloudTrail, which is a service that provides a record of actions taken by a user, role, or an AWS service in your account. This option is not related to consolidated billing.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question226:"link"
+
+

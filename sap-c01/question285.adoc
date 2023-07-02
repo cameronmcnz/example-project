@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "1085 - A company has developed a sensor intende"
+---
+
+
+[.question]
+== 1085-64a1df5eaa736d27b1db9450.
+
+
+****
+
+[.query]
+--
+A company has developed a sensor intended to be placed inside people's watches, monitoring the number of steps taken every day.
+There is an expectation of thousands of sensors reporting every minute and hopes to scale to millions by the end of the year.
+A requirement for the project is that it needs to accept the data, run it through ETL to store in the warehouse, and archive it on Amazon Glacier, with room for a real-time dashboard for the sensor data to be added at a later date.
+What is the best method for architecting this application given the requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Write the sensor data to Amazon S3 with a lifecycle policy for Glacier, create an EMR cluster that uses the bucket data, and run it through ETL. It then outputs that data into the Redshift data warehouse.
+* [ ] B. Use Amazon Cognito to accept the data when the user pairs the sensor to the phone. Then have Cognito send the data to Dynamodb. Use Data Pipeline to create a job that takes the DynamoDB table and sends it to an EMR cluster for ETL, then outputs to Redshift and S3 while using S3 lifecycle policies to archive on Glacier.
+* [ ] C. Write the sensor data directly to a scalable DynamoDB; create a data pipeline that starts an EMR cluster using data from DynamoDB and sends the data to S3 and Redshift.
+* [*] D. Write the sensor data directly to Amazon Kinesis, output the data into Amazon S3, and create a lifecycle policy for Glacier archiving. Also, have a parallel processing application that runs the data through EMR and sends it to a Redshift data warehouse.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because S3 is not ideal for handling huge amounts of real-time requests.
+Option B is incorrect because Amazon Cognito is not suitable for handling real-time data.
+Option C is incorrect because DynamoDB is not suitable for data ingestion and handling.
+Option D is CORRECT because the requirement is real-time data ingestion and analytics.
+The best option is to use Kinesis for storing real-time incoming data.
+The data can then be moved to S3 and then analyzed using EMR and Redshift.
+Data can then be moved to Glacier for archival.
+More information about the use of Amazon Kinesis:
+Amazon Kinesis is a platform for streaming data on AWS, making it easy to load and analyze streaming data, and also providing the ability for you to build custom streaming data applications for specialized needs.
+Use Amazon Kinesis Streams to collect and process large streams of data records in real-time.
+Use Amazon Kinesis Firehose to deliver real-time streaming data to destinations such as Amazon S3 and Amazon Redshift.
+Use Amazon Kinesis Analytics to process and analyze streaming data with standard SQL.
+More information about the use of Amazon Cognito:
+Amazon Cognito lets you easily add user sign-up and sign-in and manage permissions for your mobile and web apps.
+You can create your own user directory within Amazon Cognito, or you can authenticate users through social identity providers such as Facebook, Twitter, or Amazon; with SAML identity solutions; or by using your own identity system.
+In addition, Amazon Cognito enables you to save data locally on users' devices, allowing your applications to work even when the devices are offline.
+You can then synchronize data across users' devices so that their app experience remains consistent regardless of the device they use.
+The best method for architecting this application given the requirements would be option D, which involves writing the sensor data directly to Amazon Kinesis, outputting the data into Amazon S3, and creating a lifecycle policy for Glacier archiving. Additionally, a parallel processing application is used to run the data through EMR and send it to a Redshift data warehouse. This architecture provides a scalable and efficient solution that can handle the expected high volume of sensor data.
+Amazon Kinesis is a real-time data streaming service that can handle large volumes of streaming data. In this architecture, the sensor data is directly written to Amazon Kinesis, which allows for real-time processing of the data as it is received. Kinesis provides high throughput and low latency, which is essential for processing large volumes of data in real-time.
+The next step is to output the data to Amazon S3, where it can be stored and processed further. Amazon S3 provides a highly scalable, durable, and secure storage solution. A lifecycle policy can be applied to the S3 bucket, which moves older data to Amazon Glacier for long-term archival storage.
+To process the data, a parallel processing application is used to run the data through EMR. Amazon EMR is a managed Hadoop framework that provides a scalable and cost-effective way to process large amounts of data. The data is extracted, transformed, and loaded (ETL) in EMR, and then sent to a Redshift data warehouse for further analysis.
+Overall, this architecture provides a scalable and efficient solution for handling the expected high volume of sensor data. It uses several AWS services that are designed for handling large volumes of data and processing it in real-time, while also providing long-term archival storage and the ability to perform complex analytics on the data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question415:"link"
+
+

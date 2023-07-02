@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "995 - You have two AWS Organizations
+All the A"
+---
+
+
+[.question]
+== 995-64a1fa80f053625db51ddece.
+
+
+****
+
+[.query]
+--
+You have two AWS Organizations.
+All the AWS accounts in Organization A need to be moved to Organization B.
+You have already moved all the member accounts, and now you need to migrate the master account.
+Which of the following options should you choose?
+
+
+--
+
+[.list]
+--
+* [*] A. Delete Organization A and invite the master account to join Organization
+* [ ] B. Remove the master account from Organization A and send an invitation to the account to join Organization
+* [*] C. Send an invitation to the master account. Accept the invitation to move the account from Organization A to Organization
+* [ ] D. The master account in one Organization cannot join another one.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+The reference can be found in this link-https://aws.amazon.com/premiumsupport/knowledge-center/organizations-move-accounts/.
+Option A is CORRECT: For the master account, the Organization needs to be deleted before the account accepts an invitation to join another one.
+Option B is incorrect: Because the master account cannot be removed from an AWS Organization.
+Option C is incorrect: Because the master account in one AWS Organization cannot accept an invitation to join another Organization.
+Option D is incorrect: Check the above explanations in option A.
+Organizations in AWS allow you to centrally manage and govern multiple AWS accounts as a single entity. AWS Organizations helps you to simplify the management of multiple AWS accounts, including billing and access control. It also provides a consolidated view of AWS resources across multiple accounts.
+To migrate all the member accounts from Organization A to Organization B, you need to move the master account to Organization B. The master account is the account that created the organization and has full administrative control over all member accounts in the organization.
+To move the master account, you need to follow the below steps:
+Option A - Delete Organization A and invite the master account to join Organization B: This option is not recommended as it will delete the entire Organization A, which may result in the loss of data, configuration, and other settings. It also requires you to create a new Organization, which can be time-consuming and may require significant effort to recreate the entire organization from scratch.
+Option B - Remove the master account from Organization A and send an invitation to the account to join Organization B: This option is also not recommended as it will require you to remove the master account from Organization A, which will result in the loss of administrative control over the member accounts in that organization. It also requires you to send an invitation to the account to join Organization B, which may result in a delay in migrating the account.
+Option C - Send an invitation to the master account. Accept the invitation to move the account from Organization A to Organization B: This is the recommended option to migrate the master account from Organization A to Organization B. This option allows you to move the master account to Organization B while retaining full administrative control over the member accounts in both organizations. You can send an invitation to the master account from the AWS Organizations console or the AWS CLI. After the invitation is accepted, the account will be moved to Organization B, and you can manage both organizations from a single location.
+Option D - The master account in one Organization cannot join another one: This option is incorrect as it is not possible to have a single master account in multiple organizations. However, you can move the master account from one organization to another as described in option C.
+In summary, the recommended option to migrate the master account from Organization A to Organization B is to send an invitation to the master account and accept the invitation to move the account from Organization A to Organization B.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question222:"link"
+
+

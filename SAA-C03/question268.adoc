@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "1068 - There are two folders A and B in an S3 b"
+---
+
+
+[.question]
+== 1068-64a1faa0f053625db51ddf1f.
+
+
+****
+
+[.query]
+--
+There are two folders, A and B, in an S3 bucket.
+Folder A stores objects that are frequently accessed.
+Folder B saves objects that are long-lived, infrequently accessed, and non-critical.
+The retrieval time for files in folder B should be within milliseconds.
+You want to use different storage classes for objects in these two folders to save cost.
+Which storage classes are proper?
+
+
+--
+
+[.list]
+--
+* [*] A. Standard for folder A and S3 Glacier for folder
+* [ ] B. Intelligent-Tiering for folder A and Reduced Redundancy for folder
+* [*] C. Standard for folder A and One Zone-IA for folder
+* [ ] D. Two S3 buckets are required as an S3 bucket cannot have two storage classes simultaneously.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+About different storage classes of S3 objects, please check https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html.
+Folder A should use Standard as objects are frequently accessed.
+Folder B should use infrequently accessed storage classes such as Standard-IA or One Zone-IA.Option A is incorrect: Because S3 Glacier is improper as files cannot be retrieved within milliseconds.
+Option B is incorrect: Because Reduced Redundancy is not cost-efficient for infrequently accessed objects.
+Option C is CORRECT: Check the above explanations.
+Option D is incorrect: Each object in an S3 bucket can have a user-defined storage class.
+There is no need to maintain two S3 buckets in this scenario.
+The proper storage classes for objects in folders A and B of an S3 bucket, considering cost and access frequency, are:
+C. Standard for folder A and One Zone-IA for folder B.
+Explanation: S3 Standard is suitable for frequently accessed data as it offers low latency, high throughput, and high durability. This storage class is designed to provide high performance and is suitable for applications that require real-time access to data.
+One Zone-IA (Infrequent Access) is a cost-effective storage class for long-lived, infrequently accessed data that can be recreated if lost, damaged, or unavailable for a short period. This storage class stores data in a single availability zone and provides lower cost compared to S3 Standard. Retrieval time for objects in One Zone-IA is within milliseconds, which makes it suitable for objects that are not critical but need to be available quickly.
+Intelligent-Tiering, as mentioned in option B, is suitable for objects with unknown or changing access patterns. This storage class automatically moves objects between two access tiers (frequent and infrequent) based on access patterns, optimizing costs while ensuring low latency and high throughput. However, as the question states that objects in folder A are frequently accessed, Intelligent-Tiering is not the optimal choice.
+Reduced Redundancy, also mentioned in option B, is a deprecated storage class that offers lower durability and lower cost than S3 Standard. This storage class is suitable for data that can be recreated if lost and has been replaced by the S3 Standard-Infrequent Access storage class. Therefore, Reduced Redundancy is not a suitable option for long-lived, infrequently accessed data that needs to be available quickly.
+Option A suggests using S3 Glacier for objects in folder B, which is an archival storage class that is designed for long-term retention of data that is infrequently accessed and can tolerate a retrieval time of several hours. Therefore, S3 Glacier is not suitable for objects that need to be retrieved within milliseconds.
+Option D is incorrect as an S3 bucket can have different storage classes for different objects, and there is no need to create two separate buckets.
+In summary, option C is the optimal choice as it balances cost and access frequency, with S3 Standard for frequently accessed data and One Zone-IA for long-lived, infrequently accessed data that needs to be available quickly.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question305:"link"
+
+

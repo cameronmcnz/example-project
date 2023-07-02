@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "1282 - A 50 year old Computer Solutions company"
+---
+
+
+[.question]
+== 1282-64a1fb0cf053625db51de026.
+
+
+****
+
+[.query]
+--
+A 50 year old Computer Solutions company has a very big application that needs to be deployed to the AWS cloud from its existing server.
+The application is media access control (MAC) address dependent as per the application licensing terms.
+This application will be deployed in an on-demand EC2 instance with instance type r4.2xlarge.
+In this scenario, how can you ensure that the MAC address of the EC2 instance will not change even if the instance is restarted or rebooted?
+
+
+--
+
+[.list]
+--
+* [*] A. Assign static MAC Address to EC2 instance while setting up the server.
+* [*] B. Use a VPC with an elastic network interface that has a fixed MAC Address.
+* [*] C. Use a VPC with a private subnet for the EC2, by default MAC address will be fixed.
+* [ ] D. Use a VPC with a private subnet and configure the MAC address to be tied to that subnet.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B
+Option A is incorrect because you cannot assign a static MAC Address to EC2 Server.
+If the server restarts, it will also change.
+Option B is correct because for the server to be MAC Dependent, you must use VPC with an ENI (Elastic Network Interface).
+Option C and D are incorrect because using a private subnet in VPC cannot help get MAC Address fixed.
+Refer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html.
+The correct answer is B - Use a VPC with an elastic network interface that has a fixed MAC Address.
+Explanation: When an Amazon Elastic Compute Cloud (EC2) instance is launched, a dynamic Media Access Control (MAC) address is assigned to it. However, for some applications, such as the one in this scenario, the licensing terms are MAC address-dependent, so it is essential to maintain a fixed MAC address to ensure proper licensing.
+To achieve this, we can use an elastic network interface (ENI) in a Virtual Private Cloud (VPC) with a fixed MAC address. An ENI can be attached to an EC2 instance, and it acts as a virtual network interface card (NIC) that provides connectivity to the VPC network.
+By attaching an ENI with a fixed MAC address to an EC2 instance, the MAC address of the instance will remain constant even if the instance is restarted or rebooted. This is because the MAC address is associated with the ENI and not the instance itself.
+Therefore, the best option for ensuring that the MAC address of the EC2 instance remains constant is to use a VPC with an ENI that has a fixed MAC address (option B). Option A is not recommended as it is not possible to assign a static MAC address to an EC2 instance. Option C is incorrect because a private subnet does not guarantee a fixed MAC address, and option D is incorrect because the MAC address is tied to the ENI and not the subnet.
+Note that there are some limitations to using an ENI with a fixed MAC address, such as the number of ENIs that can be attached to an instance, and the region-specific availability of certain instance types that support the use of ENIs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question568:"link"
+
+

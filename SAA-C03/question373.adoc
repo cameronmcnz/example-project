@@ -1,0 +1,111 @@
+---
+layout: default 
+title: "1173 - A Solutions architect has been asked to "
+---
+
+
+[.question]
+== 1173-64a1fad7f053625db51ddfa4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img7oU5I2Xe2fNaPszLOoqLOxWvXI82N03PGdJsGSigQd_PqHwBijQznP2P5xo36Vfp_luGAAbSSn3mYJ_ODQ6d-sCfRuDOMLO9fnH3OUQxb_LqmgqnDp4chDVAsIZ5rPMSuEBPKwuYgg0GmIrz6w[]
+
+--
+
+
+****
+
+[.query]
+--
+A Solutions architect has been asked to design an order processing e-commerce application on AWS where synchronous transaction processing is not required.
+Some of the synchronous order processing tasks might take a long time and require integrations with external applications. How can this be achieved?
+
+
+[source,java]
+----
+Order Verifies Credit Card
+Processors
+
+9D 4
+
+Warehouse
+Employees
+
+Child Process to validate address
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Simple Workflow Service to design activities coordination between different components of the application.
+* [ ] B. Use Step functions to design activities coordination between different components of the application.
+* [*] C. Use API Gateway and Lambda to design the application.
+* [ ] D. Use SQS to coordinate the activities of the application.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer : A.
+Different between Steps function and SWF.
+Step Functions.
+SWF.
+Good for any new serverless application where coordination is required between various components using visual workflow.
+Need external signals to intervene in processes, OR Good if there are child processes and those require passing signals to parents.
+Easy to use while developing application.
+More complex while developing application but complete control of orchestration logic.
+Uses declarative JAON to write state machine.
+Need to write decider program (programing of your choice) to separate activities between steps or use AWS flow framework.
+Serverless, lower admin overhead.
+Uses servers.
+Short running workflows.
+Long-running workflows,
+Mostly used for synchronous tasks.
+Mostly used for asynchronous tasks.
+New AWS Service, less complex applications.
+Legacy application, Complex decisions (custom decide application)
+Integrate with AWS Mechanical Turk.
+The main point is to design an application where some tasks can take longer than expected.
+For example, address validation.
+Also, this application should support integration with other AWS services.
+Option A is CORRECTsince this SWF is the right fit for long-running tasks.
+SWF can manage activities in an async way and support integration with other AWS services.
+See the difference table for more details.
+SWF helps manage tasks sequentially or in a parallel way, and this is a must required for an order processing application.
+Option B is incorrect because the Step function is not good for long-running activities.See the difference table for more details.
+Option C is incorrect because managing workflow with Lambda and API gateway would not be the right solution.
+Option D is incorrect because SQS is queue management.
+SQL enables decoupling applications.
+The requirement is to design an order processing e-commerce application on AWS where synchronous transaction processing is not required. This means that the application can handle long-running tasks and can integrate with external applications asynchronously. To achieve this, we can use AWS services that provide asynchronous messaging and coordination capabilities.
+Option A - Use AWS Simple Workflow Service (SWF) to design activities coordination between different components of the application: AWS SWF is a fully managed workflow service that provides the coordination and execution of distributed applications. It allows you to coordinate the execution of different components of an application and manage their state. However, AWS SWF is a complex service and requires you to write code to implement the workflows. Moreover, SWF has been replaced by AWS Step Functions.
+Option B - Use Step functions to design activities coordination between different components of the application: AWS Step Functions is a fully managed service that makes it easy to coordinate the components of distributed applications and microservices using visual workflows. It allows you to define, run, and debug workflows that integrate with AWS services, such as AWS Lambda and AWS Batch. AWS Step Functions also provides built-in error handling and retry logic, making it a more robust solution than SWF.
+Option C - Use API Gateway and Lambda to design the application: This option involves building the application using a combination of AWS Lambda and API Gateway. You can use Lambda functions to perform the order processing tasks, and API Gateway to create a RESTful API that exposes the Lambda functions as HTTP endpoints. However, this approach does not provide coordination between the different components of the application, and you would need to implement this manually.
+Option D - Use SQS to coordinate the activities of the application: Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. You can use SQS to store messages that represent the order processing tasks and have the different components of the application read from the queue asynchronously. SQS provides durable storage and automatically scales to handle the load, making it a robust solution for this use case.
+Overall, the most suitable option for the given requirements is Option B - Use Step functions to design activities coordination between different components of the application, as it provides a fully managed, visual workflow solution with built-in error handling and retry logic. Option D - Use SQS to coordinate the activities of the application, can also be a viable solution, depending on the specific use case and requirements.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question438:"link"
+
+

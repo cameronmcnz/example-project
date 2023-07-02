@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "955 - Your company currently has a 2tier web a"
+---
+
+
+[.question]
+== 955-64a1df2eaa736d27b1db938b.
+
+
+****
+
+[.query]
+--
+Your company currently has a 2-tier web application running in an on-premises data center.
+You have experienced several infrastructure failures in the past two months resulting in significant financial losses.
+Your CIO strongly agrees to move the application to AWS.
+While working on achieving buy-in from the other company executives, he asks you to develop a disaster recovery plan to deploy the application, post its AMI creation, and help to improve Business continuity in the short term.
+He specifies a target Recovery Time Objective (RTO) of 4 hours and a Recovery Point Objective (RPO) of 1 hour or less.
+He also asks you to implement the solution within 2 weeks.
+Your database is 200GB in size, and you have a 20Mbps Internet connection.
+Which of the following solutions is the most suitable?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an EBS backed private AMI which includes a fresh install of your application. Develop a CloudFormation template that includes your AMI and the required Auto Scaling group, and ELB resources to support deploying the application across Multiple Availability Zones. Asynchronously replicate the transactions from your on-premises database to a database instance in AWS across a secure VPN connection.
+* [ ] B. Deploy your application on EC2 instances within an Auto Scaling Group across multiple Availability Zones. Asynchronously replicate the transactions from your on-premises database to a database instance in AWS across a secure VPN connection.
+* [ ] C. Create an EBS backed private AMI which includes a fresh install of your application. Setup a script in your data center to back up the local database every 1 hour and encrypt and copy the resulting file to an S3 bucket using multi-part upload.
+* [ ] D. Install your application on a compute-optimized EC2 instance capable of supporting the application’s average load. Synchronously replicate the transactions from your on-premises database to a database instance in AWS across a secure Direct Connect connection.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because (a) with AMIs, the newly created EC2 instances will be ready with the pre-installed application.
+Thus, reducing the RTO, (b) with CloudFormation, the entire stack can be automatically provisioned, and (c) since there are no additional services used, the cost will stay low.
+Option B is incorrect because although this could work, (a) deploying EC2 instances for this scenario will be expensive, and (b) in case of disaster, the recovery will potentially be slower since the new EC2 need to be manually updated with the application software and patches, especially since it does not use the AMIs.
+Option C is incorrect because it has a low-performance issue.
+(a) Backing up a local DB of 200GB on a 20Mbps connection every hour will be very slow, and (b) even with the incremental backup, recovering from the incremental backup take time and might not satisfy the given RTO.
+Option D is incorrect because (a) the EC2 instance is a single point of failure, which needs to be made highly available via Auto Scaling, and (b) it can only handle the average load of the application.
+So, in case of peak load, it may fail, and (c) AWS Direct Connection will be an expensive solution compared to the setup of option A.
+The most suitable solution for this scenario is A. Create an EBS backed private AMI which includes a fresh install of your application. Develop a CloudFormation template that includes your AMI and the required Auto Scaling group, and ELB resources to support deploying the application across Multiple Availability Zones. Asynchronously replicate the transactions from your on-premises database to a database instance in AWS across a secure VPN connection.
+Here is a detailed explanation of each option:
+Option A:
+Create an EBS backed private AMI which includes a fresh install of your application. This AMI will serve as a template for the application deployment.
+Develop a CloudFormation template that includes the AMI and the required Auto Scaling group, and ELB resources to support deploying the application across multiple Availability Zones. This template will automate the deployment of the application infrastructure.
+Asynchronously replicate the transactions from your on-premises database to a database instance in AWS across a secure VPN connection. This will ensure that the AWS database is up-to-date with the on-premises database.
+This solution meets the target RTO and RPO objectives by providing a fully automated and scalable infrastructure that can be deployed within 4 hours. The asynchronous replication of the database ensures that the RPO is met, and the use of multiple Availability Zones and Auto Scaling ensures that the application can withstand infrastructure failures.
+Option B:
+Deploy your application on EC2 instances within an Auto Scaling Group across multiple Availability Zones.
+Asynchronously replicate the transactions from your on-premises database to a database instance in AWS across a secure VPN connection.
+This solution does not provide a fully automated infrastructure, and the deployment process may take longer than 4 hours. Additionally, there is no mention of using a load balancer, which means that the application may not be highly available in the event of an infrastructure failure.
+Option C:
+Create an EBS backed private AMI which includes a fresh install of your application.
+Setup a script in your data center to back up the local database every 1 hour and encrypt and copy the resulting file to an S3 bucket using multi-part upload.
+This solution does not provide a highly available infrastructure, and the RTO objective may not be met since the deployment process is not automated. Additionally, the RPO objective may not be met since the database backup is only done every hour.
+Option D:
+Install your application on a compute-optimized EC2 instance capable of supporting the application's average load.
+Synchronously replicate the transactions from your on-premises database to a database instance in AWS across a secure Direct Connect connection.
+This solution does not provide a highly available infrastructure, and the RTO objective may not be met since the deployment process is not automated. Additionally, the synchronous replication of the database may introduce latency and affect the application performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question217:"link"
+
+

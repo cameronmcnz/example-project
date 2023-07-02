@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "965 - Your company is planning to use Route 53"
+---
+
+
+[.question]
+== 965-64a1fa75f053625db51ddeab.
+
+
+****
+
+[.query]
+--
+Your company is planning to use Route 53 as the DNS provider.
+There is a need to ensure that the company's domain name points to an existing CloudFront distribution.
+How could this be achieved?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an Alias record which points to the CloudFront distribution.
+* [ ] B. Create a host record which points to the CloudFront distribution.
+* [*] C. Create a CNAME record which points to the CloudFront distribution.
+* [ ] D. Create a Non-Alias Record which points to the CloudFront distribution.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following.
+While ordinary Amazon Route 53 records are standard DNS records, alias records provide a Route 53-specific extension to the DNS functionality.
+Instead of an IP address or a domain name, an alias record contains a pointer to a CloudFront distribution, an Elastic Beanstalk environment, an ELB Classic, Application, or Network Load Balancer, an Amazon S3 bucket that is configured as a static website, or another Route 53 record in the same hosted zone.
+When Route 53 receives a DNS query that matches the name and type in an alias record, Route 53 follows the pointer and responds with the applicable value.
+For more information on Route 53 Alias records, please visit the following URL-
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html
+Note:
+Route 53 uses "Alias Name" to connect to the CloudFront as Alias Record is a Route 53 extension to DNS.Also, an Alias record is similar to a CNAME record, but the main difference is - you can create an Alias record for both root domain &amp; subdomain.
+In contrast, a CNAME record can be created only to subdomain.
+Check the below link to get more information:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html
+The correct answer is A: Create an Alias record which points to the CloudFront distribution.
+Explanation: Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service that helps developers and businesses to route end users to Internet applications. It can be used to route users to Amazon Web Services (AWS) resources like EC2 instances, S3 buckets, or CloudFront distributions.
+CloudFront is AWS's content delivery network (CDN) service that speeds up the delivery of static and dynamic web content like HTML, CSS, JavaScript, and images, videos, and other files to end users. It has a global network of edge locations that cache the content and serve it from the nearest location to the end user.
+To ensure that your domain name points to an existing CloudFront distribution, you can create an Alias record in Route 53. An Alias record is a Route 53 extension to DNS that lets you map a DNS name (example.com) to an AWS resource (such as a CloudFront distribution) that is specified in another AWS service (such as CloudFront).
+An Alias record is like a CNAME record, but with some differences:
+An Alias record can map your domain name apex (example.com) to a CloudFront distribution, whereas a CNAME record cannot.
+An Alias record is not a redirect; it results in a DNS response with the IP address of the AWS resource, whereas a redirect returns an HTTP 301 or 302 response code and a new URL.
+To create an Alias record for your domain name in Route 53, follow these steps:
+1. In the AWS Management Console, open the Route 53 console at https://console.aws.amazon.com/route53/.
+2. In the left navigation pane, choose Hosted zones.
+3. Choose the name of the hosted zone for your domain name.
+4. Choose Create Record Set.
+5. In the Name box, enter the domain name that you want to route traffic to (for example, www.example.com).
+6. In the Type box, choose A - IPv4 address.
+7. In the Alias box, choose Yes.
+8. In the Alias Target box, choose the CloudFront distribution that you want to route traffic to (for example, d111111abcdef8.cloudfront.net).
+9. Choose Create.
+Route 53 propagates your changes to the DNS servers that are authoritative for your domain name, which typically takes only a few minutes.
+In summary, to point your domain name to a CloudFront distribution using Route 53, you need to create an Alias record that maps your domain name to the CloudFront distribution. This allows you to take advantage of the performance and scalability benefits of CloudFront and Route 53 together.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question186:"link"
+
+

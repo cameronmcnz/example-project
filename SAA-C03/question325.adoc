@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "1125 - You are using Amazon RDS as a relational"
+---
+
+
+[.question]
+== 1125-64a1fabcf053625db51ddf64.
+
+
+****
+
+[.query]
+--
+You are using Amazon RDS as a relational database for your web application in AWS.
+All your data stored in Amazon RDS is encrypted using AWS KMS.
+Encrypting this data is handled by a separate team of 4 users (User A, B, C, & D) in the Security Team.
+They have created 2 CMK's for the encryption of data.
+During the annual Audit, Auditors raised concerns for access to these CMK's for each user.
+Security Team has the following IAM Policy & Key Policy set for AWS KMS. · CMK1 is created by AWS KMS API & has a default Key policy. · CMK2 is the default key policy created by AWS Management console & allows User D.· User C has IAM Policy denying all action for CMK1 while allowing for CMK2. · User A & User B has IAM Policy allowing access to CMK1 while denying access to CMK2. · User D has an IAM policy allowing full access to AWS KMS. Which of the following is the correct statement for access each user has for AWS KMS CMK?
+
+
+--
+
+[.list]
+--
+* [*] A. User A & B can use the only CMK1, user C cannot use CMK1, while user D can use both CMK1 & CMK2.
+* [ ] B. User A & B can use CMK1& CMK2, user C can use only CMK2, while user D can use both CMK1 & CMK2.
+* [*] C. User A & B can use CMK1, user C can use CMK1 & CMK2, while user D can use both CMK1 & CMK2.
+* [ ] D. User A & B can use only CMK1, user C can use only CMK2, while user D cannot use both CMK1 & CMK2.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Access to AWS KMS CMK is a combination of both Key policy &amp; IAM policy.
+IAM Policy should grant access to a user for AWS KMS.
+At the same time, Key Policy is used to control access to CMK in AWS KMS.
+Option B is incorrect as User A &amp; B do not have the IAM policy to access CMK2.
+Option C is incorrect as User C is not allowed to access CMK1.
+Option D is incorrect as User D has an IAM policy &amp; Key Policy to use both CMK1 &amp; CMK2.
+For more information on determining access to AWS KMS CMK, refer to the following URL-
+https://docs.aws.amazon.com/kms/latest/developerguide/determining-access.html
+The correct answer is option B: User A & B can use CMK1 & CMK2, user C can use only CMK2, while user D can use both CMK1 & CMK2.
+Let's break down the policies assigned to each user and the key policies assigned to each CMK:
+CMK1: Created by AWS KMS API with default key policy.
+CMK2: Created with the default key policy in AWS Management Console.
+IAM Policies:
+User A & B: Allowed access to CMK1, denied access to CMK2.
+User C: Denied all actions for CMK1, allowed access to CMK2.
+User D: Allowed full access to AWS KMS.
+Key Policies:
+CMK1: Default key policy.
+CMK2: Default key policy allows User D.
+Based on the above information, we can see that:
+User A and B can access CMK1 according to their IAM policies.
+User C is denied all actions for CMK1 according to their IAM policy, but they are allowed to access CMK2.
+User D has full access to AWS KMS, so they can access both CMK1 and CMK2.
+Therefore, the correct answer is option B: User A & B can use CMK1 & CMK2, user C can use only CMK2, while user D can use both CMK1 & CMK2.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question374:"link"
+
+

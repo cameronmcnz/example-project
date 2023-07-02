@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "982 - You have large EC2 instances in your AWS"
+---
+
+
+[.question]
+== 982-64a1df38aa736d27b1db93b1.
+
+
+****
+
+[.query]
+--
+You have large EC2 instances in your AWS infrastructure which you have recently set up.
+These instances carry out the task of creating JPEG files and store them on an S3 bucket and occasionally need to perform high computational tasks.
+After close monitoring, you see that the CPUs of these instances remain idle most of the time.
+
+
+--
+
+[.list]
+--
+* [*] A. Use Amazon glacier instead of S3.
+* [ ] B. Add additional large instances by introducing a task group.
+* [*] C. Use T2 instances if possible.
+* [ ] D. Ensure the application hosted on the EC2 instances uses larger files on S3 to handle more load.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+In this scenario, the problem is that the large EC2 instances are mostly remaining unused.
+Hence, the solution should be to use instances that can cost less but still be able to carry out occasional high computational tasks.
+T2 instances are Burstable Performance Instances that provide a baseline level of CPU performance with the ability to burst above the baseline.
+The baseline performance and ability to burst are governed by CPU Credits.
+T2 instances accumulate CPU Credits when they are idle and consume CPU Credits when they are active.
+T2 instances are the lowest-cost Amazon EC2 instance option designed to dramatically reduce costs for applications that benefit from the ability to burst to full core performance whenever required.
+Option A is incorrect because there is no issue with the current use of S3.
+Option B is incorrect because adding another large instance is, on the contrary, an expensive solution and would add to the existing cost.
+Option C is CORRECT because T2 instances are cost-effective and also provide a baseline level of CPU performance with the ability to burst above the baseline whenever required.
+Option D is incorrect because this option is not going to make efficient use of the current instances.
+It will not lower the cost of the architecture.
+For more information on Instance types, please visit the below URL-
+https://aws.amazon.com/ec2/instance-types/t2/
+Option A is not a viable solution as Amazon Glacier is an archival storage service and not suitable for storing frequently accessed files like JPEG files. Moreover, retrieving files from Amazon Glacier can take several hours, which is not acceptable in this scenario.
+Option B is also not a suitable solution as adding additional instances to handle a low load is not cost-effective and can increase operational complexity.
+Option C can be a good solution as T2 instances provide burstable CPU performance, which means that they can handle occasional high computational tasks without incurring high costs. However, it is important to note that T2 instances have a CPU credit system, which means that they can only sustain high CPU usage for a limited time. If the high computational tasks are long-running, it may be more appropriate to use a different instance type.
+Option D is not a viable solution as it suggests using larger files to handle more load, which is not a scalable or efficient solution. The size of the files should be based on their intended use, and increasing their size may not necessarily improve performance.
+Based on the scenario described, a more suitable solution would be to use Auto Scaling groups with EC2 instances optimized for high-performance computing, such as C5, M5, or R5 instances. This would allow for automatic scaling based on demand, ensuring that there are enough resources to handle high computational tasks while minimizing idle time. Additionally, using Amazon S3's Transfer Acceleration feature can improve file transfer speeds, reducing the time it takes to store the JPEG files in S3. Finally, implementing a queuing system like Amazon SQS can help manage and distribute computational tasks, ensuring that instances are utilized efficiently.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question255:"link"
+
+

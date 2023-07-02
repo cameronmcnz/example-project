@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "923 - What is the result Java Certification Ex"
+---
+
+
+[.question]
+== 923-64a1a864ef3e8462333a9cb1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer-II/question/img0011600001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+What is the result?
+
+
+[source,java]
+----
+BiPredicate<String, String> bp
+s2.contains ("Java") i
+Bifunction<String, String, Int
+
+int fee
+if (bp.test(si, s2)) {
+fee = 100;
+
+d
+return fee;
+Me
+
+. int feel = bf.apply("Di01sc",
+|. System. out.printin (feel);
+
+(String s1, String s2)
+
+-> sl.contains
+
+eger> bf = (String si, String s2) -> {
+
+"Java Programming") ;
+
+"SG") 66
+----
+
+
+--
+
+[.list]
+--
+* [*] A. A compilation error occurs at line 7.
+* [ ] B. 100
+* [ ] C. A compilation error occurs at line 8.
+* [ ] D. A compilation error occurs at line 15.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

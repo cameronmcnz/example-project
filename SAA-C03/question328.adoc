@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "1128 - A global media firm is using AWS CodePip"
+---
+
+
+[.question]
+== 1128-64a1fabff053625db51ddf6d.
+
+
+****
+
+[.query]
+--
+A global media firm is using AWS CodePipeline as an automation service for releasing new features to customers.
+All the codes are uploaded in the Amazon S3 bucket.
+Changes in files stored in the S3 bucket should trigger AWS CodePipeline that will further initiate AWS Elastic Beanstalk for deploying additional resources.
+What is the additional requirement that should be configured to trigger CodePipeline in a faster way?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable periodic checks and create a Webhook which triggers pipeline once S3 bucket is updated.
+* [*] B. Disable periodic checks, create an Amazon CloudWatch Events rule & AWS CloudTrail trail.
+* [*] C. Enable periodic checks, create an Amazon CloudWatch Events rule & AWS CloudTrail trail.
+* [ ] D. Disable periodic checks and create a Webhook which triggers pipeline once S3 bucket is updated.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+To automatically trigger pipeline with changes in the source S3 bucket, Amazon CloudWatch Events rule &amp; AWS CloudTrail trail must be applied.
+When there is a change in the S3 bucket, events are filtered using AWS CloudTrail &amp; then Amazon CloudWatch events are used to trigger the start of the pipeline.
+This default method is faster &amp; periodic checks should be disabled to have events-based triggering of CodePipeline.
+You can use the following tools to monitor your CodePipeline pipelines and their resources:
+Amazon CloudWatch Events - Use Amazon CloudWatch Events to detect and react to pipeline execution state changes (for example, send an Amazon SNS notification or invoke a Lambda function).
+AWS CloudTrail - Use CloudTrail to capture API calls made by or on behalf of CodePipeline in your AWS account and deliver the log files to an Amazon S3 bucket.
+You can choose to have CloudWatch publish Amazon SNS notifications when new log files are delivered so you can take quick action.
+Console and CLI - you can use the CodePipeline console and CLI to view details about the status of a pipeline or a particular pipeline execution.
+Option A is incorrect as Webhooks are used to trigger pipeline when the source is GitHub repository.
+Also, the periodic check will be a slower process to trigger CodePipeline.
+Option C is incorrect as Periodic checks are not a faster way to trigger CodePipeline.
+Option D is incorrect as Webhooks are used to trigger pipeline when the source is GitHub repository.
+For more information on Automatically Triggering Pipeline, refer to the following URL:
+https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-about-starting.html
+In this scenario, the requirement is to trigger AWS CodePipeline as soon as any changes are made in the files stored in the Amazon S3 bucket. So, instead of relying on periodic checks, we need to set up a mechanism that can detect changes in the S3 bucket and trigger AWS CodePipeline accordingly.
+Option A suggests enabling periodic checks and creating a webhook to trigger the pipeline once the S3 bucket is updated. This approach can work, but it may not be the most efficient way to trigger the pipeline as it may take time for the periodic checks to occur.
+Option B suggests disabling periodic checks and creating an Amazon CloudWatch Events rule and AWS CloudTrail trail. This option is incorrect because disabling periodic checks will prevent the pipeline from being triggered in a timely manner when changes are made to the S3 bucket.
+Option C suggests enabling periodic checks, creating an Amazon CloudWatch Events rule and AWS CloudTrail trail. This is the correct answer as enabling periodic checks will allow AWS CodePipeline to check the S3 bucket for changes on a regular basis. Additionally, creating an Amazon CloudWatch Events rule and AWS CloudTrail trail will allow for real-time detection of changes in the S3 bucket, ensuring that the pipeline is triggered as soon as any changes are made.
+Option D suggests disabling periodic checks and creating a webhook to trigger the pipeline once the S3 bucket is updated. This option is incorrect because disabling periodic checks will prevent the pipeline from being triggered in a timely manner when changes are made to the S3 bucket.
+In summary, the correct answer is option C - enable periodic checks, create an Amazon CloudWatch Events rule and AWS CloudTrail trail. This approach will ensure that AWS CodePipeline is triggered as soon as changes are made to the S3 bucket, resulting in faster deployment of additional resources using AWS Elastic Beanstalk.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question383:"link"
+
+
