@@ -1,1 +1,105 @@
+[.query]
 
+Which of the following database products can be used with Amazon RDS?
+
+[.link]
+a) *[ ] MongoDB and Cassandra
+b) *[x] MariaDB, Microsoft SQL Server, MySQL, Oracle, and PostgreSQL
+c) *[ ] Amazon Aurora and Amazon Redshift
+d) *[ ] Elasticsearch and DynamoDB
+[.answer]
+Answer: b) MariaDB, Microsoft SQL Server, MySQL, Oracle, and PostgreSQL.
+
+[.query]
+2. Which of the following tasks does Amazon RDS manage?
+
+[.link]
+a) *[ ] Creating database schemas
+b) *[x] Software patching and automatic failure detection
+c) *[ ] Managing frontend web applications
+d) *[ ] Network security configuration
+
+[.answer]
+Answer: b) Software patching and automatic failure detection.
+
+[.query]
+3. How can you create backups of your database in Amazon RDS?
+
+[.link]
+a) *[ ] Manually write SQL scripts to backup the data
+b) *[x] Enable automated backups or manually create backup snapshots
+c) *[ ] Use third-party backup tools integrated with Amazon RDS
+d) *[ ] Back up the entire server instance, including the operating system
+
+[.answer]
+Answer: b) Enable automated backups or manually create backup snapshots.
+
+[.query]
+4. What does high availability in Amazon RDS include?
+
+[.link]
+a) *[ ] Multiple database engines running concurrently
+b) *[x] Synchronous secondary instances for failover
+c) *[ ] Data replication to different AWS regions
+d) *[ ] Load balancing across multiple databases
+
+[.answer]
+Answer: b) Synchronous secondary instances for failover.
+
+[.query]
+5. How can you control access to your Amazon RDS databases?
+[.link]
+
+[.link]
+a) *[x] Only through the AWS Identity and Access Management (IAM)
+b) *[ ] By using access control lists (ACLs) provided by the database engine
+c) *[ ] By configuring firewall rules on your local network
+d) *[ ] By directly modifying the database's authentication code
+
+[.answer]
+Answer: a) Only through the AWS Identity and Access Management (IAM).
+
+[.query]
+6. What does Amazon RDS Custom provide for Oracle and Microsoft SQL Server?
+[.link]
+
+[.link]
+a) *[ ] Full access to the database's source code
+b) *[ ] Customizable user interfaces for database management
+c) *[ ] Integration with third-party database management tools
+d) *[x] Full access to the database and operating system with automated administration tasks
+
+[.answer]
+Answer: d) Full access to the database and operating system with automated administration tasks.
+
+[.query]
+7. What is the advantage of using RDS Custom with Amazon RDS?
+
+[.link]
+a) *[ ] Reduced cost for database management tasks
+b) *[x] Greater control and flexibility over the database environment
+c) *[ ] Higher scalability for read-intensive workloads
+d) *[ ] Seamless integration with other AWS services
+
+[.answer]
+Answer: b) Greater control and flexibility over the database environment.
+
+[.query]
+8. What does the shared responsibility model of RDS Custom imply?
+
+[.link]
+a) *[ ] Customers have no responsibility for managing the database
+b) *[ ] AWS handles all database administration tasks
+c) *[x] Customers have more control but also more responsibility
+d) *[ ] AWS and customers share equal responsibility for all tasks
+
+[.answer]
+Answer: c) Customers have more control but also more responsibility.
+
+[.query]
+9. What is the purpose of Amazon RDS on AWS Outposts?
+
+[.link]
+a) *[x] Extending RDS to on-premises environments
+b) *[ ] Providing free database instances for AWS customers
+c)
