@@ -4,6 +4,8 @@ title: "801 - Your company is planning on the followin"
 link: "https://www.exam-answer.com/amazon/SAA-C03/question1"
 ---
 
+[.link]
+http://www.ibm.com
 
 [.question]
 == 801-64a1fa3bf053625db51dddf3.
@@ -69,6 +71,5 @@ null
 
 
 
-https://www.exam-answer.com/amazon/SAA-C03/question1:"link"
 
 
