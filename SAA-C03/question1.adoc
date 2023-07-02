@@ -3,9 +3,8 @@ layout: default
 title: "801 - Your company is planning on the followin"
 ---
 
-[I'm an inline-style link](https://www.google.com)
-
-link::http://www.ibm.com[ibm]
+[.link]
+http://www.ibm.com
 
 [.question]
 == 801-64a1fa3bf053625db51dddf3.
