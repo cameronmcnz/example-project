@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1017 - Your company has enabled CORS on your S3"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question247"
 ---
 
 

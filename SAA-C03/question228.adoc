@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1028 - A Solutions Architect is designing a sol"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question260"
 ---
 
 

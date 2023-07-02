@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1003 - Your company wants to use an S3 bucket f"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question232"
 ---
 
 

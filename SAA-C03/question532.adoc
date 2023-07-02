@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1332 - Which of the following statement is not "
+link: "https://www.exam-answer.com/amazon/SAA-C03/question650"
 ---
 
 

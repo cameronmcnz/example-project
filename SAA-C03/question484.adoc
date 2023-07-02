@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1284 - As an AWS Solutions Architect you are he"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question570"
 ---
 
 

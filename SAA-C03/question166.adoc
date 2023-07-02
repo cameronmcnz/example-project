@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "966 - A company needs to extend its storage in"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question187"
 ---
 
 

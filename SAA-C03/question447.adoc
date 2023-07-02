@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1247 - In your AWS account you have configured "
+link: "https://www.exam-answer.com/amazon/SAA-C03/question528"
 ---
 
 

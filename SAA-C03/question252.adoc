@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1052 - A company is planning on moving its appl"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question288"
 ---
 
 

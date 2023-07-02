@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1221 - A company has recently chosen to use the"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question496"
 ---
 
 

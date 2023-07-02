@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "872 - A Redshift cluster currently contains 60"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question82"
 ---
 
 

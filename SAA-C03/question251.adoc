@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1051 - A company is planning to deploy an appli"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question287"
 ---
 
 

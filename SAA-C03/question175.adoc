@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "975 - A company currently hosts its architectu"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question196"
 ---
 
 

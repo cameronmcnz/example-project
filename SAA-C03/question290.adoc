@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1090 - Your architecture for an application cur"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question332"
 ---
 
 

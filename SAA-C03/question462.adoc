@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1262 - You have the following Network ACL and S"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question546"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1047 - A company requires to deploy an existing"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question283"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1350 - In your organization an application team"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question674"
 ---
 
 

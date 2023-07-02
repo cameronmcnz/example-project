@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1222 - You have an architecture that consists o"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question497"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1275 - Your organization had setup a VPC with C"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question560"
 ---
 
 

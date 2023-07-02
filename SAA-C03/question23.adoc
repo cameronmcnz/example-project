@@ -2,6 +2,7 @@
 layout: default 
 title: "823 - You work as an architect for a company
 A"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question24"
 ---
 
 

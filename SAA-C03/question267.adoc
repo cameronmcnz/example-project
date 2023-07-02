@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1067 - You need a new S3 bucket to store object"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question304"
 ---
 
 

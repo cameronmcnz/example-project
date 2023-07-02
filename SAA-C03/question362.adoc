@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1162 - An organization produces different types"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question426"
 ---
 
 

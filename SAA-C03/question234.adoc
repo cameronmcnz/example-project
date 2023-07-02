@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1034 - A company plans to deploy a businesscrit"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question266"
 ---
 
 

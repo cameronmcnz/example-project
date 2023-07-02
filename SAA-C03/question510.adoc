@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1310 - In AWS API Gateway which of the followin"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question613"
 ---
 
 

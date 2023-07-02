@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1142 - A company wants to implement a data stor"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question402"
 ---
 
 

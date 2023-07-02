@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1190 - A telecom company has installed radio de"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question459"
 ---
 
 

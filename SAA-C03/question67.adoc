@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "867 - You are creating a new architecture for "
+link: "https://www.exam-answer.com/amazon/SAA-C03/question77"
 ---
 
 

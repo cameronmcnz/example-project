@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "990 - While managing permissions for the API G"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question215"
 ---
 
 

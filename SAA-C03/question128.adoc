@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "928 - Your recent security review revealed a l"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question146"
 ---
 
 

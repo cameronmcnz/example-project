@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "835 - You have an Amazon Route 53 alias record"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question38"
 ---
 
 

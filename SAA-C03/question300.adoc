@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1100 - Your IT Security department has mandated"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question342"
 ---
 
 

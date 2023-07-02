@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1066 - You create several SQS queues to store d"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question303"
 ---
 
 

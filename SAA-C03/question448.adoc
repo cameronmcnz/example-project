@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1248 - Your team creates an Application Load Ba"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question529"
 ---
 
 

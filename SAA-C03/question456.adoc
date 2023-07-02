@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1256 - A new VPC with CIDR range 10100016 has b"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question538"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1285 - You have created an S3 bucket in the use"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question573"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1322 - You have created a Lambda function for r"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question633"
 ---
 
 

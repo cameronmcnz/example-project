@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1238 - A large amount of structured data is sto"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question518"
 ---
 
 

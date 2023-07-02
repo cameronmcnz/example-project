@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "892 - An application hosted in AWS allows user"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question106"
 ---
 
 

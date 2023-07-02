@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "873 - An EC2 instance in the private subnet ne"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question84"
 ---
 
 

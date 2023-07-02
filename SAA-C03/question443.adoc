@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1243 - Your company requires that S3 objects sh"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question523"
 ---
 
 

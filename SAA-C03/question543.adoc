@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1343 - Your organization AWS Setup has an AWS S"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question665"
 ---
 
 

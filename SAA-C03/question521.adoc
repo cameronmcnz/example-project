@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1321 - Which of the following is NOT a potentia"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question632"
 ---
 
 

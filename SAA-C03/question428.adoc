@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1228 - You are analyzing dynamic scaling activi"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question507"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "967 - You have several instances doing machine"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question188"
 ---
 
 

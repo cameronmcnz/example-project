@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1272 - You have set up two VPCsVPC A has the ad"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question557"
 ---
 
 

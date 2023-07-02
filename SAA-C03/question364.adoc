@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1164 - As a solutions architect it is your job "
+link: "https://www.exam-answer.com/amazon/SAA-C03/question428"
 ---
 
 

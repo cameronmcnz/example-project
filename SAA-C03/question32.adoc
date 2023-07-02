@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "832 - A company has its major applications dep"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question34"
 ---
 
 

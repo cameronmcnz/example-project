@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "883 - A company has resources hosted in its AW"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question95"
 ---
 
 

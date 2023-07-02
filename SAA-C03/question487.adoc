@@ -2,6 +2,7 @@
 layout: default 
 title: "1287 - You are a solutions architect
 Your organ"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question575"
 ---
 
 

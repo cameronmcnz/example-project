@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1101 - A company is currently utilizing a Redsh"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question343"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "906 - You configure an Amazon S3 bucket as the"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question123"
 ---
 
 

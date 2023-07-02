@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1269 - You are taking over the AWS platform in "
+link: "https://www.exam-answer.com/amazon/SAA-C03/question554"
 ---
 
 

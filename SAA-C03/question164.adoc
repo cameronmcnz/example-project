@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "964 - You manage the IT users for a large orga"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question185"
 ---
 
 

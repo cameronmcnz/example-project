@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1336 - You are working as an AWS architect in y"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question655"
 ---
 
 

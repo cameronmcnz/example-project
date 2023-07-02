@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1072 - A hybrid architecture is used for a popu"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question311"
 ---
 
 

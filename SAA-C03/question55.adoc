@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "855 - The security policy of an organization r"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question63"
 ---
 
 

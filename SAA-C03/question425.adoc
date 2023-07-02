@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1225 - You are the Solutions Architect for a he"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question501"
 ---
 
 

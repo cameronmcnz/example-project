@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "977 - You are building an automated transcript"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question199"
 ---
 
 

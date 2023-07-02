@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "884 - You are part of the IT sector at the fin"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question96"
 ---
 
 

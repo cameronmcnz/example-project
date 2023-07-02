@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1026 - Currently you have a set of Lambda funct"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question258"
 ---
 
 

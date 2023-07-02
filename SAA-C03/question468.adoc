@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1268 - You have created a custom VPC with publi"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question553"
 ---
 
 

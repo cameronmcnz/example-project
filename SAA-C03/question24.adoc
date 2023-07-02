@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "824 - You have been designing a CloudFormation"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question25"
 ---
 
 

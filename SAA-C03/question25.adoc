@@ -2,6 +2,7 @@
 layout: default 
 title: "825 - You work as an architect for a company
 T"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question26"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1014 - A company plans to use SQS queue and AWS"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question244"
 ---
 
 

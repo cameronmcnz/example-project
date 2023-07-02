@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1227 - As a Solutions Architect you are dealing"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question506"
 ---
 
 

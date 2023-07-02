@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1294 - What are the minimum and maximum file si"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question588"
 ---
 
 

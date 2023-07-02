@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1224 - An application needs to be set up on AWS"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question500"
 ---
 
 

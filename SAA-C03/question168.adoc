@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "968 - Your current setup in AWS consists of th"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question189"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1006 - A company has a PostgreSQL DB instance i"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question235"
 ---
 
 

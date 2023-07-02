@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "974 - You are part of the IT team of an insura"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question195"
 ---
 
 

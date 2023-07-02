@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1271 - You are an architect in your organizatio"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question556"
 ---
 
 

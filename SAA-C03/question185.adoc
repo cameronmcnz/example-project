@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "985 - A solutions architect is designing the c"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question210"
 ---
 
 

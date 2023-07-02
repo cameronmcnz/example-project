@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1356 - Your organization had created an S3 buck"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question682"
 ---
 
 

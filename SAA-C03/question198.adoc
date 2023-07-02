@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "998 - A company is running web server reserved"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question225"
 ---
 
 

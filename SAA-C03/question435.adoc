@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1235 - You plan to manage API keys in AWS Secre"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question515"
 ---
 
 

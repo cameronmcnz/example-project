@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1176 - A company has many Amazon S3 buckets acr"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question442"
 ---
 
 

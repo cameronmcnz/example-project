@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1274 - Which of the following statements is cor"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question559"
 ---
 
 

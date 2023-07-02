@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "863 - An application needs to have a relationa"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question73"
 ---
 
 

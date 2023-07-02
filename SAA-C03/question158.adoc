@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "958 - As an AWS Solutions Architect you are de"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question179"
 ---
 
 

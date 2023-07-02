@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1005 - A VPC has been set up manually with a su"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question234"
 ---
 
 

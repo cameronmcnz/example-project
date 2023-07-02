@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1025 - As a solutions architect you need to des"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question257"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1220 - A global IT firm has a Hybrid connectivi"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question495"
 ---
 
 

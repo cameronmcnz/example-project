@@ -2,6 +2,7 @@
 layout: default 
 title: "995 - You have two AWS Organizations
 All the A"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question222"
 ---
 
 

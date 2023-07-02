@@ -2,6 +2,7 @@
 layout: default 
 title: "1346 - You are an architect in your company
 You"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question669"
 ---
 
 

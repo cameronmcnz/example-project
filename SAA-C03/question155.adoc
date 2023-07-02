@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "955 - A startup firm has created a cloud stora"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question176"
 ---
 
 

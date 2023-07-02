@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1068 - There are two folders A and B in an S3 b"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question305"
 ---
 
 

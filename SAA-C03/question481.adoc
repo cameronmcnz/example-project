@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1281 - You are working in a gaming company with"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question567"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "818 - You are planning to use Auto Scaling gro"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question19"
 ---
 
 

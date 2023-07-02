@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "862 - A company needs to store images that are"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question72"
 ---
 
 

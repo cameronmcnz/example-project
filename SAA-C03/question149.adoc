@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "949 - You are a Solutions Architect in a start"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question169"
 ---
 
 

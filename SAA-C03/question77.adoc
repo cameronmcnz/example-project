@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "877 - An application consists of the following"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question88"
 ---
 
 

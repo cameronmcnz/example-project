@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "821 - You have a requirement to get a snapshot"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question22"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1279 - You are appointed as Cloud Consultant in"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question565"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1328 - Which of the following is a valid AWS La"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question642"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1349 - Which of the following is not a default "
+link: "https://www.exam-answer.com/amazon/SAA-C03/question673"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1252 - A web application is hosted in AWS EC2 a"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question533"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1257 - You are an AWS architect in your organiz"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question539"
 ---
 
 

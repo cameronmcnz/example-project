@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "969 - You have a cluster of windows instances "
+link: "https://www.exam-answer.com/amazon/SAA-C03/question190"
 ---
 
 

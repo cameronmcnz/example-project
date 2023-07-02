@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1049 - You want to build a decoupled highly ava"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question285"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "952 - Your app uses AWS Cognito Identity for a"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question172"
 ---
 
 

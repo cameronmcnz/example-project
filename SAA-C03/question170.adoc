@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "970 - Instances hosted in the private subnet o"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question191"
 ---
 
 

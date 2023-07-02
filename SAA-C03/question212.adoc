@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1012 - A company consists of 50 plus AWS accoun"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question242"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1150 - A company is planning to store its files"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question412"
 ---
 
 

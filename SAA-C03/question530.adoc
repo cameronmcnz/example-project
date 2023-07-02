@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1330 - You are setting up AWS Lambda function t"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question646"
 ---
 
 

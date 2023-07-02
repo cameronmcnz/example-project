@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1303 - You have created AWS EFS with default se"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question600"
 ---
 
 

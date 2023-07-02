@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1024 - A website is hosted on two EC2 instances"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question255"
 ---
 
 

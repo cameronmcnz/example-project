@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1074 - You are requested to guide a large Pharm"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question313"
 ---
 
 

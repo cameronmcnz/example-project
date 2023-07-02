@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1020 - You use an Amazon S3 bucket as the origi"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question250"
 ---
 
 

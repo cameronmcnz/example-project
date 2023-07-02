@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "962 - A large educational institute is using A"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question183"
 ---
 
 

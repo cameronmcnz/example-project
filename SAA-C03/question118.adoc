@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "918 - You currently have the following archite"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question135"
 ---
 
 

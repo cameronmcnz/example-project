@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1046 - You create an Amazon SQS queue to decoup"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question282"
 ---
 
 

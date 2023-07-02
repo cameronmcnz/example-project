@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1099 - An organization has a distributed applic"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question341"
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1037 - You need to ensure that new objects bein"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question270"
 ---
 
 

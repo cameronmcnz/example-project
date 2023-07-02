@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "942 - A popular blogging site plans to use AWS"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question161"
 ---
 
 

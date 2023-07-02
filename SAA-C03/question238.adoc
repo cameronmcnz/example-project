@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1038 - You want to use AWS to route a static we"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question271"
 ---
 
 

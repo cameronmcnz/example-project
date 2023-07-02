@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1033 - You created your own VPC and subnet in A"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question265"
 ---
 
 

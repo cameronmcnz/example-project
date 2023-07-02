@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "868 - A company has a media processing applica"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question78"
 ---
 
 

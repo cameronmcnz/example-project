@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "1092 - You are the architect for a business int"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question334"
 ---
 
 

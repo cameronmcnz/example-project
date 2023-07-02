@@ -2,6 +2,7 @@
 layout: default 
 title: "1002 - You work in a large organization
 Your te"
+link: "https://www.exam-answer.com/amazon/SAA-C03/question231"
 ---
 
 
