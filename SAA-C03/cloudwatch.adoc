@@ -10,9 +10,10 @@ Q1. What can you use Amazon CloudWatch Logs for?
 
 [ ] Monitoring API activity captured by CloudTrail logs
 
-[.answer]
+'''
+ [.answer]
 
-[ ] Monitoring applications, systems, and AWS services logs in a centralized manner
+[* ] Monitoring applications, systems, and AWS services logs in a centralized manner
 
 [.query]
 Q2. What is the purpose of CloudWatch Logs Insights?
@@ -26,9 +27,10 @@ Q2. What is the purpose of CloudWatch Logs Insights?
 
 [ ] To detect and resolve operational issues
 
-[.answer]
+'''
+ [.answer]
 
-[ ] To query and analyze log data interactively
+[* ] To query and analyze log data interactively
 
 [.query]
 Q3. What is Live Tail used for in CloudWatch Logs?
@@ -42,9 +44,10 @@ Q3. What is Live Tail used for in CloudWatch Logs?
 
 [ ] To store log data in durable storage
 
-[.answer]
+'''
+ [.answer]
 
-[ ] To detect and resolve incidents quickly by viewing streaming log events
+[* ] To detect and resolve incidents quickly by viewing streaming log events
 
 [.query]
 Q4. How does CloudWatch Logs monitor applications and systems on Amazon EC2 instances?
@@ -58,9 +61,10 @@ Q4. How does CloudWatch Logs monitor applications and systems on Amazon EC2 inst
 
 [ ] By tracking CPU utilization and sending alerts when it exceeds a threshold
 
-[.answer]
+'''
+ [.answer]
 
-[ ] By monitoring the number of errors in application logs and sending notifications
+[* ] By monitoring the number of errors in application logs and sending notifications
 
 [.query]
 Q5. What is the purpose of CloudTrail integration with CloudWatch Logs?
@@ -74,9 +78,10 @@ Q5. What is the purpose of CloudTrail integration with CloudWatch Logs?
 
 [ ] To generate metrics from CloudTrail logs
 
-[.answer]
+'''
+ [.answer]
 
-[ ] To monitor API activity captured by CloudTrail and perform troubleshooting
+[* ] To monitor API activity captured by CloudTrail and perform troubleshooting
 
 [.query]
 Q6. How can sensitive data in logs be protected?
@@ -90,9 +95,10 @@ Q6. How can sensitive data in logs be protected?
 
 [ ] By storing log data in durable storage
 
-[.answer]
+'''
+ [.answer]
 
-[ ] By enabling data protection policies to mask sensitive data
+[* ] By enabling data protection policies to mask sensitive data
 
 [.query]
 Q7. What is the default log retention policy in CloudWatch Logs?
@@ -123,9 +129,10 @@ Q8. How can log data be stored in durable storage in CloudWatch Logs?
 
 [ ] By enabling log archiving in the CloudWatch Logs console
 
-[.answer]
+'''
+ [.answer]
 
-[ ] By using the CloudWatch Logs agent to send log data to the service
+[* ] By using the CloudWatch Logs agent to send log data to the service
 
 [.query]
 Q9. What can be logged using CloudWatch Logs in relation to Route 53?
