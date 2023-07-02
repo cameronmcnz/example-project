@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "880 - An application sends images to S3
+The me"
+---
+
+
+[.question]
+== 880-64a1fa57f053625db51dde4c.
+
+
+****
+
+[.query]
+--
+An application sends images to S3
+The metadata for these images needs to be saved in persistent storage and is required to be indexed.
+Which one of the following is the best for the underlying metadata storage?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon Aurora
+* [ ] B. Amazon S3
+* [*] C. Amazon DynamoDB
+* [ ] D. Amazon RDS.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+The most efficient storage mechanism for just storing metadata is Amazon DynamoDB.
+Amazon DynamoDB is normally used in conjunction with the Simple Storage service.
+So, after storing the images in S3, you can store their metadata in DynamoDB.
+You can also create secondary indexes for DynamoDB Tables.
+For more information on managing indexes in DynamoDB, please visit the following URL:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.Indexes.html
+Based on the requirements provided, the best option for the underlying metadata storage would be Amazon DynamoDB (Option C).
+Here's why:
+Amazon Aurora (Option A) is a relational database service that offers high performance and availability. It is a good option for storing structured data, but it may not be the best choice for unstructured data such as image metadata. Moreover, Aurora is a costlier option as compared to DynamoDB.
+Amazon S3 (Option B) is an object storage service that is designed to store and retrieve large amounts of data. It can also store metadata in key-value pairs, but it is not optimized for indexing or querying this metadata.
+Amazon RDS (Option D) is a managed relational database service that supports multiple database engines like MySQL, PostgreSQL, etc. Similar to Aurora, it may not be the best choice for storing unstructured data such as image metadata.
+On the other hand, Amazon DynamoDB (Option C) is a NoSQL database service that is optimized for storing and querying unstructured data such as image metadata. DynamoDB offers fast and predictable performance and is designed to scale seamlessly. It also provides flexible indexing options that can help optimize queries for specific access patterns.
+Therefore, based on the requirements mentioned in the question, Amazon DynamoDB is the best option for the underlying metadata storage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question91:"link"
+
+

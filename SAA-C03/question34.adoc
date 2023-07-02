@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "834 - A large amount of structured data is sto"
+---
+
+
+[.question]
+== 834-64a1fa47f053625db51dde16.
+
+
+****
+
+[.query]
+--
+A large amount of structured data is stored in Amazon S3 using the JSON format.
+You need to use a service to analyze the S3 data directly with standard SQL.
+In the meantime, the data should be easily visualized through data dashboards.
+Which of the following services is the most appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon Athena and Amazon QuickSight.
+* [ ] B. AWS Glue and Amazon Athena.
+* [*] C. AWS Glue and Amazon QuickSight.
+* [ ] D. Amazon Kinesis Data Stream and Amazon QuickSight.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is CORRECT because Amazon Athena is the most suitable to run ad-hoc queries to analyze data in S3
+Amazon Athena is serverless, and you are charged for the amount of scanned data.
+Besides, Athena can integrate with Amazon QuickSight that visualizes the data via dashboards.
+Option B is incorrect because AWS Glue is an ETL (extract, transform, and load) service that organizes, cleanses, validates, and formats data in a data warehouse.
+This service is not required in this scenario.
+Option C is incorrect because it is the same as Option.
+B.
+AWS Glue is not required.
+Option D is incorrect because, with Amazon Kinesis Data Stream, users cannot perform queries for the S3 data through standard SQL.
+Reference:
+https://aws.amazon.com/athena/pricing/. https://docs.aws.amazon.com/quicksight/latest/user/create-a-data-set-athena.html.
+The most appropriate services to use in this scenario would be Amazon Athena and Amazon QuickSight (option A).
+Amazon Athena is a serverless interactive query service that allows users to easily analyze data stored in S3 using standard SQL. Since the data is already stored in S3, no additional data loading is required. Athena supports various data formats including JSON, CSV, ORC, and Parquet, making it ideal for analyzing structured data stored in S3 in the JSON format.
+Amazon QuickSight is a cloud-based business intelligence service that allows users to easily create and publish interactive dashboards, reports, and charts. QuickSight integrates seamlessly with Athena, allowing users to visualize data directly from the Athena query results. QuickSight also supports various data sources including S3, Athena, RDS, Redshift, and more, making it easy to combine data from different sources in a single dashboard.
+Option B (AWS Glue and Amazon Athena) is not the most appropriate choice since AWS Glue is an ETL (extract, transform, load) service that is used to prepare and transform data for analysis, not to analyze data directly. While AWS Glue can also integrate with Athena to create and maintain data catalogs, it is not necessary for this scenario.
+Option C (AWS Glue and Amazon QuickSight) is similar to option B but with the addition of QuickSight. While QuickSight is a good choice for data visualization, AWS Glue is not necessary for this scenario since the data is already structured and stored in S3.
+Option D (Amazon Kinesis Data Stream and Amazon QuickSight) is not the most appropriate choice since Kinesis Data Stream is a real-time data streaming service, which is not necessary for this scenario. Additionally, Kinesis Data Stream does not support SQL queries, which are required to analyze the structured data stored in S3.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question37:"link"
+
+

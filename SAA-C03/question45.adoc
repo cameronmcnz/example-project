@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "845 - You need to install a 150 GB volume on a"
+---
+
+
+[.question]
+== 845-64a1fa4bf053625db51dde24.
+
+
+****
+
+[.query]
+--
+You need to install a 150 GB volume on an EC2 Instance for a new application.
+While the data in the volume is used less frequently with small peaks in the morning and evening, Which storage type would be the most cost-effective option for the given requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon EBS provisioned IOPS SS.
+* [*] B. Amazon EBS Cold HD.
+* [ ] C. Amazon EBS General Purpose SS.
+* [ ] D. Amazon EFS.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The volume data is used infrequently, not throughout the day, and the question requires the MOST cost-effective storage type.
+So the preferred choice would be Amazon Cold HDD.
+Cold HDD is suitable for the following scenarios:
+Throughput-oriented storage for data that is infrequently accessed.
+Scenarios where the lowest storage cost is important.
+The volume size of EBS Cold HDD is 125 GiB - 16 TiB.
+The database size is 150G and is suitable in this scenario.
+Option D is incorrect because EFS is file storage, not block or volume storage.
+Note: IOPS measures the number of reads and writes operations per second, while throughput measures the number of bits read or written per second.
+References:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html https://aws.amazon.com/ebs/features/
+Based on the given requirements of needing a 150 GB volume on an EC2 instance for a new application, with data that is used less frequently with small peaks in the morning and evening, the most cost-effective storage option would be Amazon EBS Cold HDD.
+Amazon EBS Cold HDD is a cost-effective storage option designed for workloads that need infrequent access to data. It is optimized for large, sequential workloads and is designed for infrequent access, such as backups and archives. The data retrieval times may be longer compared to other EBS storage options, but it provides cost savings.
+The other options listed in the question are as follows:
+A. Amazon EBS Provisioned IOPS SSD: This option is designed for high-performance workloads that require low-latency and consistent I/O performance. It is a good option for applications that need high IOPS and throughput.
+B. Amazon EBS Cold HD: This option is designed for infrequent access workloads with large sequential workloads.
+C. Amazon EBS General Purpose SSD: This option is a good fit for small and medium-sized workloads with moderate I/O requirements.
+D. Amazon EFS: This option is a fully-managed file system for use with AWS Cloud services and on-premises resources. It is suitable for shared access to files across multiple instances.
+Therefore, based on the given requirements, Amazon EBS Cold HDD would be the most cost-effective option for the EC2 instance with a 150 GB volume.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question51:"link"
+
+

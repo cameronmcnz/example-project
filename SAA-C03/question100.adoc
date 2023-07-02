@@ -1,0 +1,91 @@
+---
+layout: default 
+title: "900 - Your company currently has a set of nonp"
+---
+
+
+[.question]
+== 900-64a1fa5ff053625db51dde63.
+
+
+****
+
+[.query]
+--
+Your company currently has a set of non-production EC2 Instances hosted in AWS.
+To save costs, you want to stop the EC2 instance when the average CPU utilization percentage has been lower than 10 percent for 24 hours, signaling that it is idle and no longer in use.
+Which step could be helpful to fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use CloudWatch Logs to store the state change of the instances.
+* [*] B. Create Amazon CloudWatch alarms that monitor the CPU utilization metric and stop the instances when the alarms are triggered.
+* [*] C. Use SQS to monitor the metric and add the record to a DynamoDB table.
+* [ ] D. Use AWS Lambda to monitor the metric and store the state in a DynamoDB table.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Create Alarms That Stop, Terminate, Reboot, or Recover an Instance
+Using Amazon CloudWatch alarm actions, you can create alarms that automatically stop, terminate, reboot, or recover your instances.
+You can use the stop or terminate actions to save money when you no longer need an instance.
+You can use the reboot and recover actions to automatically reboot those instances or recover them onto new hardware if a system impairment occurs.
+There are several scenarios in which you might want to stop or terminate your instance automatically.
+For example, you might have instances dedicated to batch payroll processing jobs or scientific computing tasks that run for a period of time and then complete their work.
+Rather than letting those instances sit idle (and accrue charges), you can stop or terminate them, helping you to save money.
+The main difference between using the stop and the terminate alarm actions is that you can easily restart a stopped instance if you need to rerun it later, and you can keep the same instance ID and root volume.
+However, you cannot restart a terminated instance.
+Instead, you must launch a new instance.
+You can add the stop, terminate, reboot, or recover actions to any alarm that is set on an Amazon EC2 per-instance metric, including basic and detailed monitoring metrics provided by Amazon CloudWatch (in the AWS/EC2 namespace), as well as any custom metrics that include the InstanceId dimension, as long as its value refers to a valid running Amazon EC2 instance.
+For more information on Amazon EC2, please visit https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingAlarmActions.html#AddingStopActions.
+Breakdown.
+Option A is incorrect because CloudWatch Logs is not suitable to monitor the CloudWatch Metrics.
+Option B is correct.
+CloudWatch alarms are used to trigger notifications for any metric.
+Alarms can trigger auto-scaling, EC2 actions(stop, terminate, recover, or reboot) and SNS notifications.
+Option C is incorrect because SQS cannot modify the EC2 state when a CloudWatch metric breaches a threshold value.
+Option D is incorrect because AWS Lambda is not necessary in this scenario.
+CloudWatch Alarms can directly monitor the metric and trigger actions when needed.
+Please refer to the below link for more information on Cloudwatch:
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-Monitoring-CloudWatch-Metrics.html https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/acw-ug.pdf
+The most appropriate option to fulfill the requirement of stopping the EC2 instance when the average CPU utilization percentage has been lower than 10 percent for 24 hours is to create Amazon CloudWatch alarms that monitor the CPU utilization metric and stop the instances when the alarms are triggered (option B).
+Amazon CloudWatch is a monitoring service that provides metrics, logs, and alarms for AWS resources and applications. It allows users to collect and track metrics, collect and monitor log files, and set alarms. Using CloudWatch alarms, users can automatically react to changes in metrics, such as CPU utilization, by triggering actions, such as stopping an EC2 instance.
+To set up CloudWatch alarms for EC2 instances, the following steps can be taken:
+1.
+Create a CloudWatch alarm: From the CloudWatch console, navigate to Alarms, and click "Create alarm." Select the EC2 metric for CPU utilization, and set the threshold to trigger the alarm when the average CPU utilization percentage has been lower than 10 percent for 24 hours.
+2.
+Define actions: Select the "Actions" tab and choose "Stop this instance" as the action to take when the alarm is triggered.
+3.
+Add tags: Add any required tags to help organize and manage the alarm.
+4.
+Create the alarm: Click "Create alarm" to create the CloudWatch alarm.
+Once the CloudWatch alarm is set up, it will monitor the CPU utilization metric of the EC2 instance and trigger an action to stop the instance when the average CPU utilization percentage has been lower than 10 percent for 24 hours.
+Option A, using CloudWatch Logs to store the state change of the instances, is not the best option for this use case, as it is primarily used for logging and storing application and system logs, and would not provide the necessary functionality for monitoring CPU utilization and stopping instances.
+Option C, using SQS to monitor the metric and add the record to a DynamoDB table, is not the best option for this use case, as it is primarily used for queueing and processing messages, and would not provide the necessary functionality for monitoring CPU utilization and stopping instances.
+Option D, using AWS Lambda to monitor the metric and store the state in a DynamoDB table, is also not the best option for this use case, as it would require setting up a custom monitoring and automation solution, which would be more complex and time-consuming than setting up CloudWatch alarms.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question114:"link"
+
+

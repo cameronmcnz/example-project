@@ -1,0 +1,126 @@
+---
+layout: default 
+title: "836 - You have an S3 bucket that is used to st"
+---
+
+
+[.question]
+== 836-64a1fa47f053625db51dde18.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_14.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have an S3 bucket that is used to store important data for a web application.
+You want to receive an email notification whenever an object removal event happens in the S3 bucket.
+How would you configure the S3 bucket to achieve this requirement?
+
+
+[source,java]
+----
+Name Events Filter Type
+
+New event
+
+Name @
+
+e.g. MyEmailEventForPut
+
+Events @
+
+(put All object delete events
+
+(J Post (] Restore initiated
+
+(copy (_) Restore completed
+
+(| Multipart upload completed (| Replication time missed threshold
+(| All object create events (| Replication time completed after
+{| Object in RRS lost threshold
+
+(-] Permanently deleted (_] Replication time not tracked
+
+(J Delete marker created (| Replication failed
+
+Prefix ©
+
+e.g. images/
+Suffix ©
+
+eg. .jpg
+Send to @
+
+Select notification destination
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the object-level logging for the S3 bucket and register an SNS topic to provide notifications.
+* [ ] B. Configure the server access logging for the object removal events. Add an SNS topic to notify the team via emails.
+* [*] C. Set up an AWS Config rule to check the object deletion events. Register a Lambda function to send notifications.
+* [*] D. Configure an S3 event notification for the object removal events. Send the events to an SNS topic.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect because object-level logging is used to record object-level API activities in CloudTrail.
+Users cannot register an SNS topic for object-level logging.
+Option B is incorrect because server access logging does not trigger an SNS topic for the object removal events.
+Option C is incorrect because you would need to write a custom Lambda function in the AWS Config rule to check the object removal events.
+This method is more complicated than option.
+D.Option D is CORRECT because with an S3 event notification, you can select which events are enabled for the notification.
+The events can be sent to an SNS topic, an SQS queue, or a Lambda function.
+Reference:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html. https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-event-notifications.html.
+The correct answer is D: Configure an S3 event notification for the object removal events. Send the events to an SNS topic.
+Explanation:
+To receive an email notification whenever an object removal event happens in an S3 bucket, you can use Amazon S3 event notifications. These notifications can be configured to send an email to an Amazon SNS topic when an object is deleted from the S3 bucket.
+To configure S3 event notifications for the S3 bucket, follow these steps:
+1. Open the Amazon S3 console.
+2. Choose the S3 bucket that you want to configure for event notifications.
+3. Click on the "Properties" tab.
+4. Click on the "Events" section.
+5. Click on the "Add notification" button.
+6. Choose the event type "Object removal" and provide the prefix or suffix of the object key for which you want to receive notifications.
+7. Select the Amazon SNS topic to which you want to send the notification emails.
+8. Click on the "Save" button.
+Once you have configured the S3 event notification, you will receive an email notification to the SNS topic whenever an object is deleted from the S3 bucket. You can then configure the SNS topic to send an email notification to the appropriate team members.
+Option A is incorrect because object-level logging does not provide the ability to send notifications. It only logs the object-level activity in the S3 bucket.
+Option B is incorrect because server access logging only logs the requests made to the S3 bucket. It does not provide the ability to send notifications for object removal events.
+Option C is incorrect because AWS Config is used to track resource configurations and changes over time. It is not designed to send notifications for object removal events in an S3 bucket.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question39:"link"
+
+

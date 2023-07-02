@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "855 - The security policy of an organization r"
+---
+
+
+[.question]
+== 855-64a1fa4ff053625db51dde30.
+
+
+****
+
+[.query]
+--
+The security policy of an organization requires an application to encrypt data before writing to the disk.
+Which solution should the organization use to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS KMS API
+* [ ] B. AWS Certificate Manager
+* [*] C. API Gateway with STS
+* [ ] D. IAM Access Key.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option B is incorrect.
+The AWS Certificate Manager can be used to generate SSL certificates to encrypt traffic in transit, but not at rest.
+Option C is incorrect.
+It is used for issuing tokens while using the API gateway for traffic in transit.
+Option D is used for providing secure access to EC2 Instances.
+AWS Documentation mentions the following on AWS KMS:
+AWS Key Management Service (AWS KMS) is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data.
+AWS KMS is integrated with other AWS services including Amazon Elastic Block Store (Amazon EBS), Amazon Simple Storage Service (Amazon S3), Amazon Redshift, Amazon Elastic Transcoder, Amazon WorkMail, Amazon Relational Database Service (Amazon RDS), and others to make it simple to encrypt your data with encryption keys that you manage.
+For more information on AWS KMS, please visit the following URL:
+https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
+The AWS KMS API can be used to encrypt, decrypt and reencrypt content.
+Please refer the following guide:
+https://docs.aws.amazon.com/kms/latest/APIReference/kms-api-reference.pdf#Welcome
+The solution that an organization should use to meet the requirement of encrypting data before writing to the disk is AWS KMS API.
+AWS KMS (Key Management Service) is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data. With AWS KMS, you can create, rotate, and manage customer master keys (CMKs) and use them to protect your data. AWS KMS integrates with AWS services, including Amazon EBS, Amazon S3, and Amazon Redshift, to enable you to easily encrypt data at rest.
+To encrypt data before writing to the disk, you can use AWS KMS API to generate a data encryption key (DEK) and use it to encrypt the data. You can then store the encrypted data on the disk. When you need to read the data, you can use the same DEK to decrypt the data.
+The other options provided in the answer choices are not appropriate for meeting the requirement of encrypting data before writing to the disk:
+AWS Certificate Manager is used to manage SSL/TLS certificates for use with AWS services. It does not provide encryption for data at rest.
+API Gateway with STS (Security Token Service) provides temporary security credentials to access AWS services, but it does not provide encryption for data at rest.
+IAM (Identity and Access Management) Access Key is used to authenticate and authorize access to AWS services, but it does not provide encryption for data at rest.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question63:"link"
+
+

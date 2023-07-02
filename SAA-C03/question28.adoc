@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "828 - Your company has setup EC2 Instances in "
+---
+
+
+[.question]
+== 828-64a1fa44f053625db51dde10.
+
+
+****
+
+[.query]
+--
+Your company has setup EC2 Instances in a VPC for their application.
+The IT Security department has advised that all traffic be monitored to the EC2 Instances.
+Which of the following features can be used to capture information for outgoing and incoming IP traffic from network interfaces in a VPC.
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Cloudwatch
+* [ ] B. AWS EC2
+* [ ] C. AWS SQS
+* [*] D. AWS VPC Flow Logs.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The AWS Documentation mentions the following.
+VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC.
+Flow log data can be published to Amazon CloudWatch Logs and Amazon S3
+After you've created a flow log, you can retrieve and view its data in the chosen destination.
+Option A is incorrect since this is a monitoring service.
+Option B is incorrect since this is a compute service.
+Option C is incorrect since this is a messaging service.
+For more information on VPC flow logs, please visit the below URL.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html
+The feature that can be used to capture information for incoming and outgoing IP traffic from network interfaces in a VPC is AWS VPC Flow Logs.
+VPC Flow Logs is a feature that captures information about the IP traffic going to and from network interfaces in a VPC. This feature allows you to collect and store network flow data for analysis and troubleshooting purposes.
+When VPC Flow Logs is enabled, it will capture the following information about the network traffic:
+The source and destination IP addresses
+The source and destination ports
+The protocol used
+The number of bytes and packets transferred
+The start and end time of the flow
+The action taken (accepted or rejected)
+VPC Flow Logs can be configured at the VPC level, subnet level, or network interface level. Once enabled, the captured flow logs can be stored in Amazon S3 or Amazon CloudWatch Logs for further analysis and monitoring.
+AWS CloudWatch is a monitoring and logging service that can be used to monitor EC2 instances and other AWS resources, but it does not provide the same level of detail as VPC Flow Logs.
+AWS EC2 is a service that provides virtual servers in the cloud, but it is not used for capturing network flow data.
+AWS SQS (Simple Queue Service) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. It is not related to capturing network flow data.
+Therefore, the correct answer is D. AWS VPC Flow Logs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question30:"link"
+
+

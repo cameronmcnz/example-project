@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "895 - A company hosts 5 web servers in AWS
+The"
+---
+
+
+[.question]
+== 895-64a1fa5df053625db51dde5e.
+
+
+****
+
+[.query]
+--
+A company hosts 5 web servers in AWS.
+They want to ensure that multiple values for a DNS query should be returned and traffic routed to multiple IP addresses.
+In addition, you want to associate your routing records with a Route 53 health check.
+Which routing policy should be used to fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Simple
+* [ ] B. Weighted
+* [*] C. Multivalue Answer
+* [ ] D. Latency.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+The AWS Documentation mentions the following to support this:
+If you want to route traffic randomly to multiple resources such as web servers, you can create one multivalue answer record for each resource and, optionally, associate an Amazon Route 53 health check with each record.
+For example, suppose you manage an HTTP web service with a dozen web servers where each has its own IP address.
+No web server could handle all the traffic.
+But if you create a dozen multivalue answer records, Amazon Route 53 responds to DNS queries with up to eight healthy records in response to each DNS query.
+Amazon Route53 gives different answers to different DNS resolvers.
+If a web server becomes unavailable after a resolver cache a response, client software can try another IP address in the response.
+Simple routing policy - Use a single resource that performs a given function for your domain, such as a web server that serves the example.com website.
+Latency routing policy - Use when you have resources in multiple locations, and you want to route traffic to the resource that provides the best latency.
+Weighted routing policy - Use to route traffic to multiple resources in proportions that you specify.
+Multivalue answer routing policy - Use when you want Route53 to respond to DNS queries with up to eight healthy records selected randomly.
+For more information on different routing policies, please visit the following URL:
+https://aws.amazon.com/premiumsupport/knowledge-center/multivalue-versus-simple-policies https://aws.amazon.com/about-aws/whats-new/2017/06/amazon-route-53-announces-support-for-multivalue-answers-in-response-to-dns-queries/
+The routing policy that best fulfills the requirement of returning multiple values for a DNS query and associating the routing records with a Route 53 health check is the "Multivalue Answer" routing policy.
+Explanation:
+Simple routing policy: This policy is used to route traffic to a single resource that is specified in the record. It doesn't support multiple IP addresses or health checks.
+Weighted routing policy: This policy is used to distribute traffic across multiple resources based on a weighted distribution. It supports multiple IP addresses, but it doesn't support health checks.
+Multivalue Answer routing policy: This policy is used to return multiple values for a DNS query, and Route 53 responds with up to eight healthy records selected at random from the set of eligible resources. It also supports associating routing records with a Route 53 health check.
+Latency routing policy: This policy is used to route traffic to the resource that has the lowest network latency to the end user. It doesn't support multiple IP addresses or health checks.
+Therefore, the correct answer is C, Multivalue Answer routing policy, as it meets the requirement of returning multiple IP addresses and also allows the association of routing records with a Route 53 health check.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question109:"link"
+
+

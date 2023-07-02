@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "897 - You need to deploy a high performance co"
+---
+
+
+[.question]
+== 897-64a1fa5ef053625db51dde60.
+
+
+****
+
+[.query]
+--
+You need to deploy a high performance computing (HPC) and machine learning application in AWS Linux EC2 instances.
+The performance of inter-instance communication is very critical for the application.
+You want to attach a network device to the instance so that the computing performance can be greatly improved.
+Which of the following options can achieve the best performance?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable enhanced networking feature in the EC2 instance.
+* [*] B. Configure Elastic Fabric Adapter (EFA) in the instance.
+* [*] C. Attach high speed Elastic Network Interface (ENI) in the instance.
+* [ ] D. Create Elastic File System (EFS) and mount the file system in the instance.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+With Elastic Fabric Adapter (EFA), users can perform better than enhanced networking (Elastic Network Adapter) or Elastic Network Interface.
+Check the differences between EFAs and ENAs in https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html.
+Option A is incorrect: Because with Elastic Fabric Adapter (EFA), users can achieve a better network performance than enhanced networking.
+Option B is CORRECT: Because EFA is the most suitable method for accelerating High Performance Computing (HPC) and machine learning applications.
+Option C is incorrect: Because Elastic Network Interface (ENI) cannot improve the performance as required.
+Option D is incorrect: The Elastic File System (EFS) cannot accelerate the inter-instance communication.
+When deploying a high-performance computing (HPC) and machine learning application on AWS Linux EC2 instances, the performance of inter-instance communication is critical. One way to improve performance is by attaching a network device to the instance. In this context, the best option to achieve optimal performance is by configuring Elastic Fabric Adapter (EFA) in the instance.
+Elastic Fabric Adapter (EFA) is a network interface designed to accelerate HPC and machine learning workloads on EC2 instances. It provides lower and more consistent network latency, higher throughput, and lower jitter compared to other network interfaces, making it an ideal choice for inter-instance communication.
+Enhanced networking feature in EC2 instances improves network performance by offloading the processing of network traffic from the instance's CPU to the network interface card (NIC). It provides better network throughput, lower latency, and lower jitter. However, it does not provide the same level of performance as EFA.
+High speed Elastic Network Interface (ENI) also provides better network throughput and lower latency than the default network interface. However, it is not optimized for HPC and machine learning workloads and does not provide the same level of performance as EFA.
+Creating an Elastic File System (EFS) and mounting the file system in the instance does not improve inter-instance communication performance. It provides a shared file system that can be accessed by multiple instances, but it is not designed to improve network performance.
+In conclusion, to achieve the best performance for inter-instance communication in a high performance computing (HPC) and machine learning application on AWS Linux EC2 instances, configuring Elastic Fabric Adapter (EFA) in the instance is the best option.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question111:"link"
+
+

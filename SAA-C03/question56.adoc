@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "856 - You are an AWS Solutions Architect
+Your "
+---
+
+
+[.question]
+== 856-64a1fa4ff053625db51dde31.
+
+
+****
+
+[.query]
+--
+You are an AWS Solutions Architect.
+Your company has a successful web application deployed across multiple AWS Regions.
+The application attracts more and more global customers.
+However, the application's performance is impacted.
+Your manager asks you how to improve the performance and availability of the application.
+Which of the following AWS services would you recommend?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS DataSync
+* [ ] B. Amazon DynamoDB Accelerator
+* [*] C. AWS Lake Formation
+* [*] D. AWS Global Accelerator.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+AWS Global accelerator provides static IP addresses that are anycast in the AWS edge network.
+Incoming traffic is distributed across endpoints in AWS regions.
+The performance and availability of the application are improved.
+Option A is incorrect: Because DataSync is a tool to automate the data transfer and does not improve the performance.
+Option B is incorrect: DynamoDB is not mentioned in this question.
+Option C is incorrect: Because AWS Lake Formation is used to manage a large amount of data in AWS, which would not help in this situation.
+Option D is CORRECT: Check the AWS Global Accelerator use cases in https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-benefits-of-migrating.html.
+The Global Accelerator service can improve both the application performance and availability.
+In this scenario, the company has a web application deployed across multiple AWS Regions and is experiencing performance issues due to the growing number of global customers. To improve the application's performance and availability, we need to recommend an appropriate AWS service.
+Out of the given options, the recommended AWS service is AWS Global Accelerator (option D).
+AWS Global Accelerator is a networking service that routes traffic over the AWS global network to the optimal AWS endpoint based on the geographic location of the user, health of the endpoint, and routing policies configured by the user. It uses anycast IP addresses to provide a static IP that clients can use to access the application, which allows traffic to be distributed to the optimal endpoint based on proximity, improving performance and availability.
+AWS Global Accelerator also provides health checks and automatic failover, ensuring that client requests are always routed to healthy endpoints, improving the application's availability.
+The other options provided, AWS DataSync (option A), Amazon DynamoDB Accelerator (option B), and AWS Lake Formation (option C), are not relevant to the performance and availability issues of a web application deployed across multiple AWS Regions.
+AWS DataSync is a data transfer service that moves large amounts of data between on-premises storage and AWS services. Amazon DynamoDB Accelerator is an in-memory cache that improves the performance of DynamoDB queries. AWS Lake Formation is a service that helps you set up a secure data lake in minutes.
+Therefore, the recommended AWS service for improving the performance and availability of a web application deployed across multiple AWS Regions is AWS Global Accelerator.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question64:"link"
+
+

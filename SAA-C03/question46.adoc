@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "846 - You are working as an AWS consultant for"
+---
+
+
+[.question]
+== 846-64a1fa4bf053625db51dde25.
+
+
+****
+
+[.query]
+--
+You are working as an AWS consultant for a start-up company.
+They have developed a web application, that requires a lot of memory, for their employees to share files with external vendors securely.
+They created an AutoScaling group for the web servers that require two m4.large EC2 instances running at all times, scaling up to a maximum of twelve instances.
+Post-deployment of the application, a huge rise in cost was observed.
+Due to a limited budget, the CTO has requested your advice to optimize the usage of instances in the Auto Scaling groups.
+What do you suggest for reducing the costs and minimizing the risk of adverse impact on the performance?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an Auto Scaling group with t2. micro On-Demand instances.
+* [ ] B. Create an Auto Scaling group with a mix of On-Demand & Spot Instance. Select the On-Demand base as zero. Above On-Demand base, select 100% of On-Demand instance & 0% of Spot Instance.
+* [*] C. Create an Auto Scaling group with all Spot Instance.
+* [*] D. Create an Auto Scaling group with a mix of On-Demand & Spot Instance. Select the On-Demand base as 2. Above On-Demand base, select 20% of On-Demand instance & 80% of Spot Instance.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Auto Scaling group supports a mix of On-Demand &amp; Spot instances, which helps design a cost-optimized solution without impacting the performance.
+You can choose the percentage of On-Demand &amp; Spot instances based on the application requirements.
+With Option D, the Auto Scaling group will have 2 instances initially as the On-Demand instances.
+In contrast, the remaining instances will be launched in a 20 % On-Demand instance &amp; 80% Spot Instance ratio.
+No matter, if 80% of spot instances get terminated.
+The required 20% on-demand will be available with 2 on-demand instances always running.
+Option A is incorrect.
+With t2
+Micro, there would be a cost reduction, but it will impact the performance of the application.
+The question requires that the performance is not impacted, so changing the instance type is not suitable.
+Option B is incorrect as there would not be any cost reduction with all On-Demand instances.
+Option C is incorrect.
+Although this will reduce cost, all spot instances in an auto-scaling group may cause inconsistencies in the application &amp; lead to poor performance.
+For more information on Auto Scaling with multiple Instance types &amp; purchase options, refer to the following URLs:
+https://aws.amazon.com/blogs/aws/new-ec2-auto-scaling-groups-with-multiple-instance-types-purchase-options/ https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html#asg-purchase-options
+When optimizing the usage of instances in the Auto Scaling group, there are several factors to consider, such as cost, performance, and availability. In this scenario, the goal is to reduce costs while minimizing the risk of adverse impact on performance.
+Option A: Create an Auto Scaling group with t2.micro On-Demand instances.
+This option suggests using On-Demand instances, which are instances that are purchased at a fixed rate and can be used for as long as needed. The t2.micro instance type is a cost-effective option with a low hourly rate, but it only has 1GB of memory, which may not be sufficient for the web application's memory requirements. Additionally, since the application requires a lot of memory, running multiple t2.micro instances may not be optimal for performance.
+Option B: Create an Auto Scaling group with a mix of On-Demand and Spot Instances. Select the On-Demand base as zero. Above On-Demand base, select 100% of On-Demand instance & 0% of Spot Instance.
+This option suggests using a mix of On-Demand and Spot Instances. Spot Instances are instances that are available for purchase at a lower hourly rate but can be interrupted by AWS if the spot price goes above the user's bid. This option selects a zero On-Demand base, which means all instances will be Spot Instances unless there is insufficient capacity, in which case On-Demand instances will be used. This option is not recommended since it has a high risk of interruptions, which may negatively impact performance.
+Option C: Create an Auto Scaling group with all Spot Instances.
+This option suggests using only Spot Instances, which have a lower hourly rate than On-Demand instances. However, as mentioned earlier, Spot Instances can be interrupted by AWS if the spot price goes above the user's bid, which may negatively impact performance. Using only Spot Instances may also increase the risk of capacity constraints, which could result in reduced availability.
+Option D: Create an Auto Scaling group with a mix of On-Demand and Spot Instances. Select the On-Demand base as 2. Above On-Demand base, select 20% of On-Demand instances & 80% of Spot Instances.
+This option suggests using a mix of On-Demand and Spot Instances, with a base of two On-Demand instances and 20% of On-Demand instances above the base. This option provides a balance between cost, performance, and availability. The two On-Demand instances ensure that there is always a minimum capacity available, while the use of Spot Instances helps reduce costs. The 20% On-Demand instances above the base provide additional capacity to handle spikes in demand. This option is recommended as it minimizes the risk of interruptions and capacity constraints while also reducing costs.
+In summary, option D is the recommended solution for reducing costs and minimizing the risk of adverse impact on performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question52:"link"
+
+

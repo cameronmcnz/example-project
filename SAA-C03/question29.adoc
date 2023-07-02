@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "829 - A media firm uses the Amazon S3 bucket t"
+---
+
+
+[.question]
+== 829-64a1fa45f053625db51dde11.
+
+
+****
+
+[.query]
+--
+A media firm uses the Amazon S3 bucket to save all videos shared by reporters across the globe.
+Operation Team has instructed all reporters to use only Multipart Uploads while uploading these large-sized videos to Amazon S3 bucket in each region.
+Most of the reporters are working from remote areas & face challenges in uploading videos.
+The Finance Team is concerned about high costs incurred by saving data in the Amazon S3 bucket & seeking your guidance.
+Post verification, you observe a large number of incomplete uploads in Amazon S3 buckets in each region.
+The uncompleted uploads can be deleted after a certain period of time. Which of the following actions can minimize charges for saving video files in the Amazon S3 bucket?
+
+
+--
+
+[.list]
+--
+* [*] A. Reporter`s need to compress video files locally before uploading to Amazon S3 bucket.
+* [ ] B. Reporter’s need to upload Videos to Amazon S3 Glacier to save additional charges.
+* [*] C. Create a Lifecycle Policy to move all incomplete Multipart uploads to Amazon S3 Glacier after weeks’ time from initiation.
+* [*] D. Create a Lifecycle Policy to delete all incomplete Multipart uploads after weeks’ time from initiation.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Incomplete Multipart Uploads incur storage charges on the Amazon S3 bucket.
+Lifecycle rules can be used to abort the uploading of multipart uploads that are incomplete since a specific time frame &amp; also deletes these parts to free up storage, reducing costs for this storage.
+Option A &amp; B are incorrect as Incomplete Multipart Uploads incur charges.
+These charges can be stopped by stopping multipart uploads.
+Option C is incorrect as Moving all incomplete Multipart uploads to Amazon S3 Glacier would not completely reduce the cost for storing data.
+As data in Amazon S3 Glacier would incur cost, it would be less than data storing the Amazon S3 bucket.
+Also, incomplete Multipart uploads would not be used until fully uploaded.
+For more information on Amazon S3 Multipart Upload, refer to the following URLs-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html https://aws.amazon.com/blogs/aws/s3-lifecycle-management-update-support-for-multipart-uploads-and-delete-markers/
+The correct answer to this question is D. Create a Lifecycle Policy to delete all incomplete Multipart uploads after a certain period of time from initiation.
+Explanation: The media firm is using Amazon S3 bucket to store videos shared by reporters across the globe. Operation Team has instructed reporters to use Multipart Uploads, which is a recommended approach for uploading large-sized files to Amazon S3. However, due to remote working conditions, reporters are facing challenges in uploading videos, resulting in a large number of incomplete uploads.
+The Finance Team is concerned about high costs incurred by storing data in the Amazon S3 bucket, which is a valid concern as Amazon S3 pricing is based on storage, data transfer, and number of requests. Incomplete uploads consume storage space in the S3 bucket and contribute to the storage costs.
+To minimize charges for saving video files in the Amazon S3 bucket, a Lifecycle Policy can be created. Amazon S3 Lifecycle policies automate the movement of objects between different storage tiers (e.g., S3 Standard, S3 Glacier) based on specific criteria. In this case, the Lifecycle Policy can be used to delete all incomplete Multipart uploads after a certain period of time from initiation, reducing the amount of storage used by incomplete uploads and therefore minimizing storage costs.
+Option A, i.e., compressing video files locally before uploading to Amazon S3 bucket, may reduce the size of video files and reduce data transfer costs but will not reduce storage costs.
+Option B, i.e., uploading Videos to Amazon S3 Glacier, is not recommended for active data that is frequently accessed as Glacier has a slower retrieval time and additional retrieval fees. It is a suitable option for data that is accessed infrequently and is not expected to be retrieved often.
+Option C, i.e., moving all incomplete Multipart uploads to Amazon S3 Glacier after a certain period of time from initiation, will reduce storage costs but will not address the issue of incomplete uploads consuming storage space. Therefore, it is not the most appropriate solution for this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question31:"link"
+
+

@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "831 - Your company is planning to make use of "
+---
+
+
+[.question]
+== 831-64a1fa45f053625db51dde13.
+
+
+****
+
+[.query]
+--
+Your company is planning to make use of the Elastic Container service for managing their container-based applications.
+They are going to process both critical and non-critical workloads with these applications.
+Which of the following COST effective setup would they consider?
+
+
+--
+
+[.list]
+--
+* [*] A. Use ECS orchestration and Spot Instances for processing critical data and On-Demand for the non-critical data.
+* [*] B. Use ECS orchestration and On-Demand Instances for processing critical data and Spot Instances for the non-critical data.
+* [ ] C. Use ECS orchestration and Spot Instances for both the processing of critical data and non-critical data.
+* [ ] D. Use ECS orchestration and On-Demand Instances for both the processing of critical data and non-critical data.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Spot Instance and On-demand Instance are very similar in nature.
+The main difference between these is a commitment.
+In Spot Instance, there is no commitment.
+As soon as the Bid price exceeds the Spot price, a user gets the Instance.
+In an On-demand Instance, a user has to pay the On-demand rate specified by Amazon.
+Once they have bought the Instance, they have to use it by paying that rate.
+In Spot Instance, once the Spot price exceeds the Bid price, Amazon will shut the instance.
+The benefit to the user is that they will not be charged for the partial hour in which the Instance was taken back from them.
+Spot instances are not always cheaper than on-demand, they can and do sometimes fluctuate wildly, even to very high per hour amounts, higher than the on-demand price at times.
+A Spot Instance is an unused EC2 instance that is available for less than the On-Demand price.
+Because Spot Instances enable you to request unused EC2 instances at steep discounts, you can significantly lower your Amazon EC2 costs.
+The hourly price for a Spot Instance is called a Spot price.
+The Spot price of each instance type in each Availability Zone is set by Amazon EC2 and adjusted gradually based on the long-term supply of and demand for Spot Instances.
+Your Spot Instance runs whenever capacity is available, and the maximum price per hour for your request exceeds the Spot price.
+Options A and C are incorrect since Spot Instances can be taken back or interrupted and should not be used for critical workloads.
+Option D is not a cost-effective solution.
+You can use Spot Instances for non-critical workloads.
+For more information on Spot Instances, please refer to the below URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+Elastic Container Service (ECS) is a fully managed container orchestration service provided by AWS. It allows running Docker containers on a cluster of EC2 instances. ECS can be used to deploy both critical and non-critical workloads, but the cost-effective setup will depend on the workload characteristics and business needs.
+Option A: Use ECS orchestration and Spot Instances for processing critical data and On-Demand for non-critical data. This option uses Spot Instances for processing critical data and On-Demand Instances for non-critical data. Spot Instances are available at a lower price compared to On-Demand Instances but are subject to availability, and their prices may vary based on demand. This makes them a good fit for non-critical workloads, but not ideal for critical workloads. Critical workloads require more reliability and availability, which On-Demand Instances provide. Thus, this option is not a cost-effective setup for both critical and non-critical workloads.
+Option B: Use ECS orchestration and On-Demand Instances for processing critical data and Spot Instances for non-critical data. This option uses On-Demand Instances for processing critical data and Spot Instances for non-critical data. On-Demand Instances provide higher reliability and availability, which are important for critical workloads. Spot Instances can be used for non-critical workloads since they are cheaper and can be interrupted without impacting the application. This option is a cost-effective setup for both critical and non-critical workloads.
+Option C: Use ECS orchestration and Spot Instances for both the processing of critical data and non-critical data. This option uses Spot Instances for both critical and non-critical workloads. As mentioned earlier, Spot Instances are cheaper but can be interrupted, which is not ideal for critical workloads. This option is not a cost-effective setup for critical workloads since the risk of interruptions may lead to increased downtime and costs associated with restarting the application.
+Option D: Use ECS orchestration and On-Demand Instances for both the processing of critical data and non-critical data. This option uses On-Demand Instances for both critical and non-critical workloads. On-Demand Instances provide higher reliability and availability, making them a better fit for critical workloads. However, On-Demand Instances are more expensive than Spot Instances. This option is a cost-effective setup for critical workloads, but not for non-critical workloads.
+In conclusion, option B is the most cost-effective setup for managing both critical and non-critical workloads in ECS. It uses On-Demand Instances for critical workloads and Spot Instances for non-critical workloads, providing a balance between cost and reliability.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question33:"link"
+
+

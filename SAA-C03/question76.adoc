@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "876 - You host a static website in an S3 bucke"
+---
+
+
+[.question]
+== 876-64a1fa56f053625db51dde48.
+
+
+****
+
+[.query]
+--
+You host a static website in an S3 bucket, and there are global clients from multiple regions.
+You want to use an AWS service to store cache for frequently accessed content so that the latency is reduced and the data transfer rate increases.
+Which of the following options would you choose?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS SDKs to horizontally scale parallel requests to the Amazon S3 service endpoints.
+* [ ] B. Create multiple Amazon S3 buckets and put Amazon EC2 and S3 in the same AWS Region.
+* [*] C. Enable Cross-Region Replication to several AWS Regions to serve customers from different locations.
+* [*] D. Configure CloudFront to deliver the content in the S3 bucket.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+CloudFront can store the frequently accessed content as a cache, and the performance is optimized.
+Other options may help with the performance.
+However, they do not store cache for the S3 objects.
+Option A is incorrect: This option may increase the throughput.
+However, it does not store cache.
+Option B is incorrect: Because this option does not use cache.
+Option C is incorrect: This option creates multiple S3 buckets in different regions.
+It does not improve the performance using cache.
+Option D is CORRECT: Because CloudFront caches copies the S3 files in its edge locations.
+Users are routed to the edge location that has the lowest latency.
+The most appropriate option to reduce latency and increase data transfer rate for a static website hosted in an S3 bucket for global clients is to configure CloudFront to deliver content from the S3 bucket. Therefore, the correct answer is D.
+CloudFront is a content delivery network (CDN) service provided by AWS that caches content in edge locations around the world. When a user requests content, CloudFront delivers the cached content from the edge location closest to the user, reducing latency and improving data transfer rates. CloudFront integrates seamlessly with S3, making it easy to distribute content stored in S3 to users around the world.
+Option A, using AWS SDKs to horizontally scale parallel requests to the Amazon S3 service endpoints, is not the best approach for reducing latency and improving data transfer rates. While this approach can increase the number of parallel requests, it may not significantly improve the overall performance, especially for global clients.
+Option B, creating multiple S3 buckets and putting EC2 and S3 in the same AWS Region, is also not an effective approach for serving global clients. While this approach can improve performance for clients in the same region as the resources, it does not help clients in other regions.
+Option C, enabling Cross-Region Replication to several AWS Regions to serve customers from different locations, is not the best approach for reducing latency and improving data transfer rates for a static website hosted in an S3 bucket. While this approach can improve data availability and reduce recovery time objectives (RTOs) for disaster recovery scenarios, it does not address the performance issues of serving content to global clients.
+Therefore, the best option to reduce latency and improve data transfer rates for a static website hosted in an S3 bucket for global clients is to configure CloudFront to deliver content from the S3 bucket.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question87:"link"
+
+

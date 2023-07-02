@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "840 - You are a solutions architect working fo"
+---
+
+
+[.question]
+== 840-64a1fa49f053625db51dde1c.
+
+
+****
+
+[.query]
+--
+You are a solutions architect working for a financial services firm.
+Your firm requires a very low latency response time for requests via API Gateway and Lambda integration to your securities master database.
+The securities master database, housed in Aurora, contains data about all of the securities your firm trades.
+The data consists of the security ticker, the trading exchange, trading partner firm for the security, etc.
+As this securities data is relatively static, you can improve the performance of your API Gateway REST endpoint by using API Gateway caching.
+Your REST API calls for equity security request types and fixed income security request types to be cached separately. Which of the following options is the most efficient way to separate your cache responses via request type using API Gateway caching?
+
+
+--
+
+[.list]
+--
+* [*] A. Payload compression
+* [ ] B. Custom domain name
+* [*] C. API Stage
+* [*] D. Query string.
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+Option A is incorrect.
+Payload compression is used to compress and decompress the payload to and from your API Gateway.
+It is not used to separate cache responses.
+Option B is incorrect.
+Custom domain names are used to provide more readable URLs for the users of your AIPs.
+They are not used to separate cache responses.
+Option C is incorrect.
+An API stage is used to create a name for your API deployments.
+They are used to deploy your API in an optimal way.
+Option D is correct.
+You can use your query string parameters as part of your cache key.
+This allows you to separate cache responses for equity requests from fixed income request responses.
+References:
+Please see the Amazon API Gateway developer guide titled Enabling API caching to enhance responsiveness (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html),
+the Amazon API Gateway REST API Reference page titled Making HTTP Requests to Amazon API Gateway (https://docs.aws.amazon.com/apigateway/api-reference/making-http-requests/),
+the Amazon API Gateway developer guide titled Enabling payload compression for an API (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-gzip-compression-decompression.html),
+the Amazon API Gateway developer guide titled Setting up custom domain names for REST APIs (https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html),
+and the Amazon API Gateway developer guide titled Setting up a stage for a REST API (https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html)
+The most efficient way to separate cache responses via request type using API Gateway caching is by using the Query string.
+Query strings are a part of the URL and are used to pass additional parameters to the backend of the API Gateway. By using query strings, we can pass a unique identifier to each request type that we want to cache separately. This unique identifier can then be used by API Gateway to cache the responses separately for each request type.
+For example, let's assume that we have two request types, "equity" and "fixed income", and we want to cache their responses separately. We can modify the URLs for these request types to include a query string parameter such as "?request_type=equity" or "?request_type=fixed_income". This query string parameter will act as a unique identifier for each request type.
+When API Gateway receives a request with a query string parameter, it will check if the response is already cached for that particular request type. If the response is cached, API Gateway will return the cached response, which improves the response time. If the response is not cached, API Gateway will execute the backend Lambda function and cache the response for future requests.
+Using API Gateway caching with query string parameters can significantly improve the performance of REST endpoints that have static data, such as the securities master database in this case.
+To summarize, the most efficient way to separate cache responses via request type using API Gateway caching is by using query strings. This allows us to pass a unique identifier for each request type, which API Gateway can use to cache responses separately.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question43:"link"
+
+

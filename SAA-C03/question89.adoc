@@ -1,0 +1,86 @@
+---
+layout: default 
+title: "889 - A company wants to host a web applicatio"
+---
+
+
+[.question]
+== 889-64a1fa5bf053625db51dde58.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_empgos.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company wants to host a web application and a database layer in AWS.
+This will be done with the use of subnets in a VPC.
+What would be a proper architectural design for supporting the required tiers of the application?
+
+
+[source,java]
+----
+19051
+19851
+
+1985.
+
+10.00.0116
+
+Region
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use a public subnet for the web tier and another public subnet for the database layer.
+* [*] B. Use a public subnet for the web tier and a private subnet for the database layer.
+* [*] C. Use a private subnet for the web tier and another private subnet for the database layer.
+* [ ] D. Use a private subnet for the web tier and a public subnet for the database layer.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The ideal setup is to ensure that the webserver is hosted in the public subnet so that users on the internet can access it.
+The database server can be hosted in the private subnet.
+The below diagram shows how this can be set up:
+For more information on public and private subnets in AWS, please visit the following URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
+When hosting a web application and database layer in AWS, it is recommended to use a Virtual Private Cloud (VPC) for better security, control, and scalability. The VPC is a virtual network that allows you to create isolated sections (subnets) within it to deploy your application.
+To properly support the required tiers of the application, it is recommended to separate the web and database layers into different subnets. This provides added security by allowing you to control the traffic flow between the different layers of the application.
+There are two types of subnets in AWS: public and private. A public subnet has a route to the internet gateway, while a private subnet does not. In general, it is best practice to place resources that need to be accessed from the internet (such as a web server) in a public subnet and resources that do not need to be accessed from the internet (such as a database server) in a private subnet.
+Based on this, the proper architectural design for supporting the required tiers of the application would be to use a public subnet for the web tier and a private subnet for the database layer. This design provides a secure architecture where the web server can interact with the internet, and the database server can only be accessed from within the VPC, thus providing added security to the application.
+Therefore, the correct answer to the question is B. Use a public subnet for the web tier and a private subnet for the database layer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question103:"link"
+
+

@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "888 - A database is being hosted using the Ama"
+---
+
+
+[.question]
+== 888-64a1fa5af053625db51dde57.
+
+
+****
+
+[.query]
+--
+A database is being hosted using the Amazon RDS service.
+This database will be deployed in production and needs to be highly available.
+Which of the following could be used to achieve this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Multi-AZ for the RDS instance to ensure that a secondary database is created in another region.
+* [ ] B. Use the Read Replica feature to create another instance of the DB in another region.
+* [*] C. Use Multi-AZ for the RDS instance to ensure that a secondary database is created in another Availability Zone.
+* [ ] D. Use the Read Replica feature to create another instance of the DB in another Availability Zone.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Option A is incorrect because the Multi-AZ feature allows high availability across Availability Zones, not regions.
+Options B and D are incorrect because Read Replicas can be used to offload database reads.
+But if you want high availability, the Multi-AZ feature is required.
+AWS Documentation mentions the following:
+Amazon RDS Multi-AZ deployments provide enhanced availability and durability for Database (DB) Instances.
+When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ).
+For more information on AWS RDS Multi-AZ, please visit the following URL:
+https://aws.amazon.com/rds/details/multi-az/
+The correct answer to this question is option C: Use Multi-AZ for the RDS instance to ensure that a secondary database is created in another Availability Zone.
+Explanation:
+Multi-AZ (Availability Zone) is a feature provided by Amazon RDS that provides high availability and durability for databases. When Multi-AZ is enabled, Amazon RDS automatically creates a primary database instance in one Availability Zone (AZ) and synchronously replicates the data to a standby instance in another AZ within the same region. This ensures that if the primary database instance fails, the standby instance can be promoted to a primary instance and take over its operations without any manual intervention.
+Using Multi-AZ for the RDS instance ensures that the database is highly available and can withstand failures of the primary instance, network or storage in the primary AZ. This also eliminates the need for any manual intervention or setup for replication.
+Option A: Use Multi-AZ for the RDS instance to ensure that a secondary database is created in another region is incorrect because Multi-AZ creates a standby instance in another AZ within the same region, not another region. Additionally, replicating data across regions may cause additional latency and may not be suitable for certain applications.
+Option B: Use the Read Replica feature to create another instance of the DB in another region is incorrect because Read Replicas are asynchronous copies of the primary database instance and are used for read-intensive workloads. Read Replicas do not provide the same level of availability as Multi-AZ and cannot be promoted to a primary instance in case of failure.
+Option D: Use the Read Replica feature to create another instance of the DB in another Availability Zone is incorrect because Read Replicas are not designed for high availability and cannot be promoted to a primary instance in case of failure.
+Therefore, the correct and optimal solution for ensuring high availability of a database deployed on Amazon RDS is to use Multi-AZ for the RDS instance to ensure that a secondary database is created in another Availability Zone.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question102:"link"
+
+

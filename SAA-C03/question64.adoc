@@ -1,0 +1,130 @@
+---
+layout: default 
+title: "864 - There is a requirement to host a databas"
+---
+
+
+[.question]
+== 864-64a1fa52f053625db51dde3b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgaws1.PNG[]
+
+--
+
+
+****
+
+[.query]
+--
+There is a requirement to host a database on an EC2 Instance.
+It is also required that the EBS volume should support 32,000 IOPS. Which Amazon EBS volume type would meet the performance requirements of this database?
+
+
+[source,java]
+----
+General Purpose SSD
+
+Volume type gp3 gp2
+
+Durability 99.8% - 99.9% 99.8% - 99.9%
+durability (0.1% - durability (0.1% -
+0.2% annual 0.2% annual
+failure rate) failure rate)
+
+Use cases * Low-latency interactive apps
+
+* Development and test environments
+
+io2 Block Express $
+
+99.999% durability
+(0.001% annual failure
+rate)
+
+Workloads that require:
+
+* Sub-millisecond
+latency
+
+* Sustained IOPS
+performance
+
+* More than 64,000
+IOPS or 1,000 MiB/s
+of throughput
+
+Provisioned IOPS SSD
+ji02
+99.999%
+durability
+
+(0.001% annual
+failure rate)
+
+iol
+
+99.8% - 99.9%
+durability (0.1% -
+0.2% annual
+failure rate)
+
+* Workloads that require sustained
+IOPS performance or more than
+
+16,000 IOPS
+
+* 1/O-intensive database workloads
+----
+
+
+--
+
+[.list]
+--
+* [*] A. EBS Provisioned IOPS SSD
+* [ ] B. EBS Throughput Optimized HDD
+* [*] C. EBS General Purpose SSD
+* [ ] D. EBS Cold HDD.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+For high performance and high IOPS requirements, as in this case, the ideal choice would be to choose EBS Provisioned IOPS SSD.The below snapshot from the AWS Documentation shows the usage of Provisioned IOPS for better IOPS performance in database-based applications.
+For more information on AWS EBS Volume types, please visit the following URL:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+The Amazon Elastic Block Store (EBS) is a block-level storage service designed for use with Amazon Elastic Compute Cloud (EC2) instances. EBS provides persistent block-level storage volumes for use with EC2 instances in the AWS Cloud. Amazon EBS volumes are highly available and reliable storage volumes that can be attached to any running EC2 instance in the same Availability Zone and are designed for use with EC2 instances that require persistent storage.
+Based on the requirement of hosting a database on an EC2 instance and supporting 32,000 IOPS, the best EBS volume type that meets the performance requirements of the database is the EBS Provisioned IOPS SSD.
+EBS Provisioned IOPS SSD is designed for I/O-intensive applications that require high IOPS and low latency. This EBS volume type delivers consistent and low-latency performance that is ideal for use with databases, NoSQL databases, and transactional workloads.
+Provisioned IOPS SSD provides predictable and consistent performance, where customers can specify the IOPS they need, and Amazon EBS delivers the requested performance, regardless of the workload.
+The EBS Throughput Optimized HDD volume type is designed for big data workloads that require low-cost and high throughput performance. It is optimized for streaming workloads that require consistent, fast throughput at a low cost per GB. This volume type is not ideal for hosting a database that requires high IOPS and low latency.
+The EBS General Purpose SSD volume type is a good fit for small to medium-sized databases and other workloads that require a balance of price and performance. It is designed for a broad range of transactional workloads, including development and testing environments, low-latency interactive applications, and boot volumes.
+The EBS Cold HDD volume type is designed for infrequent access and low-latency throughput workloads. It is suitable for cold data, such as backups and archives, and not for hosting databases that require high IOPS and low latency.
+In summary, the best Amazon EBS volume type that meets the requirement of hosting a database on an EC2 instance and supporting 32,000 IOPS is the EBS Provisioned IOPS SSD volume type.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question74:"link"
+
+

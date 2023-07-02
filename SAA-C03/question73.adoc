@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "873 - An EC2 instance in the private subnet ne"
+---
+
+
+[.question]
+== 873-64a1fa55f053625db51dde45.
+
+
+****
+
+[.query]
+--
+An EC2 instance in the private subnet needs access to the S3 bucket placed in the same region as that of the EC2 instance.
+The EC2 instance needs to upload and download bigger files to the S3 bucket frequently. As an AWS Solutions Architect, what quick and cost-effective solution would you suggest to your customers? You need to consider that the EC2 instances are present in the private subnet, and the customers do not want their data to be exposed over the internet.
+
+
+--
+
+[.list]
+--
+* [*] A. Place the S3 bucket in another public subnet of the same region and create a VPC peering connection to this private subnet where the EC2 instance is placed. The traffic to upload and download files will go through secure Amazon`s private network.
+* [ ] B. Create an IAM role having access over the S3 service and assign it to the EC2 instance.
+* [*] C. Create a VPC endpoint for S3, use your route tables to control which instances can access resources in Amazon S3 via the endpoint. The traffic to upload and download files will go through the Amazon private network.
+* [ ] D. A private subnet can always access S3 bucket/ service through the NAT Gateways or NAT instances, so there is no need for additional setup.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect because the S3 service is region-specific, not AZ's specific, and the statement talks about placing the S3 bucket in Public Subnet.
+Option B is incorrect because the VPC endpoint has a policy that controls the use of the endpoint to access Amazon S3 resources.
+The default policy allows access by any user or service within the VPC, using credentials from any AWS account to any Amazon S3 resource.
+Option C is correct.
+It can help to access the S3 services in the same region for the EC2 instance.
+You can create a VPC endpoint and update the route entry of the route table associated with the private subnet.
+This is a quick solution as well as cost-effective as it will use Amazon's own private network.
+Hence, it won't expose the data over the internet.
+Option D is incorrect as this is certainly not a default setup unless we create a NAT Gateway or Instance.
+Even if they are there, it's an expensive solution and exposes the data over the internet.
+References:
+https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html
+The correct answer for this scenario is option C: Create a VPC endpoint for S3, use your route tables to control which instances can access resources in Amazon S3 via the endpoint. The traffic to upload and download files will go through the Amazon private network.
+Explanation: When we place an EC2 instance in a private subnet, it does not have direct access to the internet or other AWS services. In order to allow the EC2 instance to access the S3 bucket, we need to provide a secure and private connection between them.
+Option A: Placing the S3 bucket in another public subnet and creating a VPC peering connection to the private subnet is not a good solution because it involves routing the traffic through the public internet. This can expose data to security risks and may not meet the requirement of the customer who wants to keep their data private.
+Option B: Creating an IAM role and assigning it to the EC2 instance is not a correct solution for this problem. IAM roles provide permissions to access AWS services, but they do not provide a secure connection to access S3 from a private subnet.
+Option C: Creating a VPC endpoint for S3 is a secure and private way to access the S3 bucket from the EC2 instance in the private subnet. The VPC endpoint is a virtual device that allows communication between instances in the VPC and S3 without going over the public internet. With the help of VPC endpoints, the traffic between EC2 instance and S3 bucket will be securely routed through the Amazon private network.
+Option D: It is true that we can use NAT Gateways or NAT instances to allow EC2 instances in a private subnet to access the internet or other AWS services, but this approach will not meet the requirement of the customer who wants to keep their data private.
+In conclusion, creating a VPC endpoint for S3 is the best solution to provide secure and private access to the S3 bucket from an EC2 instance in a private subnet. It is also cost-effective as it does not require additional resources and incurs minimal data transfer charges.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question84:"link"
+
+

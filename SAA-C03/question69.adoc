@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "869 - There is a requirement to get the source"
+---
+
+
+[.question]
+== 869-64a1fa53f053625db51dde40.
+
+
+****
+
+[.query]
+--
+There is a requirement to get the source IP addresses that access resources in a private subnet.
+Which of the following cost-optimized service could be used to fulfill this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. Trusted Advisor
+* [*] B. VPC Flow Logs
+* [*] C. Use CloudWatch metrics
+* [ ] D. Use CloudTrail.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+The AWS Documentation mentions the following:
+VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC.
+Flow log data is stored using Amazon CloudWatch Logs.
+After you've created a flow log, you can view and retrieve its data in Amazon CloudWatch Logs.
+For more information on VPC Flow Logs, please visit the following URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html
+Option A is INCORRECT because AWS Trusted Advisor is your customized cloud expert! It helps you to observe the best practices for using AWS by inspecting your AWS environment to save money, improve system performance and reliability, and close security gaps.
+Option C is INCORRECT because CloudWatch Metric is mainly used for performance metrics and cannot provide the source IP addresses.
+Option D is INCORRECT because AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account.
+With CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure.
+However, it is costly to use a CloudTrail.
+https://aws.amazon.com/about-aws/whats-new/2018/08/aws-cloudtrail-adds-vpc-endpoint-support-to-aws-privatelink/#:~:text=This%20enables%20you%20to%20connect,VPC%20through%20the%20Amazon%20network.&amp;text=By%20using%20AWS%20CloudTrail%20with,your%20compliance%20and%20regulatory%20requirements
+The correct answer to the given question is B. VPC Flow Logs.
+Explanation:
+When a resource is launched in a private subnet, it cannot be accessed from the internet directly. Instead, the resource can be accessed through a NAT Gateway, VPN Connection or Direct Connect connection. In such a scenario, it becomes important to monitor and track the source IP addresses that are accessing the resources in the private subnet. This can be achieved through VPC Flow Logs.
+VPC Flow Logs is a feature provided by AWS which captures information about the IP traffic going to and from network interfaces in a VPC. It captures the metadata such as the source and destination IP addresses, ports, protocol, and timestamps for each network packet. This information can then be used for security analysis, troubleshooting, and auditing purposes.
+Using VPC Flow Logs, one can capture the IP addresses of the resources that are accessing the resources in a private subnet. It provides visibility into the network traffic, and enables one to monitor the traffic that is going to and from the resources in the private subnet.
+The other options mentioned in the question are not relevant to the requirement mentioned in the question.
+Trusted Advisor is a service that provides recommendations to optimize the cost, security, performance, and fault tolerance of AWS resources. It does not provide information on the source IP addresses that are accessing the resources in a private subnet.
+CloudWatch metrics are used to monitor the performance of AWS resources such as EC2 instances, RDS databases, and ELB load balancers. It does not provide information on the source IP addresses that are accessing the resources in a private subnet.
+CloudTrail is used to log the API activity for an AWS account. It provides a record of the actions taken by a user, role, or AWS service in the account. It does not provide information on the source IP addresses that are accessing the resources in a private subnet.
+Hence, the correct option is B. VPC Flow Logs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question79:"link"
+
+

@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "807 - A company currently hosts a Redshift clu"
+---
+
+
+[.question]
+== 807-64a1fa3df053625db51dddfa.
+
+
+****
+
+[.query]
+--
+A company currently hosts a Redshift cluster in AWS.
+It should ensure that all traffic from and to the Redshift cluster does not go through the Internet for security reasons.
+Which features can be used to fulfill this requirement in an efficient manner?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable Amazon Redshift Enhanced VPC Routing.
+* [ ] B. Create a NAT Gateway to route the traffic.
+* [*] C. Create a NAT Instance to route the traffic.
+* [ ] D. Create a VPN Connection to ensure traffic does not flow through the Internet.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following:
+When you use Amazon Redshift Enhanced VPC Routing, Amazon Redshift forces all COPY and UNLOAD traffic between your cluster and your data repositories through your Amazon VPC.If Enhanced VPC Routing is not enabled, Amazon Redshift routes traffic through the Internet, including traffic to other services within the AWS network.
+For more information on Redshift Enhanced Routing, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html
+The correct answer is A. Enable Amazon Redshift Enhanced VPC Routing.
+Explanation:
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. It is designed for data warehousing and analytics, and it can be used to store and analyze large amounts of data. When a Redshift cluster is created, it is deployed in an Amazon Virtual Private Cloud (VPC).
+In this scenario, the requirement is to ensure that all traffic from and to the Redshift cluster does not go through the Internet for security reasons. There are a few options to achieve this:
+A. Enable Amazon Redshift Enhanced VPC Routing: Enhanced VPC Routing allows Redshift clusters to route traffic over private IP addresses within a VPC, instead of using public IP addresses over the Internet. This ensures that all traffic to and from the Redshift cluster stays within the VPC, providing an additional layer of security.
+B. Create a NAT Gateway to route the traffic: A NAT Gateway allows traffic from a private subnet to the Internet, and vice versa. However, this option requires traffic to pass through the Internet, which is not ideal for this scenario.
+C. Create a NAT Instance to route the traffic: Similar to a NAT Gateway, a NAT Instance allows traffic from a private subnet to the Internet, and vice versa. However, this option requires more management and maintenance overhead compared to a NAT Gateway.
+D. Create a VPN Connection to ensure traffic does not flow through the Internet: A VPN Connection allows traffic to travel securely over the Internet between a VPC and an on-premises location. However, this option still requires traffic to pass through the Internet, which is not ideal for this scenario.
+Therefore, the correct and most efficient option is to enable Amazon Redshift Enhanced VPC Routing to ensure that all traffic from and to the Redshift cluster does not go through the Internet for security reasons.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question8:"link"
+
+

@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "817 - A company is planning to host an activea"
+---
+
+
+[.question]
+== 817-64a1fa41f053625db51dde04.
+
+
+****
+
+[.query]
+--
+A company is planning to host an active-active site.
+One site will be deployed in AWS, and the other one on their On-premise data center.
+They need to ensure that the traffic is distributed to multiple resources, proportionately between both sites.
+Which of the following routing policy would you use for this purpose?
+
+
+--
+
+[.list]
+--
+* [*] A. Simple Routing
+* [ ] B. Failover Routing
+* [ ] C. Latency Routing
+* [*] D. Weighted Routing.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The AWS Documentation mentions the following.
+Weighted routing lets you associate multiple resources with a single domain name (example.com) or subdomain name (acme.example.com) and choose how much traffic is routed to each resource.
+This can be useful for various purposes, including load balancing and testing new versions of software.
+To configure weighted routing, you create records with the same name and type for each of your resources.
+You assign each record a relative weight that corresponds with how much traffic you want to send to each resource.
+Amazon Route 53 sends traffic to a resource based on the weight you assign to the record as a proportion of the total weight for all the group records.
+Option A is incorrect since this should be used when you want to configure standard DNS records.
+Option B is incorrect since this should be used when you want to route traffic to a resource when the resource is healthy or to a different resource when the first resource is unhealthy.
+Option C is incorrect since this should be used when you want to improve your users' performance by serving their requests from the AWS Region that provides the lowest latency.
+For more information on a Routing policy, please refer to the below URL-
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html
+For this scenario, we need a routing policy that can distribute the traffic to both sites proportionately. A routing policy is a configuration that determines how Amazon Route 53 responds to DNS queries.
+The routing policy that best suits this scenario is Weighted Routing, which allows distributing traffic to multiple resources in a weighted manner based on the specified value.
+With Weighted Routing, we can create multiple records with the same name and associate them with different IP addresses of the resources in different locations. Then we can assign a weight to each record. The weight determines the proportion of traffic that goes to each resource.
+For instance, if we have two resources, one in AWS and one in the On-premise data center, we can assign each resource a weight of 50%. Then, when a user requests access to the site, Amazon Route 53 will return both IP addresses, and 50% of the traffic will go to each resource.
+Therefore, the correct answer is D. Weighted Routing.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question18:"link"
+
+

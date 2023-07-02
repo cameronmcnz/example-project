@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "850 - You are responsible for performing a mig"
+---
+
+
+[.question]
+== 850-64a1fa4df053625db51dde29.
+
+
+****
+
+[.query]
+--
+You are responsible for performing a migration from your company's on-premise data to the AWS cloud.
+You have about 400 GB of data stored in an NFS.
+One requirement of this migration is to transfer some of this data to AWS EFS and the other part to S3
+Which is the easiest to use and with the most cost-effective solution?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Storage gateway.
+* [ ] B. Use S3 Transfer Acceleration.
+* [*] C. Use AWS DataSync.
+* [ ] D. Use AWS Database Migration Service.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Option A is incorrect.
+Storage Gateway is a hybrid cloud storage service to share and access data between your on-premise resources and AWS resources.
+It is not mainly designed to migrate data from On-Premise to AWS.
+Additionally, all three storage gateway patterns are backed by S3, not EFS.
+More details: https://aws.amazon.com/storagegateway/faqs/.
+Option B is incorrect.
+S3 Transfer Acceleration is used to transfer data to S3 using Amazon CloudFront's globally distributed edge locations, increasing data transfer speed.
+However, this option doesn't work to transfer data to AWS EFS.
+More details: https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html.
+Option C is CORRECT.
+DataSync is a service used to transfer data between on-premise storage to AWS S3, EFS and FSx.
+It is cost-effective, easy to use, and can handle the transfer to EFS and S3
+More details: https://aws.amazon.com/datasync/faqs/.
+Option D is incorrect because AWS Database Migration Service is used to migrate databases to AWS databases like Aurora, DynamoDB, etc.
+In this scenario, we don't mention a database migration, and with this service, you can not transfer data to EFS nor S3
+More details: https://aws.amazon.com/dms/.
+The best option for transferring data from on-premise to AWS depends on several factors, such as the amount of data, the transfer speed, the cost, and the requirements for data storage in AWS.
+In this case, the question mentions that you have about 400 GB of data stored in an NFS, and you need to transfer some of it to EFS and the rest to S3. Therefore, you need a solution that can handle this transfer and provide cost-effective storage in AWS.
+Option A, AWS Storage Gateway, is a hybrid storage service that enables you to securely store data in AWS cloud for on-premise access. However, it is not the best option for this specific scenario, as it doesn't support direct transfer to EFS and S3. Instead, it requires additional configuration and management overhead to set up an EBS volume or a file gateway to access EFS and S3.
+Option B, S3 Transfer Acceleration, is a service that accelerates transfers to and from Amazon S3 by using Amazon CloudFront's globally distributed edge locations. While it could be used to transfer data to S3, it doesn't provide support for EFS, which is also a requirement for this migration. Additionally, S3 Transfer Acceleration can incur additional costs, especially if the data is not transferred frequently.
+Option C, AWS DataSync, is a fully-managed service that makes it easy to move data between on-premises storage and AWS services. AWS DataSync can be used to transfer data directly to EFS and S3, which makes it a good fit for this scenario. AWS DataSync supports NFS as a source file system and can transfer data over the internet or AWS Direct Connect. However, AWS DataSync may not be the most cost-effective solution for small data migrations due to the minimum duration of the service being 10 hours.
+Option D, AWS Database Migration Service, is a service that can be used to migrate databases to AWS. However, it is not suitable for transferring NFS data to EFS and S3, which are file-based storage services.
+Based on the requirements, the best option for this scenario is Option C, AWS DataSync. It supports direct transfer to EFS and S3, can handle NFS data, and provides a cost-effective solution for data migration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question56:"link"
+
+

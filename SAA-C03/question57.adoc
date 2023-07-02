@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "857 - A team is building an application that m"
+---
+
+
+[.question]
+== 857-64a1fa4ff053625db51dde33.
+
+
+****
+
+[.query]
+--
+A team is building an application that must persist and index JSON data in a highly available data store.
+The latency of data access must remain consistent despite very high application traffic. Which service would help the team to meet the above requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon EFS
+* [ ] B. Amazon Redshift
+* [*] C. DynamoDB
+* [ ] D. AWS CloudFormation.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+AWS Documentation mentions the following about DynamoDB:
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
+The data in DynamoDB is stored in JSON format.
+Hence it is the perfect data storage to meet the requirement mentioned in the question.
+For more information on AWS DynamoDB, please visit the following URL:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html
+The best service to meet the requirements of persisting and indexing JSON data in a highly available data store, while maintaining consistent latency during high application traffic, is Amazon DynamoDB (Option C).
+Amazon DynamoDB is a fully-managed NoSQL database service that offers high performance, scalability, and availability. It supports document data models, and can store JSON documents natively. DynamoDB is designed to provide consistent single-digit millisecond latency at any scale, which makes it an ideal choice for high-traffic applications.
+Here are some reasons why DynamoDB is a good fit for the requirements listed in the question:
+Highly Available: DynamoDB is designed to be highly available by replicating data across multiple availability zones. This ensures that if one availability zone goes down, the database can still be accessed from another availability zone.
+Scalable: DynamoDB can handle a virtually unlimited amount of traffic and data, making it ideal for high-traffic applications. It can also automatically scale up or down based on the application's needs.
+Low Latency: DynamoDB provides single-digit millisecond latency at any scale, which ensures consistent performance even during high traffic periods.
+Document Data Model: DynamoDB supports storing JSON documents natively, which means that the application can persist and index JSON data without the need for complex transformations.
+Fully Managed: DynamoDB is a fully-managed service, which means that AWS handles the management and scaling of the database, allowing the team to focus on building the application.
+Amazon EFS (Option A) is a managed file storage service, but it is not optimized for highly available, low-latency data access. Amazon Redshift (Option B) is a fully-managed data warehouse service, which is designed for running complex queries on large datasets. It is not optimized for highly available, low-latency data access. AWS CloudFormation (Option D) is a service that allows you to define and deploy infrastructure as code, but it is not a data store service.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question66:"link"
+
+

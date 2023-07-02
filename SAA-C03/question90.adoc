@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "890 - You need to launch several EC2 instances"
+---
+
+
+[.question]
+== 890-64a1fa5bf053625db51dde59.
+
+
+****
+
+[.query]
+--
+You need to launch several EC2 instances to run Cassandra.
+There are large distributed and replicated workloads in Cassandra and you plan to launch instances using EC2 placement groups.
+The traffic should be distributed evenly across several partitions and each partition should contain multiple instances.
+Which strategy would you use when launching the placement groups?
+
+
+--
+
+[.list]
+--
+* [*] A. Cluster placement strategy.
+* [ ] B. Spread placement strategy.
+* [*] C. Partition placement strategy.
+* [ ] D. Network placement strategy.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Placement groups have the placement strategies of Cluster, Partition and Spread.
+With the Partition placement strategy, instances in one partition do not share the underlying hardware with other partitions.
+This strategy is suitable for distributed and replicated workloads such as Cassandra.
+For details, please refer to https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-limitations-partition.
+Option A is incorrect.
+Cluster placement strategy puts instances together in an availability zone.
+This does not resolve the problem mentioned in the question.
+Option B is incorrect.
+Because Spread placement strategy puts instances across different racks.
+It does not group instances in a partition.
+Option C is CORRECT: With the Partition placement strategy, instances in a partition have their own set of racks.
+Option D is incorrect: Because there is no Network placement strategy.
+To achieve an even distribution of traffic and multiple instances per partition when launching EC2 instances to run Cassandra, the most appropriate strategy would be the Partition placement strategy.
+The Partition placement strategy is designed to distribute instances across logical partitions, where each partition consists of one or more instances that share a common fate. Each partition can span multiple Availability Zones and can be launched in a placement group to ensure that the instances are placed on the same underlying hardware.
+In Cassandra, partitions are the unit of distribution and replication, and data is distributed across multiple partitions. By using the Partition placement strategy, you can ensure that each partition in Cassandra contains multiple instances that can handle the distributed and replicated workload, which helps to ensure high availability and fault tolerance.
+The Cluster placement strategy is designed to place instances in a group within a single Availability Zone. The Spread placement strategy is designed to place instances on distinct underlying hardware to reduce the risk of simultaneous failures. The Network placement strategy is designed to place instances in a group that share a network performance characteristic.
+However, for the given scenario of launching EC2 instances to run Cassandra, the most appropriate strategy would be the Partition placement strategy to ensure an even distribution of traffic and multiple instances per partition.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question104:"link"
+
+

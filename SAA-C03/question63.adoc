@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "863 - An application needs to have a relationa"
+---
+
+
+[.question]
+== 863-64a1fa51f053625db51dde3a.
+
+
+****
+
+[.query]
+--
+An application needs to have a relational Datastore hosted in AWS.
+The following requirements are in place for the Datastore: a) The initial storage capacity of 8 TB b) The ability to accommodate a database growth of 8GB per day c) The ability to have 4 Read Replicas Which of the following Datastore is the best for this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. DynamoDB
+* [ ] B. Amazon S3
+* [*] C. Amazon Aurora
+* [ ] D. ElastiCache.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Aurora can have a storage limit of 64TB and can easily accommodate the initial 8TB plus a database growth of 8GB/day for nearly a period of 20+ years.
+It can have up to 15 Aurora Replicas that can be distributed across the Availability Zones that a DB cluster spans within an AWS Region.
+Aurora Replicas work well for read scaling because they are fully dedicated to read operations on the cluster volume.
+Write operations are managed by the primary instance.
+Because the cluster volume is shared among all DB instances in your DB cluster, no additional work is required to replicate a copy of each Aurora Replica data.
+For more information on AWS Aurora, please visit the following URL:
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Replication.html
+Note:
+Our DB choice needs to fulfill the 3 criteria.
+Initial Storage capacity 8 TB.
+Daily DB growth of 8GB/day.
+Need 4 Read replicas.
+DynamoDB is incorrect because it is not a relational database.
+ElastiCache is incorrect because it is a distributed in-memory cache service.
+In this scenario, a datastore is required.
+The best option for hosting a relational Datastore with the specified requirements would be Amazon Aurora (option C).
+Explanation:
+a) The initial storage capacity of 8 TB: Amazon Aurora allows you to provision up to 64 TB of storage. Therefore, the specified initial storage capacity of 8 TB can easily be accommodated with Amazon Aurora.
+b) The ability to accommodate a database growth of 8GB per day: Amazon Aurora is designed to automatically grow its storage capacity as needed based on the database growth rate. It can also automatically replicate data across multiple Availability Zones for high availability and durability.
+c) The ability to have 4 Read Replicas: Amazon Aurora provides support for up to 15 read replicas per database instance. Therefore, the requirement of 4 read replicas can be easily met with Amazon Aurora.
+Option A (DynamoDB) is a NoSQL database and may not be suitable for a relational datastore.
+Option B (Amazon S3) is an object storage service and does not provide the capabilities required for a relational datastore.
+Option D (ElastiCache) is an in-memory data store and is not suitable for storing large amounts of data over a long period of time.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question73:"link"
+
+

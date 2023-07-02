@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "870 - You are part of the IT team of a small c"
+---
+
+
+[.question]
+== 870-64a1fa54f053625db51dde41.
+
+
+****
+
+[.query]
+--
+You are part of the IT team of a small car manufacturer company.
+The company is starting to move its On-Premise resources to the cloud.
+The Marketing department was the first department to migrate its applications to the cloud.
+Now the finance team wants to do the same.
+Each department should have its own AWS account but you need one management account to pay for the bills of all the AWS accounts.
+What do you suggest to solve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a different VPC for the Finance Department and limit their access to resources with IAM Roles and Policies.
+* [ ] B. Use AWS Control Tower.
+* [*] C. Use AWS Organizations to manage both AWS accounts.
+* [ ] D. Use AWS Cost Explorer to divide the bills and use IAM policies to limit the access to resources.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect.
+This option does not cover the splitting bill requirements.
+Also, a different VPC is not the best option to separate projects or environments.
+Option B is incorrect.
+Control Tower is more suitable to automate a deployment in multi-account environments.
+More details: https://aws.amazon.com/controltower/faqs/
+Option C is CORRECT.
+With AWS Organizations, you can have separate bills for every account and pay it with the same account using consolidating billing.
+More details: https://aws.amazon.com/organizations/faqs/.
+Option D is incorrect.
+With AWS Cost Explorer, you can analyze and explore your bills and service usage in the account.
+But in the end, there will be one bill for the account.
+More details- https://aws.amazon.com/aws-cost-management/faqs/
+When moving resources to the cloud, it is important to organize them in a way that is scalable, secure, and manageable. In this scenario, the company wants to migrate each department's resources to its own AWS account but have a single management account to pay the bills. To achieve this, the best solution is to use AWS Organizations.
+AWS Organizations is a service that allows you to centrally manage and govern multiple AWS accounts. With AWS Organizations, you can create a hierarchy of accounts, which can be organized by department, project, or any other criteria that make sense for your organization. Each account in the hierarchy can have its own billing, resource access policies, and IAM users and roles.
+Using AWS Organizations, you can create a management account that is used to pay the bills for all the other accounts. This account is called the payer account, and it is used to consolidate billing information across all the linked accounts. The finance team can create its own AWS account within the organization, and it will be linked to the payer account for billing purposes.
+AWS Control Tower is another option for managing multiple AWS accounts, but it is more focused on setting up new accounts and enforcing compliance policies across them. While it could be used in this scenario, it might be more complex than necessary.
+Using a separate VPC for the Finance Department and limiting their access to resources with IAM roles and policies (option A) is a good security practice, but it does not address the issue of managing multiple AWS accounts.
+AWS Cost Explorer (option D) is a tool that can help you visualize and analyze your AWS spending, but it is not a solution for managing multiple accounts. IAM policies can be used to limit access to resources, but they do not provide the centralized management capabilities that AWS Organizations does.
+In summary, the best solution for this scenario is to use AWS Organizations to manage both AWS accounts and create a payer account to consolidate billing information.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question80:"link"
+
+

@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "875 - An application needs to access resources"
+---
+
+
+[.question]
+== 875-64a1fa55f053625db51dde47.
+
+
+****
+
+[.query]
+--
+An application needs to access resources from another AWS account of another VPC in the same region.
+Which of the following ensure that the resources can be accessed as required?
+
+
+--
+
+[.list]
+--
+* [*] A. Establish a NAT instance between both accounts.
+* [ ] B. Use a VPN between both accounts.
+* [*] C. Use a NAT Gateway between both accounts.
+* [*] D. Use VPC Peering between both accounts.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Options A and C are incorrect because these are used when private resources are required to access the Internet.
+Option B is incorrect because it's used to create a connection between the On-premises and AWS resources.
+AWS Documentation mentions the following about VPC Peering:
+A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them privately.
+Instances in either VPC can communicate with each other as if they are within the same network.
+You can create a VPC Peering connection between your own VPCs, with a VPC in another AWS account, or with a VPC in a different AWS Region.
+For more information on VPC Peering, please visit the following URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-peering.html
+To allow access between resources in different VPCs, or between resources in different AWS accounts, there are several options available. In this scenario, the application needs to access resources from another AWS account of another VPC in the same region.
+Out of the options given, the most suitable solution to ensure that the resources can be accessed as required is to use VPC peering between both accounts.
+VPC peering is a way to connect two VPCs together, which allows resources in one VPC to communicate with resources in another VPC. VPC peering is also available between VPCs in different AWS accounts, as long as both accounts are within the same region. Once VPC peering is established, traffic flows directly between the VPCs without going over the internet.
+Option A, establishing a NAT instance between both accounts, is not the best solution because NAT instances are used to provide internet access to private resources in a VPC. In this scenario, the resources are in different AWS accounts, and there is no mention of providing internet access to private resources.
+Option B, using a VPN between both accounts, is also not the best solution because VPNs are used to establish secure connections between on-premises networks and AWS VPCs. Although it is possible to use VPNs between VPCs, it is not necessary in this scenario because the VPCs are in the same region and there is no mention of on-premises networks.
+Option C, using a NAT Gateway between both accounts, is also not the best solution because NAT gateways are similar to NAT instances, but they are a managed service provided by AWS. Like NAT instances, NAT gateways are used to provide internet access to private resources in a VPC, which is not required in this scenario.
+Therefore, the best option to ensure that the resources can be accessed as required is to use VPC peering between both accounts.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question86:"link"
+
+

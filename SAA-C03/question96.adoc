@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "896 - You are working as AWS Solutions Archite"
+---
+
+
+[.question]
+== 896-64a1fa5df053625db51dde5f.
+
+
+****
+
+[.query]
+--
+You are working as AWS Solutions Architect for a large banking organization.
+The requirement is that under normal business hours, there would always be at least 24 web servers up and running in a region (example: US - West (Oregon))
+It will be a three-tier architecture connecting to the databases.
+The solution offered should be highly available, secure, and cost-effective.
+It should respond to the heavy requests during peak hours and fault-tolerate up to one AZ failure. What would be the best solution to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. In a given region, use ELB behind two different AZs, each AZ with minimum or desired 24 web servers hosted in a public subnet and Multi-AZ database architecture in a private subnet.
+* [*] B. In a given region, use ELB behind three different AZs, each AZ having ASG, with minimum or desired 12 web servers hosted in a public subnet and Multi-AZ database architecture in a private subnet.
+* [*] C. In a given region, use ELB behind two different AZs, each AZ having ASG, with minimum or desired 12 web servers hosted in a public subnet and Multi-AZ database architecture in a private subnet.
+* [ ] D. In a given region, use ELB behind three different AZs, each AZ having ASG, with minimum or desired 8 web servers hosted in public subnet and Multi-AZ database architecture in a different public subnet.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is incorrect.
+Everything looks good, but the designed architecture does not look cost-effective, as all the time 48 servers will be running.
+It does not have ASG to cater to additional load on servers.
+However, it is fault-tolerant to one AZ failure.
+Besides, it is always a good practice to use multiple AZs to make the application highly available.
+Option B is correct.
+The solution needs to be tolerant up to one AZ failure.
+It means there are always 36 web servers to cater to the service requests.
+If one AZ fails, then there will be 24 servers running all the time.
+In case two AZs fails, there will be 12 servers running.
+Also, ASG can be utilized to scale out the required number of servers.
+Option C is incorrect.
+It will not be a suitable solution.
+If there is one AZ failure, the other AZ will have only 12 web servers running.
+The question requires at least 24 web servers are running at all times.
+Option D is incorrect.
+Remember the design principle of keeping the databases in the private subnet.
+As this solution mentions placing databases in another public subnet, the data can be exposed over the internet, and hence it's an insecure application.
+To meet the requirement of having at least 24 web servers up and running in a region during normal business hours while ensuring high availability, security, and cost-effectiveness, the best solution would be to use ELB behind multiple Availability Zones (AZs), each with its own Auto Scaling Group (ASG) for the web servers and a Multi-AZ database architecture in a private subnet. This would allow for fault tolerance up to one AZ failure, as well as the ability to handle heavy requests during peak hours.
+Option A suggests using ELB behind two different AZs, each with a minimum or desired 24 web servers hosted in a public subnet and Multi-AZ database architecture in a private subnet. While this would meet the requirement for 24 web servers, it does not provide fault tolerance in the event of an AZ failure.
+Option B suggests using ELB behind three different AZs, each with its own ASG and a minimum or desired 12 web servers hosted in a public subnet and Multi-AZ database architecture in a private subnet. This would provide fault tolerance up to one AZ failure and the ability to handle heavy requests during peak hours, but would require a higher number of web servers to be deployed and maintained.
+Option C suggests using ELB behind two different AZs, each with its own ASG and a minimum or desired 12 web servers hosted in a public subnet and Multi-AZ database architecture in a private subnet. This option is similar to option B but with fewer web servers, making it a more cost-effective solution while still providing fault tolerance and the ability to handle heavy requests.
+Option D suggests using ELB behind three different AZs, each with its own ASG and a minimum or desired 8 web servers hosted in a public subnet and Multi-AZ database architecture in a different public subnet. This option would provide fault tolerance up to one AZ failure and the ability to handle heavy requests, but hosting the database in a public subnet may pose security risks.
+Therefore, option C is the best solution as it meets all the requirements while being cost-effective, secure, and highly available with fault tolerance up to one AZ failure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question110:"link"
+
+

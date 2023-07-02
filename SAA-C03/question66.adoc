@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "866 - You are creating a new architecture for "
+---
+
+
+[.question]
+== 866-64a1fa52f053625db51dde3d.
+
+
+****
+
+[.query]
+--
+You are creating a new architecture for a financial firm.
+The architecture consists of some EC2 instances of different types and sizes.
+The management team has asked you to create this architecture by ensuring the reduction of the risk of simultaneous failures.
+Which placement group option could you suggest for the instances?
+
+
+--
+
+[.list]
+--
+* [*] A. Clustered Placement Group
+* [ ] B. Partition Placement Group
+* [ ] C. Multi-AZ Placement Group
+* [*] D. Spread Placement Group.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Option A is incorrect.
+In Clustered Placement Groups, all the instances are placed in the same rack in the same availability zone.
+Therefore, they are very susceptible to hardware failures and simultaneous failures.
+Also, it is suggested to have the same size and types of instances in this Placement Group.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+Option B is incorrect.
+In partition placement groups, the chances of hardware failures and simultaneous failure are reduced compared to the Clustered placement group.
+Still, the Spread Placement group has fewer chances of this kind of failure.
+It is also suggested to have the same size and types of instances in this Placement Group.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+Option C is incorrect.
+The Multi-AZ Placement Group does not exist.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+Option D is CORRECT.
+Spread Placement Groups place the instances in different racks.
+Every rack has its own hardware and power source.
+So, there is a minimum chance of simultaneous failure.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+The correct answer is D. Spread Placement Group.
+Explanation: A placement group is a logical grouping of instances within a single Availability Zone. Amazon EC2 offers four types of placement groups: Clustered, Partition, Spread, and Multi-AZ.
+Clustered Placement Group: This type of placement group is used for applications that need low network latency, high network throughput, or both. Clustered placement groups are best suited for applications that require a large number of instances to communicate with each other with high network performance.
+Partition Placement Group: This type of placement group is used for large distributed and replicated workloads. Partition placement groups allow you to spread your instances across logical partitions, which can span multiple AZs within a region.
+Multi-AZ Placement Group: This type of placement group is used for high availability applications that need automatic failover capability across multiple AZs within a region.
+Spread Placement Group: This type of placement group is used for applications that need to minimize the risk of simultaneous failure. Spread placement groups spread instances across underlying hardware and offer the best possible separation of instances.
+In this scenario, since the management team has requested to reduce the risk of simultaneous failures, the best option would be to use a Spread Placement Group. This is because spread placement groups ensure that instances are placed on different underlying hardware to reduce the risk of simultaneous failure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question76:"link"
+
+

@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "883 - A company has resources hosted in its AW"
+---
+
+
+[.question]
+== 883-64a1fa58f053625db51dde50.
+
+
+****
+
+[.query]
+--
+A company has resources hosted in its AWS Account.
+There is a requirement to monitor API activity for all regions and the audit needs to be applied for future regions as well.
+What would fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure CloudTrail trail for each region, then enable trail for each future region.
+* [*] B. Ensure one CloudTrail trail is enabled for all regions.
+* [*] C. Create a CloudTrail for each region. Use CloudFormation to enable the trail for all future regions.
+* [ ] D. Create a CloudTrail for each region. Use AWS Config to enable the trail for all future regions.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following:
+You can now turn on a trail across all regions for your AWS account.
+CloudTrail will deliver log files from all regions to the Amazon S3 bucket and an optional CloudWatch Logs log group you specified.
+Additionally, when AWS launches a new region, CloudTrail will create the same trail in the new region.
+As a result, you will receive log files containing API activity for the new region without taking any action.
+For more information on this feature, please visit the following URL:
+https://aws.amazon.com/about-aws/whats-new/2015/12/turn-on-cloudtrail-across-all-regions-and-support-for-multiple-trails/
+The requirement is to monitor API activity across all regions in the AWS account and to ensure that this monitoring is also applied to future regions. CloudTrail is an AWS service that logs API activity across an AWS account.
+Option A suggests creating a CloudTrail trail for each region and enabling it for each future region. This approach would work, but it would require manual intervention to create and enable the trail for each future region. This could be time-consuming and error-prone, especially if the account has many regions or if new regions are frequently added.
+Option B suggests enabling one CloudTrail trail for all regions. This approach would meet the monitoring requirement but would not address the need to apply the monitoring to future regions.
+Option C suggests creating a CloudTrail trail for each region and using CloudFormation to enable the trail for all future regions. This approach would automate the process of creating and enabling the trail for future regions.
+Option D suggests creating a CloudTrail trail for each region and using AWS Config to enable the trail for all future regions. AWS Config is a service that enables the assessment, audit, and evaluation of the configurations of AWS resources. However, AWS Config does not have a direct feature to enable CloudTrail for future regions. Therefore, Option D is not a viable solution to fulfill the requirement.
+Therefore, the best option to fulfill the requirement would be Option C, where CloudFormation is used to automate the process of creating and enabling CloudTrail trails for future regions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question95:"link"
+
+

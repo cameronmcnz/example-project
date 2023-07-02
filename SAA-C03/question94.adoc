@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "894 - To improve the network performance you l"
+---
+
+
+[.question]
+== 894-64a1fa5df053625db51dde5d.
+
+
+****
+
+[.query]
+--
+To improve the network performance, you launch a C5 EC2 Amazon Linux instance and enable Enhanced Networking by modifying the instance attribute with “aws ec2 modify-instance-attribute --instance-id instance_id --ena-support”
+Which mechanism does the EC2 instance use to enhance the networking capabilities?
+
+
+--
+
+[.list]
+--
+* [*] A. Intel 82599 Virtual Function (VF) interface.
+* [ ] B. Transit Virtual Interface
+* [*] C. Elastic Network Adapter (ENA).
+* [ ] D. Elastic Network Interface (ENI).
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Enhanced networking has two mechanisms: Elastic Network Adapter (ENA) and Intel 82599 Virtual Function (VF) interface.
+For ENA, users can enable it with --ena-support.
+An EFA is an Elastic Network Adapter (ENA) with added capabilities.
+It provides all of the functionality of an ENA, with additional OS-bypass functionality.
+OS-bypass is an access model that allows HPC and machine learning applications to communicate directly with the network interface hardware to provide low-latency, reliable transport functionality."
+Option A is incorrect: Because the option of “--ena-support” is not used by Intel 82599 Virtual Function (VF) interface.
+Option B is incorrect: Because a Transit Virtual Interface is used to connect resources hosted in an Amazon VPC (using their private IP addresses) through a transit gateway, not suitable for the above scenario.
+https://aws.amazon.com/premiumsupport/knowledge-center/public-private-interface-dx/
+Option C is CORRECT: In Amazon Linux, users can enable the enhanced networking attribute with the AWS CLI command mentioned in the question.
+Option D is incorrect: In this scenario, the mechanism used for enhanced networking should be Elastic Network Adapter (ENA) instead of Elastic Network Interface (ENI).
+References:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html.
+The correct answer is C. Elastic Network Adapter (ENA).
+When you enable Enhanced Networking on an EC2 instance, it leverages the Elastic Network Adapter (ENA) to improve networking performance. The ENA is a custom network interface that provides higher throughput, lower latency, and lower CPU utilization compared to the traditional network interfaces available on EC2 instances.
+The ENA uses a combination of hardware offloading and software optimizations to achieve its performance benefits. Specifically, it offloads certain network processing tasks from the CPU to specialized hardware, such as the NIC (Network Interface Card), to free up processing resources. Additionally, the ENA uses efficient networking protocols to reduce latency and improve throughput.
+Note that the other options listed in the question are also relevant to EC2 networking, but they are not the mechanisms used when Enhanced Networking is enabled.
+Intel 82599 Virtual Function (VF) interface (Option A): This is a network interface that is used on certain EC2 instance types (such as the C3 and M3 families) to provide high-performance networking capabilities. However, it is not used when Enhanced Networking is enabled on a C5 instance.
+Transit Virtual Interface (Option B): This is a type of VPN connection that can be used to connect a VPC (Virtual Private Cloud) to an on-premises network. It is not directly related to the networking capabilities of an EC2 instance.
+Elastic Network Interface (ENI) (Option D): This is a virtual network interface that can be attached to an EC2 instance to provide additional networking capabilities, such as multiple network interfaces or IP addresses. However, it is not the mechanism used when Enhanced Networking is enabled on a C5 instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question108:"link"
+
+

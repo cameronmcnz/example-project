@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "881 - An application hosted on EC2 Instances h"
+---
+
+
+[.question]
+== 881-64a1fa57f053625db51dde4d.
+
+
+****
+
+[.query]
+--
+An application hosted on EC2 Instances has its promotional campaign due to start in 2 weeks.
+The performance team performs some analysis based on the historical data and informs you the number of instances that are required for the campaign.
+You need to make sure that the Auto Scaling group is properly configured with the provided number of instances.
+What should be done to fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Migrate the application from the Auto Scaling group to a Lambda function so that the application scales automatically by AWS.
+* [*] B. Configure Scheduled scaling in the Auto Scaling Group.
+* [*] C. Configure a Lambda function that scales up the ASG when the activity starts and scales down when the activity ends.
+* [ ] D. Configure Static scaling for the Auto Scaling Group.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+In the question, the promotional campaign will start in 2 weeks.
+As you already know how many instances are required, you can configure a scaling schedule in the Auto Scaling group to plan the scaling actions.
+Option A is incorrect because it is unsuitable to migrate the application to a Lambda function since the campaign will start in 2 weeks.
+You can configure an Auto Scaling policy for the campaign.
+Option C is incorrect because it is easier to use an Auto Scaling policy to achieve this requirement.
+Option D is incorrect because there is no static scaling policy in an Auto Scaling group.
+For more information on Scheduled Scaling, please visit the following URLs:
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html
+Option A is not a valid solution for this scenario, as migrating an application to a Lambda function means completely changing the architecture of the application, which may not be feasible or practical in this case. Moreover, Lambda functions have different use cases than EC2 instances and may not be the most suitable option for all types of applications.
+Option B, "Configure Scheduled scaling in the Auto Scaling Group," is not the best option because scheduled scaling is useful for predictable traffic patterns. However, in this case, the traffic is not predictable, so scheduled scaling is not the best solution.
+Option C, "Configure a Lambda function that scales up the ASG when the activity starts and scales down when the activity ends," is a possible solution. This approach involves creating a Lambda function that monitors the promotional campaign start and end times and triggers the scaling of the Auto Scaling Group (ASG) accordingly. This Lambda function can be triggered by CloudWatch Events or an API Gateway endpoint.
+Option D, "Configure Static scaling for the Auto Scaling Group," is not the best option for this scenario. Static scaling involves manually setting the number of instances in the Auto Scaling Group, which is not suitable for unpredictable traffic patterns. Static scaling is best suited for applications that have a consistent traffic pattern.
+In conclusion, option C is the best solution for this scenario. It involves configuring a Lambda function to monitor the start and end times of the promotional campaign and to trigger the scaling of the Auto Scaling Group accordingly. This solution allows the application to automatically scale up and down based on the traffic pattern, which is the most suitable solution for unpredictable traffic.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question92:"link"
+
+

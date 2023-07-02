@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "853 - A Solutions Architect is designing a hig"
+---
+
+
+[.question]
+== 853-64a1fa4ef053625db51dde2e.
+
+
+****
+
+[.query]
+--
+A Solutions Architect is designing a highly scalable system to track records.
+These records must remain available for immediate download for up to three months and then must be deleted.
+What is the most appropriate decision for this use case?
+
+
+--
+
+[.list]
+--
+* [*] A. Store the files in Amazon EBS and create a Lifecycle Policy to remove files after 3 months.
+* [*] B. Store the files in Amazon S3 and create a Lifecycle Policy to remove files after 3 months.
+* [*] C. Store the files in Amazon Glacier and create a Lifecycle Policy to remove files after 3 months.
+* [ ] D. Store the files in Amazon EFS and create a Lifecycle Policy to remove files after 3 months.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option A is incorrect since the records need to be stored in a highly scalable system.
+Option C is incorrect since the records must be available for immediate download.
+Option D is incorrect since EFS lifecycle management is used to migrate files that have not been accessed for a certain period of time to the Infrequent Access storage class.
+Files moved to this storage remain indefinitely and not get deleted.
+And due to this reason, this option is not correct.
+AWS Documentation mentions the following about Lifecycle Policies:
+Lifecycle configuration enables you to specify the Lifecycle Management of objects in a bucket.
+The configuration is a set of one or more rules, where each rule defines an action for Amazon S3 to apply to a group of objects.
+These actions can be classified as follows:
+Transition actions - In which you define when the transition of the object occurs to another storage class.
+For example, you may choose to transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation or archive objects to the GLACIER storage class one year after creation.
+Expiration actions - In which you specify when the objects will expire.
+Then Amazon S3 deletes the expired objects on your behalf.
+For more information on AWS S3 Lifecycle Policies, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+To know more about EFS Lifecycle Management, please check the following URL:
+https://docs.aws.amazon.com/efs/latest/ug//lifecycle-management-efs.html.
+The most appropriate decision for this use case is to store the files in Amazon S3 and create a Lifecycle Policy to remove files after 3 months.
+Amazon S3 is a highly scalable object storage service that provides durability, availability, and security for storing and retrieving any amount of data from anywhere on the web. It is designed to scale up or down according to the needs of the application and provides high availability and durability of objects stored in it.
+In this use case, the records need to be available for immediate download for up to three months and then must be deleted. Amazon S3 provides the necessary features to store these records for the required period and then delete them.
+To achieve this, a Lifecycle Policy can be created in Amazon S3 that will automatically delete the files after three months. A Lifecycle Policy is a set of rules that can be defined to automatically move objects to different storage classes or delete them based on their age, size, or other criteria.
+Amazon EBS is a block storage service designed for use with Amazon EC2 instances, and Amazon EFS is a fully-managed network file system designed for use with AWS cloud services and on-premises resources. These services may not be appropriate for storing files that need to be available for immediate download and then deleted after a specific time.
+Amazon Glacier is a low-cost storage service designed for data archiving and long-term backup that is not immediately available for download. It is designed for use cases where data retrieval can take hours or days, which is not suitable for this use case. Therefore, Amazon S3 is the best option for storing the records in this use case.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question61:"link"
+
+

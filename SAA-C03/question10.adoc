@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "810 - Your company is planning to use Route 53"
+---
+
+
+[.question]
+== 810-64a1fa3ef053625db51dddfd.
+
+
+****
+
+[.query]
+--
+Your company is planning to use Route 53 as the DNS provider.
+There is a need to ensure that the company's domain name points to an existing CloudFront distribution.
+How could this be achieved?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an Alias record which points to the CloudFront distribution.
+* [ ] B. Create a host record which points to the CloudFront distribution.
+* [*] C. Create a CNAME record which points to the CloudFront distribution.
+* [ ] D. Create a Non-Alias Record which points to the CloudFront distribution.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following.
+While ordinary Amazon Route 53 records are standard DNS records, alias records provide a Route 53-specific extension to the DNS functionality.
+Instead of an IP address or a domain name, an alias record contains a pointer to a CloudFront distribution, an Elastic Beanstalk environment, an ELB Classic, Application, or Network Load Balancer, an Amazon S3 bucket that is configured as a static website, or another Route 53 record in the same hosted zone.
+When Route 53 receives a DNS query that matches the name and type in an alias record, Route 53 follows the pointer and responds with the applicable value.
+For more information on Route 53 Alias records, please visit the following URL-
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html
+Note:
+Route 53 uses "Alias Name" to connect to the CloudFront as Alias Record is a Route 53 extension to DNS.Also, an Alias record is similar to a CNAME record, but the main difference is - you can create an Alias record for both root domain &amp; subdomain.
+In contrast, a CNAME record can be created only to subdomain.
+Check the below link to get more information:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html
+The correct answer is A. Create an Alias record which points to the CloudFront distribution.
+Explanation:
+Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. DNS is used to convert human-friendly domain names into IP addresses that computers use to identify each other on the internet.
+CloudFront is a content delivery network (CDN) that distributes data to multiple edge locations worldwide, providing low-latency performance and high data transfer speeds.
+To ensure that a company's domain name points to an existing CloudFront distribution using Route 53, an Alias record should be created. Alias records are used to map a domain name to an Amazon resource, such as an Amazon S3 bucket, an Amazon EC2 instance, an Elastic Load Balancer, or a CloudFront distribution.
+An Alias record provides the following benefits:
+1.
+It is an Amazon Route 53-specific feature that allows you to map a DNS record to an AWS resource using its DNS name.
+2.
+It automatically routes traffic to the nearest CloudFront distribution edge location, based on the geographic location of the user requesting the content.
+3.
+It provides seamless failover to a backup CloudFront distribution in the event of an outage.
+Therefore, to ensure that a company's domain name points to an existing CloudFront distribution using Route 53, an Alias record should be created, which points to the CloudFront distribution. This ensures that the domain name resolves to the correct IP address and improves the performance and reliability of the website or application.
+Option B, creating a host record, is incorrect as it does not exist as a type of Route 53 record.
+Option C, creating a CNAME record, is also incorrect because CNAME records are used to create an alias of one domain name to another, but they cannot be used to point to a CloudFront distribution directly.
+Option D, creating a Non-Alias record, is also incorrect because Non-Alias records are used to point to a fixed IP address and are not recommended for use with AWS resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question11:"link"
+
+

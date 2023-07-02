@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "801 - Your company is planning on the followin"
+---
+
+
+[.question]
+== 801-64a1fa3bf053625db51dddf3.
+
+
+****
+
+[.query]
+--
+Your company is planning on the following architecture for their application. A set of EC2 Instances hosting the web part of the application. A relational database for the backend. A Load balancer for distribution of traffic. A NAT gateway for routing traffic from the database server to the Internet. Which of the following architecture ensures high availability across all components?
+
+
+--
+
+[.list]
+--
+* [*] A. A Load balancer with one public subnet, one private subnet. The EC2 Instances placed in one Availability Zone. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone.
+* [*] B. A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed across 2 Availability Zones. RDS with Multi-AZ Enabled. NAT Gateways in each availability zone.
+* [ ] C. A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed in 2 Availability Zones. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone.
+* [ ] D. A Load balancer with 2 public subnets, 2 private subnets. The EC2 Instances placed in one Availability Zone. RDS with Multi-AZ Enabled. NAT Gateway in one availability zone.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone.
+Running a DB instance with high availability can enhance availability during planned system maintenance and help protect your databases against DB instance failure and Availability Zone disruption.
+Option A is incorrect because High Availability is not ensured.
+We recommend that you enable multiple Availability Zones.
+With this configuration, if one Availability Zone becomes unavailable or has no healthy targets, the load balancer can continue to route traffic to the healthy targets in another Availability Zone.
+Option B is Correct because High Availability is ensured.
+If one of the AZs should fail, then the EC2 instances in the remaining private subnet will still be able to communicate with the Internet because they have their own NAT Gateway in the same AZ.
+Options C and D are incorrect because High Availability is not ensured as either if we have EC2 in a single AZ or multiple AZ.
+We have NAT Gateway in single AZ is a cause for not ensuring High Availability.
+However, if there is a failure with Availability Zone A (rare, but can happen), then the NAT Gateway is not reachable from Private-Subnet-B.
+Thus, the system may be impacted even though it runs across two AZs or a single AZ.
+For more information on Elastic Load Balancing, Multi-AZ, and NAT gateway, please refer to the below URLs:-
+https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
+Option B is the correct answer as it ensures high availability across all components. Let's go through each component and see how it contributes to high availability:
+Load Balancer: The load balancer distributes incoming traffic across multiple EC2 instances. This provides fault tolerance and helps prevent any single point of failure. By having the load balancer in multiple availability zones, it ensures that the application remains available even if one availability zone goes down.
+EC2 Instances: The EC2 instances host the web part of the application. By placing them across multiple availability zones, it ensures that the application remains available even if one availability zone goes down.
+RDS: The relational database is an important component of the application. Enabling Multi-AZ ensures that a standby instance is available in a different availability zone, which is automatically promoted in case the primary database instance goes down. This ensures that the application remains available even in the event of a database failure.
+NAT Gateway: The NAT gateway allows the database server to access the internet. By having the NAT gateway in each availability zone, it ensures that the database server remains reachable even if one availability zone goes down.
+Option A is incorrect because the EC2 instances are placed in one availability zone, which can cause a single point of failure. Also, the NAT gateway is placed in one availability zone, which can cause issues if that availability zone goes down.
+Option C is incorrect because the NAT gateway is placed in one availability zone, which can cause issues if that availability zone goes down.
+Option D is incorrect because the EC2 instances are placed in one availability zone, which can cause a single point of failure.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question1:"link"
+
+

@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "847 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 847-64a1fa4cf053625db51dde26.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a start-up company.
+The company has a two-tier production website on AWS with web servers in the front end & database servers in the back end.
+The third-party firm has been looking after the operations of these database servers.
+They need to access these database servers in private subnets on the SSH port.
+As per standard operating procedure provided by the Security team, all access to these servers should be over a jumpbox accessible from internet.
+What will be the best solution to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy Bastion hosts in Private Subnet
+* [ ] B. Deploy NAT Instance in Private Subnet
+* [*] C. Deploy NAT Instance in Public Subnet
+* [*] D. Deploy Bastion hosts in Public Subnet.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+External users will be unable to access the instance in private subnets directly.
+To provide such access, we need to deploy Bastion hosts in public subnets.
+In case of the above requirement, third-party users will initiate a connection to Bastion hosts in public subnets &amp; from there, they will access SSH connection to database servers in private subnets.
+Option A is incorrect as Bastion hosts need to be in Public subnets &amp; not in Private subnets, as third-party users will be accessing these servers from the internet.
+Option B is incorrect as NAT instance is used to provide internet traffic to hosts in private subnets.
+Users from the internet will not be able to do SSH connections to hosts in private subnets using NAT instance.
+NAT instance is always present in Public subnets.
+Option C is incorrect as NAT instance is used to provide internet traffic to hosts in private subnets.
+Users from the internet will not be able to do SSH connections to hosts in private subnets using NAT instance.
+For more information on bastion instance, refer to the following URL:
+https://docs.aws.amazon.com/quickstart/latest/linux-bastion/architecture.html
+The best solution to meet the requirement of providing third-party access to the database servers in private subnets over SSH port via a jumpbox accessible from the internet is to deploy a Bastion host in the private subnet.
+Explanation: A Bastion host, also known as a Jump host or Jump box, is a secure gateway server that allows users to connect to a private network securely. The Bastion host acts as a single point of entry to access the resources in the private subnet, in this case, the database servers.
+Option A: Deploying a Bastion host in the private subnet is the best solution as it provides secure access to the database servers without exposing them to the internet. The Bastion host acts as a gateway for SSH traffic to the database servers, and all traffic is routed through it. This approach ensures that only authorized users can access the database servers via the Bastion host.
+Option B: Deploying a NAT instance in the private subnet is not an appropriate solution for this scenario, as NAT instances are used to provide internet access to resources in private subnets. They are not used for accessing resources from the internet.
+Option C: Deploying a NAT instance in the public subnet is not an appropriate solution for this scenario, as NAT instances are used to provide internet access to resources in private subnets. They are not used for accessing resources from the internet.
+Option D: Deploying a Bastion host in the public subnet is not an appropriate solution for this scenario, as it exposes the Bastion host and the database servers to the internet. This approach is not secure, and it violates the security standards provided by the security team.
+Therefore, Option A is the best solution to meet the requirement of providing third-party access to the database servers in private subnets over SSH port via a jumpbox accessible from the internet.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question53:"link"
+
+

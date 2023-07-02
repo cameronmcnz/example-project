@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "854 - A consulting firm repeatedly builds larg"
+---
+
+
+[.question]
+== 854-64a1fa4ef053625db51dde2f.
+
+
+****
+
+[.query]
+--
+A consulting firm repeatedly builds large architectures for their customers using AWS resources from several AWS services, including IAM, Amazon EC2, Amazon RDS, DynamoDB and Amazon VPC.
+The consultants have architecture diagrams for each of their architectures and are frustrated that they cannot use them to create their resources automatically. Which service should provide immediate benefits to the organization?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS Beanstalk
+* [*] B. AWS CloudFormation
+* [ ] C. AWS CodeBuild
+* [ ] D. AWS CodeDeploy.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+AWS CloudFormation: This supplements the requirement in the question and enables consultants to use their architecture diagrams to construct CloudFormation templates.
+AWS Documentation mentions the following on AWS CloudFormation:
+AWS CloudFormation is a service that helps you model and set up your Amazon Web Service resources so that you can spend less time managing those resources and more time focusing on your applications that run in AWS.
+You create a template that describes all the AWS resources that you want (like Amazon EC2 instances or Amazon RDS DB instances), and AWS CloudFormation takes care of provisioning and configuring those resources for you.
+For more information on AWS Cloudformation, please visit the following URL:
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html
+AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js etc.
+You can upload your code, and Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring.
+In question mentioned that "A consulting firm repeatedly builds large architectures for their customers using AWS resources from several AWS services including IAM, Amazon EC2, Amazon RDS, DynamoDB and Amazon VPC."
+When you are building large architectures repeatedly, you can use the CloudFormation template to create or modify an existing AWS CloudFormation template.
+A template describes all of your resources and their properties.
+When you use that template to create an AWS CloudFormation stack, AWS CloudFormation provisions the Auto Scaling group, load balancer, and database for you.
+After the stack has been successfully created, your AWS resources are up and running.
+You can delete the stack just as easily, which deletes all the resources in the stack.
+By using AWS CloudFormation, you easily manage a collection of resources as a single unit.
+Whenever working with more number of AWS resources together, CloudFormation is the best option.
+The service that can help the consulting firm create their AWS resources automatically from their architecture diagrams is AWS CloudFormation.
+AWS CloudFormation is a service that allows you to define and provision AWS infrastructure as code. It uses templates in either JSON or YAML format to create and manage a collection of related AWS resources, including IAM, EC2, RDS, DynamoDB, and VPC.
+With CloudFormation, you can create a single template that describes all the resources needed for your application, and then use that template to provision and manage those resources. This helps to eliminate manual provisioning processes and reduces the potential for human error.
+In this case, the consulting firm can use CloudFormation to create templates based on their existing architecture diagrams, and then use those templates to automatically provision the required resources for each new customer engagement. This would help to streamline their process and ensure that each new architecture is consistent with their standard practices.
+AWS Elastic Beanstalk is a service that helps deploy, manage, and scale web applications, while AWS CodeBuild is a fully managed build service that compiles source code, runs tests, and produces software packages that are ready to deploy. AWS CodeDeploy automates code deployments to any instance, including EC2 instances and instances running on-premises. However, none of these services offer the same benefits as CloudFormation when it comes to automating the creation and management of AWS resources.
+Therefore, the best choice for this consulting firm looking to automate their resource provisioning is AWS CloudFormation.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question62:"link"
+
+

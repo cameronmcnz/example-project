@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "882 - Currently a company uses EBS snapshots t"
+---
+
+
+[.question]
+== 882-64a1fa57f053625db51dde4e.
+
+
+****
+
+[.query]
+--
+Currently, a company uses EBS snapshots to back up their EBS Volumes.
+As a part of the business continuity requirement, these snapshots need to be made available in another region.
+How could this be achieved?
+
+
+--
+
+[.list]
+--
+* [*] A. Directly create the snapshot in the other region.
+* [*] B. Create Snapshot and copy the snapshot to a new region.
+* [*] C. Copy the snapshot to an S3 bucket and then enable Cross-Region Replication for the bucket.
+* [ ] D. Copy the EBS Snapshot to an EC2 instance in another region.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following:
+A snapshot is constrained to the region where it was created.
+After you create a snapshot of an EBS volume, you can use it to create new volumes in the same region.
+For more information, follow the link on Restoring an Amazon EBS Volume from a Snapshot below.
+You can also copy snapshots across regions, making it possible to use multiple regions for geographical expansion, data center migration, and disaster recovery.
+For more information on EBS Snapshots, please visit the following URL:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
+For more information on Restoring an Amazon EBS Volume from a Snapshot, please visit the following URL:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html
+Option C is incorrect because the EBS snapshots are stored in S3, which is managed by AWS.
+We don't have the option to see the snapshots in S3.
+The correct answer is option B: "Create Snapshot and copy the snapshot to a new region."
+Explanation: Amazon Elastic Block Store (EBS) is a storage service provided by AWS for EC2 instances. EBS snapshots are point-in-time backups of EBS volumes. These snapshots can be used to restore data in case of data loss or corruption.
+To make these snapshots available in another region for business continuity, the snapshots can be copied to a new region using the following steps:
+1. Create a snapshot of the EBS volume in the original region.
+2. In the AWS Management Console, navigate to the EBS Snapshots page and select the snapshot that needs to be copied.
+3. From the Actions drop-down menu, select "Copy Snapshot."
+4. In the "Copy Snapshot" dialog box, select the destination region where the snapshot needs to be copied.
+5. Configure the settings such as the encryption key, if required, and the description for the snapshot.
+6. Click "Copy Snapshot."
+The copied snapshot will now be available in the destination region. This process can be automated using AWS CLI or SDKs.
+Option A is not a viable solution as EBS snapshots cannot be directly created in another region.
+Option C is incorrect because copying snapshots to an S3 bucket and enabling Cross-Region Replication for the bucket is not the recommended method to copy EBS snapshots to another region.
+Option D is also incorrect because EBS snapshots cannot be copied to an EC2 instance directly. However, snapshots can be used to create EBS volumes which can then be attached to an EC2 instance in the destination region.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question93:"link"
+
+

@@ -1,0 +1,89 @@
+---
+layout: default 
+title: "832 - A company has its major applications dep"
+---
+
+
+[.question]
+== 832-64a1fa46f053625db51dde14.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/img1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has its major applications deployed in AWS.
+The company is building a new office and requires a high-performance network connection between the local office network and the AWS network.
+The connection needs to have high bandwidth throughput and allow users in the office to connect with multiple AWS VPCs of multiple AWS Regions.
+How would you establish the connection in the most appropriate way?
+
+
+[source,java]
+----
+By ws cious
+----
+
+
+--
+
+[.list]
+--
+* [*] A. For each AWS Region, create an AWS Direct Connect by configuring a public VIF between the VPC Virtual Private Gateway and the Customer Router.
+* [*] B. Create a Direct Connect Gateway to connect the local network with multiple Amazon VPCs across different regions.
+* [*] C. Configure two Direct Connects with two private VIFs to provide highly-available and dedicated private connections.
+* [ ] D. Create an AWS Direct Connect dedicated network connection on top of Amazon VPN to establish an end-to-end secure IPSec connection.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is incorrect because in this option users need to configure an AWS Direct Connect for each AWS Region, which is not the most appropriate method.
+Besides, private VIF should be set up in Direct Connection instead of public VIF.
+Private virtual interface is used to access Amazon VPC using private IP addresses and public virtual interface is used to access AWS public services.
+In this scenario, the connections need to be secured, so private VIF should be used.
+Option B is CORRECT because Direct Connect Gateway, as a globally available resource, can be used to establish high-performance network connections to different AWS Regions and reduce management loads.
+Please check the following figure:
+Option C is incorrect because this option is suitable for scenarios in which highly available and redundant connections are needed.
+There is no such requirement in the question.
+Option D is incorrect because the question does not require a secure IPSec connection therefore VPN is not needed.
+This option also does not address the requirements to connect with different AWS Regions.
+References:
+https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect.html https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html
+The most appropriate way to establish a high-performance network connection between a local office network and multiple AWS VPCs of different AWS Regions would be to create a Direct Connect Gateway. Option B is the correct answer.
+Here's why:
+AWS Direct Connect is a dedicated network connection service that provides a high-bandwidth, low-latency connection between on-premises data centers and AWS VPCs. Direct Connect Gateway is a service that allows you to connect multiple VPCs in different AWS Regions or different AWS accounts to a single Direct Connect connection. With Direct Connect Gateway, you can centralize and simplify your network architecture and reduce operational costs.
+Option A suggests creating a separate Direct Connect for each AWS Region. While this option can provide high performance and dedicated connectivity, it would result in a complex and expensive network architecture, as you would need to manage multiple Direct Connect connections.
+Option C suggests configuring two Direct Connects with two private VIFs for highly available and dedicated private connections. While this option provides high availability and dedicated connectivity, it is more complex and expensive than the Direct Connect Gateway option. You would need to manage multiple Direct Connect connections and redundant infrastructure.
+Option D suggests creating an AWS Direct Connect dedicated network connection on top of Amazon VPN to establish an end-to-end secure IPSec connection. While this option provides a secure connection, it does not address the requirement of high bandwidth throughput and connection with multiple VPCs of multiple AWS Regions.
+In summary, the most appropriate way to establish the connection in the given scenario would be to create a Direct Connect Gateway to connect the local network with multiple Amazon VPCs across different regions. This approach provides a centralized and simplified network architecture, reduces operational costs, and addresses the requirement of high bandwidth throughput and connection with multiple VPCs of different AWS Regions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question34:"link"
+
+

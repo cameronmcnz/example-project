@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "849 - You are working for a startup company th"
+---
+
+
+[.question]
+== 849-64a1fa4cf053625db51dde28.
+
+
+****
+
+[.query]
+--
+You are working for a start-up company that develops mobile gaming applications using AWS resources.
+For creating AWS resources, the project team is using CloudFormation Templates.
+The Project Team is concerned about the changes made in EC2 instance properties by the Operations Team, apart from parameters specified in CloudFormation Templates.
+To observe changes in AWS EC2 instance, you advise using CloudFormation Drift Detection.
+After Drift detection, when you check drift status for all AWS EC2 instances, drift for certain property values with default values for resource properties is not displayed.
+What would you do to include these resource properties to be captured in CloudFormation Drift Detection?
+
+
+--
+
+[.list]
+--
+* [*] A. Run CloudFormation Drift Detection on individual stack resources instead of entire CloudFormation stack.
+* [*] B. Explicitly set the property value, which can be the same as the default value.
+* [*] C. Manually check these resources as this is not supported in CloudFormation Drift Detection.
+* [ ] D. Assign Read permission to CloudFormation Drift Detection to determine drift.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS CloudFormation Drift Detection can be used to detect changes made to AWS resources outside the CloudFormation Templates.
+AWS CloudFormation Drift Detection only checks property values explicitly set by stack templates or by specifying template parameters.
+It does not determine drift for property values that are set by default.
+To determine drift for these resources, you can explicitly set property values that can be the same as that of the default value.
+Option A is incorrect.
+If property values are assigned explicitly to these properties, running AWS CloudFormation Drift Detection would be detected in both individuals and the entire CloudFormation Stack.
+Option C is incorrect as CloudFormation Drift Detection supports the AWS EC2 instance.
+Option D is incorrect.
+Since for all other resources, CloudFormation Drift Detection has already determined drift, there is no other read permission to be granted further.
+For more information on CloudFormation Drift Detection, refer to the following URL:
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html
+CloudFormation is an AWS service that helps you model and set up your AWS resources so that you can spend less time managing those resources and more time focusing on your applications. When you use CloudFormation to create and manage AWS resources, you define a template that describes the resources and their configurations. CloudFormation uses this template to provision and manage the resources.
+Drift detection is a CloudFormation feature that enables you to detect whether the actual resources in your stack differ from the expected resources defined in your template. When you detect drift, you can compare the actual stack resources to the expected stack resources and take corrective action, such as updating or deleting resources.
+In this scenario, the project team is concerned about changes made in EC2 instance properties by the operations team that are not specified in the CloudFormation templates. The project team wants to observe these changes and take corrective action if necessary. To do this, you suggest using CloudFormation drift detection.
+However, when you check drift status for all AWS EC2 instances, drift for certain property values with default values for resource properties is not displayed. This is because CloudFormation only detects drift for properties that are explicitly set in the CloudFormation template. If a property has a default value and is not set in the template, CloudFormation assumes that the property has not changed and does not detect drift for that property.
+To include these resource properties to be captured in CloudFormation drift detection, you have a few options:
+A. Run CloudFormation Drift Detection on individual stack resources instead of the entire CloudFormation stack. This allows you to focus on specific resources and detect drift for properties that are not explicitly set in the CloudFormation template.
+B. Explicitly set the property value, which can be the same as the default value. This ensures that CloudFormation detects drift for that property even if it has a default value.
+C. Manually check these resources as this is not supported in CloudFormation Drift Detection. This option requires manual effort, but it ensures that you are aware of any changes made to the resources, even if they are not captured by CloudFormation drift detection.
+D. Assign Read permission to CloudFormation Drift Detection to determine drift. This option does not address the issue of properties with default values, but it ensures that CloudFormation has the necessary permissions to detect drift for the resources.
+In summary, to include resource properties with default values in CloudFormation drift detection, you can run drift detection on individual stack resources, explicitly set the property value, manually check the resources, or assign read permission to CloudFormation drift detection.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question55:"link"
+
+

@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "806 - Your company needs to develop an applica"
+---
+
+
+[.question]
+== 806-64a1fa3df053625db51dddf9.
+
+
+****
+
+[.query]
+--
+Your company needs to develop an application that needs to have a login module in place.
+Their key requirement is to ensure that users can also use their current identities with various providers such as Facebook to log into the application.
+Which of the following can help you accomplish this?
+
+
+--
+
+[.list]
+--
+* [*] A. Using the AWS Cognito service
+* [ ] B. Using the AWS Config service
+* [ ] C. Using the AWS SQS service
+* [ ] D. Using the AWS WAF service.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The AWS Documentation mentions the following.
+Amazon Cognito provides authentication, authorization, and user management for your web and mobile apps.
+Your users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, or Google.
+The two main components of Amazon Cognito are user pools and identity pools.
+User pools are user directories that provide sign-up and sign-in options for your app users.
+Identity pools enable you to grant your users access to other AWS services.
+You can use identity pools and user pools separately or together.
+Option B is incorrect since this is a configuration service.
+Option C is incorrect since this is a messaging service.
+Option D is incorrect since this is a web application firewall service.
+For more information on AWS Cognito, please refer to the below URL-
+https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html
+The correct answer is A. Using the AWS Cognito service.
+AWS Cognito is a fully managed service that provides user authentication, registration, and user management for your web and mobile apps. It allows users to sign up and sign in using different identity providers such as Facebook, Google, and Amazon.
+Cognito is designed to work with any application or service that supports OAuth 2.0 or OpenID Connect, which are industry-standard protocols for user authentication and authorization. With Cognito, you can add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily.
+Additionally, Cognito provides other features such as user profile management, multi-factor authentication, and fine-grained access control, making it a comprehensive solution for user authentication and management.
+AWS Config is a service that enables you to assess, audit, and evaluate the configuration of your AWS resources. It does not provide any functionality related to user authentication and identity management.
+AWS SQS is a message queue service that enables decoupling and scaling of microservices and distributed systems. It does not provide any functionality related to user authentication and identity management.
+AWS WAF is a web application firewall that helps protect web applications from common web exploits. It does not provide any functionality related to user authentication and identity management.
+Therefore, the best option to accomplish the requirement of using various providers for user authentication is to use AWS Cognito.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question7:"link"
+
+

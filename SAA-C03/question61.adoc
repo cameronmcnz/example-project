@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "861 - A company is generating large datasets w"
+---
+
+
+[.question]
+== 861-64a1fa51f053625db51dde37.
+
+
+****
+
+[.query]
+--
+A company is generating large datasets with millions of rows to be summarized column-wise.
+To build daily reports from these data sets, Business Intelligence tools would be used. Which storage service would meet these requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Amazon Redshift
+* [ ] B. Amazon RDS
+* [*] C. ElastiCache
+* [ ] D. DynamoDB.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following:
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud.
+You can start with just a few hundred gigabytes of data and scale to a petabyte or more.
+This enables you to use your data to acquire new insights for your business and customers.
+For more information on AWS Redshift, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html
+Columnar storage for database tables is an important factor in optimizing analytic query performance because it drastically reduces the overall disk I/O requirements and the amount of data you need to load from disk.
+Amazon Redshift uses a block size of 1 MB, which is more efficient and further reduces the number of I/O requests needed to perform any database loading or other operations that are part of query execution.
+For more information on how redshift manages the columnar storage, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/dg/c_columnar_storage_disk_mem_mgmnt.html
+Based on the requirement of storing large datasets with millions of rows and performing column-wise summarization, and using Business Intelligence (BI) tools for generating daily reports, the most suitable storage service would be Amazon Redshift.
+Amazon Redshift is a data warehousing service provided by AWS. It is designed to handle large datasets, perform complex queries, and deliver fast results. It is a highly scalable service that can handle petabyte-scale data warehouses, making it suitable for storing large datasets with millions of rows.
+Amazon Redshift allows for columnar storage, which is highly optimized for querying large datasets. It stores data in a columnar format, meaning that data is organized by column rather than by row. This makes it easier to perform column-wise summarization, which is a requirement for the given scenario.
+Moreover, Amazon Redshift is optimized to work with BI tools such as Tableau, MicroStrategy, and others, making it an excellent choice for generating daily reports using BI tools. It can also integrate with other AWS services such as AWS Glue and AWS Data Pipeline for data integration and ETL (extract, transform, load) tasks.
+On the other hand, Amazon RDS and DynamoDB are primarily designed for transactional workloads, where data is frequently updated and accessed in real-time. They may not be suitable for storing large datasets that require column-wise summarization.
+ElastiCache, on the other hand, is a caching service that can be used to improve the performance of applications that access data frequently. It is not designed for storing large datasets or performing complex queries.
+Therefore, the correct answer to the given scenario would be option A, Amazon Redshift.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question70:"link"
+
+

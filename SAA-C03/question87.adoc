@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "887 - A database hosted using the Amazon RDS s"
+---
+
+
+[.question]
+== 887-64a1fa5af053625db51dde56.
+
+
+****
+
+[.query]
+--
+A database, hosted using the Amazon RDS service, is getting many database queries.
+It has now become a bottleneck for the associating application.
+Which action would ensure that the database is not a performance bottleneck?
+
+
+--
+
+[.list]
+--
+* [*] A. Setup a CloudFront distribution in front of the database.
+* [ ] B. Setup an ELB in front of the database.
+* [*] C. Setup ElastiCache in front of the database.
+* [ ] D. Setup SNS in front of the database.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+ElastiCache is an in-memory solution that can be used in front of a database to cache the common queries issued against the database.
+This can reduce the overall load on the database.
+Option A is incorrect because this is normally used for content distribution.
+Option B is partially correct.
+But you need to have one more database as an internal load balancing solution.
+Option D is incorrect because SNS is a simple notification service.
+For more information on ElastiCache, please visit the following URL:
+https://aws.amazon.com/elasticache/
+To ensure that the database is not a performance bottleneck, the best option would be to set up an ElastiCache in front of the database.
+Explanation:
+When a database hosted in Amazon RDS is getting many queries, it could become a bottleneck for the associated application. This is because the database may not be able to handle the load of queries that it is receiving, leading to a slowdown in performance. To prevent this from happening, it is essential to optimize the database performance by using caching.
+Caching is a technique that involves storing frequently accessed data in memory, allowing for faster access to the data when it is requested. ElastiCache is a fully managed in-memory caching service provided by AWS that supports popular open-source in-memory engines such as Memcached and Redis. By using ElastiCache, the database queries can be offloaded to the caching layer, thereby reducing the load on the database and improving performance.
+Setting up CloudFront distribution in front of the database (Option A) is not a good choice for improving database performance. CloudFront is a content delivery network (CDN) service that caches static and dynamic web content at edge locations worldwide. However, it is not designed for caching database queries, and using it for this purpose could lead to security concerns.
+Setting up an Elastic Load Balancer (ELB) in front of the database (Option B) can help distribute incoming traffic across multiple database instances, leading to improved performance and availability. However, ELB is not designed for caching, and it does not provide the same level of performance improvement that caching with ElastiCache can offer.
+Setting up SNS in front of the database (Option D) is not an appropriate solution for improving database performance. SNS is a messaging service that allows applications to send and receive messages. It is not designed for caching and does not offer any performance improvement for databases.
+In conclusion, the best option for ensuring that the database is not a performance bottleneck is to set up ElastiCache in front of the database. This will help offload the database queries to the caching layer, thereby reducing the load on the database and improving performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question101:"link"
+
+

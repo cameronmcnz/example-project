@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "842 - You are working as an AWS Architect for "
+---
+
+
+[.question]
+== 842-64a1fa49f053625db51dde1f.
+
+
+****
+
+[.query]
+--
+You are working as an AWS Architect for a start-up company.
+They have a two-tier production website.
+Database servers are spread across multiple Availability Zones and are stateful. You have configured Auto Scaling Group for these database servers with a minimum of 2 instances & a maximum of 6 instances.
+During post-peak hours, you observe some data loss.
+Which feature needs to be configured additionally to avoid future data loss (and copy data before instance termination)?
+
+
+--
+
+[.list]
+--
+* [*] A. Modify the cooldown period to complete custom actions before the Instance terminates.
+* [*] B. Add lifecycle hooks to Auto Scaling group.
+* [*] C. Customize Termination policy to complete data copy before termination.
+* [ ] D. Suspend Terminate process that will avoid data loss.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Adding Lifecycle Hooks to the Auto Scaling group puts the instance into a wait state before termination.
+During this wait state, you can perform custom activities to retrieve critical operational data from a stateful instance.
+The Default Wait period is 1 hour.
+Option A is incorrect as the cooldown period will not help copy data from the instance before termination.
+Option C is incorrect as the Termination policy is used to specify which instances to terminate first during scale in.
+Configuring termination policy for the Auto Scaling group will not copy data before instance termination.
+Option D is incorrect as the Suspending Terminate policy will not prevent data loss but disrupt other processes &amp; prevent scale-in.
+For more information on lifecycle-hooks, refer to the following URLs:
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html https://aws.amazon.com/ec2/autoscaling/faqs/
+The correct answer is C. Customize Termination policy to complete data copy before termination.
+Explanation: Auto Scaling Group (ASG) allows you to automatically adjust the number of instances in a group according to the demand of your application. When an instance in an ASG is terminated, it can cause data loss if the data is not saved or backed up.
+In this scenario, the database servers are stateful, which means they store data that needs to be saved before the instances are terminated. Additionally, the ASG has a minimum of 2 instances and a maximum of 6 instances, which indicates that instances are regularly terminated and replaced.
+To avoid data loss, a customized Termination policy needs to be configured that performs data backup before terminating an instance. The Termination policy can be customized using a combination of the following methods:
+1.
+Lifecycle hooks: Lifecycle hooks can be added to the ASG to pause the termination process and perform a data backup before terminating the instance.
+2.
+CloudWatch events: CloudWatch events can be configured to trigger a Lambda function that performs a data backup before the instance is terminated.
+3.
+Custom scripts: Custom scripts can be written to perform data backup before the instance is terminated.
+Option A (Modify the cooldown period to complete custom actions before the Instance terminates) and Option B (Add lifecycle hooks to Auto Scaling group) are partially correct, but they do not specifically address the issue of data loss. Modifying the cooldown period can provide additional time to complete custom actions before the instance terminates, but it does not guarantee data backup. Adding lifecycle hooks to the ASG can provide additional control over the termination process, but it requires additional configuration to ensure data backup.
+Option D (Suspend Terminate process that will avoid data loss) is incorrect because suspending the Terminate process can cause a delay in replacing terminated instances, which can impact the availability of the application.
+Therefore, the correct answer is C (Customize Termination policy to complete data copy before termination).
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question46:"link"
+
+

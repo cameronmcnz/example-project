@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "884 - You are part of the IT sector at the fin"
+---
+
+
+[.question]
+== 884-64a1fa58f053625db51dde51.
+
+
+****
+
+[.query]
+--
+You are part of the IT sector at the finance department of your country.
+Your organization has implemented AWS Organizations for each internal department, and you have access to the master account.
+You need to manage Amazon EC2 Dedicated Hosts centrally, and share the host's instance capacity with other AWS accounts in the AWS Organizations.
+How can you accomplish this in the easiest way?
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS Resource Access Manager to manage the EC2 Dedicated Hosts centrally and share them with other member accounts.
+* [ ] B. Use service control policies to share the EC2 Dedicated Hosts in the member accounts.
+* [*] C. Use AWS Control Tower.
+* [ ] D. Create IAM policies with conditions and assign them to users in every member account.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: A.
+Option A is CORRECT.
+With AWS Resource manager, you can share resources with other AWS accounts joined to your AWS Organizations reducing the operational overhead.
+More details: https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-ec2.
+Option B is incorrect.
+SCP is not a service to share resources such as EC2 Dedicated Hosts with other accounts within the AWS Organizations.
+Option C is incorrect.
+AWS Control Tower is used to do automated deployments in multi-account environments.
+Option D is incorrect.
+Creating IAM policies is not used to manage and share resources within the AWS Organizations.
+In order to manage Amazon EC2 Dedicated Hosts centrally and share the host's instance capacity with other AWS accounts in the AWS Organizations, the easiest and recommended approach is to use AWS Resource Access Manager (RAM).
+AWS RAM is a service that enables resource sharing across AWS accounts within an organization, allowing you to share resources like EC2 Dedicated Hosts, AWS Transit Gateways, and subnets, among others. AWS RAM eliminates the need for manual configuration and sharing of resources between accounts, simplifying the management of resources.
+Using AWS RAM, you can create a resource share that includes EC2 Dedicated Hosts in the master account, and then share it with the member accounts within the AWS Organization. The member accounts can then launch instances on the shared hosts by specifying the host ID in the instance launch request.
+To accomplish this, you need to perform the following steps:
+1.
+Create a resource share in the master account for the EC2 Dedicated Hosts that you want to share with the member accounts. You can create the resource share using the AWS RAM console or the AWS RAM API/CLI.
+2.
+Specify the accounts that you want to share the resource with. You can share the resource with all member accounts in the AWS Organization or specific accounts.
+3.
+Configure the resource share settings, including the permissions and the resource utilization. For EC2 Dedicated Hosts, you can specify the number of instances that the member accounts can launch on the shared hosts.
+4.
+Share the resource share with the member accounts. The member accounts will receive an invitation to accept the resource share, and they can accept it using the AWS RAM console or the API/CLI.
+Once the member accounts accept the resource share, they can launch instances on the shared EC2 Dedicated Hosts by specifying the host ID in the instance launch request. The host ID is available in the master account, where the EC2 Dedicated Hosts are created.
+Option B, using service control policies to share EC2 Dedicated Hosts in the member accounts, is not a recommended approach for managing resources in AWS Organizations. Service control policies are used to manage access and permissions to AWS services across accounts, and they cannot be used to share resources like EC2 Dedicated Hosts.
+Option C, using AWS Control Tower, is a service that provides a centralized view and control of multiple AWS accounts, but it does not provide a mechanism for sharing resources like EC2 Dedicated Hosts.
+Option D, creating IAM policies with conditions and assigning them to users in every member account, is not an effective approach for managing EC2 Dedicated Hosts in AWS Organizations, as it requires manual configuration and management of permissions in each account.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question96:"link"
+
+

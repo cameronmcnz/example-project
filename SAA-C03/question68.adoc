@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "868 - A company has a media processing applica"
+---
+
+
+[.question]
+== 868-64a1fa53f053625db51dde3f.
+
+
+****
+
+[.query]
+--
+A company has a media processing application deployed in a local data center.
+Its file storage is built on a Microsoft Windows file server.
+The application and file server need to be migrated to AWS.
+You want to set up the file server in AWS quickly.
+The application code should continue working to access the file systems.
+Which method should you choose to create the file server?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a Windows File Server from Amazon WorkSpaces.
+* [ ] B. Configure a high performance Windows File System in Amazon EFS.
+* [*] C. Create a Windows File Server in Amazon FSx.
+* [ ] D. Configure a secure enterprise storage through Amazon WorkDocs.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+In this question, a Windows file server is required in AWS, and the application should continue to work unchanged.
+Amazon FSx for Windows File Server is the correct answer as it is backed by a fully native Windows file system.
+Option A is incorrect: Because Amazon WorkSpace configures a desktop server which is not required in this question.
+Only a Windows file server is needed.
+Option B is incorrect: Because EFS cannot be used to configure a Windows file server.
+Option C is CORRECT: Because Amazon FSx provides fully managed Microsoft Windows file servers.
+Check the reference in https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html.
+Option D is incorrect: Because Amazon WorkDocs is a file sharing service in AWS.
+It cannot provide a native Windows file system.
+The best option for creating a file server in AWS, while also ensuring that the application code continues to function properly, would be to use Amazon FSx for Windows File Server. Therefore, option C is the correct choice.
+Amazon FSx is a fully-managed native Microsoft Windows file system that can be used to migrate existing applications that rely on Windows file shares. It is built on Windows Server and provides compatibility with Windows applications and services, including Active Directory integration. This means that migrating the existing file server to Amazon FSx would not require any changes to the application code, making the migration process easier and faster.
+Option A, creating a Windows File Server from Amazon WorkSpaces, is not a suitable choice because Amazon WorkSpaces is a Desktop-as-a-Service (DaaS) solution designed to provide remote access to desktop environments, rather than providing a file server.
+Option B, configuring a high-performance Windows File System in Amazon EFS, is not the best choice because Amazon EFS is not natively a Windows file system. It is designed to be a scalable, fully managed, cloud-native file storage service that can be accessed from multiple instances across different Availability Zones. Although it can support Windows workloads, it may not be the best option for a migration scenario where compatibility is critical.
+Option D, configuring a secure enterprise storage through Amazon WorkDocs, is also not a suitable choice because Amazon WorkDocs is a fully managed, secure content creation, storage, and collaboration service, but it is not designed to provide file server functionality.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question78:"link"
+
+

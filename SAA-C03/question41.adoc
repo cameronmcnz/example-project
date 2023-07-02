@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "841 - You are a solutions architect working fo"
+---
+
+
+[.question]
+== 841-64a1fa49f053625db51dde1d.
+
+
+****
+
+[.query]
+--
+You are a solutions architect working for a data analytics company that delivers analytics data to politicians that need the data to manage their campaigns.
+Political campaigns use your company's analytics data to decide on where to spend their campaign money to get the best results for the efforts.
+Your political campaign users access your analytics data through an Angular SPA via API Gateway REST endpoints.
+You need to manage the access and use of your analytics platform to ensure that the individual campaign data is separate.
+Specifically, you need to produce logs of all user requests and responses to those requests, including request payloads, response payloads, and error traces.
+Which type of AWS logging service should you use to achieve your goals?
+
+
+--
+
+[.list]
+--
+* [*] A. Use CloudWatch access logging
+* [*] B. Use CloudWatch execution logging
+* [*] C. Use CloudTrail logging
+* [ ] D. Use CloudTrail execution logging.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is incorrect.
+CloudWatch access logging captures which resource accessed an API and the method used to access the API.
+It is not used for execution traces, such as capturing request and response payloads.
+Option B is correct.
+CloudWatch execution logging allows you to capture user request and response payloads as well as error traces.
+Option C is incorrect.
+CloudTrail captures actions by users, roles, and AWS services.
+CloudTrail records all AWS account activity.
+CloudTrail does not capture error traces.
+Option D is incorrect.
+CloudTrail does not have a feature called execution logging.
+References:
+Please see the Amazon API Gateway developer guide titled Setting up CloudWatch logging for a REST API in API Gateway (https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html), and the AWS CloudTrail user guide titled How CloudTrail works (https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html)
+For the given scenario, the recommended AWS logging service to use is CloudTrail logging (option C).
+CloudTrail is an AWS service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. It records and logs all API calls made to AWS resources in your account, including those made via the AWS Management Console, AWS Command Line Interface (CLI), and AWS SDKs.
+By using CloudTrail logging, you can ensure that individual campaign data is separate by tracking and auditing all API calls made to your analytics platform, and you can also produce logs of all user requests and responses, including request and response payloads, and error traces. This makes it easier to identify and troubleshoot issues with your API endpoints.
+On the other hand, CloudWatch access logging (option A) is used to capture information about who has accessed your Amazon API Gateway APIs. It provides you with detailed access logs that can help you monitor and troubleshoot your APIs. However, it doesn't capture the request and response payloads, which are required in this scenario.
+CloudWatch execution logging (option B) captures logs for Lambda function executions. It records information such as the execution time, duration, memory used, and other details about the execution of your Lambda functions. This logging service is not applicable in the given scenario.
+CloudTrail execution logging (option D) is a type of logging that is used to track changes made to AWS resources, including Lambda functions, AWS Identity and Access Management (IAM) roles, and Amazon EC2 instances. This logging service is not suitable for the given scenario, as it does not capture API call logs.
+In summary, CloudTrail logging (option C) is the best choice for achieving the goals of the given scenario, as it captures all API calls made to AWS resources, including the analytics data platform, and records the request and response payloads, which are needed to produce logs of user requests and responses.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question44:"link"
+
+

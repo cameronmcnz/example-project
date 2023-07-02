@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "848 - An AWS Solutions Architect designing a s"
+---
+
+
+[.question]
+== 848-64a1fa4cf053625db51dde27.
+
+
+****
+
+[.query]
+--
+An AWS Solutions Architect designing a solution to store and archive corporate documents has determined Amazon Glacier as the right choice.
+An important requirement is that the data must be delivered within 5 minutes of a retrieval request. Which feature in Amazon Glacier could help to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Vault Lock
+* [*] B. Expedited retrieval
+* [*] C. Bulk retrieval
+* [ ] D. Standard retrieval.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following:
+Expedited retrievals allow you to access data in 1-5 minutes for a flat rate of $0.03 per GB retrieved.
+Expedited retrievals allow you to quickly access your data when occasional urgent requests for a subset of archives are required.
+The Vault Lock and Standard Retrieval are standard with 3-5 hours retrieval time while Bulk retrievals which can be considered the cheapest option have 5-12 hours retrieval time.
+For more information on AWS Glacier Retrieval, please visit the following URL:
+https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html
+The correct answer is B. Expedited retrieval.
+Amazon Glacier is a cloud-based storage service that is optimized for data archiving and backup. It is designed for storing data that is infrequently accessed and has a long retention period. When data is stored in Amazon Glacier, it is stored in archives. An archive is a collection of one or more files that are grouped together into a single unit.
+Amazon Glacier provides three retrieval options for archives:
+1.
+Standard retrieval: This is the default option for retrieving archives. It typically takes 3-5 hours to retrieve an archive using this option.
+2.
+Bulk retrieval: This option is designed for retrieving large amounts of data. It can take several hours to retrieve an archive using this option.
+3.
+Expedited retrieval: This option is designed for retrieving archives quickly. Archives can be retrieved in as little as 1-5 minutes using this option.
+Given the requirement that the data must be delivered within 5 minutes of a retrieval request, the best retrieval option to choose is Expedited retrieval (Option B).
+Vault Lock (Option A) is a feature that allows you to lock down your Amazon Glacier vault with a policy that cannot be modified or deleted. This can help to prevent data loss or tampering.
+Bulk retrieval (Option C) is a retrieval option that is designed for retrieving large amounts of data. It can take several hours to retrieve an archive using this option.
+Standard retrieval (Option D) is the default option for retrieving archives. It typically takes 3-5 hours to retrieve an archive using this option.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question54:"link"
+
+

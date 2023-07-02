@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "820 - Your company is planning to store sensit"
+---
+
+
+[.question]
+== 820-64a1fa42f053625db51dde07.
+
+
+****
+
+[.query]
+--
+Your company is planning to store sensitive documents in an S3 bucket.
+They want to keep the documents private but serve content only to selected users based on a particular time frame.
+Which of the following can help you accomplish this?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable CORS for the S3 bucket
+* [ ] B. Use KMS and enable encryption for the files
+* [*] C. Create pre-signed URL’s
+* [ ] D. Enable versioning for the S3 bucket.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The AWS Documentation mentions the following.
+A pre-signed URL gives you access to the object identified in the URL, provided that the creator of the pre-signed URL has permissions to access that object.
+That is, if you receive a pre-signed URL to upload an object, you can upload the object only if the creator of the pre-signed URL has the necessary permissions to upload that object.
+All objects and buckets by default are private.
+The pre-signed URLs are useful if you want your user/customer to be able to upload a specific object to your bucket, but you don't require them to have AWS security credentials or permissions.
+When you create a pre-signed URL, you must provide your security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and an expiration date and time.
+The pre-signed URLs are valid only for the specified duration.
+Option A is incorrect since this is used for Cross-origin access.
+Option B is incorrect since this is used for encryption purposes.
+Option D is incorrect since this is used for versioning.
+For more information on pre-signed URL's, please refer to the below URL-
+https://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html
+The correct answer to this question is C. Create pre-signed URLs.
+Pre-signed URLs provide a secure way to share private content without exposing them to the public. With pre-signed URLs, you can generate a URL that provides time-limited access to a private S3 object. You can also specify the user or group of users who can access the object by providing AWS IAM user credentials or by creating a special URL for a specific AWS IAM role.
+To generate pre-signed URLs, you can use the AWS SDKs, AWS CLI, or the AWS Management Console. When generating pre-signed URLs, you can specify an expiration time, after which the URL will no longer be valid. You can also specify other parameters, such as the HTTP method (GET, PUT, etc.) and the IP address range of the client who will access the object.
+CORS (Cross-Origin Resource Sharing) is used to allow web applications to access resources from a different domain. Enabling CORS for an S3 bucket does not provide any additional security or control over who can access the objects in the bucket.
+KMS (Key Management Service) is a service that enables you to create and manage cryptographic keys that can be used to encrypt and decrypt data. While encrypting sensitive documents using KMS is a good security practice, it does not provide a way to control access to the objects based on a particular time frame.
+Enabling versioning for an S3 bucket allows you to store multiple versions of an object in the same bucket. It does not provide a way to control access to the objects based on a particular time frame.
+In summary, pre-signed URLs are the best option for controlling access to private S3 objects based on a particular time frame.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question21:"link"
+
+

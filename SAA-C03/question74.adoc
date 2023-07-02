@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "874 - You are developing an application using "
+---
+
+
+[.question]
+== 874-64a1fa55f053625db51dde46.
+
+
+****
+
+[.query]
+--
+You are developing an application using AWS SDK to get objects from AWS S3
+The objects have big sizes.
+Sometimes there are failures when getting objects, especially when the network connectivity is poor.
+You want to get a specific range of bytes in a single GET request and retrieve the whole object in parts.
+Which method can achieve this?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable multipart upload in the AWS SDK.
+* [*] B. Use the “Range” HTTP header in a GET request to download the specified range bytes of an object.
+* [*] C. Reduce the retry requests and enlarge the retry timeouts through AWS SDK when fetching S3 objects.
+* [ ] D. Retrieve the whole S3 object through a single GET operation.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Through the “Range” header in the HTTP GET request, a specified portion of the objects can be downloaded instead of the whole objects.
+Check the explanations in https://docs.aws.amazon.com/AmazonS3/latest/dev/GettingObjectsUsingAPIs.html.
+Option A is incorrect: Because the question asks for multipart download rather than multipart upload.
+Option B is CORRECT: Because with byte-range fetches, users can establish concurrent connections to Amazon S3 to fetch different parts from within the same object.
+Option C is incorrect: Because adjusting retry requests and timeouts cannot download specific parts of an object.
+Option D is incorrect: Because the method to retrieve the entire object does not meet the requirement.
+The correct answer to this question is B. Use the “Range” HTTP header in a GET request to download the specified range bytes of an object.
+When retrieving objects from Amazon S3 using the AWS SDK, it is possible to use the "Range" HTTP header to specify the byte range of the object to retrieve. This can be useful when dealing with large objects or slow network connectivity, as it allows retrieving only the necessary data.
+Using the "Range" header can also be used in conjunction with downloading an object in parts. This technique is called "multipart download" and allows downloading large objects in parallel, thus improving performance. It works by dividing the object into multiple parts and downloading each part individually using separate GET requests.
+Option A is incorrect because enabling multipart upload is used when uploading large objects, not when retrieving them.
+Option C is also incorrect because reducing the retry requests and enlarging the retry timeouts may improve reliability but it does not address the issue of large objects or poor network connectivity.
+Option D is also incorrect because retrieving the whole S3 object through a single GET operation may not be practical when dealing with large objects or poor network connectivity.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question85:"link"
+
+

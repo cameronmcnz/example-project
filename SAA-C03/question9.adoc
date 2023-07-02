@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "809 - You have created an AWS Lambda function "
+---
+
+
+[.question]
+== 809-64a1fa3ef053625db51dddfc.
+
+
+****
+
+[.query]
+--
+You have created an AWS Lambda function that will write data to a DynamoDB table.
+Which of the following must be in place to ensure that the Lambda function can interact with the DynamoDB table?
+
+
+--
+
+[.list]
+--
+* [*] A. Ensure an IAM Role is attached to the Lambda function which has the required DynamoDB privileges.
+* [ ] B. Ensure an IAM User is attached to the Lambda function which has the required DynamoDB privileges.
+* [*] C. Ensure the Access keys are embedded in the AWS Lambda function.
+* [ ] D. Ensure the IAM user password is embedded in the AWS Lambda function.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following to support this requirement:
+Each Lambda function has an IAM role (execution role) associated with it.
+You specify the IAM role when you create your Lambda function.
+Permissions you grant to this role determine what AWS Lambda can do when it assumes the role.
+There are two types of permissions that you grant to the IAM role:
+If your Lambda function code accesses other AWS resources, such as reading an object from an S3 bucket or writing logs to CloudWatch Logs, you need to grant permissions for relevant Amazon S3 and CloudWatch actions to the role.
+If the event source is stream-based (Amazon Kinesis Data Streams and DynamoDB streams), AWS Lambda polls these streams on your behalf.
+AWS Lambda needs permissions to poll the stream and read new records on the stream.
+So you need to grant the relevant permissions to this role.
+For more information on the Permission Role model for AWS Lambda, please refer to the URL below:
+https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html
+The correct answer is A. Ensure an IAM Role is attached to the Lambda function which has the required DynamoDB privileges.
+Explanation:
+When you create an AWS Lambda function that needs to interact with a DynamoDB table, you need to ensure that the Lambda function has the necessary permissions to access the DynamoDB table. The best practice is to use an IAM role instead of an IAM user or access keys.
+An IAM role is an AWS Identity and Access Management (IAM) entity that defines a set of permissions for making AWS service requests. IAM roles do not have permanent credentials associated with them, and they are not associated with a specific user or group. Instead, permissions are granted to the role, and then the role is assumed by trusted entities, such as AWS services or IAM users. By using IAM roles, you can securely delegate access to AWS services and resources without sharing long-term access keys.
+To give a Lambda function permissions to access a DynamoDB table, you need to create an IAM role with the appropriate permissions and attach the role to the Lambda function. The IAM role must have permissions to access the DynamoDB table, and the Lambda function must be granted permission to assume the IAM role.
+Option B, "Ensure an IAM User is attached to the Lambda function which has the required DynamoDB privileges," is incorrect because IAM users should not be used for Lambda functions. IAM users are for humans and applications that require long-term access to AWS services.
+Option C, "Ensure the Access keys are embedded in the AWS Lambda function," is incorrect because access keys are a security risk and should not be embedded in code. Access keys should be managed securely using AWS Identity and Access Management (IAM).
+Option D, "Ensure the IAM user password is embedded in the AWS Lambda function," is incorrect because passwords should never be embedded in code. Instead, IAM users should be managed securely using AWS Identity and Access Management (IAM), and IAM roles should be used for granting permissions to AWS services and resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question10:"link"
+
+

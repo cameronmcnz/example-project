@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "835 - You have an Amazon Route 53 alias record"
+---
+
+
+[.question]
+== 835-64a1fa47f053625db51dde17.
+
+
+****
+
+[.query]
+--
+You have an Amazon Route 53 alias record that routes the traffic to an Application Load Balancer.
+Later on, the availability zones enabled for the load balancer are changed by a team member.
+When you check the load balancer using the dig command, you find that the IPs of the ELB have changed.
+What kind of change do you need to do for the alias record in Route 53?
+
+
+--
+
+[.list]
+--
+* [*] A. Change the record type from A to CNAM.
+* [ ] B. Modify the destination to the DNS name of the Application Load Balancer.
+* [*] C. Add the new IP addresses in the destination of the alias record.
+* [*] D. Nothing as Route 53 automatically recognizes changes in the resource for the alias record.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+Option A is incorrect because there is no need to change the type to CNAME as the alias record continues to work, although the IP addresses are changed for the ELB.Option B is incorrect because Route 53 can find out the new IPs of the ELB.
+This change is not required.
+Option C is incorrect because you cannot add any extra IPs to this record after creating the alias record.
+Route 53 is responsible for routing the traffic to the correct IP addresses.
+Option D is CORRECT because Route 53 automatically routes the traffic to the new ELB IP addresses.
+With alias records, users do not need to change the record sets even if they have some configuration changes.
+Reference:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html.
+When you configure an Amazon Route 53 alias record to route traffic to an Application Load Balancer, the alias record is associated with the DNS name of the load balancer. The DNS name for the load balancer resolves to one or more IP addresses. The IP addresses for the load balancer are typically associated with Elastic Network Interfaces (ENIs) in the subnets of the Availability Zones that the load balancer is configured to use.
+In this scenario, if the availability zones enabled for the load balancer are changed by a team member, the IP addresses associated with the load balancer might change. As a result, the DNS name associated with the load balancer will also change. This means that the alias record in Route 53 needs to be updated to reflect the new DNS name of the load balancer.
+The correct answer to the question is B. Modify the destination to the DNS name of the Application Load Balancer. This means that you need to update the alias record in Route 53 to use the new DNS name associated with the load balancer. To do this, you can edit the alias record in the Route 53 console or by using the AWS Command Line Interface (CLI) or SDKs. You should replace the old DNS name associated with the load balancer with the new DNS name.
+Option A, Change the record type from A to CNAME is not correct because the alias record type needs to remain as "A". This is because the alias record is pointing to an AWS resource that has one or more IP addresses associated with it.
+Option C, Add the new IP addresses in the destination of the alias record is not correct because the alias record is associated with the DNS name of the load balancer, not with the IP addresses. The IP addresses can change frequently as the load balancer scales up or down, so it's better to use the DNS name associated with the load balancer.
+Option D, Nothing as Route 53 automatically recognizes changes in the resource for the alias record is not correct because Route 53 does not automatically update the DNS name associated with the load balancer. It is your responsibility as an administrator to update the alias record to use the new DNS name associated with the load balancer.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question38:"link"
+
+

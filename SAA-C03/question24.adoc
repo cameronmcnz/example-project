@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "824 - You have been designing a CloudFormation"
+---
+
+
+[.question]
+== 824-64a1fa43f053625db51dde0b.
+
+
+****
+
+[.query]
+--
+You have been designing a CloudFormation template that creates one elastic load balancer fronting two EC2 instances.
+Which section of the template should you edit so that the load balancer's DNS is returned upon creating the stack?
+
+
+--
+
+[.list]
+--
+* [*] A. Resources
+* [ ] B. Parameters
+* [*] C. Outputs
+* [ ] D. Mappings.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The below example shows a simple CloudFormation template.
+It creates an EC2 instance based on the AMI - ami-d6f32ab5
+When the instance is created, it will output the AZ in which it is created.
+{
+"Resources": {
+"MyEC2Instance": {
+"Type": "AWS::EC2::Instance",
+"Properties": {
+"ImageId": "ami-d6f32ab5"
+}
+}
+},
+"Outputs": {
+"Availability": {
+"Description": "The Instance ID",
+"Value":
+{ "Fn::GetAtt" : [ "MyEC2Instance", "AvailabilityZone" ]}
+}
+}
+}
+Option A is incorrect because this is used to define the main resources in the template.
+Option B is incorrect because this is used to define parameters that can be taken during template deployment.
+Option D is incorrect because this is used to map key-value pairs in a template.
+To understand more on CloudFormation, please visit the URL-
+https://aws.amazon.com/cloudformation/ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html
+The section of the CloudFormation template that should be edited to return the load balancer's DNS upon creating the stack is the "Outputs" section.
+The "Outputs" section is used to specify the values that should be exported from the stack after it has been created. These outputs can be used by other stacks, AWS services, or even external systems to consume the resources created by the CloudFormation stack.
+To specify the load balancer's DNS as an output, you would need to add a new section to the CloudFormation template similar to the following:
+yamlCopy codeOutputs:   LoadBalancerDNSName:     Description: The DNS name of the load balancer     Value: !GetAtt [MyLoadBalancer, DNSName] 
+In this example, the output is named "LoadBalancerDNSName" and its value is obtained using the !GetAtt function, which retrieves the DNS name of the load balancer resource named "MyLoadBalancer".
+Once this section is added to the CloudFormation template, the load balancer's DNS name will be returned as an output when the stack is created. This output can be viewed in the AWS Management Console, retrieved using the AWS CLI, or accessed programmatically using the AWS SDKs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question25:"link"
+
+

@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "877 - An application consists of the following"
+---
+
+
+[.question]
+== 877-64a1fa56f053625db51dde49.
+
+
+****
+
+[.query]
+--
+An application consists of the following architecture: a.
+EC2 Instances in multiple AZ's behind an ELB b.
+EC2 Instances are launched via an Auto Scaling Group. c.There is one NAT instance to download the updates from the Internet. What is a bottleneck in the architecture based on the availability?
+
+
+--
+
+[.list]
+--
+* [*] A. The EC2 Instances
+* [ ] B. The ELB
+* [*] C. The NAT Instance
+* [ ] D. The Auto Scaling Group.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Since there is only one NAT instance, this is a bottleneck in the architecture.
+For high availability, launch NAT instances in multiple Available Zones and make them part of an Auto Scaling Group.
+For more information on NAT Instances, please visit the following URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html
+Note:
+NAT Gateway is a better choice than NAT instance as NAT Gateway is highly available.
+If you're already using a NAT instance, you can replace it with a NAT gateway.
+Based on the given architecture, the bottleneck in the availability could be the NAT instance. Here's the detailed explanation:
+An application with EC2 instances in multiple AZs behind an ELB and launched via an Auto Scaling Group is designed to provide high availability and scalability. The EC2 instances are distributed across multiple AZs, which ensures that the application remains available even if one AZ goes down. The Auto Scaling Group ensures that the application can handle varying levels of traffic by launching additional EC2 instances when demand is high and terminating them when demand decreases.
+However, there is one NAT instance to download updates from the internet. A NAT instance is used to allow instances in a private subnet to connect to the internet. It acts as a gateway, and all outbound traffic from the private subnet is routed through the NAT instance.
+The NAT instance can become a bottleneck if it fails or if it cannot handle the traffic volume. If the NAT instance fails, the instances in the private subnet won't be able to connect to the internet, which can impact the availability of the application. Also, if the NAT instance is not appropriately sized to handle the traffic volume, it can become a bottleneck and cause latency issues, impacting the overall performance of the application.
+Therefore, based on the given architecture, the bottleneck in the availability could be the NAT instance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question88:"link"
+
+

@@ -1,0 +1,97 @@
+---
+layout: default 
+title: "862 - A company needs to store images that are"
+---
+
+
+[.question]
+== 862-64a1fa51f053625db51dde39.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_bs0s9c.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company needs to store images that are uploaded by users via a mobile application.
+There is also a need to ensure that security measures are in place to avoid data loss. What step should be taken for protection against unintended user actions?
+
+
+[source,java]
+----
+Amazon S3 > demopeer123
+
+| overview | Properties | _Parmisso
+
+Versioning
+
+Enable versioning
+Suspend versioning
+
+This suspends the creation of object versions for all
+operations but preserves any existing object versions.
+
+Cancel Save
+
+@O
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Store data in an EBS volume and create snapshots once a week.
+* [*] B. Store data in an S3 bucket and enable versioning.
+* [*] C. Store data on Amazon EFS storage.
+* [ ] D. Store data on EC2 instance storage.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Amazon S3 has an option for versioning, as shown below.
+Versioning is on the bucket level and can be used to recover prior versions of an object.
+For more information on AWS S3 versioning, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html
+Option A is incorrect as it does not offer protection against accidental deletion of files.
+Option C is incorrect.
+It is not the ideal solution because multiple EC2 instances can access the file system.
+Option D is ephemeral.
+Option B. Store data in an S3 bucket and enable versioning is the best option for storing images that are uploaded by users via a mobile application, while ensuring security measures are in place to avoid data loss due to unintended user actions.
+Amazon S3 (Simple Storage Service) is a highly scalable and durable object storage service offered by AWS. It provides secure, reliable, and highly available storage for objects such as images, videos, and other files.
+Enabling versioning on an S3 bucket allows you to preserve, retrieve, and restore every version of an object in the bucket. This feature ensures that if a user accidentally overwrites or deletes an object, you can easily recover the previous version of the object. This can help avoid data loss due to unintended user actions.
+Furthermore, S3 provides a range of security features such as encryption of data at rest and in transit, access control policies, and integration with AWS Identity and Access Management (IAM) for authentication and authorization.
+Option A. Storing data in an EBS (Elastic Block Store) volume and creating snapshots once a week is not an appropriate option for storing images uploaded by users via a mobile application. EBS volumes are designed to provide block-level storage for use with Amazon EC2 instances. This option does not provide the scalability and flexibility required for storing large volumes of data such as images.
+Option C. Storing data on Amazon EFS (Elastic File System) storage is also not an appropriate option for storing images uploaded by users via a mobile application. EFS is a fully-managed file system service that provides scalable and highly available storage for use with EC2 instances. This option is not designed for object storage and is not an appropriate solution for storing images.
+Option D. Storing data on EC2 instance storage is not an appropriate option for storing images uploaded by users via a mobile application. EC2 instance storage provides temporary block-level storage that is attached to an EC2 instance. This storage is not persistent and is not suitable for storing large volumes of data such as images. Additionally, data stored on instance storage is lost when the instance is stopped or terminated.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question72:"link"
+
+

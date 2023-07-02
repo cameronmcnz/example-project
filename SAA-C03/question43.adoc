@@ -1,0 +1,97 @@
+---
+layout: default 
+title: "843 - An application allows a manufacturing si"
+---
+
+
+[.question]
+== 843-64a1fa4af053625db51dde21.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_y4l2c1.png[]
+
+--
+
+
+****
+
+[.query]
+--
+An application allows a manufacturing site to upload files.
+Each uploaded 2500 MB file is processed to extract metadata, and this process takes a few seconds per file.
+The frequency at which the uploading happens is unpredictable.
+For instance, there may be no upload for hours, followed by several files being uploaded concurrently. Which architecture will address this workload in the most cost-efficient manner?
+
+
+[source,java]
+----
+Name Events Filter Type
+
+{_] RRSObjectLost {_ | Delete
+
+{_| Put {_| Delete Marker Created
+{| Post {__| ObjectCreate (All)
+
+{_| Copy {_] ObjectDelete (All)
+
+[
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use a Kinesis Data Delivery Stream to store the file. Use Lambda for processing.
+* [ ] B. Use an SQS queue to store the file to be accessed by a fleet of EC2 Instances.
+* [ ] C. Store the file in an EBS volume, which can then be accessed by another EC2 Instance for processing.
+* [*] D. Store the file in an S3 bucket. Use Amazon S3 event notification to invoke a Lambda function for file processing.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+You can first create a Lambda function with the code to process the file.
+Then, you can use an Event Notification from the S3 bucket to invoke the Lambda function whenever a file is uploaded.
+Option A is incorrect as Kinesis is used to collect, process, and analyze real-time data.
+Option B is incorrect as SQS cannot store a message that is 3GB.
+The maximum payload supported by SQS is 2GB.To manage large Amazon Simple Queue Service (Amazon SQS) messages, you can use Amazon Simple Storage Service (Amazon S3) and the Amazon SQS Extended Client Library for Java.
+This is especially useful for storing and consuming messages up to 2 GB.Option C is incorrect as EBS is a service to provide block-level storage.
+S3 is more suitable in this scenario.
+Note: The total volume of data and the number of objects you can store are unlimited.
+Individual Amazon S3 objects can range in size from a minimum of 0 bytes to a maximum of 5 terabytes.
+The largest object that can be uploaded in a single PUT is 5 gigabytes.
+For more information on Amazon S3 event notification, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html https://aws.amazon.com/s3/faqs/ https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-s3-messages.html
+This question is asking for an architecture that can handle the unpredictable upload of large files, process the files by extracting metadata, and is cost-efficient. Let's look at each answer option in detail:
+A. Use a Kinesis Data Delivery Stream to store the file. Use Lambda for processing. Kinesis is a real-time data streaming service that is primarily used for ingesting and processing large amounts of data. Using Kinesis for this use case might not be the most cost-efficient option because it is designed for high-volume streaming data. Additionally, Kinesis is not well-suited for processing large files like the 2500 MB files in this use case. Lambda can process the files, but it may not be the most cost-effective option since it charges per execution.
+B. Use an SQS queue to store the file to be accessed by a fleet of EC2 Instances. SQS is a message queue service that enables decoupling of components in a distributed system. Using an SQS queue to store the files can help with the unpredictable workload since messages will be stored until they are processed. Using a fleet of EC2 instances to process the files can help scale the workload as needed. However, this approach may not be the most cost-effective option since it requires maintaining and managing a fleet of EC2 instances.
+C. Store the file in an EBS volume, which can then be accessed by another EC2 Instance for processing. EBS is a block storage service that provides persistent storage volumes for use with EC2 instances. Storing the files in an EBS volume can provide persistent storage for the files until they are processed. However, this approach may not be the most cost-effective option since it requires maintaining and managing an EC2 instance to process the files.
+D. Store the file in an S3 bucket. Use Amazon S3 event notification to invoke a Lambda function for file processing. S3 is an object storage service that can store and retrieve large amounts of data at a low cost. Storing the files in an S3 bucket can provide durable and cost-effective storage for the files. Using S3 event notifications to trigger a Lambda function can provide a scalable and cost-effective way to process the files. Lambda charges per execution, but the cost can be minimized by using the correct memory allocation and optimizing the code.
+Overall, option D, storing the files in an S3 bucket and using S3 event notifications to trigger a Lambda function, is the best option for this use case. It provides durable and cost-effective storage, scalable and efficient processing, and is easy to manage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question48:"link"
+
+

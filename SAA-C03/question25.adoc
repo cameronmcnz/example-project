@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "825 - You work as an architect for a company
+T"
+---
+
+
+[.question]
+== 825-64a1fa43f053625db51dde0c.
+
+
+****
+
+[.query]
+--
+You work as an architect for a company.
+There is a requirement for an application to be deployed on a set of EC2 Instances.
+These would be part of a compute cluster that requires low inter-node latency.
+Which of the following would you use for this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Multiple Availability Zones
+* [ ] B. AWS Direct Connect
+* [ ] C. EC2 Dedicated Instances
+* [*] D. Cluster placement Groups
+* [ ] E. VPC private subnets.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - D.
+The AWS Documentation mentions the following.
+Amazon Web Services' solution to reduce latency between instances involves the use of placement groups.
+As the name implies, a placement group is just that -- a group.
+AWS instances that exist within a common availability zone can be grouped into a placement group.
+Group members can communicate with one another in a way that provides low latency and high throughput.
+Cluster Placement groups are recommended for applications that benefit from low network latency, high network throughput, or both.
+The majority of the network traffic is between the instances in the group.
+To provide the lowest latency and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking.
+Because of what is mentioned in the documentation, all other options are incorrect.
+For more information on AWS placement groups, please visit the URL-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+To deploy an application on a set of EC2 instances that require low inter-node latency, the most appropriate solution would be to use Cluster Placement Groups (CPGs).
+A Cluster Placement Group is a logical grouping of instances within a single Availability Zone (AZ), and provides low-latency network connectivity between instances in the group. CPGs are recommended for applications that require high network throughput and low latency, as they are optimized for low-latency inter-instance communication.
+Option A (Multiple Availability Zones) would not be suitable for this requirement as it is not designed to provide low-latency inter-instance communication. Instead, Multiple Availability Zones are used for disaster recovery and high availability, allowing you to deploy resources in multiple geographically separate data centers.
+Option B (AWS Direct Connect) is a network service that provides dedicated network connections between your on-premises data center and AWS, bypassing the internet. While this can improve network performance, it is not designed to specifically address low inter-node latency.
+Option C (EC2 Dedicated Instances) provides instances that run on hardware dedicated to a single customer. While this can improve security and compliance requirements, it does not provide any specific networking optimizations.
+Option E (VPC private subnets) are used to isolate resources within a VPC and provide additional security. They do not provide any specific networking optimizations for inter-instance communication.
+Therefore, the correct answer is D, Cluster Placement Groups.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question26:"link"
+
+

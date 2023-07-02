@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "802 - An AWS Solutions Architect designing a s"
+---
+
+
+[.question]
+== 802-64a1fa3bf053625db51dddf4.
+
+
+****
+
+[.query]
+--
+An AWS Solutions Architect designing a solution to store and archive corporate documents has determined Amazon Glacier as the right choice.
+An important requirement is that the data must be delivered within 5 minutes of a retrieval request. Which feature in Amazon Glacier could help to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Vault Lock
+* [*] B. Expedited retrieval
+* [*] C. Bulk retrieval
+* [ ] D. Standard retrieval.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following:
+Expedited retrievals allow you to access data in 1-5 minutes for a flat rate of $0.03 per GB retrieved.
+Expedited retrievals allow you to quickly access your data when occasional urgent requests for a subset of archives are required.
+The Vault Lock and Standard Retrieval are standard with 3-5 hours retrieval time while Bulk retrievals which can be considered the cheapest option have 5-12 hours retrieval time.
+For more information on AWS Glacier Retrieval, please visit the following URL:
+https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html
+The correct answer is B. Expedited retrieval.
+Amazon Glacier is a low-cost, secure, and durable storage service for data archiving and long-term backup. It is optimized for data that is infrequently accessed and for which retrieval times of several hours are acceptable. However, the scenario in the question requires the data to be delivered within 5 minutes of a retrieval request.
+Amazon Glacier provides three retrieval options for accessing archived data: Standard, Expedited, and Bulk.
+Standard retrieval is the default option and provides access to the lowest-cost data retrieval. It typically takes 3-5 hours to retrieve data.
+Bulk retrieval is optimized for large data sets and can take up to 12 hours to retrieve data.
+Expedited retrieval is designed for situations where fast access to data is needed, and it typically delivers data within minutes. It incurs a higher cost than Standard or Bulk retrieval, but it guarantees data retrieval within 1-5 minutes.
+Therefore, the feature in Amazon Glacier that could help to meet the requirement of delivering data within 5 minutes of a retrieval request is Expedited retrieval (Option B).
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question2:"link"
+
+

@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "844 - You are part of the IT team of a streami"
+---
+
+
+[.question]
+== 844-64a1fa4af053625db51dde22.
+
+
+****
+
+[.query]
+--
+You are part of the IT team of a streaming application.
+Your application is hosted in two separate regions, us-east-1(N Virginia) and ap-south-1 (Mumbai)
+Your application recently became very popular, and now you have users from all around the world.
+However, these new users have been experiencing high latency in the application.
+How can you solve this problem, keeping in mind that possible failovers in the app need to be solved very quickly?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable a DNS-based traffic management solution with Geolocation route policies in Route53.
+* [ ] B. Enable AWS WAF to securely serve your application content to the nearest Edge Locations to the users.
+* [*] C. Enable Global Accelerator endpoint for your two regions.
+* [ ] D. Enable Direct Connect.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Option A is incorrect because if there is a failover, you will need to modify the source application's IP address or configure Route53 records.
+That will take time to solve the failover.
+More details please check https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geo.
+Option B is incorrect because AWS WAF is a service to protect applications from attacks.
+It does not help to improve the performance or reduce latency.
+Option C is CORRECT because AWS Global Accelerator is a service that redirects users requests to the nearest edge location and then routes the data to the Amazon global network, increasing the speed and security of data transfer, therefore, increasing the performance of our applications.
+It also reroutes requests to healthy IPs if it fails and changes propagations.
+It is automatic and lasts some seconds.
+More details please check https://aws.amazon.com/global-accelerator/faqs/.
+Option D is incorrect because Direct Connect is a service used to increase data transfer between On-Premise data centers and AWS services.
+More details: https://aws.amazon.com/directconnect/.
+Here is the additional explanation on AWS website on Global accelerator FAQ.
+Why DNS/Route 53 is an inferior option as compared to Global accelerator.
+Q: How is AWS Global Accelerator different from a DNS-based traffic management solution?
+A: First, some client devices and internet resolvers cache DNS answers for long periods of time.
+So when you make a configuration update, or there's an application failure or change in your routing preference, you don't know how long it will take before all of your users receive updated IP addresses.
+With AWS Global Accelerator, you don't have to rely on the IP address caching settings of client devices.
+Change propagation takes a matter of seconds, which reduces your application downtime.
+Second, with Global Accelerator, you get static IP addresses that provide a fixed entry point to your applications.
+This lets you easily move your endpoints between Availability Zones or between AWS Regions, without having to update the DNS configuration or client-facing applications.
+The issue faced by the streaming application is high latency, which means the delay between the user's request and the response from the application is significant. This delay could be due to various factors, including the distance between the user and the application servers, network congestion, and other factors.
+To solve this issue, we need to consider the global nature of the application's users and the need for fast failover in case of any disruptions. Let's explore the answer choices and see how they can address the issue:
+A. Enable a DNS-based traffic management solution with Geolocation route policies in Route53. Route53 is a DNS-based service provided by AWS that allows users to route traffic to different resources based on various policies, including Geolocation. Geolocation routing policies allow us to route traffic based on the user's geographic location, which can help reduce latency. By using Route53, we can create multiple DNS records, each pointing to a different endpoint of the application deployed in the two regions, and then configure geolocation routing policies based on the user's location. However, this solution does not provide fast failover in case of disruptions.
+B. Enable AWS WAF to securely serve your application content to the nearest Edge Locations to the users. AWS WAF is a web application firewall service provided by AWS that can help protect web applications from common web exploits. It can also help route traffic to the nearest Edge location using AWS Global Accelerator. By using AWS WAF, we can direct traffic to the nearest Edge location, which can help reduce latency. However, like the previous solution, it does not provide fast failover in case of disruptions.
+C. Enable Global Accelerator endpoint for your two regions. AWS Global Accelerator is a service provided by AWS that can help improve the availability and performance of applications. It can help route traffic to the optimal AWS endpoint based on the user's location, health, and other factors. By using Global Accelerator, we can direct traffic to the nearest available endpoint, which can help reduce latency. Additionally, Global Accelerator provides fast failover by automatically redirecting traffic to healthy endpoints in case of disruptions in one or more regions. Therefore, this solution provides both latency reduction and fast failover.
+D. Enable Direct Connect. AWS Direct Connect is a service provided by AWS that allows users to establish a dedicated network connection between their data center and AWS. Direct Connect can help improve network performance, reduce latency, and provide a more consistent network experience. However, this solution may not be suitable for this particular scenario as the application is already hosted on AWS, and the issue is not related to the network connection between the data center and AWS.
+In summary, the most suitable solution for this scenario is to enable Global Accelerator endpoint for the two regions. This solution can help reduce latency and provide fast failover in case of disruptions, ensuring a seamless user experience.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question49:"link"
+
+

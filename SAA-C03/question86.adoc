@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "886 - There is a multiregion website hosted in"
+---
+
+
+[.question]
+== 886-64a1fa59f053625db51dde54.
+
+
+****
+
+[.query]
+--
+There is a multi-region website hosted in AWS EC2 under an ELB.
+Route 53 is used to manage its DNS record.
+The website might get a lot of traffic over the next couple of weeks.
+If the application experiences a natural disaster in the region during the time, what should be used to reduce potential disruption to users?
+
+
+--
+
+[.list]
+--
+* [*] A. Use an ELB to divert traffic to an Infrastructure hosted in another region.
+* [ ] B. Use an ELB to divert traffic to an Infrastructure hosted in another AZ.
+* [*] C. Use CloudFormation to create backup resources in another AZ.
+* [*] D. Use Route53 to route requests to another instance in a different region.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+In a disaster recovery scenario, the best choice out of all given options is to divert the traffic to a static website.
+Option A is wrong because ELB can only balance traffic in one region, not across multiple regions.
+Options B and C are incorrect because using backups across AZs is not enough for disaster recovery purposes.
+For more information on disaster recovery in AWS, please visit the following URLs:
+https://aws.amazon.com/premiumsupport/knowledge-center/fail-over-s3-r53/ https://aws.amazon.com/disaster-recovery/
+The wording "to reduce the potential disruption in case of issues" points to a disaster recovery situation.
+There is more than one way to manage this situation.
+However, we need to choose the best option from the list given here.
+Out of this, the most suitable one is Option.
+D.Most organizations try to implement High Availability (HA) instead of DR to guard them against any downtime of services.
+In the case of HA, we ensure that there exists a fallback mechanism for our services.
+The service that runs in HA is handled by hosts running in different availability zones but the same geographical region.
+However, this approach does not guarantee that our business will be up and running in case the entire region goes down.
+DR takes things to a completely new level, wherein you need to recover from a different region that is separated by over 250 miles.
+Our DR implementation is an Active/Passive model, meaning that we always have minimum critical services running in different regions.
+But a major part of the infrastructure is launched and restored when required.
+For more information on large scale disaster recovery using AWS regions, please visit the following URL:
+https://aws.amazon.com/blogs/startups/large-scale-disaster-recovery-using-aws-regions/
+Note:
+Usually, when we discuss a disaster recovery scenario, we assume that the entire region is affected due to some disaster.
+So we need the service to be provided from yet another region.
+So, setting up a solution in another AZ will not work as it is in the same region.
+Option A is incorrect though it mentions yet another region because ELBs cannot span across regions.
+So out of the options provided, Option D is the most suitable solution.
+In order to reduce potential disruption to users in case of a natural disaster affecting the region hosting the multi-region website, one can use the following solutions:
+A. Use an ELB to divert traffic to an infrastructure hosted in another region This solution involves setting up a secondary infrastructure in another region to host the website, and using an Elastic Load Balancer (ELB) to distribute traffic between the two regions. This way, if the primary infrastructure goes down due to a natural disaster, traffic can be automatically redirected to the secondary infrastructure in another region, minimizing downtime and reducing disruption to users.
+B. Use an ELB to divert traffic to an infrastructure hosted in another AZ This solution involves setting up a secondary infrastructure in another availability zone (AZ) within the same region to host the website, and using an Elastic Load Balancer (ELB) to distribute traffic between the two AZs. This way, if the primary infrastructure goes down due to a natural disaster in that AZ, traffic can be automatically redirected to the secondary infrastructure in another AZ within the same region, minimizing downtime and reducing disruption to users.
+C. Use CloudFormation to create backup resources in another AZ This solution involves using AWS CloudFormation to automatically create and manage a secondary infrastructure in another AZ within the same region to host the website. This way, if the primary infrastructure goes down due to a natural disaster in that AZ, CloudFormation can automatically create a new infrastructure in another AZ, minimizing downtime and reducing disruption to users.
+D. Use Route53 to route requests to another instance in a different region This solution involves using AWS Route53 to redirect traffic from the primary infrastructure in the affected region to a secondary infrastructure hosted in another region. This way, if the primary infrastructure goes down due to a natural disaster, Route53 can automatically redirect traffic to the secondary infrastructure in another region, minimizing downtime and reducing disruption to users.
+Overall, solutions A, B, and D are all viable options to reduce potential disruption to users in case of a natural disaster affecting the region hosting the multi-region website. Solution C may also work, but it is more focused on automating the creation of backup resources rather than directing traffic in the event of a disaster.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question99:"link"
+
+

@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "879 - You have an application hosted in an Aut"
+---
+
+
+[.question]
+== 879-64a1fa57f053625db51dde4b.
+
+
+****
+
+[.query]
+--
+You have an application hosted in an Auto Scaling group, and an application load balancer distributes traffic to the ASG.
+You want to add a scaling policy that keeps the average aggregate CPU utilization of the Auto Scaling group to be 60 percent.
+The capacity of the Auto Scaling group should increase or decrease based on this target value.
+Which scaling policy does it belong to?
+
+
+--
+
+[.list]
+--
+* [*] A. Target tracking scaling policy.
+* [ ] B. Step scaling policy.
+* [*] C. Simple scaling policy.
+* [ ] D. Scheduled scaling policy.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+In ASG, you can add a target tracking scaling policy based on a target.
+For different scaling policies, please check https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html.
+Option A is CORRECT: Because a target tracking scaling policy can be applied to check the ASGAverageCPUUtilization metric according to https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html.
+Option B is incorrect: Because Step scaling adjusts the capacity based on step adjustments instead of a target.
+Option C is incorrect: Because Simple scaling changes the capacity based on a single adjustment.
+Option D is incorrect: With Scheduled scaling, the capacity is adjusted based on a schedule rather than a target.
+The scaling policy that is suitable for keeping the average aggregate CPU utilization of the Auto Scaling group to 60 percent is a "Target Tracking Scaling Policy."
+Target Tracking Scaling Policy is a type of scaling policy that allows you to specify a target value for a specific metric of a scalable resource, such as an Amazon EC2 Auto Scaling group or an Application Load Balancer. This policy automatically increases or decreases the capacity of the scalable resource in response to changes in the metric to meet the target value.
+In this scenario, the metric being tracked is CPU utilization of the Auto Scaling group, and the target value is 60 percent. Therefore, as the CPU utilization of the group increases or decreases, the policy will automatically adjust the capacity of the group to keep the aggregate CPU utilization at 60 percent.
+The other scaling policies available are:
+Simple Scaling Policy: This policy is based on a fixed value for a metric or a specified number of instances. It increases or decreases the capacity of the Auto Scaling group by a fixed amount when a CloudWatch alarm is triggered.
+Step Scaling Policy: This policy adjusts the capacity of the Auto Scaling group based on the scale-in and scale-out rules defined by the user. This policy is useful when you have a predictable pattern of usage or when you need to add or remove capacity in large increments.
+Scheduled Scaling Policy: This policy adjusts the capacity of the Auto Scaling group based on a pre-defined schedule. This policy is useful when you know the exact time and date when you need to increase or decrease the capacity of your resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question90:"link"
+
+

@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "819 - You have 2 development environments host"
+---
+
+
+[.question]
+== 819-64a1fa41f053625db51dde06.
+
+
+****
+
+[.query]
+--
+You have 2 development environments hosted in 2 different VPCs in an AWS account in the same region.
+There is now a requirement to access the resources of one VPC from another.
+How could this be accomplished?
+
+
+--
+
+[.list]
+--
+* [*] A. Establish a Direct Connect connection.
+* [ ] B. Establish a VPN connection.
+* [*] C. Establish VPC Peering.
+* [ ] D. Establish Subnet Peering.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+AWS Documentation mentions the following.
+A VPC peering connection is a networking connection between two VPCs that enable you to route traffic between them privately.
+Instances in either VPC can communicate with each other as if they are within the same network.
+You can create a VPC peering connection between your own VPCs, with a VPC in another AWS account, or with a VPC in a different AWS Region.
+For more information on VPC peering, please visit the URL below.
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-peering.html
+To enable access between two VPCs, there are several methods available in AWS. Here are the details on each of the proposed options:
+A. Establish a Direct Connect connection: AWS Direct Connect is a dedicated network connection service that provides a private, high-speed, and secure connection between an on-premises data center and AWS cloud services. This method can be used to connect two VPCs in different accounts or regions as well, but it can be an expensive solution and requires dedicated network equipment to be installed on-premises.
+B. Establish a VPN connection: AWS Virtual Private Network ( VPN) allows you to connect your VPCs to your on-premises network securely over the internet. VPNs can be established between two VPCs in different accounts, regions, or even between a VPC and an on-premises network. This method is less expensive than Direct Connect but might have some limitations in terms of bandwidth and network latency.
+C. Establish VPC Peering: VPC peering allows you to connect two VPCs within the same AWS account or different AWS accounts within the same region, using private IP addresses. VPC peering is a cost-effective and easy-to-set-up solution for connecting VPCs within the same region. However, it cannot be used to connect VPCs in different regions, and there are some limitations in terms of routing, security, and IP address ranges.
+D. Establish Subnet Peering: Subnet Peering allows you to connect two subnets in different VPCs, which can be within the same AWS account or different AWS accounts within the same region, using private IP addresses. Subnet peering is a cost-effective solution and can be used to connect specific resources in different VPCs, instead of the entire VPCs. However, it cannot be used to connect subnets in different regions, and there are some limitations in terms of routing and security.
+Therefore, in the given scenario, the best solution for connecting two VPCs hosted in the same AWS account and region would be to establish VPC peering (option C). It is cost-effective, easy to set up, and provides a private, secure, and direct connection between VPCs, allowing resources in both VPCs to communicate with each other using private IP addresses.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question20:"link"
+
+

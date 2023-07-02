@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "804 - You have developed a new web application"
+---
+
+
+[.question]
+== 804-64a1fa3cf053625db51dddf6.
+
+
+****
+
+[.query]
+--
+You have developed a new web application on AWS for a real estate firm.
+It has a web interface where real estate employees upload photos of newly constructed houses in S3 buckets.
+Prospective buyers log in to the website and access photos.
+The marketing team has initiated an intensive marketing event to promote new housing schemes which will lead to customers who frequently access these images.
+As this is a new application, you have no projection of traffic on the S3 bucket.
+You need an S3 storage class that can automatically optimize the storage costs with changing access patterns.
+Which of the following is a recommended storage solution to meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use One Zone-IA storage class to store all images.
+* [ ] B. Use Standard-IA to store all images.
+* [*] C. Use S3 Intelligent-Tiering storage class.
+* [ ] D. Use Standard storage class and use Storage class analytics to identify & move objects using lifecycle policies.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+When the access pattern to web applications using S3 storage buckets is unpredictable, you can use S3 intelligent-Tiering storage class.
+S3 Intelligent-Tiering storage class includes two access tiers: frequent access and infrequent access.
+Based upon access patterns, it moves data between these tiers, which helps in cost saving.
+S3 Intelligent-Tiering storage class has the same performance as that of Standard storage class.
+Option A is incorrect.
+Although it will save costs, it will not provide any protection in case of AZ failure.
+Also, this class is suitable for infrequently accessed data &amp; not for frequently access data.
+Option B is incorrect as Standard-IA storage class is for infrequently accessed data &amp; there are retrieval charges associated.
+In the above requirement, you do not know the data access pattern, which may result in a higher cost.
+Option D is incorrect.
+It has operational overhead to set up Storage class analytics &amp; moves objects between various classes.
+Also, since the access pattern is undetermined, this will run into a costlier option.
+For more information on S3 Intelligent-Tiering, refer to the following URLs:
+https://aws.amazon.com/blogs/aws/new-automatic-cost-optimization-for-amazon-s3-via-intelligent-tiering/
+The recommended storage solution to meet the requirement of optimizing storage costs with changing access patterns in the given scenario is C. Use S3 Intelligent-Tiering storage class.
+S3 Intelligent-Tiering is a storage class in Amazon S3 that is designed to optimize costs for data with unknown or changing access patterns. This storage class automatically moves objects between two access tiers - frequent access and infrequent access - based on changing access patterns, without any performance impact or operational overhead. S3 Intelligent-Tiering is suitable for workloads with unknown or changing access patterns, where data access frequency can vary widely and unpredictably.
+In the given scenario, the web application is new, and there is no projection of traffic on the S3 bucket. Additionally, the marketing team has initiated an intensive marketing event to promote new housing schemes, which will lead to customers who frequently access these images. As a result, the access patterns to the S3 bucket are unknown or changing, and it is not clear how frequently the images will be accessed in the future.
+Using One Zone-IA storage class (Option A) or Standard-IA storage class (Option B) may not be optimal in this scenario, as these storage classes are designed for data that is infrequently accessed but must be available immediately when needed. In other words, these storage classes are suitable for data that is accessed less frequently and can tolerate a slightly longer retrieval time when accessed. In contrast, S3 Intelligent-Tiering is designed for workloads with unknown or changing access patterns, where data access frequency can vary widely and unpredictably.
+Using Standard storage class and using Storage class analytics to identify & move objects using lifecycle policies (Option D) is a viable option, but it requires more manual intervention and is less automated than using S3 Intelligent-Tiering. With S3 Intelligent-Tiering, the movement of objects between access tiers is automated, and there is no need for manual intervention or lifecycle policies.
+Therefore, the recommended storage solution to meet the requirement of optimizing storage costs with changing access patterns in the given scenario is C. Use S3 Intelligent-Tiering storage class.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question4:"link"
+
+

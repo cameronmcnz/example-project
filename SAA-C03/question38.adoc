@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "838 - As a Cloud Architect you have deployed a"
+---
+
+
+[.question]
+== 838-64a1fa48f053625db51dde1a.
+
+
+****
+
+[.query]
+--
+As a Cloud Architect, you have deployed an existing application from the local server to an On-demand EC2 instance.
+You found out that there is an issue while connecting the application using the HTTPS Protocol.
+After troubleshooting the issue, you added port 443 to the security group of the instance.
+How much time will it take to update changes to all of the resources related to Security groups?
+
+
+--
+
+[.list]
+--
+* [*] A. It can take up to 10 minutes depending on the number of resources.
+* [ ] B. You just need to restart the EC2 Server.
+* [*] C. You cannot make any change to existing security group, you have to create new Security group.
+* [*] D. Immediately without restart.
+* [ ] E. You have to deploy your application again.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Correct Answer - D.
+You can assign a security group to an instance when you launch the instance.
+When you add or remove rules, those changes are automatically applied to all instances to which you've assigned the security group.
+Option A is incorrect.
+Any changes made to the Security Group are immediately effected.
+Option B is incorrect because you don't need to restart the server to check any Security Group updates.
+Option C is incorrect because you can modify rules in the security group.
+Option D is CORRECT because any changes made to the security group are taken into effect immediately.
+Option E is incorrect because this security group works at the instance level, not at the application level.
+Reference:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#adding-security-group-rule https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html
+When you add a new rule to a security group, it is applied immediately to all the resources associated with that security group. Therefore, the correct answer is D - "Immediately without restart."
+Security groups are virtual firewalls that control inbound and outbound traffic to your AWS resources such as EC2 instances. When you add a new rule to a security group, the change takes effect immediately, and it applies to all instances associated with that security group.
+However, keep in mind that changes to security group rules may take some time to propagate to all instances in some rare cases. In such cases, the delay may depend on the size of the security group, network latency, and other factors, but it is usually no more than a few minutes.
+In summary, you do not need to restart the EC2 server, create a new security group, or redeploy your application. Adding a rule to a security group takes effect immediately and applies to all resources associated with that security group.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question41:"link"
+
+

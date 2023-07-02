@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "865 - In your organization development teams u"
+---
+
+
+[.question]
+== 865-64a1fa52f053625db51dde3c.
+
+
+****
+
+[.query]
+--
+In your organization, development teams use S3 buckets to store log files for various applications hosted in AWS development environments.
+The developers intend to keep the logs for a month for troubleshooting purposes and subsequently purge the logs. Which feature should be used to enable this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Adding a bucket policy on the S3 bucket.
+* [*] B. Configuring lifecycle configuration rules on the S3 bucket.
+* [*] C. Creating an IAM policy for the S3 bucket.
+* [ ] D. Enabling CORS on the S3 bucket.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following on Lifecycle policies:
+Lifecycle configuration enables you to specify the Lifecycle management of objects in a bucket.
+The configuration is a set of one or more rules, where each rule defines an action for Amazon S3 to apply to a group of objects.
+These actions can be classified as follows:
+Transition actions - In which you define when objects transition to another storage class.
+For example, you may choose to transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation or archive objects to the GLACIER storage class one year after creation.
+Expiration actions - In which you specify when the objects expire.
+Then, Amazon S3 deletes the expired objects on your behalf.
+For more information on AWS S3 Lifecycle policies, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+The correct answer is B. Configuring lifecycle configuration rules on the S3 bucket.
+Explanation: Lifecycle configuration rules are used to automate the management of objects in an S3 bucket. They allow you to define actions that should be taken on objects in the bucket based on their age, size, or other attributes.
+In this scenario, the requirement is to keep the logs for a month for troubleshooting purposes and subsequently purge them. To accomplish this, a lifecycle configuration rule can be configured on the S3 bucket to automatically delete objects that are older than a specified time period.
+The other options listed are not relevant to the given requirement:
+A bucket policy is used to control access to an S3 bucket. It does not provide a mechanism for automatically purging objects based on their age.
+An IAM policy is used to grant permissions to AWS resources. It does not provide a mechanism for automatically purging objects based on their age.
+Enabling CORS (Cross-Origin Resource Sharing) allows web pages to make cross-origin AJAX requests to AWS resources. It does not provide a mechanism for automatically purging objects based on their age.
+Therefore, the correct answer is B. Configuring lifecycle configuration rules on the S3 bucket.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question75:"link"
+
+

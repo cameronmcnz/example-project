@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "833 - Your team uses Amazon ECS to manage cont"
+---
+
+
+[.question]
+== 833-64a1fa46f053625db51dde15.
+
+
+****
+
+[.query]
+--
+Your team uses Amazon ECS to manage containers for several micro-services.
+To save cost, multiple ECS tasks should run at a single container instance.
+When a task is launched, the host port should be dynamically chosen from the container instance's ephemeral port range.
+The ECS service should select a load balancer that supports dynamic mapping.
+Which types of load balancers are appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Application Load Balancer or Network Load Balancer.
+* [ ] B. Application Load Balancer only.
+* [*] C. Network Load Balancer only.
+* [ ] D. Application Load Balancer or Classic Load Balancer.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+Option A is CORRECT because both Application Load Balancer and Network Load Balancer support dynamic mapping.
+You can configure the ECS service to use the load balancer, and a dynamic port will be selected for each ECS task automatically.
+With Dynamic mapping, multiple copies of a task can run on the same instance.
+Option B and C are incorrect: Please check the below references.
+Option D is incorrect because Classic Load Balancer does not support dynamic mapping.
+With Classic Load Balancer, you have to define the port mappings on a container instance statically.
+Reference:
+https://docs.aws.amazon.com/AmazonECS/latest/userguide/load-balancer-types.html. https://aws.amazon.com/premiumsupport/knowledge-center/dynamic-port-mapping-ecs/.
+The appropriate load balancers for this scenario are the Application Load Balancer (ALB) or the Network Load Balancer (NLB), so the correct answer is A.
+When running multiple ECS tasks on a single container instance, it's important to ensure that they don't interfere with each other. To achieve this, each task should use a different ephemeral port to communicate with the outside world. An ephemeral port is a temporary port number that's dynamically assigned by the operating system to a network communication session, and it's typically in the range of 49152 to 65535.
+In this scenario, the host port that's used by each ECS task should be dynamically chosen from the container instance's ephemeral port range. This means that the host port will be different for each task and will change each time the task is launched.
+To enable this dynamic port mapping, the ECS service needs to select a load balancer that supports it. Both the Application Load Balancer (ALB) and the Network Load Balancer (NLB) support dynamic port mapping.
+The ALB operates at the application layer (layer 7) of the OSI model and supports HTTP, HTTPS, and WebSocket protocols. It can route requests based on content-based routing, path-based routing, host-based routing, and query string parameters. The ALB also supports containerized applications and integrates with Amazon ECS and EKS natively.
+The NLB operates at the transport layer (layer 4) of the OSI model and supports TCP, UDP, and TLS protocols. It's optimized for high throughput, low latency, and handling millions of requests per second. The NLB supports static IP addresses, which can be useful for applications that require fixed IP addresses.
+Therefore, both ALB and NLB support dynamic port mapping and are appropriate for this scenario. Classic Load Balancer (CLB) does not support dynamic port mapping, and hence it's not appropriate for this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question36:"link"
+
+

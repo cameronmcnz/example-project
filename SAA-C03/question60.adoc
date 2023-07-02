@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "860 - You are part of the IT team of an assura"
+---
+
+
+[.question]
+== 860-64a1fa50f053625db51dde36.
+
+
+****
+
+[.query]
+--
+You are part of the IT team of an assurance company.
+You have been having a consistent amount of usage of your EC2 instances and Fargate.
+However, there is also a consistent amount of usage increase.
+Because of this, you can predict that you may need to increase the size of the instances in 2 or 3 years.
+The finance team has asked you if there is a way to save costs in the EC2 instances and Fargate.
+What do you suggest?
+
+
+--
+
+[.list]
+--
+* [*] A. Purchase a Compute Saving plan.
+* [ ] B. Purchase an EC2 instance saving plan.
+* [ ] C. Purchase a Convertible Reserved Instance.
+* [ ] D. Purchase a Standard Reserved Instance.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Option A is CORRECT.
+With a Compute Saving Plan, you can save up to 66% and it applies to Fargate and EC2 instances.
+It also lets you change the instance's family and size.
+More details-
+https://aws.amazon.com/savingsplans/faq/
+Option B is incorrect.
+The EC2 instance saving plan does not apply automatically to Fargate instances.
+More details-
+https://aws.amazon.com/savingsplans/faq/
+Options C and D are incorrect.
+Reserved instances do not save the cost of Fargate.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html
+In this scenario, the IT team is experiencing consistent usage of EC2 instances and Fargate, and can predict a potential increase in usage in 2-3 years. The finance team has requested suggestions to save costs on these resources.
+The options provided in the answer choices are all related to AWS cost optimization mechanisms for EC2 instances:
+A. Compute Saving Plan: Compute Savings Plans provide flexibility and help reduce costs by offering a flexible discount model that applies to a specific instance family in a specific region. This option could be helpful if the IT team expects consistent usage for a particular instance family in a specific region for a long period of time. However, this might not be an ideal solution if the IT team expects usage to change over time or if they plan to switch to another instance family in the future.
+B. EC2 Instance Saving Plan: EC2 Instance Saving Plans provide a discounted rate for EC2 instances that require a one or three-year commitment. This option could be a viable solution if the IT team expects to use a particular instance type and size for a longer period of time. However, if the IT team expects usage to change over time or if they plan to switch to another instance family, this might not be the best solution.
+C. Convertible Reserved Instance: Convertible Reserved Instances offer flexibility and can be converted to other instance types or sizes within the same instance family, without the need to pay any upfront cost difference. This option could be an ideal solution if the IT team expects usage to change over time and may need to change instance types or sizes, providing more flexibility and cost savings in the long run.
+D. Standard Reserved Instance: Standard Reserved Instances provide a discounted rate for EC2 instances that require a one or three-year commitment. However, unlike Convertible Reserved Instances, they cannot be modified to another instance type or size within the same instance family. This option may not be the best solution if the IT team expects usage to change over time or if they plan to switch to another instance family.
+Therefore, considering the potential increase in usage in the next 2-3 years and the need for flexibility, the most suitable option in this scenario would be to Purchase a Convertible Reserved Instance (Option C).
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question69:"link"
+
+

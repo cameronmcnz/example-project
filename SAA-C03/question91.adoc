@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "891 - A company has an infrastructure that con"
+---
+
+
+[.question]
+== 891-64a1fa5bf053625db51dde5a.
+
+
+****
+
+[.query]
+--
+A company has an infrastructure that consists of machines that send log information every 5 minutes.
+The number of these machines can run into thousands.
+It is required to ensure that the analysis of every log item is completed within 24 hours.
+What could help to fulfill this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Use Kinesis Data Streams to collect the logs and persist the data to S3 using Kinesis Firehose and Lambda.
+* [ ] B. Launch an Elastic Beanstalk application to take the processing job of the logs.
+* [*] C. Launch an EC2 instance with enough EBS volumes to consume the logs which can be used for further processing.
+* [ ] D. Use CloudTrail to store all the logs which can be analyzed at a later stage.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+AWS Documentation mentions the following:
+Amazon Kinesis Data Streams (KDS) is a massively scalable and durable real-time data streaming service.
+KDS can continuously capture gigabytes of data per second from thousands of sources such as website clickstreams, database event streams, financial transactions, social media feeds, IT logs, and location-tracking events.
+Make your streaming data available to multiple real-time analytics applications, to Amazon S3 or AWS Lambda within 70 milliseconds of the data being collected.
+For more information on Amazon Kinesis firehose, please visit the following URL:
+https://aws.amazon.com/kinesis/data-streams/
+The requirement is to analyze log information that is sent every 5 minutes by thousands of machines within 24 hours. To fulfill this requirement, we need a solution that can handle high volume, high velocity, and high variety data. Among the options provided, only option A - Use Kinesis Data Streams to collect the logs and persist the data to S3 using Kinesis Firehose and Lambda - can fulfill these requirements.
+Kinesis Data Streams is a managed service that can collect and process large volumes of streaming data in real-time. It can handle data from thousands of sources and can scale dynamically to accommodate changes in the volume of data. Kinesis Data Streams can also process the data in real-time, which is important for meeting the requirement of analyzing the logs within 24 hours.
+Kinesis Firehose is a managed service that can persist the data to S3, Redshift, or Elasticsearch. It can also transform the data before persisting it using Lambda functions. In this case, we can use Firehose to persist the logs to S3, which is a cost-effective and scalable storage solution.
+Lambda is a serverless compute service that can execute code in response to events. In this case, we can use Lambda to transform the data before persisting it to S3 using Firehose. Lambda is also a cost-effective and scalable solution since we only pay for the execution time and don't have to manage any infrastructure.
+Option B - Launch an Elastic Beanstalk application to take the processing job of the logs - may not be suitable for this scenario since it's unclear how the logs would be processed using Elastic Beanstalk. Elastic Beanstalk is a platform-as-a-service (PaaS) solution that can deploy and manage web applications, but it may not be the best fit for processing large volumes of streaming data.
+Option C - Launch an EC2 instance with enough EBS volumes to consume the logs which can be used for further processing - may not be suitable for this scenario since it requires manual scaling and management of the infrastructure. Additionally, it may not be cost-effective since we would have to pay for the EC2 instances and EBS volumes even when they're not being used.
+Option D - Use CloudTrail to store all the logs which can be analyzed at a later stage - is not suitable for this scenario since CloudTrail is a service that logs AWS API calls and events, not application logs. Additionally, CloudTrail may not be able to handle the volume and variety of data in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question105:"link"
+
+

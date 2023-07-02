@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "818 - You are planning to use Auto Scaling gro"
+---
+
+
+[.question]
+== 818-64a1fa41f053625db51dde05.
+
+
+****
+
+[.query]
+--
+You are planning to use Auto Scaling groups to maintain the performance of your web application.
+How would you ensure that the scaling activity has sufficient time to stabilize without executing another scaling action?
+
+
+--
+
+[.list]
+--
+* [*] A. Modify the Instance User Data property with a timeout interval.
+* [*] B. Increase the Auto Scaling Cooldown timer value.
+* [*] C. Enable the Auto Scaling cross zone balancing feature.
+* [ ] D. Disable CloudWatch alarms till the application stabilizes.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following.
+The Cooldown period is a configurable setting for your Auto Scaling group, ensuring that it doesn't launch or terminate additional instances before the previous scaling activity takes effect.
+After the Auto Scaling group dynamically scales using a simple Scaling Policy, it waits for the Cooldown period to complete before resuming scaling activities.
+For more information on Auto Scaling Cooldown, please visit the following URL-
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html
+When using Auto Scaling groups to maintain the performance of a web application, it is important to ensure that the scaling activity has sufficient time to stabilize before executing another scaling action. This is necessary to avoid a cycle of rapid scaling actions that can lead to instability in the application.
+The following are the options provided for ensuring that scaling activity has sufficient time to stabilize without executing another scaling action:
+A. Modify the Instance User Data property with a timeout interval: This option is incorrect as the Instance User Data property is used to pass data to instances when they are launched. It does not have any impact on the Auto Scaling cooldown timer or the scaling activity.
+B. Increase the Auto Scaling Cooldown timer value: This is the correct option as the Auto Scaling cooldown timer determines the amount of time that Auto Scaling waits before executing another scaling action. By increasing the cooldown timer value, we can ensure that sufficient time is given for the scaling activity to stabilize before executing another scaling action.
+C. Enable the Auto Scaling cross-zone balancing feature: This option is incorrect as the Auto Scaling cross-zone balancing feature is used to distribute instances evenly across multiple Availability Zones. It does not have any impact on the Auto Scaling cooldown timer or the scaling activity.
+D. Disable CloudWatch alarms till the application stabilizes: This option is incorrect as disabling CloudWatch alarms will not provide sufficient time for the scaling activity to stabilize. CloudWatch alarms are used to trigger scaling actions based on predefined thresholds. Disabling the alarms will prevent scaling actions from being triggered, but it will not provide sufficient time for the scaling activity to stabilize.
+In conclusion, the correct option for ensuring that scaling activity has sufficient time to stabilize without executing another scaling action is to increase the Auto Scaling cooldown timer value.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question19:"link"
+
+

@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "808 - You have implemented AWS Cognito service"
+---
+
+
+[.question]
+== 808-64a1fa3df053625db51dddfb.
+
+
+****
+
+[.query]
+--
+You have implemented AWS Cognito services to require users to sign in and sign up to your app through social identity providers like Facebook, Google, etc.
+Your marketing department wants users to anonymously try out the app because the current log-in requirement is excessive, which may reduce the demand for products and services offered through the app.
+What would you suggest to the marketing department in this regard?
+
+
+--
+
+[.list]
+--
+* [*] A. It’s too much of a security risk to allow unauthenticated users access to the app.
+* [*] B. Cognito Identity supports guest users for the ability to enter the app and have limited access.
+* [*] C. A second version of the app will need to be offered for unauthenticated users.
+* [ ] D. This is possible only if we remove the authentication from everywhere.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Option B is correct.
+Amazon Cognito Identity Pools can support unauthenticated identities by providing a unique identifier and AWS credentials for users who do not authenticate with an identity provider.
+Unauthenticated users can be associated with a role with limited access to resources compared to a role for authenticated users.
+Option A is incorrect.
+Cognito will allow unauthenticated users without being a security risk.
+Option C is incorrect.
+Cognito supports both authenticated and unauthenticated users.
+References:
+https://aws.amazon.com/cognito/ http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html https://aws.amazon.com/cognito/getting-started/ https://docs.aws.amazon.com/cognito/latest/developerguide/concepts.html
+The marketing department wants users to try out the app without requiring them to sign in or sign up, but you have implemented AWS Cognito services to require users to authenticate through social identity providers like Facebook, Google, etc.
+Option A states that it's too much of a security risk to allow unauthenticated users access to the app. This is generally true since allowing unauthenticated users to access your app may lead to data breaches or unauthorized access to your app's resources. Therefore, this option is not a viable solution for the marketing department's request.
+Option B states that Cognito Identity supports guest users for the ability to enter the app and have limited access. This option is correct because Cognito Identity provides the ability to create unauthenticated guest users who can access the app with limited permissions. You can set up specific policies to restrict access to certain resources or features of the app. This way, the marketing department can allow users to try out the app anonymously, but with limited access.
+Option C suggests offering a second version of the app for unauthenticated users. This option is not practical because it would require creating and maintaining two separate versions of the app, which would be costly and time-consuming.
+Option D suggests removing authentication from everywhere, which is not recommended as it would put the app at a significant security risk.
+In summary, option B is the most suitable solution to the marketing department's request. It allows the anonymous use of the app while limiting access to certain features, maintaining the app's security, and avoiding the creation of a separate app version.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question9:"link"
+
+

@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "858 - An organization hosts a multilanguage we"
+---
+
+
+[.question]
+== 858-64a1fa50f053625db51dde34.
+
+
+****
+
+[.query]
+--
+An organization hosts a multi-language website on AWS, which is served using CloudFront.
+Language is specified in the HTTP request as shown below: http://d11111f8.cloudfront.net/main.html?language=de http://d11111f8.cloudfront.net/main.html?language=en http://d11111f8.cloudfront.net/main.html?language=es How should AWS CloudFront be configured to deliver cached data in the correct language?
+
+
+--
+
+[.list]
+--
+* [*] A. Forward cookies to the origin
+* [*] B. Based on query string parameters
+* [*] C. Cache objects at the origin
+* [ ] D. Serve dynamic content.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Since language is specified in the query string parameters, CloudFront should be configured for the same.
+For more information on configuring CloudFront via query string parameters, please visit the following URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html
+To deliver cached data in the correct language, AWS CloudFront should be configured based on query string parameters. This can be done by creating separate cache behaviors for each language in the CloudFront distribution settings.
+Here's how this can be done:
+1. Create a new cache behavior: In the CloudFront distribution settings, click on "Behaviors", then "Create Behavior".
+2. Specify the path pattern: Enter the path pattern for the language-specific pages, for example "/main.html?language=en" for English pages.
+3. Specify the query string parameters: In the "Cache Based on Selected Request Headers or Query Strings" section, select "Whitelist" and enter "language" as the query string parameter.
+4. Specify the TTL: Set the Time-to-Live (TTL) for the cache behavior to an appropriate value for the language-specific content.
+5. Repeat for other languages: Repeat steps 1-4 for each language-specific cache behavior that you want to create.
+By creating separate cache behaviors for each language, CloudFront will cache and serve the correct version of each page based on the "language" query string parameter in the HTTP request.
+Forwarding cookies to the origin (option A) may not be necessary or desirable in this case, as the language is already specified in the query string parameter. Caching objects at the origin (option C) would not be effective in delivering cached data in the correct language. Serving dynamic content (option D) would be a more resource-intensive option, and may not be necessary if the language-specific pages can be served from cache.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question67:"link"
+
+

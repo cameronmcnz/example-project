@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "878 - A company owns an API deployed in EC2 wr"
+---
+
+
+[.question]
+== 878-64a1fa56f053625db51dde4a.
+
+
+****
+
+[.query]
+--
+A company owns an API deployed in EC2 written using Python.
+All the requests can be finished within 1 second.
+Most of traffic happens during the daytime.
+The company wants to save the API cost and simplify the maintenance of the server without impacting the performance.
+How can this be achieved?
+
+
+--
+
+[.list]
+--
+* [*] A. Use API Gateway with the backend services as it is.
+* [*] B. Use the API Gateway along with AWS Lambda.
+* [*] C. Use CloudFront along with the API backend service as it is.
+* [ ] D. Use ElastiCache along with the API backend service as it is.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Since the company has full ownership of the API, the best solution would be to convert the code for the API and use it in a Lambda function.
+This can help save on cost since, in the case of Lambda, you only pay for the time the function runs and not for the infrastructure.
+Then, you can use the API Gateway along with the AWS Lambda function to scale accordingly.
+For more information on using API Gateway with AWS Lambda, please visit the following URL:
+https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-lambda-integration.html
+Note:With Lambda, you do not have to provision your own instances.
+Lambda performs all the administrative activities on your behalf, including capacity provisioning, monitoring fleet health, applying security patches to the underlying compute resources, deploying your code, running a web service front end, and monitoring and logging your code.
+AWS Lambda provides easy scaling and high availability to your code without additional effort on your part.
+The company can save the API cost and simplify the maintenance of the server without impacting the performance by using AWS services like API Gateway, Lambda, CloudFront, and ElastiCache. Each of these services has its own benefits and drawbacks.
+Option A: Use API Gateway with the backend services as it is. API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. It can act as a front door for applications to access data, business logic, or functionality from your backend services, such as EC2 instances. With API Gateway, the company can easily manage traffic, handle API requests, and reduce costs by scaling up and down automatically based on traffic patterns. However, using API Gateway with the backend services as it is may not significantly reduce the cost, as EC2 instances will still need to be running.
+Option B: Use the API Gateway along with AWS Lambda. AWS Lambda is a serverless compute service that runs your code in response to events and automatically manages the compute resources for you. By using Lambda with API Gateway, the company can create a serverless API that automatically scales up and down based on traffic, reduces costs by only paying for what you use, and simplifies maintenance by eliminating the need to manage servers. With Lambda, the company can run their Python code without managing servers or worrying about infrastructure, which can significantly reduce costs.
+Option C: Use CloudFront along with the API backend service as it is. Amazon CloudFront is a fast content delivery network (CDN) that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds. By using CloudFront along with the API backend service, the company can improve the performance and availability of the API by caching frequently accessed content closer to the end-user. CloudFront can also reduce costs by minimizing the load on the backend servers and reducing the number of requests that need to be processed. However, using CloudFront alone may not simplify the maintenance of the server.
+Option D: Use ElastiCache along with the API backend service as it is. Amazon ElastiCache is a fully managed in-memory data store and cache service that can improve the performance of web applications by allowing you to retrieve data from fast, managed, in-memory caches instead of relying entirely on slower disk-based databases. By using ElastiCache along with the API backend service, the company can cache frequently accessed data, which can significantly reduce the number of requests that need to be processed, lower latency, and improve performance. This can lead to cost savings by reducing the load on the backend servers. However, using ElastiCache alone may not simplify the maintenance of the server.
+Conclusion: Among the options, the best solution for the company depends on their specific needs and requirements. However, considering that the company wants to save API cost and simplify the maintenance of the server without impacting the performance, using AWS Lambda with API Gateway is the most recommended solution, as it allows the company to create a serverless API that automatically scales up and down based on traffic, reduces costs, and simplifies maintenance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question89:"link"
+
+

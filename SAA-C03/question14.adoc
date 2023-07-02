@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "814 - While managing permissions for the API G"
+---
+
+
+[.question]
+== 814-64a1fa40f053625db51dde01.
+
+
+****
+
+[.query]
+--
+While managing permissions for the API Gateway, what could be used to ensure that the right level of permissions is given to Developers, IT Admins, and users? Also, the permissions should be easily managed.
+
+
+--
+
+[.list]
+--
+* [*] A. Use the secure token service to manage the permissions for different users.
+* [*] B. Use IAM Policies to create different policies for different types of users.
+* [*] C. Use the AWS Config tool to manage the permissions for different users.
+* [ ] D. Use IAM Access Keys to create sets of keys for different types of users.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS Documentation mentions the following:
+You control access to Amazon API Gateway with IAM permissions by controlling access to the following two API Gateway component processes.
+To create, deploy, and manage an API in API Gateway, you must grant the API developer permissions to perform the required actions supported by the API management component of API Gateway.
+To call a deployed API or to refresh the API caching, you must grant the API caller permissions to perform required IAM actions supported by the API execution component of API Gateway.
+For more information on permissions with the API Gateway, please visit the following URL:
+https://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html
+When managing permissions for API Gateway, the appropriate level of access should be granted to different users such as Developers, IT Admins, and users. The permissions should also be easy to manage.
+Among the given options, the best approach for managing permissions for API Gateway is to use IAM policies (Option B). IAM policies are a powerful and flexible way to grant permissions to different users or groups. IAM policies define the actions that can be taken on a particular resource, such as an API Gateway, and the conditions under which those actions can be taken.
+IAM policies can be assigned to individual IAM users or groups, and they can be easily updated or revoked as needed. For example, you can create an IAM policy that allows a developer to create, update, and delete API Gateway resources but restricts access to only a certain API Gateway stage. Another policy could be created for IT admins to allow them to modify or delete any API Gateway resource. IAM policies can be customized to fit the needs of different types of users and can be easily managed through the AWS Management Console or the AWS CLI.
+Using the Secure Token Service (Option A) is not appropriate for managing permissions for API Gateway as it is primarily used to manage temporary credentials for accessing AWS services. It can be used to authenticate and authorize API Gateway clients, but it does not provide fine-grained access control over API Gateway resources.
+AWS Config (Option C) is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. It is not a tool for managing permissions for different users.
+IAM Access Keys (Option D) are used to provide programmatic access to AWS resources. They are used to authenticate requests to AWS services made using the AWS CLI or SDKs. While access keys can be used to restrict access to particular API Gateway resources, they do not provide the same fine-grained control over access as IAM policies. Furthermore, access keys are not designed to manage permissions for different types of users, making them an unsuitable choice for this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question15:"link"
+
+

@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "898 - You are in charge of migrating your actu"
+---
+
+
+[.question]
+== 898-64a1fa5ef053625db51dde61.
+
+
+****
+
+[.query]
+--
+You are in charge of migrating your actual On-Premise Postgres database to AWS Cloud.
+There is a requirement that the database must remain fully operational during the migration.
+Which of these services is well suited for this task?
+
+
+--
+
+[.list]
+--
+* [*] A. AWS DataSync
+* [ ] B. AWS Server Migration Service
+* [*] C. AWS Database Migration Service
+* [ ] D. AWS Migration Hub.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A is incorrect.
+DataSync is a service mainly used to migrate NFS servers to S3, EFS, Fsx, etc.
+It does not support database migrations.
+More details here:
+https://aws.amazon.com/datasync/faqs/
+Option B is incorrect.
+AWS Server Migration service is used to migrate on-premises workloads to AWS EC2
+It does not support migrations to databases in AWS.
+More details:
+https://aws.amazon.com/server-migration-service/faqs/
+Option C is CORRECT.
+AWS Database Migration Service helps you to migrate your On-Premise database to AWS, keeping the On-Premise database fully operational during the migration.
+More details:
+https://aws.amazon.com/dms/faqs/
+Option D is incorrect.
+AWS Migration Hub is used to track the progress of migrations in AWS.
+More details here:
+https://aws.amazon.com/migration-hub/
+The AWS service that is best suited for migrating an On-Premise Postgres database to the AWS Cloud while keeping it fully operational is AWS Database Migration Service (AWS DMS).
+AWS Database Migration Service is a fully managed service that enables you to migrate databases to AWS easily and securely. It supports a variety of databases, including PostgreSQL, and allows you to perform both homogenous and heterogeneous migrations. With AWS DMS, you can perform a database migration with minimal downtime.
+Here are some reasons why AWS DMS is well suited for migrating a database while keeping it fully operational:
+1.
+Replication: AWS DMS can replicate changes made to the source database to the target database in near real-time. This means that you can keep the source database operational during the migration and minimize downtime.
+2.
+Continuous Data Replication: AWS DMS continuously replicates changes made to the source database to the target database until the migration is complete. This ensures that the target database is up-to-date and that there is minimal data loss.
+3.
+Database consistency: AWS DMS ensures that the data is consistent across both the source and target databases. This is important when migrating a database while keeping it operational.
+4.
+Validation: AWS DMS can validate the data in the target database to ensure that it is accurate and complete.
+In summary, AWS Database Migration Service is the most suitable service for migrating an On-Premise Postgres database to AWS Cloud while keeping it fully operational because it provides replication, continuous data replication, database consistency, and validation features.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question112:"link"
+
+

@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "811 - You are building an automated transcript"
+---
+
+
+[.question]
+== 811-64a1fa3ff053625db51dddfe.
+
+
+****
+
+[.query]
+--
+You are building an automated transcription service where Amazon EC2 worker instances process an uploaded audio file and generate a text file.
+You must store both of these files in the same durable storage until the text file is retrieved.
+Customers fetch the text files frequently.
+You do not know about the storage capacity requirements.
+Which storage option would be both cost-efficient and highly available in this situation?
+
+
+--
+
+[.list]
+--
+* [*] A. Multiple Amazon EBS Volume with snapshots
+* [ ] B. A single Amazon Glacier Vault
+* [*] C. A single Amazon S3 bucket
+* [ ] D. Multiple instance stores.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Amazon S3 is the perfect storage solution for audio and text files.
+It is a highly available and durable storage device.
+Option A is incorrect because storing files in EBS is not cost-efficient.
+Option B is incorrect because files need to be retrieved frequently so Glacier is not suitable.
+Option D is incorrect because instance store is not highly available compared with S3.
+For more information on Amazon S3, please visit the following URL:
+https://aws.amazon.com/s3/
+The most suitable storage option for this use case would be a single Amazon S3 bucket (option C).
+Explanation:
+Amazon S3 (Simple Storage Service) is a highly scalable, durable, and secure object storage service that can store and retrieve any amount of data from anywhere on the web. It provides a simple web services interface that can be used to store and retrieve any amount of data, at any time, from anywhere on the web.
+In this use case, the audio and text files need to be stored in the same durable storage until the text file is retrieved. Amazon S3 provides highly durable and highly available storage for objects, with automatic and unlimited scalability. It is also designed to be accessed frequently and provides low latency retrieval, making it ideal for this use case where customers frequently fetch the text files.
+Option A, Multiple Amazon EBS Volume with snapshots, would not be cost-efficient as it requires multiple EBS volumes, each with snapshots. Additionally, EBS volumes are not highly available by default, so additional configurations would need to be made to ensure high availability.
+Option B, A single Amazon Glacier Vault, would also not be suitable for this use case because Glacier is designed for long-term storage of infrequently accessed data. Retrieving data from Glacier can take several hours, which is not suitable for this use case where customers frequently access the text files.
+Option D, Multiple instance stores, is not a durable storage option as instance stores are ephemeral, meaning that the data stored on them is lost when the instance is stopped or terminated. This would not be suitable for a use case where data needs to be stored until the text file is retrieved.
+Therefore, option C, a single Amazon S3 bucket, is the most suitable and cost-efficient option for this use case.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question12:"link"
+
+

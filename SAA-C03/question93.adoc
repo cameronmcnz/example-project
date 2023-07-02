@@ -1,0 +1,112 @@
+---
+layout: default 
+title: "893 - You are creating several EC2 instances f"
+---
+
+
+[.question]
+== 893-64a1fa5cf053625db51dde5c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_10.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are creating several EC2 instances for a new application.
+The instances need to communicate with each other.
+For a better performance of the application, both low network latency and high network throughput are required for the EC2 instances.
+All instances should be launched in a single availability zone.
+How would you configure this?
+
+
+[source,java]
+----
+EC2 > Placement groups > Create placement group
+
+Create placement group
+
+Placement group settings
+
+Name
+
+Placement strategy
+
+Determines how the instances are placed on the underlying hardware.
+
+__| Cluster
+
+Spread
+
+Partition
+
+Cancel
+
+Create group
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Launch all EC2 instances in a placement group using a Cluster placement strategy.
+* [ ] B. Auto assign a public IP when launching the EC2 instances.
+* [*] C. Launch EC2 instances in an EC2 placement group and select the Spread placement strategy.
+* [ ] D. When launching the EC2 instances, select an instance type that supports enhanced networking.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+The Cluster placement strategy helps to achieve a low-latency and high throughput network.
+The reference is in https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-limitations-partition.
+Option A is CORRECT: The Cluster placement strategy can improve the network performance among EC2 instances.
+The strategy can be selected when creating a placement group.
+Option B is incorrect: Because the public IP cannot improve the network performance.
+Option C is incorrect: The Spread placement strategy is recommended when several critical instances should be kept separate from each other.
+This strategy should not be used in this scenario.
+Option D is incorrect: The description in the option is inaccurate.
+The correct method is creating a placement group with a suitable placement strategy.
+To configure EC2 instances for better performance with low network latency and high network throughput while communicating with each other, there are several factors that need to be considered such as placement group, instance type, and placement strategy.
+A placement group is a logical grouping of instances within a single Availability Zone. By launching instances in a placement group, network traffic can be better optimized and can provide better performance for applications that need low network latency and high network throughput. A placement group can be either a Cluster placement group or a Spread placement group.
+Cluster placement group:
+A Cluster placement group is a grouping of instances within a single Availability Zone that are closely placed together and are in the same network segment. When instances are launched in a Cluster placement group, they are placed in a low-latency, high-bandwidth network topology that is optimized for high-performance applications. A Cluster placement group is recommended for applications that need low network latency, high network throughput, and that require a large number of instances to work together.
+Spread placement group:
+A Spread placement group is a grouping of instances within a single Availability Zone that are each placed on distinct underlying hardware. When instances are launched in a Spread placement group, they are isolated from each other and are each placed on different hardware to ensure high availability. A Spread placement group is recommended for applications that require a high level of availability but do not need the low network latency and high network throughput provided by a Cluster placement group.
+Instance types:
+Choosing an instance type that supports enhanced networking is also important for better performance of EC2 instances. Enhanced networking uses advanced network capabilities of the underlying instance and enables higher packet per second (PPS) performance, lower network jitter, and lower latencies. Instance types that support enhanced networking include C5, C5d, M5, M5d, R5, R5d, and T3.
+Public IP:
+Auto assigning a public IP when launching EC2 instances is not directly related to the performance of the instances communicating with each other within the same network segment. Auto-assigning a public IP is useful when instances need to communicate with the internet, but it is not necessary for instances communicating within the same network segment.
+Answer:
+Given the requirement of launching EC2 instances in a single availability zone with low network latency and high network throughput, the best configuration option would be to launch all EC2 instances in a placement group using a Cluster placement strategy. Additionally, selecting an instance type that supports enhanced networking can further enhance the performance of the EC2 instances. Auto-assigning a public IP is not necessary in this scenario since the instances are communicating with each other within the same network segment.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question107:"link"
+
+

@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "885 - Your company has an online game applicat"
+---
+
+
+[.question]
+== 885-64a1fa59f053625db51dde52.
+
+
+****
+
+[.query]
+--
+Your company has an online game application deployed in an Auto Scaling group.
+The traffic of the application is predictable.
+Every Friday, the traffic starts to increase, remains high on weekends and then drops on Monday.
+You need to plan the scaling actions for the Auto Scaling group.
+Which method is the most suitable for the scaling policy?
+
+
+--
+
+[.list]
+--
+* [*] A. Configure a scheduled CloudWatch event rule to launch/terminate instances at the specified time every week.
+* [ ] B. Create a predefined target tracking scaling policy based on the average CPU metric and the ASG will scale automatically.
+* [*] C. Select the ASG and on the Automatic Scaling tab, add a step scaling policy to automatically scale out/in at fixed time every week.
+* [*] D. Configure a scheduled action in the Auto Scaling group by specifying the recurrence, start/end time, capacities, etc.
+
+--
+****
+
+[.answer]
+Correct Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - D.
+The correct scaling policy should be scheduled scaling as it defines your own scaling schedule.
+Refer to https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html for details.
+Option A is incorrect: This option may work.
+However, you have to configure a target such as a Lambda function to perform the scaling actions.
+Option B is incorrect: The target tracking scaling policy defines a target for the ASG.
+The scaling actions do not happen based on a schedule.
+Option C is incorrect: The step scaling policy does not configure the ASG to scale at a specified time.
+Option D is CORRECT: With scheduled scaling, users define a schedule for the ASG to scale.
+This option can meet the requirements.
+Sure, I'd be happy to provide a detailed explanation of the options provided to help you choose the best answer.
+A. Configure a scheduled CloudWatch event rule to launch/terminate instances at the specified time every week.
+This option suggests using a CloudWatch event rule to schedule the launch and termination of instances at specific times every week. This could work if you know exactly when the traffic will increase and decrease each week, but it's not the most flexible option if the pattern changes in the future. Additionally, if the application experiences unexpected traffic spikes outside of the scheduled times, the Auto Scaling group may not respond quickly enough to handle the increased load.
+B. Create a predefined target tracking scaling policy based on the average CPU metric and the ASG will scale automatically.
+This option suggests using a predefined target tracking scaling policy to automatically adjust the number of instances in the Auto Scaling group based on the average CPU utilization. This could work if the average CPU utilization is a good indicator of traffic load, but it may not be the most accurate metric for all types of applications. Additionally, this option does not take into account the predictable traffic pattern mentioned in the question, which means that the Auto Scaling group may scale up or down at suboptimal times.
+C. Select the ASG and on the Automatic Scaling tab, add a step scaling policy to automatically scale out/in at fixed time every week.
+This option suggests using a step scaling policy to automatically adjust the number of instances in the Auto Scaling group at fixed times every week. This option is similar to option A, but it provides more flexibility by allowing you to define scaling thresholds based on metrics like CPU utilization or request count. Additionally, this option allows for more granular control over the scaling actions, as you can define different scaling actions based on the severity of the metric deviation.
+D. Configure a scheduled action in the Auto Scaling group by specifying the recurrence, start/end time, capacities, etc.
+This option suggests using a scheduled action to adjust the capacity of the Auto Scaling group at specific times. This option is similar to option A, but it allows for more granular control over the scaling actions. For example, you can specify different capacity levels for different times of the day, which can be useful if the traffic patterns vary throughout the day.
+Based on the information provided in the question, option C seems to be the most suitable method for the scaling policy. This option provides the flexibility to adjust the scaling thresholds based on metrics like CPU utilization or request count, while still allowing for automatic scaling at predictable times each week.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question97:"link"
+
+

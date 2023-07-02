@@ -1,0 +1,95 @@
+---
+layout: default 
+title: "815 - A global sports news company has hosted "
+---
+
+
+[.question]
+== 815-64a1fa40f053625db51dde02.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgL2EDOv67gUcD5nZFh5rheYjtFfQK807tPsJT0TGsc1w0TtKiXUi3SbknWHZyFhdlZyDbrR7VDp40KUt4BCeS4bBXsv9QoAYZWuijEhao_AbnzT36ENjY6G1dNp9MahJ82JRHp5A[]
+
+--
+
+
+****
+
+[.query]
+--
+A global sports news company has hosted its website on Amazon EC2 instance using a single Public IP address & is front-ended by TLS-enabled Application Load Balancer.
+For an upcoming mega sports event, they plan to launch a new website on the existing Amazon EC2 instance.
+The company has registered a different domain name & possesses a separate TLS certificate for this new website. As an AWS consultant to this company, which of the following recommendations will you provide to support multiple certificates with existing Public IP addresses in the most cost-effective way?
+
+
+[source,java]
+----
+EC2
+Instance
+
+Tis Handshake 6 EC2
+&& Instance
+
+Clients Browser Contficate
+
+EC2
+Instance
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Launch an additional TLS-enabled ALB front ending Amazon EC2 instance with different certificates for each domain.
+* [ ] B. Use Wildcard certificates on ALB matching old & new domain name.
+* [*] C. Use a single certificate on ALB & add Subject Alternative Name (SAN) for additional domain name.
+* [*] D. Use multiple TLS certificates on ALB using Server Name Indication (SNI).
+
+--
+****
+
+[.answer]
+Correct Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: D.
+ALB supports Server Name Indication (SNI), enabling hosting multiple domain names with different TLS certificates behind a single ALB.
+With SNI, multiple certificates can be associated with listeners in ALB, enabling each web application to use separate certificates.
+The below diagrams shows the process which takes place when a client tries to access a website.
+Client Browser starts a TLS handshake by sending a ClientHello message which consists of protocol version, extensions, cipher suites, and compression techniques.
+Based on browser capabilities, ALB responds with a valid certificate for a domain name of the requested web application.
+Option A is incorrect as launching additional ALB will work.
+But it will incur additional cost &amp; admin work for setup.
+Option B is incorrect as using wildcard certificates can be used for related sub-domains &amp; not different domains.
+Option C is incorrect as using SAN certificates, for any new addition of domain, all certificates need to revalidate with certificate authority.
+For more information on Amazon ALB SNI support, refer to the following URL-
+https://aws.amazon.com/blogs/aws/new-application-load-balancer-sni/
+As the sports news company plans to launch a new website with a different domain name and a separate TLS certificate on an existing Amazon EC2 instance, the company needs to support multiple certificates with existing public IP addresses in a cost-effective way. The options available to achieve this are:
+A. Launch an additional TLS-enabled ALB front-ending Amazon EC2 instance with different certificates for each domain. This option requires launching a new Amazon EC2 instance and an Application Load Balancer (ALB) with a separate TLS certificate for the new website. However, this option will increase the cost of hosting as a new EC2 instance and ALB will be needed, leading to higher operational costs.
+B. Use Wildcard certificates on ALB matching old and new domain names. This option involves using a single Wildcard certificate that covers both the existing and new domain names. This option requires only one certificate to be managed, and thus it reduces the operational costs. However, there are potential security risks associated with the use of wildcard certificates, as it may expose all subdomains to the same level of risk.
+C. Use a single certificate on ALB and add Subject Alternative Name (SAN) for additional domain name. This option involves using a single TLS certificate with a Subject Alternative Name (SAN) extension that includes both the existing and new domain names. This option requires only one certificate to be managed, and it also reduces operational costs. However, not all TLS clients support SAN extensions, and therefore this option may not work with older browsers and clients.
+D. Use multiple TLS certificates on ALB using Server Name Indication (SNI). This option involves using multiple TLS certificates on a single ALB using Server Name Indication (SNI). SNI allows the ALB to serve multiple SSL certificates for different domain names using the same IP address. This option is cost-effective as it requires only one EC2 instance and one ALB, and it provides strong security as it does not use wildcard certificates. However, not all clients support SNI, and this option may not work with older browsers and clients.
+In conclusion, the most cost-effective option that also provides strong security is to use multiple TLS certificates on ALB using Server Name Indication (SNI).
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question16:"link"
+
+

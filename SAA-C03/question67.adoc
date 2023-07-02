@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "867 - You are creating a new architecture for "
+---
+
+
+[.question]
+== 867-64a1fa53f053625db51dde3e.
+
+
+****
+
+[.query]
+--
+You are creating a new architecture for a financial firm.
+The architecture consists of some EC2 instances with the same type and size (M5.large)
+In this architecture, all the EC2 mostly communicate with each other.
+Business people have asked you to create this architecture keeping in mind low latency as a priority.
+Which placement group option could you suggest for the instances?
+
+
+--
+
+[.list]
+--
+* [*] A. Partition Placement Group
+* [*] B. Clustered Placement Group
+* [ ] C. Spread Placement Group
+* [ ] D. Enhanced Networking Placement Group.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect.
+Partition Placement Groups distribute the instances in different partitions.
+The partitions are placed in the same AZ, but do not share the same rack.
+This type of placement group does not provide low latency throughput to the instances.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+Option B is CORRECT.
+Clustered Placement Group places all the instances on the same rack.
+This placement group option provides 10 Gbps connectivity between instances ( Internet connectivity in the instances has a maximum of 5 Gbps)
+This option of placement group is perfect for the workload that needs low latency.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+Option C is incorrect.
+Placement Groups place all the instances in different racks in the same AZ.
+These types of placement groups do not provide low latency throughput to the instances.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+Option D is incorrect.
+Enhanced Networking Placement Group does not exist.
+More details-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+Based on the requirement of low latency as a priority, the best option for the placement group would be a "Clustered Placement Group" (option B).
+A placement group is a logical grouping of instances within a single Availability Zone. The choice of placement group type can have a significant impact on the performance, reliability, and availability of your applications.
+Here's a brief explanation of the different placement group options:
+A. Partition Placement Group: This type of placement group spreads instances across logical partitions, which helps to reduce the risk of simultaneous failures. It is ideal for applications that need to maximize their fault tolerance.
+B. Clustered Placement Group: This type of placement group places instances in a low-latency group in a single Availability Zone. The instances in a clustered placement group are tightly packed together and connected to a low-latency network. This option is ideal for applications that require high network throughput and low latency, such as HPC (High-Performance Computing) applications or tightly coupled workloads.
+C. Spread Placement Group: This type of placement group spreads instances across distinct underlying hardware to reduce the risk of simultaneous failures. It is ideal for applications that need to maximize their fault tolerance.
+D. Enhanced Networking Placement Group: This type of placement group leverages enhanced networking capabilities to provide higher packet per second (PPS) performance, lower network jitter, and lower network latency. It is ideal for applications that require high network performance.
+In summary, since the EC2 instances in this financial firm mostly communicate with each other, and low latency is a priority, the "Clustered Placement Group" is the best option for this architecture.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/SAA-C03/question77:"link"
+
+
