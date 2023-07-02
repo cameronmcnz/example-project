@@ -11,11 +11,11 @@ What is the result GCP Architect E"
 
 
 [.image]
-----
+--
 
 image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000200001.png[]
 
-----
+--
 
 
 ****
