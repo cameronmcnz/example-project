@@ -45,7 +45,9 @@ system.out.println(prt.price +
 ----
 
 '''
+
 image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000200001.png[]
+
 '''
 
 ----
