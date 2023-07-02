@@ -1,141 +1,106 @@
 [.query]
 Q1. What can you use Amazon CloudWatch Logs for?
 
-- [ ] Monitoring EC2 instances only
-
-- [ ] Monitoring Route 53 DNS queries only
-
-- [ ] Monitoring applications, systems, and AWS services logs in a centralized manner
-
-- [ ] Monitoring API activity captured by CloudTrail logs
+[ ] Monitoring EC2 instances only
+[ ] Monitoring Route 53 DNS queries only
+[ ] Monitoring applications, systems, and AWS services logs in a centralized manner
+[ ] Monitoring API activity captured by CloudTrail logs
 
 [.answer]
-
-- [ ] Monitoring applications, systems, and AWS services logs in a centralized manner
+[ ] Monitoring applications, systems, and AWS services logs in a centralized manner
 
 [.query]
 Q2. What is the purpose of CloudWatch Logs Insights?
 
-- [ ] To securely archive log data for future analysis
-
-- [ ] To query and analyze log data interactively
-
-- [ ] To monitor and generate metrics from logs
-
-- [ ] To detect and resolve operational issues
+[ ] To securely archive log data for future analysis
+[ ] To query and analyze log data interactively
+[ ] To monitor and generate metrics from logs
+[ ] To detect and resolve operational issues
 
 [.answer]
-
-- [ ] To query and analyze log data interactively
+[ ] To query and analyze log data interactively
 
 [.query]
 Q3. What is Live Tail used for in CloudWatch Logs?
 
-- [ ] To monitor and highlight ingested logs in real-time
-
-- [ ] To detect and resolve incidents quickly by viewing streaming log events
-
-- [ ] To generate metrics from log data
-
-- [ ] To store log data in durable storage
+[ ] To monitor and highlight ingested logs in real-time
+[ ] To detect and resolve incidents quickly by viewing streaming log events
+[ ] To generate metrics from log data
+[ ] To store log data in durable storage
 
 [.answer]
-
-- [ ] To detect and resolve incidents quickly by viewing streaming log events
+[ ] To detect and resolve incidents quickly by viewing streaming log events
 
 [.query]
 Q4. How does CloudWatch Logs monitor applications and systems on Amazon EC2 instances?
 
-- [ ] By analyzing and modifying the application code
-
-- [ ] By monitoring the number of errors in application logs and sending notifications
-
-- [ ] By automatically applying monitoring to all running EC2 instances
-
-- [ ] By tracking CPU utilization and sending alerts when it exceeds a threshold
+[ ] By analyzing and modifying the application code
+[ ] By monitoring the number of errors in application logs and sending notifications
+[ ] By automatically applying monitoring to all running EC2 instances
+[ ] By tracking CPU utilization and sending alerts when it exceeds a threshold
 
 [.answer]
-
-- [ ] By monitoring the number of errors in application logs and sending notifications
+[ ] By monitoring the number of errors in application logs and sending notifications
 
 [.query]
 Q5. What is the purpose of CloudTrail integration with CloudWatch Logs?
 
-- [ ] To archive CloudTrail log files securely
-
-- [ ] To analyze and query CloudTrail logs using CloudWatch Logs Insights
-
-- [ ] To monitor API activity captured by CloudTrail and perform troubleshooting
-
-- [ ] To generate metrics from CloudTrail logs
+[ ] To archive CloudTrail log files securely
+[ ] To analyze and query CloudTrail logs using CloudWatch Logs Insights
+[ ] To monitor API activity captured by CloudTrail and perform troubleshooting
+[ ] To generate metrics from CloudTrail logs
 
 [.answer]
-
-- [ ] To monitor API activity captured by CloudTrail and perform troubleshooting
+[ ] To monitor API activity captured by CloudTrail and perform troubleshooting
 
 [.query]
 Q6. How can sensitive data in logs be protected?
 
-- [ ] By encrypting log data at rest
-
-- [ ] By configuring data retention policies
-
-- [ ] By enabling data protection policies to mask sensitive data
-
-- [ ] By storing log data in durable storage
+[ ] By encrypting log data at rest
+[ ] By configuring data retention policies
+[ ] By enabling data protection policies to mask sensitive data
+[ ] By storing log data in durable storage
 
 [.answer]
-
-- [ ] By enabling data protection policies to mask sensitive data
+[ ] By enabling data protection policies to mask sensitive data
 
 [.query]
 Q7. What is the default log retention policy in CloudWatch Logs?
 
-- [ ] Logs are kept indefinitely and never expire
-
-- [ ] Logs are retained for 10 years
-
-- [ ] Logs are retained for 1 year
-
-- [ ] Logs are retained for 30 days
+[ ] Logs are kept indefinitely and never expire
+[ ] Logs are retained for 10 years
+[ ] Logs are retained for 1 year
+[ ] Logs are retained for 30 days
 
 [.answer]
 
-- [ ] Logs are kept indefinitely and never expire
+[ ] Logs are kept indefinitely and never expire
 
 [.query]
 Q8. How can log data be stored in durable storage in CloudWatch Logs?
 
-- [ ] By configuring log retention policies
-
-- [ ] By using the CloudWatch Logs agent to send log data to the service
-
-- [ ] By integrating with Amazon S3 for log storage
-
-- [ ] By enabling log archiving in the CloudWatch Logs console
+[ ] By configuring log retention policies
+[ ] By using the CloudWatch Logs agent to send log data to the service
+[ ] By integrating with Amazon S3 for log storage
+[ ] By enabling log archiving in the CloudWatch Logs console
 
 [.answer]
-
-- [ ] By using the CloudWatch Logs agent to send log data to the service
+[ ] By using the CloudWatch Logs agent to send log data to the service
 
 [.query]
 Q9. What can be logged using CloudWatch Logs in relation to Route 53?
 
-- [ ] Route 53 DNS queries
-
-- [ ] Route 53 health check results
-
-- [ ] Route 53 traffic flow logs
-
-- [ ] Route 53 hosted zone changes
+[ ] Route 53 DNS queries
+[ ] Route 53 health check results
+[ ] Route 53 traffic flow logs
+[ ] Route 53 hosted zone changes
 
 [.answer]
 
-- [ ] Route 53 DNS queries
+[ ] Route 53 DNS queries
 
 [.query]
 Q10. Which of the following services are used in conjunction with CloudWatch Logs?
 
-- [ ] AWS CloudTrail
-
-- [ ] AWS Identity and Access
+[ ] AWS CloudTrail
+[ ] AWS Identity and Access
