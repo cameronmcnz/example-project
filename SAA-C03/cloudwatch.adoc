@@ -158,3 +158,95 @@ Q10. Which of the following services are used in conjunction with CloudWatch Log
 - [ ] AWS CloudTrail
 
 - [ ] AWS Identity and Access
+
+
+[.query]
+Q4. Is query logging available only for public hosted zones in Amazon Route 53?
+a. Yes, query logging is only available for public hosted zones.
+b. No, query logging is available for both public and private hosted zones.
+c. No, query logging is available for private hosted zones only.
+d. Query logging is not supported in Amazon Route 53.
+
+[.answer]
+The correct answer is b. No, query logging is available for both public and private hosted zones in Amazon Route 53. While the text mentions that query logging is available for public hosted zones, it also states that query logging is available for private hosted zones. Private hosted zones are used for resolving DNS queries within Amazon VPCs (Virtual Private Clouds).
+
+[.query]
+Q5. What information is not included in the query logs in Amazon Route 53?
+a. DNS response code
+b. Source IP address of the requester
+c. Domain or subdomain that was requested
+d. DNS record type
+
+[.answer]
+The correct answer is b. Source IP address of the requester. The text mentions that query logs in Amazon Route 53 include information such as the domain or subdomain that was requested, DNS record type, Route 53 edge location that responded to the DNS query, and DNS response code. However, it does not include the source IP address of the requester.
+
+[.query]
+Q6. How often are query logs generated in Amazon Route 53?
+a. For every DNS query received
+b. For every thousand DNS queries received
+c. Only for DNS queries that trigger an error response
+d. Query logs are not generated in Amazon Route 53
+
+[.answer]
+The correct answer is a. For every DNS query received. In Amazon Route 53, query logs are generated for every DNS query received. However, it is mentioned that depending on various factors such as the number of DNS queries submitted, the resolvers used by users, and the TTL of the records, the query logs might contain information about only a fraction of the total queries submitted.
+
+[.query]
+Q7. What tool can be used to access and analyze the query logs in Amazon Route 53?
+a. Amazon S3
+b. Amazon RDS
+c. CloudWatch Logs
+d. AWS CLI
+
+[.answer]
+The correct answer is c. CloudWatch Logs. In Amazon Route 53, query logs are sent to CloudWatch Logs. To access and analyze the query logs, you can use CloudWatch Logs tools.
+
+[.query]
+Q8. Can you view the total number of DNS queries that Route 53 responds to using Amazon CloudWatch?
+a. Yes, CloudWatch provides metrics for DNS query responses.
+b. No, CloudWatch does not provide metrics for DNS queries.
+c. Yes, but only for private hosted zones.
+d. Yes, but only for DNS queries that trigger an error response.
+
+[.answer]
+The correct answer is a. Yes, CloudWatch provides metrics for DNS query responses. The text mentions that if you don't need detailed logging information, you can use Amazon CloudWatch metrics to see the total number of DNS queries that Route 53 responds to for a hosted zone. CloudWatch provides metrics related to DNS query activity.
+
+[.query]
+Q9. Which AWS service is used to monitor the calls made to the CloudWatch Logs API for your account?
+a. AWS CloudTrail
+b. AWS Lambda
+c. Amazon Kinesis Data Streams
+d. Amazon S3
+
+[.answer]
+The correct answer is a. AWS CloudTrail. AWS CloudTrail is the service used to monitor the calls made to the CloudWatch Logs API for your AWS account. CloudTrail captures API calls in your account,
+
+
+[.query]
+Q1. What information can be logged when you configure query logging in Amazon Route 53?
+a. Domain or subdomain that was requested
+b. Source IP address of the requester
+c. TTL of the DNS record
+d. Time taken to respond to the DNS query
+
+[.answer]
+The correct answer is a. Domain or subdomain that was requested. When you configure query logging in Amazon Route 53, it can log information such as the domain or subdomain that was requested, date and time of the request, DNS record type, Route 53 edge location that responded to the query, and DNS response code.
+
+[.query]
+Q2. Where are the query logs sent to once you configure query logging in Amazon Route 53?
+a. Amazon S3
+b. CloudWatch Logs
+c. CloudTrail
+d. CloudFront
+
+[.answer]
+The correct answer is b. CloudWatch Logs. Once you configure query logging in Amazon Route 53, the query logs are sent to CloudWatch Logs. You can use CloudWatch Logs tools to access and analyze the query logs.
+
+[.query]
+Q3. What does the TTL of a DNS record determine in relation to query logging in Amazon Route 53?
+a. Time taken to respond to the DNS query
+b. Number of queries logged for a domain or subdomain
+c. Cache duration for a DNS resolver before querying Route 53
+d. Number of DNS queries responded to by Route 53
+
+[.answer]
+The correct answer is c. Cache duration for a DNS resolver before querying Route 53. The TTL (Time to Live) of a DNS record determines the cache duration for a DNS resolver before querying Route 53 again. If a DNS resolver has already cached the response to a query, it will continue to return the cached response without forwarding the query to Route 53 until the TTL for the corresponding record expires. This impacts the number of queries logged for a domain or subdomain in query logs, as only queries forwarded to Route 53 are logged.
