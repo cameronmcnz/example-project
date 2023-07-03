@@ -24,8 +24,8 @@ How would you configure this?
 
 [.list]
 --
-* [*] A. Configure an inter-region VPC endpoint for the DynamoDB service.
-* [*] B. Configure inter-region VPC peering and create a VPC endpoint for DynamoDB in us-east-1.
+* [ ] A. Configure an inter-region VPC endpoint for the DynamoDB service.
+* [ ] B. Configure inter-region VPC peering and create a VPC endpoint for DynamoDB in us-east-1.
 * [ ] C. Create an inter-region VPC peering connection between us-east-1 and us-east-2.
 * [ ] D. There is no way to setup the private inter-region connections.
 
@@ -33,10 +33,30 @@ How would you configure this?
 ****
 
 [.answer]
-Answer  B
+B
 
 [.explanation]
 --
+This problem is solved by VPC peering.
+
+VPC peering in AWS is a networking connection between two Virtual Private Clouds (VPCs) that allows them to communicate with each other using private IP addresses. It enables you to establish a private network connection between VPCs in the same AWS account or different AWS accounts within the same region or across different regions.
+
+With VPC peering, you can extend your network connectivity and share resources between VPCs without the need for a separate virtual private network (VPN) or internet gateway. It provides a secure and low-latency connection between VPCs, allowing you to transfer data and communicate between instances as if they were on the same network.
+
+Key points to understand about VPC peering in AWS:
+
+Private Connectivity: VPC peering allows you to establish private connectivity between VPCs, enabling communication using private IP addresses. This ensures that the traffic between VPCs stays within the AWS network and does not traverse the public internet.
+
+Overlapping IP Addresses: VPC peering supports communication between VPCs with non-overlapping IP address ranges. If there are overlapping IP addresses between the VPCs, you cannot establish a VPC peering connection.
+
+Transitive Peering: VPC peering does not support transitive peering. This means that if VPC A is peered with VPC B and VPC B is peered with VPC C, VPC A and VPC C cannot communicate directly through the peering connection between A and B. Separate peering connections are required for A to communicate with C.
+
+Routing: After establishing a VPC peering connection, you need to update the route tables of both VPCs to allow traffic to flow between them. Each VPC needs a route entry that points to the other VPC's IP range via the peering connection.
+
+Security: VPC peering operates at the network layer and does not provide any additional security features. Security groups and network ACLs should be appropriately configured to control inbound and outbound traffic between the peered VPCs.
+
+VPC peering is a powerful feature in AWS that enables you to build complex network architectures, consolidate resources, and facilitate communication between different VPCs in a secure and efficient manner.
+
 To configure a private connection between an EC2 instance in the us-east-1 region and a DynamoDB table in the us-east-2 region, without using any public IP for communication, you can follow these steps:
 
 Create a VPC Peering Connection: In the AWS Management Console, create a VPC peering connection between the VPC in the us-east-1 region where the EC2 instance is located and the VPC in the us-east-2 region where the DynamoDB table resides. This establishes a private network connection between the two VPCs.
