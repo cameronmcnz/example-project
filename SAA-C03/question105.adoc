@@ -32,39 +32,19 @@ Which of the following actions are performed as a part of the Amazon RDS automat
 ****
 
 [.answer]
-Correct Answer  A
+A
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - A.
-During automated backup, Amazon RDS creates a storage volume snapshot of the entire Database Instance.
-RDS uploads transaction logs for DB instances to Amazon S3 every 5 minutes.
-To restore a DB instance at a specific point in time, a new DB instance is created using the DB snapshot.
-You can also use AWS Backup to manage backups of Amazon RDS DB instances.
-If your DB instance is associated with a backup plan in AWS Backup, that backup plan is used for point-in-time recovery.
-Option B is incorrect as RDS automated backup does not take a full snapshot every 12 hours.
-Option C is incorrect as this option does not mention the transaction logs captured in the automated backup process.
-Option A is more accurate.
-Option D is incorrect as AWS performs storage volume snapshots daily, not every 12 hours.
-For more information on the Amazon RDS Automated backup process and how to restore a DB instance to a specified time, refer to the following URL:
-https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html
-Amazon RDS (Relational Database Service) is a managed database service provided by AWS (Amazon Web Services). It simplifies the process of setting up, operating, and scaling a relational database in the cloud. One of the key features of Amazon RDS is the automated backup process that allows the user to restore the database to any specific time during the backup retention period.
-The automated backup process of Amazon RDS involves taking periodic snapshots of the database instance and capturing transaction logs. These snapshots and logs are stored in Amazon S3 (Simple Storage Service) buckets for safekeeping.
-Now let's look at the answer options:
-Option A: AWS creates a storage volume snapshot of the database instance during the backup window once a day. AWS RDS also captures transactions logs and uploads them to S3 buckets every 5 minutes.
-This option is partially correct. Amazon RDS takes a storage volume snapshot of the database instance during the backup window, but it doesn't happen only once a day. By default, Amazon RDS creates a snapshot once a day. However, the user can modify the backup retention period and set the frequency of the snapshots. Additionally, Amazon RDS captures transaction logs every 5 minutes and stores them in Amazon S3.
-Option B: AWS creates a full snapshot of the database every 12 hours during the backup window, captures transactions logs throughout the day, and stores them in S3 buckets.
-This option is incorrect. Amazon RDS doesn't take a full snapshot of the database every 12 hours. Instead, it takes a storage volume snapshot once a day by default, which can be modified by the user.
-Option C: AWS creates a full daily snapshot during the backup window. With the snapshot, the RDS instance can be restored at any time.
-This option is partially correct. Amazon RDS takes a storage volume snapshot of the database instance during the backup window, and this snapshot can be used to restore the RDS instance to any specific time during the backup retention period.
-Option D: AWS creates a storage volume snapshot of the database instance every 12 hours during the backup window, captures transactions logs throughout the day, and stores them in S3 buckets.
-This option is incorrect. Amazon RDS doesn't take a storage volume snapshot every 12 hours. By default, it takes a snapshot once a day, and the user can modify the backup retention period and set the frequency of the snapshots.
-In conclusion, the correct answer is Option A: AWS creates a storage volume snapshot of the database instance during the backup window once a day. AWS RDS also captures transactions logs and uploads them to S3 buckets every 5 minutes.
+Volume snapshots during a predefined backup window along iwth transactions logs uploaded to S3 during the day is the way to go. Let's break it down:
+
+Storage Volume Snapshot: AWS creates a snapshot of the storage volume associated with the database instance. This snapshot captures the state of the entire database at a specific point in time. By taking snapshots during the backup window (a defined time period), AWS ensures that backups are performed regularly. Typically, snapshots are taken once a day.
+
+Transaction Logs: In addition to the storage volume snapshot, AWS RDS captures transaction logs of the database. Transaction logs record the changes made to the database over time, including insertions, updates, and deletions. These logs are crucial for maintaining data consistency and enabling point-in-time recovery.
+
+Upload to S3 Buckets: The captured transaction logs are uploaded to S3 (Simple Storage Service) buckets. Amazon S3 is a scalable and durable object storage service provided by AWS. By storing the transaction logs in S3 buckets, they are securely stored and readily available for future use.
+
+The combination of storage volume snapshots and transaction logs ensures comprehensive backups of the database. The snapshots provide a restore point for the entire database, while the transaction logs enable recovery to a specific moment in time by applying the logged changes. This approach allows for data protection, disaster recovery, and the ability to restore the database to a consistent state, even in the event of hardware failure, human error, or other issues.
 --
 
 [.ka]
