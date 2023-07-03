@@ -37,45 +37,19 @@ Answer  B
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Answer - B.
-For the private connections between regions, VPC peering should be used.
-Then VPC endpoint allows users to access the DynamoDB service privately.
-Option A is incorrect because you cannot configure an inter-region VPC endpoint directly.
-Option B is CORRECT because the VPC endpoint should be created in consumer VPC which is in us-east-1
-ENI will be created in us-east-1 which will access DynamoDB over VPC peering &amp; AWS PrivateLink.
-Option C is incorrect: This option does not mention the usage of the VPC endpoint.
-Option D is incorrect: Because VPC peering supports the inter-region connections.
-You can refer to the below URL for inter-region peering &amp; endpoints.
-https://d1.awsstatic.com/whitepapers/aws-privatelink.pdf https://docs.aws.amazon.com/vpc/latest/privatelink/endpoint-service-overview.html
-To enable the EC2 instance in the us-east-1 region to access the DynamoDB table in the us-east-2 region privately without leaving the Amazon network, we need to establish a private network connection between the two regions.
-There are two possible solutions for this scenario:
-1. Configure an inter-region VPC endpoint for the DynamoDB service.
-2. Create an inter-region VPC peering connection between us-east-1 and us-east-2.
-Option A: Configure an inter-region VPC endpoint for the DynamoDB service.
-A VPC endpoint enables private communication between instances in a VPC and AWS services. With VPC endpoints, you can access AWS services via private network connections instead of going through the internet. You can create a VPC endpoint for DynamoDB in the us-east-1 region and use it to access the DynamoDB table in the us-east-2 region.
-Steps to configure an inter-region VPC endpoint for the DynamoDB service:
-1. Create a VPC in the us-east-1 region and attach the EC2 instance to the VPC.
-2. Create a VPC endpoint for DynamoDB in the us-east-1 region and attach it to the VPC.
-3. In the VPC endpoint configuration, select the DynamoDB table in the us-east-2 region as the target.
-4. Ensure that the security group rules on the EC2 instance allow traffic to the VPC endpoint.
-Option B: Create an inter-region VPC peering connection between us-east-1 and us-east-2.
-VPC peering enables private communication between VPCs in different regions using private IP addresses. You can create a VPC peering connection between the VPC in the us-east-1 region and the VPC in the us-east-2 region, and configure the route tables to allow traffic to flow between the two VPCs.
-Steps to create an inter-region VPC peering connection between us-east-1 and us-east-2:
-1. Create a VPC in the us-east-1 region and attach the EC2 instance to the VPC.
-2. Create a VPC in the us-east-2 region and create a DynamoDB table in the VPC.
-3. Create a VPC peering connection between the VPCs in the us-east-1 and us-east-2 regions.
-4. Configure the route tables to allow traffic to flow between the VPCs.
-5. Ensure that the security group rules on the EC2 instance allow traffic to the VPC.
-Option C: Incorrect
-Although inter-region VPC peering can be used, a VPC endpoint for DynamoDB is not required.
-Option D: Incorrect
-It is possible to set up private inter-region connections in AWS. Therefore, this option is incorrect.
-In conclusion, the recommended solution to access a DynamoDB table from an EC2 instance in a different region while maintaining private communication is to use either an inter-region VPC endpoint for DynamoDB or an inter-region VPC peering connection.
+To configure a private connection between an EC2 instance in the us-east-1 region and a DynamoDB table in the us-east-2 region, without using any public IP for communication, you can follow these steps:
+
+Create a VPC Peering Connection: In the AWS Management Console, create a VPC peering connection between the VPC in the us-east-1 region where the EC2 instance is located and the VPC in the us-east-2 region where the DynamoDB table resides. This establishes a private network connection between the two VPCs.
+
+Update Route Tables: Modify the route tables in both VPCs to allow traffic between the subnets associated with the EC2 instance and the DynamoDB table. Add a route in the route table of the us-east-1 VPC pointing to the VPC peering connection for the us-east-2 VPC, and vice versa. This ensures that the traffic destined for the DynamoDB table is routed through the peering connection.
+
+Security Group Configuration: Adjust the security groups associated with the EC2 instance and the DynamoDB table to allow inbound and outbound traffic between them. Update the security group rules to permit the necessary protocols (such as TCP) and ports for communication.
+
+VPC Endpoint for DynamoDB: Create a VPC endpoint for DynamoDB in the us-east-1 VPC. This allows the EC2 instance to directly access the DynamoDB service without needing to go over the public internet. Configure the VPC endpoint to route the traffic to the us-east-2 region where the DynamoDB table is located.
+
+Update Application Configuration: Modify the application running on the EC2 instance to use the appropriate endpoint or endpoint URL for accessing the DynamoDB table. This ensures that the application connects to the DynamoDB service using the private VPC endpoint.
+
+By following these steps, you can establish a private and secure connection between the EC2 instance in the us-east-1 region and the DynamoDB table in the us-east-2 region, without relying on public IPs for communication. The VPC peering connection, route table updates, security group configuration, and VPC endpoint setup enable the private network connectivity required for accessing the DynamoDB table from the EC2 instance.
 --
 
 [.ka]
