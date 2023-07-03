@@ -48,11 +48,12 @@ Local Data Processing: Snowball Edge allows you to process data locally on the d
 
 Edge Computing Use Cases: Snowball Edge's local compute capabilities make it well-suited for edge computing use cases where low-latency data processing is required at the edge of the network. It enables running applications, performing analytics, or running custom code on the device itself, which is particularly useful in scenarios with limited or intermittent connectivity.
 
-Increased Storage Capacity: Snowball Edge devices have higher storage capacity compared to the original Snowball devices. While the original Snowball devices offer up to 80 TB of storage, Snowball Edge devices provide storage options of up to 80 TB or 100 TB, depending on the device model. This increased storage capacity allows you to accommodate larger data sets within a single device.
+Increased Storage Capacity: Snowball Edge devices have higher storage capacity compared to the original Snowball devices. While the original Snowball devices offer up to 80 TB of storage, Snowball Edge devices provide storage options of up to 80 TB or 210 TB, depending on the device model. This increased storage capacity allows you to accommodate larger data sets within a single device. Note that these device storage sizes may change. 80TB and 210TB are July 2023 specs.
 
 Data Transfer Speed and Security: Similar to the original Snowball devices, Snowball Edge offers fast data transfer rates to expedite the movement of large amounts of data. It also ensures data security with built-in encryption capabilities, tamper-evident enclosures, and secure shipping to AWS data centers.
 
-In summary, AWS Snowball Edge is the best solution for a one-time movement of 70 TB of on-premise data into AWS S3 due to its enhanced functionality, local data processing capabilities, and increased storage capacity. It is particularly valuable for edge computing use cases and scenarios where data processing is required before uploading to AWS. The additional capabilities of Snowball Edge differentiate it from the original Snowball devices, offering a more versatile and powerful solution for certain data transfer and edge computing requirements.
+AWS Snowball Edge is the best solution for a one-time movement of on-premise data into AWS S3 due to its enhanced functionality, local data processing capabilities, and increased storage capacity. The additional capabilities of Snowball Edge differentiate it from the original Snowball devices, offering a more versatile and powerful solution for certain data transfer and edge computing requirements.
+
 --
 
 [.ka]
