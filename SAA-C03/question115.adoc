@@ -38,7 +38,7 @@ D
 
 Provisioned IOPS SSDs, (IOPS = Input/Output Operations Per Second)  are the best for low-latench and high throughput.
 
-They also come at a higher cost, so make sure the expense justified the benefits.
+They also come at a higher cost, so make sure the expense justifies the benefits.
 
 By the way, there are cold HDDs, but there is no such thing as a hot-swap SSD.
 
