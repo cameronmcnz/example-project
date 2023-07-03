@@ -2,147 +2,50 @@
 layout: default 
 title: "915 - A company requires to use the AWS RDS se"
 link: "https://www.exam-answer.com/amazon/SAA-C03/question132"
+keywords: SSD, HDD, IOPS, throughput, latency
 ---
 
 
 [.question]
 == 915-64a1fa64f053625db51dde75.
 
-
-
-[.image]
---
-
-image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgquestions_3yxuqz.png[]
-
---
-
-
 ****
 
 [.query]
 --
-A company requires to use the AWS RDS service to host a MySQL database.
-This database will be used for production purposes and is expected to experience a high number of read/write activities.
-Which EBS volume type would be ideal for this database?
+Which of the following EBS volumes provides the highest-performance for low-latency and high-throughput workloads?
 
 
-[source,java]
-----
-Volume Type
-
-Description
-
-Use Cases
-
-Solid-State Drives (SSD)
-
-General Purpose SSD Provisioned IOPS SSD (io1)
-
-(gp2)*
-
-General purpose SSD Highest-performance SSD volume for
-volume that balances mission-critical low-latency or high-
-
-price and performance throughput workloads
-for a wide variety of
-
-workloads
-
-* Recommended for * Critical business applications that
-most workloads require sustained |OPS
-
-* System boot volumes performance, or more than 10,000
-
-* Virtual desktops
-* Low-latency interactive per volume
-
-apps * Large database workloads, such
-
-* Development and test as:
-environments MongoDB
-
-Cassandra
-
-MySQL
-PostgreSQL
-Oracle
-
-000000
-
-IOPS or 160 MiB/s of throughput
-
-Microsoft SQL Server
-
-Hard disk Drives (HDD)
-
-Throughput Optimized Cold HDD (sc1)
-HDD (st1)
-
-Low cost HDD volume Lowest cost HDD
-designed for frequently volume designed for
-accessed, throughput- less frequently
-intensive workloads accessed workloads
-
-Streaming * Throughput-
-workloads requiring oriented storage for
-consistent, fast large volumes of
-throughput at a low data that is
-
-price infrequently
-
-Big data accessed
-
-¢ Data warehouses * Scenarios where the
-* Log processing lowest storage cost
-
-* Cannot be a boot is important
-volume * Cannot be a boot
-volume
-----
 
 
 --
 
 [.list]
 --
-* [*] A. General Purpose SSD
-* [*] B. Provisioned IOPS SSD
-* [*] C. Throughput Optimized HDD
-* [ ] D. Cold HDD.
+* [ ] A. Throughput Optimized HDDs
+* [ ] B. Hot-swap SSDs
+* [ ] C. General Purporse SSDs
+* [ ] D. Provisioned IOPS SSD
 
 --
 ****
 
 [.answer]
-Correct Answer  B
+D
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - B.
-The below snapshot from AWS Documentation shows that the ideal storage option in this scenario is the Provisioned IOPS SSD.
-It provides a high number of IOPS for the underlying database.
-For more information on EBS volume types, please refer to the URL below.
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
-For a production MySQL database that experiences high levels of read/write activities, the ideal EBS volume type would be Provisioned IOPS SSD (B).
-Explanation:
-EBS volumes are the virtual disks that provide persistent storage for Amazon EC2 instances. Amazon RDS is a managed relational database service that enables easy setup, operation, and scaling of a relational database in the cloud. Amazon RDS supports various database engines such as MySQL, PostgreSQL, Oracle, SQL Server, and Amazon Aurora.
-EBS volume types available for use with Amazon RDS include General Purpose SSD, Provisioned IOPS SSD, Throughput Optimized HDD, and Cold HDD.
-General Purpose SSD (A) is ideal for small to medium-sized databases with moderate I/O requirements. It offers a balance of price and performance and is designed for a broad range of workloads.
-Provisioned IOPS SSD (B) is ideal for mission-critical databases that require consistently high performance and low latency. It provides dedicated IOPS, and the performance can be provisioned and scaled according to the workload.
-Throughput Optimized HDD (C) is ideal for large, sequential workloads such as log processing and data warehousing. It provides low-cost throughput performance and is optimized for large, sequential I/O operations.
-Cold HDD (D) is ideal for infrequently accessed data and provides the lowest cost per gigabyte of all EBS volumes. However, it has higher latency and lower throughput than other EBS volume types.
-In the case of a production MySQL database that experiences high levels of read/write activities, Provisioned IOPS SSD is the best choice because it offers dedicated IOPS and consistent performance, ensuring that the database can handle the workload without any performance degradation.
-Therefore, the correct answer is B. Provisioned IOPS SSD.
+
+Provisioned IOPS SSDs, (IOPS = Input/Output Operations Per Second)  are the best for low-latench and high throughput.
+
+They also come at a higher cost, so make sure the expense justified the benefits.
+
+By the way, there are cold HDDs, but there is no such thing as a hot-swap SSD.
+
 --
 
 [.ka]
-null
+DHP
 
 '''
 
