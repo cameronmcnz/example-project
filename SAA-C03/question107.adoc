@@ -2,6 +2,7 @@
 layout: default 
 title: "907 - As a Solutions Architect for a multinati"
 link: "https://www.exam-answer.com/amazon/SAA-C03/question124"
+keywords: kinesis, EMR, mining, RedShift, AI, ML, RDS
 ---
 
 
@@ -13,23 +14,28 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question124"
 
 [.query]
 --
-As a Solutions Architect for a multinational organization with more than 150000 employees, management has decided to implement a real-time analysis for their employees' time spent in offices worldwide.
-You are tasked to design an architecture that will receive the inputs from 10000+ sensors with swipe machine sending in and out data across the globe, each sending 20KB data every 5 Seconds in JSON format.
-The application will process and analyze the data and upload the results to dashboards in real-time. Other application requirements will include the ability to apply real-time analytics on the captured data.
-Processing of captured data will be parallel and durable.
-The application must be scalable as per the requirement as the load varies and new sensors are added or removed at various facilities.
-The analytic processing results are stored in a persistent data storage for data mining.
-What combination of AWS services would be used for the above scenario?
+Here's the architectural headache you've been given:
 
+- A government office with tens of thousands of employees and growing
+- Offices throughout every state in the uniion
+- Sensors on every door, door, entryway and turn stile that logs a user's transit
+- JSON data from every card swipe or sensor trip is pushed to AWS
+- Realtime analytics on the ingested data must be constantly performed
+- Data must be processed in parallel to keep up with the throughput
+- Data analysis results must be durable, reliable and stored persistently
+- Stored data is constantly data mined
+- The whole system must be able to scale as new deparments are brought online
+
+What's the simplest architecture that will solve your headache?
 
 --
 
 [.list]
 --
-* [*] A. Use EMR to copy the data coming from Swipe machines into DynamoDB and make it available for analytics.
-* [*] B. Use Amazon Kinesis Streams to ingest the Swipe data coming from sensors, Custom Kinesis Streams Applications to analyze the data and then move analytics outcomes to RedShift using AWS EMR.
-* [*] C. Use SQS to receive the data coming from sensors, Kinesis Firehose to analyze the data from SQS, then save the results to a Multi-AZ RDS instance.
-* [ ] D. Use Amazon Kinesis Streams to ingest the sensors’ data, custom Kinesis Streams applications to analyze the data, and move analytics outcomes to RDS using AWS EMR.
+* [ ] A. Use Amazon Kinesis Streams and save the results to S3 for distributed storage.
+* [ ] B. Use Amazon Kinesis Streams to handle incoming data and then integrate with Kinesis Data Analytics along with RedShift and AWS Elastic MapReduce.
+* [ ] C. Use SQS to receive the data coming from sensors. Write a custom Python app to mine the data and store the results in S3.
+* [ ] D. Use Amazon Kinesis Streams to ingest data, a custom Python app to process the data and persist to an AWS managed RDS and AWS Elastic MapReduce to mine the data.
 
 --
 ****
@@ -39,35 +45,60 @@ Correct Answer  B
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - B.
-Option A is incorrect.
-EMR is not for receiving real-time data from thousands of sources.
-EMR is mainly used for Hadoop ecosystem-based data used for Big data analysis.
-Option B is correct as the Amazon Kinesis streams are used to read the data from thousands of sources like social media, survey-based data, etc.
-The Kinesis streams can be used to analyze the data and feed it using AWS EMR to the analytics-based database like RedShift which works on OLAP.
-Option C is incorrect.
-SQS cannot be used to read the real-time data from thousands of sources.
-The Kinesis Firehose is used to ship the data to other AWS services, not for the analysis.
-And finally, RDS is again an OLTP based database.
-Option D is incorrect as the AWS EMR can read large amounts of data.
-However, RDS is a transactional database that works based on the OLTP.
-Thus, it cannot store the analytical data.
-The best combination of AWS services to achieve the desired outcome would be option B, which includes the use of Amazon Kinesis Streams, custom Kinesis Streams applications, and AWS EMR, to move the analytics outcomes to RedShift.
-Here is an overview of how this combination of services would work together to meet the application requirements:
-1.
-Amazon Kinesis Streams: The first step in the architecture is to ingest the Swipe data coming from sensors. Amazon Kinesis Streams is a fully managed service for real-time data streaming, and it can handle large amounts of data from multiple sources. Kinesis Streams provides the ability to process and analyze data in real-time with low latency. This service will be used to ingest the data coming from the sensors.
-2.
-Custom Kinesis Streams Applications: Once the data is ingested into Kinesis Streams, custom Kinesis Streams applications can be developed to analyze the data in real-time. These applications can be developed using a variety of programming languages, and they can leverage AWS services such as AWS Lambda, Amazon EC2, and AWS EMR to perform real-time data processing and analytics.
-3.
-AWS EMR: AWS EMR is a fully managed service that simplifies big data processing, and it provides a managed Hadoop framework that makes it easy to process large amounts of data using Amazon EC2 instances. In this architecture, AWS EMR will be used to move the analytics outcomes from Kinesis Streams to RedShift, which is a petabyte-scale data warehouse that makes it easy to analyze large amounts of data.
-4.
-RedShift: Once the data has been analyzed by the custom Kinesis Streams applications using AWS EMR, the analytics outcomes can be moved to RedShift. RedShift provides fast querying and data analysis capabilities, and it can easily handle petabyte-scale data sets. RedShift will be used to store the analytics results for data mining purposes.
-Overall, this architecture meets all of the application requirements, including the ability to ingest large amounts of data from multiple sensors, real-time data processing and analytics, durability and scalability, and persistent data storage for data mining.
+This is a complicated problem with many possible solutions, but the best solution is to use Amazon Kinesis Streams with Kinesis Data Analytics along with RedShift and AWS EMR
+
+The solution described here, which involves using Amazon Kinesis Streams, Custom Kinesis Streams Applications, AWS EMR (Elastic MapReduce), and RedShift, is a powerful and efficient way to handle streaming data from multiple clients who send JSON data to a server. Here's why it is considered a durable and reliable solution on AWS:
+
+Scalability and Durability: Amazon Kinesis Streams is designed to handle large-scale streaming data with high throughput and low latency. It can easily accommodate the data coming from many clients, ensuring scalability as the number of clients and data volume increases. Additionally, Kinesis Streams provides built-in fault tolerance and durability, ensuring that the data is reliably stored and available for processing.
+
+Data Ingestion: Amazon Kinesis Streams acts as the ingestion layer for the streaming data. It allows you to easily capture and ingest the JSON data sent by the clients. Kinesis Streams can handle a high rate of data ingestion and buffer the data until it is processed, ensuring that no data is lost during peak traffic or when the processing infrastructure is busy.
+
+Real-time Data Processing: Custom Kinesis Streams Applications, also known as Kinesis Data Analytics, enable you to perform real-time analysis and processing of the streaming data. With Kinesis Data Analytics, you can write SQL-like queries or use pre-built functions to filter, transform, aggregate, and analyze the JSON data as it arrives. This allows you to derive valuable insights and actionable outcomes from the streaming data in real-time.
+
+Big Data Analytics: AWS EMR, which stands for Elastic MapReduce, is a managed service for big data processing. By integrating EMR into the solution, you can perform advanced analytics on the processed data from Kinesis Streams Applications. EMR supports various big data processing frameworks such as Apache Spark and Apache Hadoop, enabling you to run complex analytics jobs, machine learning algorithms, or custom data processing tasks on the data.
+
+Data Warehousing: RedShift is a fully managed data warehousing service provided by AWS. By moving the analytics outcomes from Kinesis Streams Applications and EMR to RedShift, you can store the processed data in a structured, query-optimized format. RedShift allows for efficient querying and analysis of large volumes of data, making it suitable for storing and analyzing the results of your streaming data analysis.
+
+Integration and Data Pipeline: The combination of Amazon Kinesis Streams, Custom Kinesis Streams Applications, AWS EMR, and RedShift creates an end-to-end data pipeline for handling streaming data. It enables seamless integration between the different services, allowing you to ingest, process, analyze, and store the data efficiently. You can also integrate other AWS services or custom applications into the pipeline as per your specific requirements.
+
+Overall, this solution leverages the strengths of Amazon Kinesis Streams, real-time data processing with Kinesis Data Analytics, advanced analytics with EMR, and data warehousing with RedShift to provide a scalable, real-time, and analytics-driven approach for handling streaming data from multiple clients.
+
+One of the places people trip up on this question is in the use of RDS vs RedShift for storing results. Always make sure you know the different use cases for RDS vs RedShift. 
+
+=== RedShift vs RDS
+
+RedShift and RDS (Relational Database Service) are two different AWS database services that serve distinct purposes. Here's a comparison of RedShift and RDS:
+
+==== Database Type:
+
+RedShift: It is a fully managed data warehousing solution designed for handling large volumes of structured data and performing complex analytics queries. RedShift is optimized for online analytical processing (OLAP) workloads.
+RDS: It is a managed relational database service that supports various database engines, including Amazon Aurora, MySQL, PostgreSQL, Oracle Database, and Microsoft SQL Server. RDS is suitable for traditional online transaction processing (OLTP) workloads.
+
+==== Purpose:
+
+RedShift: It is primarily used for data warehousing and business intelligence (BI) scenarios where large datasets are stored and analyzed. RedShift provides high-performance analytics capabilities, columnar storage, and parallel query execution.
+RDS: It is used for traditional database applications that require efficient data storage, retrieval, and transactional processing. RDS offers features like automated backups, automatic software patching, and scalability for relational databases.
+
+==== Data Volume and Scale:
+
+RedShift: It is designed to handle massive amounts of data and can scale to petabyte-scale data warehouses. RedShift uses a columnar storage format and parallel processing to achieve high performance on large datasets.
+RDS: It can handle moderate to large-sized databases, but it has limitations compared to RedShift in terms of scaling to extremely large volumes of data.
+
+==== Performance and Analytics:
+
+RedShift: It is optimized for running complex analytical queries across large datasets. RedShift's columnar storage, data compression, and parallel execution enable faster query performance for analytical workloads.
+RDS: It is designed for transactional workloads and offers good performance for OLTP applications that require frequent data inserts, updates, and deletes. However, it may not be as performant as RedShift for complex analytics queries.
+
+==== Pricing Model:
+
+RedShift: It has a different pricing model compared to RDS. RedShift pricing is based on the number of nodes in the cluster, data transfer, and storage usage.
+RDS: It has a pricing model based on the database instance type, storage capacity, and data transfer. The pricing structure for RDS varies depending on the chosen database engine.
+
+RedShift is purpose-built for data warehousing and analytics workloads, providing high-performance query capabilities on large datasets. RDS, on the other hand, is a managed relational database service suitable for traditional OLTP workloads. The choice between RedShift and RDS depends on your specific use case, data volume, performance requirements, and the type of database workload you need to support.
+
+If the scenario requires a transactional database, RDS is normally the right choice. If the scenario requires parallel processing of large data sets for the use of data mining, AI or ML, then go with RDS.
+
+
 --
 
 [.ka]
