@@ -25,9 +25,9 @@ However, you also want to use AWS Cognito for authorization. How can this be con
 
 [.list]
 --
-* [*] A. Authorize access to resources through a Cognito identity pool.
+* [ ] A. Authorize access to resources through a Cognito identity pool.
 * [ ] B. AWS Cognito cannot be integrated with 3rd party federated identity providers like Facebook and Instagram.
-* [*] C. Use a federated identity provider to authenticate into a Cognito identity pool.
+* [ ] C. Use a federated identity provider to authenticate into a Cognito identity pool.
 * [ ] D. Configure your web server to support OAUTH and allow OAUTH to authenticate and authorize.
 
 --
