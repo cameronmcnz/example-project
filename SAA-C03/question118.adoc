@@ -18,15 +18,18 @@ A couple of EC2 Instances located in us-west-2a b.
 The EC2 Instances are launched via an Auto Scaling group. c.The EC2 Instances sit behind a Classic ELB.
 Which additional step would ensure that the above architecture conforms to a well-architected framework?
 
+Your application scales via an Auto Scaling group that launches at least 3 EC2 instances in ca-central-1.
+
+What one chance would make your architecture more compliant with the well-architected framework?
 
 --
 
 [.list]
 --
-* [*] A. Convert the Classic ELB to an Application EL.
-* [ ] B. Add an additional Auto Scaling Group.
-* [*] C. Add additional EC2 Instances to us-west-2a.
-* [*] D. Add or spread existing instances across multiple Availability Zones.
+* [ ] A. Add a second auto scaling group to provide redundancy.
+* [ ] B. Incorporate Amazon CloudFront to improve global latency metrics.
+* [ ] C. Switch from the Canada zone to a more reliable US region like us-west-2a.
+* [*] D. Spread the three instances across ca-central-1, ca-central-1b and ca-central-1c
 
 --
 ****
@@ -36,25 +39,40 @@ Correct Answer  D
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - D.
-AWS Documentation provides the following information to support this concept:
-Balancing resources across Availability Zones is a best practice for well-architected applications, as this greatly increases aggregate system availability.
-Auto Scaling automatically balances EC2 instances across zones when you configure multiple zones in your Auto Scaling group settings.
-Auto Scaling always launches new instances such that they are balanced between zones as evenly as possible across the entire fleet.
-For more information on managing resources with Auto Scaling, please refer to the URL below.
-https://aws.amazon.com/blogs/compute/fleet-management-made-easy-with-auto-scaling/
-The AWS Well-Architected Framework is a set of best practices for designing and operating reliable, secure, efficient, and cost-effective systems in the cloud. The framework provides a consistent approach for customers and partners to evaluate architectures, and it provides guidance to help implement designs that will scale with your application needs over time.
-Based on the current architecture, the additional step that would ensure the architecture conforms to a well-architected framework is D - Add or spread existing instances across multiple Availability Zones.
-Availability Zones (AZs) are distinct data centers within a region that are isolated from each other in terms of power, cooling, and network connectivity. Deploying instances across multiple AZs helps protect applications against failures in a single location. In the event of a failure, the application can continue to operate from another AZ without interruption.
-By adding or spreading existing instances across multiple AZs, you can improve the availability and reliability of the architecture. You can achieve this by adding instances to different AZs or by moving existing instances to different AZs. You can also use Auto Scaling groups to automatically launch instances in different AZs.
-Option A, converting the Classic ELB to an Application ELB, is not directly related to improving the availability or reliability of the architecture. It would improve the ability to route traffic based on application-level information, but it would not provide fault tolerance across AZs.
-Option B, adding an additional Auto Scaling group, would not directly improve the availability or reliability of the architecture. Auto Scaling groups are used to scale instances based on demand, but they do not provide fault tolerance across AZs.
-Option C, adding additional EC2 instances to us-west-2a, would not provide fault tolerance across AZs. In fact, it could potentially decrease availability if all instances are in the same AZ and that AZ experiences a failure.
+
+EC2 instances in a single availability zone is a reliable configuration, but it could be even more reliable by having EC2 instances in multiple AZs.
+
+Canada's central region currently has 3 zones: 
+
+- ca-central-1
+- ca-central-1b
+- ca-central-1c
+
+If the autoscaler put EC2 instances into different AZs, the overally design would be better.
+
+Having EC2 instances for the same application deployed in multiple Availability Zones (AZs) offers several benefits:
+
+High Availability: Deploying instances across multiple AZs ensures that your application remains available even if one AZ experiences a failure or outage. If one AZ becomes unavailable, the instances in the other AZs can continue to handle incoming traffic, maintaining the availability of your application.
+
+Fault Tolerance: By distributing instances across AZs, you reduce the risk of a single point of failure. If one instance or AZ experiences an issue, the other instances can continue serving the application, minimizing downtime and providing fault tolerance.
+
+Improved Performance: Deploying instances across multiple AZs allows you to bring your application closer to your users or customers geographically. This can reduce latency and improve the overall performance of your application, as users can access the instances in the nearest AZ.
+
+Disaster Recovery: Having instances in multiple AZs can facilitate disaster recovery strategies. You can set up replication and backup mechanisms across AZs to ensure data redundancy and the ability to recover quickly in the event of a disaster or data loss.
+
+From a compliance standpoint, deploying instances in multiple AZs aligns with the principles of the AWS Well-Architected Framework, particularly the "Reliability" pillar. This framework provides guidance on building reliable and resilient architectures. By distributing instances across AZs, you ensure high availability, fault tolerance, and disaster recovery capabilities, which are essential components of a reliable architecture.
+
+However, it's important to consider the drawbacks or challenges associated with having EC2 instances in multiple AZs:
+
+Increased Complexity: Managing instances across multiple AZs introduces additional complexity in terms of configuration, deployment, and monitoring. It requires careful coordination and synchronization of resources to ensure consistency and proper failover mechanisms.
+
+Higher Costs: Deploying instances in multiple AZs incurs additional costs, as you need to provision resources and maintain redundancy across multiple locations. It's important to consider the cost implications and evaluate whether the benefits outweigh the associated expenses.
+
+Data Synchronization: When deploying instances in multiple AZs, you need to ensure proper data synchronization and replication mechanisms to maintain consistency across instances. This can involve setting up replication strategies, using database technologies with built-in replication features, or leveraging AWS services like RDS Multi-AZ or Aurora Global Database.
+
+In summary, deploying EC2 instances for the same application in multiple AZs provides high availability, fault tolerance, and improved performance. It aligns with the AWS Well-Architected Framework's principles. However, it introduces complexity, increased costs, and requires careful consideration of data synchronization mechanisms. It's important to assess your specific requirements and evaluate the trade-offs before implementing such a deployment architecture.
+
+
 --
 
 [.ka]
