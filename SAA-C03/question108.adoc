@@ -14,9 +14,11 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question125"
 [.query]
 --
 An on-prem video storage warehouse needs to transfer their catalog of audio and video files to AWS S3.
-The total amount of the files is about 42TB but definitely not more than 48TB.
-This is a one-time deal. The client will sell all their on-prem hardware when the move is complete.
-The client does not want to transfer the data across their very slow and unreliable network.
+
+- The total amount of the files is about 42TB but definitely not more than 48TB.
+- This is a one-time deal. The client will sell all their on-prem hardware when the move is complete.
+- The client does not want to transfer the data across their very slow and unreliable network.
+
 As an AWS certified solution architect, which solution would you recommend?
 
 
