@@ -13,51 +13,41 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question126"
 
 [.query]
 --
-You have designed an application that uses AWS resources, such as S3, to operate and store users' documents.
-You currently use Cognito identity pools and user pools.
-To increase usage and ease of signing up, you decide that adding social identity federation is the best path forward. How would you differentiate the Cognito identity pool and the federated identity providers (e.g., Google)?
+
+Your secure, online application uses S3, Kubernetes, EC2 instances and even an RDS database.
+
+You want who users to sign in through a federated identiy provider such as Google, Facebook and Instagram accounts so it's easier for them to register and access your site.
+
+However, you also want to use AWS Cognito for authorization. How can this be configured?
 
 
 --
 
 [.list]
 --
-* [*] A. They are the same and just called different things.
-* [ ] B. First, you sign-in via Cognito then through a federated site, like Google.
-* [*] C. Federated identity providers and identity pools are used to authenticate services.
-* [*] D. You can choose a federated identity provider to authenticate users and associate a Cognito identity pool to authorize the users.
+* [*] A. Authorize access to resources through a Cognito identity pool.
+* [ ] B. AWS Cognito cannot be integrated with 3rd party federated identity providers like Facebook and Instagram.
+* [*] C. Use a federated identity provider to authenticate into a Cognito identity pool.
+* [ ] D. Configure your web server to support OAUTH and allow OAUTH to authenticate and authorize.
 
 --
 ****
 
 [.answer]
-Correct Answer  D
+Correct Answer  AC
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - D.
-Option D is correct.
-Federated identity providers are used to authenticate users.
-Then the Cognito identity pool provides the temporary token that authorizes users to access AWS resources.
-Option A is incorrect.
-Cognito identity pool and the federated identity providers are separate, independent authentication methods.
-Option B is incorrect.
-Only one log-in event is needed, not two.
-Option C is incorrect.
-Identity providers authenticate users, not authenticate services.
-For more information, refer to the following URLs:
-https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html https://aws.amazon.com/articles/web-identity-federation-with-mobile-applications/ https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-getting-started.html
-When it comes to identity and access management (IAM) in AWS, Cognito is a powerful tool. Cognito allows developers to create and manage user authentication for web and mobile applications.
-Cognito User Pools are user directories that provide sign-up and sign-in options for your app users. It is the Cognito User Pool that handles the authentication of users' credentials such as their email and password.
-Cognito Identity Pools, on the other hand, allow your users to obtain temporary AWS credentials to access AWS services such as S3, DynamoDB, and more. These temporary credentials are obtained after a user successfully authenticates with a federated identity provider.
-Federated identity providers are third-party services that allow users to authenticate using their existing identities. These could be social identity providers like Google, Facebook, or Amazon, or enterprise identity providers such as Microsoft Active Directory.
-When using Cognito with federated identity providers, users can sign in using their Google or Facebook credentials, and then obtain temporary AWS credentials from Cognito Identity Pools. This means that users can access AWS resources without having to create separate AWS credentials.
-Therefore, the correct answer to the question is D. You can choose a federated identity provider to authenticate users and associate a Cognito identity pool to authorize the users.
+
+A great way to simplify the registration and login process in AWS is to use a federated identity provider like Facebook or Google for authentication, and then after authentication, add users to a Cognito identity pool for resource authorization.
+
+With Cognito identity pools, users can sign in using various authentication methods, including username and password, as well as social identity providers like Google, Facebook, or Amazon. Cognito identity pools act as a unified identity provider, allowing your application to support multiple authentication methods and granting temporary, limited-privilege AWS credentials to users.
+
+By integrating with federated identity providers, you enable users to sign in to your application using their Google, Facebook, or other supported accounts, without the need to create separate credentials for your application. This can simplify the sign-up process and increase user convenience, as they can use their existing social media or other online account credentials to access your application.
+
+Cognito identity pools provide a comprehensive solution for managing user identities and access control within your application, while federated identity providers offer a convenient way for users to authenticate using their existing credentials from external identity providers. By combining the two, you can enhance the usage and ease of signing up for your application by providing users with multiple authentication options and allowing them to leverage their preferred identity provider.
+
+
 --
 
 [.ka]
