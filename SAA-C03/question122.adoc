@@ -13,51 +13,48 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question139"
 
 [.query]
 --
-A company has an application that stores images and thumbnails on S3
-The thumbnail needs to be available for download immediately.
-Additionally, both the images and thumbnails are not accessed frequently.
-What would be the cost-efficient storage option that meets the above-mentioned requirements?
+
+Your client has a massive number of thumbnail images for old movies that are almost never queried.
+
+The images must be available immediately if a query for any of these frequently viewed movies are requested, but the likelihood of any of these movies thumbnails being accessed throughout the year is very low.
+
+What is the best storage option for these thumbnail images?
 
 
 --
 
 [.list]
 --
-* [*] A. Amazon Glacier with Expedited Retrievals.
-* [*] B. Amazon S3 Standard Infrequent Access
-* [*] C. Amazon EFS
-* [ ] D. Amazon S3 Standard.
+* [ ] A. Amazon S3 Standard.
+* [ ] B. Amazon Elastic File System.
+* [ ] C. Amazon S3 Standard Infrequent Access.
+* [ ] D. Amazon Glacier with Expedited Retrievals.
 
 --
 ****
 
 [.answer]
-Correct Answer  B
+
+C
+
+
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - B.
-Amazon S3 Infrequent access is perfect if you want to store data that is not frequently accessed.
-It is more cost-effective than Option D (Amazon S3 Standard)
-If you choose Amazon Glacier with Expedited Retrievals, you defeat the whole purpose of the requirement because of its increased cost.
-For more information on AWS Storage Classes, please visit the following URL:
-https://aws.amazon.com/s3/storage-classes/
-The most cost-efficient storage option that meets the above-mentioned requirements is Amazon S3 Standard Infrequent Access (IA).
-Amazon S3 Standard IA is designed for infrequently accessed data, but when accessed, it needs to be available immediately. It provides the same low latency and high throughput performance as Amazon S3 Standard, but with lower storage costs and a retrieval fee.
-In this case, since the images and thumbnails are not accessed frequently but need to be available immediately when accessed, Amazon S3 Standard IA is the best option. This option allows the company to save on storage costs since the data is infrequently accessed, but still provides fast access to the data when needed.
-Amazon Glacier with Expedited Retrievals (Option A) is designed for data that is rarely accessed and can tolerate retrieval times of several minutes to hours. It is a much cheaper option than S3 Standard IA, but it does not meet the requirement of immediate availability when the thumbnail needs to be downloaded.
-Amazon EFS (Option C) is a scalable, highly available, and fully managed file system for use with Amazon EC2 instances. It is not designed for storing objects like images and thumbnails, but rather for storing files that need to be accessed concurrently by multiple instances.
-Amazon S3 Standard (Option D) is designed for frequently accessed data and provides low latency and high throughput performance, but it is not the most cost-efficient option for infrequently accessed data like the images and thumbnails in this scenario.
-In summary, Amazon S3 Standard Infrequent Access is the most cost-efficient option that meets the company's requirements of immediate availability when the thumbnail needs to be downloaded and infrequent access of both the images and thumbnails.
+
+Amazon S3 Standard Infrequent Access is a perfect fit for this use case.
+
+S3 standard would cost more money with no discernable benefit.
+
+Amazon Glacier does not provide immediate retrieval. On Glacier, retrieval will be minutes or hours.
+
+Amazon EFS is not for object storage but instead for files that will be concurrently accessed. It's not a good fit here.
+
+Amazon S3 Standard Infrequent Access is the cheapest and best solution for this scenario.
 --
 
 [.ka]
-null
+DCO
 
 '''
 
