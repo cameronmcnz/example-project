@@ -13,55 +13,48 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question127"
 
 [.query]
 --
-You have a web application hosted on an EC2 Instance in AWS that users can access across the globe.
-The Operations team has been receiving support requests about extreme slowness from users in some regions.
-What can be done to the architecture to improve the response time for these users?
+Global users of you web application hosted on a single, T2 EC2 instance in Montreal are peeved over how slow it is.
+
+What's the first architectural change you'd make to improve global response times for people accessing your website?
 
 
 --
 
 [.list]
 --
-* [*] A. Add more EC2 Instances to support the load.
-* [ ] B. Change the Instance type to a higher instance type.
-* [*] C. Add Route 53 health checks to improve the performance.
-* [*] D. Place the EC2 Instance behind CloudFront.
+* [ ] A. Upgrade from T2 to a T3 EC2 instance.
+* [ ] B. Re-architect you web application to use AWS Lambda.
+* [ ] C. Incorporate AWS CloudFront into your architecutre.
+* [ ] D. Use health checks and autoscale when response times are low
 
 --
 ****
 
 [.answer]
-Correct Answer  D
+Correct Answer C
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - D.
-AWS Documentation mentions the following:
-Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files to your users.
-CloudFront delivers your content through a worldwide network of data centers called edge locations.
-When a user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency (time delay) so that content is delivered with the best possible performance.
-For more information on Amazon CloudFront, please refer to the below URL:
-https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
-Option A is incorrect.
-The latency issue is experienced by people from certain parts of the world only.
-So, increasing the number of EC2 Instances or increasing the instance size will not make much difference.
-Option B is incorrect.The latency issue is experienced by people from certain parts of the world only.
-So, changing the Instance type to a higher instance type will not make much difference.
-Option C is incorrect.
-Route 53 health checks are meant to see whether the instance status is healthy or not.
-Since this case deals with responding to users' requests, we do not have to worry about this.
-However, for improving latency issues, CloudFront is a good solution.
-The best answer to improve response time for users across the globe would be to place the EC2 instance behind CloudFront, which is option D.
-CloudFront is a content delivery network (CDN) service provided by AWS. It caches and delivers content from various AWS services, including EC2 instances, to users from a network of global edge locations. When a user requests content, CloudFront delivers the cached content from the edge location closest to the user, reducing the latency and improving the response time.
-Adding more EC2 instances, as suggested in option A, may help to support the load, but it will not necessarily improve the response time for users in different regions. Additionally, it may add unnecessary cost to the architecture.
-Changing the instance type to a higher instance type, as suggested in option B, may help to improve the performance of the EC2 instance, but it will not necessarily address the issue of extreme slowness reported by users in different regions.
-Option C suggests adding Route 53 health checks to improve performance, but Route 53 health checks are used to monitor the health of resources and redirect traffic in case of a failure. They do not necessarily improve the response time for users in different regions.
-In summary, placing the EC2 instance behind CloudFront is the best option to improve the response time for users across the globe. CloudFront will deliver cached content from the edge location closest to the user, reducing latency and improving the response time.
+The simplest way to improve global response times, especially for web applications hostes on a single EC2 instance that is not in close proximity to all your clients, is to use CloudFront.
+
+AWS CloudFront is a content delivery network (CDN) service provided by Amazon Web Services. It helps web applications improve response times and enhance the user experience for users accessing the application from various locations around the globe by doing the following things:
+
+Content Caching: CloudFront caches static and dynamic content at edge locations worldwide. When a user requests content from your web application, CloudFront delivers the content from the nearest edge location instead of retrieving it from the origin server. This reduces latency and improves response times since the content is delivered from a location closer to the user.
+
+Global Edge Network: CloudFront has a vast network of edge locations spread across different geographical regions. These edge locations are strategically placed to bring the content closer to end-users, reducing the distance the data needs to travel. By leveraging the global edge network, CloudFront can serve content with lower latency, resulting in faster response times.
+
+Reduced Network Congestion: CloudFront helps alleviate network congestion by offloading traffic from the origin server to the edge locations. When a user requests content, CloudFront caches and serves it from the edge location closest to the user. This reduces the load on the origin server and improves overall performance, especially during high-traffic periods.
+
+Intelligent Content Delivery: CloudFront uses various techniques to optimize content delivery. It automatically determines the most efficient route to deliver content based on network conditions, taking into account factors like network latency, packet loss, and congestion. This intelligent routing ensures that users receive content through the fastest and most reliable path, further improving response times.
+
+Dynamic Content Acceleration: CloudFront supports dynamic content acceleration by caching and delivering dynamic content more efficiently. It can cache dynamic content at the edge locations for a specified period, reducing the need to fetch the content from the origin server for every user request. This significantly improves response times for dynamic web applications.
+
+Customization and Integration: CloudFront integrates seamlessly with other AWS services, allowing you to customize and enhance its functionality. You can use features like Lambda@Edge to run serverless code at the edge locations, enabling you to further optimize content delivery and tailor the user experience based on specific requirements.
+
+By leveraging these capabilities, AWS CloudFront helps web applications accessed throughout the globe improve response times, reduce latency, and deliver content more efficiently. It brings the content closer to users, offloads traffic from the origin server, and utilizes a global network of edge locations to ensure fast and reliable content delivery, resulting in an improved user experience.
+
+
+
 --
 
 [.ka]
