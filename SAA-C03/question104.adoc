@@ -25,54 +25,40 @@ How can you achieve this easily?
 
 [.list]
 --
-* [*] A. Using bucket policies.
+* [ ] A. Using bucket policies.
 * [ ] B. Requiring HTTPS for communication between users and CloudFront.
-* [*] C. Using CloudFront origin with signed URLs.
+* [ ] C. Using CloudFront origin with signed URLs.
 * [*] D. Using CloudFront origin with signed cookies.
 
 --
 ****
 
 [.answer]
-Correct Answer D
+D
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer: D.
-Option A is incorrect.
-Bucket policies are mainly used with resources in AWS.
-They are not intended to restrict content to application users.
-More details:
-https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html
-Option B is incorrect.
-This option only encrypts the communication between users and CloudFront.
-It does not restrict access to files.
-More details:
-https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html
-Option C is incorrect.
-With a signed URL, you only restrict access to one file.
-If you implement this, the application would have to generate a new pre-signed URL for every file in the premium section and give this new link to the user.
-More details:
-https://docs.amazonaws.cn/en_us/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html
-Option D is CORRECT.
-Once your application allows your user to see this section, it will give a cookie to the user.
-Then CloudFront will use this cookie to access S3 restricted content.
-More details:
-https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-cookies.html
-The correct answer is C. Using CloudFront origin with signed URLs.
-Explanation:
-When designing a website that offers premium content, it is important to ensure that only users who have paid for access to that content can view it. One way to achieve this is by using CloudFront origin with signed URLs.
-Signed URLs are URLs that have an expiration time and an encrypted signature attached to them. The signature is created using a secret key that is only known to the website's servers. When a user clicks on a signed URL, CloudFront checks the signature to ensure that the URL is valid and has not expired. If the signature is valid and the URL has not expired, CloudFront will grant access to the requested content.
-By using CloudFront origin with signed URLs, the website can provide access to premium content only to users who have paid for it. When a user pays for access to the premium section, the website's servers generate a signed URL that grants access to that user for a specified period of time. This signed URL is then sent to the user, who can use it to access the premium content.
-Bucket policies (option A) are used to define access controls for Amazon S3 buckets. While they can be used to restrict access to content, they are not as flexible as CloudFront signed URLs and are not designed to handle time-limited access.
-Requiring HTTPS for communication between users and CloudFront (option B) is a good security practice, but it does not provide a way to restrict access to premium content.
-Using CloudFront origin with signed cookies (option D) is another way to restrict access to content, but it requires more configuration than using signed URLs. Signed cookies are more useful for scenarios where access controls need to be applied to specific parts of a website rather than specific content.
-Therefore, the best option for achieving the desired outcome is option C: Using CloudFront origin with signed URLs.
+Signed cookies are perfect for scenarios where access controls need to be applied to specific parts of a website rather than specific content.
+
+Using CloudFront origin with signed cookies is a method of controlling access to content served through Amazon CloudFront by using signed cookies. It allows you to grant or deny access to specific content based on the presence and validity of cookies.
+
+When you configure CloudFront to use signed cookies, you generate a set of cookies with specific attributes, such as an expiration time, path, and domain. These cookies are then used to authenticate and authorize access to your content.
+
+Here's how the process works:
+
+Configuration: You configure your CloudFront distribution to use signed cookies as the method of access control. This involves specifying the trusted key pair, which consists of a private key used to sign the cookies and a corresponding public key that is stored with CloudFront.
+
+Generating Signed Cookies: Using the private key, you generate a set of signed cookies with the desired attributes. These cookies can contain information such as the expiration time, path, and domain restrictions.
+
+Distribution Behavior: In your CloudFront distribution behavior settings, you specify that the distribution requires the presence of the signed cookies for access. You can define rules based on the specific cookie attributes, such as allowing access only to certain paths or domains.
+
+Cookie Inclusion: When users access your content through CloudFront, they need to include the signed cookies in their requests. This can be done by setting the cookies in the request headers.
+
+Authentication and Authorization: CloudFront validates the signed cookies included in the request against the corresponding public key stored with the distribution. It verifies the signature and checks the attributes to determine if the request meets the specified access rules.
+
+Access Control: Based on the authentication and authorization checks, CloudFront either grants or denies access to the requested content. Users without valid or matching cookies will receive an access denied response.
+
+Using CloudFront origin with signed cookies provides a flexible and secure method to control access to your content. It allows you to implement fine-grained access rules and restrict content based on specific attributes defined in the signed cookies. This approach is particularly useful when you need to provide access to specific users or groups for limited periods or under certain conditions.
 --
 
 [.ka]
