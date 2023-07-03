@@ -13,50 +13,46 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question125"
 
 [.query]
 --
-You have a local data center on-premise that stores archived files.
-The total amount of the files is about 70TB.
-The data needs to be transferred to Amazon Simple Storage Service (S3)
-After the data transfer is finished, the local data center will not be used.
-Which solution is the most appropriate?
+An on-prem video storage warehouse needs to transfer their catalog of audio and video files to AWS S3.
+The total amount of the files is about 42TB but definitely not more than 48TB.
+This is a one-time deal. The client will sell all their on-prem hardware when the move is complete.
+The client does not want to transfer the data across their very slow and unreliable network.
+As an AWS certified solution architect, which solution would you recommend?
 
 
 --
 
 [.list]
 --
-* [*] A. AWS Direct Connect.
-* [*] B. AWS Snowball.
-* [*] C. Amazon S3 Transfer Acceleration.
-* [ ] D. AWS Global Accelerator.
+* [ ] A. Use AWS peer connections to connect on-prem to the cloud
+* [ ] B. Use a 50TB AWS Snowball device.
+* [ ] C. Use an 80 TB Snowball Edge Storage Optimized device.
+* [ ] D. Transfer the data to the cloud using AWS Direct Connect.
+* [ ] E. Transfer the on-prem data to the cloud using a VPC
 
 --
 ****
 
 [.answer]
-Correct Answer  B
+Correct Answer  C
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - B.
-AWS Snowball has 80TB and 50TB models.
-The 80TB model is suitable to transfer 70TB of data to AWS.
-Please refer to https://docs.aws.amazon.com/snowball/latest/ug/whatissnowball.html.
-Option A is incorrect: Because Direct Connect establishes a network connection from on-premises to an AWS Region.
-It is not suitable to move 70TB of data.
-Option B is CORRECT: Because AWS Snowball is a data transport solution that accelerates moving terabytes to petabytes of data to AWS.
-Option C is incorrect: S3 Transfer Acceleration uses Amazon CloudFront's globally distributed edge locations.
-It does not help in this scenario.
-Option D is incorrect: Because AWS Global Accelerator improves availability and performance for applications, which does not help on the data transfer.
-Option B, AWS Snowball, is the most appropriate solution for transferring 70TB of archived files from a local data center to Amazon S3.
-AWS Direct Connect (option A) is a service that provides dedicated network connections between an on-premises data center and AWS. It is useful for situations where high-bandwidth connectivity is required for frequently accessing data between the on-premises data center and AWS. However, it is not designed for transferring large amounts of data.
-Amazon S3 Transfer Acceleration (option C) is a service that uses Amazon CloudFront's globally distributed edge locations to accelerate transfers over the public internet to Amazon S3. It can speed up transfers for small to medium-sized files, but it is not designed for transferring large amounts of data, especially in cases where the source location is on-premises.
-AWS Global Accelerator (option D) is a service that improves the availability and performance of applications by providing static IP addresses and routing traffic over the AWS global network. It is useful for situations where users access applications from different regions of the world and need low-latency access to these applications. However, it is not designed for transferring large amounts of data.
-AWS Snowball (option B) is a petabyte-scale data transport solution that uses a physical device to transfer large amounts of data into and out of AWS. It is designed to handle large-scale data transfers quickly and securely, with a data transfer rate of up to 100TB per appliance. In this scenario, the 70TB of archived files can be transferred onto a Snowball appliance, which can then be shipped to AWS for data transfer to S3. Once the data transfer is complete, the local data center can be decommissioned.
+The correct answer is to use an 80 TB Snowball Edge Storage Optimized device. Note that the traditional, smaller Snowball devices are no longer available. Snowball Edge devices, with new 80TB or 210TB, have replaced them.
+
+AWS Snowball Edge is an enhanced version of the original AWS Snowball device and it's perfect for a one-time movement of 70 TB of on-premise data into AWS S3. Here's why Snowball Edge is considered the best solution in this scenario and how it differs from the original Snowball devices:
+
+Enhanced Functionality: Snowball Edge offers additional functionality compared to the original Snowball devices. In addition to data transfer capabilities, Snowball Edge devices also provide local compute and storage capabilities. This enables you to perform edge computing tasks and run AWS Lambda functions on the device itself, reducing the need for separate hardware in certain use cases.
+
+Local Data Processing: Snowball Edge allows you to process data locally on the device before transferring it to AWS. This can be beneficial when you have specific data processing requirements or when you want to preprocess the data before storing it in S3. By leveraging Snowball Edge's compute capabilities, you can perform data transformation, data filtering, or any other data processing tasks directly on the device.
+
+Edge Computing Use Cases: Snowball Edge's local compute capabilities make it well-suited for edge computing use cases where low-latency data processing is required at the edge of the network. It enables running applications, performing analytics, or running custom code on the device itself, which is particularly useful in scenarios with limited or intermittent connectivity.
+
+Increased Storage Capacity: Snowball Edge devices have higher storage capacity compared to the original Snowball devices. While the original Snowball devices offer up to 80 TB of storage, Snowball Edge devices provide storage options of up to 80 TB or 100 TB, depending on the device model. This increased storage capacity allows you to accommodate larger data sets within a single device.
+
+Data Transfer Speed and Security: Similar to the original Snowball devices, Snowball Edge offers fast data transfer rates to expedite the movement of large amounts of data. It also ensures data security with built-in encryption capabilities, tamper-evident enclosures, and secure shipping to AWS data centers.
+
+In summary, AWS Snowball Edge is the best solution for a one-time movement of 70 TB of on-premise data into AWS S3 due to its enhanced functionality, local data processing capabilities, and increased storage capacity. It is particularly valuable for edge computing use cases and scenarios where data processing is required before uploading to AWS. The additional capabilities of Snowball Edge differentiate it from the original Snowball devices, offering a more versatile and powerful solution for certain data transfer and edge computing requirements.
 --
 
 [.ka]
