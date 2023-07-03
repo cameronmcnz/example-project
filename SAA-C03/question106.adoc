@@ -2,133 +2,63 @@
 layout: default 
 title: "906 - You configure an Amazon S3 bucket as the"
 link: "https://www.exam-answer.com/amazon/SAA-C03/question123"
+keywords: S3 CloudFront OAI
 ---
 
 
 [.question]
 == 906-64a1fa61f053625db51dde6c.
 
-
-
-[.image]
---
-
-image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Associate/answer/imgckeditor_17.png[]
-
---
-
-
 ****
 
 [.query]
 --
-You configure an Amazon S3 bucket as the origin for a new CloudFront distribution.
-The traffic should not hit the S3 URLs directly instead, they should be directed to the CloudFront distribution and the files should be fetched through the CloudFront URL.
-Which method is the most appropriate?
 
+You have images and static web content hosted in Amazon S3 buckets. However, your clients are distributed around the globe so you will use CloudFront to handle distribution at scale.
 
-[source,java]
-----
-Edit Origin
-Origin Settings
-Origin Domain Name
-Origin Path
-Origin ID
-Restrict Bucket Access
-
-Origin Access Identity
-
-Comment
-
-Grant Read Permissions on
-Bucket
-
-Origin Custom Headers
-
-testwebsite.s3.amazonaws.com
-
-© Yes
-No
-
-® Create a New Identity
-Use an Existing Identity
-
-access-identity-testwebsite.s3.amazona
-
-Yes, Update Bucket Policy
-® No, | Will Update Permissions
-
-Header Name
-----
+All your resources have S3 URLs, but CloudFront won't work if the S3 URLs are accessed directly. How do you ensure clients go through CloudFront first to access your S3 content?
 
 
 --
 
 [.list]
 --
-* [*] A. Configure Signed URLs to serve private content by using CloudFront.
-* [ ] B. Configure Signed Cookies to restrict access to S3 files.
-* [*] C. Create the origin access identity (OAI) and associate it with the distribution.
-* [ ] D. Configure the CloudFront web distribution to ask viewers to use HTTPS to request S3 objects.
+* [ ] A. Use signed URLs for all content accessed through CloudFront.
+* [ ] B. Engle Signed Cookies in CloudFront while also disabling direct S3 access
+* [ ] C. Use a origin access identity (OAI) with the CloudFront distribution.
+* [ ] D. Use HTTPS for S3 access. All secure requests will automatically go through Cloud Front
 
 --
 ****
 
 [.answer]
-Correct Answer  C
+C
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - C.
-To restrict access to content that you serve from Amazon S3 buckets, follow the below steps:
-Create a special CloudFront user called an origin access identity (OAI) and associate it with your distribution.
-Configure your S3 bucket permissions so that CloudFront can use the OAI to access the files in your bucket and serve them to your users.
-Make sure that users can't use a direct URL to the S3 bucket to access a file there.
-If you want to serve private content through CloudFront and you're trying to decide whether to use signed URLs or signed cookies, consider the following.
-Use signed URLs in the following cases:
-You want to restrict access to individual files, for example, an installation download for your application.
-Your users are using a client (for example, a custom HTTP client) that doesn't support cookies.
-Use signed cookies in the following cases:
-You want to provide access to multiple restricted files, for example, all of the files for a video in HLS format or all of the files in the subscribers' area of the website.
-You don't want to change your current URLs.
-Option A is incorrect because Signed URLs are used to restrict access to files in CloudFront edge caches.
-It cannot prevent users from fetching files directly through S3 URLs.
-Option B is incorrect because Signed cookies are also not suited for the above requirements.
-Option C is CORRECT because you can configure the CloudFront origin to restrict bucket access through OAI.
-Option D is incorrect With HTTPS, connections are encrypted between CloudFront and viewers.
-However, it does not restrict access to the S3 content.
-Reference:
-https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html
-When you use an S3 bucket as the origin for a CloudFront distribution, it is recommended to prevent users from directly accessing the S3 bucket URL, and instead, all requests should be routed through the CloudFront URL. This can be achieved by using the following method:
-C. Create the origin access identity (OAI) and associate it with the distribution.
-Explanation:
-When you create an Amazon CloudFront distribution, it uses an Amazon S3 bucket or an HTTP server as the origin. However, if you use an S3 bucket as an origin, you must specify an origin access identity (OAI) to grant CloudFront permission to access the objects in your bucket. This helps to restrict access to your Amazon S3 content and ensures that your users can only access your content through your CloudFront distribution.
-An origin access identity (OAI) is a special CloudFront user identity that you can associate with your Amazon S3 bucket to restrict access to objects in the bucket. When you create a CloudFront distribution, you can configure it to use an OAI to access the objects in your S3 bucket.
-When you associate an OAI with a CloudFront distribution, CloudFront uses the OAI's credentials to access your S3 bucket. Therefore, the users of your application do not need to have permissions to access your S3 bucket, which helps to improve the security of your application.
-To create an OAI and associate it with a CloudFront distribution:
-1. Open the CloudFront console at https://console.aws.amazon.com/cloudfront/.
-2. Create a new CloudFront distribution or select an existing one.
-3. In the distribution settings, go to the "Origins and Origin Groups" section and select the S3 bucket you want to use as the origin.
-4. Click on "Edit" to edit the origin.
-5. In the "Origin Access Identity" section, select "Create a New Identity" to create a new OAI.
-6. Click on "Yes, Update" to update the distribution settings with the new OAI.
-7. Update your S3 bucket policy to allow the OAI to access the objects in your bucket.
-8. Test your CloudFront distribution to ensure that it is working as expected.
-Therefore, option C is the most appropriate method to prevent users from directly accessing the S3 URLs and ensure that the files are fetched through the CloudFront URL. Options A, B, and D are also valid methods for securing your CloudFront distribution, but they do not directly address the issue of preventing direct access to your S3 bucket.
+
+If you want to make sure S3 URLs are not accessed directly, set up Origin Access Identiy (OAI) in your configuration.
+
+The Origin Access Identity (OAI) is a feature provided by Amazon CloudFront to enhance security and control access to the content stored in an Amazon S3 bucket. The purpose of using an OAI is to ensure that S3 URLs are not hit directly and are instead handled by CloudFront.
+
+When CloudFront is configured with an S3 bucket as the origin, the default behavior allows direct access to the S3 URLs, bypassing the CloudFront distribution. This means that users can potentially access the content directly from the S3 bucket, bypassing any security or caching features provided by CloudFront.
+
+By using an OAI, you can restrict access to the S3 bucket only through CloudFront. Here's how it works:
+
+Create an Origin Access Identity: In the CloudFront console, you create an Origin Access Identity, which is a special CloudFront user associated with your distribution.
+
+Grant Permissions to the OAI: Next, you modify the permissions of your S3 bucket to grant read access to the Origin Access Identity. This step ensures that only CloudFront, acting on behalf of the OAI, can access the objects in the bucket.
+
+Update CloudFront Distribution Settings: In the CloudFront distribution settings, you associate the OAI with the S3 origin. This step tells CloudFront to use the OAI when fetching content from the S3 bucket.
+
+CloudFront URL for Accessing Content: Once the OAI is configured, you access the content through the CloudFront URL (e.g., d12345.cloudfront.net). This ensures that all requests for the content are routed through CloudFront, which then retrieves the content from the S3 bucket using the associated OAI.
+
+Using an Origin Access Identity prevents direct access to S3 URLs and enforces that all requests are made through CloudFront. This provides several benefits, such as enhanced security, centralized control, the ability to apply caching and distribution settings, and improved performance through CloudFront's global edge network.
 --
 
 [.ka]
-null
+DSA
 
 '''
-
-
-
-https://www.exam-answer.com/amazon/SAA-C03/question123:"link"
 
 
