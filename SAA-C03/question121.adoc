@@ -2,6 +2,7 @@
 layout: default 
 title: "921 - Thirdparty signin Federation has been im"
 link: "https://www.exam-answer.com/amazon/SAA-C03/question138"
+keywords: S3, federated, login, authorization, authentication
 ---
 
 
@@ -13,55 +14,44 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question138"
 
 [.query]
 --
-Third-party sign-in (Federation) has been implemented in your web application to allow users who need access to AWS resources.
-Users have been successfully logging in using Google, Facebook, and other third-party credentials.
-Suddenly, their access to some AWS resources has been restricted.
-What is the most likely cause of the restricted use of AWS resources?
 
+To simplify access to your website, you use Facebook and Twitter for federated login and authentication.
+
+However, since Sunday users have reported an inability to access images that are pulled from S3 buckets.
+
+What is the most likely cause of this unforseen disruption in service?
 
 --
 
 [.list]
 --
-* [*] A. IAM policies for resources were changed, thereby restricting access to AWS resources.
-* [ ] B. Federation protocols are used to authorize services and need to be updated.
-* [*] C. IAM groups for accessing the AWS resources were changed, thereby restricting their access via federated login.
-* [ ] D. The identity providers no longer allow access to AWS services.
+* [ ] A. IAM group policies were updated making S3 bucket access more restricted
+* [ ] B. IAM resource policies for the S3 bucket were changed to something more restrictive
+* [ ] C. The federated login authorization protocols are being blocked by a firewall.
+* [ ] D. The federated login providers have moved to a newer version of OAUTH
 
 --
 ****
 
 [.answer]
-Correct Answer A
+B
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer: A.
-Users of your app can sign in using a well-known external identity provider (IdP), such as Login with Amazon, Facebook, Google, or any other OpenID Connect (OIDC)-compatible IdP.
-They can receive an authentication token, and then exchange that token for temporary security credentials in AWS that map to an IAM role with permissions to use the resources in your AWS account.
-Option A is correct.
-When IAM policies are changed, they can impact the user experience and services they can connect to.
-Option B is incorrect.
-Federation is used to authenticate users, not to authorize services.
-Option C is incorrect.
-"IAM groups for accessing the AWS resources" is NOT the correct usage, as IAM role(s) must be attached.
-Option D is incorrect.
-The identity providers don't have the capability to authorize services; they authenticate users.
-References:
-https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html
-The most likely cause of the restricted use of AWS resources in this scenario is A. IAM policies for resources were changed, thereby restricting access to AWS resources.
-Federation allows users to access AWS resources using their existing credentials from third-party identity providers such as Google and Facebook. However, once a user has been authenticated, their access to AWS resources is controlled by IAM policies. IAM policies specify which AWS resources a user can access and what actions they can perform on those resources.
-If the IAM policies for resources have been changed, access to AWS resources could be restricted for the federated users. For example, if the IAM policy for an S3 bucket is updated to deny access to a specific group or user, then that group or user, even if authenticated via federation, will no longer be able to access the S3 bucket.
-Option B is not correct as the federation protocols themselves are not used to authorize services, they are used to authenticate users. Option C is also not the most likely cause of the issue since IAM groups are not directly tied to federated logins. IAM groups are used to manage permissions and access to AWS resources for IAM users. Option D is not correct as it assumes that the identity providers are blocking access to AWS services, which is not likely unless there is an issue with the specific identity provider configuration.
+
+This wouldn't be caused by IAM group policies. Group policies deal with authorization for IAM users  in AWS to AWS resources. IAM groups are not directly tied to federated logins.
+
+The federated login deals with authorization, that is proving who you are, not authorization, so the idea of authorization protocols being blocked makes no sense.
+
+Similarly, OUATH has nothing to do with accessing AWS resources after authentication has occurred, so this is incorrect.
+
+The best option here is that someone changed the S3 bucket policy to something more restrictive. If you all of a sudden set a deny-all policy on an S3 bucket, nobody is going to be able to access it, regardless of how they authenticated into AWS.
+
+
 --
 
 [.ka]
-null
+DSA
 
 '''
 
