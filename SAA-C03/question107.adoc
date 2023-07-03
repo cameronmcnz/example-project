@@ -107,7 +107,3 @@ null
 '''
 
 
-
-https://www.exam-answer.com/amazon/SAA-C03/question124:"link"
-
-
