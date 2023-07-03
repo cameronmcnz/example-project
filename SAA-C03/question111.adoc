@@ -2,6 +2,7 @@
 layout: default 
 title: "911 - You currently have your EC2 instances ru"
 link: "https://www.exam-answer.com/amazon/SAA-C03/question128"
+keywords: NAT, EC2, AZ, EC2
 ---
 
 
@@ -13,55 +14,45 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question128"
 
 [.query]
 --
-You currently have your EC2 instances running in multiple availability zones in an AWS region.
-You need to create NAT gateways for your private instances to access internet.
-How would you set up the NAT gateways so that they are highly available?
+
+You have multiple EC2 instances in multiple availability zones within a single region.
+
+How would you set up NAT gateways to allow the EC2 instances access to the Internet.
 
 
 --
 
 [.list]
 --
-* [*] A. Create two NAT Gateways and place them behind an EL.
-* [*] B. Create a NAT Gateway in each Availability Zone.
-* [*] C. Create a NAT Gateway in another region.
-* [ ] D. Use Auto Scaling groups to scale the NAT Gateways.
+* [ ] A. Configure a single NAT gateway at the regional level.
+* [ ] B. Configure a single NAT gateway in front of an elastic load balancer at the region level.
+* [*] C. Create a NAT gateway in each AZ that hosts the EC2 instances.
+* [ ] D. A NAT gateway is not required in this scenario.
 
 --
 ****
 
 [.answer]
-Correct Answer  B
+Correct Answer  C
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - B.
-Option A is incorrect because you cannot create such configurations.
-Option B is CORRECT because this is recommended by AWS.
-With this option, if a NAT gateway's Availability Zone is down, resources in other Availability Zones can still access internet.
-Option C is incorrect because the EC2 instances are in one AWS region so there is no need to create a NAT Gateway in another region.
-Option D is incorrect because you cannot create an Auto Scaling group for NAT Gateways.
-For more information on the NAT Gateway, please refer to the below URL:
-https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
-To ensure high availability for NAT gateways, you can create NAT gateways in each availability zone where your private instances reside. This is because NAT gateways are region-specific resources and do not span multiple regions.
-Therefore, option B - "Create a NAT Gateway in each Availability Zone" - is the correct answer. This approach ensures that if one NAT gateway or an entire availability zone fails, traffic can automatically failover to another NAT gateway in another availability zone.
-Option A, which suggests placing two NAT gateways behind an Elastic Load Balancer (ELB), is not recommended because NAT gateways do not support load balancing. They are not designed to work behind an ELB.
-Option C - "Create a NAT Gateway in another region" - is not ideal because it introduces additional latency and potential network issues, and increases data transfer costs since traffic would have to traverse the public internet between regions.
-Option D - "Use Auto Scaling groups to scale the NAT Gateways" - is also not recommended as NAT gateways do not support auto-scaling, and it is not necessary to use auto-scaling for high availability since creating NAT gateways in each availability zone provides sufficient redundancy.
+When you have EC2 instances running in multiple Availability Zones (AZs) within a Virtual Private Cloud (VPC) in AWS, you need to create a NAT (Network Address Translation) gateway in each AZ to allow those EC2 instances to access the internet. Here's why:
+
+Outbound Internet Access: By default, instances in a private subnet within a VPC cannot communicate directly with the internet. They require a NAT gateway to enable outbound internet access. A NAT gateway acts as a bridge between the private subnet and the internet, allowing instances to send requests to the internet and receive responses.
+
+AZ-specific Routing: Each NAT gateway is associated with a specific AZ. It resides in a specific subnet within the AZ and has an Elastic IP address assigned to it. The NAT gateway acts as the internet gateway for instances in that specific AZ. By creating a NAT gateway in each AZ, you ensure that instances in each AZ have their own dedicated gateway for outbound internet access.
+
+Separate Elastic IP per NAT Gateway: Each NAT gateway requires an Elastic IP address, which serves as a public IP for outbound internet communication. By having a NAT gateway in each AZ, you can assign separate Elastic IP addresses to each gateway. This allows instances in different AZs to have distinct public IP addresses when accessing the internet, enabling proper routing and identification.
+
+
+When you have EC2 instances running in multiple AZs within a VPC, creating a NAT gateway in each AZ is necessary to provide outbound internet access for instances in each AZ.
 --
 
 [.ka]
-null
+DRA
 
 '''
 
-
-
-https://www.exam-answer.com/amazon/SAA-C03/question128:"link"
 
 
