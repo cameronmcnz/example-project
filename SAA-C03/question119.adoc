@@ -13,48 +13,56 @@ link: "https://www.exam-answer.com/amazon/SAA-C03/question136"
 
 [.query]
 --
-Your company manages an application that currently allows users to upload images to an S3 bucket.
-These images are picked up by EC2 Instances for processing and then placed in another S3 bucket.
-You need an area where the metadata for these images can be stored.
-What would be an ideal data store for this?
 
+You need to architect a data persistence system that will save metadata about the upscaling process as low resolution films are pulled from one S3 bucket, processed in increments, and then uploaded to a second S3 bucket after processing.
+
+Which system would be best to use to handle the metadata generated from this process, especially given the fact that the metadata may not always follow the same data structure.
 
 --
 
 [.list]
 --
-* [*] A. AWS Redshift
-* [ ] B. AWS Glacier
-* [*] C. AWS DynamoDB
-* [ ] D. AWS SQS.
+* [ ] A. AWS Snowball
+* [ ] B. AWS Aurora
+* [ ] C. AWS Redshift
+* [*] D. AWS DynamoDB
 
 --
 ****
 
 [.answer]
-Correct Answer  C
+D
 
 [.explanation]
 --
-Click on the arrows to vote for the correct answer
-A.
-B.
-C.
-D.
-Correct Answer - C.
-Option A is incorrect because this is normally used for petabyte based storage.
-Option B is incorrect because this is used for archive storage.
-Option C is correct.
-AWS DynamoDB is the best, light-weight and durable storage option for metadata.
-Option D is incorrect because this is used for messaging purposes.
-For more information on DynamoDB, please refer to the URL below.
-https://aws.amazon.com/dynamodb/
-The ideal data store for storing metadata about images in this scenario would be AWS DynamoDB, option C.
-DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. It is designed to handle large volumes of data and can easily accommodate the metadata for the uploaded images.
-In this scenario, DynamoDB could be used to store metadata such as image names, upload times, file sizes, and any other relevant information about the images. The EC2 instances could then access this metadata from DynamoDB during image processing.
-Option A, AWS Redshift, is a data warehouse that is optimized for analyzing large datasets. While Redshift could technically store the metadata, it is overkill for this scenario and would be unnecessarily complex and expensive.
-Option B, AWS Glacier, is an archival storage service that is optimized for data that is rarely accessed. It is not designed to handle frequent read and write operations, making it a poor choice for storing metadata that will be accessed frequently.
-Option D, AWS SQS, is a message queue service that allows decoupling and asynchronous processing between different components of an application. While it could potentially be used to store metadata as messages, it is not an ideal data store for this scenario, as it is primarily designed for messaging and not data storage.
+Snowball is a device used for moving on-prem data to an AWS storage, so that's incorrect.
+
+AWS Aurora is never a bad choice for persistence, but it is best for structured data.
+
+AWS RedShift is a data warehousing solution that likes structured data and is often used for massive, peta-byte data systems. It's not a good fit here.
+
+AWS DyanmoDB is a simple, cheap, nosql database that is great at handling unstrucutred data. It's a great fit here.
+
+
+Many test takers get tripped up on the difference between DynamoDB and Redshift, but they are very different. DynamoDB and Redshift are indeed database services, but they are designed for very different use cases:
+
+Amazon DynamoDB: DynamoDB is a fully managed NoSQL database service provided by AWS. It is designed for fast and predictable performance at any scale. DynamoDB offers seamless scalability, automatic data replication across multiple availability zones, and built-in security features. It is a suitable choice for applications that require low-latency access to data and have unpredictable or rapidly changing workloads. DynamoDB is often used for use cases such as real-time applications, gaming, mobile, and ad tech, where fast read and write performance with high scalability is crucial. It provides flexible data models and automatic indexing to handle a wide variety of data types.
+
+Amazon Redshift: Redshift is a fully managed data warehousing solution provided by AWS. It is designed for analyzing large datasets and running complex queries across them. Redshift uses columnar storage and parallel query execution to deliver high-performance analytics with low latency. It provides scalability for data storage and processing, enabling you to scale your data warehouse based on your needs. Redshift is optimized for online analytical processing (OLAP) workloads and is commonly used for business intelligence, reporting, and data analysis. It supports SQL queries and integrates with various business intelligence tools and data visualization platforms.
+
+These are the key differences between DynamoDB and Redshift:
+
+Data Model: DynamoDB is a NoSQL database with a flexible schema, suitable for unstructured and semi-structured data. Redshift, on the other hand, is a columnar data warehouse built for structured data and optimized for OLAP queries.
+
+Workload: DynamoDB is well-suited for transactional and real-time workloads that require fast, low-latency access to data. Redshift is designed for analytics workloads, where complex queries and aggregations are performed on large datasets.
+
+Scalability: Both DynamoDB and Redshift offer scalability, but DynamoDB excels in horizontal scalability and can handle millions of requests per second. Redshift provides vertical scalability by scaling compute and storage independently to handle large volumes of data.
+
+Pricing: DynamoDB pricing is based on provisioned throughput capacity and storage, while Redshift pricing is based on the amount of storage and the compute resources utilized.
+
+Ultimately, the choice between DynamoDB and Redshift depends on your specific requirements and the nature of your workload. If you need a highly scalable, low-latency database for transactional or real-time applications, DynamoDB is a good fit. If you have large datasets and require powerful analytics capabilities with complex querying, Redshift is the preferred choice.
+
+
 --
 
 [.ka]
