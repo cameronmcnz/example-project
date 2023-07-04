@@ -29,24 +29,24 @@ What is the result?
 [source,java]
 ----
 class Product {
-double price;
+  double price;
 )
 
 public class Test {
-public void updatePrice (product product, double price) {
-price = price * 2;
-product.price = product.price + price;
+  public void updatePrice (product product, double price) {
+    price = price * 2;
+    product.price = product.price + price;
+  }
+  public static void main(string[] args) {
+    Product prt = new Product ();
+    prt.price = 200;
+    double newPrice = 100;
+
+    Test t = new Test ();
+    t.updatePrice (prt, newPrice);
+    system.out.println(prt.price + " : "  + newPrice);
+  }
 }
-public static void main(string[] args) {
-Product prt = new Product ();
-prt.price = 200;
-double newPrice = 100;
-
-Test t = new Test ();
-t.updatePrice (prt, newPrice);
-system.out.println(prt.price +
-
-+ newPrice);
 ----
 
 
@@ -56,7 +56,7 @@ system.out.println(prt.price +
 --
 * [ ] A. 200.0 : 100.0
 * [ ] B. 400.0 : 200.0
-* [*] C. 400.0 : 100.0
+* [ ] C. 400.0 : 100.0
 * [ ] D. Compilation fails.
 
 --
@@ -71,7 +71,7 @@ null
 --
 
 [.ka]
-null
+OOA
 
 '''
 
