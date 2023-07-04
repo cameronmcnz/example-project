@@ -1,7 +1,6 @@
 ---
 layout: default 
-title: "829 - Given the code fragment
-Which code fragm"
+title: "829 - Given the code fragment Which code fragm"
 ---
 
 
@@ -60,7 +59,7 @@ null
 --
 
 [.ka]
-null
+lists
 
 '''
 
