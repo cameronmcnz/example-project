@@ -1,7 +1,6 @@
 ---
 layout: default 
-title: "821 - Given the code fragment
-Which modificati"
+title: "821 - Given the code fragment Which modificati"
 ---
 
 
@@ -65,8 +64,7 @@ null
 --
 
 [.ka]
-null
-
+flow
 '''
 
 
