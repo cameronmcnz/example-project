@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "815 - Which statement best describes encapsula"
+keywords: encapsulation
 ---
 
 
@@ -36,7 +37,7 @@ null
 --
 
 [.ka]
-null
+ooa
 
 '''
 
