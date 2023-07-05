@@ -27,7 +27,7 @@ What is the result?
 [source,java]
 ----
 Locale |Currency Symbol |Currency Code
-us ง USD
+us ยง USD
 ----
 
 
@@ -52,7 +52,7 @@ null
 --
 
 [.ka]
-null
+data
 
 '''
 
