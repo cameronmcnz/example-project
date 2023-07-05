@@ -1,14 +1,13 @@
 ---
 layout: default 
-title: "804 - Given the code fragment
-What is the resu"
+title: "804 - Given the code fragment What is the result?"
+keywords: primitives, data, casting
+
 ---
 
 
 [.question]
 == 804-64a19fc9a486623d533448b1.
-
-
 
 [.image]
 --
@@ -22,18 +21,18 @@ image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Jav
 
 [.query]
 --
-Given the code fragment:
-What is the result?
+Given the code fragment, what is the result?
 
 
 [source,java]
 ----
 public static void main(string[] args) {
-Short sl = 200;
-Integer s2 = 400;
-Long $3 = (long) sl + 82; //line ni
-String #4 = (string) (83 * 82); //line n2
-System.out.println ("Sum is "+ $4);
+  Short sl = 200;
+  Integer s2 = 400;
+  Long $3 = (long) sl + 82; //line ni
+  String #4 = (string) (83 * 82); //line n2
+  System.out.println ("Sum is "+ $4);
+}
 ----
 
 
@@ -59,7 +58,7 @@ null
 --
 
 [.ka]
-null
+data
 
 '''
 
