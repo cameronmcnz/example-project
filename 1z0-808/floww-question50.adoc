@@ -1,7 +1,7 @@
 ---
 layout: default 
-title: "850 - Given the code fragment
-Which code fragm"
+title: "Fix the code."
+keywords: flow, if, else, String
 ---
 
 
@@ -29,16 +29,17 @@ Which code fragment, when inserted at line n1, enables the App class to print Eq
 [source,java]
 ----
 public class App {
-public static void main(string[] args) {
+  public static void main(string[] args) {
 
-String strl = "Java";
-String str2 = new string("java");
-ffline nl
-
-{
-System. out. println ("Equal");
-} else {
-System. out.println ("Not Equal");
+    String strl = "Java";
+    String str2 = new string("java");
+    //line nl
+    {
+      System. out. println ("Equal");
+    } else {
+      System. out.println ("Not Equal");
+    }
+}
 ----
 
 
@@ -46,10 +47,10 @@ System. out.println ("Not Equal");
 
 [.list]
 --
-* [ ] A. Option A
-* [*] B. Option B
-* [ ] C. Option C
-* [ ] D. Option D.
+* [ ] A. 
+* [ ] B. 
+* [ ] C. 
+* [ ] D. 
 
 --
 ****
