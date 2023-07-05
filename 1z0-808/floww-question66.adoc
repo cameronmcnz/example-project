@@ -1,7 +1,7 @@
 ---
 layout: default 
-title: "866 - Given the code fragment
-Which three code"
+title: "Tighten up the code."
+keywords: switch, flow
 ---
 
 
@@ -29,17 +29,19 @@ Which three code fragments can be independently inserted at line n1 to enable th
 [source,java]
 ----
 public class Test {
-public static void main(string[] args) {
-ffline nl
-switch (x) {
-case 1:
+  public static void main(string[] args) {
+    //line nl
+    switch (x) {
+      case 1:
+        System.out. println ("one");
+        break;
 
-system. out. println ("one");
-break;
-
-case 2:
-system. out. println ("two");
-break;
+      case 2:
+        System.out.println ("two");
+        break;
+    }
+  }
+]
 ----
 
 
@@ -47,12 +49,12 @@ break;
 
 [.list]
 --
-* [*] A. Byte x = 1;
-* [*] B. short x = 1;
+* [ ] A. Byte x = 1;
+* [ ] B. short x = 1;
 * [ ] C. String x = "1";
 * [ ] D. Long x = 1;
 * [ ] E. Double x = 1;
-* [*] F. Integer x = new Integer ("1");
+* [ ] F. Integer x = new Integer ("1");
 
 --
 ****
@@ -62,7 +64,7 @@ ABF
 
 [.explanation]
 --
-null
+
 --
 
 [.ka]
