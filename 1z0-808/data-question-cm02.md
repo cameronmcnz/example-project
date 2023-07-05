@@ -1,14 +1,12 @@
 ---
 layout: default 
-title: "846 - Given
-What is the result Java Certificat"
+title: "846 - Given the following code, what is the result?"
+keywords: data, operators
 ---
 
 
 [.question]
 == 846-64a19fd2a486623d533448db.
-
-
 
 [.image]
 --
@@ -28,11 +26,9 @@ What is the result?
 
 [source,java]
 ----
-system, out. println ("5
-System. out.printin("S
+System.out.println ("5 + 2 = " + 3 + 4);
+System.out.println ("5 + 2 = " + (3 + 4));
 
-"434 4);
-"+ (34 403
 ----
 
 
@@ -43,7 +39,7 @@ System. out.printin("S
 * [ ] A. Option A
 * [ ] B. Option B
 * [ ] C. Option C
-* [*] D. Option D.
+* [ ] D. Option D.
 
 --
 ****
@@ -53,7 +49,7 @@ D
 
 [.explanation]
 --
-null
+
 --
 
 [.ka]
