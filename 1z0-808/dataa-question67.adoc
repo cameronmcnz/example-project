@@ -1,7 +1,7 @@
 ---
 layout: default 
-title: "867 - Given
-What is the result Java Certificat"
+title: "867 - Given What is the result?"
+keywords: boolean, data, primitives
 ---
 
 
@@ -22,21 +22,17 @@ image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Jav
 
 [.query]
 --
-Given:
-What is the result?
+Given this code, what is the result?
 
 
 [source,java]
 ----
-public class App {
-
-public static void main(string[] args) {
 
 Boolean[] bool = new Boolean[2];
 bool[0] = new Boolean (Boolean. parseBoolean ("true") );
 bool[1] = new Boolean (null);
+System.out.print1n(bool[0] + " " + bool[1]);
 
-system. out.print1n(bool[0] + " " + bool[1])
 ----
 
 
@@ -44,7 +40,7 @@ system. out.print1n(bool[0] + " " + bool[1])
 
 [.list]
 --
-* [*] A. True false
+* [ ] A. True false
 * [ ] B. True null
 * [ ] C. Compilation fails
 * [ ] D. A NullPointerException is thrown at runtime.
